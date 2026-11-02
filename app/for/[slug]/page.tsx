@@ -45,12 +45,12 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
       {isKids ? <SampleBanner>Kid-friendly colors live only in this section</SampleBanner> : <SampleBanner />}
       {copy.map((block) => (
         <section key={block.title} className="mt-10">
-          <h2 className="font-serif text-3xl">{block.title}</h2>
+          <h2 className="font-semibold tracking-tight text-3xl">{block.title}</h2>
           <p className="mt-3 text-[var(--muted)]">{block.body}</p>
         </section>
       ))}
       <section className="mt-10">
-        <h2 className="font-serif text-2xl">Start here</h2>
+        <h2 className="font-semibold tracking-tight text-2xl">Start here</h2>
         <ul className="mt-3 grid gap-2">
           {relatedPosts.map((post) => (
             <li key={post.slug}>
@@ -68,7 +68,7 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
       </section>
       {relatedListings.length ? (
         <section className="mt-8">
-          <h2 className="font-serif text-2xl">Directory picks</h2>
+          <h2 className="font-semibold tracking-tight text-2xl">Directory picks</h2>
           <ul className="mt-3 grid gap-2">
             {relatedListings.slice(0, 6).map((listing) => (
               <li key={listing.slug}>

@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           {post.sources?.length ? (
             <section className="mt-12">
-              <h2 className="font-serif text-2xl">Sources</h2>
+              <h2 className="font-semibold tracking-tight text-2xl">Sources</h2>
               <ul className="mt-4 grid gap-2">
                 {post.sources.map((source) => (
                   <li key={source.url}>
@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           ) : null}
           {related.length ? (
             <section className="mt-12">
-              <h2 className="font-serif text-2xl">Related</h2>
+              <h2 className="font-semibold tracking-tight text-2xl">Related</h2>
               <ul className="mt-4 grid gap-3">
                 {related.map((item) => (
                   <li key={item.slug}>

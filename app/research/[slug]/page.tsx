@@ -92,11 +92,11 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           </div>
 
           <section className="mt-10">
-            <h2 className="font-serif text-2xl">Abstract / summary</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">Abstract / summary</h2>
             <p className="mt-3 text-[var(--muted)]">{doc.abstract}</p>
           </section>
           <section className="mt-8">
-            <h2 className="font-serif text-2xl">Key findings</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">Key findings</h2>
             <ul className="mt-3 list-disc pl-5">
               {doc.keyFindings.map((finding) => (
                 <li key={finding} className="mt-2">
@@ -106,11 +106,11 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
             </ul>
           </section>
           <section className="mt-8">
-            <h2 className="font-serif text-2xl">Methodology</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">Methodology</h2>
             <p className="mt-3 text-[var(--muted)]">{doc.methodology}</p>
           </section>
           <section className="mt-8">
-            <h2 className="font-serif text-2xl">Limitations</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">Limitations</h2>
             <ul className="mt-3 list-disc pl-5">
               {doc.limitations.map((item) => (
                 <li key={item} className="mt-2">
@@ -123,7 +123,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
             <MarkdownBody html={doc.html} />
           </div>
           <section className="mt-10">
-            <h2 className="font-serif text-2xl">References</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">References</h2>
             <ul className="mt-4 grid gap-2">
               {doc.references.map((ref) => (
                 <li key={ref.title}>

@@ -94,7 +94,7 @@ export default async function ResearchIndexPage({
                 <p className="kicker">
                   {researchTypeTitle(doc.type)} · {formatDate(doc.date)}
                 </p>
-                <h2 className="mt-3 font-serif text-3xl">
+                <h2 className="mt-3 font-semibold tracking-tight text-3xl">
                   <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
                 </h2>
                 <p className="mt-3 max-w-3xl text-[var(--muted)]">{doc.description}</p>

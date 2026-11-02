@@ -3,9 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: var(--font-sans), "Segoe UI", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif), Georgia, "Times New Roman", serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 
   --color-navy: #071421;
   --color-navy-2: #0b1e32;
@@ -55,10 +54,42 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
   text-rendering: optimizeLegibility;
   font-feature-settings: "ss01" on, "kern" on;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  letter-spacing: -0.02em;
+}
+
+h3,
+h4 {
+  letter-spacing: -0.01em;
 }
 
 body::before {
@@ -143,10 +174,10 @@ a {
 }
 
 .display {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   overflow-wrap: anywhere;
   text-wrap: balance;
 }
@@ -159,9 +190,10 @@ a {
 }
 
 .kicker {
-  font-family: var(--font-mono);
+  font-family: inherit;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: color-mix(in oklab, var(--color-cyan) 58%, var(--muted));
 }
@@ -328,8 +360,8 @@ a {
 }
 
 .prose-article {
-  font-size: 1.075rem;
-  line-height: 1.78;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--fg);
 }
 
@@ -346,9 +378,10 @@ a {
 }
 
 .prose-article h2 {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  letter-spacing: -0.03em;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   margin: 2.4rem 0 0.85rem;
 }
 

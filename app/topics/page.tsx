@@ -22,7 +22,7 @@ export default function TopicsIndexPage() {
       <div className="mx-auto grid max-w-6xl gap-4 px-4 pb-20 sm:grid-cols-2">
         {topics.map((topic) => (
           <Link key={topic.slug} href={topic.href} className="glass lift rounded-3xl p-6">
-            <h2 className="font-serif text-2xl">{topic.title}</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">{topic.title}</h2>
             <p className="mt-2 text-sm text-[var(--muted)]">{topic.summary}</p>
           </Link>
         ))}

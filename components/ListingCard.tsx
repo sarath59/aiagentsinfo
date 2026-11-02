@@ -23,7 +23,7 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
           <p className="kicker">
             {categoryTitle(listing.category)} · {listing.vendor}
           </p>
-          <h2 className="mt-1.5 font-serif text-2xl tracking-tight">
+          <h2 className="mt-1.5 font-semibold tracking-tight text-2xl">
             <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
           </h2>
         </div>

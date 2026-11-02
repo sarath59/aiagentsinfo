@@ -54,7 +54,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
         </div>
         {related.length ? (
           <section className="mt-10">
-            <h2 className="font-serif text-2xl">Related terms</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">Related terms</h2>
             <ul className="mt-3 grid gap-2">
               {related.map((item) => (
                 <li key={item.slug}>

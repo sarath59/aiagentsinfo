@@ -34,7 +34,7 @@ export default async function GlossaryPage() {
         <div className="mt-12 grid gap-12">
           {groups.map(([letter, list]) => (
             <section key={letter} id={letter}>
-              <h2 className="font-serif text-4xl">{letter}</h2>
+              <h2 className="font-semibold tracking-tight text-4xl">{letter}</h2>
               <ul className="mt-4 grid gap-3">
                 {list.map((term) => (
                   <li key={term.slug} className="glass rounded-2xl p-5">

@@ -74,7 +74,7 @@ export default async function BlogIndexPage({
                 <p className="kicker">
                   {categoryTitle(post.category)} · {formatDate(post.date)} · {post.readingMinutes} min
                 </p>
-                <h2 className="mt-3 font-serif text-3xl">
+                <h2 className="mt-3 font-semibold tracking-tight text-3xl">
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
                 <p className="mt-3 max-w-3xl text-[var(--muted)]">{post.description}</p>

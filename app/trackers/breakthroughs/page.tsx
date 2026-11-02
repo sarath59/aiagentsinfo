@@ -48,7 +48,7 @@ export default function BreakthroughsPage() {
             <li key={row.title} className="glass rounded-3xl p-6">
               <SampleBanner />
               <p className="kicker">{row.year}</p>
-              <h2 className="mt-2 font-serif text-2xl">{row.title}</h2>
+              <h2 className="mt-2 font-semibold tracking-tight text-2xl">{row.title}</h2>
               <p className="mt-2 text-[var(--muted)]">{row.note}</p>
             </li>
           ))}

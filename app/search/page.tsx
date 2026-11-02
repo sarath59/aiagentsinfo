@@ -57,7 +57,7 @@ export default async function SearchPage({
             {hits.map((hit) => (
               <li key={hit.href} className="glass rounded-2xl p-5">
                 <p className="kicker">{hit.type}</p>
-                <Link href={hit.href} className="mt-1 block font-serif text-2xl">
+                <Link href={hit.href} className="mt-1 block font-semibold tracking-tight text-2xl">
                   {hit.title}
                 </Link>
                 <p className="mt-2 text-sm text-[var(--muted)]">{hit.description}</p>

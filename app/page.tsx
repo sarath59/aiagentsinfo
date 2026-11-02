@@ -109,7 +109,7 @@ export default async function HomePage() {
                   <p className="kicker">{item.kicker}</p>
                   <item.Icon className="h-5 w-5 text-[var(--color-cyan)]" />
                 </div>
-                <h2 className="mt-4 font-serif text-2xl tracking-tight text-[var(--fg)]">{item.title}</h2>
+                <h2 className="mt-4 font-semibold tracking-tight text-2xl text-[var(--fg)]">{item.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{item.body}</p>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-[var(--color-electric)]">
                   Open
@@ -134,7 +134,7 @@ export default async function HomePage() {
               className={`glass lift rounded-3xl p-7 ${audience.slug === "kids" ? "kids-card" : ""} reveal delay-${index + 1}`}
             >
               <p className="kicker">{audience.eyebrow}</p>
-              <h3 className="mt-2 font-serif text-3xl tracking-tight">{audience.title}</h3>
+              <h3 className="mt-2 font-semibold tracking-tight text-3xl">{audience.title}</h3>
               <p className="mt-3 text-[var(--muted)]">{audience.summary}</p>
             </Link>
           ))}
@@ -158,7 +158,7 @@ export default async function HomePage() {
               <p className="kicker">
                 {post.category} · {formatDate(post.date)}
               </p>
-              <h3 className="mt-3 font-serif text-2xl tracking-tight">
+              <h3 className="mt-3 font-semibold tracking-tight text-2xl">
                 <Link href={`/blog/${post.slug}`}>{post.title}</Link>
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{post.description}</p>
@@ -216,7 +216,7 @@ export default async function HomePage() {
             <article key={doc.slug} className="glass lift rounded-3xl p-6">
               {doc.sample ? <SampleBanner /> : null}
               <p className="kicker">{doc.type.replace("-", " ")}</p>
-              <h3 className="mt-3 font-serif text-2xl tracking-tight">
+              <h3 className="mt-3 font-semibold tracking-tight text-2xl">
                 <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{doc.description}</p>

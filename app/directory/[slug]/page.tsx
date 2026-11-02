@@ -108,7 +108,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           </Link>
         </div>
         <section className="mt-10">
-          <h2 className="font-serif text-2xl">Features</h2>
+          <h2 className="font-semibold tracking-tight text-2xl">Features</h2>
           <ul className="mt-3 list-disc pl-5">
             {listing.features.map((feature) => (
               <li key={feature} className="mt-2">
@@ -118,12 +118,12 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           </ul>
         </section>
         <section className="mt-8">
-          <h2 className="font-serif text-2xl">Pricing summary</h2>
+          <h2 className="font-semibold tracking-tight text-2xl">Pricing summary</h2>
           <p className="mt-3 text-[var(--muted)]">{listing.pricingSummary}</p>
           <p className="mt-2 text-sm">{listing.pricing.join(" · ")}</p>
         </section>
         <section className="mt-8">
-          <h2 className="font-serif text-2xl">Screenshots</h2>
+          <h2 className="font-semibold tracking-tight text-2xl">Screenshots</h2>
           <div className="mt-3 grid min-h-40 place-items-center rounded-3xl border border-dashed border-[var(--stroke-strong)] text-sm text-[var(--muted)]">
             Screenshot slot — add images later. Empty on purpose in this sample.
           </div>
@@ -132,7 +132,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           <MarkdownBody html={listing.html} />
         </div>
         <section className="mt-8">
-          <h2 className="font-serif text-2xl">Tags</h2>
+          <h2 className="font-semibold tracking-tight text-2xl">Tags</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {listing.tags.map((tag) => (
               <Link key={tag} href={`/directory/tag/${tag}`} className="chip">
@@ -143,7 +143,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
         </section>
         {related.length ? (
           <section className="mt-10">
-            <h2 className="font-serif text-2xl">Related tools</h2>
+            <h2 className="font-semibold tracking-tight text-2xl">Related tools</h2>
             <ul className="mt-3 grid gap-2">
               {related.map((item) => (
                 <li key={item.slug}>

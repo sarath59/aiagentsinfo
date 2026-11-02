@@ -96,7 +96,7 @@ function Section({
   const has = Array.isArray(children) ? children.length > 0 : Boolean(children);
   return (
     <section className="mt-10">
-      <h2 className="font-serif text-2xl">{title}</h2>
+      <h2 className="font-semibold tracking-tight text-2xl">{title}</h2>
       {has ? <ul className="mt-3 grid gap-2">{children}</ul> : <p className="mt-3 text-[var(--muted)]">{empty}</p>}
     </section>
   );

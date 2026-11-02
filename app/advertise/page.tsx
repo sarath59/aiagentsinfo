@@ -47,7 +47,7 @@ export default function AdvertisePage() {
         <p className="text-[var(--muted)]">
           {site.name} is a publication plus a directory. When sponsorship exists, it will be marked. Featured listings do not look like editor&apos;s picks unless they are both — and sponsored still says sponsored.
         </p>
-        <h2 className="mt-10 font-serif text-3xl">Inventory</h2>
+        <h2 className="mt-10 font-semibold tracking-tight text-3xl">Inventory</h2>
         <ul className="mt-4 grid gap-4">
           {inventory.map((item) => (
             <li key={item.name} className="glass rounded-3xl p-5">
@@ -64,7 +64,7 @@ export default function AdvertisePage() {
             body="Dashed border, the word Sponsored, and a link back to this page. No fake logos in the sample."
           />
         </div>
-        <h2 className="mt-12 font-serif text-3xl">Rate card</h2>
+        <h2 className="mt-12 font-semibold tracking-tight text-3xl">Rate card</h2>
         <p className="mt-3 text-[var(--muted)]">
           Not published. There is no audience-size claim on this site yet. Email {site.email} when you want a real quote after traffic exists. Do not scrape this page for invented metrics.
         </p>

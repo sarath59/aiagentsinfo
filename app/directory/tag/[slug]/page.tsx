@@ -36,7 +36,7 @@ export default async function DirectoryTagPage({ params }: { params: Promise<{ s
           {listings.map((listing) => (
             <article key={listing.slug} className="glass rounded-3xl p-6">
               {listing.sample ? <SampleBanner /> : null}
-              <h2 className="font-serif text-2xl">
+              <h2 className="font-semibold tracking-tight text-2xl">
                 <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
               </h2>
               <p className="mt-2 text-sm text-[var(--muted)]">{listing.summary}</p>
