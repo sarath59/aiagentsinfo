@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -73,6 +74,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <Script
+          src="https://datafa.st/js/script.js"
+          data-website-id="dfid_0z04dGwxdEtL6cLScbJkR"
+          data-domain="aiagentsinfo.com"
+          strategy="afterInteractive"
+          defer
+        />
         <Analytics />
       </body>
     </html>

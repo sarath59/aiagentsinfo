@@ -28,7 +28,7 @@ export default function PrivacyPage() {
           Theme preference is stored in your browser with localStorage. The site defaults to dark.
         </p>
         <p className="mt-4">
-          Analytics load only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is set in the host environment. No analytics keys live in this repository. Update this paragraph with the real processor name when you flip that switch.
+          Page views are measured with DataFast (<code>datafa.st</code>) so we can see which pages are read. No login, and we do not invent visitor counts on this site. An extra analytics script loads only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is also set in the host environment.
         </p>
       </div>
     </>
