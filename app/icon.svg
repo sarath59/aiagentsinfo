@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="12" fill="#071421"/>
+  <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="11.25" stroke="#2F9DFF" stroke-opacity="0.32" stroke-width="1.1"/>
+  <defs>
+    <linearGradient id="aai-icon-leg" x1="9" y1="40" x2="36" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3EE1C8"/>
+      <stop offset="0.52" stop-color="#2F9DFF"/>
+      <stop offset="1" stop-color="#7EC8FF"/>
+    </linearGradient>
+  </defs>
+  <path d="M24 13.2 L11.15 37.1" stroke="url(#aai-icon-leg)" stroke-width="3.7" stroke-linecap="butt"/>
+  <path d="M24 13.2 L36.85 37.1" stroke="url(#aai-icon-leg)" stroke-width="3.7" stroke-linecap="butt"/>
+  <rect x="16.9" y="25.35" width="14.2" height="2.45" rx="0.7" fill="#E8B84A"/>
+  <rect x="21.15" y="5.15" width="5.7" height="5.7" rx="0.85" fill="#F0C65C"/>
+  <rect x="7.35" y="36.05" width="5.15" height="5.15" rx="0.8" fill="#3EE1C8"/>
+  <rect x="35.5" y="36.05" width="5.15" height="5.15" rx="0.8" fill="#3EE1C8"/>
+</svg>
