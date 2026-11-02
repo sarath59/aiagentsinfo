@@ -1,0 +1,36 @@
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
+import { defaultMetadata } from "@/lib/seo";
+
+export const metadata = defaultMetadata(
+  "Privacy",
+  "Plain privacy note for a static publication. Update when analytics or a newsletter provider is actually connected.",
+  "/privacy",
+);
+
+export default function PrivacyPage() {
+  return (
+    <>
+      <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Privacy", path: "/privacy" }]} />
+      <PageHeader
+        kicker="Privacy"
+        title="What this site does with data"
+        summary="Honest and short. This is not a fake GDPR theater document."
+      />
+      <div className="mx-auto max-w-3xl px-4 pb-20 text-[var(--muted)]">
+        <p>
+          Reading articles, research, glossary terms, and directory pages does not require an account. There is no login.
+        </p>
+        <p className="mt-4">
+          The newsletter and submit-a-tool forms post to stub API routes. Until a provider is wired, submissions are only logged on the server you deploy to. Do not send secrets.
+        </p>
+        <p className="mt-4">
+          Theme preference is stored in your browser with localStorage. The site defaults to dark.
+        </p>
+        <p className="mt-4">
+          Analytics load only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is set in the host environment. No analytics keys live in this repository. Update this paragraph with the real processor name when you flip that switch.
+        </p>
+      </div>
+    </>
+  );
+}
