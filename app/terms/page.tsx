@@ -16,11 +16,11 @@ export default function TermsPage() {
       <PageHeader
         kicker="Terms"
         title="Use the writing; do not pretend we ranked your product"
-        summary="These terms are a stub for a small publication. Have a lawyer rewrite them before you need them."
+        summary="Short terms for a small publication. They describe how the writing and the directory may be used."
       />
       <div className="mx-auto max-w-3xl px-4 pb-20 text-[var(--muted)]">
         <p>
-          Content on {site.name} is provided as-is for learning and research. Sample pages are labeled. Directory listings are descriptive, not endorsements, and sponsored slots will be marked if they ever exist.
+          Content on {site.name} is provided as-is for learning and research. Directory listings are descriptive, not endorsements. A paid placement, if one exists, is marked sponsored.
         </p>
         <p className="mt-4">
           You may quote with attribution and a link. You may not scrape the directory to invent reviews or user counts and attribute them to this site.

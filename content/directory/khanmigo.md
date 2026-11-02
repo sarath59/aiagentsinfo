@@ -2,7 +2,7 @@
 name: Khanmigo
 vendor: Khan Academy
 website: https://www.khanmigo.ai
-summary: Sample listing. Khan Academy's AI tutor and teaching assistant offering, with student and teacher features described on khanmigo.ai.
+summary: Khan Academy's AI tutor and teaching assistant, with learner, teacher, and district offerings described on khanmigo.ai.
 category: education
 tags:
   - tutoring
@@ -17,13 +17,11 @@ audiences:
   - kids
   - everyone
 features:
-  - Tutoring-style chat grounded in Khan Academy materials, per the vendor
-  - Teacher tools as documented on the product site
-  - Access and district licensing change; read the current page
-pricingSummary: Consumer and school licensing as Khan Academy publishes. No dollar figures in this sample.
-lastVerified: "2026-11-01"
-sample: true
-editorsPick: true
+  - Tutoring-style chat grounded in Khan Academy materials, as the vendor describes it
+  - Teacher tools documented on the product site
+  - Teacher signup is offered free on the product site; learner and district access are described there and change
+pricingSummary: Khan Academy publishes teacher, learner, and district access on khanmigo.ai. No dollar figures are listed here.
+lastVerified: "2026-11-02"
 ---
 
-> **Sample directory listing.** Education tools need adult supervision policies that this sample does not evaluate. See [agents in education](/topics/education).
+Education tools need supervision policies that this listing does not evaluate. See [agents in education](/topics/education).

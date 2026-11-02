@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { SampleBanner } from "@/components/SampleBanner";
+import { EmptyState } from "@/components/EmptyState";
 import { getBlogPosts } from "@/lib/blog";
 import { getDirectoryListings } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
@@ -50,29 +50,28 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         <p className="kicker">Coverage</p>
         <h1 className="display mt-3 text-5xl">{topic.title}</h1>
         <p className="mt-4 text-lg text-[var(--muted)]">{topic.summary}</p>
-        <SampleBanner>Section page · sample related items until the corpus grows</SampleBanner>
-        <Section title="From the blog" empty="No sample posts tagged here yet.">
+        <Section title="From the blog" emptyTitle="First articles publishing soon" empty="Posts on this beat will appear when they are published.">
           {relatedPosts.map((post) => (
             <li key={post.slug}>
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </li>
           ))}
         </Section>
-        <Section title="Research" empty="No sample research tagged here yet.">
+        <Section title="Research" emptyTitle="Research notes publishing soon" empty="Paper notes on this beat will appear when the source checks out.">
           {relatedResearch.map((doc) => (
             <li key={doc.slug}>
               <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
             </li>
           ))}
         </Section>
-        <Section title="Glossary" empty="No sample terms tagged here yet.">
+        <Section title="Glossary" emptyTitle="No terms on this beat yet" empty="Definitions show up here when a term is tagged to this topic.">
           {relatedTerms.map((term) => (
             <li key={term.slug}>
               <Link href={`/glossary/${term.slug}`}>{term.term}</Link>
             </li>
           ))}
         </Section>
-        <Section title="Directory" empty="No sample listings matched this beat yet.">
+        <Section title="Directory" emptyTitle="Listings coming soon — submit a tool" empty="Products for this beat appear after the official site is checked.">
           {relatedListings.map((listing) => (
             <li key={listing.slug}>
               <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
@@ -86,10 +85,12 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
 
 function Section({
   title,
+  emptyTitle,
   empty,
   children,
 }: {
   title: string;
+  emptyTitle: string;
   empty: string;
   children: React.ReactNode;
 }) {
@@ -97,7 +98,13 @@ function Section({
   return (
     <section className="mt-10">
       <h2 className="font-semibold tracking-tight text-2xl">{title}</h2>
-      {has ? <ul className="mt-3 grid gap-2">{children}</ul> : <p className="mt-3 text-[var(--muted)]">{empty}</p>}
+      {has ? (
+        <ul className="mt-3 grid gap-2">{children}</ul>
+      ) : (
+        <div className="mt-4">
+          <EmptyState title={emptyTitle} body={empty} />
+        </div>
+      )}
     </section>
   );
 }

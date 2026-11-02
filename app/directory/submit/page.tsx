@@ -22,7 +22,7 @@ export default function SubmitToolPage() {
       <PageHeader
         kicker="Directory"
         title="Submit a tool"
-        summary="This form posts to a stub API route. No keys, no auto-publish, no ranking for paying. A human still has to write the listing file."
+        summary="Suggest a product. Nothing is published automatically, and payment does not buy a ranking."
       />
       <div className="mx-auto max-w-xl px-4 pb-20">
         <SubmitToolForm />

@@ -23,7 +23,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       const json = (await response.json()) as { message?: string };
       if (!response.ok) throw new Error(json.message || "Could not subscribe");
       setStatus("ok");
-      setMessage(json.message || "Saved locally for now — provider not wired yet.");
+      setMessage(json.message || "Thanks. You have not been added to a list.");
       form.reset();
     } catch (error) {
       setStatus("error");
@@ -42,7 +42,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         type="email"
         required
         autoComplete="email"
-        placeholder="you@example.com"
+        placeholder="Email address"
         className="focus-ring w-full rounded-full border border-[var(--stroke)] bg-transparent px-4 py-3"
       />
       <input type="hidden" name="audience" value="everyone" />

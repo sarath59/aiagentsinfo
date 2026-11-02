@@ -50,6 +50,7 @@ export async function getResearchDocs(): Promise<ResearchDoc[]> {
       toc: doc.toc,
       ...doc.data,
     }))
+    .filter((doc) => doc.sample !== true)
     .sort((a, b) => +new Date(b.date) - +new Date(a.date));
 }
 

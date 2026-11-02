@@ -71,6 +71,7 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
       html: doc.html,
       ...doc.data,
     }))
+    .filter((listing) => listing.sample !== true)
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 

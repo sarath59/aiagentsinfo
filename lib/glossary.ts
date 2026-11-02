@@ -23,6 +23,7 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
       html: doc.html,
       ...doc.data,
     }))
+    .filter((term) => term.sample !== true)
     .sort((a, b) => a.term.localeCompare(b.term));
 }
 

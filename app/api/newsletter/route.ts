@@ -16,6 +16,6 @@ export async function POST(request: Request) {
   return NextResponse.json({
     ok: true,
     message:
-      "Thanks — this is a stub endpoint. Connect a provider in app/api/newsletter/route.ts. No list exists yet.",
+      "Thanks. No mailing list is connected yet, so this address was not added to one.",
   });
 }

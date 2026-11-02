@@ -24,6 +24,6 @@ export async function POST(request: Request) {
   return NextResponse.json({
     ok: true,
     message:
-      "Received by the stub API. A human still has to review listings — nothing is auto-published.",
+      "Received. Nothing is published automatically.",
   });
 }

@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { ArrowIcon, DirectoryIcon, LearnIcon, ResearchIcon, SearchIcon } from "@/components/Icons";
-import { ListingRow } from "@/components/ListingCard";
+import { EmptyState } from "@/components/EmptyState";
+import { ListingCard } from "@/components/ListingCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { SampleBanner } from "@/components/SampleBanner";
-import { SponsorSlot } from "@/components/SponsorSlot";
 import { getBlogPosts } from "@/lib/blog";
 import {
   directoryCategories,
   getDirectoryListings,
-  listingsForCollection,
 } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs } from "@/lib/research";
@@ -54,8 +52,7 @@ export default async function HomePage() {
     getGlossaryTerms(),
   ]);
   const latest = posts.slice(0, 3);
-  const newListings = listingsForCollection(listings, "new").slice(0, 4);
-  const picks = listingsForCollection(listings, "editors-picks").slice(0, 4);
+  const previewListings = listings.slice(0, 6);
   const letters = Array.from(new Set(glossary.map((term) => term.term[0]?.toUpperCase()))).sort();
 
   return (
@@ -144,26 +141,36 @@ export default async function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="kicker kicker-lead">This Week in Agents</p>
+            <p className="kicker kicker-lead">Blog</p>
             <h2 className="display mt-3 text-4xl sm:text-5xl">Latest from the desk</h2>
           </div>
           <Link href="/blog" className="text-sm text-[var(--color-electric)] underline">
             All posts
           </Link>
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {latest.map((post) => (
-            <article key={post.slug} className="glass lift rounded-3xl p-6">
-              {post.sample ? <SampleBanner /> : null}
-              <p className="kicker">
-                {post.category} · {formatDate(post.date)}
-              </p>
-              <h3 className="mt-3 font-semibold tracking-tight text-2xl">
-                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{post.description}</p>
-            </article>
-          ))}
+        <div className="mt-8">
+          {latest.length ? (
+            <div className="grid gap-4 md:grid-cols-3">
+              {latest.map((post) => (
+                <article key={post.slug} className="glass lift rounded-3xl p-6">
+                  <p className="kicker">
+                    {post.category} · {formatDate(post.date)}
+                  </p>
+                  <h3 className="mt-3 font-semibold tracking-tight text-2xl">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{post.description}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <EmptyState
+              title="First articles publishing soon"
+              body="Explainers, news, and guides will land here once they are written and sourced."
+              href="/blog"
+              cta="Visit the blog"
+            />
+          )}
         </div>
       </section>
 
@@ -171,33 +178,27 @@ export default async function HomePage() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="kicker kicker-lead">Directory</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">New this week & editor&apos;s picks</h2>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">Tools with an official home</h2>
           </div>
           <Link href="/directory" className="text-sm text-[var(--color-electric)] underline">
             Browse all
           </Link>
         </div>
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
-          <div className="glass rounded-3xl p-6">
-            <p className="kicker mb-4">New this week</p>
-            <ul className="grid gap-1">
-              {newListings.map((listing) => (
-                <li key={listing.slug}>
-                  <ListingRow listing={listing} />
-                </li>
+        <div className="mt-8">
+          {previewListings.length ? (
+            <div className="grid gap-4 md:grid-cols-2">
+              {previewListings.map((listing) => (
+                <ListingCard key={listing.slug} listing={listing} />
               ))}
-            </ul>
-          </div>
-          <div className="glass rounded-3xl p-6">
-            <p className="kicker mb-4">Editor&apos;s picks</p>
-            <ul className="grid gap-1">
-              {picks.map((listing) => (
-                <li key={listing.slug}>
-                  <ListingRow listing={listing} />
-                </li>
-              ))}
-            </ul>
-          </div>
+            </div>
+          ) : (
+            <EmptyState
+              title="Listings coming soon — submit a tool"
+              body="The directory lists real products with a working official site. Nothing is published until it is checked."
+              href="/directory/submit"
+              cta="Submit a tool"
+            />
+          )}
         </div>
       </section>
 
@@ -211,17 +212,27 @@ export default async function HomePage() {
             Research desk
           </Link>
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {research.map((doc) => (
-            <article key={doc.slug} className="glass lift rounded-3xl p-6">
-              {doc.sample ? <SampleBanner /> : null}
-              <p className="kicker">{doc.type.replace("-", " ")}</p>
-              <h3 className="mt-3 font-semibold tracking-tight text-2xl">
-                <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{doc.description}</p>
-            </article>
-          ))}
+        <div className="mt-8">
+          {research.length ? (
+            <div className="grid gap-4 md:grid-cols-2">
+              {research.map((doc) => (
+                <article key={doc.slug} className="glass lift rounded-3xl p-6">
+                  <p className="kicker">{doc.type.replace("-", " ")}</p>
+                  <h3 className="mt-3 font-semibold tracking-tight text-2xl">
+                    <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{doc.description}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <EmptyState
+              title="Research notes publishing soon"
+              body="Paper pages will appear when there is a real arXiv or DOI link and the authors are correct."
+              href="/research"
+              cta="Research desk"
+            />
+          )}
         </div>
       </section>
 
@@ -243,15 +254,21 @@ export default async function HomePage() {
           <p className="kicker kicker-lead">Glossary A–Z</p>
           <h2 className="display mt-3 text-4xl sm:text-5xl">Words we will not hand-wave</h2>
           <p className="mt-3 max-w-xl text-[var(--muted)]">
-            Sample terms only for now. Each letter will fill in as files land in <code>content/glossary</code>.
+            Short definitions of terms the site actually uses. Each entry is a page of its own.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {letters.map((letter) => (
-              <Link key={letter} href={`/glossary#${letter}`} className="chip grid h-10 w-10 place-items-center px-0">
-                {letter}
-              </Link>
-            ))}
-          </div>
+          {letters.length ? (
+            <div className="mt-6 flex flex-wrap gap-2">
+              {letters.map((letter) => (
+                <Link key={letter} href={`/glossary#${letter}`} className="chip grid h-10 w-10 place-items-center px-0">
+                  {letter}
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-6">
+              <EmptyState title="Glossary entries publishing soon" body="Definitions will show up here as terms are written." href="/glossary" cta="Open the glossary" />
+            </div>
+          )}
           <Link href="/glossary" className="mt-6 inline-block text-sm text-[var(--color-electric)] underline">
             Open the glossary
           </Link>
@@ -262,17 +279,10 @@ export default async function HomePage() {
         <p className="kicker kicker-lead">Newsletter</p>
         <h2 className="display mt-3 text-4xl sm:text-5xl">A digest, not a firehose</h2>
         <p className="mt-3 text-[var(--muted)]">
-          Form posts to an API route with a provider TODO. No keys in this repo. We will not invent subscriber counts.
+          A short note when there is something worth sending. No subscriber count is published.
         </p>
         <div className="mt-6">
           <NewsletterForm />
-        </div>
-        <div className="mt-8">
-          <SponsorSlot
-            placement="Newsletter"
-            title="Newsletter sponsor slot"
-            body="Reserved for a future digest sponsor. Labeled on purpose. We will not invent a subscriber count to sell this."
-          />
         </div>
       </section>
     </div>

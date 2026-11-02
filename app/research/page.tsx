@@ -2,8 +2,6 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
-import { SampleBanner } from "@/components/SampleBanner";
-import { SponsorSlot } from "@/components/SponsorSlot";
 import {
   getResearchDocs,
   researchTopics,
@@ -50,8 +48,8 @@ export default async function ResearchIndexPage({
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Research", path: "/research" }]} />
       <PageHeader
         kicker="Research desk"
-        title="One file, one paper, one URL"
-        summary="Filters are ordinary links so every combination stays crawlable. Sample entries are labeled. We do not invent citations."
+        title="Papers with their own pages"
+        summary="A note appears here when the paper, the link, and the authors check out. Citations are not invented."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <div className="flex flex-wrap gap-2">
@@ -79,18 +77,15 @@ export default async function ResearchIndexPage({
             </Link>
           ))}
         </div>
-        <div className="mt-8">
-          <SponsorSlot
-            placement="Research desk"
-            title="Desk sponsor slot"
-            body="Labeled partner unit. Individual paper pages stay editorial."
-          />
-        </div>
         <div className="mt-8 grid gap-4">
-          {filtered.length ? (
+          {docs.length === 0 ? (
+            <EmptyState
+              title="Research notes publishing soon"
+              body="Paper pages will appear when there is a real arXiv or DOI link and the authors are correct."
+            />
+          ) : filtered.length ? (
             filtered.map((doc) => (
               <article key={doc.slug} className="glass lift rounded-3xl p-6 sm:p-8">
-                {doc.sample ? <SampleBanner /> : null}
                 <p className="kicker">
                   {researchTypeTitle(doc.type)} · {formatDate(doc.date)}
                 </p>
@@ -103,7 +98,7 @@ export default async function ResearchIndexPage({
           ) : (
             <EmptyState
               title="No research matches these filters"
-              body="Reset filters or add a file in content/research. We will not invent papers to fill the grid."
+              body="Reset the filters. Papers are not added to fill an empty grid."
               href="/research"
               cta="All research"
             />

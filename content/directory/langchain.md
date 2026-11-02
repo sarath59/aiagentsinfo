@@ -2,7 +2,7 @@
 name: LangChain
 vendor: LangChain
 website: https://www.langchain.com
-summary: Sample listing. Open-source framework and commercial platform (LangSmith and related products) for composing LLM applications and agents.
+summary: Open-source framework and commercial platform (LangSmith and related products) for composing language-model applications and agents.
 category: agent-frameworks
 tags:
   - framework
@@ -19,13 +19,11 @@ audiences:
   - builders
   - research
 features:
-  - OSS libraries for chains, tools, and agents
-  - Observability / eval products under the LangSmith family
-  - Docs and versioning live on langchain.com and GitHub
-pricingSummary: Framework is open source; hosted observability and enterprise features are paid as the vendor describes.
-lastVerified: "2026-11-01"
-sample: true
-editorsPick: true
+  - Open-source libraries for chains, tools, and agents
+  - Observability and eval products under the LangSmith family
+  - Docs and versioning on langchain.com and GitHub
+pricingSummary: The framework is open source. Hosted observability and enterprise features are paid as the vendor describes.
+lastVerified: "2026-11-02"
 ---
 
-> **Sample directory listing.** A framework is not a finished agent. Pair this with the [harness](/glossary/harness) glossary and the [harness comparison](/trackers/harnesses) stub.
+A framework is not a finished agent. The [harness](/glossary/harness) is the runtime around the model.

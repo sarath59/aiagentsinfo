@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CopyBibtex } from "@/components/CopyBibtex";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { SampleBanner } from "@/components/SampleBanner";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getResearchDoc, getResearchDocs, researchTypeTitle } from "@/lib/research";
 import { JsonLd, defaultMetadata, scholarlyArticleJsonLd } from "@/lib/seo";
@@ -49,7 +48,6 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
       />
       <article className="mx-auto grid max-w-6xl gap-10 px-4 pb-20 pt-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
         <div>
-          {doc.sample ? <SampleBanner /> : null}
           <p className="kicker">{researchTypeTitle(doc.type)}</p>
           <h1 className="display mt-3 text-4xl sm:text-5xl">{doc.title}</h1>
           <p className="mt-4 text-lg text-[var(--muted)]">{doc.description}</p>

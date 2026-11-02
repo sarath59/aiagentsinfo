@@ -1,8 +1,8 @@
 ---
 name: CrewAI
 vendor: CrewAI
-website: https://www.crewai.com
-summary: Sample listing. Framework for role-based multi-agent workflows, with open-source libraries and a commercial platform described by the vendor.
+website: https://crewai.com
+summary: Framework for role-based multi-agent workflows, with open-source libraries and a commercial platform described by the vendor.
 category: agent-frameworks
 tags:
   - framework
@@ -17,13 +17,11 @@ useCases:
 audiences:
   - builders
 features:
-  - Role/crew abstractions for multi-agent runs
-  - OSS package plus hosted product (confirm current names on the vendor site)
-  - Integrations depend on release
-pricingSummary: Open-source library with paid platform SKUs as listed by CrewAI.
-lastVerified: "2026-11-01"
-sample: true
-trending: true
+  - Role and crew abstractions for multi-agent runs
+  - Open-source package plus a hosted product (confirm current names on the vendor site)
+  - Integrations depend on the release
+pricingSummary: Open-source library with paid platform plans as listed by CrewAI.
+lastVerified: "2026-11-02"
 ---
 
-> **Sample directory listing.** [Multi-agent](/glossary/multi-agent) in marketing copy often means multiple prompts, not multiple companies. Read the docs for the actual execution model.
+[Multi-agent](/glossary/multi-agent) in product copy often means multiple prompts or roles, not multiple companies. Read the docs for the actual execution model.

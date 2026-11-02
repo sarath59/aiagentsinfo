@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { EmptyState } from "@/components/EmptyState";
 import { ListingCard } from "@/components/ListingCard";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { SampleBanner } from "@/components/SampleBanner";
 import {
   categoryTitle,
   collectionBySlug,
@@ -53,13 +53,24 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           <p className="kicker">Collection</p>
           <h1 className="display mt-3 text-5xl">{collection.title}</h1>
           <p className="mt-4 max-w-2xl text-[var(--muted)]">
-            Editorial flags on listing files. Sample-only in v1. Not a popularity contest and not paid unless a listing is explicitly marked sponsored.
+            A product appears here only when its listing carries this editorial flag. This is not a popularity ranking.
           </p>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {items.map((listing) => (
-              <ListingCard key={listing.slug} listing={listing} />
-            ))}
-          </div>
+          {items.length ? (
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {items.map((listing) => (
+                <ListingCard key={listing.slug} listing={listing} />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8">
+              <EmptyState
+                title="Nothing in this collection yet"
+                body="Listings show up here only after a real entry is filed. Nothing is ranked to fill the page."
+                href="/directory"
+                cta="Browse the directory"
+              />
+            </div>
+          )}
         </div>
       </>
     );
@@ -89,7 +100,6 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
         ]}
       />
       <article className="mx-auto max-w-3xl px-4 pb-20 pt-10">
-        {listing.sample ? <SampleBanner /> : null}
         {listing.sponsored ? <p className="kicker text-[var(--gold)]">Sponsored listing</p> : null}
         <p className="kicker mt-2">
           {categoryTitle(listing.category)} · {listing.vendor}
@@ -121,12 +131,6 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           <h2 className="font-semibold tracking-tight text-2xl">Pricing summary</h2>
           <p className="mt-3 text-[var(--muted)]">{listing.pricingSummary}</p>
           <p className="mt-2 text-sm">{listing.pricing.join(" · ")}</p>
-        </section>
-        <section className="mt-8">
-          <h2 className="font-semibold tracking-tight text-2xl">Screenshots</h2>
-          <div className="mt-3 grid min-h-40 place-items-center rounded-3xl border border-dashed border-[var(--stroke-strong)] text-sm text-[var(--muted)]">
-            Screenshot slot — add images later. Empty on purpose in this sample.
-          </div>
         </section>
         <div className="mt-8">
           <MarkdownBody html={listing.html} />

@@ -1,20 +1,13 @@
-import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
 
 export const metadata = defaultMetadata(
   "Harness comparison table",
-  "Stub comparison of agent harnesses and frameworks. Empty cells on purpose — no invented feature matrices.",
+  "A comparison of agent harnesses and frameworks. Cells are published only when each one is sourced.",
   "/trackers/harnesses",
 );
-
-const columns = ["Loop style", "Tools", "Memory", "Evals", "License"];
-const rows = [
-  { name: "LangChain (sample pointer)", href: "/directory/langchain" },
-  { name: "CrewAI (sample pointer)", href: "/directory/crewai" },
-  { name: "Your harness here", href: "/directory/submit" },
-];
 
 export default function HarnessesTrackerPage() {
   return (
@@ -28,37 +21,15 @@ export default function HarnessesTrackerPage() {
       <PageHeader
         kicker="Living tracker"
         title="Harness comparison"
-        summary="A table that will grow. Cells are unlabeled placeholders so we never ship a fake feature matrix. Link listings instead of guessing."
-        sample
+        summary="A comparison appears when each cell has a source. No feature matrix is guessed."
       />
-      <div className="mx-auto max-w-6xl overflow-x-auto px-4 pb-20">
-        <table className="min-w-full border-collapse text-left text-sm">
-          <caption className="sr-only">Sample harness comparison with empty cells</caption>
-          <thead>
-            <tr>
-              <th className="border-b border-[var(--stroke)] p-3">Harness</th>
-              {columns.map((column) => (
-                <th key={column} className="border-b border-[var(--stroke)] p-3">
-                  {column}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.name}>
-                <th className="border-b border-[var(--stroke)] p-3 font-medium">
-                  <Link href={row.href}>{row.name}</Link>
-                </th>
-                {columns.map((column) => (
-                  <td key={column} className="border-b border-[var(--stroke)] p-3 text-[var(--muted)]">
-                    TBD
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="mx-auto max-w-3xl px-4 pb-20">
+        <EmptyState
+          title="Harness comparisons coming soon"
+          body="Frameworks already in the directory stay listed there. This table waits until the cells are checked."
+          href="/directory/category/agent-frameworks"
+          cta="Browse frameworks"
+        />
       </div>
     </>
   );

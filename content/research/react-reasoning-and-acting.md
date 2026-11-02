@@ -1,34 +1,36 @@
 ---
 title: "Paper breakdown: ReAct — reasoning and acting in language models"
-description: "Sample editorial breakdown of Yao et al. 2022, a widely cited pattern for interleaving free-text thoughts with tool actions."
+description: "Editorial notes on Yao et al. 2022, the paper that interleaves free-text reasoning traces with actions in an environment."
 date: "2026-10-18"
-updated: "2026-10-26"
+updated: "2026-11-02"
 type: paper-breakdown
 topics:
   - harnesses
   - how-agents-work
   - task-performance
-sample: true
 paperTitle: "ReAct: Synergizing Reasoning and Acting in Language Models"
 paperAuthors: "Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, Yuan Cao"
 paperYear: 2022
 paperUrl: "https://arxiv.org/abs/2210.03629"
 codeUrl: "https://github.com/ysymyth/ReAct"
-venue: "arXiv:2210.03629 (later ICLR 2023)"
-abstract: "Sample editorial summary: ReAct prompts a language model to produce traces that mix verbal reasoning ('thoughts') with actions in an environment, then observations, rather than only chain-of-thought or only action. The paper studies question answering and interactive tasks and compares against acting-only and reasoning-only baselines."
+venue: "arXiv:2210.03629 (ICLR 2023)"
+abstract: "ReAct prompts a language model to produce traces that mix verbal reasoning with task-specific actions, then observations. The paper studies question answering (HotpotQA), fact verification (FEVER), and interactive decision making (ALFWorld and WebShop)."
 keyFindings:
-  - "The paper argues that interleaving thoughts and actions can reduce error propagation compared with acting-only prompts on the tasks they study."
-  - "It presents qualitative traces where thoughts are used to track goals and handle exceptions — useful as a design pattern, not as a universal law."
-  - "Results are task- and model-specific; treat numbers as historical, not as a 2026 leaderboard."
-methodology: "Sample note: the authors evaluate prompting strategies on public QA and interactive environments of that period, using then-current language models. Read the paper's experimental section for splits, baselines, and decoding details rather than relying on this summary."
+  - "The paper interleaves reasoning traces and actions so a model can update a plan and call an external source, such as a Wikipedia API, instead of only reasoning in text or only acting."
+  - "On HotpotQA and FEVER, the authors report that this interaction reduces hallucination and error propagation they associate with chain-of-thought alone."
+  - "On ALFWorld and WebShop, the paper reports absolute success-rate gains of 34% and 10% over the imitation and reinforcement-learning methods it compares, using one or two in-context examples."
+  - "Those figures belong to the models and tasks in the paper. They are not a current leaderboard."
+methodology: "The authors evaluate prompting strategies on HotpotQA, FEVER, ALFWorld, and WebShop with language models of that period. Read the paper's experimental section for splits, baselines, and decoding details rather than relying on this summary."
 limitations:
-  - "This page is a sample editorial summary, not a peer review or a reproduction."
-  - "Prompting recipes drift as models and tool APIs change; do not copy 2022 numbers into a 2026 comparison."
-  - "Thought traces are not a window into a mind; they are generated text that may or may not be faithful to the model's internals."
+  - "This page is an editorial summary of the public paper, not a reproduction."
+  - "Prompting recipes drift as models and tool APIs change. Do not copy 2022 scores into a later comparison."
+  - "Thought traces are generated text. They are not evidence of a mind inside the model."
 references:
   - title: "Yao et al., ReAct: Synergizing Reasoning and Acting in Language Models (arXiv:2210.03629)"
     url: "https://arxiv.org/abs/2210.03629"
-  - title: "Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (cited by ReAct; arXiv:2201.11903)"
+  - title: "ReAct project site"
+    url: "https://react-lm.github.io"
+  - title: "Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (arXiv:2201.11903)"
     url: "https://arxiv.org/abs/2201.11903"
 citation:
   apa: "Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2022). ReAct: Synergizing reasoning and acting in language models. arXiv:2210.03629."
@@ -42,26 +44,24 @@ citation:
     }
 ---
 
-> **Sample research page.** Editorial summary for the `/research/[slug]` template. Replace this file with a reported breakdown. All bibliographic fields above point at the public paper.
+## Why this paper is here
 
-## Why this paper is on the syllabus
+If you have seen an agent print “Thought:” then “Action:” then “Observation:”, you have seen a descendant of **ReAct**. The contribution is not a new model. It is a prompting pattern that treats language as both a scratchpad and an interface to tools.
 
-If you have seen an agent print “Thought:” then “Action:” then “Observation:”, you have seen a descendant of **ReAct**. The contribution is not a new model. It is a **prompting pattern** that treats language as both a scratchpad and an interface to tools.
+The pattern sits next to the [harness](/glossary/harness) glossary entry: the loop around the model, not the weights.
 
-That is why it belongs next to our [harness guide](/blog/how-agent-harnesses-work) and the [harness](/glossary/harness) glossary entry.
+## What the paper actually does
 
-## What to steal (carefully)
+The authors prompt a model to alternate reasoning traces with actions. On HotpotQA and FEVER, those actions hit a Wikipedia API. On ALFWorld and WebShop, the actions are steps in an interactive environment. They compare the mixture with reasoning-only and acting-only setups, and on the interactive tasks with imitation and reinforcement-learning baselines.
 
-- **Interleave**, do not dump a long plan then execute blindly.
-- **Keep observations in the trace** so later steps can correct earlier ones.
-- **Measure against acting-only and reasoning-only** ablations if you claim the mix matters.
+The public abstract reports absolute success-rate gains of 34% (ALFWorld) and 10% (WebShop) against those imitation and reinforcement-learning methods, with one or two in-context examples. Cite the paper for the exact tables. Do not treat the figures as a score for any 2026 product.
 
-## What not to steal
+## What not to copy forward
 
-Do not treat the original task scores as a modern [benchmark](/glossary/benchmark). Tool APIs, context windows, and models have moved. If you need current numbers, use a living eval and cite the date — see [reading agent benchmarks](/research/reading-agent-benchmarks).
+Do not paste the original task scores into a modern [benchmark](/glossary/benchmark) chart. Tool APIs, context windows, and models have moved. A current number needs a current eval and a date.
 
-## Read next
+## Read the source
 
-- Primary source: [arXiv:2210.03629](https://arxiv.org/abs/2210.03629)
+- Paper: [arXiv:2210.03629](https://arxiv.org/abs/2210.03629)
+- Project site: [react-lm.github.io](https://react-lm.github.io)
 - Related glossary: [tool use](/glossary/tool-use), [autonomy](/glossary/autonomy)
-- Trackers: [breakthroughs timeline](/trackers/breakthroughs) (stub)

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { SampleBanner } from "@/components/SampleBanner";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
 import { JsonLd, articleJsonLd, defaultMetadata, faqJsonLd } from "@/lib/seo";
@@ -49,7 +48,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       />
       <article className="mx-auto grid max-w-6xl gap-10 px-4 pb-20 pt-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
         <div>
-          {post.sample ? <SampleBanner /> : null}
           <p className="kicker">{post.category}</p>
           <h1 className="display mt-3 text-4xl sm:text-5xl">{post.title}</h1>
           <p className="mt-4 text-lg text-[var(--muted)]">{post.description}</p>

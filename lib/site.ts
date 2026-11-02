@@ -1,8 +1,24 @@
+const CANONICAL_ORIGIN = "https://www.aiagentsinfo.com";
+
+function resolveSiteUrl() {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!raw) return CANONICAL_ORIGIN;
+  try {
+    const host = new URL(raw).hostname.toLowerCase();
+    if (host === "localhost" || host === "127.0.0.1") {
+      return raw.replace(/\/$/, "");
+    }
+  } catch {
+    return CANONICAL_ORIGIN;
+  }
+  return CANONICAL_ORIGIN;
+}
+
 export const site = {
   name: "AI Agents Info",
   shortName: "Agents Info",
-  domain: "aiagentsinfo.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiagentsinfo.com",
+  domain: "www.aiagentsinfo.com",
+  url: resolveSiteUrl(),
   description:
     "A learning and research publication about AI and AI agents — from first questions to frontier research — plus a growing directory of AI tools, apps, SaaS, and agents.",
   tagline: "Learn AI agents from first questions to frontier research.",

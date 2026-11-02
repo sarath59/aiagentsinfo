@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { SampleBanner } from "@/components/SampleBanner";
+import { EmptyState } from "@/components/EmptyState";
 import {
   categoryTitle,
   directoryCategories,
@@ -41,18 +41,32 @@ export default async function DirectoryCategoryPage({
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-12">
         <p className="kicker">Category</p>
         <h1 className="display mt-3 text-5xl">{category.title}</h1>
-        <p className="mt-4 text-[var(--muted)]">{listings.length} sample listing{listings.length === 1 ? "" : "s"} in v1.</p>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {listings.map((listing) => (
-            <article key={listing.slug} className="glass rounded-3xl p-6">
-              {listing.sample ? <SampleBanner /> : null}
-              <h2 className="font-semibold tracking-tight text-2xl">
-                <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
-              </h2>
-              <p className="mt-2 text-sm text-[var(--muted)]">{listing.summary}</p>
-            </article>
-          ))}
-        </div>
+        {listings.length ? (
+          <>
+            <p className="mt-4 text-[var(--muted)]">
+              {listings.length} listing{listings.length === 1 ? "" : "s"}
+            </p>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {listings.map((listing) => (
+                <article key={listing.slug} className="glass rounded-3xl p-6">
+                  <h2 className="font-semibold tracking-tight text-2xl">
+                    <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
+                  </h2>
+                  <p className="mt-2 text-sm text-[var(--muted)]">{listing.summary}</p>
+                </article>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="mt-8">
+            <EmptyState
+              title="Listings coming soon — submit a tool"
+              body={`No ${category.title.toLowerCase()} are listed yet. A product is added only when its official site checks out.`}
+              href="/directory/submit"
+              cta="Submit a tool"
+            />
+          </div>
+        )}
       </div>
     </>
   );

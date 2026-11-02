@@ -48,6 +48,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       readingMinutes: readingTime(doc.content),
       ...doc.data,
     }))
+    .filter((post) => post.sample !== true)
     .sort(byDate);
 }
 

@@ -2,7 +2,7 @@
 name: ElevenLabs
 vendor: ElevenLabs
 website: https://elevenlabs.io
-summary: Sample listing. Speech synthesis and voice-agent platform. Feature matrix (TTS, STS, agents) is defined on elevenlabs.io.
+summary: Speech synthesis and voice-agent platform. The feature set (text to speech, speech to speech, agents) is defined on elevenlabs.io.
 category: voice
 tags:
   - voice
@@ -20,11 +20,9 @@ audiences:
 features:
   - Text-to-speech APIs
   - Voice cloning and agent products as documented by the vendor
-  - Usage billed by plan and characters/minutes
-pricingSummary: Free trial/credits plus paid tiers. Confirm on the vendor pricing page.
-lastVerified: "2026-11-01"
-sample: true
-newThisWeek: true
+  - Usage billed by plan and by characters or minutes
+pricingSummary: Free credits plus paid tiers. Confirm on the vendor pricing page.
+lastVerified: "2026-11-02"
 ---
 
-> **Sample directory listing.** Voice products carry consent and impersonation risks. This listing does not evaluate safety claims.
+Voice products carry consent and impersonation risks. This listing does not evaluate safety claims.

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { SampleBanner } from "@/components/SampleBanner";
 import { getGlossaryTerm, getGlossaryTerms } from "@/lib/glossary";
 import { JsonLd, defaultMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
@@ -45,7 +44,6 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
         ]}
       />
       <article className="mx-auto max-w-3xl px-4 pb-20 pt-10">
-        {term.sample ? <SampleBanner /> : null}
         <p className="kicker">Glossary</p>
         <h1 className="display mt-3 text-5xl">{term.term}</h1>
         <p className="mt-4 text-xl text-[var(--muted)]">{term.shortDefinition}</p>

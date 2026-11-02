@@ -1,6 +1,6 @@
 # AI Agents Info
 
-Public site for [aiagentsinfo.com](https://aiagentsinfo.com): a learning and research publication about AI and AI agents, plus a directory of AI tools, apps, SaaS, and agents.
+Public site for [aiagentsinfo.com](https://www.aiagentsinfo.com): a learning and research publication about AI and AI agents, plus a directory of AI tools, apps, SaaS, and agents. The canonical host is `https://www.aiagentsinfo.com`.
 
 Stack: **Next.js (App Router) + TypeScript + Tailwind CSS**. Content is Markdown in the repo. There is **no authentication** and **no payments**.
 
@@ -22,7 +22,7 @@ See `.env.example`. The only variable used by the site itself is:
 
 | Name | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical origin for metadata, sitemap, robots, RSS, and JSON-LD. Use `https://aiagentsinfo.com` in production. |
+| `NEXT_PUBLIC_SITE_URL` | Used for local development (`http://localhost:3000`). Production canonical URLs are always `https://www.aiagentsinfo.com`, including when this variable is the apex host or a `vercel.app` host. |
 | `NEXT_PUBLIC_ANALYTICS_DOMAIN` | Optional. If set, a Plausible-style analytics script loads (no API keys). Leave unset for no tracking. |
 | `NEXT_PUBLIC_ANALYTICS_SRC` | Optional custom analytics script URL. |
 
@@ -39,7 +39,7 @@ Original mark and wordmark (navy / electric blue / cyan / gold — not monochrom
 
 ## How to add content
 
-Every new URL is a new file. Front matter is YAML. Set `sample: true` until the piece is real.
+Every new URL is a new file. Front matter is YAML. Publish only real, checked material. A file with `sample: true` is omitted from the site.
 
 | Kind | Folder | URL |
 | --- | --- | --- |
@@ -54,7 +54,7 @@ Every new URL is a new file. Front matter is YAML. Set `sample: true` until the 
 
 Blog categories: `explainer`, `news`, `guide`, `tools`.  
 Research types: `paper-breakdown`, `original-report`, `benchmark`.  
-Directory categories, pricing, tags, and collection flags (`newThisWeek`, `trending`, `editorsPick`, `sponsored`) are documented on the sample listings.
+Directory categories, pricing, tags, and collection flags (`newThisWeek`, `trending`, `editorsPick`, `sponsored`) live in each listing's front matter. Set a flag only when it is true.
 
 Byline is always **AI Agents Info Editorial** or **AI Agents Info Research**. Do not add fake authors, bios, testimonials, ratings, user counts, or invented citations.
 
@@ -62,8 +62,8 @@ Byline is always **AI Agents Info Editorial** or **AI Agents Info Research**. Do
 
 1. Push this repository to GitHub (already the case for this project).
 2. In Vercel: **Add New Project** → import `sarath59/aiagentsinfo` → framework preset Next.js → deploy. `vercel.json` sets `"framework": "nextjs"` and enables Git deployments **only on `main`** (no preview deploys for PR or feature branches).
-3. Project Settings → Environment Variables → set `NEXT_PUBLIC_SITE_URL=https://aiagentsinfo.com`. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo).
-4. Project Settings → Domains → add `aiagentsinfo.com` and `www.aiagentsinfo.com`. Point DNS (A/ALIAS/CNAME) as Vercel instructs.
+3. Project Settings → Environment Variables → production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo).
+4. Project Settings → Domains → add `aiagentsinfo.com` and `www.aiagentsinfo.com`, with `www` as the canonical host. Point DNS (A/ALIAS/CNAME) as Vercel instructs. The apex host redirects to `www`.
 5. Wait for the certificate, then confirm `/sitemap.xml`, `/robots.txt`, and `/rss.xml` on the live host.
 
 No auth providers to configure. No Stripe.
@@ -83,4 +83,4 @@ No auth providers to configure. No Stripe.
 - Labeled sponsor slots (newsletter, directory featured, blog in-feed, research desk)
 - Env-based analytics hook (off unless configured)
 
-Sample content is labeled. Replace it before treating the site as a finished corpus.
+Do not commit placeholder articles, invented scores, fake sponsors, or unverified listings.

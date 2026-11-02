@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { EmptyState } from "@/components/EmptyState";
 import { ReadableToggle } from "@/components/ReadableToggle";
-import { SampleBanner } from "@/components/SampleBanner";
 import { getBlogPosts } from "@/lib/blog";
 import { getDirectoryListings } from "@/lib/directory";
 import { getResearchDocs } from "@/lib/research";
@@ -42,7 +42,6 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
       <p className="kicker">{audience.eyebrow}</p>
       <h1 className="display mt-3 text-5xl">{audience.title}</h1>
       <p className="mt-4 text-lg text-[var(--muted)]">{audience.summary}</p>
-      {isKids ? <SampleBanner>Kid-friendly colors live only in this section</SampleBanner> : <SampleBanner />}
       {copy.map((block) => (
         <section key={block.title} className="mt-10">
           <h2 className="font-semibold tracking-tight text-3xl">{block.title}</h2>
@@ -51,20 +50,31 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
       ))}
       <section className="mt-10">
         <h2 className="font-semibold tracking-tight text-2xl">Start here</h2>
-        <ul className="mt-3 grid gap-2">
-          {relatedPosts.map((post) => (
-            <li key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-            </li>
-          ))}
-          {isResearch
-            ? research.map((doc) => (
-                <li key={doc.slug}>
-                  <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
-                </li>
-              ))
-            : null}
-        </ul>
+        {relatedPosts.length || (isResearch && research.length) ? (
+          <ul className="mt-3 grid gap-2">
+            {relatedPosts.map((post) => (
+              <li key={post.slug}>
+                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              </li>
+            ))}
+            {isResearch
+              ? research.map((doc) => (
+                  <li key={doc.slug}>
+                    <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
+                  </li>
+                ))
+              : null}
+          </ul>
+        ) : (
+          <div className="mt-4">
+            <EmptyState
+              title="First articles publishing soon"
+              body="Reading for this audience will show up here as it is published."
+              href="/blog"
+              cta="Visit the blog"
+            />
+          </div>
+        )}
       </section>
       {relatedListings.length ? (
         <section className="mt-8">
@@ -115,7 +125,7 @@ function copyFor(slug: string) {
       },
       {
         title: "Words we will keep small",
-        body: "We will not pretend the computer is a person. We will not invent scores or fans. If a page is a sample, it says so at the top.",
+        body: "We will not pretend the computer is a person. We will not invent scores or fans.",
       },
     ];
   }
@@ -135,22 +145,22 @@ function copyFor(slug: string) {
     return [
       {
         title: "Harnesses over vibes",
-        body: "Start with the loop: tools, observations, stop conditions, evals. Framework names are in the directory. We will not crown a winner on sample data.",
+        body: "Start with the loop: tools, observations, stop conditions, evals. Framework names are in the directory. We will not crown a winner without a sourced comparison.",
       },
       {
         title: "Ship a listing when you ship a product",
-        body: "The submit form is a stub. The durable unit is a Markdown file. That is how this directory is meant to scale.",
+        body: "Use the submit form to suggest a product. A listing is added only after the official site is checked.",
       },
     ];
   }
   return [
     {
       title: "Cite the paper, date the number",
-      body: "Every research URL is a file in content/research. Breakdowns, original reports, and benchmark notes are filterable. BibTeX lives on the page. We will not invent citations.",
+      body: "Research pages carry the paper link, the authors, and BibTeX. We will not invent citations.",
     },
     {
-      title: "Trackers are honest stubs",
-      body: "Timeline, harness table, and leaderboard are structured and empty of fake scores. Fill them as the desk does the work.",
+      title: "Trackers wait for sources",
+      body: "The timeline, harness table, and leaderboard stay empty until each cell has a source and a date.",
     },
   ];
 }

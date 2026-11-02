@@ -47,7 +47,7 @@ export default async function SearchPage({
           <div className="mt-6">
             <EmptyState
               title="No matches in this corpus"
-              body="Try a broader word, or browse the directory and glossary. Sample content is small on purpose."
+              body="Try a broader word, or browse the directory and glossary."
               href="/directory"
               cta="Browse the directory"
             />

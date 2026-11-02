@@ -3,8 +3,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import { Pagination } from "@/components/Pagination";
-import { SampleBanner } from "@/components/SampleBanner";
-import { SponsorSlot } from "@/components/SponsorSlot";
 import { blogCategories, categoryTitle, getBlogPosts } from "@/lib/blog";
 import { defaultMetadata } from "@/lib/seo";
 import { formatDate, normalizeQuery, paginate } from "@/lib/utils";
@@ -41,36 +39,35 @@ export default async function BlogIndexPage({
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]} />
       <PageHeader
         kicker="Blog"
-        title="Writing you can replace by committing a file"
-        summary="Every post is a Markdown file in content/blog. New file, new page, sitemap and RSS pick it up. Sample posts are marked."
+        title="Writing from the desk"
+        summary="Explainers, news, and guides about AI agents. A post appears here when it is ready to publish."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
-        <div className="flex flex-wrap gap-2">
-          <Link href="/blog" className={`chip ${!category ? "chip-active" : ""}`}>
-            All
-          </Link>
-          {blogCategories.map((item) => (
-            <Link
-              key={item.slug}
-              href={`/blog?category=${item.slug}`}
-              className={`chip ${category === item.slug ? "chip-active" : ""}`}
-            >
-              {item.title}
+        {posts.length ? (
+          <div className="flex flex-wrap gap-2">
+            <Link href="/blog" className={`chip ${!category ? "chip-active" : ""}`}>
+              All
             </Link>
-          ))}
-        </div>
-        <div className="mt-8">
-          <SponsorSlot
-            placement="Blog in-feed"
-            title="In-feed sponsor slot"
-            body="One labeled unit. It will never look like an editorial post."
-          />
-        </div>
+            {blogCategories.map((item) => (
+              <Link
+                key={item.slug}
+                href={`/blog?category=${item.slug}`}
+                className={`chip ${category === item.slug ? "chip-active" : ""}`}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        ) : null}
         <div className="mt-8 grid gap-4">
-          {result.items.length ? (
+          {posts.length === 0 ? (
+            <EmptyState
+              title="First articles publishing soon"
+              body="Explainers, news, and guides will appear here as they are published."
+            />
+          ) : result.items.length ? (
             result.items.map((post) => (
               <article key={post.slug} className="glass lift rounded-3xl p-6 sm:p-8">
-                {post.sample ? <SampleBanner /> : null}
                 <p className="kicker">
                   {categoryTitle(post.category)} · {formatDate(post.date)} · {post.readingMinutes} min
                 </p>
@@ -83,7 +80,7 @@ export default async function BlogIndexPage({
           ) : (
             <EmptyState
               title="No posts in this category yet"
-              body="Add a Markdown file in content/blog with the matching category, or reset the filter."
+              body="Try another category. Nothing is filled in to make the grid look busy."
               href="/blog"
               cta="All posts"
             />

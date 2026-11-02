@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { SampleBanner } from "@/components/SampleBanner";
 import { categoryTitle, pricingModels, type DirectoryListing } from "@/lib/directory";
 
 function pricingTitle(slug: string) {
@@ -11,7 +10,6 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
 
   return (
     <article className="glass lift rounded-3xl p-6">
-      {listing.sample ? <SampleBanner /> : null}
       {listing.sponsored ? (
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--gold)]">Sponsored</p>
       ) : null}

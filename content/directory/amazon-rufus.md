@@ -2,7 +2,7 @@
 name: Amazon Rufus
 vendor: Amazon
 website: https://www.amazon.com
-summary: Sample listing. Amazon's shopping assistant (Rufus) available in the Amazon shopping surfaces where Amazon has enabled it. Features and regions vary.
+summary: Amazon's shopping assistant, available in Amazon shopping surfaces where Amazon has enabled it. Features and regions vary.
 category: shopping-agents
 tags:
   - shopping
@@ -14,13 +14,11 @@ useCases:
 audiences:
   - everyone
 features:
-  - In-store shopping Q&A as Amazon describes it
+  - Shopping questions inside Amazon's app and site, as Amazon describes the feature
   - Availability depends on region and app version
   - Not a general-purpose agent outside Amazon's store
-pricingSummary: Included in the Amazon shopping experience where offered. No separate price quoted here.
-lastVerified: "2026-11-01"
-sample: true
-newThisWeek: true
+pricingSummary: Included in the Amazon shopping experience where offered. No separate price is listed here.
+lastVerified: "2026-11-02"
 ---
 
-> **Sample directory listing.** Shopping agents are store-specific. Rufus is Amazon's shopping assistant, not a universal buyer. Confirm the current product page and regional availability on Amazon before citing details.
+Rufus is Amazon's shopping assistant inside Amazon's own shopping surfaces, not a universal buyer. Confirm the current experience and regional availability on Amazon before citing details.

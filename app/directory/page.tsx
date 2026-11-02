@@ -3,7 +3,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
 import { ListingCard } from "@/components/ListingCard";
 import { PageHeader } from "@/components/PageHeader";
-import { SponsorSlot } from "@/components/SponsorSlot";
 import {
   allTags,
   allUseCases,
@@ -18,7 +17,7 @@ import { normalizeQuery } from "@/lib/utils";
 
 export const metadata = defaultMetadata(
   "AI directory",
-  "A scalable directory of AI SaaS, tools, apps, and agents — with categories, tags, and honest sample listings.",
+  "A directory of AI SaaS, tools, apps, and agents. Each listing names a real product and its official site.",
   "/directory",
 );
 
@@ -48,18 +47,13 @@ export default async function DirectoryPage({
       <PageHeader
         kicker="AI directory"
         title="Tools, apps, SaaS, and agents — built to grow to thousands"
-        summary="Each listing is a file in content/directory. Filters are query parameters. Sample listings of well-known products are labeled. No invented ratings or user counts."
+        summary="Real products with a working official site. No ratings, user counts, or invented rankings."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
-        <div className="mb-8 grid gap-4 lg:grid-cols-[1.4fr_0.8fr]">
-          <SponsorSlot
-            placement="Directory featured"
-            title="Featured / sponsored listing slot"
-            body="Reserved for future paid placement. Always labeled. Empty on purpose in v1 — not mixed into organic sort."
-          />
-          <Link href="/directory/submit" className="glass lift rounded-3xl p-5">
+        <div className="mb-8">
+          <Link href="/directory/submit" className="glass lift block rounded-3xl p-5">
             <p className="kicker">Submit a tool</p>
-            <p className="mt-2 text-sm text-[var(--muted)]">Tell us about a product. Nothing auto-publishes.</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">Tell us about a product. Nothing is published automatically.</p>
           </Link>
         </div>
 
@@ -139,10 +133,14 @@ export default async function DirectoryPage({
         ) : (
           <div className="mt-4">
             <EmptyState
-              title="No listings match these filters"
-              body="Clear the form or submit a tool. We will not invent products to fill the grid."
-              href="/directory"
-              cta="Reset directory"
+              title={listings.length === 0 ? "Listings coming soon — submit a tool" : "No listings match these filters"}
+              body={
+                listings.length === 0
+                  ? "The directory will list real products with a working official site. Submit one if you want it considered."
+                  : "Clear the filters or submit a tool. Products are not invented to fill the grid."
+              }
+              href={listings.length === 0 ? "/directory/submit" : "/directory"}
+              cta={listings.length === 0 ? "Submit a tool" : "Reset directory"}
             />
           </div>
         )}

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { SampleBanner } from "@/components/SampleBanner";
 import { allTags, getDirectoryListings } from "@/lib/directory";
 import { defaultMetadata } from "@/lib/seo";
 
@@ -35,7 +34,6 @@ export default async function DirectoryTagPage({ params }: { params: Promise<{ s
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {listings.map((listing) => (
             <article key={listing.slug} className="glass rounded-3xl p-6">
-              {listing.sample ? <SampleBanner /> : null}
               <h2 className="font-semibold tracking-tight text-2xl">
                 <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
               </h2>

@@ -28,7 +28,7 @@ export default function AboutPage() {
           Coverage runs from first questions to frontier papers: news, tools and SaaS, research, shopping, task performance, harnesses, education, and how agents work. The directory is meant to become a serious catalog over time — listings are files, not a mystery CMS.
         </p>
         <p className="mt-4">
-          We will not invent people, credentials, testimonials, user counts, or citations. Sample pages are labeled. Replace them by committing Markdown.
+          We will not invent people, credentials, testimonials, user counts, or citations. A page is published when its sources check out.
         </p>
       </div>
     </>
