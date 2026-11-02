@@ -80,7 +80,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             {doc.paperUrl ? (
-              <a className="rounded-full bg-[var(--fg)] px-4 py-2 text-sm text-[var(--bg)]" href={doc.paperUrl} rel="noreferrer">
+              <a className="btn-primary px-4 py-2 text-sm" href={doc.paperUrl} rel="noreferrer">
                 Paper
               </a>
             ) : null}

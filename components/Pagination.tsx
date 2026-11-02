@@ -13,7 +13,7 @@ export function Pagination({
   return (
     <nav aria-label="Pagination" className="mt-12 flex items-center justify-center gap-3">
       {page > 1 ? (
-        <Link className="rounded-full border border-[var(--stroke)] px-4 py-2 text-sm" href={hrefFor(page - 1)}>
+        <Link className="btn-ghost px-4 py-2 text-sm" href={hrefFor(page - 1)}>
           Previous
         </Link>
       ) : (
@@ -23,7 +23,7 @@ export function Pagination({
         Page {page} of {totalPages}
       </p>
       {page < totalPages ? (
-        <Link className="rounded-full border border-[var(--stroke)] px-4 py-2 text-sm" href={hrefFor(page + 1)}>
+        <Link className="btn-ghost px-4 py-2 text-sm" href={hrefFor(page + 1)}>
           Next
         </Link>
       ) : (

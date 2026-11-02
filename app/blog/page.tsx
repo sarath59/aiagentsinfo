@@ -46,14 +46,14 @@ export default async function BlogIndexPage({
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <div className="flex flex-wrap gap-2">
-          <Link href="/blog" className={`rounded-full border px-3 py-1.5 text-sm ${!category ? "border-[var(--fg)]" : "border-[var(--stroke)]"}`}>
+          <Link href="/blog" className={`chip ${!category ? "chip-active" : ""}`}>
             All
           </Link>
           {blogCategories.map((item) => (
             <Link
               key={item.slug}
               href={`/blog?category=${item.slug}`}
-              className={`rounded-full border px-3 py-1.5 text-sm ${category === item.slug ? "border-[var(--fg)]" : "border-[var(--stroke)]"}`}
+              className={`chip ${category === item.slug ? "chip-active" : ""}`}
             >
               {item.title}
             </Link>

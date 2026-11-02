@@ -1,23 +1,23 @@
 import Link from "next/link";
+import { SearchIcon } from "@/components/Icons";
+import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { audiences, nav, site } from "@/lib/site";
+import { audiences, nav } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--stroke)] bg-[color-mix(in_oklab,var(--bg)_78%,transparent)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="focus-ring group flex items-center gap-2">
-          <span
-            aria-hidden
-            className="grid h-8 w-8 place-items-center rounded-full bg-[var(--fg)] text-[10px] font-semibold tracking-[0.2em] text-[var(--bg)]"
-          >
-            AI
-          </span>
-          <span className="font-serif text-lg tracking-tight">{site.name}</span>
+    <header className="sticky top-0 z-40 border-b border-[var(--stroke)] bg-[color-mix(in_oklab,var(--bg)_78%,transparent)] backdrop-blur-2xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5">
+        <Link href="/" className="focus-ring rounded-lg" aria-label="AI Agents Info home">
+          <Logo />
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-6 text-sm md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 text-[13.5px] md:flex">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="focus-ring text-[var(--muted)] hover:text-[var(--fg)]">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="focus-ring text-[var(--muted)] transition-colors hover:text-[var(--fg)]"
+            >
               {item.label}
             </Link>
           ))}
@@ -30,7 +30,7 @@ export function Header() {
                 <Link
                   key={audience.slug}
                   href={audience.href}
-                  className="block rounded-xl px-3 py-2 text-sm hover:bg-[color-mix(in_oklab,var(--fg)_6%,transparent)]"
+                  className="block rounded-xl px-3 py-2 text-sm hover:bg-[color-mix(in_oklab,var(--color-electric)_10%,transparent)]"
                 >
                   {audience.title}
                 </Link>
@@ -39,7 +39,11 @@ export function Header() {
           </details>
         </nav>
         <div className="flex items-center gap-2">
-          <Link href="/search" className="focus-ring rounded-full border border-[var(--stroke)] px-3 py-1.5 text-xs uppercase tracking-wide">
+          <Link
+            href="/search"
+            className="focus-ring btn-ghost inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em]"
+          >
+            <SearchIcon className="h-3.5 w-3.5 text-[var(--color-cyan)]" />
             Search
           </Link>
           <ThemeToggle />

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="mesh">
+    <div>
       <div className="mx-auto max-w-xl px-4 py-24 text-center">
         <p className="kicker">404</p>
         <h1 className="display mt-4 text-5xl">This page is not in the corpus</h1>
@@ -10,16 +10,16 @@ export default function NotFound() {
           The URL does not match a blog post, paper, glossary term, or directory listing. Nothing is behind a login — it simply is not here.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link href="/" className="rounded-full bg-[var(--fg)] px-5 py-2 text-sm text-[var(--bg)]">
+          <Link href="/" className="btn-primary px-5 py-2 text-sm">
             Home
           </Link>
-          <Link href="/directory" className="rounded-full border border-[var(--stroke)] px-5 py-2 text-sm">
+          <Link href="/directory" className="btn-ghost px-5 py-2 text-sm">
             Directory
           </Link>
-          <Link href="/research" className="rounded-full border border-[var(--stroke)] px-5 py-2 text-sm">
+          <Link href="/research" className="btn-ghost px-5 py-2 text-sm">
             Research
           </Link>
-          <Link href="/search" className="rounded-full border border-[var(--stroke)] px-5 py-2 text-sm">
+          <Link href="/search" className="btn-ghost px-5 py-2 text-sm">
             Search
           </Link>
         </div>

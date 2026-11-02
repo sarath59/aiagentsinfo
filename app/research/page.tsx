@@ -55,14 +55,14 @@ export default async function ResearchIndexPage({
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <div className="flex flex-wrap gap-2">
-          <Link href="/research" className="rounded-full border border-[var(--stroke)] px-3 py-1.5 text-sm">
+          <Link href="/research" className="chip">
             Reset
           </Link>
           {researchTypes.map((item) => (
             <Link
               key={item.slug}
               href={hrefFor({ type: item.slug, topic: topic || undefined })}
-              className={`rounded-full border px-3 py-1.5 text-sm ${type === item.slug ? "border-[var(--fg)]" : "border-[var(--stroke)]"}`}
+              className={`chip ${type === item.slug ? "chip-active" : ""}`}
             >
               {item.title}
             </Link>
@@ -73,7 +73,7 @@ export default async function ResearchIndexPage({
             <Link
               key={item}
               href={hrefFor({ topic: item, type: type || undefined })}
-              className={`rounded-full border px-3 py-1.5 text-sm ${topic === item ? "border-[var(--fg)]" : "border-[var(--stroke)]"}`}
+              className={`chip ${topic === item ? "chip-active" : ""}`}
             >
               {item}
             </Link>

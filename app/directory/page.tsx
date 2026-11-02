@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
+import { ListingCard } from "@/components/ListingCard";
 import { PageHeader } from "@/components/PageHeader";
-import { SampleBanner } from "@/components/SampleBanner";
 import { SponsorSlot } from "@/components/SponsorSlot";
 import {
   allTags,
   allUseCases,
-  categoryTitle,
   directoryCategories,
   filterDirectory,
   getDirectoryListings,
@@ -65,13 +64,13 @@ export default async function DirectoryPage({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <Link href="/directory/new" className="rounded-full border border-[var(--stroke)] px-3 py-1.5 text-sm">
+          <Link href="/directory/new" className="chip">
             New this week
           </Link>
-          <Link href="/directory/trending" className="rounded-full border border-[var(--stroke)] px-3 py-1.5 text-sm">
+          <Link href="/directory/trending" className="chip">
             Trending
           </Link>
-          <Link href="/directory/editors-picks" className="rounded-full border border-[var(--stroke)] px-3 py-1.5 text-sm">
+          <Link href="/directory/editors-picks" className="chip">
             Editor&apos;s picks
           </Link>
         </div>
@@ -99,7 +98,7 @@ export default async function DirectoryPage({
               </option>
             ))}
           </select>
-          <button className="rounded-full bg-[var(--fg)] px-4 py-2 text-sm text-[var(--bg)]" type="submit">
+          <button className="btn-primary px-5 py-2 text-sm" type="submit">
             Filter
           </button>
           <select name="useCase" defaultValue={filters.useCase} className={select}>
@@ -128,23 +127,13 @@ export default async function DirectoryPage({
           </select>
         </form>
 
-        <p className="mt-6 text-sm text-[var(--muted)]">{filtered.length} listing{filtered.length === 1 ? "" : "s"}</p>
+        <p className="mt-6 text-sm text-[var(--muted)]">
+          {filtered.length} listing{filtered.length === 1 ? "" : "s"}
+        </p>
         {filtered.length ? (
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {filtered.map((listing) => (
-              <article key={listing.slug} className="glass lift rounded-3xl p-6">
-                {listing.sample ? <SampleBanner /> : null}
-                {listing.sponsored ? (
-                  <p className="mb-2 text-xs uppercase tracking-widest text-[var(--gold)]">Sponsored</p>
-                ) : null}
-                <p className="kicker">
-                  {categoryTitle(listing.category)} · {listing.vendor}
-                </p>
-                <h2 className="mt-2 font-serif text-2xl">
-                  <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
-                </h2>
-                <p className="mt-3 text-sm text-[var(--muted)]">{listing.summary}</p>
-              </article>
+              <ListingCard key={listing.slug} listing={listing} />
             ))}
           </div>
         ) : (

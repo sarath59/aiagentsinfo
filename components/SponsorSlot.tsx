@@ -11,7 +11,7 @@ export function SponsorSlot({
 }) {
   return (
     <aside
-      className="rounded-3xl border border-dashed border-[var(--stroke-strong)] p-5"
+      className="rounded-3xl border border-dashed border-[var(--stroke-strong)] bg-[color-mix(in_oklab,var(--color-gold)_5%,transparent)] p-5"
       aria-label={`Sponsored placement: ${placement}`}
     >
       <p className="kicker text-[var(--gold)]">Sponsored · {placement}</p>

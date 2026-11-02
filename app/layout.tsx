@@ -44,12 +44,17 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: "/apple-icon",
+  },
+  manifest: "/manifest.webmanifest",
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3eee4" },
-    { media: "(prefers-color-scheme: dark)", color: "#07060d" },
+    { media: "(prefers-color-scheme: light)", color: "#e8f0f6" },
+    { media: "(prefers-color-scheme: dark)", color: "#071421" },
   ],
 };
 

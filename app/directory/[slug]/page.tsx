@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ListingCard } from "@/components/ListingCard";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { SampleBanner } from "@/components/SampleBanner";
 import {
@@ -56,13 +57,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {items.map((listing) => (
-              <article key={listing.slug} className="glass rounded-3xl p-6">
-                {listing.sample ? <SampleBanner /> : null}
-                <h2 className="font-serif text-2xl">
-                  <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
-                </h2>
-                <p className="mt-2 text-sm text-[var(--muted)]">{listing.summary}</p>
-              </article>
+              <ListingCard key={listing.slug} listing={listing} />
             ))}
           </div>
         </div>
@@ -105,10 +100,10 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           Last verified: <time dateTime={listing.lastVerified}>{formatDate(listing.lastVerified)}</time>
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <a className="rounded-full bg-[var(--fg)] px-4 py-2 text-sm text-[var(--bg)]" href={listing.website} rel="noreferrer">
+          <a className="btn-primary px-4 py-2 text-sm" href={listing.website} rel="noreferrer">
             Website
           </a>
-          <Link className="rounded-full border border-[var(--stroke)] px-4 py-2 text-sm" href={`/directory/category/${listing.category}`}>
+          <Link className="btn-ghost px-4 py-2 text-sm" href={`/directory/category/${listing.category}`}>
             {categoryTitle(listing.category)}
           </Link>
         </div>
@@ -140,7 +135,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           <h2 className="font-serif text-2xl">Tags</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {listing.tags.map((tag) => (
-              <Link key={tag} href={`/directory/tag/${tag}`} className="rounded-full border border-[var(--stroke)] px-3 py-1 text-sm">
+              <Link key={tag} href={`/directory/tag/${tag}`} className="chip">
                 {tag}
               </Link>
             ))}

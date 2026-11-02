@@ -49,7 +49,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="rounded-full bg-[var(--fg)] px-5 py-3 text-sm font-medium text-[var(--bg)] disabled:opacity-60"
+        className="btn-primary px-5 py-3 text-sm disabled:opacity-60"
       >
         {status === "loading" ? "Sending…" : "Get the digest"}
       </button>

@@ -66,7 +66,7 @@ export function SubmitToolForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="justify-self-start rounded-full bg-[var(--fg)] px-6 py-3 text-sm font-medium text-[var(--bg)]"
+        className="btn-primary justify-self-start px-6 py-3 text-sm"
       >
         {status === "loading" ? "Sending…" : "Submit a tool"}
       </button>

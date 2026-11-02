@@ -28,6 +28,15 @@ See `.env.example`. The only variable used by the site itself is:
 
 Newsletter (`POST /api/newsletter`) and tool submissions (`POST /api/submit-tool`) are **stubs**. They validate input and log on the server. Wire a provider in those files when you are ready. **Do not commit API keys.** This repository is public.
 
+## Brand assets
+
+Original mark and wordmark (navy / electric blue / cyan / gold — not monochrome, no violet):
+
+- `public/brand/mark-dark.svg` / `mark-light.svg`
+- `public/brand/wordmark-dark.svg` / `wordmark-light.svg`
+- `public/brand/lockup-dark.svg` / `lockup-light.svg`
+- App icons: `app/icon.svg`, `app/apple-icon.tsx`, `public/brand/icon-192.png`, `public/brand/icon-512.png`
+
 ## How to add content
 
 Every new URL is a new file. Front matter is YAML. Set `sample: true` until the piece is real.
@@ -52,7 +61,7 @@ Byline is always **AI Agents Info Editorial** or **AI Agents Info Research**. Do
 ## Deploy on Vercel with a custom domain
 
 1. Push this repository to GitHub (already the case for this project).
-2. In Vercel: **Add New Project** → import `sarath59/aiagentsinfo` → framework preset Next.js → deploy.
+2. In Vercel: **Add New Project** → import `sarath59/aiagentsinfo` → framework preset Next.js → deploy. `vercel.json` sets `"framework": "nextjs"` and enables Git deployments **only on `main`** (no preview deploys for PR or feature branches).
 3. Project Settings → Environment Variables → set `NEXT_PUBLIC_SITE_URL=https://aiagentsinfo.com`. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo).
 4. Project Settings → Domains → add `aiagentsinfo.com` and `www.aiagentsinfo.com`. Point DNS (A/ALIAS/CNAME) as Vercel instructs.
 5. Wait for the certificate, then confirm `/sitemap.xml`, `/robots.txt`, and `/rss.xml` on the live host.

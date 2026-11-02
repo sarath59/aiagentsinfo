@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { MoonIcon, SunIcon } from "@/components/Icons";
 
 function subscribe(callback: () => void) {
   const observer = new MutationObserver(callback);
@@ -29,14 +30,21 @@ export function ThemeToggle() {
     window.localStorage.setItem("theme", next);
   }
 
+  const isDark = theme === "dark";
+
   return (
     <button
       type="button"
       onClick={toggle}
-      className="focus-ring rounded-full border border-[var(--stroke)] px-3 py-1.5 text-xs tracking-wide uppercase"
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      className="focus-ring btn-ghost inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em]"
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {theme === "dark" ? "Light" : "Dark"}
+      {isDark ? (
+        <SunIcon className="h-3.5 w-3.5 text-[var(--gold)]" />
+      ) : (
+        <MoonIcon className="h-3.5 w-3.5 text-[var(--color-electric)]" />
+      )}
+      {isDark ? "Light" : "Dark"}
     </button>
   );
 }
