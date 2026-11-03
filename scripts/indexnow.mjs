@@ -283,6 +283,14 @@ async function submit(endpoint, payload) {
   return { status: response.status, body: text.slice(0, 500) };
 }
 
+function shouldRetry(result) {
+  if (result.status === 429) return true;
+  return (
+    result.status === 403 &&
+    result.body.includes("SiteVerificationNotCompleted")
+  );
+}
+
 function parseArgs(argv) {
   const args = { all: false, changed: false, wait: false, dryRun: false, urls: [] };
   for (let index = 0; index < argv.length; index += 1) {
@@ -378,9 +386,17 @@ async function main() {
     const payload = { host: HOST, key, keyLocation, urlList };
     for (const endpoint of ENDPOINTS) {
       try {
-        const result = await submit(endpoint, payload);
-        const detail = result.body ? ` ${result.body}` : "";
-        console.log(`${endpoint} ${result.status}${detail}`);
+        let result;
+        for (let attempt = 1; attempt <= 4; attempt += 1) {
+          result = await submit(endpoint, payload);
+          const detail = result.body ? ` ${result.body}` : "";
+          const retry = shouldRetry(result) && attempt < 4;
+          console.log(
+            `${endpoint} ${result.status}${detail}${retry ? ` (retry ${attempt}/3)` : ""}`,
+          );
+          if (!retry) break;
+          await new Promise((resolve) => setTimeout(resolve, 15000 * attempt));
+        }
         if (result.status !== 200 && result.status !== 202) failed = true;
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
