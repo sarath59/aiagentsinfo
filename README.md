@@ -25,6 +25,8 @@ See `.env.example`. **Do not commit API keys.** This repository is public.
 | `NEXT_PUBLIC_SITE_URL` | Used for local development (`http://localhost:3000`). Production canonical URLs are always `https://www.aiagentsinfo.com`, including when this variable is the apex host or a `vercel.app` host. |
 | `NEXT_PUBLIC_ANALYTICS_DOMAIN` | Optional. If set, a Plausible-style analytics script loads (no API keys). Leave unset for no tracking. |
 | `NEXT_PUBLIC_ANALYTICS_SRC` | Optional custom analytics script URL. |
+| `NEXT_PUBLIC_BING_VERIFICATION` | Optional. When set, the root layout renders `<meta name="msvalidate.01">` for Bing Webmaster Tools. Unset means the tag is omitted. |
+| `NEXT_PUBLIC_GOOGLE_VERIFICATION` | Optional. When set, the root layout renders `<meta name="google-site-verification">`. Unset means the tag is omitted. |
 | `GITHUB_SUBMISSIONS_TOKEN` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
 | `GITHUB_SUBMISSIONS_REPO` | Optional `owner/name` of a **private** repository. When set to a repo other than `sarath59/aiagentsinfo`, the submitter email is stored only in a GitHub issue there. When unset, the email is dropped. |
 
@@ -132,11 +134,23 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published fi
 
 1. Push this repository to GitHub (already the case for this project).
 2. In Vercel: **Add New Project** → import `sarath59/aiagentsinfo` → framework preset Next.js → deploy. `vercel.json` sets `"framework": "nextjs"` and enables Git deployments **only on `main`** (no preview deploys for PR or feature branches).
-3. Project Settings → Environment Variables → set `GITHUB_SUBMISSIONS_TOKEN` (Contents read/write on `sarath59/aiagentsinfo`) so `/submit` can commit listings to `main`. Optionally set `GITHUB_SUBMISSIONS_REPO` to a private `owner/name` if submitter emails should be kept in issues. Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo).
+3. Project Settings → Environment Variables → set `GITHUB_SUBMISSIONS_TOKEN` (Contents read/write on `sarath59/aiagentsinfo`) so `/submit` can commit listings to `main`. Optionally set `GITHUB_SUBMISSIONS_REPO` to a private `owner/name` if submitter emails should be kept in issues. Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo). Optionally set `NEXT_PUBLIC_BING_VERIFICATION` and `NEXT_PUBLIC_GOOGLE_VERIFICATION` after creating those webmaster properties; leave them unset until you have the codes.
 4. Project Settings → Domains → add `aiagentsinfo.com` and `www.aiagentsinfo.com`, with `www` as the canonical host. Point DNS (A/ALIAS/CNAME) as Vercel instructs. The apex host redirects to `www`.
 5. Wait for the certificate, then confirm `/sitemap.xml`, `/robots.txt`, and `/rss.xml` on the live host.
 
 No auth providers to configure. No Stripe.
+
+## Search indexing (IndexNow)
+
+`robots.txt` allows Bingbot (and the other listed crawlers) on `/` and points at `https://www.aiagentsinfo.com/sitemap.xml`. The sitemap lists absolute `www` URLs.
+
+IndexNow tells Bing — and engines that use that feed, including ChatGPT search, Copilot, and DuckDuckGo — which URLs changed. The key is public and lives in `public/<key>.txt` (the file body is the key). A push to `main` runs `.github/workflows/indexnow.yml`, which waits until that file is live and then submits the URLs affected by the push. Shared layout, component, or library edits submit the full sitemap.
+
+```bash
+npm run indexnow -- --all
+npm run indexnow -- --changed
+npm run indexnow -- --urls https://www.aiagentsinfo.com/blog
+```
 
 ## What ships in v1
 

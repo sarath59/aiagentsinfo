@@ -15,6 +15,16 @@ const inter = Inter({
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
 });
 
+function siteVerification(): Metadata["verification"] {
+  const google = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION?.trim();
+  const bing = process.env.NEXT_PUBLIC_BING_VERIFICATION?.trim();
+  if (!google && !bing) return undefined;
+  return {
+    ...(google ? { google } : {}),
+    ...(bing ? { other: { "msvalidate.01": bing } } : {}),
+  };
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -31,6 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   manifest: "/manifest.webmanifest",
+  verification: siteVerification(),
 };
 
 export const viewport: Viewport = {
