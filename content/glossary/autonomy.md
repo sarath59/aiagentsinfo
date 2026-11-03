@@ -4,6 +4,7 @@ shortDefinition: How many actions a system may take without a human confirming â
 related:
   - agent
   - harness
+  - guardrail
 topics:
   - how-agents-work
   - task-performance

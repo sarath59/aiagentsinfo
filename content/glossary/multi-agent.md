@@ -4,6 +4,7 @@ shortDefinition: More than one model (or role) collaborating, often as planner, 
 related:
   - agent
   - harness
+  - orchestration
 topics:
   - harnesses
 ---

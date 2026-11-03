@@ -411,6 +411,44 @@ a {
   padding-left: 1.3rem;
 }
 
+article.grid > * {
+  min-width: 0;
+}
+
+.prose-article .table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 1.15rem 0;
+  border: 1px solid var(--stroke);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.prose-article .table-scroll table {
+  width: 100%;
+  min-width: 40rem;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.prose-article th,
+.prose-article td {
+  border-bottom: 1px solid var(--stroke);
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose-article th {
+  font-weight: 600;
+  background: rgba(12, 92, 173, 0.05);
+}
+
+.prose-article tr:last-child td {
+  border-bottom: 0;
+}
+
 .readable-lg .prose-article,
 .readable-lg p,
 .readable-lg li {
