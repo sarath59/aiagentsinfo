@@ -55,7 +55,7 @@ export default async function DirectoryPage({
             <p className="kicker">Submit your tool</p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight">List a product you built</h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--muted)]">
-              No login and no fee. We review every submission and add it to the directory only after a fact-check.
+              No login and no fee. A valid submission is published automatically and usually appears within about two minutes.
             </p>
           </div>
           <Link href="/submit" className="btn-primary shrink-0 px-5 py-3 text-sm">

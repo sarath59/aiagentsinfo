@@ -28,8 +28,9 @@ export type SubmissionStatus = "pending" | "approved";
 
 export const HONEYPOT_FIELD = "hp_field";
 
-export const SUBMISSION_SUCCESS_MESSAGE =
-  "Thanks. This submission will be reviewed and listed only after a fact-check. Nothing is published automatically.";
+export const SUBMISSION_SUCCESS_MESSAGE = "Your tool will be live in about 2 minutes.";
+
+export const BLOCKED_TEXT_MESSAGE = "Remove language or spam that can't be published.";
 
 export const SUBMISSION_FIELDS = [
   "name",
@@ -142,23 +143,23 @@ export function validateSubmission(
   const now = options.now ?? new Date();
   const errors: FieldErrors = {};
 
-  const name = asString(input.name);
-  const websiteRaw = asString(input.website);
-  const tagline = asString(input.tagline);
-  const description = asString(input.description);
-  const category = asString(input.category);
-  const type = asString(input.type);
-  const pricing = asString(input.pricing);
-  const startingPrice = asString(input.startingPrice);
-  const logoUrlRaw = asString(input.logoUrl);
-  const makerName = asString(input.makerName);
-  const makerXRaw = asString(input.makerX);
-  const makerType = asString(input.makerType);
-  const ycBatch = asString(input.ycBatch);
-  const launchYearRaw = asString(input.launchYear);
-  const revenueRaw = asString(input.revenueSourceUrl);
-  const githubRaw = asString(input.githubUrl);
-  const email = asString(input.email).toLowerCase();
+  const name = oneLine(input.name);
+  const websiteRaw = oneLine(input.website);
+  const tagline = oneLine(input.tagline);
+  const description = sanitizePlainText(typeof input.description === "string" ? input.description : "");
+  const category = oneLine(input.category);
+  const type = oneLine(input.type);
+  const pricing = oneLine(input.pricing);
+  const startingPrice = oneLine(input.startingPrice);
+  const logoUrlRaw = oneLine(input.logoUrl);
+  const makerName = oneLine(input.makerName);
+  const makerXRaw = oneLine(input.makerX);
+  const makerType = oneLine(input.makerType);
+  const ycBatch = oneLine(input.ycBatch);
+  const launchYearRaw = oneLine(input.launchYear);
+  const revenueRaw = oneLine(input.revenueSourceUrl);
+  const githubRaw = oneLine(input.githubUrl);
+  const email = oneLine(input.email).toLowerCase();
 
   if (name.length < 2 || name.length > 80) {
     errors.name = "Enter the tool name (2–80 characters).";
@@ -169,8 +170,6 @@ export function validateSubmission(
   }
   if (!tagline || tagline.length < 8 || tagline.length > 140) {
     errors.tagline = "Enter a one-line tagline (8–140 characters).";
-  } else if (/[\r\n]/.test(tagline)) {
-    errors.tagline = "Use a single line for the tagline.";
   }
   if (description.length < 20 || description.length > 5000) {
     errors.description = "Enter a full description (20–5000 characters).";
@@ -266,6 +265,13 @@ export function validateSubmission(
       errors.slug = `Slug must match the filename (${slug}).`;
     }
   }
+
+  if (!errors.name && textBlocked(name)) errors.name = BLOCKED_TEXT_MESSAGE;
+  if (!errors.tagline && textBlocked(tagline)) errors.tagline = BLOCKED_TEXT_MESSAGE;
+  if (!errors.description && textBlocked(description)) errors.description = BLOCKED_TEXT_MESSAGE;
+  if (!errors.startingPrice && textBlocked(startingPrice)) errors.startingPrice = BLOCKED_TEXT_MESSAGE;
+  if (!errors.makerName && textBlocked(makerName)) errors.makerName = BLOCKED_TEXT_MESSAGE;
+  if (!errors.ycBatch && textBlocked(ycBatch)) errors.ycBatch = BLOCKED_TEXT_MESSAGE;
 
   if (Object.keys(errors).length) return { ok: false, errors };
 
@@ -370,26 +376,55 @@ export function submissionToListing(submission: ToolSubmission) {
     features,
     pricingSummary,
     lastVerified: submission.submittedAt.slice(0, 10),
+    communitySubmitted: true,
   };
 }
 
+/** Public directory file. The submitter email is intentionally omitted. */
+export function publicSubmissionRecord(submission: ToolSubmission) {
+  return {
+    name: submission.name,
+    website: submission.website,
+    tagline: submission.tagline,
+    description: submission.description,
+    category: submission.category,
+    type: submission.type,
+    pricing: submission.pricing,
+    startingPrice: submission.startingPrice,
+    logoUrl: submission.logoUrl,
+    makerName: submission.makerName,
+    makerX: submission.makerX,
+    makerType: submission.makerType,
+    ycBatch: submission.ycBatch,
+    launchYear: submission.launchYear,
+    revenueSourceUrl: submission.revenueSourceUrl,
+    githubUrl: submission.githubUrl,
+    consent: true as const,
+    status: "approved" as const,
+    submittedAt: submission.submittedAt,
+    slug: submission.slug,
+  };
+}
+
+export function websiteDomain(value: string) {
+  try {
+    return new URL(value).hostname.toLowerCase().replace(/\.$/, "").replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
 export function submissionIssueBody(submission: ToolSubmission) {
-  const json = JSON.stringify(submission, null, 2);
+  const json = JSON.stringify(publicSubmissionRecord(submission), null, 2);
   let fence = "```";
   while (json.includes(fence)) fence += "`";
   return [
     `Tool: ${neutralizeMentions(submission.name)}`,
     `Website: ${neutralizeMentions(submission.website)}`,
-    "Status: pending",
+    `Email: ${submission.email}`,
     "",
-    "This is a directory submission waiting for a fact-check. It is not listed on the site.",
-    "",
-    "To approve:",
-    '1. Set `"status"` to `"approved"`.',
-    "2. Remove `email` if it should not be stored in a public git history.",
-    `3. Save the JSON as \`data/submissions/${submission.slug}.json\`.`,
-    "4. Commit that file to `main`. The directory renders this folder only when status is approved.",
-    "",
+    "The email is only in this private issue. It is not in the public directory file.",
+    `Public file: \`data/submissions/${submission.slug}.json\` on main, with \`"status": "approved"\`.`,
     `Category: ${categoryTitle(submission.category)}`,
     "",
     `${fence}json`,
@@ -448,7 +483,43 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function asString(value: unknown) {
   if (typeof value === "number" && Number.isFinite(value)) return String(value);
   if (typeof value !== "string") return "";
-  return value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").trim();
+  return value.trim();
+}
+
+function sanitizePlainText(value: string) {
+  return value
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+    .replace(/<\/?[a-z][^>\n]*>/gi, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function oneLine(value: unknown) {
+  return sanitizePlainText(asString(value)).replace(/\s+/g, " ").trim();
+}
+
+const PROFANITY =
+  /\b(fuck(?:ing|ed|er)?|shit(?:ty)?|bitch(?:es)?|asshole|cunt|nigger|nigga|faggot|retard(?:ed)?)\b/i;
+
+const SPAM_PHRASES = [
+  "buy followers",
+  "crypto airdrop",
+  "free btc",
+  "work from home",
+  "seo backlinks",
+  "viagra",
+  "cialis",
+  "casino bonus",
+];
+
+export function textBlocked(value: string) {
+  if (!value) return false;
+  if (PROFANITY.test(value)) return true;
+  const lower = value.toLowerCase();
+  if (SPAM_PHRASES.some((phrase) => lower.includes(phrase))) return true;
+  if (/(.)\1{11,}/.test(value)) return true;
+  const links = value.match(/https?:\/\//gi);
+  return Boolean(links && links.length > 5);
 }
 
 function isConsent(value: unknown) {
@@ -498,7 +569,7 @@ function parsePublicUrl(value: string, maxLength: number): { ok: true; url: stri
   }
   if (url.protocol !== "http:" && url.protocol !== "https:") return { ok: false };
   if (url.username || url.password) return { ok: false };
-  if (isBlockedHost(url.hostname)) return { ok: false };
+  if (isBlockedHostname(url.hostname)) return { ok: false };
   return { ok: true, url: url.href };
 }
 
@@ -514,7 +585,7 @@ function parseGithubUrl(value: string): { ok: true; url: string } | { ok: false 
   return { ok: true, url: `https://github.com/${parts.join("/")}` };
 }
 
-function isBlockedHost(hostname: string) {
+export function isBlockedHostname(hostname: string) {
   const host = hostname.toLowerCase().replace(/^\[|\]$/g, "").replace(/\.$/, "");
   if (
     host === "localhost" ||

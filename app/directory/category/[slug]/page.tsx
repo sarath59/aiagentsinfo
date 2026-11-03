@@ -59,6 +59,11 @@ export default async function DirectoryCategoryPage({
                       size="md"
                     />
                     <div className="min-w-0">
+                      {listing.communitySubmitted ? (
+                        <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--gold)]">
+                          Community submitted
+                        </p>
+                      ) : null}
                       <h2 className="font-semibold tracking-tight text-2xl">
                         <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
                       </h2>

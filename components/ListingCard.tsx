@@ -8,6 +8,14 @@ function pricingTitle(slug: string) {
   return pricingModels.find((item) => item.slug === slug)?.title ?? slug;
 }
 
+export function CommunityBadge() {
+  return (
+    <span className="chip border-[color-mix(in_oklab,var(--gold-bright)_55%,var(--stroke))] text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--gold)]">
+      Community submitted
+    </span>
+  );
+}
+
 export function ListingCard({ listing }: { listing: DirectoryListing }) {
   const brand = companyForName(listing.name);
 
@@ -15,6 +23,11 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
     <article className="glass lift rounded-3xl p-6">
       {listing.sponsored ? (
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--gold)]">Sponsored</p>
+      ) : null}
+      {listing.communitySubmitted ? (
+        <p className="mb-3">
+          <CommunityBadge />
+        </p>
       ) : null}
       <div className="flex items-start gap-4">
         <CompanyLogo
@@ -58,6 +71,11 @@ export function ListingRow({ listing }: { listing: DirectoryListing }) {
         size="sm"
       />
       <span className="min-w-0 flex-1 truncate font-medium">{listing.name}</span>
+      {listing.communitySubmitted ? (
+        <span className="hidden sm:inline-flex">
+          <CommunityBadge />
+        </span>
+      ) : null}
       <span className="hidden text-sm text-[var(--muted)] sm:inline">{listing.vendor}</span>
     </Link>
   );

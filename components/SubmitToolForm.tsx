@@ -295,7 +295,7 @@ export function SubmitToolForm() {
           label="Your email"
           required
           error={errors.email}
-          hint="We use this to follow up. Submissions are filed as GitHub issues for review. On a public repository, that issue, including this email, can be read by anyone."
+          hint="Used if we need to follow up. It is not written into the public directory."
         >
           <input name="email" type="email" required autoComplete="email" maxLength={254} className={inputClass} />
         </Field>

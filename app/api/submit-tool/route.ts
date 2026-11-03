@@ -1,19 +1,25 @@
 import { NextResponse } from "next/server";
-import { fileToolSubmission, submissionsToken } from "@/lib/github-submissions";
+import { publishSubmission, submissionsToken } from "@/lib/github-submissions";
 import { takeRateLimit } from "@/lib/rate-limit";
-import { collectTakenSlugs } from "@/lib/submission-files";
+import { collectTakenSlugs, localListingDomains } from "@/lib/submission-files";
 import {
   honeypotTripped,
   submissionMailto,
   SUBMISSION_SUCCESS_MESSAGE,
   validateSubmission,
+  websiteDomain,
   type SubmissionField,
 } from "@/lib/submissions";
+import { assertPublicUrlReachable } from "@/lib/url-check";
+
+export const runtime = "nodejs";
 
 const MAX_BODY = 40_000;
 
 const MAILOUT_MESSAGE =
   "We can't save this submission right now. Email it to the desk and we'll review it the same way.";
+
+const DUPLICATE_MESSAGE = "A tool on this domain is already in the directory.";
 
 export async function POST(request: Request) {
   if (!sameOrigin(request)) {
@@ -64,23 +70,27 @@ export async function POST(request: Request) {
   }
 
   const mailto = submissionMailto(stringsFrom(validated.value));
+  const domain = websiteDomain(validated.value.website);
+  if (domain && localListingDomains().has(domain)) {
+    return json({ message: "Check the highlighted fields.", errors: { website: DUPLICATE_MESSAGE } }, 409);
+  }
+
+  const reachable = await assertPublicUrlReachable(validated.value.website);
+  if (!reachable.ok) {
+    return json({ message: "Check the highlighted fields.", errors: { website: reachable.message } }, 400);
+  }
+
   if (!submissionsToken()) {
     return json({ ok: false, code: "unconfigured", message: MAILOUT_MESSAGE, mailto }, 503);
   }
 
   try {
-    const filed = await fileToolSubmission(validated.value);
+    const filed = await publishSubmission(validated.value);
     if (filed.ok) {
       return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
     }
     if (filed.reason === "duplicate") {
-      return json(
-        {
-          message: "This tool was just submitted. Wait an hour before sending it again, or email the desk.",
-          mailto,
-        },
-        429,
-      );
+      return json({ message: "Check the highlighted fields.", errors: { website: DUPLICATE_MESSAGE } }, 409);
     }
     return json({ ok: false, code: "store_failed", message: MAILOUT_MESSAGE, mailto }, 502);
   } catch (error) {

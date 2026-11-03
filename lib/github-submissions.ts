@@ -1,34 +1,210 @@
-import { neutralizeMentions, submissionIssueBody, type ToolSubmission } from "@/lib/submissions";
+import { collectTakenSlugs } from "@/lib/submission-files";
+import {
+  neutralizeMentions,
+  publicSubmissionRecord,
+  submissionIssueBody,
+  suggestSlug,
+  websiteDomain,
+  type ToolSubmission,
+} from "@/lib/submissions";
 
 export const SUBMISSION_LABEL = "tool-submission";
-
-const DEFAULT_REPO = "sarath59/aiagentsinfo";
+export const SITE_REPO = "sarath59/aiagentsinfo";
 
 export function submissionsToken() {
   const token = process.env.GITHUB_SUBMISSIONS_TOKEN?.trim();
   return token || null;
 }
 
-export function submissionsRepo() {
-  const repo = process.env.GITHUB_SUBMISSIONS_REPO?.trim() || DEFAULT_REPO;
+/** Private repo for the submitter email. Unset, or the public site repo, means the email is dropped. */
+export function privateIssueRepo() {
+  const repo = process.env.GITHUB_SUBMISSIONS_REPO?.trim();
+  if (!repo) return null;
   if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) {
     throw new Error("GITHUB_SUBMISSIONS_REPO must look like owner/name.");
   }
+  if (repo.toLowerCase() === SITE_REPO) return null;
   return repo;
 }
 
-export type FileSubmissionResult =
+export type PublishResult =
   | { ok: true }
   | { ok: false; reason: "duplicate" | "github"; status: number };
 
-export async function fileToolSubmission(submission: ToolSubmission): Promise<FileSubmissionResult> {
+export async function publishSubmission(submission: ToolSubmission): Promise<PublishResult> {
   const token = submissionsToken();
   if (!token) return { ok: false, reason: "github", status: 503 };
-  const repo = submissionsRepo();
+
+  const domain = websiteDomain(submission.website);
+  const remoteDomains = await remoteSubmissionDomains(token);
+  if (!remoteDomains) return { ok: false, reason: "github", status: 502 };
+  if (domain && remoteDomains.has(domain)) {
+    return { ok: false, reason: "duplicate", status: 409 };
+  }
+
+  const committed = await commitApprovedFile(token, submission);
+  if (!committed.ok) return committed;
+
+  const repo = privateIssueRepo();
+  if (repo && submission.email) {
+    const saved = await createPrivateIssue(token, repo, { ...submission, slug: committed.slug });
+    if (!saved) console.error("[submit-tool] private issue was not saved");
+  }
+  return { ok: true };
+}
+
+async function commitApprovedFile(
+  token: string,
+  submission: ToolSubmission,
+): Promise<{ ok: true; slug: string } | { ok: false; reason: "duplicate" | "github"; status: number }> {
+  const taken = collectTakenSlugs();
+  let record = publicSubmissionRecord(submission);
+
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    const path = `data/submissions/${record.slug}.json`;
+    const url = `https://api.github.com/repos/${SITE_REPO}/contents/${path}`;
+    const existing = await gh(token, `${url}?ref=main`);
+    if (!existing) return { ok: false, reason: "github", status: 502 };
+    if (existing.ok) {
+      await existing.body?.cancel().catch(() => undefined);
+      taken.add(record.slug);
+      const next = suggestSlug(submission.name, taken);
+      if (next === record.slug) return { ok: false, reason: "duplicate", status: 409 };
+      record = { ...record, slug: next };
+      continue;
+    }
+    if (existing.status !== 404) {
+      console.error("[submit-tool] contents lookup", existing.status, await safeBody(existing, token));
+      return { ok: false, reason: "github", status: existing.status };
+    }
+    await existing.body?.cancel().catch(() => undefined);
+
+    const response = await gh(token, url, {
+      method: "PUT",
+      body: JSON.stringify({
+        message: `Add directory submission: ${record.name}`.slice(0, 240),
+        content: Buffer.from(`${JSON.stringify(record, null, 2)}\n`, "utf8").toString("base64"),
+        branch: "main",
+      }),
+    });
+    if (response?.ok) {
+      await response.body?.cancel().catch(() => undefined);
+      console.info("[submit-tool] published", { slug: record.slug, website: record.website });
+      return { ok: true, slug: record.slug };
+    }
+    console.error("[submit-tool] contents", response?.status ?? 502, response ? await safeBody(response, token) : "");
+    return { ok: false, reason: "github", status: response?.status ?? 502 };
+  }
+
+  return { ok: false, reason: "duplicate", status: 409 };
+}
+
+async function remoteSubmissionDomains(token: string) {
+  const domains = new Set<string>();
+  const listing = await gh(token, `https://api.github.com/repos/${SITE_REPO}/contents/data/submissions?ref=main`);
+  if (!listing) return null;
+  if (listing.status === 404) {
+    await listing.body?.cancel().catch(() => undefined);
+    return domains;
+  }
+  if (!listing.ok) {
+    await listing.body?.cancel().catch(() => undefined);
+    return null;
+  }
+  const entries = (await listing.json()) as { name?: string; type?: string; url?: string }[];
+  if (!Array.isArray(entries)) return domains;
+  const files = entries.filter(
+    (entry) =>
+      entry.type === "file" &&
+      entry.url &&
+      entry.name?.endsWith(".json") &&
+      !entry.name.startsWith(".") &&
+      !entry.name.startsWith("_"),
+  );
+  for (let index = 0; index < files.length; index += 8) {
+    const batch = files.slice(index, index + 8);
+    await Promise.all(
+      batch.map(async (entry) => {
+        const file = await gh(token, entry.url as string);
+        if (!file?.ok) {
+          await file?.body?.cancel().catch(() => undefined);
+          return;
+        }
+        const body = (await file.json()) as { content?: string; encoding?: string };
+        if (body.encoding !== "base64" || !body.content) return;
+        try {
+          const parsed = JSON.parse(Buffer.from(body.content.replace(/\n/g, ""), "base64").toString("utf8")) as {
+            website?: string;
+          };
+          const domain = websiteDomain(parsed.website ?? "");
+          if (domain) domains.add(domain);
+        } catch {
+          // Ignore a file that is not submission JSON. The directory build reports those.
+        }
+      }),
+    );
+  }
+  return domains;
+}
+
+async function createPrivateIssue(token: string, repo: string, submission: ToolSubmission) {
   const labeled = await ensureLabel(token, repo);
-  const duplicate = await hasRecentSubmission(token, repo, submission, labeled);
-  if (duplicate) return { ok: false, reason: "duplicate", status: 429 };
-  return createIssue(token, repo, submission, labeled);
+  const response = await gh(token, `https://api.github.com/repos/${repo}/issues`, {
+    method: "POST",
+    body: JSON.stringify({
+      title: `Tool submission: ${neutralizeMentions(submission.name)}`.slice(0, 240),
+      body: submissionIssueBody(submission),
+      labels: labeled ? [SUBMISSION_LABEL] : [],
+    }),
+  });
+  if (response?.ok) {
+    await response.body?.cancel().catch(() => undefined);
+    return true;
+  }
+  if (response?.status === 422 && labeled) {
+    await response.text().catch(() => "");
+    const retry = await gh(token, `https://api.github.com/repos/${repo}/issues`, {
+      method: "POST",
+      body: JSON.stringify({
+        title: `Tool submission: ${neutralizeMentions(submission.name)}`.slice(0, 240),
+        body: submissionIssueBody(submission),
+      }),
+    });
+    if (retry?.ok) {
+      await retry.body?.cancel().catch(() => undefined);
+      return true;
+    }
+    console.error("[submit-tool] private issue", retry?.status ?? 502);
+    return false;
+  }
+  console.error("[submit-tool] private issue", response?.status ?? 502, response ? await safeBody(response, token) : "");
+  return false;
+}
+
+async function ensureLabel(token: string, repo: string) {
+  const existing = await gh(
+    token,
+    `https://api.github.com/repos/${repo}/labels/${encodeURIComponent(SUBMISSION_LABEL)}`,
+  );
+  if (existing?.ok) {
+    await existing.body?.cancel().catch(() => undefined);
+    return true;
+  }
+  if (existing && existing.status !== 404) {
+    await existing.body?.cancel().catch(() => undefined);
+    return false;
+  }
+  await existing?.body?.cancel().catch(() => undefined);
+  const created = await gh(token, `https://api.github.com/repos/${repo}/labels`, {
+    method: "POST",
+    body: JSON.stringify({
+      name: SUBMISSION_LABEL,
+      color: "0C5CAD",
+      description: "Submitter email for an auto-published directory listing. Not shown on the site.",
+    }),
+  });
+  await created?.body?.cancel().catch(() => undefined);
+  return Boolean(created && (created.ok || created.status === 422));
 }
 
 function ghHeaders(token: string) {
@@ -41,88 +217,7 @@ function ghHeaders(token: string) {
   };
 }
 
-async function ensureLabel(token: string, repo: string) {
-  const existing = await gh(token, `https://api.github.com/repos/${repo}/labels/${encodeURIComponent(SUBMISSION_LABEL)}`);
-  if (existing?.ok) return true;
-  if (existing && existing.status !== 404) return false;
-  const created = await gh(token, `https://api.github.com/repos/${repo}/labels`, {
-    method: "POST",
-    body: JSON.stringify({
-      name: SUBMISSION_LABEL,
-      color: "0C5CAD",
-      description: "Public directory submissions waiting for a fact-check",
-    }),
-  });
-  return Boolean(created && (created.ok || created.status === 422));
-}
-
-async function hasRecentSubmission(
-  token: string,
-  repo: string,
-  submission: ToolSubmission,
-  labeled: boolean,
-) {
-  const url = new URL(`https://api.github.com/repos/${repo}/issues`);
-  url.searchParams.set("state", "all");
-  url.searchParams.set("sort", "created");
-  url.searchParams.set("direction", "desc");
-  url.searchParams.set("per_page", "30");
-  if (labeled) url.searchParams.set("labels", SUBMISSION_LABEL);
-  const response = await gh(token, url);
-  if (!response?.ok) return false;
-  const issues = (await response.json()) as { title?: string; body?: string | null; created_at?: string }[];
-  if (!Array.isArray(issues)) return false;
-  const cutoff = Date.now() - 60 * 60 * 1000;
-  const email = submission.email.toLowerCase();
-  const website = submission.website.toLowerCase();
-  return issues.some((issue) => {
-    const created = Date.parse(issue.created_at ?? "");
-    if (!Number.isFinite(created) || created < cutoff) return false;
-    const haystack = `${issue.title ?? ""}\n${issue.body ?? ""}`.toLowerCase();
-    if (labeled) return haystack.includes(email) || haystack.includes(website);
-    return haystack.includes('"status": "pending"') && (haystack.includes(email) || haystack.includes(website));
-  });
-}
-
-async function createIssue(token: string, repo: string, submission: ToolSubmission, labeled: boolean) {
-  const response = await gh(token, `https://api.github.com/repos/${repo}/issues`, {
-    method: "POST",
-    body: JSON.stringify({
-      title: `Tool submission: ${neutralizeMentions(submission.name)}`.slice(0, 240),
-      body: submissionIssueBody(submission),
-      labels: labeled ? [SUBMISSION_LABEL] : [],
-    }),
-  });
-  if (!response) return { ok: false as const, reason: "github" as const, status: 502 };
-  if (response.ok) {
-    console.info("[submit-tool] saved", {
-      repo,
-      name: submission.name,
-      website: submission.website,
-    });
-    return { ok: true as const };
-  }
-  if (response.status === 422 && labeled) {
-    await response.text().catch(() => "");
-    const retry = await gh(token, `https://api.github.com/repos/${repo}/issues`, {
-      method: "POST",
-      body: JSON.stringify({
-        title: `Tool submission: ${neutralizeMentions(submission.name)}`.slice(0, 240),
-        body: submissionIssueBody(submission),
-      }),
-    });
-    if (retry?.ok) {
-      console.info("[submit-tool] saved without label", { repo, name: submission.name });
-      return { ok: true as const };
-    }
-    console.error("[submit-tool] github", retry?.status ?? 502);
-    return { ok: false as const, reason: "github" as const, status: retry?.status ?? 502 };
-  }
-  console.error("[submit-tool] github", response.status, await safeBody(response, token));
-  return { ok: false as const, reason: "github" as const, status: response.status };
-}
-
-async function gh(token: string, url: string | URL, init?: { method?: string; body?: string }) {
+async function gh(token: string, url: string, init?: { method?: string; body?: string }) {
   try {
     return await fetch(url, {
       method: init?.method ?? "GET",

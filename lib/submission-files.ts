@@ -4,8 +4,28 @@ import {
   RESERVED_DIRECTORY_SLUGS,
   parseStoredSubmission,
   submissionToListing,
+  websiteDomain,
   type ToolSubmission,
 } from "@/lib/submissions";
+
+export function localListingDomains() {
+  const domains = new Set<string>();
+  const directory = path.join(process.cwd(), "content", "directory");
+  if (fs.existsSync(directory)) {
+    for (const file of fs.readdirSync(directory)) {
+      if (!file.endsWith(".md") && !file.endsWith(".mdx")) continue;
+      const raw = fs.readFileSync(path.join(directory, file), "utf8");
+      const match = /^website:\s*["']?(\S+?)["']?\s*$/m.exec(raw);
+      const domain = match ? websiteDomain(match[1]) : "";
+      if (domain) domains.add(domain);
+    }
+  }
+  for (const record of readSubmissionRecords()) {
+    const domain = websiteDomain(record.website);
+    if (domain) domains.add(domain);
+  }
+  return domains;
+}
 
 export function collectTakenSlugs() {
   const taken = new Set<string>(RESERVED_DIRECTORY_SLUGS);

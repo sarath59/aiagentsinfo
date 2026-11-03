@@ -105,6 +105,13 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
       />
       <article className="mx-auto max-w-3xl px-4 pb-20 pt-10">
         {listing.sponsored ? <p className="kicker text-[var(--gold)]">Sponsored listing</p> : null}
+        {listing.communitySubmitted ? (
+          <p className="mt-3">
+            <span className="chip border-[color-mix(in_oklab,var(--gold-bright)_55%,var(--stroke))] text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--gold)]">
+              Community submitted
+            </span>
+          </p>
+        ) : null}
         <div className="mt-3 flex items-start gap-4">
           <CompanyLogo name={listing.name} src={listing.logo || undefined} tile={brand?.tile} size="lg" />
           <div className="min-w-0">

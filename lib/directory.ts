@@ -36,6 +36,7 @@ export type DirectoryFrontmatter = {
   trending?: boolean;
   editorsPick?: boolean;
   sponsored?: boolean;
+  communitySubmitted?: boolean;
 };
 
 export type DirectoryListing = {

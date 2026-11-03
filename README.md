@@ -25,8 +25,8 @@ See `.env.example`. **Do not commit API keys.** This repository is public.
 | `NEXT_PUBLIC_SITE_URL` | Used for local development (`http://localhost:3000`). Production canonical URLs are always `https://www.aiagentsinfo.com`, including when this variable is the apex host or a `vercel.app` host. |
 | `NEXT_PUBLIC_ANALYTICS_DOMAIN` | Optional. If set, a Plausible-style analytics script loads (no API keys). Leave unset for no tracking. |
 | `NEXT_PUBLIC_ANALYTICS_SRC` | Optional custom analytics script URL. |
-| `GITHUB_SUBMISSIONS_TOKEN` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to save. Without it, the form does not pretend the submission was stored: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
-| `GITHUB_SUBMISSIONS_REPO` | Optional `owner/name`. Defaults to `sarath59/aiagentsinfo`. Set this when pending submissions should land in a different repo (use a private repo if submitter emails should not be on public issues). |
+| `GITHUB_SUBMISSIONS_TOKEN` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
+| `GITHUB_SUBMISSIONS_REPO` | Optional `owner/name` of a **private** repository. When set to a repo other than `sarath59/aiagentsinfo`, the submitter email is stored only in a GitHub issue there. When unset, the email is dropped. |
 
 Newsletter (`POST /api/newsletter`) is still a stub: it validates and logs, and does not store addresses. Tool submissions are documented below.
 
@@ -68,28 +68,31 @@ Byline is always **AI Agents Info Editorial** or **AI Agents Info Research**. Do
 
 ## Submit your tool
 
-`/submit` is public. There is no login and no payment. `/directory/submit` redirects there. The header, footer, and directory page link to it.
+`/submit` is public. There is no login, no payment, and no manual approval. `/directory/submit` redirects there. The header, footer, and directory page link to it.
 
 1. The form posts to `POST /api/submit-tool`.
-2. The server checks the same rules as the browser, ignores a filled honeypot, and rate-limits an IP to 5 posts in 15 minutes.
-3. When `GITHUB_SUBMISSIONS_TOKEN` is set, the server opens a GitHub issue titled `Tool submission: …` with the label `tool-submission`. The body contains a JSON block whose `"status"` is `"pending"`. The route creates that label (color `#0C5CAD`) the first time if it is missing.
-4. Pending issues are **not** directory listings. Vercel’s filesystem is read-only, so the form does not write into the repo by itself.
-5. If the token is missing, or GitHub rejects the issue, the API returns an error and a `mailto:` link. The page shows that link. Nothing is described as saved.
-6. To publish, edit the JSON: set `"status"` to `"approved"`, delete `email` if it should not enter a public git history, and commit it as `data/submissions/<slug>.json` on `main`. The `slug` field has to match the filename.
-7. The next deploy reads `data/submissions/*.json`. Only `"approved"` records are rendered, merged with `content/directory`, and added to the sitemap. `"pending"` files are parsed and skipped. A slug that matches an existing listing, or a reserved directory path (`new`, `trending`, `editors-picks`, `submit`), fails the build.
+2. The server sanitizes text and checks the same required fields as the browser. A filled honeypot is ignored. An IP is limited to 5 posts in 15 minutes. Profanity and obvious spam are rejected.
+3. The website URL must be public and respond with a final 2xx status (redirects are followed, up to five hops). Private hosts are refused.
+4. The registrable host, with a leading `www.` removed, is compared with every directory listing and every `data/submissions/*.json` file already on `main`. A repeat domain is rejected.
+5. When `GITHUB_SUBMISSIONS_TOKEN` is set, the server commits `data/submissions/<slug>.json` to `main` on `sarath59/aiagentsinfo` through the GitHub Contents API. `"status"` is `"approved"`. `logoUrl` is stored. **`email` is not in that file.** Vercel redeploys `main`, and the listing usually appears within about two minutes with a Community submitted badge.
+6. If `GITHUB_SUBMISSIONS_REPO` is a different repository, the email is also written to a private GitHub issue labeled `tool-submission` in that repo. If the variable is unset, or points at `sarath59/aiagentsinfo`, the email is dropped.
+7. If the token is missing or GitHub rejects the commit, the API returns an error and a `mailto:` link. The page shows that link. Nothing is described as published.
+8. The deploy reads `data/submissions/*.json`. Only `"approved"` records are rendered, merged with `content/directory`, and added to the sitemap. `"pending"` files are parsed and skipped. A slug that matches an existing listing, or a reserved directory path (`new`, `trending`, `editors-picks`, `submit`), fails the build.
 
-Pending submissions show up as GitHub issues:
+Token setup for Vercel → Project → Settings → Environment Variables → Production. The token must be allowed to commit to `main`.
 
-`https://github.com/sarath59/aiagentsinfo/issues?q=label%3Atool-submission`
+Fine-grained personal access token:
 
-(or the same path on `GITHUB_SUBMISSIONS_REPO` if you override it).
+- Repository access includes `sarath59/aiagentsinfo`.
+- **Contents: Read and write** on that repository (this is what creates the public JSON and triggers the deploy).
+- If `GITHUB_SUBMISSIONS_REPO` is set to a private repository, also grant that repository access and **Issues: Read and write** there. Do not grant that private repo as the place the JSON is committed; the public file always goes to `sarath59/aiagentsinfo`.
 
-Token setup for Vercel → Project → Settings → Environment Variables → Production:
+Classic personal access token:
 
-- Fine-grained personal access token: repository access to the submissions repo, **Issues: Read and write** (this includes labels).
-- Classic personal access token: `public_repo` for a public repo, or `repo` for a private repo.
+- `public_repo` is enough when `GITHUB_SUBMISSIONS_REPO` is unset (contents and nothing private).
+- `repo` is required when the email is stored in a private repository, because one token has to write contents on the public site and issues on the private repo.
 
-Category slugs and pricing slugs live in `lib/directory-meta.ts`. A stored file looks like this (this example is not a real product; do not commit it as approved):
+Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published file looks like this (this example is not a real product; do not commit it by hand):
 
 ```json
 {
@@ -109,7 +112,6 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A stored file 
   "launchYear": 2026,
   "revenueSourceUrl": "https://example.com/revenue",
   "githubUrl": "https://github.com/example/example",
-  "email": "",
   "consent": true,
   "status": "approved",
   "submittedAt": "2026-11-03T00:00:00.000Z",
@@ -117,13 +119,13 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A stored file 
 }
 ```
 
-`type` is `ai-tool`, `saas`, `app`, `agent-framework`, or `other`. `makerType` is `indie-hacker`, `startup`, or `yc` (with `ycBatch`). `pricing` is `free`, `freemium`, `paid`, or `open-source`. Logo files are not uploaded; `logoUrl` is a public image address.
+`type` is `ai-tool`, `saas`, `app`, `agent-framework`, or `other`. `makerType` is `indie-hacker`, `startup`, or `yc` (with `ycBatch`). `pricing` is `free`, `freemium`, `paid`, or `open-source`. Logo files are not uploaded; `logoUrl` is a public image address. There is no `email` field.
 
 ## Deploy on Vercel with a custom domain
 
 1. Push this repository to GitHub (already the case for this project).
 2. In Vercel: **Add New Project** → import `sarath59/aiagentsinfo` → framework preset Next.js → deploy. `vercel.json` sets `"framework": "nextjs"` and enables Git deployments **only on `main`** (no preview deploys for PR or feature branches).
-3. Project Settings → Environment Variables → set `GITHUB_SUBMISSIONS_TOKEN` so `/submit` can open issues. Optionally set `GITHUB_SUBMISSIONS_REPO` to `owner/name` (default `sarath59/aiagentsinfo`). Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo).
+3. Project Settings → Environment Variables → set `GITHUB_SUBMISSIONS_TOKEN` (Contents read/write on `sarath59/aiagentsinfo`) so `/submit` can commit listings to `main`. Optionally set `GITHUB_SUBMISSIONS_REPO` to a private `owner/name` if submitter emails should be kept in issues. Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo).
 4. Project Settings → Domains → add `aiagentsinfo.com` and `www.aiagentsinfo.com`, with `www` as the canonical host. Point DNS (A/ALIAS/CNAME) as Vercel instructs. The apex host redirects to `www`.
 5. Wait for the certificate, then confirm `/sitemap.xml`, `/robots.txt`, and `/rss.xml` on the live host.
 
