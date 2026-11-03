@@ -1,0 +1,387 @@
+{
+  "checked": "2026-11-03",
+  "entries": [
+    {
+      "name": "Postiz",
+      "url": "https://postiz.com",
+      "maker": "Nevo David",
+      "summary": "Agentic social media scheduler that plans, generates, and schedules posts.",
+      "mrr": { "amount": 357572, "currency": "USD", "display": "$357,572" },
+      "revenue30d": { "amount": 389923, "currency": "USD", "display": "$389,923" },
+      "allTime": { "amount": 1706016, "currency": "USD", "display": "$1,706,016" },
+      "activeSubscriptions": 10498,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/postiz",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:25 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Standard $29/mo, Team $39/mo, Pro $49/mo, Ultimate $99/mo. Annual billing is $23, $31, $39, and $79 per month. Every plan starts with a 7-day free trial.",
+        "url": "https://postiz.com/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Rezi",
+      "url": "https://www.rezi.ai",
+      "maker": "Jacob Jacquet",
+      "summary": "AI resume builder.",
+      "mrr": { "amount": 240910, "currency": "USD", "display": "$240,910" },
+      "revenue30d": { "amount": 210373, "currency": "USD", "display": "$210,373" },
+      "allTime": { "amount": 10479057, "currency": "USD", "display": "$10,479,057" },
+      "activeSubscriptions": 10004,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/rezi",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:13 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Free $0, Pro $29/month, Lifetime $149 one-time, Enterprise $99/month per 200 users.",
+        "url": "https://www.rezi.ai/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "AEO Engine",
+      "url": "https://aeoengine.ai",
+      "maker": "Vijay Jacob",
+      "summary": "AI SEO agency for AI Overviews, ChatGPT, and Google.",
+      "mrr": { "amount": 180116, "currency": "USD", "display": "$180,116" },
+      "revenue30d": { "amount": 202606, "currency": "USD", "display": "$202,606" },
+      "allTime": { "amount": 2673684, "currency": "USD", "display": "$2,673,684" },
+      "activeSubscriptions": 62,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/aeo-engine",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:04 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Growth $1,597/month, Scale $2,997/month, Enterprise from $10,000/month.",
+        "url": "https://aeoengine.ai/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Promptwise",
+      "url": "https://promptwise.com",
+      "maker": "Mateo Starcevic Filipovic",
+      "summary": "Generative AI studio for image, video, and audio.",
+      "mrr": { "amount": 67239, "currency": "USD", "display": "$67,239" },
+      "revenue30d": { "amount": 94451, "currency": "USD", "display": "$94,451" },
+      "allTime": { "amount": 292667, "currency": "USD", "display": "$292,667" },
+      "activeSubscriptions": 1989,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/promptwise",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 11:18 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Monthly prices on the pricing page are shown as 20% off list. Starter $19/month or $159/year (list $24), Plus $39/month or $327/year (list $49), Pro $79/month or $663/year (list $99), Max $149/month or $1,251/year (list $186), Max 2 $249/month or $2,091/year (list $311), Max 3 $349/month or $2,931/year (list $436). A 7-day trial includes 50 credits. Prices are in US dollars and exclude VAT.",
+        "url": "https://promptwise.com/models-and-pricing/",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Speel",
+      "url": "https://www.speel.co",
+      "maker": "Yann",
+      "summary": "AI generator for UGC-style product videos and images. TrustMRR publishes a last-30-days figure and an MRR figure that are not the same number. Both are shown as labeled on that page.",
+      "mrr": { "amount": 65317, "currency": "USD", "display": "$65,317" },
+      "revenue30d": { "amount": 2826, "currency": "USD", "display": "$2,826" },
+      "allTime": { "amount": 183792, "currency": "USD", "display": "$183,792" },
+      "activeSubscriptions": 1097,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/speel-co",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:31 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Starter $49/mo, Growth $109/mo, Pro $179/mo, each billed monthly.",
+        "url": "https://www.speel.co/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Vid.AI",
+      "url": "https://vid.ai",
+      "maker": "Priyam Raj",
+      "summary": "AI video generator for short-form and long-form posts.",
+      "mrr": { "amount": 50002, "currency": "USD", "display": "$50,002" },
+      "revenue30d": { "amount": 38210, "currency": "USD", "display": "$38,210" },
+      "allTime": { "amount": 1659358, "currency": "USD", "display": "$1,659,358" },
+      "activeSubscriptions": 752,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/vidai-llc",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:07 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "The pricing FAQ says Starter is $59 a month or $549 a year, Plus $99 a month or $947 a year, and Pro $199 a month or $1,919 a year, in USD. Yearly billing saves up to 22%. Eligible new subscribers get 50% off the first month on monthly plans.",
+        "url": "https://vid.ai/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "SEOBOT",
+      "url": "https://seobotai.com",
+      "maker": "John Rush",
+      "summary": "AI agent for SEO content and related tasks.",
+      "mrr": { "amount": 33226, "currency": "USD", "display": "$33,226" },
+      "revenue30d": { "amount": 33577, "currency": "USD", "display": "$33,577" },
+      "allTime": { "amount": 1922552, "currency": "USD", "display": "$1,922,552" },
+      "activeSubscriptions": 486,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/seobot",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:13 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "The homepage says subscriptions start at $49/mo. A fuller plan table was not on that page.",
+        "url": "https://seobotai.com",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Based Labs",
+      "url": "https://www.basedlabs.ai",
+      "maker": "Michael Aubry",
+      "summary": "AI image and video generator. TrustMRR's page title does not state a last-30-days total, so only MRR and all-time revenue are listed.",
+      "mrr": { "amount": 28537, "currency": "USD", "display": "$28,537" },
+      "revenue30d": null,
+      "allTime": { "amount": 1254077, "currency": "USD", "display": "$1,254,077" },
+      "activeSubscriptions": 873,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/based-labs-ai",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:13 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "The homepage says 300 credits for $10, paid in crypto (USDC, USDT, or ETH) or Telegram Stars, with no card. The separate pricing URL did not include dollar amounts in the HTML.",
+        "url": "https://www.basedlabs.ai/",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "StoryShort",
+      "url": "https://storyshort.ai",
+      "maker": "Samuel Rondot",
+      "summary": "AI generator for faceless short videos.",
+      "mrr": { "amount": 21767, "currency": "USD", "display": "$21,767" },
+      "revenue30d": { "amount": 20797, "currency": "USD", "display": "$20,797" },
+      "allTime": { "amount": 601186, "currency": "USD", "display": "$601,186" },
+      "activeSubscriptions": 387,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/storyshort",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:13 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Monthly: Starter $39, Growth $69, Influencer $129, Ultra $199. Yearly on the same page: Starter $23/mo ($279 billed yearly), Growth $42/mo ($499), Influencer $75/mo ($899), Ultra $117/mo ($1399).",
+        "url": "https://storyshort.ai/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Plutio",
+      "url": "https://www.plutio.com",
+      "maker": "Leo Bassam",
+      "summary": "Business management app. TrustMRR lists it as Plutio (Super Work AI).",
+      "mrr": { "amount": 19988, "currency": "USD", "display": "$19,988" },
+      "revenue30d": { "amount": 16212, "currency": "USD", "display": "$16,212" },
+      "allTime": { "amount": 1498728, "currency": "USD", "display": "$1,498,728" },
+      "activeSubscriptions": 901,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/plutio-super-work-ai",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:14 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Core $19/month, Pro $49/month, Max $199/month. The same page advertises 15% off any plan with code 15off4ever, so checkout can be lower than those list prices.",
+        "url": "https://www.plutio.com/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "LocalRank",
+      "url": "https://localrank.so",
+      "maker": "Jacky Chou",
+      "summary": "AI local SEO software. Prices are on the homepage. /pricing returned 404.",
+      "mrr": { "amount": 19449, "currency": "USD", "display": "$19,449" },
+      "revenue30d": { "amount": 15068, "currency": "USD", "display": "$15,068" },
+      "allTime": { "amount": 740945, "currency": "USD", "display": "$740,945" },
+      "activeSubscriptions": 195,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/localrank-so",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 08:01 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Monthly: Starter $57/mo, Pro $297/mo, Scale $497/mo, Enterprise $2,997/mo. Annual billing on the same page: Starter $47.50/mo, Pro $247.50/mo, Scale $372.50/mo, Enterprise $1,664.17/mo.",
+        "url": "https://localrank.so/",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Taja",
+      "url": "https://www.taja.ai",
+      "maker": null,
+      "summary": "Turns long videos into shorts, blogs, and social posts. TrustMRR does not name a founder.",
+      "mrr": { "amount": 13742, "currency": "USD", "display": "$13,742" },
+      "revenue30d": { "amount": 11627, "currency": "USD", "display": "$11,627" },
+      "allTime": { "amount": 1034606, "currency": "USD", "display": "$1,034,606" },
+      "activeSubscriptions": 345,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/taja-ai",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 10:38 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Monthly: Starter $19.99, Professional $49.99, Teams/Agency $99.99. Billed annually: Starter $15.99/month, Professional $39.99/month, Teams/Agency $79.99/month. The page offers a 7-day free trial.",
+        "url": "https://www.taja.ai/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "NotFair",
+      "url": "https://notfair.co",
+      "maker": "Tong Chen",
+      "summary": "AI ads agent for Google, Meta, and other ad accounts.",
+      "mrr": { "amount": 13184, "currency": "USD", "display": "$13,184" },
+      "revenue30d": { "amount": 16469, "currency": "USD", "display": "$16,469" },
+      "allTime": { "amount": 67145, "currency": "USD", "display": "$67,145" },
+      "activeSubscriptions": 111,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/notfair",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 10:23 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "The page title says the free plan and Growth are $99/mo or $950/yr. The plan card shows Free at $0/forever (7 days of unlimited access, then 300 operations a month) and Growth at about $79/mo billed annually ($950/year).",
+        "url": "https://notfair.co/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "MagicSlides",
+      "url": "https://www.magicslides.app",
+      "maker": "Sanskar Tiwari",
+      "summary": "AI presentation maker for Google Slides, PowerPoint, and related apps.",
+      "mrr": { "amount": 9984, "currency": "USD", "display": "$9,984" },
+      "revenue30d": { "amount": 9642, "currency": "USD", "display": "$9,642" },
+      "allTime": { "amount": 729471, "currency": "USD", "display": "$729,471" },
+      "activeSubscriptions": 758,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/magicslides-app",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 05:52 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Essential is shown at $8 and $6.67/month with $80 billed annually. Pro is shown at $16 and $12.42/month with $149 billed annually. Premium is shown at $29 and $23.25/month with $279 billed annually. A one-time designer service is $99, shown next to $500.",
+        "url": "https://www.magicslides.app/pricing",
+        "checked": "2026-11-03"
+      }
+    },
+    {
+      "name": "Visualizee",
+      "url": "https://visualizee.ai",
+      "maker": "Piotr Obidowski",
+      "summary": "AI rendering for architects and interior designers.",
+      "mrr": { "amount": 8204, "currency": "USD", "display": "$8,204" },
+      "revenue30d": { "amount": 8379, "currency": "USD", "display": "$8,379" },
+      "allTime": { "amount": 94912, "currency": "USD", "display": "$94,912" },
+      "activeSubscriptions": 291,
+      "revenue": {
+        "sourceName": "TrustMRR",
+        "sourceUrl": "https://trustmrr.com/startup/visualizee-ai",
+        "verification": "Revenue is verified with Stripe API key.",
+        "sourceUpdated": "Nov 3, 2026, 10:11 AM",
+        "checked": "2026-11-03"
+      },
+      "pricing": {
+        "summary": "Hobby $20/mo or $15/mo billed yearly ($180/year), Pro $40/mo or $30/mo billed yearly ($360/year), Max $80/mo or $60/mo billed yearly ($720/year). The page title also says plans start at $20 a month, with 5 free renders.",
+        "url": "https://visualizee.ai/pricing",
+        "checked": "2026-11-03"
+      }
+    }
+  ],
+  "omitted": [
+    {
+      "name": "GojiberryAI",
+      "reason": "The TrustMRR profile says the Stripe API key expired and the data was last updated Aug 14, 2026, so the figure is not a current verification.",
+      "sourceUrl": "https://trustmrr.com/startup/superfruits"
+    },
+    {
+      "name": "Cometly",
+      "reason": "TrustMRR marks the revenue as Stripe-verified, but cometly.com/pricing returned HTTP 429, so a live price was not read.",
+      "sourceUrl": "https://trustmrr.com/startup/cometly"
+    },
+    {
+      "name": "Kolbo.AI",
+      "reason": "TrustMRR marks the revenue as Stripe-verified, but kolbo.ai and the pricing app shell did not include plan prices in the HTML.",
+      "sourceUrl": "https://trustmrr.com/startup/kolbo-ai"
+    },
+    {
+      "name": "DataFast",
+      "reason": "Stripe-verified on TrustMRR, and it is revenue analytics rather than an AI product. The public page did not render a plan price beyond a $0 trial.",
+      "sourceUrl": "https://trustmrr.com/startup/datafast"
+    },
+    {
+      "name": "Composer.AI (SongMaker.AI)",
+      "reason": "TrustMRR shows RevenueCat verification, but the App Store URL on that profile returned 404, so the live price was not confirmed.",
+      "sourceUrl": "https://trustmrr.com/startup/muxa-ai"
+    },
+    {
+      "name": "Hidden interview assistant",
+      "reason": "The TrustMRR listing is named Hidden Business and does not publish a product name or website.",
+      "sourceUrl": "https://trustmrr.com/startup/ai-interview-copilot"
+    },
+    {
+      "name": "Anonymous visual AI app",
+      "reason": "The TrustMRR listing is anonymous and does not publish a product name or website.",
+      "sourceUrl": "https://trustmrr.com/startup/mobileapp"
+    },
+    {
+      "name": "Confidential language platform",
+      "reason": "The TrustMRR listing is confidential and does not publish a product name or website.",
+      "sourceUrl": "https://trustmrr.com/startup/online-edtech"
+    },
+    {
+      "name": "Product AI",
+      "reason": "The TrustMRR profile is Stripe-connected but shows no current MRR and no all-time revenue.",
+      "sourceUrl": "https://trustmrr.com/startup/product-ai"
+    },
+    {
+      "name": "Comp AI",
+      "reason": "TrustMRR marks the revenue as Stripe-verified, but the trycomp.ai homepage did not show a public price.",
+      "sourceUrl": "https://trustmrr.com/startup/comp-ai"
+    }
+  ]
+}

@@ -122,6 +122,7 @@ export const topics = [
 
 export const nav = [
   { href: "/directory", label: "Directory" },
+  { href: "/verified-revenue", label: "Revenue" },
   { href: "/research", label: "Research" },
   { href: "/blog", label: "Blog" },
   { href: "/glossary", label: "Glossary" },
@@ -154,6 +155,7 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/verified-revenue", label: "Verified revenue" },
     ],
   },
   {

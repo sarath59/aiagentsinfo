@@ -1,0 +1,1394 @@
+[
+  {
+    "name": "Revid",
+    "url": "https://www.revid.ai/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Outrank",
+    "url": "https://www.outrank.so/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Squad",
+    "url": "https://squad.so/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "SuperX",
+    "url": "https://superx.so/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "PostSyncer",
+    "url": "https://postsyncer.com/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Bazzly",
+    "url": "https://www.bazzly.ai/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Feather",
+    "url": "https://feather.so/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Tweet Hunter",
+    "url": "https://tweethunter.io/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Taplio",
+    "url": "https://taplio.com/",
+    "maker": "Thibault Louis-Lucas",
+    "tier": "indie",
+    "source": "https://www.tmaker.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "LogoFast",
+    "url": "https://logofa.st/",
+    "maker": "Marc Lou",
+    "tier": "indie",
+    "source": "https://marclou.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "PhotoAI",
+    "url": "https://photoai.com/",
+    "maker": "@levelsio",
+    "tier": "indie",
+    "source": "https://photoai.com",
+    "status": "backlog"
+  },
+  {
+    "name": "Postiz",
+    "url": "https://postiz.com/",
+    "maker": "Nevo David",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/postiz",
+    "status": "backlog"
+  },
+  {
+    "name": "SEOBOT",
+    "url": "https://seobotai.com/",
+    "maker": "John Rush",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/seobot",
+    "status": "backlog"
+  },
+  {
+    "name": "StoryShort",
+    "url": "https://storyshort.ai/",
+    "maker": "Samuel Rondot",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/storyshort",
+    "status": "backlog"
+  },
+  {
+    "name": "Vid.AI",
+    "url": "https://vid.ai/",
+    "maker": "Priyam Raj",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/vidai-llc",
+    "status": "backlog"
+  },
+  {
+    "name": "MagicSlides",
+    "url": "https://www.magicslides.app/",
+    "maker": "Sanskar Tiwari",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/magicslides-app",
+    "status": "backlog"
+  },
+  {
+    "name": "LocalRank",
+    "url": "https://localrank.so/",
+    "maker": "Jacky Chou",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/localrank-so",
+    "status": "backlog"
+  },
+  {
+    "name": "Based Labs",
+    "url": "https://www.basedlabs.ai/",
+    "maker": "Michael Aubry",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/based-labs-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "Speel",
+    "url": "https://www.speel.co/",
+    "maker": "Yann",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/speel-co",
+    "status": "backlog"
+  },
+  {
+    "name": "NotFair",
+    "url": "https://notfair.co/",
+    "maker": "Tong Chen",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/notfair",
+    "status": "backlog"
+  },
+  {
+    "name": "Visualizee",
+    "url": "https://visualizee.ai/",
+    "maker": "Piotr Obidowski",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/visualizee-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "Kolbo.AI",
+    "url": "https://kolbo.ai/",
+    "maker": "Zohar Vanunu",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/kolbo-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "GojiberryAI",
+    "url": "https://gojiberry.ai/",
+    "maker": "Romàn Czerny",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/superfruits",
+    "status": "backlog"
+  },
+  {
+    "name": "Promptwise",
+    "url": "https://promptwise.com/",
+    "maker": "Mateo Starcevic Filipovic",
+    "tier": "indie",
+    "source": "https://trustmrr.com/startup/promptwise",
+    "status": "backlog"
+  },
+  {
+    "name": "InteriorAI",
+    "url": "https://interiorai.com/",
+    "maker": null,
+    "tier": "indie",
+    "source": "https://interiorai.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "HeadshotPro",
+    "url": "https://www.headshotpro.com/",
+    "maker": null,
+    "tier": "indie",
+    "source": "https://www.headshotpro.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "TypingMind",
+    "url": "https://www.typingmind.com/",
+    "maker": null,
+    "tier": "indie",
+    "source": "https://www.typingmind.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "PDF.ai",
+    "url": "https://pdf.ai/",
+    "maker": null,
+    "tier": "indie",
+    "source": "https://pdf.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "SiteGPT",
+    "url": "https://sitegpt.ai/",
+    "maker": null,
+    "tier": "indie",
+    "source": "https://sitegpt.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "11x",
+    "url": "https://www.11x.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.11x.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Ada",
+    "url": "https://www.ada.cx/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.ada.cx/",
+    "status": "backlog"
+  },
+  {
+    "name": "AEO Engine",
+    "url": "https://aeoengine.ai/",
+    "maker": "Vijay Jacob",
+    "tier": "startup",
+    "source": "https://trustmrr.com/startup/aeo-engine",
+    "status": "backlog"
+  },
+  {
+    "name": "Aider",
+    "url": "https://aider.chat/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://aider.chat/",
+    "status": "backlog"
+  },
+  {
+    "name": "Anyword",
+    "url": "https://www.anyword.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.anyword.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Apollo",
+    "url": "https://www.apollo.io/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.apollo.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "AssemblyAI",
+    "url": "https://www.assemblyai.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.assemblyai.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Augment",
+    "url": "https://www.augmentcode.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.augmentcode.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Bardeen",
+    "url": "https://www.bardeen.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.bardeen.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Baseten",
+    "url": "https://www.baseten.co/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.baseten.co/",
+    "status": "backlog"
+  },
+  {
+    "name": "Black Forest Labs",
+    "url": "https://bfl.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://bfl.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Bolt",
+    "url": "https://bolt.new/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://bolt.new/",
+    "status": "backlog"
+  },
+  {
+    "name": "Botpress",
+    "url": "https://botpress.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://botpress.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Braintrust",
+    "url": "https://www.braintrust.dev/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.braintrust.dev/",
+    "status": "backlog"
+  },
+  {
+    "name": "Browserbase",
+    "url": "https://www.browserbase.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.browserbase.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Captions",
+    "url": "https://captions.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://captions.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Chatbase",
+    "url": "https://www.chatbase.co/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.chatbase.co/",
+    "status": "backlog"
+  },
+  {
+    "name": "Character.AI",
+    "url": "https://character.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://character.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Civitai",
+    "url": "https://civitai.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://civitai.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Clay",
+    "url": "https://www.clay.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.clay.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "CodeRabbit",
+    "url": "https://www.coderabbit.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.coderabbit.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Cohere",
+    "url": "https://cohere.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://cohere.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Comp AI",
+    "url": "https://www.trycomp.ai/",
+    "maker": "Lewis Carhart",
+    "tier": "startup",
+    "source": "https://trustmrr.com/startup/comp-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "Continue",
+    "url": "https://continue.dev/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://continue.dev/",
+    "status": "backlog"
+  },
+  {
+    "name": "Copy.ai",
+    "url": "https://www.copy.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.copy.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Decagon",
+    "url": "https://decagon.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://decagon.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Deepgram",
+    "url": "https://deepgram.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://deepgram.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Descript",
+    "url": "https://www.descript.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.descript.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Dify",
+    "url": "https://dify.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://dify.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Durable",
+    "url": "https://durable.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://durable.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Dust",
+    "url": "https://dust.tt/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://dust.tt/",
+    "status": "backlog"
+  },
+  {
+    "name": "Exa",
+    "url": "https://exa.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://exa.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Factory",
+    "url": "https://factory.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://factory.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Fal",
+    "url": "https://fal.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://fal.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Fathom",
+    "url": "https://www.fathom.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.fathom.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Fireflies",
+    "url": "https://fireflies.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://fireflies.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Fireworks",
+    "url": "https://fireworks.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://fireworks.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Frase",
+    "url": "https://www.frase.io/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.frase.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Gamma",
+    "url": "https://gamma.app/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://gamma.app/",
+    "status": "backlog"
+  },
+  {
+    "name": "Glean",
+    "url": "https://www.glean.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.glean.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Gong",
+    "url": "https://www.gong.io/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.gong.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Grammarly",
+    "url": "https://www.grammarly.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.grammarly.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Granola",
+    "url": "https://www.granola.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.granola.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Grok",
+    "url": "https://grok.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://grok.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Groq",
+    "url": "https://groq.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://groq.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Harvey",
+    "url": "https://www.harvey.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.harvey.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Hedra",
+    "url": "https://www.hedra.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.hedra.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Helicone",
+    "url": "https://www.helicone.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.helicone.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "HeyGen",
+    "url": "https://www.heygen.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.heygen.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Hugging Face",
+    "url": "https://huggingface.co/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://huggingface.co/",
+    "status": "backlog"
+  },
+  {
+    "name": "Ideogram",
+    "url": "https://ideogram.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://ideogram.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Instantly",
+    "url": "https://instantly.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://instantly.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Jasper",
+    "url": "https://www.jasper.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.jasper.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Kling AI",
+    "url": "https://kling.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://kling.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Krisp",
+    "url": "https://krisp.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://krisp.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Langfuse",
+    "url": "https://langfuse.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://langfuse.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Lavender",
+    "url": "https://lavender.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://lavender.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Leonardo",
+    "url": "https://leonardo.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://leonardo.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Limitless",
+    "url": "https://www.limitless.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.limitless.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Lindy",
+    "url": "https://www.lindy.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.lindy.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Lovable",
+    "url": "https://lovable.dev/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://lovable.dev/",
+    "status": "backlog"
+  },
+  {
+    "name": "Luma AI",
+    "url": "https://lumalabs.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://lumalabs.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Manus",
+    "url": "https://manus.im/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://manus.im/",
+    "status": "backlog"
+  },
+  {
+    "name": "Mem",
+    "url": "https://get.mem.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://get.mem.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Mistral",
+    "url": "https://mistral.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://mistral.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Modal",
+    "url": "https://modal.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://modal.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Motion",
+    "url": "https://www.usemotion.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.usemotion.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Murf",
+    "url": "https://murf.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://murf.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "n8n",
+    "url": "https://n8n.io/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://n8n.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Notion",
+    "url": "https://www.notion.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.notion.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "OpenRouter",
+    "url": "https://openrouter.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://openrouter.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Opus Clip",
+    "url": "https://www.opus.pro/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.opus.pro/",
+    "status": "backlog"
+  },
+  {
+    "name": "Otter",
+    "url": "https://otter.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://otter.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Phind",
+    "url": "https://www.phind.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.phind.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Pi",
+    "url": "https://pi.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://pi.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Pika",
+    "url": "https://pika.art/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://pika.art/",
+    "status": "backlog"
+  },
+  {
+    "name": "Plutio",
+    "url": "https://www.plutio.com/",
+    "maker": "Leo Bassam",
+    "tier": "startup",
+    "source": "https://trustmrr.com/startup/plutio-super-work-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "Poe",
+    "url": "https://poe.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://poe.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Poolside",
+    "url": "https://poolside.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://poolside.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Positive Surfer",
+    "url": "https://surfer.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://surfer.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "QuillBot",
+    "url": "https://quillbot.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://quillbot.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Relevance AI",
+    "url": "https://relevanceai.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://relevanceai.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Relume",
+    "url": "https://www.relume.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.relume.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Replicate",
+    "url": "https://replicate.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://replicate.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Replit",
+    "url": "https://replit.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://replit.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Rezi",
+    "url": "https://www.rezi.ai/",
+    "maker": "Jacob Jacquet",
+    "tier": "startup",
+    "source": "https://trustmrr.com/startup/rezi",
+    "status": "backlog"
+  },
+  {
+    "name": "Shortwave",
+    "url": "https://www.shortwave.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.shortwave.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Sierra",
+    "url": "https://sierra.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://sierra.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Skyvern",
+    "url": "https://www.skyvern.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.skyvern.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Sourcegraph",
+    "url": "https://sourcegraph.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://sourcegraph.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Speak",
+    "url": "https://www.speak.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.speak.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Speechify",
+    "url": "https://speechify.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://speechify.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Stability AI",
+    "url": "https://stability.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://stability.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Suno",
+    "url": "https://suno.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://suno.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Synthesia",
+    "url": "https://www.synthesia.io/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.synthesia.io/",
+    "status": "backlog"
+  },
+  {
+    "name": "Taja",
+    "url": "https://www.taja.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://trustmrr.com/startup/taja-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "Tavily",
+    "url": "https://www.tavily.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.tavily.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Together AI",
+    "url": "https://www.together.ai/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.together.ai/",
+    "status": "backlog"
+  },
+  {
+    "name": "Udio",
+    "url": "https://www.udio.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.udio.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "v0",
+    "url": "https://v0.app/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://v0.app/",
+    "status": "backlog"
+  },
+  {
+    "name": "Voiceflow",
+    "url": "https://www.voiceflow.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.voiceflow.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Weights & Biases",
+    "url": "https://wandb.ai/site",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://wandb.ai/site",
+    "status": "backlog"
+  },
+  {
+    "name": "Wordtune",
+    "url": "https://www.wordtune.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://www.wordtune.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Writer",
+    "url": "https://writer.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://writer.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Writesonic",
+    "url": "https://writesonic.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://writesonic.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "You.com",
+    "url": "https://you.com/",
+    "maker": null,
+    "tier": "startup",
+    "source": "https://you.com/",
+    "status": "backlog"
+  },
+  {
+    "name": "Audora",
+    "url": "https://audora.art/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/audora",
+    "status": "backlog"
+  },
+  {
+    "name": "Collar",
+    "url": "https://www.usecollarai.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/collar",
+    "status": "backlog"
+  },
+  {
+    "name": "Covera",
+    "url": "https://www.covera-agents.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/covera",
+    "status": "backlog"
+  },
+  {
+    "name": "Akon Labs",
+    "url": "https://www.akonlabs.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/akon-labs",
+    "status": "backlog"
+  },
+  {
+    "name": "Almanac",
+    "url": "https://usealmanac.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/almanac",
+    "status": "backlog"
+  },
+  {
+    "name": "Egoist Machines",
+    "url": "https://ego.ist/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/egoist-machines",
+    "status": "backlog"
+  },
+  {
+    "name": "GBrain",
+    "url": "https://gbrain.io/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/gbrain",
+    "status": "backlog"
+  },
+  {
+    "name": "Imperfect",
+    "url": "https://imperfect.co/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/imperfect",
+    "status": "backlog"
+  },
+  {
+    "name": "Userlens",
+    "url": "https://userlens.io/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/userlens",
+    "status": "backlog"
+  },
+  {
+    "name": "Ashr",
+    "url": "https://ashr.io/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/ashr",
+    "status": "backlog"
+  },
+  {
+    "name": "ClaimGlide",
+    "url": "https://claimglide.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/claimglide",
+    "status": "backlog"
+  },
+  {
+    "name": "Martini",
+    "url": "https://www.martini.film/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/martini",
+    "status": "backlog"
+  },
+  {
+    "name": "Absurd",
+    "url": "https://absurd.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/absurd",
+    "status": "backlog"
+  },
+  {
+    "name": "Anto Biosciences",
+    "url": "https://anto.bio/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/anto-biosciences",
+    "status": "backlog"
+  },
+  {
+    "name": "Bravi",
+    "url": "https://www.bravi.app/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/bravi",
+    "status": "backlog"
+  },
+  {
+    "name": "Char",
+    "url": "https://char.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/char",
+    "status": "backlog"
+  },
+  {
+    "name": "Epicenter",
+    "url": "https://epicenter.so/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/epicenter",
+    "status": "backlog"
+  },
+  {
+    "name": "Omnara",
+    "url": "https://www.omnara.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/omnara",
+    "status": "backlog"
+  },
+  {
+    "name": "Alkali",
+    "url": "https://www.alkali.engineering/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/alkali",
+    "status": "backlog"
+  },
+  {
+    "name": "Auctor",
+    "url": "https://www.getauctor.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/auctor",
+    "status": "backlog"
+  },
+  {
+    "name": "Bond",
+    "url": "https://www.bondapp.io/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/bond",
+    "status": "backlog"
+  },
+  {
+    "name": ".Wave",
+    "url": "https://dotwave.ai/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/dotwave",
+    "status": "backlog"
+  },
+  {
+    "name": "Alice.tech",
+    "url": "https://alice.tech/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/alice-tech",
+    "status": "backlog"
+  },
+  {
+    "name": "Bezel",
+    "url": "https://www.trybezel.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/bezel",
+    "status": "backlog"
+  },
+  {
+    "name": "Biblo",
+    "url": "https://www.heybiblo.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/biblo",
+    "status": "backlog"
+  },
+  {
+    "name": "Capy",
+    "url": "https://capy.ai/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/capy",
+    "status": "backlog"
+  },
+  {
+    "name": "Endstack",
+    "url": "https://www.endstack.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/endstack",
+    "status": "backlog"
+  },
+  {
+    "name": "Argil",
+    "url": "https://www.argil.ai/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/argil",
+    "status": "backlog"
+  },
+  {
+    "name": "BrowserOS",
+    "url": "https://browseros.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/browseros",
+    "status": "backlog"
+  },
+  {
+    "name": "Clearly AI",
+    "url": "https://clearly-ai.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/clearly-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "Artisan",
+    "url": "https://www.artisan.co/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/artisan",
+    "status": "backlog"
+  },
+  {
+    "name": "Basepilot",
+    "url": "https://www.basepilot.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/basepilot",
+    "status": "backlog"
+  },
+  {
+    "name": "Brainbase Labs",
+    "url": "https://brainbaselabs.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/brainbase-labs",
+    "status": "backlog"
+  },
+  {
+    "name": "Accend",
+    "url": "https://www.withaccend.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/accend",
+    "status": "backlog"
+  },
+  {
+    "name": "CORE",
+    "url": "https://www.getcore.me/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/heysol",
+    "status": "backlog"
+  },
+  {
+    "name": "Cognitio Labs",
+    "url": "https://www.cognitioiq.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/cognitio-labs",
+    "status": "backlog"
+  },
+  {
+    "name": "Alphawatch AI",
+    "url": "https://www.alphawatch.ai/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/alphawatch-ai",
+    "status": "backlog"
+  },
+  {
+    "name": "Boundary",
+    "url": "https://boundaryml.com/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/boundary",
+    "status": "backlog"
+  },
+  {
+    "name": "Clueso",
+    "url": "https://www.clueso.io/",
+    "maker": null,
+    "tier": "yc",
+    "source": "https://www.ycombinator.com/companies/clueso",
+    "status": "backlog"
+  }
+]

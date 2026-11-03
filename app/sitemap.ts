@@ -34,6 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/trackers/breakthroughs",
     "/trackers/harnesses",
     "/trackers/benchmarks",
+    "/verified-revenue",
     ...audiences.map((item) => item.href),
     ...topics.map((item) => item.href),
     ...directoryCategories.map((item) => `/directory/category/${item.slug}`),
