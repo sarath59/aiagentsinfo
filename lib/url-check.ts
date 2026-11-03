@@ -2,7 +2,11 @@ import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 import { isBlockedHostname } from "@/lib/submissions";
 
-const USER_AGENT = "AIAgentsInfo-submit/1.0 (+https://www.aiagentsinfo.com/submit)";
+const USER_AGENT =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
+/** A live host that refuses the checker still counts. A missing host does not. */
+const PRESENT_STATUSES = new Set([401, 403, 405, 406, 429]);
 
 type LookupFn = typeof lookup;
 type FetchFn = typeof fetch;
@@ -48,6 +52,7 @@ export async function assertPublicUrlReachable(
     await response.body?.cancel().catch(() => undefined);
 
     if (response.status >= 200 && response.status < 300) return { ok: true };
+    if (PRESENT_STATUSES.has(response.status)) return { ok: true };
     if (response.status >= 300 && response.status < 400) {
       const location = response.headers.get("location");
       if (!location) {

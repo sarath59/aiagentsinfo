@@ -12,7 +12,9 @@ import {
   directoryCollections,
   getDirectoryListing,
   getDirectoryListings,
+  listingSocialLinks,
   listingsForCollection,
+  pricingTitle,
   relatedListings,
 } from "@/lib/directory";
 import { companyForName } from "@/lib/companies";
@@ -152,8 +154,34 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           <p className="mt-3 text-[var(--muted)]">
             <InlineCompanyText text={listing.pricingSummary} />
           </p>
-          <p className="mt-2 text-sm">{listing.pricing.join(" · ")}</p>
+          <p className="mt-2 text-sm">{listing.pricing.map((item) => pricingTitle(item)).join(" · ")}</p>
+          {listing.pricingPageUrl ? (
+            <p className="mt-3">
+              <a className="text-sm text-[var(--color-electric)]" href={listing.pricingPageUrl} rel="noreferrer">
+                Pricing page
+              </a>
+            </p>
+          ) : null}
+          {listing.revenueSourceUrl ? (
+            <p className="mt-2">
+              <a className="text-sm text-[var(--color-electric)]" href={listing.revenueSourceUrl} rel="noreferrer">
+                Public revenue source
+              </a>
+            </p>
+          ) : null}
         </section>
+        {listingSocialLinks(listing).length ? (
+          <section className="mt-8">
+            <h2 className="font-semibold tracking-tight text-2xl">Social</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {listingSocialLinks(listing).map((link) => (
+                <a key={link.title} className="chip" href={link.href} rel="noreferrer">
+                  {link.title}
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
         <div className="mt-8">
           <MarkdownBody html={listing.html} />
         </div>

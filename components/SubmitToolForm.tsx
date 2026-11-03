@@ -1,12 +1,13 @@
 "use client";
 
 import { cloneElement, useState, type FormEvent, type ReactElement } from "react";
-import { directoryCategories, pricingModels } from "@/lib/directory-meta";
+import { billingPeriods, directoryCategories, pricingModels } from "@/lib/directory-meta";
 import {
   HONEYPOT_FIELD,
   SUBMISSION_SUCCESS_MESSAGE,
   makerTypes,
   submissionMailto,
+  summarizeFieldErrors,
   toolTypes,
   validateSubmission,
   type FieldErrors,
@@ -33,6 +34,8 @@ const FIELD_IDS: Record<SubmissionField, string> = {
   type: "tool-type",
   pricing: "tool-pricing",
   startingPrice: "tool-starting-price",
+  billingPeriod: "tool-billing-period",
+  pricingPageUrl: "tool-pricing-url",
   logoUrl: "tool-logo-url",
   makerName: "maker-name",
   makerX: "maker-x",
@@ -40,7 +43,12 @@ const FIELD_IDS: Record<SubmissionField, string> = {
   ycBatch: "maker-yc-batch",
   launchYear: "tool-launch-year",
   revenueSourceUrl: "tool-revenue-url",
+  linkedinUrl: "tool-linkedin",
   githubUrl: "tool-github",
+  youtubeUrl: "tool-youtube",
+  discordUrl: "tool-discord",
+  instagramUrl: "tool-instagram",
+  productHuntUrl: "tool-product-hunt",
   email: "submitter-email",
   consent: "submit-consent",
 };
@@ -60,7 +68,7 @@ export function SubmitToolForm() {
     if (!clientCheck.ok) {
       setErrors(clientCheck.errors);
       setStatus("idle");
-      setMessage("");
+      setMessage(summarizeFieldErrors(clientCheck.errors));
       focusFirst(clientCheck.errors);
       return;
     }
@@ -82,7 +90,7 @@ export function SubmitToolForm() {
       if (json.errors && Object.keys(json.errors).length) {
         setStatus("idle");
         setErrors(json.errors);
-        setMessage(json.message || "Check the highlighted fields.");
+        setMessage(summarizeFieldErrors(json.errors));
         focusFirst(json.errors);
         return;
       }
@@ -176,9 +184,9 @@ export function SubmitToolForm() {
           label="Website URL"
           required
           error={errors.website}
-          hint="The official site we will open during the fact-check."
+          hint="example.com or www.example.com is enough. https:// is added for you."
         >
-          <input name="website" type="url" required inputMode="url" placeholder="https://" maxLength={300} className={inputClass} />
+          <input name="website" type="text" required inputMode="url" autoComplete="url" placeholder="example.com" maxLength={300} className={inputClass} />
         </Field>
         <Field id={FIELD_IDS.tagline} label="One-line tagline" required error={errors.tagline}>
           <input name="tagline" required maxLength={140} className={inputClass} />
@@ -224,9 +232,35 @@ export function SubmitToolForm() {
           id={FIELD_IDS.startingPrice}
           label="Starting price"
           error={errors.startingPrice}
-          hint="Optional. For example, Free or $20/month."
+          hint="Optional. For example, $19/mo."
         >
-          <input name="startingPrice" maxLength={60} className={inputClass} />
+          <input name="startingPrice" maxLength={60} placeholder="$19/mo" className={inputClass} />
+        </Field>
+        <Field id={FIELD_IDS.billingPeriod} label="Billing period" error={errors.billingPeriod} hint="Optional.">
+          <select name="billingPeriod" defaultValue="" className={inputClass}>
+            <option value="">Select a billing period</option>
+            {billingPeriods.map((item) => (
+              <option key={item.slug} value={item.slug}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field
+          id={FIELD_IDS.pricingPageUrl}
+          label="Pricing page URL"
+          error={errors.pricingPageUrl}
+          hint="Optional. example.com/pricing is fine."
+        >
+          <input name="pricingPageUrl" type="text" inputMode="url" placeholder="example.com/pricing" maxLength={500} className={inputClass} />
+        </Field>
+        <Field
+          id={FIELD_IDS.revenueSourceUrl}
+          label="Public revenue source link"
+          error={errors.revenueSourceUrl}
+          hint="Optional. A public page such as TrustMRR."
+        >
+          <input name="revenueSourceUrl" type="text" inputMode="url" placeholder="trustmrr.com/startup/example" maxLength={500} className={inputClass} />
         </Field>
       </fieldset>
 
@@ -236,15 +270,12 @@ export function SubmitToolForm() {
           id={FIELD_IDS.logoUrl}
           label="Logo URL"
           error={errors.logoUrl}
-          hint="Paste a public image address, including one from a file you already uploaded to your site or GitHub. This form does not host logo files."
+          hint="Optional. Paste a public image address. This form does not upload logo files."
         >
-          <input name="logoUrl" type="url" inputMode="url" placeholder="https://" maxLength={500} className={inputClass} />
+          <input name="logoUrl" type="text" inputMode="url" placeholder="example.com/logo.png" maxLength={500} className={inputClass} />
         </Field>
         <Field id={FIELD_IDS.makerName} label="Founder or maker name" error={errors.makerName}>
           <input name="makerName" autoComplete="name" maxLength={80} className={inputClass} />
-        </Field>
-        <Field id={FIELD_IDS.makerX} label="Maker X handle" error={errors.makerX} hint="Optional. With or without @.">
-          <input name="makerX" maxLength={40} autoComplete="off" className={inputClass} />
         </Field>
         <Field id={FIELD_IDS.makerType} label="Maker type" error={errors.makerType}>
           <select
@@ -274,17 +305,28 @@ export function SubmitToolForm() {
       </fieldset>
 
       <fieldset className="grid gap-4 border-0 p-0">
-        <legend className="kicker mb-2">Links</legend>
-        <Field
-          id={FIELD_IDS.revenueSourceUrl}
-          label="Public revenue source link"
-          error={errors.revenueSourceUrl}
-          hint="Optional. A public page such as TrustMRR or another source a reader can open."
-        >
-          <input name="revenueSourceUrl" type="url" inputMode="url" placeholder="https://" maxLength={500} className={inputClass} />
+        <legend className="kicker mb-2">Social links</legend>
+        <p className="text-sm text-[var(--muted)]">All optional. Leave any of them blank.</p>
+        <Field id={FIELD_IDS.makerX} label="X" error={errors.makerX} hint="Handle with or without @, or an x.com link.">
+          <input name="makerX" maxLength={80} autoComplete="off" placeholder="@handle" className={inputClass} />
         </Field>
-        <Field id={FIELD_IDS.githubUrl} label="GitHub URL" error={errors.githubUrl}>
-          <input name="githubUrl" type="url" inputMode="url" placeholder="https://github.com/" maxLength={500} className={inputClass} />
+        <Field id={FIELD_IDS.linkedinUrl} label="LinkedIn" error={errors.linkedinUrl}>
+          <input name="linkedinUrl" type="text" inputMode="url" placeholder="linkedin.com/in/name" maxLength={500} className={inputClass} />
+        </Field>
+        <Field id={FIELD_IDS.githubUrl} label="GitHub" error={errors.githubUrl}>
+          <input name="githubUrl" type="text" inputMode="url" placeholder="github.com/name" maxLength={500} className={inputClass} />
+        </Field>
+        <Field id={FIELD_IDS.youtubeUrl} label="YouTube" error={errors.youtubeUrl}>
+          <input name="youtubeUrl" type="text" inputMode="url" placeholder="youtube.com/@name" maxLength={500} className={inputClass} />
+        </Field>
+        <Field id={FIELD_IDS.discordUrl} label="Discord" error={errors.discordUrl}>
+          <input name="discordUrl" type="text" inputMode="url" placeholder="discord.gg/invite" maxLength={500} className={inputClass} />
+        </Field>
+        <Field id={FIELD_IDS.instagramUrl} label="Instagram" error={errors.instagramUrl}>
+          <input name="instagramUrl" type="text" inputMode="url" placeholder="instagram.com/name" maxLength={500} className={inputClass} />
+        </Field>
+        <Field id={FIELD_IDS.productHuntUrl} label="Product Hunt" error={errors.productHuntUrl}>
+          <input name="productHuntUrl" type="text" inputMode="url" placeholder="producthunt.com/products/name" maxLength={500} className={inputClass} />
         </Field>
       </fieldset>
 
@@ -328,7 +370,7 @@ export function SubmitToolForm() {
       </fieldset>
 
       <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
-        <label htmlFor="hp-field">Company website</label>
+        <label htmlFor="hp-field">Leave this blank</label>
         <input
           id="hp-field"
           name={HONEYPOT_FIELD}
@@ -417,6 +459,8 @@ function readForm(form: FormData): Record<string, string | boolean> {
     type: value("type"),
     pricing: value("pricing"),
     startingPrice: value("startingPrice"),
+    billingPeriod: value("billingPeriod"),
+    pricingPageUrl: value("pricingPageUrl"),
     logoUrl: value("logoUrl"),
     makerName: value("makerName"),
     makerX: value("makerX"),
@@ -424,7 +468,12 @@ function readForm(form: FormData): Record<string, string | boolean> {
     ycBatch: value("ycBatch"),
     launchYear: value("launchYear"),
     revenueSourceUrl: value("revenueSourceUrl"),
+    linkedinUrl: value("linkedinUrl"),
     githubUrl: value("githubUrl"),
+    youtubeUrl: value("youtubeUrl"),
+    discordUrl: value("discordUrl"),
+    instagramUrl: value("instagramUrl"),
+    productHuntUrl: value("productHuntUrl"),
     email: value("email"),
     consent: form.get("consent") === "on",
     [HONEYPOT_FIELD]: value(HONEYPOT_FIELD),

@@ -103,7 +103,9 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published fi
   "category": "productivity",
   "type": "saas",
   "pricing": "freemium",
-  "startingPrice": "$12/month",
+  "startingPrice": "$19/mo",
+  "billingPeriod": "monthly",
+  "pricingPageUrl": "https://example.com/pricing",
   "logoUrl": "https://example.com/logo.png",
   "makerName": "Maker Name",
   "makerX": "maker",
@@ -111,7 +113,12 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published fi
   "ycBatch": "W26",
   "launchYear": 2026,
   "revenueSourceUrl": "https://example.com/revenue",
+  "linkedinUrl": "",
   "githubUrl": "https://github.com/example/example",
+  "youtubeUrl": "",
+  "discordUrl": "",
+  "instagramUrl": "",
+  "productHuntUrl": "",
   "consent": true,
   "status": "approved",
   "submittedAt": "2026-11-03T00:00:00.000Z",
@@ -119,7 +126,7 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published fi
 }
 ```
 
-`type` is `ai-tool`, `saas`, `app`, `agent-framework`, or `other`. `makerType` is `indie-hacker`, `startup`, or `yc` (with `ycBatch`). `pricing` is `free`, `freemium`, `paid`, or `open-source`. Logo files are not uploaded; `logoUrl` is a public image address. There is no `email` field.
+`type` is `ai-tool`, `saas`, `app`, `agent-framework`, or `other`. `makerType` is `indie-hacker`, `startup`, or `yc` (with `ycBatch`). `pricing` is `free`, `freemium`, `paid`, `open-source`, or `free-trial`. `billingPeriod` is `monthly`, `yearly`, `weekly`, `one-time`, or `usage`, and may be empty. Social URLs and the pricing page are optional and are omitted from the public page when blank. The form accepts `example.com` and `www.example.com` and stores `https://`. Logo files are not uploaded; `logoUrl` is a public image address. There is no `email` field.
 
 ## Deploy on Vercel with a custom domain
 

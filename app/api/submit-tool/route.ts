@@ -5,9 +5,12 @@ import { collectTakenSlugs, localListingDomains } from "@/lib/submission-files";
 import {
   honeypotTripped,
   submissionMailto,
+  SUBMISSION_FIELDS,
   SUBMISSION_SUCCESS_MESSAGE,
+  summarizeFieldErrors,
   validateSubmission,
   websiteDomain,
+  type FieldErrors,
   type SubmissionField,
 } from "@/lib/submissions";
 import { assertPublicUrlReachable } from "@/lib/url-check";
@@ -45,7 +48,7 @@ export async function POST(request: Request) {
   try {
     payload = JSON.parse(text);
   } catch {
-    return json({ message: "The form could not be read." }, 400);
+    return fieldError({ name: "The form could not be read." });
   }
 
   const limit = takeRateLimit(`submit:${clientIp(request)}`);
@@ -66,18 +69,18 @@ export async function POST(request: Request) {
 
   const validated = validateSubmission(payload, { takenSlugs: collectTakenSlugs() });
   if (!validated.ok) {
-    return json({ message: "Check the highlighted fields.", errors: validated.errors }, 400);
+    return fieldError(validated.errors);
   }
 
   const mailto = submissionMailto(stringsFrom(validated.value));
   const domain = websiteDomain(validated.value.website);
   if (domain && localListingDomains().has(domain)) {
-    return json({ message: "Check the highlighted fields.", errors: { website: DUPLICATE_MESSAGE } }, 409);
+    return fieldError({ website: DUPLICATE_MESSAGE }, 409);
   }
 
   const reachable = await assertPublicUrlReachable(validated.value.website);
   if (!reachable.ok) {
-    return json({ message: "Check the highlighted fields.", errors: { website: reachable.message } }, 400);
+    return fieldError({ website: reachable.message });
   }
 
   if (!submissionsToken()) {
@@ -90,13 +93,17 @@ export async function POST(request: Request) {
       return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
     }
     if (filed.reason === "duplicate") {
-      return json({ message: "Check the highlighted fields.", errors: { website: DUPLICATE_MESSAGE } }, 409);
+      return fieldError({ website: DUPLICATE_MESSAGE }, 409);
     }
     return json({ ok: false, code: "store_failed", message: MAILOUT_MESSAGE, mailto }, 502);
   } catch (error) {
     console.error("[submit-tool] failed", error instanceof Error ? error.message : "error");
     return json({ ok: false, code: "store_failed", message: MAILOUT_MESSAGE, mailto }, 502);
   }
+}
+
+function fieldError(errors: FieldErrors, status = 400) {
+  return json({ message: summarizeFieldErrors(errors), errors }, status);
 }
 
 function json(body: Record<string, unknown>, status: number, extra?: Record<string, string>) {
@@ -139,25 +146,8 @@ function mailtoFrom(payload: unknown) {
   if (!payload || typeof payload !== "object") return submissionMailto({});
   const record = payload as Record<string, unknown>;
   const fields: Partial<Record<SubmissionField, string>> = {};
-  for (const key of [
-    "name",
-    "website",
-    "tagline",
-    "description",
-    "category",
-    "type",
-    "pricing",
-    "startingPrice",
-    "logoUrl",
-    "makerName",
-    "makerX",
-    "makerType",
-    "ycBatch",
-    "launchYear",
-    "revenueSourceUrl",
-    "githubUrl",
-    "email",
-  ] as const) {
+  for (const key of SUBMISSION_FIELDS) {
+    if (key === "consent") continue;
     const value = record[key];
     if (typeof value === "string") fields[key] = value;
   }
@@ -173,6 +163,8 @@ function stringsFrom(value: {
   type: string | null;
   pricing: string;
   startingPrice: string;
+  billingPeriod: string;
+  pricingPageUrl: string;
   logoUrl: string;
   makerName: string;
   makerX: string;
@@ -180,7 +172,12 @@ function stringsFrom(value: {
   ycBatch: string;
   launchYear: number | null;
   revenueSourceUrl: string;
+  linkedinUrl: string;
   githubUrl: string;
+  youtubeUrl: string;
+  discordUrl: string;
+  instagramUrl: string;
+  productHuntUrl: string;
   email: string;
 }): Partial<Record<SubmissionField, string>> {
   return {
@@ -192,6 +189,8 @@ function stringsFrom(value: {
     type: value.type ?? "",
     pricing: value.pricing,
     startingPrice: value.startingPrice,
+    billingPeriod: value.billingPeriod,
+    pricingPageUrl: value.pricingPageUrl,
     logoUrl: value.logoUrl,
     makerName: value.makerName,
     makerX: value.makerX,
@@ -199,7 +198,12 @@ function stringsFrom(value: {
     ycBatch: value.ycBatch,
     launchYear: value.launchYear ? String(value.launchYear) : "",
     revenueSourceUrl: value.revenueSourceUrl,
+    linkedinUrl: value.linkedinUrl,
     githubUrl: value.githubUrl,
+    youtubeUrl: value.youtubeUrl,
+    discordUrl: value.discordUrl,
+    instagramUrl: value.instagramUrl,
+    productHuntUrl: value.productHuntUrl,
     email: value.email,
   };
 }

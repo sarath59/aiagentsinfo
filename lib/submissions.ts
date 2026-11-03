@@ -1,9 +1,12 @@
 import { site } from "@/lib/site";
 import {
+  billingPeriodTitle,
+  canonicalBillingPeriod,
+  canonicalCategory,
+  canonicalPricing,
   categoryTitle,
-  directoryCategories,
-  pricingModels,
   pricingTitle,
+  type BillingPeriod,
   type DirectoryCategory,
   type PricingModel,
 } from "@/lib/directory-meta";
@@ -41,6 +44,8 @@ export const SUBMISSION_FIELDS = [
   "type",
   "pricing",
   "startingPrice",
+  "billingPeriod",
+  "pricingPageUrl",
   "logoUrl",
   "makerName",
   "makerX",
@@ -48,7 +53,12 @@ export const SUBMISSION_FIELDS = [
   "ycBatch",
   "launchYear",
   "revenueSourceUrl",
+  "linkedinUrl",
   "githubUrl",
+  "youtubeUrl",
+  "discordUrl",
+  "instagramUrl",
+  "productHuntUrl",
   "email",
   "consent",
 ] as const;
@@ -57,6 +67,44 @@ export type SubmissionField = (typeof SUBMISSION_FIELDS)[number];
 export type FieldErrors = Partial<
   Record<SubmissionField | "status" | "slug" | "submittedAt", string>
 >;
+
+const FIELD_LABELS: Record<string, string> = {
+  name: "Tool name",
+  website: "Website URL",
+  tagline: "Tagline",
+  description: "Description",
+  category: "Category",
+  type: "Type",
+  pricing: "Pricing model",
+  startingPrice: "Starting price",
+  billingPeriod: "Billing period",
+  pricingPageUrl: "Pricing page",
+  logoUrl: "Logo URL",
+  makerName: "Maker name",
+  makerX: "X handle",
+  makerType: "Maker type",
+  ycBatch: "YC batch",
+  launchYear: "Launch year",
+  revenueSourceUrl: "Revenue source",
+  linkedinUrl: "LinkedIn",
+  githubUrl: "GitHub",
+  youtubeUrl: "YouTube",
+  discordUrl: "Discord",
+  instagramUrl: "Instagram",
+  productHuntUrl: "Product Hunt",
+  email: "Email",
+  consent: "Consent",
+};
+
+/** One sentence per failing field, used in the form banner and the API message. */
+export function summarizeFieldErrors(errors: FieldErrors) {
+  const parts = Object.entries(errors).flatMap(([field, message]) => {
+    if (!message) return [];
+    const label = FIELD_LABELS[field];
+    return [label ? `${label}: ${message}` : message];
+  });
+  return parts.join(" ");
+}
 
 /** Slugs that already belong to directory collections or the submit redirect. */
 export const RESERVED_DIRECTORY_SLUGS = new Set([
@@ -77,6 +125,8 @@ export type ToolSubmission = {
   type: ToolType | null;
   pricing: PricingModel;
   startingPrice: string;
+  billingPeriod: BillingPeriod | "";
+  pricingPageUrl: string;
   logoUrl: string;
   makerName: string;
   makerX: string;
@@ -84,7 +134,12 @@ export type ToolSubmission = {
   ycBatch: string;
   launchYear: number | null;
   revenueSourceUrl: string;
+  linkedinUrl: string;
   githubUrl: string;
+  youtubeUrl: string;
+  discordUrl: string;
+  instagramUrl: string;
+  productHuntUrl: string;
   email: string;
   consent: boolean;
   status: SubmissionStatus;
@@ -147,26 +202,33 @@ export function validateSubmission(
   const websiteRaw = oneLine(input.website);
   const tagline = oneLine(input.tagline);
   const description = sanitizePlainText(typeof input.description === "string" ? input.description : "");
-  const category = oneLine(input.category);
+  const category = canonicalCategory(oneLine(input.category));
   const type = oneLine(input.type);
-  const pricing = oneLine(input.pricing);
+  const pricing = canonicalPricing(oneLine(input.pricing));
   const startingPrice = oneLine(input.startingPrice);
-  const logoUrlRaw = oneLine(input.logoUrl);
+  const billingRaw = oneLine(input.billingPeriod);
   const makerName = oneLine(input.makerName);
   const makerXRaw = oneLine(input.makerX);
   const makerType = oneLine(input.makerType);
-  const ycBatch = oneLine(input.ycBatch);
+  const ycBatch = makerType === "yc" ? oneLine(input.ycBatch) : "";
   const launchYearRaw = oneLine(input.launchYear);
-  const revenueRaw = oneLine(input.revenueSourceUrl);
-  const githubRaw = oneLine(input.githubUrl);
   const email = oneLine(input.email).toLowerCase();
+  const logoUrl = optionalPublicUrl(input.logoUrl);
+  const pricingPageUrl = optionalPublicUrl(input.pricingPageUrl);
+  const revenue = optionalPublicUrl(input.revenueSourceUrl);
+  const linkedinUrl = optionalPublicUrl(input.linkedinUrl);
+  const youtubeUrl = optionalPublicUrl(input.youtubeUrl);
+  const discordUrl = optionalPublicUrl(input.discordUrl);
+  const instagramUrl = optionalPublicUrl(input.instagramUrl);
+  const productHuntUrl = optionalPublicUrl(input.productHuntUrl);
+  const github = normalizeGithubUrl(oneLine(input.githubUrl));
 
   if (name.length < 2 || name.length > 80) {
     errors.name = "Enter the tool name (2–80 characters).";
   }
-  const website = websiteRaw ? parsePublicUrl(websiteRaw, 300) : { ok: false as const, error: "" };
-  if (!websiteRaw || !website.ok) {
-    errors.website = "Enter a public website URL starting with http:// or https://.";
+  const website = normalizePublicUrl(websiteRaw, 300);
+  if (!website.ok || !website.url) {
+    errors.website = "Enter a public website, such as example.com.";
   }
   if (!tagline || tagline.length < 8 || tagline.length > 140) {
     errors.tagline = "Enter a one-line tagline (8–140 characters).";
@@ -174,28 +236,33 @@ export function validateSubmission(
   if (description.length < 20 || description.length > 5000) {
     errors.description = "Enter a full description (20–5000 characters).";
   }
-  if (!isCategory(category)) {
+  if (!category) {
     errors.category = "Choose a category.";
   }
   if (type && !isToolType(type)) {
     errors.type = "Choose a type from the list.";
   }
-  if (!isPricing(pricing)) {
+  if (!pricing) {
     errors.pricing = "Choose a pricing model.";
   }
-  if (startingPrice.length > 60 || /[\r\n]/.test(startingPrice)) {
+  if (startingPrice.length > 60) {
     errors.startingPrice = "Keep the starting price to a short line.";
   }
-  const logoUrl = logoUrlRaw ? parsePublicUrl(logoUrlRaw, 500) : { ok: true as const, url: "" };
+  let billingPeriod: BillingPeriod | "" = "";
+  if (billingRaw) {
+    const match = canonicalBillingPeriod(billingRaw);
+    if (!match) errors.billingPeriod = "Choose a billing period, or leave it blank.";
+    else billingPeriod = match;
+  }
   if (!logoUrl.ok) {
-    errors.logoUrl = "Enter a public logo URL starting with http:// or https://, or leave it blank.";
+    errors.logoUrl = "Enter a public logo URL, or leave it blank.";
   }
   if (makerName.length > 80) {
     errors.makerName = "Keep the maker name under 80 characters.";
   }
   const makerX = normalizeHandle(makerXRaw);
-  if (makerXRaw && !HANDLE_RE.test(makerX)) {
-    errors.makerX = "Enter an X handle (letters, numbers, underscore), or leave it blank.";
+  if (!blankHandle(makerXRaw) && !HANDLE_RE.test(makerX)) {
+    errors.makerX = "Enter an X handle (with or without @), or leave it blank.";
   }
   if (makerType && !isMakerType(makerType)) {
     errors.makerType = "Choose a maker type from the list.";
@@ -204,8 +271,6 @@ export function validateSubmission(
     if (!ycBatch || ycBatch.length > 20 || !/^[A-Za-z0-9][A-Za-z0-9 ._-]{0,19}$/.test(ycBatch)) {
       errors.ycBatch = "Enter the YC batch, for example W26.";
     }
-  } else if (ycBatch.length > 20) {
-    errors.ycBatch = "Keep the YC batch short.";
   }
   let launchYear: number | null = null;
   if (launchYearRaw) {
@@ -219,11 +284,17 @@ export function validateSubmission(
       }
     }
   }
-  const revenue = revenueRaw ? parsePublicUrl(revenueRaw, 500) : { ok: true as const, url: "" };
+  if (!pricingPageUrl.ok) {
+    errors.pricingPageUrl = "Enter a public pricing-page URL, or leave it blank.";
+  }
   if (!revenue.ok) {
     errors.revenueSourceUrl = "Enter a public revenue-source URL, or leave it blank.";
   }
-  const github = githubRaw ? parseGithubUrl(githubRaw) : { ok: true as const, url: "" };
+  if (!linkedinUrl.ok) errors.linkedinUrl = "Enter a public LinkedIn URL, or leave it blank.";
+  if (!youtubeUrl.ok) errors.youtubeUrl = "Enter a public YouTube URL, or leave it blank.";
+  if (!discordUrl.ok) errors.discordUrl = "Enter a public Discord URL, or leave it blank.";
+  if (!instagramUrl.ok) errors.instagramUrl = "Enter a public Instagram URL, or leave it blank.";
+  if (!productHuntUrl.ok) errors.productHuntUrl = "Enter a public Product Hunt URL, or leave it blank.";
   if (!github.ok) {
     errors.githubUrl = "Enter a github.com URL, or leave it blank.";
   }
@@ -273,7 +344,9 @@ export function validateSubmission(
   if (!errors.makerName && textBlocked(makerName)) errors.makerName = BLOCKED_TEXT_MESSAGE;
   if (!errors.ycBatch && textBlocked(ycBatch)) errors.ycBatch = BLOCKED_TEXT_MESSAGE;
 
-  if (Object.keys(errors).length) return { ok: false, errors };
+  if (Object.keys(errors).length || !website.ok || !website.url || !category || !pricing) {
+    return { ok: false, errors };
+  }
 
   if (mode === "form") {
     slug = suggestSlug(name, options.takenSlugs ?? []);
@@ -283,13 +356,15 @@ export function validateSubmission(
     ok: true,
     value: {
       name,
-      website: website.ok ? website.url : "",
+      website: website.url,
       tagline,
       description,
-      category: category as DirectoryCategory,
+      category,
       type: type ? (type as ToolType) : null,
-      pricing: pricing as PricingModel,
+      pricing,
       startingPrice,
+      billingPeriod,
+      pricingPageUrl: pricingPageUrl.ok ? pricingPageUrl.url : "",
       logoUrl: logoUrl.ok ? logoUrl.url : "",
       makerName,
       makerX,
@@ -297,7 +372,12 @@ export function validateSubmission(
       ycBatch: makerType === "yc" ? ycBatch : "",
       launchYear,
       revenueSourceUrl: revenue.ok ? revenue.url : "",
+      linkedinUrl: linkedinUrl.ok ? linkedinUrl.url : "",
       githubUrl: github.ok ? github.url : "",
+      youtubeUrl: youtubeUrl.ok ? youtubeUrl.url : "",
+      discordUrl: discordUrl.ok ? discordUrl.url : "",
+      instagramUrl: instagramUrl.ok ? instagramUrl.url : "",
+      productHuntUrl: productHuntUrl.ok ? productHuntUrl.url : "",
       email,
       consent: true,
       status,
@@ -349,15 +429,20 @@ export function submissionToListing(submission: ToolSubmission) {
     features.push(`YC batch: ${submission.ycBatch}`);
   }
   if (submission.launchYear) features.push(`Launch year: ${submission.launchYear}`);
-  if (submission.githubUrl) features.push(`Source: ${submission.githubUrl}`);
-  if (submission.revenueSourceUrl) {
-    features.push(`Public revenue source: ${submission.revenueSourceUrl}`);
-  }
 
-  const priceLabel = pricingTitle(submission.pricing);
-  const pricingSummary = submission.startingPrice
-    ? `${priceLabel}. Starting price: ${submission.startingPrice}.`
-    : priceLabel;
+  const pricingBits = [pricingTitle(submission.pricing)];
+  if (submission.startingPrice) pricingBits.push(`starting at ${submission.startingPrice}`);
+  if (submission.billingPeriod) pricingBits.push(billingPeriodTitle(submission.billingPeriod));
+  const pricingSummary = pricingBits.join(" · ");
+  const socials = compactSocials({
+    x: submission.makerX ? `https://x.com/${submission.makerX}` : "",
+    linkedin: submission.linkedinUrl,
+    github: submission.githubUrl,
+    youtube: submission.youtubeUrl,
+    discord: submission.discordUrl,
+    instagram: submission.instagramUrl,
+    productHunt: submission.productHuntUrl,
+  });
   const tags = submission.type ? [submission.type] : [];
 
   return {
@@ -375,6 +460,11 @@ export function submissionToListing(submission: ToolSubmission) {
     audiences: [] as string[],
     features,
     pricingSummary,
+    startingPrice: submission.startingPrice,
+    billingPeriod: submission.billingPeriod,
+    pricingPageUrl: submission.pricingPageUrl,
+    revenueSourceUrl: submission.revenueSourceUrl,
+    socials,
     lastVerified: submission.submittedAt.slice(0, 10),
     communitySubmitted: true,
   };
@@ -391,6 +481,8 @@ export function publicSubmissionRecord(submission: ToolSubmission) {
     type: submission.type,
     pricing: submission.pricing,
     startingPrice: submission.startingPrice,
+    billingPeriod: submission.billingPeriod,
+    pricingPageUrl: submission.pricingPageUrl,
     logoUrl: submission.logoUrl,
     makerName: submission.makerName,
     makerX: submission.makerX,
@@ -398,7 +490,12 @@ export function publicSubmissionRecord(submission: ToolSubmission) {
     ycBatch: submission.ycBatch,
     launchYear: submission.launchYear,
     revenueSourceUrl: submission.revenueSourceUrl,
+    linkedinUrl: submission.linkedinUrl,
     githubUrl: submission.githubUrl,
+    youtubeUrl: submission.youtubeUrl,
+    discordUrl: submission.discordUrl,
+    instagramUrl: submission.instagramUrl,
+    productHuntUrl: submission.productHuntUrl,
     consent: true as const,
     status: "approved" as const,
     submittedAt: submission.submittedAt,
@@ -445,6 +542,8 @@ export function submissionMailto(input: Partial<Record<SubmissionField, string>>
     `Type: ${input.type ?? ""}`,
     `Pricing: ${input.pricing ?? ""}`,
     `Starting price: ${input.startingPrice ?? ""}`,
+    `Billing period: ${input.billingPeriod ?? ""}`,
+    `Pricing page: ${input.pricingPageUrl ?? ""}`,
     `Logo URL: ${input.logoUrl ?? ""}`,
     `Maker: ${input.makerName ?? ""}`,
     `X handle: ${input.makerX ?? ""}`,
@@ -452,7 +551,12 @@ export function submissionMailto(input: Partial<Record<SubmissionField, string>>
     `YC batch: ${input.ycBatch ?? ""}`,
     `Launch year: ${input.launchYear ?? ""}`,
     `Revenue source: ${input.revenueSourceUrl ?? ""}`,
+    `LinkedIn: ${input.linkedinUrl ?? ""}`,
     `GitHub: ${input.githubUrl ?? ""}`,
+    `YouTube: ${input.youtubeUrl ?? ""}`,
+    `Discord: ${input.discordUrl ?? ""}`,
+    `Instagram: ${input.instagramUrl ?? ""}`,
+    `Product Hunt: ${input.productHuntUrl ?? ""}`,
     `Email: ${input.email ?? ""}`,
     "",
     "Description:",
@@ -526,14 +630,6 @@ function isConsent(value: unknown) {
   return value === true || value === "true" || value === "on" || value === "yes";
 }
 
-function isCategory(value: string): value is DirectoryCategory {
-  return directoryCategories.some((item) => item.slug === value);
-}
-
-function isPricing(value: string): value is PricingModel {
-  return pricingModels.some((item) => item.slug === value);
-}
-
 function isToolType(value: string): value is ToolType {
   return toolTypes.some((item) => item.slug === value);
 }
@@ -542,9 +638,17 @@ function isMakerType(value: string): value is MakerType {
   return makerTypes.some((item) => item.slug === value);
 }
 
+function blankHandle(value: string) {
+  const handle = value.trim();
+  return !handle || handle === "@" || schemeOnly(handle);
+}
+
 function normalizeHandle(value: string) {
   let handle = value.trim();
-  if (!handle) return "";
+  if (blankHandle(handle)) return "";
+  if (!/^https?:\/\//i.test(handle) && /^(?:www\.)?(?:x|twitter)\.com\//i.test(handle)) {
+    handle = `https://${handle}`;
+  }
   if (handle.startsWith("http://") || handle.startsWith("https://")) {
     try {
       const url = new URL(handle);
@@ -553,10 +657,43 @@ function normalizeHandle(value: string) {
         handle = url.pathname.split("/").filter(Boolean)[0] ?? "";
       }
     } catch {
-      // Fall through and validate the raw value.
+      return "";
     }
   }
-  return handle.replace(/^@+/, "");
+  return handle.replace(/^@+/, "").split(/[/?#]/)[0] ?? "";
+}
+
+function optionalPublicUrl(value: unknown): { ok: true; url: string } | { ok: false } {
+  return normalizePublicUrl(oneLine(value), 500);
+}
+
+export function normalizePublicUrl(value: string, maxLength: number): { ok: true; url: string } | { ok: false } {
+  const trimmed = value.trim();
+  if (!trimmed || schemeOnly(trimmed)) return { ok: true, url: "" };
+  let next = trimmed;
+  if (!/^https?:\/\//i.test(next)) next = `https://${next.replace(/^\/+/, "")}`;
+  return parsePublicUrl(next, maxLength);
+}
+
+function schemeOnly(value: string) {
+  return /^(?:https?:\/\/)?(?:www\.)?$/i.test(value.trim());
+}
+
+function normalizeGithubUrl(value: string): { ok: true; url: string } | { ok: false } {
+  const parsed = normalizePublicUrl(value, 500);
+  if (!parsed.ok || !parsed.url) return parsed.ok ? { ok: true, url: "" } : parsed;
+  const url = new URL(parsed.url);
+  const host = url.hostname.replace(/^www\./, "").toLowerCase();
+  if (host !== "github.com") return { ok: false };
+  const parts = url.pathname.split("/").filter(Boolean);
+  if (parts.length < 1 || !parts.every((part) => /^[A-Za-z0-9_.-]+$/.test(part))) return { ok: false };
+  return { ok: true, url: `https://github.com/${parts.join("/")}` };
+}
+
+function compactSocials(socials: Record<string, string>) {
+  const entries = Object.entries(socials).filter(([, href]) => href);
+  if (!entries.length) return undefined;
+  return Object.fromEntries(entries);
 }
 
 function parsePublicUrl(value: string, maxLength: number): { ok: true; url: string } | { ok: false } {
@@ -571,18 +708,6 @@ function parsePublicUrl(value: string, maxLength: number): { ok: true; url: stri
   if (url.username || url.password) return { ok: false };
   if (isBlockedHostname(url.hostname)) return { ok: false };
   return { ok: true, url: url.href };
-}
-
-function parseGithubUrl(value: string): { ok: true; url: string } | { ok: false } {
-  const parsed = parsePublicUrl(value, 500);
-  if (!parsed.ok) return parsed;
-  const url = new URL(parsed.url);
-  const host = url.hostname.replace(/^www\./, "").toLowerCase();
-  if (host !== "github.com") return { ok: false };
-  const parts = url.pathname.split("/").filter(Boolean);
-  if (parts.length < 2) return { ok: false };
-  if (!parts.every((part) => /^[A-Za-z0-9_.-]+$/.test(part))) return { ok: false };
-  return { ok: true, url: `https://github.com/${parts.join("/")}` };
 }
 
 export function isBlockedHostname(hostname: string) {

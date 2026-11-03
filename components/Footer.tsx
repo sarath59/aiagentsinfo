@@ -31,9 +31,9 @@ export function Footer() {
           © {new Date().getFullYear()} {site.name}. Independent publication. No fake staff bios.
         </p>
         <p>
-          <Link href="/rss.xml">RSS</Link>
+          <a href="/rss.xml">RSS</a>
           {" · "}
-          <Link href="/sitemap.xml">Sitemap</Link>
+          <a href="/sitemap.xml">Sitemap</a>
         </p>
       </div>
     </footer>

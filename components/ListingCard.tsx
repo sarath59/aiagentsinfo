@@ -2,11 +2,7 @@ import Link from "next/link";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { InlineCompanyText } from "@/components/CompanyMarks";
 import { companyForName } from "@/lib/companies";
-import { categoryTitle, pricingModels, type DirectoryListing } from "@/lib/directory";
-
-function pricingTitle(slug: string) {
-  return pricingModels.find((item) => item.slug === slug)?.title ?? slug;
-}
+import { billingPeriodTitle, categoryTitle, pricingTitle, type DirectoryListing } from "@/lib/directory";
 
 export function CommunityBadge() {
   return (
@@ -52,6 +48,10 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
             {pricingTitle(item)}
           </span>
         ))}
+        {listing.startingPrice ? <span className="chip text-[11px]">{listing.startingPrice}</span> : null}
+        {listing.billingPeriod ? (
+          <span className="chip text-[11px]">{billingPeriodTitle(listing.billingPeriod)}</span>
+        ) : null}
       </div>
     </article>
   );

@@ -3,12 +3,13 @@ import { approvedSubmissionListings } from "@/lib/submission-files";
 import type { DirectoryCategory, PricingModel } from "@/lib/directory-meta";
 
 export {
+  billingPeriodTitle,
   categoryTitle,
   directoryCategories,
   pricingModels,
   pricingTitle,
 } from "@/lib/directory-meta";
-export type { DirectoryCategory, PricingModel } from "@/lib/directory-meta";
+export type { BillingPeriod, DirectoryCategory, PricingModel } from "@/lib/directory-meta";
 
 export const directoryCollections = [
   { slug: "new", title: "New this week", field: "newThisWeek" },
@@ -30,6 +31,19 @@ export type DirectoryFrontmatter = {
   audiences: string[];
   features: string[];
   pricingSummary: string;
+  startingPrice?: string;
+  billingPeriod?: string;
+  pricingPageUrl?: string;
+  revenueSourceUrl?: string;
+  socials?: {
+    x?: string;
+    linkedin?: string;
+    github?: string;
+    youtube?: string;
+    discord?: string;
+    instagram?: string;
+    productHunt?: string;
+  };
   lastVerified: string;
   sample?: boolean;
   newThisWeek?: boolean;
@@ -100,6 +114,21 @@ export function filterDirectory(
     }
     return true;
   });
+}
+
+export function listingSocialLinks(listing: DirectoryListing) {
+  const socials = listing.socials;
+  if (!socials) return [];
+  const items = [
+    ["X", socials.x],
+    ["LinkedIn", socials.linkedin],
+    ["GitHub", socials.github],
+    ["YouTube", socials.youtube],
+    ["Discord", socials.discord],
+    ["Instagram", socials.instagram],
+    ["Product Hunt", socials.productHunt],
+  ] as const;
+  return items.flatMap(([title, href]) => (href ? [{ title, href }] : []));
 }
 
 export function relatedListings(
