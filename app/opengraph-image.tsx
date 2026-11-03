@@ -62,7 +62,7 @@ export default function OpenGraphImage() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-            {markSvg("og", { size: 88 })}
+            {markSvg("og", { size: 72 })}
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 36, fontWeight: 700, letterSpacing: -0.6 }}>AI Agents</div>
               <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: 6, color: "#7A560C", marginTop: 8 }}>
@@ -107,7 +107,7 @@ export default function OpenGraphImage() {
               right: 36,
             }}
           />
-          {markSvg("ogpanel", { size: 280 })}
+          {markSvg("ogpanel", { size: 188, variant: "reversed" })}
         </div>
       </div>
     ),

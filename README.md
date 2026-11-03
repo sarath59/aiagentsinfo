@@ -30,12 +30,16 @@ Newsletter (`POST /api/newsletter`) and tool submissions (`POST /api/submit-tool
 
 ## Brand assets
 
-Original lattice mark and wordmark (navy text, electric blue, cyan, and gold on a light page — not monochrome, no violet):
+Geometric A (rounded apex, inner arch, separate right foot, four-point star). On light surfaces the A is deep navy with a subtle electric-blue-to-cyan gradient and the star is gold. A white reversed mark is for the midnight panel and other dark surfaces.
 
-- `public/brand/mark.svg` — icon only, transparent
-- `public/brand/wordmark.svg`
-- `public/brand/lockup.svg` — mark plus “AI Agents Info”
-- App icons: `app/icon.svg`, `app/apple-icon.tsx`, `public/brand/icon.svg`, `public/brand/icon-192.png`, `public/brand/icon-512.png`
+- `public/logo-mark.svg` — icon mark, transparent
+- `public/brand/mark.svg` — same icon-only mark
+- `public/brand/mark-reversed.svg` — white A, gold star
+- `public/brand/wordmark.svg` — “AI Agents Info” in Inter
+- `public/brand/lockup.svg` — mark plus the wordmark
+- Favicon: `app/icon.svg`, `app/favicon.ico`, `public/brand/icon-16.png`, `public/brand/icon-32.png`, `public/brand/icon-48.png`
+- Apple touch icon: `app/apple-icon.png`, `public/apple-touch-icon.png`
+- Manifest icons: `public/brand/icon.svg`, `public/brand/icon-192.png`, `public/brand/icon-512.png`
 - Social images: `app/opengraph-image.tsx`, `app/twitter-image.tsx`
 
 ## How to add content
