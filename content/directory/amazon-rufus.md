@@ -2,6 +2,7 @@
 name: Amazon Rufus
 vendor: Amazon
 website: https://www.amazon.com
+logo: /logos/amazon.png
 summary: Amazon's shopping assistant, available in Amazon shopping surfaces where Amazon has enabled it. Features and regions vary.
 category: shopping-agents
 tags:

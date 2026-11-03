@@ -1,5 +1,7 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
 import { PageHeader } from "@/components/PageHeader";
+import { companyBySlug } from "@/lib/companies";
 import { defaultMetadata } from "@/lib/seo";
 
 export const metadata = defaultMetadata(
@@ -9,6 +11,7 @@ export const metadata = defaultMetadata(
 );
 
 export default function PrivacyPage() {
+  const datafast = companyBySlug("datafast");
   return (
     <>
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Privacy", path: "/privacy" }]} />
@@ -28,7 +31,12 @@ export default function PrivacyPage() {
           Theme preference is stored in your browser with localStorage. The site defaults to dark.
         </p>
         <p className="mt-4">
-          Page views are measured with DataFast (<code>datafa.st</code>) so we can see which pages are read. No login, and we do not invent visitor counts on this site. An extra analytics script loads only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is also set in the host environment.
+          Page views are measured with{" "}
+          <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
+            <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />
+            DataFast
+          </a>{" "}
+          (<code>datafa.st</code>) so we can see which pages are read. No login, and we do not invent visitor counts on this site. An extra analytics script loads only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is also set in the host environment.
         </p>
       </div>
     </>

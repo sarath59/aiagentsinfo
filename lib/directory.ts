@@ -31,6 +31,8 @@ export type DirectoryFrontmatter = {
   name: string;
   vendor: string;
   website: string;
+  /** Public path such as /logos/claude.png. Empty when no official logo was found. */
+  logo?: string;
   summary: string;
   category: DirectoryCategory;
   tags: string[];

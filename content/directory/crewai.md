@@ -2,6 +2,7 @@
 name: CrewAI
 vendor: CrewAI
 website: https://crewai.com
+logo: /logos/crewai.png
 summary: Framework for role-based multi-agent workflows, with open-source libraries and a commercial platform described by the vendor.
 category: agent-frameworks
 tags:

@@ -2,6 +2,7 @@
 name: GitHub Copilot
 vendor: GitHub (Microsoft)
 website: https://github.com/features/copilot
+logo: /logos/github-copilot.svg
 summary: GitHub's AI coding assistant, available in editors and on github.com, with agent-style features that GitHub documents on its product pages.
 category: coding-agents
 tags:

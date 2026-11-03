@@ -2,6 +2,7 @@
 name: ElevenLabs
 vendor: ElevenLabs
 website: https://elevenlabs.io
+logo: /logos/elevenlabs.svg
 summary: Speech synthesis and voice-agent platform. The feature set (text to speech, speech to speech, agents) is defined on elevenlabs.io.
 category: voice
 tags:

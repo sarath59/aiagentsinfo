@@ -2,6 +2,7 @@
 name: Perplexity
 vendor: Perplexity AI
 website: https://www.perplexity.ai
+logo: /logos/perplexity.png
 summary: Answer engine that retrieves web sources and cites them in responses. Useful as a research front end, not a substitute for primary sources.
 category: research
 tags:

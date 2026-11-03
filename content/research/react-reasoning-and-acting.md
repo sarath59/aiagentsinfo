@@ -8,6 +8,10 @@ topics:
   - harnesses
   - how-agents-work
   - task-performance
+companies:
+  - arxiv
+  - github
+  - wikipedia
 paperTitle: "ReAct: Synergizing Reasoning and Acting in Language Models"
 paperAuthors: "Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, Yuan Cao"
 paperYear: 2022

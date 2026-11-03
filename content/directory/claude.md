@@ -2,6 +2,7 @@
 name: Claude
 vendor: Anthropic
 website: https://claude.ai
+logo: /logos/claude.png
 summary: Anthropic's assistant family (Claude), offered in a chat app and via API, with tool use and computer-use features documented by the vendor.
 category: productivity
 tags:

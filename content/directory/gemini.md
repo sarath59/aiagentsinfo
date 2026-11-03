@@ -2,6 +2,7 @@
 name: Gemini
 vendor: Google
 website: https://gemini.google.com
+logo: /logos/gemini.png
 summary: Google's Gemini app and model family, integrated across Google consumer and Cloud products. Capabilities differ by surface (app, API, or Workspace).
 category: productivity
 tags:

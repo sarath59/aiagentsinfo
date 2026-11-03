@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
 import { defaultMetadata } from "@/lib/seo";
 import { searchSite } from "@/lib/search";
@@ -41,7 +42,14 @@ export default async function SearchPage({
             {hits.length} result{hits.length === 1 ? "" : "s"} for “{q}”
           </p>
         ) : (
-          <p className="mt-6 text-[var(--muted)]">Type at least two characters.</p>
+          <p className="mt-6 text-[var(--muted)]">
+            Type at least two characters. Try{" "}
+            <span className="inline-flex items-center gap-1 align-middle">
+              <CompanyLogo name="Claude" src="/logos/claude.png" size={16} />
+              Claude
+            </span>
+            , harnesses, or RAG.
+          </p>
         )}
         {q && hits.length === 0 ? (
           <div className="mt-6">
@@ -57,10 +65,32 @@ export default async function SearchPage({
             {hits.map((hit) => (
               <li key={hit.href} className="glass rounded-2xl p-5">
                 <p className="kicker">{hit.type}</p>
-                <Link href={hit.href} className="mt-1 block font-semibold tracking-tight text-2xl">
-                  {hit.title}
-                </Link>
-                <p className="mt-2 text-sm text-[var(--muted)]">{hit.description}</p>
+                <div className="mt-2 flex items-start gap-3">
+                  {hit.marks.length === 1 ? (
+                    <CompanyLogo
+                      name={hit.marks[0].name}
+                      src={hit.marks[0].src}
+                      tile={hit.marks[0].tile}
+                      size="md"
+                    />
+                  ) : null}
+                  <div className="min-w-0">
+                    <Link href={hit.href} className="block font-semibold tracking-tight text-2xl">
+                      {hit.title}
+                    </Link>
+                    <p className="mt-2 text-sm text-[var(--muted)]">{hit.description}</p>
+                  </div>
+                </div>
+                {hit.marks.length > 1 ? (
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {hit.marks.map((mark) => (
+                      <li key={mark.name} className="chip gap-1.5 py-1 pl-1 pr-3">
+                        <CompanyLogo name={mark.name} src={mark.src} tile={mark.tile} size="xs" />
+                        <span>{mark.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </li>
             ))}
           </ul>

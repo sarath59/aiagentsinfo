@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { CompanyLogo } from "@/components/CompanyLogo";
+import { InlineCompanyText } from "@/components/CompanyMarks";
+import { companyForName } from "@/lib/companies";
 import { categoryTitle, pricingModels, type DirectoryListing } from "@/lib/directory";
 
 function pricingTitle(slug: string) {
@@ -6,7 +9,7 @@ function pricingTitle(slug: string) {
 }
 
 export function ListingCard({ listing }: { listing: DirectoryListing }) {
-  const letter = listing.name[0]?.toUpperCase() ?? "A";
+  const brand = companyForName(listing.name);
 
   return (
     <article className="glass lift rounded-3xl p-6">
@@ -14,12 +17,15 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--gold)]">Sponsored</p>
       ) : null}
       <div className="flex items-start gap-4">
-        <span className="mark-tile h-11 w-11 shrink-0 text-[15px] font-semibold" aria-hidden>
-          {letter}
-        </span>
+        <CompanyLogo
+          name={listing.name}
+          src={listing.logo || undefined}
+          tile={brand?.tile}
+          size="md"
+        />
         <div className="min-w-0">
           <p className="kicker">
-            {categoryTitle(listing.category)} · {listing.vendor}
+            {categoryTitle(listing.category)} · <InlineCompanyText text={listing.vendor} />
           </p>
           <h2 className="mt-1.5 font-semibold tracking-tight text-2xl">
             <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
@@ -39,15 +45,18 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
 }
 
 export function ListingRow({ listing }: { listing: DirectoryListing }) {
-  const letter = listing.name[0]?.toUpperCase() ?? "A";
+  const brand = companyForName(listing.name);
   return (
     <Link
       href={`/directory/${listing.slug}`}
       className="flex items-center gap-3 rounded-2xl px-1 py-1.5 transition-colors hover:bg-[color-mix(in_oklab,var(--color-electric)_8%,transparent)]"
     >
-      <span className="mark-tile h-9 w-9 shrink-0 text-[13px] font-semibold" aria-hidden>
-        {letter}
-      </span>
+      <CompanyLogo
+        name={listing.name}
+        src={listing.logo || undefined}
+        tile={brand?.tile}
+        size="sm"
+      />
       <span className="min-w-0 flex-1 truncate font-medium">{listing.name}</span>
       <span className="hidden text-sm text-[var(--muted)] sm:inline">{listing.vendor}</span>
     </Link>

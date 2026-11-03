@@ -15,6 +15,8 @@ export type ResearchFrontmatter = {
   updated?: string;
   type: ResearchType;
   topics: string[];
+  /** Company slugs from lib/companies. Logos render from this list. */
+  companies?: string[];
   sample?: boolean;
   paperTitle?: string;
   paperAuthors?: string;

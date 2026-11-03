@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
+import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
 import { getBlogPosts } from "@/lib/blog";
 import { getDirectoryListings } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs } from "@/lib/research";
+import { companyForName } from "@/lib/companies";
 import { defaultMetadata } from "@/lib/seo";
 import { topics } from "@/lib/site";
 
@@ -52,14 +55,16 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         <p className="mt-4 text-lg text-[var(--muted)]">{topic.summary}</p>
         <Section title="From the blog" emptyTitle="First articles publishing soon" empty="Posts on this beat will appear when they are published.">
           {relatedPosts.map((post) => (
-            <li key={post.slug}>
+            <li key={post.slug} className="flex flex-wrap items-center gap-2">
+              <CompanyMarks slugs={post.companies} />
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </li>
           ))}
         </Section>
         <Section title="Research" emptyTitle="Research notes publishing soon" empty="Paper notes on this beat will appear when the source checks out.">
           {relatedResearch.map((doc) => (
-            <li key={doc.slug}>
+            <li key={doc.slug} className="flex flex-wrap items-center gap-2">
+              <CompanyMarks slugs={doc.companies} />
               <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
             </li>
           ))}
@@ -74,7 +79,15 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         <Section title="Directory" emptyTitle="Listings coming soon — submit a tool" empty="Products for this beat appear after the official site is checked.">
           {relatedListings.map((listing) => (
             <li key={listing.slug}>
-              <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
+              <Link href={`/directory/${listing.slug}`} className="inline-flex items-center gap-2">
+                <CompanyLogo
+                  name={listing.name}
+                  src={listing.logo || undefined}
+                  tile={companyForName(listing.name)?.tile}
+                  size="sm"
+                />
+                {listing.name}
+              </Link>
             </li>
           ))}
         </Section>

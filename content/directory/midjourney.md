@@ -2,6 +2,7 @@
 name: Midjourney
 vendor: Midjourney
 website: https://www.midjourney.com
+logo: ""
 summary: Image generation service operated by Midjourney, accessed through the vendor's app, with subscription tiers documented by Midjourney.
 category: image-video
 tags:

@@ -2,6 +2,7 @@
 name: Cursor
 vendor: Anysphere
 website: https://cursor.com
+logo: /logos/cursor.svg
 summary: AI-centered code editor with agent-style editing and repository context. Product details are on cursor.com.
 category: coding-agents
 tags:

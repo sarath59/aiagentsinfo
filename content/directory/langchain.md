@@ -2,6 +2,7 @@
 name: LangChain
 vendor: LangChain
 website: https://www.langchain.com
+logo: /logos/langchain.png
 summary: Open-source framework and commercial platform (LangSmith and related products) for composing language-model applications and agents.
 category: agent-frameworks
 tags:

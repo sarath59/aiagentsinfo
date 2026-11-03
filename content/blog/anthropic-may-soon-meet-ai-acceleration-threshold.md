@@ -13,6 +13,10 @@ audience:
   - everyone
   - builders
   - research
+companies:
+  - anthropic
+  - claude
+  - sec
 byline: "AI Agents Info Editorial"
 sources:
   - title: "Anthropic, PBC Form S-1/A (SEC EDGAR, filed November 2, 2026)"

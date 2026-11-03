@@ -20,6 +20,8 @@ export type BlogFrontmatter = {
   topics: string[];
   audience?: string[];
   byline?: string;
+  /** Company slugs from lib/companies. Logos render from this list. */
+  companies?: string[];
   sample?: boolean;
   sources?: { title: string; url: string }[];
   faq?: { question: string; answer: string }[];

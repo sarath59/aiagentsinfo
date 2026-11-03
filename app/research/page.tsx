@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
+import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import {
@@ -81,7 +83,16 @@ export default async function ResearchIndexPage({
           {docs.length === 0 ? (
             <EmptyState
               title="Research notes publishing soon"
-              body="Paper pages will appear when there is a real arXiv or DOI link and the authors are correct."
+              body={
+                <>
+                  Paper pages will appear when there is a real{" "}
+                  <span className="inline-flex items-center gap-1 align-middle">
+                    <CompanyLogo name="arXiv" src="/logos/arxiv.png" size={16} />
+                    arXiv
+                  </span>{" "}
+                  or DOI link and the authors are correct.
+                </>
+              }
             />
           ) : filtered.length ? (
             filtered.map((doc) => (
@@ -93,6 +104,11 @@ export default async function ResearchIndexPage({
                   <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
                 </h2>
                 <p className="mt-3 max-w-3xl text-[var(--muted)]">{doc.description}</p>
+                {doc.companies?.length ? (
+                  <div className="mt-4">
+                    <CompanyMarks slugs={doc.companies} />
+                  </div>
+                ) : null}
               </article>
             ))
           ) : (

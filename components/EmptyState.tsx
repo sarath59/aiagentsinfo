@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 export function EmptyState({
   title,
@@ -7,7 +8,7 @@ export function EmptyState({
   cta,
 }: {
   title: string;
-  body: string;
+  body: ReactNode;
   href?: string;
   cta?: string;
 }) {

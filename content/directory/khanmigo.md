@@ -2,6 +2,7 @@
 name: Khanmigo
 vendor: Khan Academy
 website: https://www.khanmigo.ai
+logo: /logos/khanmigo.png
 summary: Khan Academy's AI tutor and teaching assistant, with learner, teacher, and district offerings described on khanmigo.ai.
 category: education
 tags:

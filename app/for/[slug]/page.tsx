@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
+import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
 import { ReadableToggle } from "@/components/ReadableToggle";
 import { getBlogPosts } from "@/lib/blog";
 import { getDirectoryListings } from "@/lib/directory";
 import { getResearchDocs } from "@/lib/research";
+import { companyForName } from "@/lib/companies";
 import { defaultMetadata } from "@/lib/seo";
 import { audiences } from "@/lib/site";
 
@@ -53,13 +56,15 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
         {relatedPosts.length || (isResearch && research.length) ? (
           <ul className="mt-3 grid gap-2">
             {relatedPosts.map((post) => (
-              <li key={post.slug}>
+              <li key={post.slug} className="flex flex-wrap items-center gap-2">
+                <CompanyMarks slugs={post.companies} />
                 <Link href={`/blog/${post.slug}`}>{post.title}</Link>
               </li>
             ))}
             {isResearch
               ? research.map((doc) => (
-                  <li key={doc.slug}>
+                  <li key={doc.slug} className="flex flex-wrap items-center gap-2">
+                    <CompanyMarks slugs={doc.companies} />
                     <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
                   </li>
                 ))
@@ -82,7 +87,15 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
           <ul className="mt-3 grid gap-2">
             {relatedListings.slice(0, 6).map((listing) => (
               <li key={listing.slug}>
-                <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
+                <Link href={`/directory/${listing.slug}`} className="inline-flex items-center gap-2">
+                  <CompanyLogo
+                    name={listing.name}
+                    src={listing.logo || undefined}
+                    tile={companyForName(listing.name)?.tile}
+                    size="sm"
+                  />
+                  {listing.name}
+                </Link>
               </li>
             ))}
           </ul>

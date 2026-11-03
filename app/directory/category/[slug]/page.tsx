@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
 import {
   categoryTitle,
   directoryCategories,
   getDirectoryListings,
 } from "@/lib/directory";
+import { companyForName } from "@/lib/companies";
 import { defaultMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -49,10 +51,20 @@ export default async function DirectoryCategoryPage({
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {listings.map((listing) => (
                 <article key={listing.slug} className="glass rounded-3xl p-6">
-                  <h2 className="font-semibold tracking-tight text-2xl">
-                    <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
-                  </h2>
-                  <p className="mt-2 text-sm text-[var(--muted)]">{listing.summary}</p>
+                  <div className="flex items-start gap-4">
+                    <CompanyLogo
+                      name={listing.name}
+                      src={listing.logo || undefined}
+                      tile={companyForName(listing.name)?.tile}
+                      size="md"
+                    />
+                    <div className="min-w-0">
+                      <h2 className="font-semibold tracking-tight text-2xl">
+                        <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
+                      </h2>
+                      <p className="mt-2 text-sm text-[var(--muted)]">{listing.summary}</p>
+                    </div>
+                  </div>
                 </article>
               ))}
             </div>

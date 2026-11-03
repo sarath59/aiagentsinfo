@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArrowIcon, DirectoryIcon, LearnIcon, ResearchIcon, SearchIcon } from "@/components/Icons";
+import { CompanyLogo } from "@/components/CompanyLogo";
+import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
 import { ListingCard } from "@/components/ListingCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -160,6 +162,11 @@ export default async function HomePage() {
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{post.description}</p>
+                  {post.companies?.length ? (
+                    <div className="mt-4">
+                      <CompanyMarks slugs={post.companies} />
+                    </div>
+                  ) : null}
                 </article>
               ))}
             </div>
@@ -222,13 +229,27 @@ export default async function HomePage() {
                     <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{doc.description}</p>
+                  {doc.companies?.length ? (
+                    <div className="mt-4">
+                      <CompanyMarks slugs={doc.companies} />
+                    </div>
+                  ) : null}
                 </article>
               ))}
             </div>
           ) : (
             <EmptyState
               title="Research notes publishing soon"
-              body="Paper pages will appear when there is a real arXiv or DOI link and the authors are correct."
+              body={
+                <>
+                  Paper pages will appear when there is a real{" "}
+                  <span className="inline-flex items-center gap-1 align-middle">
+                    <CompanyLogo name="arXiv" src="/logos/arxiv.png" size={16} />
+                    arXiv
+                  </span>{" "}
+                  or DOI link and the authors are correct.
+                </>
+              }
               href="/research"
               cta="Research desk"
             />

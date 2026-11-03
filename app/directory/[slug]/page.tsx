@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
+import { InlineCompanyText } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
-import { ListingCard } from "@/components/ListingCard";
+import { ListingCard, ListingRow } from "@/components/ListingCard";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import {
   categoryTitle,
@@ -13,6 +15,7 @@ import {
   listingsForCollection,
   relatedListings,
 } from "@/lib/directory";
+import { companyForName } from "@/lib/companies";
 import { JsonLd, defaultMetadata, softwareJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
@@ -79,6 +82,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
   const listing = all.find((item) => item.slug === slug);
   if (!listing) notFound();
   const related = relatedListings(listing, all);
+  const brand = companyForName(listing.name);
 
   return (
     <>
@@ -101,11 +105,18 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
       />
       <article className="mx-auto max-w-3xl px-4 pb-20 pt-10">
         {listing.sponsored ? <p className="kicker text-[var(--gold)]">Sponsored listing</p> : null}
-        <p className="kicker mt-2">
-          {categoryTitle(listing.category)} · {listing.vendor}
+        <div className="mt-3 flex items-start gap-4">
+          <CompanyLogo name={listing.name} src={listing.logo || undefined} tile={brand?.tile} size="lg" />
+          <div className="min-w-0">
+            <p className="kicker">
+              {categoryTitle(listing.category)} · <InlineCompanyText text={listing.vendor} />
+            </p>
+            <h1 className="display mt-3 text-5xl">{listing.name}</h1>
+          </div>
+        </div>
+        <p className="mt-4 text-lg text-[var(--muted)]">
+          <InlineCompanyText text={listing.summary} />
         </p>
-        <h1 className="display mt-3 text-5xl">{listing.name}</h1>
-        <p className="mt-4 text-lg text-[var(--muted)]">{listing.summary}</p>
         <p className="mt-4 text-sm text-[var(--muted)]">
           Last verified: <time dateTime={listing.lastVerified}>{formatDate(listing.lastVerified)}</time>
         </p>
@@ -122,14 +133,16 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           <ul className="mt-3 list-disc pl-5">
             {listing.features.map((feature) => (
               <li key={feature} className="mt-2">
-                {feature}
+                <InlineCompanyText text={feature} />
               </li>
             ))}
           </ul>
         </section>
         <section className="mt-8">
           <h2 className="font-semibold tracking-tight text-2xl">Pricing summary</h2>
-          <p className="mt-3 text-[var(--muted)]">{listing.pricingSummary}</p>
+          <p className="mt-3 text-[var(--muted)]">
+            <InlineCompanyText text={listing.pricingSummary} />
+          </p>
           <p className="mt-2 text-sm">{listing.pricing.join(" · ")}</p>
         </section>
         <div className="mt-8">
@@ -151,8 +164,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
             <ul className="mt-3 grid gap-2">
               {related.map((item) => (
                 <li key={item.slug}>
-                  <Link href={`/directory/${item.slug}`}>{item.name}</Link>
-                  <span className="text-[var(--muted)]"> — {item.vendor}</span>
+                  <ListingRow listing={item} />
                 </li>
               ))}
             </ul>

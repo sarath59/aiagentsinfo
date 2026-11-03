@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import { Pagination } from "@/components/Pagination";
@@ -75,6 +76,11 @@ export default async function BlogIndexPage({
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
                 <p className="mt-3 max-w-3xl text-[var(--muted)]">{post.description}</p>
+                {post.companies?.length ? (
+                  <div className="mt-4">
+                    <CompanyMarks slugs={post.companies} />
+                  </div>
+                ) : null}
               </article>
             ))
           ) : (

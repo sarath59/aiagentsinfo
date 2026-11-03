@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompanyLogo } from "@/components/CompanyLogo";
+import { CompaniesMentioned, InlineCompanyText, SourceList } from "@/components/CompanyMarks";
 import { CopyBibtex } from "@/components/CopyBibtex";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getResearchDoc, getResearchDocs, researchTypeTitle } from "@/lib/research";
+import { companyForUrl } from "@/lib/companies";
 import { JsonLd, defaultMetadata, scholarlyArticleJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
@@ -25,6 +28,8 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
   const { slug } = await params;
   const doc = await getResearchDoc(slug);
   if (!doc) notFound();
+  const paper = doc.paperUrl ? companyForUrl(doc.paperUrl) : undefined;
+  const code = doc.codeUrl ? companyForUrl(doc.codeUrl) : undefined;
 
   return (
     <>
@@ -75,15 +80,26 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
                 </dd>
               </div>
             ) : null}
+            {doc.venue ? (
+              <div>
+                <dt className="inline">Venue: </dt>
+                <dd className="inline">
+                  <InlineCompanyText text={doc.venue} />
+                </dd>
+              </div>
+            ) : null}
           </dl>
+          <CompaniesMentioned slugs={doc.companies} />
           <div className="mt-8 flex flex-wrap gap-3">
             {doc.paperUrl ? (
-              <a className="btn-primary px-4 py-2 text-sm" href={doc.paperUrl} rel="noreferrer">
+              <a className="btn-primary inline-flex items-center gap-2 px-4 py-2 text-sm" href={doc.paperUrl} rel="noreferrer">
+                <CompanyLogo name={paper?.name ?? "Paper"} src={paper?.logo} tile={paper?.tile} size="xs" />
                 Paper
               </a>
             ) : null}
             {doc.codeUrl ? (
-              <a className="rounded-full border border-[var(--stroke)] px-4 py-2 text-sm" href={doc.codeUrl} rel="noreferrer">
+              <a className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] px-4 py-2 text-sm" href={doc.codeUrl} rel="noreferrer">
+                <CompanyLogo name={code?.name ?? "Code"} src={code?.logo} tile={code?.tile} size="xs" />
                 Code
               </a>
             ) : null}
@@ -91,28 +107,32 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
 
           <section className="mt-10">
             <h2 className="font-semibold tracking-tight text-2xl">Abstract / summary</h2>
-            <p className="mt-3 text-[var(--muted)]">{doc.abstract}</p>
+            <p className="mt-3 text-[var(--muted)]">
+              <InlineCompanyText text={doc.abstract} />
+            </p>
           </section>
           <section className="mt-8">
             <h2 className="font-semibold tracking-tight text-2xl">Key findings</h2>
             <ul className="mt-3 list-disc pl-5">
               {doc.keyFindings.map((finding) => (
                 <li key={finding} className="mt-2">
-                  {finding}
+                  <InlineCompanyText text={finding} />
                 </li>
               ))}
             </ul>
           </section>
           <section className="mt-8">
             <h2 className="font-semibold tracking-tight text-2xl">Methodology</h2>
-            <p className="mt-3 text-[var(--muted)]">{doc.methodology}</p>
+            <p className="mt-3 text-[var(--muted)]">
+              <InlineCompanyText text={doc.methodology} />
+            </p>
           </section>
           <section className="mt-8">
             <h2 className="font-semibold tracking-tight text-2xl">Limitations</h2>
             <ul className="mt-3 list-disc pl-5">
               {doc.limitations.map((item) => (
                 <li key={item} className="mt-2">
-                  {item}
+                  <InlineCompanyText text={item} />
                 </li>
               ))}
             </ul>
@@ -122,20 +142,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           </div>
           <section className="mt-10">
             <h2 className="font-semibold tracking-tight text-2xl">References</h2>
-            <ul className="mt-4 grid gap-2">
-              {doc.references.map((ref) => (
-                <li key={ref.title}>
-                  {ref.url ? (
-                    <a href={ref.url} rel="noreferrer">
-                      {ref.title}
-                    </a>
-                  ) : (
-                    ref.title
-                  )}
-                  {ref.note ? <span className="text-[var(--muted)]"> — {ref.note}</span> : null}
-                </li>
-              ))}
-            </ul>
+            <SourceList sources={doc.references} />
           </section>
         </div>
         <aside className="grid gap-4 lg:sticky lg:top-24 lg:self-start">

@@ -2,6 +2,7 @@
 name: ChatGPT
 vendor: OpenAI
 website: https://chatgpt.com
+logo: /logos/chatgpt.svg
 summary: Consumer and team chatbot from OpenAI, with optional tools such as web browsing and code execution depending on the plan and product surface.
 category: productivity
 tags:

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompaniesMentioned, SourceList } from "@/components/CompanyMarks";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
@@ -71,19 +72,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             ) : null}
           </dl>
+          <CompaniesMentioned slugs={post.companies} />
           <div className="mt-10">
             <MarkdownBody html={post.html} />
           </div>
           {post.sources?.length ? (
             <section className="mt-12">
               <h2 className="font-semibold tracking-tight text-2xl">Sources</h2>
-              <ul className="mt-4 grid gap-2">
-                {post.sources.map((source) => (
-                  <li key={source.url}>
-                    <a href={source.url} rel="noreferrer">{source.title}</a>
-                  </li>
-                ))}
-              </ul>
+              <SourceList sources={post.sources} />
             </section>
           ) : null}
           {related.length ? (
