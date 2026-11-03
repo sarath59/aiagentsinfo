@@ -10,11 +10,22 @@ import { formatDate, normalizeQuery, paginate } from "@/lib/utils";
 
 const PER_PAGE = 6;
 
-export const metadata = defaultMetadata(
-  "Blog",
-  "Explainers, news, and guides about AI agents — from first questions to working systems.",
-  "/blog",
-);
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string; page?: string }>;
+}) {
+  const params = await searchParams;
+  const category = normalizeQuery(params.category);
+  const page = Number(normalizeQuery(params.page) || "1");
+  const variant = Boolean(category) || page > 1;
+  return defaultMetadata(
+    "Writing from the desk",
+    "Explainers, news, and guides about AI agents — from first questions to working systems.",
+    "/blog",
+    { index: !variant, canonicalPath: "/blog" },
+  );
+}
 
 export default async function BlogIndexPage({
   searchParams,

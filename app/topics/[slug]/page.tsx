@@ -9,6 +9,7 @@ import { getDirectoryListings } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs } from "@/lib/research";
 import { companyForName } from "@/lib/companies";
+import { topicIsIndexable } from "@/lib/indexing";
 import { defaultMetadata } from "@/lib/seo";
 import { topics } from "@/lib/site";
 
@@ -20,7 +21,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const topic = topics.find((item) => item.slug === slug);
   if (!topic) return {};
-  return defaultMetadata(topic.title, topic.summary, topic.href);
+  const [posts, research, glossary, listings] = await Promise.all([
+    getBlogPosts(),
+    getResearchDocs(),
+    getGlossaryTerms(),
+    getDirectoryListings(),
+  ]);
+  const index = topicIsIndexable(topic.slug, { posts, research, glossary, listings });
+  return defaultMetadata(topic.title, topic.summary, topic.href, { index });
 }
 
 export default async function TopicPage({ params }: { params: Promise<{ slug: string }> }) {

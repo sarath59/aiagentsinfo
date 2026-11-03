@@ -5,8 +5,8 @@ import { defaultMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
-  "Contact",
-  "How to reach AI Agents Info.",
+  "Write to the desk",
+  "How to reach AI Agents Info about corrections, listings, and sponsorship.",
   "/contact",
 );
 
@@ -24,7 +24,8 @@ export default function ContactPage() {
           Email the desk at <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
         <p className="mt-4 text-[var(--muted)]">
-          For directory additions use <Link href="/submit">Submit your tool</Link>. For corrections, email is enough.
+          For directory additions use <Link href="/submit">Submit your tool</Link>. For corrections, email is enough. The{" "}
+          <Link href="/editorial-policy">editorial policy</Link> explains what a correction changes and how dates are kept.
         </p>
       </div>
     </>

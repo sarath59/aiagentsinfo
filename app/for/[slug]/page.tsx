@@ -20,7 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const audience = audiences.find((item) => item.slug === slug);
   if (!audience) return {};
-  return defaultMetadata(audience.title, audience.summary, audience.href);
+  const title = audience.slug === "research" ? "For researchers" : audience.title;
+  return defaultMetadata(title, audience.summary, audience.href);
 }
 
 export default async function AudiencePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -43,7 +44,7 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
   const body = (
     <>
       <p className="kicker">{audience.eyebrow}</p>
-      <h1 className="display mt-3 text-5xl">{audience.title}</h1>
+      <h1 className="display mt-3 text-5xl">{audience.slug === "research" ? "For researchers" : audience.title}</h1>
       <p className="mt-4 text-lg text-[var(--muted)]">{audience.summary}</p>
       {copy.map((block) => (
         <section key={block.title} className="mt-10">
@@ -109,7 +110,7 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
-          { name: audience.title, path: audience.href },
+          { name: audience.slug === "research" ? "For researchers" : audience.title, path: audience.href },
         ]}
       />
       <div className="mx-auto max-w-3xl px-4 pb-20 pt-12">

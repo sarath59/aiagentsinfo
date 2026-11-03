@@ -1,147 +1,59 @@
-import { site, absoluteUrl } from "@/lib/site";
+import type { Metadata } from "next";
+import { absoluteUrl, site } from "@/lib/site";
+import { assertStructuredData } from "@/lib/structured-data";
+
+export {
+  articleJsonLd,
+  authorNode,
+  breadcrumbJsonLd,
+  definedTermJsonLd,
+  organizationJsonLd,
+  profilePageJsonLd,
+  researchArticleJsonLd,
+  webPageJsonLd,
+  websiteJsonLd,
+} from "@/lib/structured-data";
+
+export const indexRobots: Metadata["robots"] = {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+};
+
+export const noindexRobots: Metadata["robots"] = {
+  index: false,
+  follow: true,
+};
 
 export function JsonLd({ data }: { data: Record<string, unknown> | unknown[] }) {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
+  assertStructuredData(data);
+  const json = JSON.stringify(data).replace(/</g, "\\u003c");
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
 }
 
-export function organizationJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: site.name,
-    url: absoluteUrl("/"),
-    email: site.email,
-    description: site.description,
-    logo: absoluteUrl("/brand/icon-512.png"),
-    image: absoluteUrl("/opengraph-image"),
-  };
-}
+type MetaOptions = {
+  index?: boolean;
+  /** Clean URL when this response is a filtered or paginated variant. */
+  canonicalPath?: string;
+};
 
-export function websiteJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: site.name,
-    url: absoluteUrl("/"),
-    description: site.description,
-    publisher: { "@type": "Organization", name: site.name },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${absoluteUrl("/search")}?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
-  };
-}
-
-export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: absoluteUrl(item.path),
-    })),
-  };
-}
-
-export function articleJsonLd(input: {
-  title: string;
-  description: string;
-  path: string;
-  date: string;
-  updated?: string;
-  byline: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: input.title,
-    description: input.description,
-    datePublished: input.date,
-    dateModified: input.updated ?? input.date,
-    mainEntityOfPage: absoluteUrl(input.path),
-    author: { "@type": "Organization", name: input.byline },
-    publisher: { "@type": "Organization", name: site.name, url: absoluteUrl("/") },
-  };
-}
-
-export function scholarlyArticleJsonLd(input: {
-  title: string;
-  description: string;
-  path: string;
-  date: string;
-  updated?: string;
-  paperUrl?: string;
-  paperAuthors?: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    headline: input.title,
-    description: input.description,
-    datePublished: input.date,
-    dateModified: input.updated ?? input.date,
-    url: absoluteUrl(input.path),
-    author: { "@type": "Organization", name: site.bylines.research },
-    publisher: { "@type": "Organization", name: site.name },
-    ...(input.paperUrl ? { sameAs: input.paperUrl } : {}),
-    ...(input.paperAuthors ? { about: input.paperAuthors } : {}),
-  };
-}
-
-export function softwareJsonLd(input: {
-  name: string;
-  description: string;
-  path: string;
-  website: string;
-  category: string;
-  pricingSummary: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: input.name,
-    description: input.description,
-    url: absoluteUrl(input.path),
-    applicationCategory: input.category,
-    operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      url: input.website,
-      description: input.pricingSummary,
-    },
-  };
-}
-
-export function faqJsonLd(items: { question: string; answer: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
-}
-
-export function defaultMetadata(title: string, description: string, path = "/") {
-  const url = absoluteUrl(path);
+export function defaultMetadata(title: string, description: string, path = "/", options: MetaOptions = {}) {
+  const index = options.index !== false;
+  const canonical = absoluteUrl(options.canonicalPath ?? path);
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: { canonical },
     openGraph: {
       title: `${title} · ${site.name}`,
       description,
-      url,
+      url: canonical,
       siteName: site.name,
       type: "website" as const,
       locale: site.locale,
@@ -151,6 +63,6 @@ export function defaultMetadata(title: string, description: string, path = "/") 
       title: `${title} · ${site.name}`,
       description,
     },
-    robots: { index: true, follow: true },
+    robots: index ? indexRobots : noindexRobots,
   };
 }

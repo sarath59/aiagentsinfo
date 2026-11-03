@@ -6,7 +6,7 @@ import { getGlossaryTerms, glossaryByLetter } from "@/lib/glossary";
 import { defaultMetadata } from "@/lib/seo";
 
 export const metadata = defaultMetadata(
-  "Glossary",
+  "Glossary of AI agent terms",
   "A–Z definitions for AI agents, harnesses, tools, and evaluation.",
   "/glossary",
 );

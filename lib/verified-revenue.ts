@@ -62,19 +62,9 @@ export function verifiedRevenueJsonLd() {
     itemListElement: verifiedRevenueEntries.map((entry, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      item: {
-        "@type": "SoftwareApplication",
-        name: entry.name,
-        description: entry.summary,
-        url: entry.url,
-        applicationCategory: "BusinessApplication",
-        offers: {
-          "@type": "Offer",
-          url: entry.pricing.url,
-          priceCurrency: "USD",
-          description: entry.pricing.summary,
-        },
-      },
+      name: entry.name,
+      url: entry.url,
+      description: entry.summary,
     })),
   };
 }

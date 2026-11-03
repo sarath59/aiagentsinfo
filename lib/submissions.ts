@@ -1,3 +1,4 @@
+import { isGibberish } from "@/lib/indexing";
 import { site } from "@/lib/site";
 import {
   billingPeriodTitle,
@@ -343,6 +344,10 @@ export function validateSubmission(
   if (!errors.startingPrice && textBlocked(startingPrice)) errors.startingPrice = BLOCKED_TEXT_MESSAGE;
   if (!errors.makerName && textBlocked(makerName)) errors.makerName = BLOCKED_TEXT_MESSAGE;
   if (!errors.ycBatch && textBlocked(ycBatch)) errors.ycBatch = BLOCKED_TEXT_MESSAGE;
+  if (mode === "form") {
+    if (!errors.tagline && isGibberish(tagline)) errors.tagline = BLOCKED_TEXT_MESSAGE;
+    if (!errors.description && isGibberish(description)) errors.description = BLOCKED_TEXT_MESSAGE;
+  }
 
   if (Object.keys(errors).length || !website.ok || !website.url || !category || !pricing) {
     return { ok: false, errors };

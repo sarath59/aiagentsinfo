@@ -5,7 +5,7 @@ import { defaultMetadata } from "@/lib/seo";
 import { topics } from "@/lib/site";
 
 export const metadata = defaultMetadata(
-  "Topics",
+  "Every beat, one URL",
   "Coverage areas: news, tools, research, shopping, task performance, harnesses, education, and how agents work.",
   "/topics",
 );

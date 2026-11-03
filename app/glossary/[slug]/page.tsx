@@ -3,8 +3,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { getGlossaryTerm, getGlossaryTerms } from "@/lib/glossary";
-import { JsonLd, defaultMetadata } from "@/lib/seo";
-import { absoluteUrl } from "@/lib/site";
+import { JsonLd, defaultMetadata, definedTermJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const terms = await getGlossaryTerms();
@@ -27,14 +26,11 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "DefinedTerm",
+        data={definedTermJsonLd({
           name: term.term,
           description: term.shortDefinition,
-          url: absoluteUrl(`/glossary/${term.slug}`),
-          inDefinedTermSet: absoluteUrl("/glossary"),
-        }}
+          path: `/glossary/${term.slug}`,
+        })}
       />
       <Breadcrumbs
         items={[

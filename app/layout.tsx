@@ -65,8 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           src="https://datafa.st/js/script.js"
           data-website-id="dfid_0z04dGwxdEtL6cLScbJkR"
           data-domain="aiagentsinfo.com"
-          strategy="afterInteractive"
-          defer
+          strategy="lazyOnload"
         />
         <Analytics />
       </body>

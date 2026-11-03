@@ -18,7 +18,8 @@ import {
   relatedListings,
 } from "@/lib/directory";
 import { companyForName } from "@/lib/companies";
-import { JsonLd, defaultMetadata, softwareJsonLd } from "@/lib/seo";
+import { communityListingIsIndexable } from "@/lib/indexing";
+import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -32,11 +33,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const collection = collectionBySlug(slug);
   if (collection) {
-    return defaultMetadata(collection.title, `${collection.title} in the AI Agents Info directory.`, `/directory/${slug}`);
+    const listings = await getDirectoryListings();
+    const filled = listingsForCollection(listings, slug).length > 0;
+    return defaultMetadata(collection.title, collection.summary, `/directory/${slug}`, { index: filled });
   }
   const listing = await getDirectoryListing(slug);
   if (!listing) return {};
-  return defaultMetadata(listing.name, listing.summary, `/directory/${listing.slug}`);
+  return defaultMetadata(listing.name, listing.summary, `/directory/${listing.slug}`, {
+    index: communityListingIsIndexable(listing),
+  });
 }
 
 export default async function DirectorySlugPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -57,9 +62,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
         <div className="mx-auto max-w-6xl px-4 pb-20 pt-12">
           <p className="kicker">Collection</p>
           <h1 className="display mt-3 text-5xl">{collection.title}</h1>
-          <p className="mt-4 max-w-2xl text-[var(--muted)]">
-            A product appears here only when its listing carries this editorial flag. This is not a popularity ranking.
-          </p>
+          <p className="mt-4 max-w-2xl text-[var(--muted)]">{collection.summary}</p>
           {items.length ? (
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {items.map((listing) => (
@@ -89,13 +92,12 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
   return (
     <>
       <JsonLd
-        data={softwareJsonLd({
-          name: listing.name,
+        data={webPageJsonLd({
+          title: listing.name,
           description: listing.summary,
           path: `/directory/${listing.slug}`,
-          website: listing.website,
-          category: listing.category,
-          pricingSummary: listing.pricingSummary,
+          dateModified: listing.lastVerified,
+          datePublished: listing.communitySubmitted ? listing.lastVerified : undefined,
         })}
       />
       <Breadcrumbs
@@ -108,10 +110,12 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
       <article className="mx-auto max-w-3xl px-4 pb-20 pt-10">
         {listing.sponsored ? <p className="kicker text-[var(--gold)]">Sponsored listing</p> : null}
         {listing.communitySubmitted ? (
-          <p className="mt-3">
-            <span className="chip border-[color-mix(in_oklab,var(--gold-bright)_55%,var(--stroke))] text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--gold)]">
+          <p className="mt-3 max-w-2xl text-sm text-[var(--muted)]">
+            <span className="chip mr-2 border-[color-mix(in_oklab,var(--gold-bright)_55%,var(--stroke))] text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--gold)]">
               Community submitted
             </span>
+            The description is the maker&apos;s text. This desk has not written an independent review.{" "}
+            <Link href="/editorial-policy">How listings are published</Link>.
           </p>
         ) : null}
         <div className="mt-3 flex items-start gap-4">
@@ -127,11 +131,17 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
           <InlineCompanyText text={listing.summary} />
         </p>
         <p className="mt-4 text-sm text-[var(--muted)]">
+          {listing.communitySubmitted ? (
+            <>
+              Submitted: <time dateTime={listing.lastVerified}>{formatDate(listing.lastVerified)}</time>
+              {" · "}
+            </>
+          ) : null}
           Last verified: <time dateTime={listing.lastVerified}>{formatDate(listing.lastVerified)}</time>
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a className="btn-primary px-4 py-2 text-sm" href={listing.website} rel="noreferrer">
-            Website
+            Visit {listing.name}
           </a>
           <Link className="btn-ghost px-4 py-2 text-sm" href={`/directory/category/${listing.category}`}>
             {categoryTitle(listing.category)}

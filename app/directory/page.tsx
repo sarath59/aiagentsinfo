@@ -16,19 +16,35 @@ import { defaultMetadata } from "@/lib/seo";
 import { audiences } from "@/lib/site";
 import { normalizeQuery } from "@/lib/utils";
 
-export const metadata = defaultMetadata(
-  "AI directory",
-  "A directory of AI SaaS, tools, apps, and agents. Each listing names a real product and its official site.",
-  "/directory",
-);
-
-export default async function DirectoryPage({
+export async function generateMetadata({
   searchParams,
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = await searchParams;
-  const filters = {
+  const filters = directoryFilters(params);
+  const filtered = Object.values(filters).some(Boolean);
+  const onlyCategory =
+    Boolean(filters.category) &&
+    directoryCategories.some((category) => category.slug === filters.category) &&
+    !filters.q &&
+    !filters.pricing &&
+    !filters.useCase &&
+    !filters.audience &&
+    !filters.tag;
+  return defaultMetadata(
+    "Tools, apps, SaaS, and agents",
+    "A directory of AI SaaS, tools, apps, and agents. Each listing names a real product and its official site.",
+    "/directory",
+    {
+      index: !filtered,
+      canonicalPath: onlyCategory ? `/directory/category/${filters.category}` : "/directory",
+    },
+  );
+}
+
+function directoryFilters(params: Record<string, string | string[] | undefined>) {
+  return {
     q: normalizeQuery(params.q),
     category: normalizeQuery(params.category),
     pricing: normalizeQuery(params.pricing),
@@ -36,6 +52,15 @@ export default async function DirectoryPage({
     audience: normalizeQuery(params.audience),
     tag: normalizeQuery(params.tag),
   };
+}
+
+export default async function DirectoryPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const params = await searchParams;
+  const filters = directoryFilters(params);
   const listings = await getDirectoryListings();
   const filtered = filterDirectory(listings, filters);
   const tags = allTags(listings);
@@ -53,7 +78,8 @@ export default async function DirectoryPage({
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)]">
-            No login and no fee. A valid submission is published automatically and usually appears within about two minutes.
+            No login and no fee. A valid submission is published automatically and usually appears within about two minutes. Short maker blurbs stay on the site for people, and they are left out of search until the description is a real explanation. Nonsensical text is not published.{" "}
+            <Link href="/editorial-policy">Editorial policy</Link>.
           </p>
           <SubmitToolButton />
         </div>

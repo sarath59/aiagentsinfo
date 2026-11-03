@@ -4,7 +4,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
 import {
-  categoryTitle,
+  categoryPageTitle,
+  categorySummaries,
   directoryCategories,
   getDirectoryListings,
 } from "@/lib/directory";
@@ -17,8 +18,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const title = categoryTitle(slug);
-  return defaultMetadata(title, `AI directory: ${title}.`, `/directory/category/${slug}`);
+  const category = directoryCategories.find((item) => item.slug === slug);
+  if (!category) return {};
+  const listings = (await getDirectoryListings()).filter((listing) => listing.category === slug);
+  return defaultMetadata(categoryPageTitle(slug), categorySummaries[category.slug], `/directory/category/${slug}`, {
+    index: listings.length > 0,
+  });
 }
 
 export default async function DirectoryCategoryPage({
@@ -37,12 +42,13 @@ export default async function DirectoryCategoryPage({
         items={[
           { name: "Home", path: "/" },
           { name: "Directory", path: "/directory" },
-          { name: category.title, path: `/directory/category/${slug}` },
+          { name: categoryPageTitle(slug), path: `/directory/category/${slug}` },
         ]}
       />
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-12">
         <p className="kicker">Category</p>
-        <h1 className="display mt-3 text-5xl">{category.title}</h1>
+        <h1 className="display mt-3 text-5xl">{categoryPageTitle(slug)}</h1>
+        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">{categorySummaries[category.slug]}</p>
         {listings.length ? (
           <>
             <p className="mt-4 text-[var(--muted)]">

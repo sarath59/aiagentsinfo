@@ -13,6 +13,7 @@ import {
 } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs } from "@/lib/research";
+import { indexRobots } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 import { audiences, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
@@ -29,7 +30,7 @@ export const metadata = {
     type: "website" as const,
     locale: site.locale,
   },
-  robots: { index: true, follow: true },
+  robots: indexRobots,
 };
 
 const pillars = [
@@ -38,6 +39,7 @@ const pillars = [
     kicker: "01  Directory",
     title: "Tools, apps, SaaS, agents",
     body: "Built to scale to thousands of listings.",
+    cta: "Open the directory",
     Icon: DirectoryIcon,
   },
   {
@@ -45,6 +47,7 @@ const pillars = [
     kicker: "02  Research",
     title: "Papers, reports, evals",
     body: "Each paper gets its own citable page.",
+    cta: "Open research notes",
     Icon: ResearchIcon,
   },
   {
@@ -52,6 +55,7 @@ const pillars = [
     kicker: "03  Learn",
     title: "Blog & explainers",
     body: "From first questions to working systems.",
+    cta: "Open the blog",
     Icon: LearnIcon,
   },
 ];
@@ -123,7 +127,7 @@ export default async function HomePage() {
                 <h2 className="mt-4 font-semibold tracking-tight text-2xl text-[var(--fg)]">{item.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{item.body}</p>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-[var(--color-electric)]">
-                  Open
+                  {item.cta}
                   <ArrowIcon className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </Link>
@@ -159,7 +163,7 @@ export default async function HomePage() {
             <h2 className="display mt-3 text-4xl sm:text-5xl">Latest from the desk</h2>
           </div>
           <Link href="/blog" className="text-sm text-[var(--color-electric)] underline">
-            All posts
+            All blog posts
           </Link>
         </div>
         <div className="mt-8">
@@ -200,7 +204,7 @@ export default async function HomePage() {
             <h2 className="display mt-3 text-4xl sm:text-5xl">Tools with an official home</h2>
           </div>
           <Link href="/directory" className="text-sm text-[var(--color-electric)] underline">
-            Browse all
+            Browse the directory
           </Link>
         </div>
         <div className="mt-8">
@@ -228,7 +232,7 @@ export default async function HomePage() {
             <h2 className="display mt-3 text-4xl sm:text-5xl">Papers with their own pages</h2>
           </div>
           <Link href="/research" className="text-sm text-[var(--color-electric)] underline">
-            Research desk
+            Open the research desk
           </Link>
         </div>
         <div className="mt-8">

@@ -105,6 +105,48 @@ export function categoryTitle(slug: string) {
   return directoryCategories.find((category) => category.slug === slug)?.title ?? slug;
 }
 
+/** Title used on the category URL so it does not collide with other "Research" pages. */
+export function categoryPageTitle(slug: string) {
+  if (slug === "research") return "Research tools";
+  return categoryTitle(slug);
+}
+
+export const categorySummaries: Record<DirectoryCategory, string> = {
+  "ai-agents":
+    "Products whose main job is to pursue a goal with tools or actions, not only to answer in a chat box.",
+  "agent-frameworks":
+    "Libraries and harnesses for building agents: the loop, tools, memory, and permissions around a model.",
+  "coding-agents":
+    "Agents that write, review, or run code, including IDE agents and coding command-line tools.",
+  coding: "Developer tools for writing software that are not themselves coding agents.",
+  writing: "Tools for drafting, editing, and rewriting text.",
+  image: "Image generation and image-editing products.",
+  video: "Video generation, editing, and repurposing products.",
+  "image-video": "Products that produce both still images and video.",
+  voice: "Speech, voice, and other audio products.",
+  chatbots: "Conversational assistants whose main interface is a chat thread.",
+  productivity: "Work tools for documents, tasks, and everyday office jobs.",
+  marketing: "Advertising, campaign, and paid-media tools.",
+  seo: "Tools for search research, content optimization, and site audits.",
+  sales: "Prospecting, outreach, and pipeline tools.",
+  "customer-support": "Help-desk and customer-support products.",
+  design: "Design, interface, and visual-production tools.",
+  education: "Tutors, classroom tools, and other learning products.",
+  research: "Tools for literature search, reading papers, and research workflows.",
+  "data-analytics": "Analysis, business-intelligence, and data-work products.",
+  finance: "Accounting, markets, and other finance tools.",
+  legal: "Contract, compliance, and legal-work tools.",
+  "hr-recruiting": "Hiring, resume, and people-operations tools.",
+  health: "Health and clinical workflow tools. Listings here are not medical advice.",
+  "developer-tools": "APIs, gateways, and infrastructure for people building software.",
+  "no-code": "Builders that assemble software without a traditional codebase.",
+  automation: "Workflow and task-automation products.",
+  ecommerce: "Store, catalog, and online-selling tools.",
+  "shopping-agents": "Agents that search, compare, or buy products.",
+  "social-media": "Scheduling and social-publishing tools.",
+  other: "Listings that do not fit a narrower category yet.",
+};
+
 export function pricingTitle(slug: string) {
   return pricingModels.find((model) => model.slug === slug)?.title ?? slug;
 }

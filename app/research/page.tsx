@@ -13,11 +13,20 @@ import {
 import { defaultMetadata } from "@/lib/seo";
 import { formatDate, normalizeQuery } from "@/lib/utils";
 
-export const metadata = defaultMetadata(
-  "Research",
-  "Paper breakdowns, original reports, and benchmark notes. Every entry is its own citable page.",
-  "/research",
-);
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ topic?: string; type?: string }>;
+}) {
+  const params = await searchParams;
+  const variant = Boolean(normalizeQuery(params.topic) || normalizeQuery(params.type));
+  return defaultMetadata(
+    "Papers with their own pages",
+    "Paper breakdowns, original reports, and benchmark notes. Every entry is its own citable page.",
+    "/research",
+    { index: !variant, canonicalPath: "/research" },
+  );
+}
 
 export default async function ResearchIndexPage({
   searchParams,

@@ -13,7 +13,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  return defaultMetadata(`Tag: ${slug}`, `Directory listings tagged ${slug}.`, `/directory/tag/${slug}`);
+  const label = slug.replace(/-/g, " ");
+  return defaultMetadata(`Directory tag: ${label}`, `Directory listings tagged “${label}”. This filtered view is not a separate article.`, `/directory/tag/${slug}`, {
+    index: false,
+  });
 }
 
 export default async function DirectoryTagPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,9 +1,12 @@
+import { isSpamListing } from "@/lib/indexing";
 import { contentDir, loadMarkdownCollection } from "@/lib/markdown";
 import { approvedSubmissionListings } from "@/lib/submission-files";
 import type { DirectoryCategory, PricingModel } from "@/lib/directory-meta";
 
 export {
   billingPeriodTitle,
+  categoryPageTitle,
+  categorySummaries,
   categoryTitle,
   directoryCategories,
   pricingModels,
@@ -12,9 +15,27 @@ export {
 export type { BillingPeriod, DirectoryCategory, PricingModel } from "@/lib/directory-meta";
 
 export const directoryCollections = [
-  { slug: "new", title: "New this week", field: "newThisWeek" },
-  { slug: "trending", title: "Trending", field: "trending" },
-  { slug: "editors-picks", title: "Editor's picks", field: "editorsPick" },
+  {
+    slug: "new",
+    title: "New this week",
+    field: "newThisWeek",
+    summary:
+      "Listings the desk flagged as new this week. The flag is an editorial label, not a count of clicks or signups.",
+  },
+  {
+    slug: "trending",
+    title: "Trending",
+    field: "trending",
+    summary:
+      "Listings the desk flagged as trending. Nothing on this page is ordered by traffic, and an empty page means the flag has not been used.",
+  },
+  {
+    slug: "editors-picks",
+    title: "Editor's picks",
+    field: "editorsPick",
+    summary:
+      "Listings an editor flagged for a closer look. This is not a scored ranking and it does not mean other listings failed a test.",
+  },
 ] as const;
 
 export type DirectoryFrontmatter = {
@@ -79,7 +100,9 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
     }))
     .filter((listing) => listing.sample !== true);
   const approved = approvedSubmissionListings(fromMarkdown.map((listing) => listing.slug));
-  return [...fromMarkdown, ...approved].sort((a, b) => a.name.localeCompare(b.name));
+  return [...fromMarkdown, ...approved]
+    .filter((listing) => !isSpamListing(listing))
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export async function getDirectoryListing(slug: string) {

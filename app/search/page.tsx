@@ -6,11 +6,19 @@ import { defaultMetadata } from "@/lib/seo";
 import { searchSite } from "@/lib/search";
 import { normalizeQuery } from "@/lib/utils";
 
-export const metadata = defaultMetadata(
-  "Search",
-  "Search the blog, research desk, glossary, and AI directory.",
-  "/search",
-);
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
+  const q = normalizeQuery((await searchParams).q);
+  return defaultMetadata(
+    "Search",
+    "Search the blog, research desk, glossary, and AI directory.",
+    "/search",
+    { index: !q, canonicalPath: "/search" },
+  );
+}
 
 export default async function SearchPage({
   searchParams,

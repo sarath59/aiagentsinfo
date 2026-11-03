@@ -37,7 +37,8 @@ export default function VerifiedRevenuePage() {
         <h1 className="display mt-3 text-4xl sm:text-5xl">Verified revenue</h1>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
           {verifiedRevenueEntries.length} tools with a public revenue figure read from a payment-processor
-          connection, plus a price read from the product&apos;s own site. Checked {verifiedRevenueChecked}.
+          connection, plus a price read from the product&apos;s own site. Checked{" "}
+          <time dateTime={verifiedRevenueChecked}>{verifiedRevenueChecked}</time>.
           Nothing here is a founder screenshot or an estimated ARR.
         </p>
       </header>

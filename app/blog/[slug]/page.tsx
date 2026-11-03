@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BylineLink } from "@/components/BylineLink";
 import { CompaniesMentioned, SourceList } from "@/components/CompanyMarks";
 import { MarkdownBody } from "@/components/MarkdownBody";
+import { PublishedDates } from "@/components/PublishedDates";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
-import { JsonLd, articleJsonLd, defaultMetadata, faqJsonLd } from "@/lib/seo";
+import { JsonLd, articleJsonLd, defaultMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { formatDate } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -39,7 +40,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           byline: post.byline ?? site.bylines.editorial,
         })}
       />
-      {post.faq?.length ? <JsonLd data={faqJsonLd(post.faq)} /> : null}
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -55,23 +55,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <dl className="mt-6 grid gap-1 text-sm text-[var(--muted)]">
             <div>
               <dt className="inline">Byline: </dt>
-              <dd className="inline">{post.byline ?? site.bylines.editorial}</dd>
-            </div>
-            <div>
-              <dt className="inline">Published: </dt>
               <dd className="inline">
-                <time dateTime={post.date}>{formatDate(post.date)}</time>
+                <BylineLink name={post.byline ?? site.bylines.editorial} />
+                {" · "}
+                <Link href="/editorial-policy">Editorial policy</Link>
               </dd>
             </div>
-            {post.updated ? (
-              <div>
-                <dt className="inline">Last updated: </dt>
-                <dd className="inline">
-                  <time dateTime={post.updated}>{formatDate(post.updated)}</time>
-                </dd>
-              </div>
-            ) : null}
           </dl>
+          <PublishedDates published={post.date} updated={post.updated} />
           <CompaniesMentioned slugs={post.companies} />
           <div className="mt-10">
             <MarkdownBody html={post.html} />

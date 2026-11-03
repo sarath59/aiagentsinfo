@@ -164,6 +164,7 @@ export const footerNav = [
     links: [
       { href: "/submit", label: "Submit your tool" },
       { href: "/about", label: "About" },
+      { href: "/editorial-policy", label: "Editorial policy" },
       { href: "/contact", label: "Contact" },
       { href: "/privacy", label: "Privacy" },
       { href: "/terms", label: "Terms" },

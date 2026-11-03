@@ -8,9 +8,10 @@ import { MarkdownBody } from "@/components/MarkdownBody";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getResearchDoc, getResearchDocs, researchTypeTitle } from "@/lib/research";
 import { companyForUrl } from "@/lib/companies";
-import { JsonLd, defaultMetadata, faqJsonLd, scholarlyArticleJsonLd } from "@/lib/seo";
+import { BylineLink } from "@/components/BylineLink";
+import { PublishedDates } from "@/components/PublishedDates";
+import { JsonLd, defaultMetadata, researchArticleJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { formatDate } from "@/lib/utils";
 
 function RichText({ text }: { text: string }) {
   const paragraphs = text
@@ -50,17 +51,18 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
   return (
     <>
       <JsonLd
-        data={scholarlyArticleJsonLd({
+        data={researchArticleJsonLd({
           title: doc.title,
           description: doc.description,
           path: `/research/${doc.slug}`,
           date: doc.date,
           updated: doc.updated,
           paperUrl: doc.paperUrl,
+          paperTitle: doc.paperTitle,
           paperAuthors: doc.paperAuthors,
+          paperYear: doc.paperYear,
         })}
       />
-      {doc.faq?.length ? <JsonLd data={faqJsonLd(doc.faq)} /> : null}
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -76,18 +78,15 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           <dl className="mt-6 grid gap-1 text-sm text-[var(--muted)]">
             <div>
               <dt className="inline">Byline: </dt>
-              <dd className="inline">{site.bylines.research}</dd>
+              <dd className="inline">
+                <BylineLink name={site.bylines.research} />
+                {" · "}
+                <Link href="/editorial-policy">Editorial policy</Link>
+              </dd>
             </div>
-            <div>
-              <dt className="inline">Published: </dt>
-              <dd className="inline">{formatDate(doc.date)}</dd>
-            </div>
-            {doc.updated ? (
-              <div>
-                <dt className="inline">Last updated: </dt>
-                <dd className="inline">{formatDate(doc.updated)}</dd>
-              </div>
-            ) : null}
+          </dl>
+          <PublishedDates published={doc.date} updated={doc.updated} />
+          <dl className="mt-2 grid gap-1 text-sm text-[var(--muted)]">
             {doc.paperAuthors ? (
               <div>
                 <dt className="inline">Paper: </dt>
@@ -111,13 +110,13 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
             {doc.paperUrl ? (
               <a className="btn-primary inline-flex items-center gap-2 px-4 py-2 text-sm" href={doc.paperUrl} rel="noreferrer">
                 <CompanyLogo name={paper?.name ?? "Paper"} src={paper?.logo} tile={paper?.tile} size="xs" />
-                Paper
+                Read the paper
               </a>
             ) : null}
             {doc.codeUrl ? (
               <a className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] px-4 py-2 text-sm" href={doc.codeUrl} rel="noreferrer">
                 <CompanyLogo name={code?.name ?? "Code"} src={code?.logo} tile={code?.tile} size="xs" />
-                Code
+                Source code
               </a>
             ) : null}
           </div>
