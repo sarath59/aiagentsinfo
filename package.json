@@ -10,6 +10,7 @@
     "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
+    "@datafast/ai-crawl": "^1.0.9",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "next": "16.4.4",
