@@ -1,17 +1,20 @@
 import Link from "next/link";
 import { SearchIcon } from "@/components/Icons";
 import { Logo } from "@/components/Logo";
+import { SubmitToolButton } from "@/components/SubmitToolButton";
 import { audiences, nav } from "@/lib/site";
+
+const textNav = nav.filter((item) => item.href !== "/submit");
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--stroke)] bg-[color-mix(in_oklab,white_86%,var(--bg))] backdrop-blur-2xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3.5 sm:gap-4">
         <Link href="/" className="focus-ring rounded-lg" aria-label="AI Agents Info home">
           <Logo />
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-4 text-[13.5px] md:flex lg:gap-6">
-          {nav.map((item) => (
+          {textNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -38,17 +41,18 @@ export function Header() {
           </details>
         </nav>
         <div className="flex items-center gap-2">
+          <SubmitToolButton size="nav" />
           <Link
             href="/search"
             className="focus-ring btn-ghost inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em]"
           >
             <SearchIcon className="h-3.5 w-3.5 text-[var(--color-cyan)]" />
-            Search
+            <span className="hidden sm:inline">Search</span>
           </Link>
         </div>
       </div>
       <nav aria-label="Mobile" className="flex gap-4 overflow-x-auto px-4 pb-3 text-sm md:hidden">
-        {nav.map((item) => (
+        {textNav.map((item) => (
           <Link key={item.href} href={item.href} className="whitespace-nowrap text-[var(--muted)]">
             {item.label}
           </Link>

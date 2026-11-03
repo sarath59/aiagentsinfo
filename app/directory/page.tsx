@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
 import { ListingCard } from "@/components/ListingCard";
 import { PageHeader } from "@/components/PageHeader";
+import { SubmitToolButton } from "@/components/SubmitToolButton";
 import {
   allTags,
   allUseCases,
@@ -50,18 +51,12 @@ export default async function DirectoryPage({
         summary="Real products with a working official site. No ratings, user counts, or invented rankings."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
-        <section className="glass mb-8 flex flex-col items-start justify-between gap-4 rounded-3xl p-6 sm:flex-row sm:items-center">
-          <div>
-            <p className="kicker">Submit your tool</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight">List a product you built</h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--muted)]">
-              No login and no fee. A valid submission is published automatically and usually appears within about two minutes.
-            </p>
-          </div>
-          <Link href="/submit" className="btn-primary shrink-0 px-5 py-3 text-sm">
-            Submit your tool
-          </Link>
-        </section>
+        <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+          <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)]">
+            No login and no fee. A valid submission is published automatically and usually appears within about two minutes.
+          </p>
+          <SubmitToolButton />
+        </div>
 
         <div className="flex flex-wrap gap-2">
           <Link href="/directory/new" className="chip">
@@ -132,9 +127,13 @@ export default async function DirectoryPage({
         </p>
         {filtered.length ? (
           <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {filtered.map((listing) => (
-              <ListingCard key={listing.slug} listing={listing} />
+            {filtered.map((listing, index) => (
+              <span key={listing.slug} className="contents">
+                {index === submitBannerAt(filtered.length) ? <SubmitBanner /> : null}
+                <ListingCard listing={listing} />
+              </span>
             ))}
+            {submitBannerAt(filtered.length) >= filtered.length ? <SubmitBanner /> : null}
           </div>
         ) : (
           <div className="mt-4">
@@ -152,5 +151,21 @@ export default async function DirectoryPage({
         )}
       </div>
     </>
+  );
+}
+
+function submitBannerAt(count: number) {
+  if (count < 2) return count;
+  return Math.floor(count / 2);
+}
+
+function SubmitBanner() {
+  return (
+    <aside className="glass flex flex-col items-start justify-between gap-4 rounded-3xl p-6 sm:flex-row sm:items-center md:col-span-2">
+      <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)]">
+        Built a product that belongs in this list? Send it from the form. No account and no payment.
+      </p>
+      <SubmitToolButton />
+    </aside>
   );
 }

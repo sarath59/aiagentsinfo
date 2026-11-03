@@ -1,3 +1,11 @@
+export function PlusIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" className={className} aria-hidden>
+      <path d="M10 3.5v13M3.5 10h13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" />
+    </svg>
+  );
+}
+
 export function SearchIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 20 20" className={className} aria-hidden>
