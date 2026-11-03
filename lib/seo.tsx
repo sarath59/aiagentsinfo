@@ -151,5 +151,6 @@ export function defaultMetadata(title: string, description: string, path = "/") 
       title: `${title} · ${site.name}`,
       description,
     },
+    robots: { index: true, follow: true },
   };
 }

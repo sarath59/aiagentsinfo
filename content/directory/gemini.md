@@ -23,7 +23,7 @@ features:
   - Consumer Gemini app
   - Gemini models via Google AI and Vertex AI
   - Multimodal inputs on supported surfaces
-pricingSummary: "Google's AI plans page lists Google AI Pro at $19.99 per month and Google AI Ultra at $99.99 per month. Ultra is billed monthly only. That page also says students can get Google AI Pro free for one year."
+pricingSummary: "Google's AI plans page lists Google AI Plus at $4.99 per month, Google AI Pro at $19.99 per month, Google AI Ultra 5x at $99.99 per month, and Google AI Ultra 20x at $199.99 per month."
 lastVerified: "2026-11-03"
 ---
 

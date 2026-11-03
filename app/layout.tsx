@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     locale: site.locale,
   },
   twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
   manifest: "/manifest.webmanifest",
 };
 

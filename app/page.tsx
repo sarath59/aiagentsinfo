@@ -21,6 +21,15 @@ export const metadata = {
   title: { absolute: `${site.name} — ${site.tagline}` },
   description: site.description,
   alternates: { canonical: absoluteUrl("/") },
+  openGraph: {
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    url: absoluteUrl("/"),
+    siteName: site.name,
+    type: "website" as const,
+    locale: site.locale,
+  },
+  robots: { index: true, follow: true },
 };
 
 const pillars = [

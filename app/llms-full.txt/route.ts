@@ -1,0 +1,11 @@
+import { buildLlmsFullTxt } from "@/lib/llms";
+
+export async function GET() {
+  const body = await buildLlmsFullTxt();
+  return new Response(body, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "s-maxage=3600, stale-while-revalidate",
+    },
+  });
+}
