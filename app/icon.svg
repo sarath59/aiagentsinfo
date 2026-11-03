@@ -1,17 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <rect width="48" height="48" rx="12" fill="#071421"/>
-  <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="11.25" stroke="#2F9DFF" stroke-opacity="0.32" stroke-width="1.1"/>
-  <defs>
-    <linearGradient id="aai-icon-leg" x1="9" y1="40" x2="36" y2="8" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3EE1C8"/>
-      <stop offset="0.52" stop-color="#2F9DFF"/>
-      <stop offset="1" stop-color="#7EC8FF"/>
-    </linearGradient>
-  </defs>
-  <path d="M24 13.2 L11.15 37.1" stroke="url(#aai-icon-leg)" stroke-width="3.7" stroke-linecap="butt"/>
-  <path d="M24 13.2 L36.85 37.1" stroke="url(#aai-icon-leg)" stroke-width="3.7" stroke-linecap="butt"/>
-  <rect x="16.9" y="25.35" width="14.2" height="2.45" rx="0.7" fill="#E8B84A"/>
-  <rect x="21.15" y="5.15" width="5.7" height="5.7" rx="0.85" fill="#F0C65C"/>
-  <rect x="7.35" y="36.05" width="5.15" height="5.15" rx="0.8" fill="#3EE1C8"/>
-  <rect x="35.5" y="36.05" width="5.15" height="5.15" rx="0.8" fill="#3EE1C8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#0B1F33"/>
+  <g transform="translate(32 32) scale(0.82) translate(-32 -32)">
+    <path d="M32 11 L53 32 L32 53 L11 32 Z" stroke="#1A8CFF" stroke-width="3.2" stroke-linejoin="miter"/>
+    <path d="M32 19 L45 32 L32 45 L19 32 Z" fill="#1570C9"/>
+    <path d="M32 21.5 V42.5 M21.5 32 H42.5" stroke="#E7F7FF" stroke-width="1.7" stroke-linecap="square"/>
+    <path d="M32 26.2 L37.8 32 L32 37.8 L26.2 32 Z" fill="#F0C14A"/>
+    <rect x="26.5" y="5.5" width="11" height="11" rx="2.2" fill="#2ED3C6"/>
+    <rect x="47.5" y="26.5" width="11" height="11" rx="2.2" fill="#2F9DFF"/>
+    <rect x="26.5" y="47.5" width="11" height="11" rx="2.2" fill="#14B8A6"/>
+    <rect x="5.5" y="26.5" width="11" height="11" rx="2.2" fill="#1A8CFF"/>
+  </g>
 </svg>

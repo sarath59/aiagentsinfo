@@ -28,9 +28,6 @@ export default function PrivacyPage() {
           The newsletter and submit-a-tool forms post to stub API routes. Until a provider is wired, submissions are only logged on the server you deploy to. Do not send secrets.
         </p>
         <p className="mt-4">
-          Theme preference is stored in your browser with localStorage. The site defaults to dark.
-        </p>
-        <p className="mt-4">
           Page views are measured with{" "}
           <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
             <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />

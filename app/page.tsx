@@ -3,6 +3,7 @@ import { ArrowIcon, DirectoryIcon, LearnIcon, ResearchIcon, SearchIcon } from "@
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
+import { HeroHarness } from "@/components/HeroHarness";
 import { ListingCard } from "@/components/ListingCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { getBlogPosts } from "@/lib/blog";
@@ -61,18 +62,17 @@ export default async function HomePage() {
     <div>
       <section className="relative overflow-hidden">
         <div className="grid-fade pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-14 sm:pb-24 sm:pt-20">
-          <div className="reveal">
-            <p className="kicker kicker-lead">Publication · Directory · Research</p>
-            <h1 className="display mt-6 max-w-4xl text-[2.8rem] sm:text-7xl">
-              Learn <span className="text-gradient">AI agents</span> from first questions to frontier research.
-            </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[var(--muted)] sm:text-xl">
-              A calm, sourced site for curious kids, older and non-technical readers, builders, and researchers — covering news, tools, papers, shopping, task performance, harnesses, and education.
-            </p>
-          </div>
-
-          <form action="/directory" method="get" className="reveal delay-1 glass mt-12 rounded-[1.75rem] p-4 sm:p-5">
+        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:pb-20 sm:pt-16 lg:pt-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)] lg:gap-14">
+            <div className="min-w-0">
+              <p className="kicker kicker-lead">Publication · Directory · Research</p>
+              <h1 className="display mt-5 max-w-xl text-[2.65rem] leading-[1.05] tracking-[-0.03em] sm:text-6xl sm:leading-[1.02]">
+                Learn <span className="text-gradient">AI agents</span> from first questions to frontier research.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--muted)] sm:text-xl">
+                A calm, sourced site for curious kids, older and non-technical readers, builders, and researchers — covering news, tools, papers, shopping, task performance, harnesses, and education.
+              </p>
+              <form action="/directory" method="get" className="glass mt-8 rounded-[1.75rem] p-4 sm:p-5">
             <label htmlFor="home-directory-q" className="kicker px-2">
               Search the AI directory
             </label>
@@ -83,8 +83,8 @@ export default async function HomePage() {
               <input
                 id="home-directory-q"
                 name="q"
-                placeholder="Coding agents, shopping, voice, harnesses…"
-                className="focus-ring min-h-12 flex-1 bg-transparent px-4 text-base sm:min-h-12 sm:px-2 sm:text-lg"
+                placeholder="Coding agents, voice, harnesses…"
+                className="focus-ring min-h-12 w-full min-w-0 flex-1 bg-transparent px-4 text-base sm:min-h-12 sm:px-2 sm:text-lg"
               />
               <button className="btn-primary min-h-12 w-full px-7 text-sm sm:w-auto" type="submit">
                 Search tools
@@ -99,9 +99,12 @@ export default async function HomePage() {
                 </li>
               ))}
             </ul>
-          </form>
+              </form>
+            </div>
+            <HeroHarness />
+          </div>
 
-          <div className="reveal delay-2 mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3">
             {pillars.map((item) => (
               <Link key={item.href} href={item.href} className="glass lift group rounded-3xl p-6">
                 <div className="flex items-center justify-between">

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="title">
+  <title id="title">AI Agents Info</title>
+  <rect width="64" height="64" rx="14" fill="#0B1F33"/>
+  <g transform="translate(32 32) scale(0.82) translate(-32 -32)">
+    <path d="M32 11 L53 32 L32 53 L11 32 Z" stroke="#1A8CFF" stroke-width="3.2" stroke-linejoin="miter"/>
+    <path d="M32 19 L45 32 L32 45 L19 32 Z" fill="#1570C9"/>
+    <path d="M32 21.5 V42.5 M21.5 32 H42.5" stroke="#E7F7FF" stroke-width="1.7" stroke-linecap="square"/>
+    <path d="M32 26.2 L37.8 32 L32 37.8 L26.2 32 Z" fill="#F0C14A"/>
+    <rect x="26.5" y="5.5" width="11" height="11" rx="2.2" fill="#2ED3C6"/>
+    <rect x="47.5" y="26.5" width="11" height="11" rx="2.2" fill="#2F9DFF"/>
+    <rect x="26.5" y="47.5" width="11" height="11" rx="2.2" fill="#14B8A6"/>
+    <rect x="5.5" y="26.5" width="11" height="11" rx="2.2" fill="#1A8CFF"/>
+  </g>
+</svg>

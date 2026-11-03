@@ -15,8 +15,6 @@ const inter = Inter({
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
 });
 
-const themeScript = `(() => { try { const t = localStorage.getItem("theme"); const dark = t === "light" ? false : true; document.documentElement.classList.toggle("dark", dark); } catch (_) {} })();`;
-
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -33,26 +31,17 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: "/apple-icon",
-  },
   manifest: "/manifest.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#e8f0f6" },
-    { media: "(prefers-color-scheme: dark)", color: "#071421" },
-  ],
+  colorScheme: "light",
+  themeColor: "#f3f6fa",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} dark`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    <html lang="en" className={inter.variable}>
       <body className="min-h-screen antialiased">
         <a className="skip-link" href="#main">
           Skip to content

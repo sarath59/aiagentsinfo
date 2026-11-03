@@ -1,9 +1,10 @@
 import { ImageResponse } from "next/og";
+import { markSvg } from "@/components/Logo";
 import { site } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = site.tagline;
+export const alt = `${site.name} — ${site.tagline}`;
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -13,11 +14,8 @@ export default function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          background: "linear-gradient(145deg, #071421 0%, #0b2a4a 48%, #083044 100%)",
-          color: "#f1f6fb",
-          padding: 72,
+          background: "#F3F6FA",
+          color: "#0B1F33",
           position: "relative",
         }}
       >
@@ -27,8 +25,8 @@ export default function OpenGraphImage() {
             width: 520,
             height: 520,
             borderRadius: 999,
-            background: "rgba(47,157,255,0.22)",
-            top: -160,
+            background: "rgba(47,157,255,0.18)",
+            top: -180,
             left: -80,
           }}
         />
@@ -38,41 +36,78 @@ export default function OpenGraphImage() {
             width: 420,
             height: 420,
             borderRadius: 999,
-            background: "rgba(62,225,200,0.16)",
-            top: -40,
-            right: -80,
+            background: "rgba(20,184,166,0.16)",
+            bottom: -160,
+            left: 220,
           }}
         />
         <div
           style={{
             position: "absolute",
-            width: 360,
-            height: 360,
+            width: 280,
+            height: 280,
             borderRadius: 999,
-            background: "rgba(232,184,74,0.12)",
-            bottom: -120,
-            right: 180,
+            background: "rgba(224,176,74,0.2)",
+            top: -40,
+            left: 460,
           }}
         />
-        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-          <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
-            <path d="M24 13.2 L11.15 37.1" stroke="#3EE1C8" strokeWidth="3.7" strokeLinecap="butt" />
-            <path d="M24 13.2 L36.85 37.1" stroke="#2F9DFF" strokeWidth="3.7" strokeLinecap="butt" />
-            <rect x="16.9" y="25.35" width="14.2" height="2.45" rx="0.7" fill="#E8B84A" />
-            <rect x="21.15" y="5.15" width="5.7" height="5.7" rx="0.85" fill="#F0C65C" />
-            <rect x="7.35" y="36.05" width="5.15" height="5.15" rx="0.8" fill="#3EE1C8" />
-            <rect x="35.5" y="36.05" width="5.15" height="5.15" rx="0.8" fill="#3EE1C8" />
-          </svg>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 28, letterSpacing: 6, fontWeight: 650 }}>AI AGENTS</div>
-            <div style={{ fontSize: 16, letterSpacing: 10, color: "#E8B84A", marginTop: 8 }}>INFO</div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: 680,
+            padding: "68px 28px 68px 72px",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+            {markSvg("og", { size: 88 })}
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ fontSize: 36, fontWeight: 700, letterSpacing: -0.6 }}>AI Agents</div>
+              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: 6, color: "#7A560C", marginTop: 8 }}>
+                INFO
+              </div>
+            </div>
           </div>
+          <div style={{ fontSize: 58, lineHeight: 1.08, letterSpacing: -1.4, maxWidth: 600 }}>{site.tagline}</div>
+          <div style={{ fontSize: 22, color: "#0F5F78", letterSpacing: 2.4 }}>Directory · Research · Learning</div>
         </div>
-        <div style={{ fontSize: 58, lineHeight: 1.08, maxWidth: 920, letterSpacing: -1.5 }}>
-          {site.tagline}
-        </div>
-        <div style={{ fontSize: 22, color: "#3EE1C8", letterSpacing: 3 }}>
-          Directory · Research · Learning
+        <div
+          style={{
+            display: "flex",
+            width: 460,
+            margin: 36,
+            borderRadius: 36,
+            background: "linear-gradient(165deg, #123456 0%, #0B1F33 58%, #0E3A4A 100%)",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              width: 280,
+              height: 280,
+              borderRadius: 999,
+              background: "rgba(47,157,255,0.28)",
+              top: 40,
+              left: 90,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              width: 180,
+              height: 180,
+              borderRadius: 999,
+              background: "rgba(62,225,200,0.2)",
+              bottom: 50,
+              right: 36,
+            }}
+          />
+          {markSvg("ogpanel", { size: 280 })}
         </div>
       </div>
     ),

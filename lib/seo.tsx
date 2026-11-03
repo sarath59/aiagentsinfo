@@ -17,7 +17,7 @@ export function organizationJsonLd() {
     url: absoluteUrl("/"),
     email: site.email,
     description: site.description,
-    logo: absoluteUrl("/brand/mark-dark.svg"),
+    logo: absoluteUrl("/brand/icon-512.png"),
     image: absoluteUrl("/opengraph-image"),
   };
 }

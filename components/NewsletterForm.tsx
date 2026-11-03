@@ -54,7 +54,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         {status === "loading" ? "Sending…" : "Get the digest"}
       </button>
       {message ? (
-        <p className={`sm:col-span-2 text-sm ${status === "error" ? "text-red-500" : "text-[var(--muted)]"}`} role="status">
+        <p className={`sm:col-span-2 text-sm ${status === "error" ? "text-red-700" : "text-[var(--muted)]"}`} role="status">
           {message}
         </p>
       ) : null}

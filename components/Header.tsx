@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { SearchIcon } from "@/components/Icons";
 import { Logo } from "@/components/Logo";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { audiences, nav } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--stroke)] bg-[color-mix(in_oklab,var(--bg)_78%,transparent)] backdrop-blur-2xl">
+    <header className="sticky top-0 z-40 border-b border-[var(--stroke)] bg-[color-mix(in_oklab,white_86%,var(--bg))] backdrop-blur-2xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5">
         <Link href="/" className="focus-ring rounded-lg" aria-label="AI Agents Info home">
           <Logo />
@@ -46,7 +45,6 @@ export function Header() {
             <SearchIcon className="h-3.5 w-3.5 text-[var(--color-cyan)]" />
             Search
           </Link>
-          <ThemeToggle />
         </div>
       </div>
       <nav aria-label="Mobile" className="flex gap-4 overflow-x-auto px-4 pb-3 text-sm md:hidden">

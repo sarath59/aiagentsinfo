@@ -36,31 +36,6 @@ export function LearnIcon({ className }: { className?: string }) {
   );
 }
 
-export function SunIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 20 20" className={className} aria-hidden>
-      <rect x="7.2" y="7.2" width="5.6" height="5.6" rx="1" fill="currentColor" />
-      <path
-        d="M10 2.4v2.1M10 15.5v2.1M2.4 10h2.1M15.5 10h2.1M4.6 4.6l1.5 1.5M13.9 13.9l1.5 1.5M4.6 15.4l1.5-1.5M13.9 6.1l1.5-1.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="square"
-      />
-    </svg>
-  );
-}
-
-export function MoonIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 20 20" className={className} aria-hidden>
-      <path
-        d="M12.6 3.4A6.6 6.6 0 1 0 16.4 13 5.4 5.4 0 0 1 12.6 3.4Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 export function ArrowIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 16 16" className={className} aria-hidden>

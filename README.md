@@ -30,12 +30,13 @@ Newsletter (`POST /api/newsletter`) and tool submissions (`POST /api/submit-tool
 
 ## Brand assets
 
-Original mark and wordmark (navy / electric blue / cyan / gold — not monochrome, no violet):
+Original lattice mark and wordmark (navy text, electric blue, cyan, and gold on a light page — not monochrome, no violet):
 
-- `public/brand/mark-dark.svg` / `mark-light.svg`
-- `public/brand/wordmark-dark.svg` / `wordmark-light.svg`
-- `public/brand/lockup-dark.svg` / `lockup-light.svg`
-- App icons: `app/icon.svg`, `app/apple-icon.tsx`, `public/brand/icon-192.png`, `public/brand/icon-512.png`
+- `public/brand/mark.svg` — icon only, transparent
+- `public/brand/wordmark.svg`
+- `public/brand/lockup.svg` — mark plus “AI Agents Info”
+- App icons: `app/icon.svg`, `app/apple-icon.tsx`, `public/brand/icon.svg`, `public/brand/icon-192.png`, `public/brand/icon-512.png`
+- Social images: `app/opengraph-image.tsx`, `app/twitter-image.tsx`
 
 ## How to add content
 

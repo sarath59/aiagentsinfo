@@ -71,7 +71,7 @@ export function SubmitToolForm() {
         {status === "loading" ? "Sending…" : "Submit a tool"}
       </button>
       {message ? (
-        <p className={`text-sm ${status === "error" ? "text-red-500" : "text-[var(--muted)]"}`} role="status">
+        <p className={`text-sm ${status === "error" ? "text-red-700" : "text-[var(--muted)]"}`} role="status">
           {message}
         </p>
       ) : null}

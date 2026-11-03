@@ -1,55 +1,80 @@
-import { useId } from "react";
+import { useId, type ReactNode, type SVGProps } from "react";
 
-/** Orthogonal constructed "A": two agent-nodes, a gold lintel, a gold apex. Not a ring. */
-export function BrandMark({
-  className,
-  title = "AI Agents Info",
-  variant = "auto",
-}: {
+type MarkProps = {
   className?: string;
   title?: string;
-  variant?: "auto" | "dark" | "light";
-}) {
-  const uid = useId().replace(/:/g, "");
-  const light = variant === "light";
-  const gradientId = `${uid}-leg`;
-  const start = light ? "#1AA7A0" : "#3EE1C8";
-  const mid = light ? "#1570C9" : "#2F9DFF";
-  const end = light ? "#2F9DFF" : "#7EC8FF";
-  const gold = light ? "#C4921A" : "#E8B84A";
-  const apex = light ? "#D4A017" : "#F0C65C";
-  const node = light ? "#1AA7A0" : "#3EE1C8";
+  size?: number;
+};
+
+/**
+ * Lattice mark: a harness diamond, four agent nodes, and a gold core.
+ * Square nodes and straight braces — not a ring, not a letter.
+ */
+export function BrandMark({ className, title, size }: MarkProps) {
+  const prefix = useId().replace(/:/g, "");
+  return markSvg(prefix, { className, title, size });
+}
+
+export function markSvg(
+  prefix: string,
+  { className, title, size }: MarkProps = {},
+): ReactNode {
+  const id = prefix.replace(/:/g, "");
+  const diamond = `${id}-diamond`;
+  const node = `${id}-node`;
+  const gold = `${id}-gold`;
+  const cage = `${id}-cage`;
+  const svgProps: SVGProps<SVGSVGElement> = {
+    viewBox: "0 0 64 64",
+    fill: "none",
+    className,
+    width: size,
+    height: size,
+    role: title ? "img" : undefined,
+    "aria-label": title,
+    "aria-hidden": title ? undefined : true,
+  };
 
   return (
-    <svg
-      viewBox="0 0 48 48"
-      className={className}
-      role="img"
-      aria-label={title}
-    >
+    <svg {...svgProps}>
+      {title ? <title>{title}</title> : null}
       <defs>
-        <linearGradient id={gradientId} x1="9" y1="40" x2="36" y2="8" gradientUnits="userSpaceOnUse">
-          <stop stopColor={start} />
-          <stop offset="0.52" stopColor={mid} />
-          <stop offset="1" stopColor={end} />
+        <linearGradient id={diamond} x1="19" y1="19" x2="45" y2="45" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#1A5A9E" />
+          <stop offset="0.48" stopColor="#1570C9" />
+          <stop offset="1" stopColor="#2ED3C6" />
+        </linearGradient>
+        <linearGradient id={node} x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#2F9DFF" />
+          <stop offset="1" stopColor="#14B8A6" />
+        </linearGradient>
+        <linearGradient id={gold} x1="26" y1="26" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#F6D56A" />
+          <stop offset="1" stopColor="#C4921A" />
+        </linearGradient>
+        <linearGradient id={cage} x1="11" y1="11" x2="53" y2="53" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#1A8CFF" />
+          <stop offset="1" stopColor="#0E9B8E" />
         </linearGradient>
       </defs>
       <path
-        d="M24 13.2 L11.15 37.1"
-        stroke={`url(#${gradientId})`}
-        strokeWidth="3.7"
-        strokeLinecap="butt"
+        d="M32 11 L53 32 L32 53 L11 32 Z"
+        stroke={`url(#${cage})`}
+        strokeWidth="3.2"
+        strokeLinejoin="miter"
       />
+      <path d="M32 19 L45 32 L32 45 L19 32 Z" fill={`url(#${diamond})`} />
       <path
-        d="M24 13.2 L36.85 37.1"
-        stroke={`url(#${gradientId})`}
-        strokeWidth="3.7"
-        strokeLinecap="butt"
+        d="M32 21.5 V42.5 M21.5 32 H42.5"
+        stroke="#E7F7FF"
+        strokeWidth="1.7"
+        strokeLinecap="square"
       />
-      <rect x="16.9" y="25.35" width="14.2" height="2.45" rx="0.7" fill={gold} />
-      <rect x="21.15" y="5.15" width="5.7" height="5.7" rx="0.85" fill={apex} />
-      <rect x="7.35" y="36.05" width="5.15" height="5.15" rx="0.8" fill={node} />
-      <rect x="35.5" y="36.05" width="5.15" height="5.15" rx="0.8" fill={node} />
+      <path d="M32 26.2 L37.8 32 L32 37.8 L26.2 32 Z" fill={`url(#${gold})`} />
+      <rect x="26.5" y="5.5" width="11" height="11" rx="2.2" fill={`url(#${node})`} />
+      <rect x="47.5" y="26.5" width="11" height="11" rx="2.2" fill={`url(#${node})`} />
+      <rect x="26.5" y="47.5" width="11" height="11" rx="2.2" fill={`url(#${node})`} />
+      <rect x="5.5" y="26.5" width="11" height="11" rx="2.2" fill={`url(#${node})`} />
     </svg>
   );
 }
@@ -57,11 +82,11 @@ export function BrandMark({
 export function BrandWordmark({ className }: { className?: string }) {
   return (
     <span className={`flex flex-col justify-center leading-none ${className ?? ""}`}>
-      <span className="font-sans text-[12.5px] font-semibold tracking-[0.22em] text-[var(--fg)] sm:text-[13.5px]">
-        AI AGENTS
+      <span className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-[var(--fg)]">
+        AI Agents
       </span>
-      <span className="mt-[7px] font-sans text-[9px] font-semibold tracking-[0.5em] text-[var(--gold)]">
-        INFO
+      <span className="mt-[5px] font-sans text-[10px] font-semibold uppercase tracking-[0.34em] text-[var(--gold)]">
+        Info
       </span>
     </span>
   );
@@ -70,7 +95,7 @@ export function BrandWordmark({ className }: { className?: string }) {
 export function Logo({ className }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 sm:gap-3 ${className ?? ""}`}>
-      <BrandMark className="h-8 w-8 shrink-0 drop-shadow-[0_0_14px_rgba(62,225,200,0.28)] sm:h-[34px] sm:w-[34px]" />
+      <BrandMark className="h-9 w-9 shrink-0 drop-shadow-[0_8px_14px_rgba(12,92,173,0.18)]" />
       <BrandWordmark />
     </span>
   );
