@@ -120,6 +120,12 @@ textarea::placeholder {
   color: #4e6880;
 }
 
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: #9f2d2d;
+}
+
 a {
   text-underline-offset: 0.18em;
 }

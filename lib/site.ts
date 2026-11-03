@@ -122,6 +122,7 @@ export const topics = [
 
 export const nav = [
   { href: "/directory", label: "Directory" },
+  { href: "/submit", label: "Submit" },
   { href: "/verified-revenue", label: "Revenue" },
   { href: "/research", label: "Research" },
   { href: "/blog", label: "Blog" },
@@ -161,6 +162,7 @@ export const footerNav = [
   {
     title: "Site",
     links: [
+      { href: "/submit", label: "Submit your tool" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
       { href: "/privacy", label: "Privacy" },

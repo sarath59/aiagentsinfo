@@ -10,7 +10,7 @@ export function Header() {
         <Link href="/" className="focus-ring rounded-lg" aria-label="AI Agents Info home">
           <Logo />
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-7 text-[13.5px] md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-4 text-[13.5px] md:flex lg:gap-6">
           {nav.map((item) => (
             <Link
               key={item.href}

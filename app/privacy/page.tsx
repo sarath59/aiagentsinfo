@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { PageHeader } from "@/components/PageHeader";
 import { companyBySlug } from "@/lib/companies";
 import { defaultMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Privacy",
@@ -25,7 +27,13 @@ export default function PrivacyPage() {
           Reading articles, research, glossary terms, and directory pages does not require an account. There is no login.
         </p>
         <p className="mt-4">
-          The newsletter and submit-a-tool forms post to stub API routes. Until a provider is wired, submissions are only logged on the server you deploy to. Do not send secrets.
+          The newsletter form is not connected to a mailing list. Addresses posted there are not stored.
+        </p>
+        <p className="mt-4">
+          <Link href="/submit" className="text-[var(--link)] underline">
+            Submit your tool
+          </Link>{" "}
+          does not require an account. The form asks for a contact email and the public details of a product. When the site is configured, that submission is saved as a GitHub issue for review and is not listed until someone fact-checks it. On a public repository, the issue, including the email, can be read by anyone. If saving is unavailable, the form offers an email to {site.email} instead. Do not send secrets.
         </p>
         <p className="mt-4">
           Page views are measured with{" "}

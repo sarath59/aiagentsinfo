@@ -1,29 +1,195 @@
 import { NextResponse } from "next/server";
+import { fileToolSubmission, submissionsToken } from "@/lib/github-submissions";
+import { takeRateLimit } from "@/lib/rate-limit";
+import { collectTakenSlugs } from "@/lib/submission-files";
+import {
+  honeypotTripped,
+  submissionMailto,
+  SUBMISSION_SUCCESS_MESSAGE,
+  validateSubmission,
+  type SubmissionField,
+} from "@/lib/submissions";
+
+const MAX_BODY = 40_000;
+
+const MAILOUT_MESSAGE =
+  "We can't save this submission right now. Email it to the desk and we'll review it the same way.";
 
 export async function POST(request: Request) {
-  const body = ((await request.json().catch(() => null)) ?? {}) as Record<string, string>;
-  const name = body.name?.trim();
-  const website = body.website?.trim();
-  const email = body.email?.trim();
-  if (!name || !website || !email) {
-    return NextResponse.json(
-      { message: "Name, website, and email are required." },
-      { status: 400 },
+  if (!sameOrigin(request)) {
+    return json({ message: "Submissions have to come from this site." }, 403);
+  }
+
+  const declaredLength = Number(request.headers.get("content-length") || 0);
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY) {
+    return json({ message: "That submission is too large." }, 413);
+  }
+
+  const type = request.headers.get("content-type") || "";
+  if (!type.includes("application/json")) {
+    return json({ message: "Send the form as JSON." }, 415);
+  }
+
+  const text = await request.text();
+  if (text.length > MAX_BODY) {
+    return json({ message: "That submission is too large." }, 413);
+  }
+
+  let payload: unknown;
+  try {
+    payload = JSON.parse(text);
+  } catch {
+    return json({ message: "The form could not be read." }, 400);
+  }
+
+  const limit = takeRateLimit(`submit:${clientIp(request)}`);
+  if (!limit.ok) {
+    return json(
+      {
+        message: "Too many submissions from this network. Wait a bit, or email the desk.",
+        mailto: mailtoFrom(payload),
+      },
+      429,
+      { "Retry-After": String(limit.retryAfterSec) },
     );
   }
 
-  // TODO: persist submissions (email inbox, Airtable, database). No provider keys in the repo.
-  console.info("[submit-tool stub]", {
-    name,
-    website,
-    email,
-    category: body.category,
-    description: body.description,
-  });
+  if (honeypotTripped(payload)) {
+    return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
+  }
 
-  return NextResponse.json({
-    ok: true,
-    message:
-      "Received. Nothing is published automatically.",
+  const validated = validateSubmission(payload, { takenSlugs: collectTakenSlugs() });
+  if (!validated.ok) {
+    return json({ message: "Check the highlighted fields.", errors: validated.errors }, 400);
+  }
+
+  const mailto = submissionMailto(stringsFrom(validated.value));
+  if (!submissionsToken()) {
+    return json({ ok: false, code: "unconfigured", message: MAILOUT_MESSAGE, mailto }, 503);
+  }
+
+  try {
+    const filed = await fileToolSubmission(validated.value);
+    if (filed.ok) {
+      return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
+    }
+    if (filed.reason === "duplicate") {
+      return json(
+        {
+          message: "This tool was just submitted. Wait an hour before sending it again, or email the desk.",
+          mailto,
+        },
+        429,
+      );
+    }
+    return json({ ok: false, code: "store_failed", message: MAILOUT_MESSAGE, mailto }, 502);
+  } catch (error) {
+    console.error("[submit-tool] failed", error instanceof Error ? error.message : "error");
+    return json({ ok: false, code: "store_failed", message: MAILOUT_MESSAGE, mailto }, 502);
+  }
+}
+
+function json(body: Record<string, unknown>, status: number, extra?: Record<string, string>) {
+  return NextResponse.json(body, {
+    status,
+    headers: { "Cache-Control": "no-store", ...extra },
   });
+}
+
+function clientIp(request: Request) {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0]?.trim() || "unknown";
+  return request.headers.get("x-real-ip")?.trim() || "unknown";
+}
+
+function sameOrigin(request: Request) {
+  const source = request.headers.get("origin") || request.headers.get("referer");
+  if (!source) return true;
+  let host: string;
+  try {
+    host = new URL(source).host.toLowerCase();
+  } catch {
+    return false;
+  }
+  const requestHost = (request.headers.get("x-forwarded-host") || request.headers.get("host") || "")
+    .split(",")[0]
+    .trim()
+    .toLowerCase();
+  const allowed = new Set([
+    requestHost,
+    "www.aiagentsinfo.com",
+    "aiagentsinfo.com",
+    "localhost:3000",
+    "127.0.0.1:3000",
+  ]);
+  return allowed.has(host);
+}
+
+function mailtoFrom(payload: unknown) {
+  if (!payload || typeof payload !== "object") return submissionMailto({});
+  const record = payload as Record<string, unknown>;
+  const fields: Partial<Record<SubmissionField, string>> = {};
+  for (const key of [
+    "name",
+    "website",
+    "tagline",
+    "description",
+    "category",
+    "type",
+    "pricing",
+    "startingPrice",
+    "logoUrl",
+    "makerName",
+    "makerX",
+    "makerType",
+    "ycBatch",
+    "launchYear",
+    "revenueSourceUrl",
+    "githubUrl",
+    "email",
+  ] as const) {
+    const value = record[key];
+    if (typeof value === "string") fields[key] = value;
+  }
+  return submissionMailto(fields);
+}
+
+function stringsFrom(value: {
+  name: string;
+  website: string;
+  tagline: string;
+  description: string;
+  category: string;
+  type: string | null;
+  pricing: string;
+  startingPrice: string;
+  logoUrl: string;
+  makerName: string;
+  makerX: string;
+  makerType: string | null;
+  ycBatch: string;
+  launchYear: number | null;
+  revenueSourceUrl: string;
+  githubUrl: string;
+  email: string;
+}): Partial<Record<SubmissionField, string>> {
+  return {
+    name: value.name,
+    website: value.website,
+    tagline: value.tagline,
+    description: value.description,
+    category: value.category,
+    type: value.type ?? "",
+    pricing: value.pricing,
+    startingPrice: value.startingPrice,
+    logoUrl: value.logoUrl,
+    makerName: value.makerName,
+    makerX: value.makerX,
+    makerType: value.makerType ?? "",
+    ycBatch: value.ycBatch,
+    launchYear: value.launchYear ? String(value.launchYear) : "",
+    revenueSourceUrl: value.revenueSourceUrl,
+    githubUrl: value.githubUrl,
+    email: value.email,
+  };
 }

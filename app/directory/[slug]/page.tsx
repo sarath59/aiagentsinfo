@@ -128,16 +128,18 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
             {categoryTitle(listing.category)}
           </Link>
         </div>
-        <section className="mt-10">
-          <h2 className="font-semibold tracking-tight text-2xl">Features</h2>
-          <ul className="mt-3 list-disc pl-5">
-            {listing.features.map((feature) => (
-              <li key={feature} className="mt-2">
-                <InlineCompanyText text={feature} />
-              </li>
-            ))}
-          </ul>
-        </section>
+        {listing.features.length ? (
+          <section className="mt-10">
+            <h2 className="font-semibold tracking-tight text-2xl">Features</h2>
+            <ul className="mt-3 list-disc pl-5">
+              {listing.features.map((feature) => (
+                <li key={feature} className="mt-2">
+                  <InlineCompanyText text={feature} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
         <section className="mt-8">
           <h2 className="font-semibold tracking-tight text-2xl">Pricing summary</h2>
           <p className="mt-3 text-[var(--muted)]">
@@ -148,16 +150,18 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
         <div className="mt-8">
           <MarkdownBody html={listing.html} />
         </div>
-        <section className="mt-8">
-          <h2 className="font-semibold tracking-tight text-2xl">Tags</h2>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {listing.tags.map((tag) => (
-              <Link key={tag} href={`/directory/tag/${tag}`} className="chip">
-                {tag}
-              </Link>
-            ))}
-          </div>
-        </section>
+        {listing.tags.length ? (
+          <section className="mt-8">
+            <h2 className="font-semibold tracking-tight text-2xl">Tags</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {listing.tags.map((tag) => (
+                <Link key={tag} href={`/directory/tag/${tag}`} className="chip">
+                  {tag}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
         {related.length ? (
           <section className="mt-10">
             <h2 className="font-semibold tracking-tight text-2xl">Related tools</h2>

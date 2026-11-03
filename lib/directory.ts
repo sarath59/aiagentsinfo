@@ -1,31 +1,20 @@
 import { contentDir, loadMarkdownCollection } from "@/lib/markdown";
+import { approvedSubmissionListings } from "@/lib/submission-files";
+import type { DirectoryCategory, PricingModel } from "@/lib/directory-meta";
 
-export const directoryCategories = [
-  { slug: "coding-agents", title: "Coding agents" },
-  { slug: "shopping-agents", title: "Shopping agents" },
-  { slug: "education", title: "Education" },
-  { slug: "productivity", title: "Productivity" },
-  { slug: "research", title: "Research" },
-  { slug: "voice", title: "Voice" },
-  { slug: "image-video", title: "Image & video" },
-  { slug: "agent-frameworks", title: "Agent frameworks & harnesses" },
-] as const;
-
-export const pricingModels = [
-  { slug: "free", title: "Free" },
-  { slug: "freemium", title: "Freemium" },
-  { slug: "paid", title: "Paid" },
-  { slug: "open-source", title: "Open source" },
-] as const;
+export {
+  categoryTitle,
+  directoryCategories,
+  pricingModels,
+  pricingTitle,
+} from "@/lib/directory-meta";
+export type { DirectoryCategory, PricingModel } from "@/lib/directory-meta";
 
 export const directoryCollections = [
   { slug: "new", title: "New this week", field: "newThisWeek" },
   { slug: "trending", title: "Trending", field: "trending" },
   { slug: "editors-picks", title: "Editor's picks", field: "editorsPick" },
 ] as const;
-
-export type DirectoryCategory = (typeof directoryCategories)[number]["slug"];
-export type PricingModel = (typeof pricingModels)[number]["slug"];
 
 export type DirectoryFrontmatter = {
   name: string;
@@ -67,14 +56,15 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
   const docs = await loadMarkdownCollection<DirectoryFrontmatter>(
     contentDir("directory"),
   );
-  return docs
+  const fromMarkdown = docs
     .map((doc) => ({
       slug: doc.slug,
       html: doc.html,
       ...doc.data,
     }))
-    .filter((listing) => listing.sample !== true)
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .filter((listing) => listing.sample !== true);
+  const approved = approvedSubmissionListings(fromMarkdown.map((listing) => listing.slug));
+  return [...fromMarkdown, ...approved].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export async function getDirectoryListing(slug: string) {
@@ -130,12 +120,6 @@ export function relatedListings(
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
     .map((entry) => entry.other);
-}
-
-export function categoryTitle(slug: string) {
-  return (
-    directoryCategories.find((category) => category.slug === slug)?.title ?? slug
-  );
 }
 
 export function collectionBySlug(slug: string) {

@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/directory/submit",
+        destination: "/submit",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "aiagentsinfo.com" }],
         destination: "https://www.aiagentsinfo.com/:path*",

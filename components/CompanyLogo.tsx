@@ -77,22 +77,38 @@ export function CompanyLogo({
   const [failedSrc, setFailedSrc] = useState<string | undefined>();
   const failed = Boolean(src) && failedSrc === src;
 
-  if (!src || failed) return <InitialBadge name={name} size={px} />;
+  const remote = /^https?:\/\//i.test(src ?? "");
+  const local = Boolean(src?.startsWith("/"));
+  if (!src || failed || (!remote && !local)) return <InitialBadge name={name} size={px} />;
 
   const background = tile === "dark" ? "#071421" : "#eef4f9";
 
   return (
     <span style={frameStyle(px, background)}>
-      <Image
-        src={src}
-        alt={`${name} logo`}
-        width={px}
-        height={px}
-        sizes={`${px}px`}
-        unoptimized={src.endsWith(".svg")}
-        onError={() => setFailedSrc(src)}
-        style={{ width: "100%", height: "100%", objectFit: "contain" }}
-      />
+      {remote ? (
+        // User-supplied logo URLs stay on the <img> tag so the image optimizer does not fetch arbitrary hosts.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
+          alt={`${name} logo`}
+          width={px}
+          height={px}
+          referrerPolicy="no-referrer"
+          onError={() => setFailedSrc(src)}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
+      ) : (
+        <Image
+          src={src}
+          alt={`${name} logo`}
+          width={px}
+          height={px}
+          sizes={`${px}px`}
+          unoptimized={src.endsWith(".svg")}
+          onError={() => setFailedSrc(src)}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
+      )}
     </span>
   );
 }

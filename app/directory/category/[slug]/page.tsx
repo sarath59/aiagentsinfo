@@ -74,7 +74,7 @@ export default async function DirectoryCategoryPage({
             <EmptyState
               title="Listings coming soon — submit a tool"
               body={`No ${category.title.toLowerCase()} are listed yet. A product is added only when its official site checks out.`}
-              href="/directory/submit"
+              href="/submit"
               cta="Submit a tool"
             />
           </div>

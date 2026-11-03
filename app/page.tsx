@@ -205,7 +205,7 @@ export default async function HomePage() {
             <EmptyState
               title="Listings coming soon — submit a tool"
               body="The directory lists real products with a working official site. Nothing is published until it is checked."
-              href="/directory/submit"
+              href="/submit"
               cta="Submit a tool"
             />
           )}

@@ -61,7 +61,7 @@ export default function AdvertisePage() {
           Not published. This page does not state an audience size. Email {site.email} to ask about a placement.
         </p>
         <p className="mt-6 text-sm">
-          <Link href="/directory/submit" className="underline">
+          <Link href="/submit" className="underline">
             Submit a tool
           </Link>
           {" · "}

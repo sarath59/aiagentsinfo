@@ -50,12 +50,18 @@ export default async function DirectoryPage({
         summary="Real products with a working official site. No ratings, user counts, or invented rankings."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
-        <div className="mb-8">
-          <Link href="/directory/submit" className="glass lift block rounded-3xl p-5">
-            <p className="kicker">Submit a tool</p>
-            <p className="mt-2 text-sm text-[var(--muted)]">Tell us about a product. Nothing is published automatically.</p>
+        <section className="glass mb-8 flex flex-col items-start justify-between gap-4 rounded-3xl p-6 sm:flex-row sm:items-center">
+          <div>
+            <p className="kicker">Submit your tool</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight">List a product you built</h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--muted)]">
+              No login and no fee. We review every submission and add it to the directory only after a fact-check.
+            </p>
+          </div>
+          <Link href="/submit" className="btn-primary shrink-0 px-5 py-3 text-sm">
+            Submit your tool
           </Link>
-        </div>
+        </section>
 
         <div className="flex flex-wrap gap-2">
           <Link href="/directory/new" className="chip">
@@ -139,7 +145,7 @@ export default async function DirectoryPage({
                   ? "The directory will list real products with a working official site. Submit one if you want it considered."
                   : "Clear the filters or submit a tool. Products are not invented to fill the grid."
               }
-              href={listings.length === 0 ? "/directory/submit" : "/directory"}
+              href={listings.length === 0 ? "/submit" : "/directory"}
               cta={listings.length === 0 ? "Submit a tool" : "Reset directory"}
             />
           </div>
