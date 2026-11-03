@@ -574,109 +574,258 @@ article.grid > * {
   transform: translate(calc(var(--px) * 16px), calc(var(--py) * 12px));
 }
 
-.hero-spin,
-.hero-spin-slow {
+/* Orchestrator network. Motion is class-gated and paused offscreen. */
+.agent-slot {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.agent-fallback {
+  position: absolute;
+  inset: 0 0 2.6rem;
+  display: grid;
+  place-items: center;
+}
+
+.agent-fallback-ring {
+  position: absolute;
+  width: min(68%, 300px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  border: 1px dashed rgba(126, 224, 255, 0.4);
+}
+
+.agent-fallback-core {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 50%, #f6d56a 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 38% 32%, #8ecfff, #1568c0 46%, #123a62 78%);
+  box-shadow:
+    0 0 0 10px rgba(47, 157, 255, 0.14),
+    0 0 32px rgba(20, 184, 166, 0.35);
+}
+
+.agent-net {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.agent-net-live {
+  animation: agent-in 0.65s ease both;
+}
+
+@keyframes agent-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.agent-svg {
+  position: absolute;
+  inset: 0 0 2.6rem;
+  display: block;
+  width: 100%;
+  height: calc(100% - 2.6rem);
+  overflow: hidden;
+}
+
+.agent-svg-full {
+  display: none;
+}
+
+.agent-label {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  fill: #f4f8fc;
+}
+
+.agent-svg-full .agent-label {
+  font-size: 20px;
+}
+
+.agent-svg-compact .agent-label {
+  font-size: 14.5px;
+}
+
+.agent-pill {
+  fill: rgba(8, 22, 40, 0.84);
+  stroke: rgba(198, 226, 255, 0.42);
+  stroke-width: 1.25;
+}
+
+.agent-pill-edge {
+  fill: none;
+  stroke-width: 1.7;
+  opacity: 0.4;
+}
+
+.agent-halo {
+  opacity: 0.78;
+}
+
+.agent-core-glow,
+.agent-ring,
+.agent-orbit,
+.agent-svg-full .agent-node,
+.agent-star {
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.hero-spin {
-  animation: hero-spin 46s linear infinite;
+.agent-pulse,
+.agent-comet {
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0;
 }
 
-.hero-spin-slow {
-  animation: hero-spin 78s linear infinite reverse;
+.agent-pulse {
+  stroke-width: 3.2;
 }
 
-@keyframes hero-spin {
+.agent-comet {
+  stroke: #f0d48a;
+  stroke-width: 2.5;
+}
+
+.agent-net-live .agent-orbit {
+  animation: agent-spin 40s linear infinite;
+}
+
+.agent-net-live .agent-svg-full .agent-node {
+  animation: agent-spin 40s linear infinite reverse;
+}
+
+.agent-net-live .agent-ring-fast {
+  animation: agent-spin 18s linear infinite;
+}
+
+.agent-net-live .agent-ring-slow {
+  animation: agent-spin 42s linear infinite reverse;
+}
+
+.agent-net-live .agent-ring-outer {
+  animation: agent-spin 70s linear infinite;
+}
+
+.agent-net-live .agent-core-glow {
+  animation: agent-breathe 4.8s ease-in-out infinite;
+}
+
+.agent-net-live .agent-pulse {
+  stroke-dasharray: 7 108;
+  animation: agent-pulse 13s linear infinite;
+  animation-delay: calc(var(--i) * -2.6s);
+}
+
+.agent-net-live .agent-comet {
+  stroke-dasharray: 5 95;
+  opacity: 0.95;
+  animation: agent-comet 8s linear infinite;
+}
+
+.agent-net-live .agent-halo,
+.agent-net-live .agent-pill-edge {
+  animation: agent-ignite 13s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -2.6s);
+}
+
+.agent-net-live .agent-star {
+  animation: agent-twinkle var(--dur, 5.6s) ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes agent-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-.hero-packet {
-  fill: none;
-  stroke-width: 3.2;
-  stroke-linecap: round;
-  stroke-dasharray: 8 150;
-  animation: hero-dash 3.8s linear infinite;
-}
-
-@keyframes hero-dash {
-  to {
-    stroke-dashoffset: -474;
+@keyframes agent-breathe {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
   }
 }
 
-.hero-copy {
-  position: absolute;
-  left: 50%;
-  top: 46%;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border-radius: 999px;
-  border: 1px solid #f0d48a;
-  background: rgba(8, 22, 40, 0.72);
-  padding: 0.35rem 0.7rem 0.35rem 0.45rem;
-  color: #f0d48a;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  transform: translate(calc(-50% + 92px), calc(-50% - 78px));
-  animation: hero-copy 8.5s ease-in-out infinite;
-}
-
-.hero-copy-mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 3px;
-  background:
-    linear-gradient(#3ee1c8, #3ee1c8) 4px 4px / 8px 8px no-repeat,
-    #f0d48a;
-  box-shadow: 3px 3px 0 rgba(62, 225, 200, 0.9);
-}
-
-@keyframes hero-copy {
-  0%,
-  12% {
-    transform: translate(-50%, -50%) scale(0.45);
+@keyframes agent-pulse {
+  0% {
+    stroke-dashoffset: 115;
     opacity: 0;
   }
+  3% {
+    opacity: 1;
+  }
+  20% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  26%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes agent-comet {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes agent-ignite {
+  0%,
+  8% {
+    opacity: 0.28;
+  }
+  16%,
   24% {
     opacity: 1;
   }
-  58%,
-  78% {
-    transform: translate(calc(-50% + 92px), calc(-50% - 78px)) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(0.45);
-    opacity: 0;
-  }
-}
-
-.hero-star {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: hero-twinkle 5.6s ease-in-out infinite;
-}
-
-@keyframes hero-twinkle {
-  0%,
+  36%,
   100% {
     opacity: 0.28;
   }
+}
+
+@keyframes agent-twinkle {
+  0%,
+  100% {
+    opacity: 0.22;
+  }
   50% {
-    opacity: 0.95;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .agent-svg-compact {
+    display: none;
+  }
+
+  .agent-svg-full {
+    display: block;
   }
 }
 
 .hero-caption {
   pointer-events: none;
   position: absolute;
+  z-index: 2;
   inset-inline: 0;
   bottom: 0;
   display: flex;
@@ -692,11 +841,51 @@ article.grid > * {
   color: #e7f2fb;
 }
 
-.hero-paused .hero-spin,
-.hero-paused .hero-spin-slow,
-.hero-paused .hero-packet,
-.hero-paused .hero-copy,
-.hero-paused .hero-star {
+.hero-caption-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #f0d48a;
+}
+
+.hero-caption-live::before {
+  content: "";
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: #3ee1c8;
+  box-shadow: 0 0 8px rgba(62, 225, 200, 0.85);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-caption-live::before {
+    animation: agent-beacon 2.4s ease-out infinite;
+  }
+}
+
+@keyframes agent-beacon {
+  0% {
+    box-shadow: 0 0 0 0 rgba(62, 225, 200, 0.7);
+  }
+  80%,
+  100% {
+    box-shadow: 0 0 0 8px rgba(62, 225, 200, 0);
+  }
+}
+
+.hero-paused .agent-orbit,
+.hero-paused .agent-node,
+.hero-paused .agent-ring-fast,
+.hero-paused .agent-ring-slow,
+.hero-paused .agent-ring-outer,
+.hero-paused .agent-core-glow,
+.hero-paused .agent-pulse,
+.hero-paused .agent-comet,
+.hero-paused .agent-halo,
+.hero-paused .agent-pill-edge,
+.hero-paused .agent-star,
+.hero-paused .agent-net-live,
+.hero-paused .hero-caption-live::before {
   animation-play-state: paused;
 }
 
@@ -705,15 +894,24 @@ article.grid > * {
   .reveal,
   .lift,
   .btn-primary,
-  .hero-spin,
-  .hero-spin-slow,
-  .hero-packet,
-  .hero-copy,
-  .hero-star,
   .hero-glow,
   .hero-layer-back,
   .hero-layer-mid,
-  .hero-layer-front {
+  .hero-layer-front,
+  .agent-net-live,
+  .agent-orbit,
+  .agent-node,
+  .agent-ring,
+  .agent-ring-fast,
+  .agent-ring-slow,
+  .agent-ring-outer,
+  .agent-core-glow,
+  .agent-pulse,
+  .agent-comet,
+  .agent-halo,
+  .agent-pill-edge,
+  .agent-star,
+  .hero-caption-live::before {
     animation: none !important;
     transition: none !important;
   }
@@ -731,8 +929,20 @@ article.grid > * {
     transform: none;
   }
 
-  .hero-copy {
-    transform: translate(calc(-50% + 92px), calc(-50% - 78px));
+  .agent-net-live {
     opacity: 1;
+  }
+
+  .agent-pulse,
+  .agent-comet {
+    opacity: 0 !important;
+  }
+
+  .agent-halo {
+    opacity: 0.8;
+  }
+
+  .agent-pill-edge {
+    opacity: 0.55;
   }
 }
