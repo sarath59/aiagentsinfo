@@ -23,8 +23,8 @@ features:
   - Conversational interface over OpenAI models
   - Optional tools (browse, code, files) on some plans — confirm on the vendor site
   - Consumer, Plus/Pro, and business SKUs; details change
-pricingSummary: Free tier plus paid plans. Check OpenAI's pricing page; prices are not quoted here.
-lastVerified: "2026-11-02"
+pricingSummary: "The ChatGPT pricing page lists Free, Go, Plus, and Pro, and says paid plans are priced per user per month. Dollar amounts shown on the Codex page for those ChatGPT plans are Plus $20, Pro $100, and Business $20 for 2 or more seats billed annually. A dollar price for Go was not in the pricing-page text."
+lastVerified: "2026-11-03"
 ---
 
 ChatGPT is OpenAI's chat product. Treat model names, tool availability, and plan limits as moving parts: read the vendor changelog before you depend on a specific capability.

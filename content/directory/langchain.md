@@ -23,8 +23,8 @@ features:
   - Open-source libraries for chains, tools, and agents
   - Observability and eval products under the LangSmith family
   - Docs and versioning on langchain.com and GitHub
-pricingSummary: The framework is open source. Hosted observability and enterprise features are paid as the vendor describes.
-lastVerified: "2026-11-02"
+pricingSummary: "The framework is open source. LangSmith Developer is $0 per seat per month, then pay as you go, with up to 5,000 base traces a month. Plus is $39 per seat per month, then pay as you go, with up to 10,000 base traces a month. Enterprise is custom. One LangChain Standard Unit is listed at $1."
+lastVerified: "2026-11-03"
 ---
 
 A framework is not a finished agent. The [harness](/glossary/harness) is the runtime around the model.

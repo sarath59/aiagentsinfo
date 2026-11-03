@@ -23,8 +23,8 @@ features:
   - Web-grounded answers with cited links
   - Pro and API offerings as described by the vendor
   - Collections and file features vary by plan
-pricingSummary: Free usage plus Pro and API billing. Check perplexity.ai for current limits.
-lastVerified: "2026-11-02"
+pricingSummary: "The pricing page lists Free at $0 per month, then $17 per month and $167 per month, both when billed annually. The page's FAQ describes Pro and Max. A separate non-annual monthly price was not shown."
+lastVerified: "2026-11-03"
 ---
 
 Citations in the product are only as good as the retrieved pages. This site prefers primary sources on the [research desk](/research).

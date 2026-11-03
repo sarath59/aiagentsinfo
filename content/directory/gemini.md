@@ -23,8 +23,8 @@ features:
   - Consumer Gemini app
   - Gemini models via Google AI and Vertex AI
   - Multimodal inputs on supported surfaces
-pricingSummary: Free consumer access plus paid Google One and Cloud plans. Confirm on Google's sites.
-lastVerified: "2026-11-02"
+pricingSummary: "Google's AI plans page lists Google AI Pro at $19.99 per month and Google AI Ultra at $99.99 per month. Ultra is billed monthly only. That page also says students can get Google AI Pro free for one year."
+lastVerified: "2026-11-03"
 ---
 
 Google ships Gemini through several products. Name the surface you mean (the Gemini app, AI Studio, or Vertex) when you write about it.

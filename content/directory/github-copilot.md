@@ -19,9 +19,9 @@ audiences:
 features:
   - In-editor completions and chat
   - Pull-request and repository-aware features as documented by GitHub
-  - Individual, business, and enterprise plans
-pricingSummary: Paid seats, plus free, student, and open-source programs as GitHub describes them. No prices quoted here.
-lastVerified: "2026-11-02"
+  - Free, Pro, Pro+, and Max plans. Pro includes access to third-party agents, including Claude Code and Codex, as GitHub lists them
+pricingSummary: "Free is $0 and includes 2,000 completions per month. Pro is $10 per user per month, with $15 of monthly credits. Pro+ is $39 per user per month, with $70 of monthly credits. Max is $100 per user per month, with $200 of monthly credits."
+lastVerified: "2026-11-03"
 ---
 
 Copilot's agent features change name often. Use GitHub's current docs as the source of truth.

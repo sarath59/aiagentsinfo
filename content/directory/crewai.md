@@ -11,6 +11,7 @@ tags:
   - open-source
 pricing:
   - open-source
+  - freemium
   - paid
 useCases:
   - agents
@@ -21,8 +22,8 @@ features:
   - Role and crew abstractions for multi-agent runs
   - Open-source package plus a hosted product (confirm current names on the vendor site)
   - Integrations depend on the release
-pricingSummary: Open-source library with paid platform plans as listed by CrewAI.
-lastVerified: "2026-11-02"
+pricingSummary: "The cloud pricing page lists Basic at free, with 50 workflow executions a month, and Enterprise at a custom price. The open-source framework's GitHub license is MIT."
+lastVerified: "2026-11-03"
 ---
 
 [Multi-agent](/glossary/multi-agent) in product copy often means multiple prompts or roles, not multiple companies. Read the docs for the actual execution model.

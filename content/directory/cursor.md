@@ -19,9 +19,9 @@ audiences:
 features:
   - Editor built around AI assistance
   - Agent and edit flows over a local or cloud workspace, as the vendor describes
-  - Model choice depends on plan and settings
-pricingSummary: Free and paid individual and team plans as listed by the vendor. Verify before citing a price.
-lastVerified: "2026-11-02"
+  - The Plus plan includes only Grok models. Other models are billed separately from the monthly price
+pricingSummary: "Free is $0 per month. Plus is $8 per month. Premium is $30 per month. Super is $100 per month. Ultra is $200 per month. Teams starts at $30 per user per month. Enterprise is custom. Third-party models are not included in those prices. Prices exclude tax."
+lastVerified: "2026-11-03"
 ---
 
 Cursor is a coding environment. Compare it with other [coding agents](/directory/category/coding-agents), not with consumer assistants.
