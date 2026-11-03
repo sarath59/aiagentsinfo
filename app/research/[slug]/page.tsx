@@ -8,9 +8,25 @@ import { MarkdownBody } from "@/components/MarkdownBody";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getResearchDoc, getResearchDocs, researchTypeTitle } from "@/lib/research";
 import { companyForUrl } from "@/lib/companies";
-import { JsonLd, defaultMetadata, scholarlyArticleJsonLd } from "@/lib/seo";
+import { JsonLd, defaultMetadata, faqJsonLd, scholarlyArticleJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
+
+function RichText({ text }: { text: string }) {
+  const paragraphs = text
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.replace(/\s+/g, " ").trim())
+    .filter(Boolean);
+  return (
+    <>
+      {paragraphs.map((paragraph, index) => (
+        <p key={index} className="mt-3 text-[var(--muted)]">
+          <InlineCompanyText text={paragraph} />
+        </p>
+      ))}
+    </>
+  );
+}
 
 export async function generateStaticParams() {
   const docs = await getResearchDocs();
@@ -44,6 +60,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           paperAuthors: doc.paperAuthors,
         })}
       />
+      {doc.faq?.length ? <JsonLd data={faqJsonLd(doc.faq)} /> : null}
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -106,11 +123,29 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           </div>
 
           <section className="mt-10">
-            <h2 className="font-semibold tracking-tight text-2xl">Abstract / summary</h2>
-            <p className="mt-3 text-[var(--muted)]">
-              <InlineCompanyText text={doc.abstract} />
-            </p>
+            <h2 className="font-semibold tracking-tight text-2xl">
+              {doc.eli10 ? "In plain language" : "Abstract / summary"}
+            </h2>
+            <RichText text={doc.abstract} />
           </section>
+          {doc.eli10 ? (
+            <section className="mt-8">
+              <h2 className="font-semibold tracking-tight text-2xl">{"Explain it like I'm 10"}</h2>
+              <RichText text={doc.eli10} />
+            </section>
+          ) : null}
+          {doc.eli10 ? (
+            <section className="mt-8">
+              <h2 className="font-semibold tracking-tight text-2xl">What it is</h2>
+              <RichText text={doc.methodology} />
+            </section>
+          ) : null}
+          {doc.whyItMatters ? (
+            <section className="mt-8">
+              <h2 className="font-semibold tracking-tight text-2xl">Why it matters</h2>
+              <RichText text={doc.whyItMatters} />
+            </section>
+          ) : null}
           <section className="mt-8">
             <h2 className="font-semibold tracking-tight text-2xl">Key findings</h2>
             <ul className="mt-3 list-disc pl-5">
@@ -121,25 +156,54 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
               ))}
             </ul>
           </section>
-          <section className="mt-8">
-            <h2 className="font-semibold tracking-tight text-2xl">Methodology</h2>
-            <p className="mt-3 text-[var(--muted)]">
-              <InlineCompanyText text={doc.methodology} />
-            </p>
-          </section>
-          <section className="mt-8">
-            <h2 className="font-semibold tracking-tight text-2xl">Limitations</h2>
-            <ul className="mt-3 list-disc pl-5">
-              {doc.limitations.map((item) => (
-                <li key={item} className="mt-2">
-                  <InlineCompanyText text={item} />
-                </li>
-              ))}
-            </ul>
-          </section>
+          {doc.eli10 ? null : (
+            <>
+              <section className="mt-8">
+                <h2 className="font-semibold tracking-tight text-2xl">Methodology</h2>
+                <RichText text={doc.methodology} />
+              </section>
+              <section className="mt-8">
+                <h2 className="font-semibold tracking-tight text-2xl">Limitations</h2>
+                <ul className="mt-3 list-disc pl-5">
+                  {doc.limitations.map((item) => (
+                    <li key={item} className="mt-2">
+                      <InlineCompanyText text={item} />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </>
+          )}
           <div className="mt-10">
             <MarkdownBody html={doc.html} />
           </div>
+          {doc.eli10 ? (
+            <section className="mt-8">
+              <h2 className="font-semibold tracking-tight text-2xl">Limitations</h2>
+              <ul className="mt-3 list-disc pl-5">
+                {doc.limitations.map((item) => (
+                  <li key={item} className="mt-2">
+                    <InlineCompanyText text={item} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+          {doc.faq?.length ? (
+            <section className="mt-10">
+              <h2 className="font-semibold tracking-tight text-2xl">FAQ</h2>
+              <div className="mt-4 grid gap-6">
+                {doc.faq.map((item) => (
+                  <div key={item.question}>
+                    <h3 className="font-semibold tracking-tight text-xl">{item.question}</h3>
+                    <div className="mt-2">
+                      <RichText text={item.answer} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
           <section className="mt-10">
             <h2 className="font-semibold tracking-tight text-2xl">References</h2>
             <SourceList sources={doc.references} />
