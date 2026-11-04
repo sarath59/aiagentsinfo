@@ -35,7 +35,6 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
   ]);
   const relatedPosts = posts.filter((post) => post.audience?.includes(slug));
   const relatedListings = listings.filter((listing) => listing.audiences.includes(slug));
-  const isKids = slug === "kids";
   const isEveryone = slug === "everyone";
   const isResearch = slug === "research";
 
@@ -106,7 +105,7 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
   );
 
   return (
-    <div className={isKids ? "kids-theme" : ""}>
+    <div>
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -115,43 +114,21 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
       />
       <div className="mx-auto max-w-3xl px-4 pb-20 pt-12">
         {isEveryone ? <ReadableToggle>{body}</ReadableToggle> : body}
-        {isKids ? (
-          <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            <div className="kids-card p-6">
-              <p className="text-lg">An agent is a helper that can do steps, not just talk.</p>
-            </div>
-            <div className="kids-card p-6">
-              <p className="text-lg">Always ask a grown-up before it clicks, buys, or sends.</p>
-            </div>
-          </div>
-        ) : null}
       </div>
     </div>
   );
 }
 
 function copyFor(slug: string) {
-  if (slug === "kids") {
-    return [
-      {
-        title: "A helper that can take turns",
-        body: "A chatbot answers with words. An agent can also use tools: look something up, write code, or click around a screen. That is powerful and it can make mistakes. Use it like a curious lab — with a grown-up nearby.",
-      },
-      {
-        title: "Words we will keep small",
-        body: "We will not pretend the computer is a person. We will not invent scores or fans.",
-      },
-    ];
-  }
   if (slug === "everyone") {
     return [
       {
-        title: "Plain language, larger type if you want it",
-        body: "Use the button above to enlarge the text. Jargon is linked to the glossary. If a company brags about millions of users, we will not repeat the number unless we can source it.",
+        title: "Clear writing, larger type if you want it",
+        body: "Use the button above when you want larger type. Jargon links to the glossary. If a company brags about millions of users, we will not repeat the number unless we can source it.",
       },
       {
-        title: "What you can learn here",
-        body: "What an agent is, what it still cannot do, and how shopping, school, and office tools are actually being used — without requiring a computer-science degree.",
+        title: "What you can read here",
+        body: "Plain-English AI news and research for adults: what an agent is, where the tools are actually used, and what the papers change.",
       },
     ];
   }

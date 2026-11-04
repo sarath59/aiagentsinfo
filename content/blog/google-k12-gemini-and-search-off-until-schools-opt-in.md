@@ -10,7 +10,6 @@ topics:
   - tools-saas
 audience:
   - everyone
-  - kids
 companies:
   - google
   - gemini
@@ -162,7 +161,7 @@ For a family, the practical question is which switches the school will flip, and
 
 For a student, Guided Learning is a conversation with hints. It is not, in these posts, a system that opens apps, files, or purchases on the student’s behalf. On this site an [agent](/glossary/agent) is a model plus the software that lets it take those steps. A [language model](/glossary/llm) supplies the words. A [guardrail](/glossary/guardrail) is a check that can allow or block a step, and [autonomy](/glossary/autonomy) is how far the system may go before a person confirms it. The school administrator’s on-switch is that kind of human gate, applied to whole products rather than to one click inside a coding agent. The longer explanation of the software around a model is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness).
 
-The place on this site for tutors and classroom tools is [agents in education](/topics/education). A shorter path for younger readers is [Curious Kids](/for/kids). The plain-language door for everyone else is [Everyone](/for/everyone). This announcement is one item on the [daily news](/topics/news) beat.
+The place on this site for tutors and classroom tools is [agents in education](/topics/education). This announcement is one item on the [daily news](/topics/news) beat.
 
 ## Frequently asked questions
 

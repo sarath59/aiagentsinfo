@@ -2,7 +2,7 @@
 title: "Paper breakdown: Weight-space programming — a language model that reads and edits neural weights"
 description: "MIT CSAIL's November 2, 2026 note: GPT-6 Astra edited neural weights and raised a small model's MATH-500 score from 7.9% to 48.1%."
 date: "2026-11-03"
-updated: "2026-11-03"
+updated: "2026-11-04"
 type: paper-breakdown
 topics:
   - harnesses
@@ -25,11 +25,7 @@ abstract: |
 
   In the tests they report, Astra sometimes could. It named what small networks had been trained to do, patched a control policy that was stuck, and wrote small game-playing networks that beat PPO policies the authors trained for comparison. On Qwen3.5-0.8B, an edit to 0.016% of the weights raised their MATH-500 score from 7.9% to 48.1%. They also report that this mostly helped the model finish answers, because the unedited model was looping, and that the same style of edit did not add math skill to Gemma 3 270M.
 
-  For everyone: a large language model edited another model's numbers by reasoning about them. The edit helped a tiny model stop repeating itself and finish more math problems. On the evidence in the note, it did not install a new skill the smaller model lacked.
-eli10: |
-  Picture a huge answering machine that works by reading a giant wall of tiny dials. People usually set those dials by practice, the way a team gets better by playing the same game many times. These researchers asked a very advanced answering machine to look at the dials and turn a few of them, without that practice.
-
-  On one small machine that kept saying the same thing and never finished its math, turning those dials helped it finish. On another small machine that already finished its answers, turning dials did not make the math better. The researchers call this early, and they say it still depends on how much text fits in front of the model and on the software wrapped around it. That wrapper is what this site calls a harness.
+  A large language model edited another model's numbers by reasoning about them. The edit helped a tiny model stop repeating itself and finish more math problems. On the evidence in the note, it did not install a new skill the smaller model lacked.
 whyItMatters: |
   Most agent products keep the weights frozen and put the engineering in the harness: the loop, the tools, the memory, and the checks. This note is an early report of a general-purpose language model editing weights directly. If later work holds the result up, "train a model" and "edit a model by asking" sit closer together than they did.
 

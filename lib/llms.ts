@@ -95,7 +95,7 @@ export async function buildLlmsTxt() {
     section("Optional", [
       item("Topics", "/topics", "Coverage areas such as news, tools, shopping, and harnesses."),
       ...topics.map((topic) => item(topic.title, topic.href, topic.summary)),
-      item("Audiences", "/for/everyone", "The same subjects, written for different readers."),
+      item("Reading paths", "/for/everyone", "Plain-English, builder, and research paths for adult readers."),
       ...audiences.map((audience) => item(audience.title, audience.href, audience.summary)),
       item("About", "/about", "What the publication is and what it will not invent."),
       item("Contact", "/contact"),

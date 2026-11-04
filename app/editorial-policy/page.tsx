@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Editorial policy",
-  "Who writes AI Agents Info, how pages are sourced and dated, and which directory submissions stay out of search.",
+  "Who writes AI Agents Info for adult readers, how pages are sourced and dated, and which directory submissions stay out of search.",
   "/editorial-policy",
 );
 
@@ -19,7 +19,7 @@ export default function EditorialPolicyPage() {
         data={webPageJsonLd({
           title: "Editorial policy",
           description:
-            "Who writes AI Agents Info, how pages are sourced and dated, and which directory submissions stay out of search.",
+            "Who writes AI Agents Info for adult readers, how pages are sourced and dated, and which directory submissions stay out of search.",
           path: "/editorial-policy",
           datePublished: trustDates.published,
           dateModified: trustDates.updated,
@@ -50,6 +50,16 @@ export default function EditorialPolicyPage() {
           <p className="mt-3">
             The publisher is {site.name}. The <Link href="/about">about page</Link> says what the site is. Corrections
             go to <Link href="/contact">contact</Link> or {site.email}.
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">Readers</h2>
+          <p className="mt-3">
+            {site.name} is clear, plain-English AI news and research for adult readers. It does not publish a
+            children&apos;s section, an elders&apos; edition, or an age-tiered box inside an article. Education coverage
+            is news and product reporting for adults. Jargon is linked to the glossary instead of being rewritten for a
+            younger reader.
           </p>
         </section>
 

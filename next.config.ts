@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/for/kids",
+        destination: "/blog",
+        statusCode: 301,
+      },
+      {
+        source: "/directory/tag/kids",
+        destination: "/topics/education",
+        statusCode: 301,
+      },
+      {
         source: "/directory/submit",
         destination: "/submit",
         permanent: true,

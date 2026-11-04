@@ -154,8 +154,8 @@ npm run indexnow -- --urls https://www.aiagentsinfo.com/blog
 
 ## What ships in v1
 
-- Landing page with directory search, audience doors, news strip, research, glossary teaser, newsletter form
-- Audience pages: Kids, Everyone (large-text toggle), Builders, Research
+- Landing page with directory search, adult reading paths, news strip, research, glossary teaser, newsletter form
+- Audience pages: Plain English (large-text toggle), Builders, Research
 - Topic/coverage pages
 - Blog index (categories + pagination) and post template
 - Research index (type + topic filters) and paper template with BibTeX + ScholarlyArticle JSON-LD

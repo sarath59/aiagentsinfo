@@ -20,8 +20,8 @@ export const site = {
   domain: "www.aiagentsinfo.com",
   url: resolveSiteUrl(),
   description:
-    "A learning and research publication about AI and AI agents — from first questions to frontier research — plus a growing directory of AI tools, apps, SaaS, and agents.",
-  tagline: "Learn AI agents from first questions to frontier research.",
+    "Clear, plain-English AI news and research for adults, plus a directory of AI tools, apps, SaaS, and agents.",
+  tagline: "Plain-English AI news and research for adults.",
   email: "hello@aiagentsinfo.com",
   bylines: {
     editorial: "AI Agents Info Editorial",
@@ -32,20 +32,11 @@ export const site = {
 
 export const audiences = [
   {
-    slug: "kids",
-    title: "Curious Kids",
-    eyebrow: "Ages of wonder",
-    summary:
-      "Friendly explanations, pictures in words, and experiments you can try with a grown-up.",
-    href: "/for/kids",
-    accent: "kids",
-  },
-  {
     slug: "everyone",
-    title: "Everyone",
-    eyebrow: "Plain language",
+    title: "Plain English",
+    eyebrow: "Adult readers",
     summary:
-      "Large, readable writing for anyone who wants to understand agents without the jargon.",
+      "Clear AI news and research for adults, with jargon linked to the glossary.",
     href: "/for/everyone",
     accent: "everyone",
   },
@@ -144,8 +135,7 @@ export const footerNav = [
   {
     title: "Learn",
     links: [
-      { href: "/for/kids", label: "Curious Kids" },
-      { href: "/for/everyone", label: "Everyone" },
+      { href: "/for/everyone", label: "Plain English" },
       { href: "/for/builders", label: "Builders" },
       { href: "/for/research", label: "Research audience" },
     ],

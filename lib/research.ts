@@ -28,9 +28,7 @@ export type ResearchFrontmatter = {
   keyFindings: string[];
   methodology: string;
   limitations: string[];
-  /** Plain-language aside rendered under the abstract. */
-  eli10?: string;
-  /** Rendered after "what it is" on longform breakdowns. */
+  /** Rendered after the abstract on longform breakdowns. */
   whyItMatters?: string;
   faq?: { question: string; answer: string }[];
   references: { title: string; url?: string; note?: string }[];

@@ -28,9 +28,6 @@
   --gold-bright: #e0b04a;
   --link: #0c5cad;
   --shadow: 0 18px 44px rgba(16, 42, 74, 0.08);
-  --kids-1: #ff7a59;
-  --kids-2: #14b8a6;
-  --kids-3: #e0b04a;
 }
 
 html,
@@ -460,19 +457,6 @@ article.grid > * {
 .readable-lg li {
   font-size: 1.22rem;
   line-height: 1.85;
-}
-
-.kids-theme {
-  --glow: rgba(255, 122, 89, 0.32);
-  --glow-2: rgba(62, 225, 200, 0.28);
-}
-
-.kids-card {
-  border-radius: 1.6rem;
-  border: 3px solid transparent;
-  background:
-    linear-gradient(var(--bg-elev), var(--bg-elev)) padding-box,
-    linear-gradient(120deg, var(--kids-1), var(--kids-3), var(--kids-2)) border-box;
 }
 
 .focus-ring:focus-visible {

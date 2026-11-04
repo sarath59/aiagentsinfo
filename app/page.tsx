@@ -54,7 +54,7 @@ const pillars = [
     href: "/blog",
     kicker: "03  Learn",
     title: "Blog & explainers",
-    body: "From first questions to working systems.",
+    body: "News, explainers, and guides in plain English.",
     cta: "Open the blog",
     Icon: LearnIcon,
   },
@@ -80,10 +80,10 @@ export default async function HomePage() {
             <div className="min-w-0">
               <p className="kicker kicker-lead">Publication · Directory · Research</p>
               <h1 className="display mt-5 max-w-xl text-[2.65rem] leading-[1.05] tracking-[-0.03em] sm:text-6xl sm:leading-[1.02]">
-                Learn <span className="text-gradient">AI agents</span> from first questions to frontier research.
+                Plain-English <span className="text-gradient">AI news</span> and research for adults.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--muted)] sm:text-xl">
-                A calm, sourced site for curious kids, older and non-technical readers, builders, and researchers — covering news, tools, papers, shopping, task performance, harnesses, and education.
+                Clear, sourced writing for adult readers — news, tools, papers, shopping, task performance, harnesses, and education.
               </p>
               <form action="/directory" method="get" className="glass mt-8 rounded-[1.75rem] p-4 sm:p-5">
             <label htmlFor="home-directory-q" className="kicker px-2">
@@ -139,14 +139,14 @@ export default async function HomePage() {
       <div className="section-rule" />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <p className="kicker kicker-lead">Four doors in</p>
-        <h2 className="display mt-3 text-4xl sm:text-5xl">Who are you reading as today?</h2>
+        <p className="kicker kicker-lead">Where to start</p>
+        <h2 className="display mt-3 text-4xl sm:text-5xl">Pick a reading path</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {audiences.map((audience, index) => (
             <Link
               key={audience.slug}
               href={audience.href}
-              className={`glass lift rounded-3xl p-7 ${audience.slug === "kids" ? "kids-card" : ""} reveal delay-${index + 1}`}
+              className={`glass lift rounded-3xl p-7 reveal delay-${index + 1}`}
             >
               <p className="kicker">{audience.eyebrow}</p>
               <h3 className="mt-2 font-semibold tracking-tight text-3xl">{audience.title}</h3>

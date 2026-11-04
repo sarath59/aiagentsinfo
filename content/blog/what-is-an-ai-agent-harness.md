@@ -10,7 +10,6 @@ topics:
   - task-performance
   - research
 audience:
-  - kids
   - everyone
   - builders
   - research
@@ -97,7 +96,7 @@ Two workshops can hand the same program a job and get different results. One wor
 
 If you have used a chat box, you have used a model. When a product can click, edit, or buy, the software around the chat is doing extra work: it offers the tools, carries out the chosen step, and brings the result back. That extra software is the harness.
 
-The rest of this guide is for anyone who wants the details, including people who build these systems. Short definitions live in the glossary: [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), and [guardrail](/glossary/guardrail). A larger-text door is on the [Everyone](/for/everyone) page. The [Curious Kids](/for/kids) page is the same idea with a shorter path in.
+The rest of this guide is the full account for adult readers, including people who build these systems. Short definitions live in the glossary: [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), and [guardrail](/glossary/guardrail).
 
 ## What is an AI agent harness?
 

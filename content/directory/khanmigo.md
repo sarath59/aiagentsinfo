@@ -8,14 +8,12 @@ category: education
 tags:
   - tutoring
   - education
-  - kids
 pricing:
   - paid
   - freemium
 useCases:
   - education
 audiences:
-  - kids
   - everyone
 features:
   - Tutoring-style chat grounded in Khan Academy materials, as the vendor describes it

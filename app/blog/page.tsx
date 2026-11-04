@@ -21,7 +21,7 @@ export async function generateMetadata({
   const variant = Boolean(category) || page > 1;
   return defaultMetadata(
     "Writing from the desk",
-    "Explainers, news, and guides about AI agents — from first questions to working systems.",
+    "News, explainers, and guides about AI agents, written in plain English for adults.",
     "/blog",
     { index: !variant, canonicalPath: "/blog" },
   );
