@@ -16,7 +16,7 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
   const brand = companyForName(listing.name);
 
   return (
-    <article className="glass lift rounded-3xl p-6">
+    <article className="glass lift click-card rounded-3xl p-6">
       {listing.sponsored ? (
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--gold)]">Sponsored</p>
       ) : null}
@@ -37,7 +37,9 @@ export function ListingCard({ listing }: { listing: DirectoryListing }) {
             {categoryTitle(listing.category)} · <InlineCompanyText text={listing.vendor} />
           </p>
           <h2 className="mt-1.5 font-semibold tracking-tight text-2xl">
-            <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
+            <Link className="card-stretch" href={`/directory/${listing.slug}`}>
+              {listing.name}
+            </Link>
           </h2>
         </div>
       </div>

@@ -170,12 +170,14 @@ export default async function HomePage() {
           {latest.length ? (
             <div className="grid gap-4 md:grid-cols-3">
               {latest.map((post) => (
-                <article key={post.slug} className="glass lift rounded-3xl p-6">
+                <article key={post.slug} className="glass lift click-card rounded-3xl p-6">
                   <p className="kicker">
                     {post.category} · {formatDate(post.date)}
                   </p>
                   <h3 className="mt-3 font-semibold tracking-tight text-2xl">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    <Link className="card-stretch" href={`/blog/${post.slug}`}>
+                      {post.title}
+                    </Link>
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{post.description}</p>
                   {post.companies?.length ? (
@@ -239,10 +241,12 @@ export default async function HomePage() {
           {research.length ? (
             <div className="grid gap-4 md:grid-cols-2">
               {research.map((doc) => (
-                <article key={doc.slug} className="glass lift rounded-3xl p-6">
+                <article key={doc.slug} className="glass lift click-card rounded-3xl p-6">
                   <p className="kicker">{doc.type.replace("-", " ")}</p>
                   <h3 className="mt-3 font-semibold tracking-tight text-2xl">
-                    <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
+                    <Link className="card-stretch" href={`/research/${doc.slug}`}>
+                      {doc.title}
+                    </Link>
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{doc.description}</p>
                   {doc.companies?.length ? (

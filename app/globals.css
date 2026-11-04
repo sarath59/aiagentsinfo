@@ -323,6 +323,35 @@ a {
     0 18px 50px color-mix(in oklab, var(--color-electric) 20%, transparent);
 }
 
+/* Title link stretches over the card. Nested links stay above that layer. */
+.click-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.click-card .card-stretch::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.click-card :is(a, button):not(.card-stretch) {
+  position: relative;
+  z-index: 2;
+}
+
+.click-card .card-stretch:focus,
+.click-card .card-stretch:focus-visible {
+  outline: none;
+}
+
+.click-card:has(.card-stretch:focus-visible) {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 3px;
+}
+
 .reveal {
   animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

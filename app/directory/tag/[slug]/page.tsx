@@ -38,7 +38,7 @@ export default async function DirectoryTagPage({ params }: { params: Promise<{ s
         <h1 className="display mt-3 text-5xl">{slug}</h1>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {listings.map((listing) => (
-            <article key={listing.slug} className="glass rounded-3xl p-6">
+            <article key={listing.slug} className="glass lift click-card rounded-3xl p-6">
               <div className="flex items-start gap-4">
                 <CompanyLogo
                   name={listing.name}
@@ -53,7 +53,9 @@ export default async function DirectoryTagPage({ params }: { params: Promise<{ s
                     </p>
                   ) : null}
                   <h2 className="font-semibold tracking-tight text-2xl">
-                    <Link href={`/directory/${listing.slug}`}>{listing.name}</Link>
+                    <Link className="card-stretch" href={`/directory/${listing.slug}`}>
+                      {listing.name}
+                    </Link>
                   </h2>
                   <p className="mt-2 text-sm text-[var(--muted)]">{listing.summary}</p>
                 </div>

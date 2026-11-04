@@ -105,12 +105,14 @@ export default async function ResearchIndexPage({
             />
           ) : filtered.length ? (
             filtered.map((doc) => (
-              <article key={doc.slug} className="glass lift rounded-3xl p-6 sm:p-8">
+              <article key={doc.slug} className="glass lift click-card rounded-3xl p-6 sm:p-8">
                 <p className="kicker">
                   {researchTypeTitle(doc.type)} · {formatDate(doc.date)}
                 </p>
                 <h2 className="mt-3 font-semibold tracking-tight text-3xl">
-                  <Link href={`/research/${doc.slug}`}>{doc.title}</Link>
+                  <Link className="card-stretch" href={`/research/${doc.slug}`}>
+                    {doc.title}
+                  </Link>
                 </h2>
                 <p className="mt-3 max-w-3xl text-[var(--muted)]">{doc.description}</p>
                 {doc.companies?.length ? (

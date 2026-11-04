@@ -79,12 +79,14 @@ export default async function BlogIndexPage({
             />
           ) : result.items.length ? (
             result.items.map((post) => (
-              <article key={post.slug} className="glass lift rounded-3xl p-6 sm:p-8">
+              <article key={post.slug} className="glass lift click-card rounded-3xl p-6 sm:p-8">
                 <p className="kicker">
                   {categoryTitle(post.category)} · {formatDate(post.date)} · {post.readingMinutes} min
                 </p>
                 <h2 className="mt-3 font-semibold tracking-tight text-3xl">
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  <Link className="card-stretch" href={`/blog/${post.slug}`}>
+                    {post.title}
+                  </Link>
                 </h2>
                 <p className="mt-3 max-w-3xl text-[var(--muted)]">{post.description}</p>
                 {post.companies?.length ? (
