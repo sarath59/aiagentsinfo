@@ -145,11 +145,11 @@ export const companies: Company[] = [
   },
   {
     slug: "amazon-rufus",
-    name: "Amazon Rufus",
+    name: "Alexa for Shopping",
     website: "https://www.amazon.com",
     logo: "/logos/amazon.png",
     tile: "light",
-    aliases: ["Amazon Rufus", "Rufus"],
+    aliases: ["Alexa for Shopping", "Amazon Rufus", "Rufus"],
     hosts: [],
   },
   {

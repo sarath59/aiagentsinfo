@@ -2,7 +2,7 @@
 title: "What is an AI agent harness?"
 description: "A plain-language guide to the software around a language model — the loop, tools, memory, permissions, and checks — and what harness engineering means."
 date: "2026-11-03"
-updated: "2026-11-03"
+updated: "2026-11-04"
 category: guide
 topics:
   - harnesses
@@ -67,6 +67,8 @@ sources:
     url: "https://pydantic.dev/docs/ai/harness/"
   - title: "Pydantic, Input, output, and tool guardrails"
     url: "https://pydantic.dev/docs/ai/harness/guardrails/"
+  - title: "OpenAI, Models index (checked November 4, 2026)"
+    url: "https://developers.openai.com/api/docs/models"
   - title: "Lee et al., Meta-Harness: End-to-End Optimization of Model Harnesses (arXiv:2603.28052, March 30, 2026)"
     url: "https://arxiv.org/abs/2603.28052"
   - title: "Yao et al., ReAct (arXiv:2210.03629)"
@@ -86,7 +88,7 @@ faq:
     answer: "A guardrail is a check that can allow, block, replace, or pause an action. OpenAI’s Agents SDK uses guardrails for automatic checks on input, output, or tools, and uses a separate approval pause when a person must decide. Pydantic AI’s harness docs describe the same idea at the prompt, the tool call, and the final output."
 ---
 
-Updated November 3, 2026.
+Updated November 4, 2026.
 
 ## What does an agent harness mean in plain language?
 
@@ -203,7 +205,7 @@ LangChain’s March 10 post adds a research-shaped caution. It says products suc
 
 A framework is a library. A harness is a configured run: which prompts, tools, sandbox, approvals, and stop rules are actually in force.
 
-This site’s [agent frameworks](/directory/category/agent-frameworks) category is the library shelf. The [LangChain listing](/directory/langchain) says the framework is the open-source library, and the harness is the runtime around the model. [CrewAI](/directory/crewai) and [smolagents](/directory/smolagents) are on that shelf too. The [harness comparison tracker](/trackers/harnesses) stays empty until every cell in a matrix has its own source. The table in the next section is a narrower substitute: what each vendor’s own docs call the harness, checked on November 3, 2026. Prices and plan limits live on the directory listings, where this site records a last-checked date, and on the vendor pages.
+This site’s [agent frameworks](/directory/category/agent-frameworks) category is the library shelf. The [LangChain listing](/directory/langchain) says the framework is the open-source library, and the harness is the runtime around the model. [CrewAI](/directory/crewai) and [smolagents](/directory/smolagents) are on that shelf too. The [harness comparison tracker](/trackers/harnesses) stays empty until every cell in a matrix has its own source. The table in the next section is a narrower substitute: what each vendor’s own docs call the harness. Those rows were checked on November 3, 2026. The Pydantic row was checked again on November 4, 2026. Prices and plan limits live on the directory listings, where this site records a last-checked date, and on the vendor pages.
 
 ## How do current products divide the work?
 
@@ -250,7 +252,7 @@ This site’s [agent frameworks](/directory/category/agent-frameworks) category 
 <tr>
 <td><a href="/directory/pydantic-ai">Pydantic AI Harness</a></td>
 <td>The <a href="https://pydantic.dev/docs/ai/harness/">harness docs</a> say every Pydantic AI agent already has a light harness: a typed loop, a model, tools, and structured output. The harness package adds a workspace, a plan, memory, sub-agents, context management, and durable execution for long jobs. Guardrails can allow, block, replace, retry, or defer a tool call for approval.</td>
-<td>Your process. The quick start says <code>LocalWorkspace</code> runs on your machine and is a sandbox only if you swap in one. The page names Modal, E2B, Sprites, Daytona, and boxd. Its example model string, on the page checked November 3, 2026, is <code>anthropic:claude-opus-5-5</code>.</td>
+<td>Your process. The quick start says <code>LocalWorkspace</code> runs on your machine and is a sandbox only if you swap in one. The page checked November 4, 2026 names Modal, E2B, Render, Sprites, Daytona, and boxd. Its first example model string is still <code>anthropic:claude-opus-5-5</code>. The same section also shows a coder on <code>gpt-6.1-sol</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +276,7 @@ Anthropic’s [March 24, 2026 note](https://www.anthropic.com/engineering/harnes
 
 A [benchmark](/glossary/benchmark) measures a bundle. The bundle includes the model, the prompt, the tools, and the harness settings. OpenAI said this directly on [July 29, 2026](https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/).
 
-On the ARC-AGI-3 public set, OpenAI reports that GPT-5.6 Sol scored 13.3 percent with the official harness and 38.3 percent after two changes: retained reasoning and compaction. The score is Relative Human Action Efficiency. From official gameplay logs, OpenAI estimates the average human tester at 48 percent. The post says the official harness threw away private reasoning after each action and used rolling truncation once the conversation passed 175,000 characters, so older actions disappeared. OpenAI’s reimplementation kept reasoning by passing the previous response id on the Responses API, and it replaced truncation with compaction. The post says that for GPT-5.6 Sol at the max setting, the two changes together yielded roughly three times the score and about six times fewer output tokens. The [model page for `gpt-5.6-sol`](https://developers.openai.com/api/docs/models/gpt-5.6-sol) was still online on November 3, 2026. The 13.3 and 38.3 figures are that July measurement on that public set. They are not a leaderboard of every model available three months later.
+On the ARC-AGI-3 public set, OpenAI reports that GPT-5.6 Sol scored 13.3 percent with the official harness and 38.3 percent after two changes: retained reasoning and compaction. The score is Relative Human Action Efficiency. From official gameplay logs, OpenAI estimates the average human tester at 48 percent. The post says the official harness threw away private reasoning after each action and used rolling truncation once the conversation passed 175,000 characters, so older actions disappeared. OpenAI’s reimplementation kept reasoning by passing the previous response id on the Responses API, and it replaced truncation with compaction. The post says that for GPT-5.6 Sol at the max setting, the two changes together yielded roughly three times the score and about six times fewer output tokens. The [model page for `gpt-5.6-sol`](https://developers.openai.com/api/docs/models/gpt-5.6-sol) still responded on November 4, 2026. The same day, [OpenAI’s models index](https://developers.openai.com/api/docs/models) told a new project to start with GPT-6 Astra, to choose GPT-6.1 Sol to balance intelligence and cost, or GPT-6 Luna for high-volume work. The 13.3 and 38.3 figures remain that July measurement of GPT-5.6 Sol on that public set. They are not a score for GPT-6 Astra or GPT-6.1 Sol.
 
 The mechanism is the part to keep. The official harness, OpenAI writes, was generic on purpose, so model gaps would be easier to see. A production harness is tuned to the model’s settings, including whether earlier reasoning stays in the transcript. Comparing two models on different harnesses mixes those choices together.
 
@@ -294,14 +296,15 @@ Start with the job, then the workshop.
 4. Keep a record outside the chat. A progress file, a git commit, or a trace lets the next session see what the last one did.
 5. When you compare models, hold the harness still, or say that you did not. The July 29 ARC-AGI-3 note is the short version of why.
 
-The [task performance](/topics/task-performance) topic is where this site follows coding, computer use, and office work. The [harnesses](/topics/harnesses) topic is the shelf for this guide and the ones that will sit beside it.
+The [task performance](/topics/task-performance) topic is where this site follows coding, computer use, and office work. The [harnesses](/topics/harnesses) topic is the shelf for this guide and the ones that will sit beside it. A shopping assistant that can pay is the same workshop pointed at a cart: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you).
 
 ## Where can you read more on this site?
 
 - Glossary: [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), [guardrail](/glossary/guardrail), [agent](/glossary/agent), [tool use](/glossary/tool-use), [autonomy](/glossary/autonomy), [benchmark](/glossary/benchmark)
 - Research: [ReAct](/research/react-reasoning-and-acting), [weight-space programming](/research/weight-space-programming)
 - Directory: [agent frameworks](/directory/category/agent-frameworks), [Claude Agent SDK](/directory/claude-agent-sdk), [OpenAI Agents SDK](/directory/openai-agents-sdk), [Codex](/directory/codex), [Google ADK](/directory/google-adk), [Microsoft Agent Framework](/directory/microsoft-agent-framework), [Pydantic AI](/directory/pydantic-ai)
-- Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance)
+- Shopping: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
+- Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [shopping](/topics/shopping)
 
 ## Frequently asked questions
 
