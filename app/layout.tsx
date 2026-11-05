@@ -4,8 +4,10 @@ import Script from "next/script";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { NewsletterPopup } from "@/components/newsletter/NewsletterPopup";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
+import "@/components/newsletter/newsletter.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -61,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <NewsletterPopup />
         <Script
           src="https://datafa.st/js/script.js"
           data-website-id="dfid_0z04dGwxdEtL6cLScbJkR"

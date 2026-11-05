@@ -5,6 +5,7 @@ import { CompanyLogo } from "@/components/CompanyLogo";
 import { CompaniesMentioned, InlineCompanyText, SourceList } from "@/components/CompanyMarks";
 import { CopyBibtex } from "@/components/CopyBibtex";
 import { MarkdownBody } from "@/components/MarkdownBody";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getResearchDoc, getResearchDocs, researchTypeTitle } from "@/lib/research";
 import { companyForUrl } from "@/lib/companies";
@@ -177,6 +178,9 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
             <h2 className="font-semibold tracking-tight text-2xl">References</h2>
             <SourceList sources={doc.references} />
           </section>
+          <div className="mt-14">
+            <NewsletterSignup id="research" />
+          </div>
         </div>
         <aside className="grid gap-4 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents items={doc.toc} />

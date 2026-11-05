@@ -5,7 +5,7 @@ import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
 import { HeroFigure } from "@/components/HeroFigure";
 import { ListingCard } from "@/components/ListingCard";
-import { NewsletterForm } from "@/components/NewsletterForm";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { categoryTitle, getBlogPosts } from "@/lib/blog";
 import { getDirectoryListings } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
@@ -334,15 +334,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-20">
-        <p className="kicker kicker-lead">Newsletter</p>
-        <h2 className="display mt-3 text-4xl sm:text-5xl">A digest, not a firehose</h2>
-        <p className="mt-3 text-[var(--muted)]">
-          A short note when there is something worth sending. No subscriber count is published.
-        </p>
-        <div className="mt-6">
-          <NewsletterForm />
-        </div>
+      <section className="mx-auto max-w-3xl px-4 py-16 sm:py-20">
+        <NewsletterSignup id="home" />
       </section>
     </div>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
@@ -629,6 +630,9 @@ export default function ShoppingAgentsReportPage() {
             },
           ]}
         />
+        <div className="mt-14">
+          <NewsletterSignup id="report-shopping" />
+        </div>
       </div>
     </>
   );

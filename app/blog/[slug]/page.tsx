@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BylineLink } from "@/components/BylineLink";
 import { CompaniesMentioned, SourceList } from "@/components/CompanyMarks";
 import { MarkdownBody } from "@/components/MarkdownBody";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { PublishedDates } from "@/components/PublishedDates";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
@@ -85,6 +86,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </ul>
             </section>
           ) : null}
+          <div className="mt-14">
+            <NewsletterSignup id="article" />
+          </div>
         </div>
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <TableOfContents items={post.toc} />

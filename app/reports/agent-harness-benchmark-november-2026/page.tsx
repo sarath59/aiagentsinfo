@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FaqList } from "@/components/FaqList";
 import { SortableTable } from "@/components/SortableTable";
 import {
@@ -268,6 +269,9 @@ export default function HarnessBenchmarkPage() {
             },
           ]}
         />
+        <div className="mt-14">
+          <NewsletterSignup id="report-benchmark" />
+        </div>
       </div>
     </>
   );

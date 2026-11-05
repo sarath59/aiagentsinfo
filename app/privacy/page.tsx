@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Privacy",
-  "Plain privacy note for a static publication. Update when analytics or a newsletter provider is actually connected.",
+  "Plain privacy note for a static publication. Analytics and the newsletter provider are named on this page.",
   "/privacy",
 );
 
@@ -27,7 +27,11 @@ export default function PrivacyPage() {
           Reading articles, research, glossary terms, and directory pages does not require an account. There is no login.
         </p>
         <p className="mt-4">
-          The newsletter form is not connected to a mailing list. Addresses posted there are not stored.
+          The weekly newsletter form is provided by{" "}
+          <a className="text-[var(--link)] underline" href="https://kit.com" rel="noreferrer">
+            Kit
+          </a>
+          . If you subscribe, Kit receives your email address so the Thursday note can be sent. This site does not keep its own copy of that address. A note in this browser remembers if you closed the signup prompt, so it is not shown again for 30 days, or at all after you subscribe.
         </p>
         <p className="mt-4">
           <Link href="/submit" className="text-[var(--link)] underline">
