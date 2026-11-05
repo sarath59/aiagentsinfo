@@ -94,6 +94,9 @@ export default async function DirectoryPage({
           <Link href="/directory/editors-picks" className="chip">
             Editor&apos;s picks
           </Link>
+          <Link href="/directory/stats" className="chip">
+            Stats
+          </Link>
         </div>
 
         <form className="glass mt-6 grid gap-3 rounded-3xl p-4 md:grid-cols-5" action="/directory" method="get">

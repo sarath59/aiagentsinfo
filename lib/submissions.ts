@@ -115,6 +115,7 @@ export const RESERVED_DIRECTORY_SLUGS = new Set([
   "submit",
   "category",
   "tag",
+  "stats",
 ]);
 
 export type ToolSubmission = {

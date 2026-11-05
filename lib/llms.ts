@@ -63,7 +63,15 @@ export async function buildLlmsTxt() {
       item("Breakthroughs timeline", "/trackers/breakthroughs", "Public agent moments, added only with a date and a source."),
       item("Harness comparison", "/trackers/harnesses", "Harness and framework comparison, published only when each cell is sourced."),
       item("Benchmark leaderboard", "/trackers/benchmarks", "Public agent benchmarks, published only with a source, a date, and the harness."),
+      item("Reports", "/reports", "Dated pages of public figures."),
+      item(
+        "AI Agent Harness Benchmark, November 2026",
+        "/reports/agent-harness-benchmark-november-2026",
+        "Official SWE-bench and Terminal-Bench scores, read November 5, 2026.",
+      ),
       item("Verified revenue", "/verified-revenue", `Payment-processor-verified revenue. Checked ${verifiedRevenueChecked}.`),
+      item("Directory stats", "/directory/stats", "Counts generated from the directory files at build time."),
+      item("Agent cost calculator", "/agent-cost-calculator", "30-day token cost from official provider prices."),
       item("Submit a tool", "/submit", "Public form. A valid submission is published to the directory."),
     ]),
     section(

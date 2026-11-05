@@ -114,11 +114,35 @@ export const topics = [
 export const nav = [
   { href: "/directory", label: "Directory" },
   { href: "/submit", label: "Submit" },
+  { href: "/reports", label: "Reports" },
   { href: "/verified-revenue", label: "Revenue" },
   { href: "/research", label: "Research" },
   { href: "/blog", label: "Blog" },
   { href: "/glossary", label: "Glossary" },
   { href: "/topics", label: "Topics" },
+] as const;
+
+export const dataAssets = [
+  {
+    href: "/reports/agent-harness-benchmark-november-2026",
+    title: "Harness benchmark, November 2026",
+    summary: "Public SWE-bench and Terminal-Bench scores, each with the date on the official source.",
+  },
+  {
+    href: "/verified-revenue",
+    title: "Verified revenue",
+    summary: "Payment-processor revenue and a public price, in sortable tables.",
+  },
+  {
+    href: "/directory/stats",
+    title: "Directory stats",
+    summary: "Counts from this directory: category, pricing, origin, additions, and submissions.",
+  },
+  {
+    href: "/agent-cost-calculator",
+    title: "Agent cost calculator",
+    summary: "A 30-day token bill from official provider prices. No login.",
+  },
 ] as const;
 
 export const footerNav = [
@@ -146,7 +170,10 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/reports/agent-harness-benchmark-november-2026", label: "Harness benchmark, November 2026" },
       { href: "/verified-revenue", label: "Verified revenue" },
+      { href: "/directory/stats", label: "Directory stats" },
+      { href: "/agent-cost-calculator", label: "Agent cost calculator" },
     ],
   },
   {

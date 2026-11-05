@@ -15,7 +15,7 @@ import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs } from "@/lib/research";
 import { indexRobots } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
-import { audiences, site, topics } from "@/lib/site";
+import { audiences, dataAssets, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 export const metadata = {
@@ -224,6 +224,30 @@ export default async function HomePage() {
               cta="Submit a tool"
             />
           )}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="kicker kicker-lead">Reports</p>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">Figures you can cite</h2>
+          </div>
+          <Link href="/reports" className="text-sm text-[var(--color-electric)] underline">
+            All reports
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {dataAssets.map((item) => (
+            <article key={item.href} className="glass lift click-card rounded-3xl p-6">
+              <h3 className="font-semibold tracking-tight text-2xl">
+                <Link className="card-stretch" href={item.href}>
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{item.summary}</p>
+            </article>
+          ))}
         </div>
       </section>
 

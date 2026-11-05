@@ -51,6 +51,22 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
           <p className="mt-3 text-[var(--muted)]">{block.body}</p>
         </section>
       ))}
+      {slug === "builders" || slug === "research" ? (
+        <section className="mt-10">
+          <h2 className="font-semibold tracking-tight text-2xl">Dated figures</h2>
+          <ul className="mt-3 grid gap-2">
+            <li>
+              <Link href="/reports/agent-harness-benchmark-november-2026">Harness benchmark, November 2026</Link>
+            </li>
+            <li>
+              <Link href="/agent-cost-calculator">Agent cost calculator</Link>
+            </li>
+            <li>
+              <Link href="/directory/stats">Directory stats</Link>
+            </li>
+          </ul>
+        </section>
+      ) : null}
       <section className="mt-10">
         <h2 className="font-semibold tracking-tight text-2xl">Start here</h2>
         {relatedPosts.length || (isResearch && research.length) ? (
@@ -151,7 +167,7 @@ function copyFor(slug: string) {
     },
     {
       title: "Trackers wait for sources",
-      body: "The timeline, harness table, and leaderboard stay empty until each cell has a source and a date.",
+      body: "The harness comparison stays empty until each cell has a source. The November harness benchmark lists the leaderboard rows that had a source and a date.",
     },
   ];
 }

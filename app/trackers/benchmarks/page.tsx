@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
 
@@ -24,10 +24,11 @@ export default function BenchmarksPage() {
         summary="Every cell needs a source, a retrieval date, and the harness that was measured. Scores are not copied from screenshots."
       />
       <div className="mx-auto max-w-3xl px-4 pb-20">
-        <EmptyState
-          title="Sourced scores publishing soon"
-          body="The leaderboard stays empty until each number has a source and a date."
-        />
+        <p className="text-[var(--muted)]">
+          The November 2026 reading of the official SWE-bench and Terminal-Bench boards is the{" "}
+          <Link href="/reports/agent-harness-benchmark-november-2026">harness benchmark</Link>. Each score there has a
+          source and a date. This tracker does not add a second set of numbers.
+        </p>
       </div>
     </>
   );
