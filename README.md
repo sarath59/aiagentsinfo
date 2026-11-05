@@ -29,8 +29,22 @@ See `.env.example`. **Do not commit API keys.** This repository is public.
 | `NEXT_PUBLIC_GOOGLE_VERIFICATION` | Optional. When set, the root layout renders `<meta name="google-site-verification">`. Unset means the tag is omitted. |
 | `GITHUB_SUBMISSIONS_TOKEN` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
 | `GITHUB_SUBMISSIONS_REPO` | Optional `owner/name` of a **private** repository. When set to a repo other than `sarath59/aiagentsinfo`, the submitter email is stored only in a GitHub issue there. When unset, the email is dropped. |
+| `UPSTASH_REDIS_REST_URL` | First-party analytics store. Required in production, together with the token, or counts are accepted and discarded. Vercel KV's `KV_REST_API_URL` is also read. |
+| `UPSTASH_REDIS_REST_TOKEN` | REST token for that database. `KV_REST_API_TOKEN` is also read. |
+| `ANALYTICS_IP_SALT` | Secret mixed into the daily network hash. Without it, raw IPs are still never stored, and unique-network dedupe is skipped. |
+| `ANALYTICS_ADMIN_KEY` | Unlocks `/admin/analytics` and `/api/analytics/summary`. Query `?key=` or the `aai_admin` cookie. |
 
 Newsletter (`POST /api/newsletter`) is still a stub: it validates and logs, and does not store addresses. Tool submissions are documented below.
+
+## First-party analytics
+
+The public site keeps its own counts in addition to the DataFast script. The browser script is `public/aai.js`. It does not use cookies. `/admin/analytics` is private, `noindex`, and absent from the sitemap. Bots that never run JavaScript are classified in `proxy.ts` and logged after the response is sent.
+
+To turn storage on in Vercel:
+
+1. Create a free Redis database at [Upstash](https://console.upstash.com), or add the Upstash integration from the Vercel storage marketplace.
+2. Project → Settings → Environment Variables → Production. Add `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `ANALYTICS_ADMIN_KEY`, and `ANALYTICS_IP_SALT`. Generate the two secrets with `openssl rand -base64 32`. If the database is Vercel KV, `KV_REST_API_URL` and `KV_REST_API_TOKEN` work in place of the Upstash pair.
+3. Redeploy production. Open `https://www.aiagentsinfo.com/admin/analytics?key=YOUR_ADMIN_KEY`. Daily JSON is `https://www.aiagentsinfo.com/api/analytics/summary?key=YOUR_ADMIN_KEY`.
 
 ## Brand assets
 

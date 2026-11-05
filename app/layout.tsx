@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@/components/Analytics";
+import { SiteTracker } from "@/components/SiteTracker";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { NewsletterPopup } from "@/components/newsletter/NewsletterPopup";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           strategy="lazyOnload"
         />
         <Analytics />
+        <SiteTracker />
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
 import { trackAICrawlerRequest } from "@datafast/ai-crawl";
+import { recordServerHit } from "@/lib/analytics/record";
 import {
   NextResponse,
   type NextFetchEvent,
@@ -16,6 +17,13 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
     websiteId: DATAFAST_WEBSITE_ID,
     ...(authToken ? { authToken } : {}),
   });
+
+  // Fire and forget. waitUntil keeps the work alive after the response is sent.
+  event.waitUntil(
+    recordServerHit(request).catch(() => {
+      console.error("[analytics] server hit was not stored");
+    }),
+  );
 
   if (
     request.nextUrl.pathname === "/directory" &&
