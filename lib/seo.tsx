@@ -42,11 +42,30 @@ type MetaOptions = {
   index?: boolean;
   /** Clean URL when this response is a filtered or paginated variant. */
   canonicalPath?: string;
+  /**
+   * Open Graph object type. `article` is only for pages that already emit Article JSON-LD.
+   * Reports stay `website`; their structured data is Dataset, not Article.
+   */
+  openGraphType?: "website" | "article";
 };
+
+/** File route from `app/opengraph-image.tsx`. Same image the homepage already emits. */
+const DEFAULT_SOCIAL_IMAGE_PATH = "/opengraph-image";
+
+export function defaultSocialImage() {
+  return {
+    url: absoluteUrl(DEFAULT_SOCIAL_IMAGE_PATH),
+    type: "image/png" as const,
+    width: 1200,
+    height: 630,
+    alt: `${site.name} — ${site.tagline}`,
+  };
+}
 
 export function defaultMetadata(title: string, description: string, path = "/", options: MetaOptions = {}) {
   const index = options.index !== false;
   const canonical = absoluteUrl(options.canonicalPath ?? path);
+  const openGraphType = options.openGraphType ?? "website";
   return {
     title,
     description,
@@ -56,13 +75,15 @@ export function defaultMetadata(title: string, description: string, path = "/", 
       description,
       url: canonical,
       siteName: site.name,
-      type: "website" as const,
+      type: openGraphType,
       locale: site.locale,
+      images: [defaultSocialImage()],
     },
     twitter: {
       card: "summary_large_image" as const,
       title: `${title} · ${site.name}`,
       description,
+      images: [defaultSocialImage()],
     },
     robots: index ? indexRobots : noindexRobots,
   };

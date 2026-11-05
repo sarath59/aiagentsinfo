@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const doc = await getResearchDoc(slug);
   if (!doc) return {};
-  return defaultMetadata(doc.title, doc.description, `/research/${doc.slug}`);
+  return defaultMetadata(doc.title, doc.description, `/research/${doc.slug}`, { openGraphType: "article" });
 }
 
 export default async function ResearchDocPage({ params }: { params: Promise<{ slug: string }> }) {
