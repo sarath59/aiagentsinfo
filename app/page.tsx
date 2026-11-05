@@ -1,18 +1,15 @@
 import Link from "next/link";
-import { ArrowIcon, DirectoryIcon, LearnIcon, ResearchIcon, SearchIcon } from "@/components/Icons";
+import { ArrowIcon, DirectoryIcon, LearnIcon, ResearchIcon } from "@/components/Icons";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
-import { HeroHarness } from "@/components/HeroHarness";
+import { HeroFigure } from "@/components/HeroFigure";
 import { ListingCard } from "@/components/ListingCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { getBlogPosts } from "@/lib/blog";
-import {
-  directoryCategories,
-  getDirectoryListings,
-} from "@/lib/directory";
+import { categoryTitle, getBlogPosts } from "@/lib/blog";
+import { getDirectoryListings } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
-import { getResearchDocs } from "@/lib/research";
+import { getResearchDocs, researchTypeTitle } from "@/lib/research";
 import { indexRobots } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 import { audiences, dataAssets, site, topics } from "@/lib/site";
@@ -68,56 +65,53 @@ export default async function HomePage() {
     getGlossaryTerms(),
   ]);
   const latest = posts.slice(0, 3);
+  const heroPreviews = latest.map((post) => ({
+    kicker: categoryTitle(post.category),
+    title: post.title,
+    date: formatDate(post.date),
+  }));
+  for (const doc of research) {
+    if (heroPreviews.length >= 3) break;
+    heroPreviews.push({
+      kicker: researchTypeTitle(doc.type),
+      title: doc.title,
+      date: formatDate(doc.date),
+    });
+  }
   const previewListings = listings.slice(0, 6);
   const letters = Array.from(new Set(glossary.map((term) => term.term[0]?.toUpperCase()))).sort();
 
   return (
     <div>
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden" aria-labelledby="home-heading">
         <div className="grid-fade pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:pb-20 sm:pt-16 lg:pt-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)] lg:gap-14">
-            <div className="min-w-0">
-              <p className="kicker kicker-lead">Publication · Directory · Research</p>
-              <h1 className="display mt-5 max-w-xl text-[2.65rem] leading-[1.05] tracking-[-0.03em] sm:text-6xl sm:leading-[1.02]">
-                Plain-English <span className="text-gradient">AI news</span> and research for adults.
+        <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
+          <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(340px,0.96fr)] lg:gap-16 xl:gap-20">
+            <div className="min-w-0 max-w-xl lg:max-w-none lg:py-4">
+              <p className="kicker kicker-lead">News · Directory · Research</p>
+              <h1
+                id="home-heading"
+                className="display mt-6 max-w-[14em] text-[2.55rem] leading-[1.04] tracking-[-0.035em] sm:text-5xl sm:leading-[1.03] lg:text-[3.45rem] xl:text-[3.7rem]"
+              >
+                The latest news, research, tools, and guides on <span className="text-gradient">AI agents</span>.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--muted)] sm:text-xl">
-                Clear, sourced writing for adult readers — news, tools, papers, shopping, task performance, harnesses, and education.
+              <p className="mt-6 max-w-md text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
+                Reporting, a directory of working tools, and notes on the papers that matter.
               </p>
-              <form action="/directory" method="get" className="glass mt-8 rounded-[1.75rem] p-4 sm:p-5">
-            <label htmlFor="home-directory-q" className="kicker px-2">
-              Search the AI directory
-            </label>
-            <div className="input-well mt-3 flex-col p-1.5 sm:flex-row sm:pl-4">
-              <span className="hidden text-[var(--color-cyan)] sm:grid sm:place-items-center">
-                <SearchIcon className="h-4 w-4" />
-              </span>
-              <input
-                id="home-directory-q"
-                name="q"
-                placeholder="Coding agents, voice, harnesses…"
-                className="focus-ring min-h-12 w-full min-w-0 flex-1 bg-transparent px-4 text-base sm:min-h-12 sm:px-2 sm:text-lg"
-              />
-              <button className="btn-primary min-h-12 w-full px-7 text-sm sm:w-auto" type="submit">
-                Search tools
-              </button>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link href="/blog" className="btn-primary focus-ring min-h-12 gap-2 px-6 text-[15px] sm:px-7">
+                  Read the latest
+                  <ArrowIcon className="h-3.5 w-3.5" />
+                </Link>
+                <Link href="/directory" className="btn-ghost focus-ring min-h-12 px-6 text-[15px] sm:px-7">
+                  Browse the directory
+                </Link>
+              </div>
             </div>
-            <ul className="mt-4 flex flex-wrap gap-2 px-1">
-              {directoryCategories.map((category) => (
-                <li key={category.slug}>
-                  <Link href={`/directory/category/${category.slug}`} className="chip">
-                    {category.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-              </form>
-            </div>
-            <HeroHarness />
+            <HeroFigure previews={heroPreviews} />
           </div>
 
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3">
+          <div className="mt-16 grid gap-4 sm:mt-20 sm:grid-cols-3 lg:mt-24">
             {pillars.map((item) => (
               <Link key={item.href} href={item.href} className="glass lift group rounded-3xl p-6">
                 <div className="flex items-center justify-between">
