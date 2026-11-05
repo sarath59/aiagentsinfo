@@ -195,6 +195,8 @@ Vendors group the parts differently. The rows below are the pieces that show up,
 </table>
 </div>
 
+Screen clicks sit on the tools row and the sandbox row together. The guide to that loop, including [computer use](/glossary/computer-use), [browser use](/glossary/browser-use), and the [sandbox](/glossary/sandbox), is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), checked November 5, 2026.
+
 [Context windows](/glossary/context-window) fill up. Harnesses then summarize, drop, or retrieve. LangChain’s March post calls the quality drop “context rot” and describes compaction, offloading large tool output to files, and loading skills only when needed. Anthropic’s March 24, 2026 note, cited below, separates compaction (a summary inside the same session) from a full context reset plus a handoff file.
 
 [Retrieval](/glossary/rag) is one way to fill the window. It is a memory tactic. Tool use is the step outside the text box. A harness can use both.
@@ -330,10 +332,11 @@ The [task performance](/topics/task-performance) topic is where this site follow
 
 ## Where can you read more on this site?
 
-- Glossary: [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), [guardrail](/glossary/guardrail), [agent](/glossary/agent), [tool use](/glossary/tool-use), [autonomy](/glossary/autonomy), [benchmark](/glossary/benchmark)
+- Glossary: [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), [guardrail](/glossary/guardrail), [agent](/glossary/agent), [tool use](/glossary/tool-use), [computer use](/glossary/computer-use), [browser use](/glossary/browser-use), [sandbox](/glossary/sandbox), [autonomy](/glossary/autonomy), [benchmark](/glossary/benchmark)
 - Research: [ReAct](/research/react-reasoning-and-acting), [weight-space programming](/research/weight-space-programming)
 - Directory: [agent frameworks](/directory/category/agent-frameworks), [Claude Agent SDK](/directory/claude-agent-sdk), [OpenAI Agents SDK](/directory/openai-agents-sdk), [Codex](/directory/codex), [Google ADK](/directory/google-adk), [Microsoft Agent Framework](/directory/microsoft-agent-framework), [Pydantic AI](/directory/pydantic-ai)
 - Shopping: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
+- Computer use: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
 - Reports: [AI agents, November 2026 to May 2027](/reports/ai-agents-next-6-months), [harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
 - Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [shopping](/topics/shopping)
 

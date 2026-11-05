@@ -6,7 +6,7 @@ takeaways:
   - "On the pages checked for this guide, Google can take Google Pay or hand items to the store, and ChatGPT sends the purchase to the store's website or app."
   - "The short version: the assistant is allowed to act. The store still sells the item."
 date: "2026-11-04"
-updated: "2026-11-04"
+updated: "2026-11-05"
 category: guide
 topics:
   - shopping
@@ -59,6 +59,12 @@ sources:
     url: "https://newsroom.paypal-corp.com/2025-11-PayPal-and-Perplexity-Launch-Instant-Buy"
   - title: "Perplexity Help Center, What is Instant Buy?"
     url: "https://www.perplexity.ai/help-center/en/articles/10352906-what-is-instant-buy"
+  - title: "Anthropic, Computer use tool (checked November 5, 2026)"
+    url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool"
+  - title: "OpenAI, Computer use (checked November 5, 2026)"
+    url: "https://developers.openai.com/api/docs/guides/tools-computer-use"
+  - title: "Google, Computer use, Gemini API (checked November 5, 2026)"
+    url: "https://ai.google.dev/gemini-api/docs/computer-use"
 faq:
   - question: "Can an AI shopping agent check out for you?"
     answer: "Sometimes, and only inside a product that has a payment path. On November 4, 2026, Google is rolling out direct checkout for eligible Canadian retailers in AI Mode and the Gemini app, after launching Universal Cart in the U.S. on October 15, 2026. ChatGPT's merchant page says people discover products in the chat and complete purchases on the merchant's website or app. Amazon's Alexa for Shopping can auto-buy at a price you set, or use Buy for Me on eligible products from other stores."
@@ -74,7 +80,7 @@ faq:
     answer: "The pages checked here describe U.S. rollout for Google's Universal Cart, ChatGPT shopping, Alexa for Shopping, Copilot Checkout, and Perplexity Instant Buy. Google's November 4, 2026 post adds direct checkout for eligible Canadian retailers. Shopify's help page also lists Australia among the customer countries for its Google direct-checkout channel. A feature on one country's page is not a promise that the same button exists everywhere."
 ---
 
-Updated November 4, 2026.
+Updated November 5, 2026.
 
 ## Can an AI shopping agent check out for you?
 
@@ -222,6 +228,8 @@ The [harness](/blog/what-is-an-ai-agent-harness) is the workshop around the mode
 
 [Tool use](/glossary/tool-use) is the catalog search, the cart update, and the payment call. [Orchestration](/glossary/orchestration) is which system owns the next step. In these products the merchant owns the charge, the tax, and the shipment. The assistant owns the conversation and the handoff. A [guardrail](/glossary/guardrail) is the check before money moves: a tap to confirm, a price cap, a merchant allowlist, or a pause for a person. OpenAI's 2025 Instant Checkout post said the person confirms each step. Amazon's auto-buy moves that confirmation earlier, into the price rule, and then uses the default payment method.
 
+A computer-use agent that clicks a store's own Pay button is a separate path from the buttons in the table above. On the API pages checked November 5, 2026, that path still has a payment gate. Anthropic's computer-use tool page lists financial transactions among the actions a person should confirm. OpenAI's computer-use guide says to keep the user in control of purchases. Google's Computer Use page has a safety category for payments and retail checkout that can block the action or ask for confirmation. The click loop is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer).
+
 [Harness engineering](/glossary/harness-engineering) here is deciding those gates on purpose. A prompt that says "buy the best headphones" is not a checkout policy. The policy is the code that knows the maximum price, the address, the merchant, and what to do when the feed and the product page disagree.
 
 An eval is the test of that policy. This site's [benchmark](/glossary/benchmark) entry is the general idea: a measured check, not a vibe. For a shopping agent the useful checks are narrow. Did the charged amount match the approved amount? Did the item identifier match the feed row? Did the assistant stop when the item was out of stock? The [harness comparison](/trackers/harnesses) on this site stays empty until every cell has a source. The table above is a substitute with a date on each row, not a scoreboard.
@@ -239,7 +247,7 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 ## Where can you read more on this site?
 
 - Glossary: [shopping agent](/glossary/shopping-agent), [agentic checkout](/glossary/agentic-checkout), [product feed](/glossary/product-feed), [harness](/glossary/harness), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [tool use](/glossary/tool-use), [orchestration](/glossary/orchestration)
-- Guide: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness)
+- Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
 - Directory: [Alexa for Shopping](/directory/amazon-rufus), [ChatGPT](/directory/chatgpt), [Gemini](/directory/gemini), [Perplexity](/directory/perplexity), [shopping agents](/directory/category/shopping-agents)
 - Topics: [shopping](/topics/shopping), [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work)
 
