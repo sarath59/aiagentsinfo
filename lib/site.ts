@@ -124,6 +124,11 @@ export const nav = [
 
 export const dataAssets = [
   {
+    href: "/reports/ai-shopping-agents-next-6-months",
+    title: "AI shopping agents, Nov 2026 to May 2027",
+    summary: "Announced, likely, and watch-for dates for shopping agents, each tied to a company or Adobe page read November 5, 2026.",
+  },
+  {
     href: "/reports/agent-harness-benchmark-november-2026",
     title: "Harness benchmark, November 2026",
     summary: "Public SWE-bench and Terminal-Bench scores, each with the date on the official source.",
@@ -170,6 +175,7 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
       { href: "/reports/agent-harness-benchmark-november-2026", label: "Harness benchmark, November 2026" },
       { href: "/verified-revenue", label: "Verified revenue" },
       { href: "/directory/stats", label: "Directory stats" },

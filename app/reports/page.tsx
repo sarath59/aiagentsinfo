@@ -5,7 +5,7 @@ import { dataAssets } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages of public figures: harness benchmarks, verified revenue, directory stats, and a token-cost calculator.",
+  "Dated pages with a source and a citation: shopping-agent outlooks, harness benchmarks, verified revenue, directory stats, and a token-cost calculator.",
   "/reports",
 );
 

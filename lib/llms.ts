@@ -63,7 +63,12 @@ export async function buildLlmsTxt() {
       item("Breakthroughs timeline", "/trackers/breakthroughs", "Public agent moments, added only with a date and a source."),
       item("Harness comparison", "/trackers/harnesses", "Harness and framework comparison, published only when each cell is sourced."),
       item("Benchmark leaderboard", "/trackers/benchmarks", "Public agent benchmarks, published only with a source, a date, and the harness."),
-      item("Reports", "/reports", "Dated pages of public figures."),
+      item("Reports", "/reports", "Dated pages with a source and a citation."),
+      item(
+        "AI shopping agents in the next 6 months (Nov 2026 to May 2027)",
+        "/reports/ai-shopping-agents-next-6-months",
+        "Announced, likely, and watch-for claims, read November 5, 2026.",
+      ),
       item(
         "AI Agent Harness Benchmark, November 2026",
         "/reports/agent-harness-benchmark-november-2026",
