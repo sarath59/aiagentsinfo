@@ -9,6 +9,7 @@ import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "@/components/newsletter/newsletter.css";
 import "./globals.css";
+import "./home.css";
 
 const inter = Inter({
   subsets: ["latin"],

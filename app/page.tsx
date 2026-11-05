@@ -1,18 +1,17 @@
 import Link from "next/link";
-import { ArrowIcon, DirectoryIcon, LearnIcon, ResearchIcon } from "@/components/Icons";
+import { ArrowIcon } from "@/components/Icons";
 import { CompanyLogo } from "@/components/CompanyLogo";
-import { CompanyMarks } from "@/components/CompanyMarks";
 import { EmptyState } from "@/components/EmptyState";
-import { HeroFigure } from "@/components/HeroFigure";
-import { ListingCard } from "@/components/ListingCard";
+import { HomeReveal } from "@/components/home/HomeReveal";
+import { SectionSignal } from "@/components/home/SectionSignal";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { categoryTitle, getBlogPosts } from "@/lib/blog";
-import { getDirectoryListings } from "@/lib/directory";
+import { categoryTitle, getBlogPosts, type BlogPost } from "@/lib/blog";
+import { companyForName } from "@/lib/companies";
+import { categoryTitle as directoryCategoryTitle, getDirectoryListings, type DirectoryListing } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
-import { getResearchDocs, researchTypeTitle } from "@/lib/research";
+import { getResearchDocs, researchTypeTitle, type ResearchDoc } from "@/lib/research";
 import { indexRobots } from "@/lib/seo";
-import { absoluteUrl } from "@/lib/site";
-import { audiences, dataAssets, site, topics } from "@/lib/site";
+import { absoluteUrl, dataAssets, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 export const metadata = {
@@ -30,32 +29,26 @@ export const metadata = {
   robots: indexRobots,
 };
 
-const pillars = [
-  {
-    href: "/directory",
-    kicker: "01  Directory",
-    title: "Tools, apps, SaaS, agents",
-    body: "Built to scale to thousands of listings.",
-    cta: "Open the directory",
-    Icon: DirectoryIcon,
-  },
-  {
-    href: "/research",
-    kicker: "02  Research",
-    title: "Papers, reports, evals",
-    body: "Each paper gets its own citable page.",
-    cta: "Open research notes",
-    Icon: ResearchIcon,
-  },
-  {
-    href: "/blog",
-    kicker: "03  Learn",
-    title: "Blog & explainers",
-    body: "News, explainers, and guides in plain English.",
-    cta: "Open the blog",
-    Icon: LearnIcon,
-  },
-];
+const spotlightSlugs = ["cursor", "devin", "crewai"] as const;
+const freeToolHrefs = ["/agent-cost-calculator", "/verified-revenue", "/directory/stats"] as const;
+
+function previewTools(listings: DirectoryListing[]) {
+  const picked: DirectoryListing[] = [];
+  for (const slug of spotlightSlugs) {
+    const listing = listings.find((item) => item.slug === slug);
+    if (listing) picked.push(listing);
+  }
+  if (picked.length >= 3) return picked.slice(0, 3);
+  for (const listing of listings) {
+    if (picked.length >= 3) break;
+    if (!picked.some((item) => item.slug === listing.slug)) picked.push(listing);
+  }
+  return picked;
+}
+
+function plural(count: number, singular: string, pluralLabel = `${singular}s`) {
+  return count === 1 ? singular : pluralLabel;
+}
 
 export default async function HomePage() {
   const [posts, research, listings, glossary] = await Promise.all([
@@ -64,279 +57,308 @@ export default async function HomePage() {
     getDirectoryListings(),
     getGlossaryTerms(),
   ]);
-  const latest = posts.slice(0, 3);
-  const heroPreviews = latest.map((post) => ({
-    kicker: categoryTitle(post.category),
-    title: post.title,
-    date: formatDate(post.date),
-  }));
-  for (const doc of research) {
-    if (heroPreviews.length >= 3) break;
-    heroPreviews.push({
-      kicker: researchTypeTitle(doc.type),
-      title: doc.title,
-      date: formatDate(doc.date),
-    });
-  }
-  const previewListings = listings.slice(0, 6);
-  const letters = Array.from(new Set(glossary.map((term) => term.term[0]?.toUpperCase()))).sort();
+  const news = posts.filter((post) => post.category === "news").slice(0, 3);
+  const guides = posts.filter((post) => post.category === "guide").slice(0, 3);
+  const papers = research.slice(0, 3);
+  const tools = previewTools(listings);
+  const reports = dataAssets.filter((asset) => asset.href.startsWith("/reports/"));
+  const [featured, ...moreReports] = reports;
+  const freeTools = freeToolHrefs.flatMap((href) => {
+    const asset = dataAssets.find((item) => item.href === href);
+    return asset ? [asset] : [];
+  });
+  const stats = [
+    { href: "/directory", value: listings.length, label: plural(listings.length, "tool") },
+    { href: "/blog?category=news", value: news.length, label: plural(news.length, "news note") },
+    { href: "/research", value: research.length, label: plural(research.length, "paper") },
+    { href: "/blog?category=guide", value: guides.length, label: plural(guides.length, "guide") },
+    { href: "/reports", value: reports.length, label: plural(reports.length, "report") },
+  ].filter((item) => item.value > 0);
 
   return (
     <div>
-      <section className="relative overflow-hidden" aria-labelledby="home-heading">
-        <div className="grid-fade pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
-          <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(340px,0.96fr)] lg:gap-16 xl:gap-20">
-            <div className="min-w-0 max-w-xl lg:max-w-none lg:py-4">
-              <p className="kicker kicker-lead">News · Directory · Research</p>
-              <h1
-                id="home-heading"
-                className="display mt-6 max-w-[14em] text-[2.55rem] leading-[1.04] tracking-[-0.035em] sm:text-5xl sm:leading-[1.03] lg:text-[3.45rem] xl:text-[3.7rem]"
-              >
-                The latest news, research, tools, and guides on <span className="text-gradient">AI agents</span>.
-              </h1>
-              <p className="mt-6 max-w-md text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">
-                Reporting, a directory of working tools, and notes on the papers that matter.
-              </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link href="/blog" className="btn-primary focus-ring min-h-12 gap-2 px-6 text-[15px] sm:px-7">
-                  Read the latest
-                  <ArrowIcon className="h-3.5 w-3.5" />
-                </Link>
-                <Link href="/directory" className="btn-ghost focus-ring min-h-12 px-6 text-[15px] sm:px-7">
-                  Browse the directory
-                </Link>
-              </div>
-            </div>
-            <HeroFigure previews={heroPreviews} />
-          </div>
-
-          <div className="mt-16 grid gap-4 sm:mt-20 sm:grid-cols-3 lg:mt-24">
-            {pillars.map((item) => (
-              <Link key={item.href} href={item.href} className="glass lift group rounded-3xl p-6">
-                <div className="flex items-center justify-between">
-                  <p className="kicker">{item.kicker}</p>
-                  <item.Icon className="h-5 w-5 text-[var(--color-cyan)]" />
-                </div>
-                <h2 className="mt-4 font-semibold tracking-tight text-2xl text-[var(--fg)]">{item.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{item.body}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-[var(--color-electric)]">
-                  {item.cta}
-                  <ArrowIcon className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </Link>
-            ))}
-          </div>
+      <section className={"home-hero"} aria-labelledby="home-heading">
+        <div className={"home-fx"} aria-hidden="true">
+          <div className={"home-mesh"} />
+          <div className={"home-dots"} />
+          <div className={"home-glow"} />
         </div>
-      </section>
-
-      <div className="section-rule" />
-
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <p className="kicker kicker-lead">Where to start</p>
-        <h2 className="display mt-3 text-4xl sm:text-5xl">Pick a reading path</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {audiences.map((audience, index) => (
-            <Link
-              key={audience.slug}
-              href={audience.href}
-              className={`glass lift rounded-3xl p-7 reveal delay-${index + 1}`}
-            >
-              <p className="kicker">{audience.eyebrow}</p>
-              <h3 className="mt-2 font-semibold tracking-tight text-3xl">{audience.title}</h3>
-              <p className="mt-3 text-[var(--muted)]">{audience.summary}</p>
+        <div className={`${"home-copy"} mx-auto max-w-6xl px-4`}>
+          <p className="kicker kicker-lead">News · Directory · Research</p>
+          <h1 id="home-heading" className={"home-headline"}>
+            The latest news, research, tools, and guides on <span className="text-gradient">AI agents</span>.
+          </h1>
+          <p className={"home-sub"}>Sourced reporting, a directory of working tools, and notes on the papers.</p>
+          <div className={"home-actions"}>
+            <Link href="/blog" className="btn-primary focus-ring min-h-12 px-7 text-[15px]">
+              Read the latest
             </Link>
-          ))}
+            <Link href="/directory" className={`btn-ghost focus-ring min-h-12 px-7 text-[15px] ${"home-secondary"}`}>
+              Browse the directory
+            </Link>
+          </div>
+          {stats.length ? (
+            <div className={"home-stats"}>
+              {stats.map((item) => (
+                <Link key={item.href} href={item.href} className={`focus-ring ${"home-stat"}`}>
+                  <strong>{item.value.toLocaleString("en-US")}</strong>
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="kicker kicker-lead">Blog</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">Latest from the desk</h2>
-          </div>
-          <Link href="/blog" className="text-sm text-[var(--color-electric)] underline">
-            All blog posts
-          </Link>
-        </div>
-        <div className="mt-8">
-          {latest.length ? (
-            <div className="grid gap-4 md:grid-cols-3">
-              {latest.map((post) => (
-                <article key={post.slug} className="glass lift click-card rounded-3xl p-6">
-                  <p className="kicker">
-                    {post.category} · {formatDate(post.date)}
-                  </p>
-                  <h3 className="mt-3 font-semibold tracking-tight text-2xl">
-                    <Link className="card-stretch" href={`/blog/${post.slug}`}>
-                      {post.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{post.description}</p>
-                  {post.companies?.length ? (
-                    <div className="mt-4">
-                      <CompanyMarks slugs={post.companies} />
-                    </div>
-                  ) : null}
-                </article>
+      <SectionSignal label="01 / plan" />
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-directory">
+          <SectionHead
+            id="home-directory"
+            eyebrow="Directory"
+            title="Tools with an official home"
+            lede={`${listings.length.toLocaleString("en-US")} ${plural(listings.length, "tool")}, each checked against a working site.`}
+            href="/directory"
+            seeAllLabel="See all tools"
+          />
+          {tools.length ? (
+            <div className={"home-trio"}>
+              {tools.map((listing) => (
+                <ToolCard key={listing.slug} listing={listing} />
               ))}
             </div>
           ) : (
             <EmptyState
-              title="First articles publishing soon"
-              body="Explainers, news, and guides will land here once they are written and sourced."
-              href="/blog"
-              cta="Visit the blog"
-            />
-          )}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="kicker kicker-lead">Directory</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">Tools with an official home</h2>
-          </div>
-          <Link href="/directory" className="text-sm text-[var(--color-electric)] underline">
-            Browse the directory
-          </Link>
-        </div>
-        <div className="mt-8">
-          {previewListings.length ? (
-            <div className="grid gap-4 md:grid-cols-2">
-              {previewListings.map((listing) => (
-                <ListingCard key={listing.slug} listing={listing} />
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="Listings coming soon — submit a tool"
-              body="The directory lists real products with a working official site. Nothing is published until it is checked."
+              title="Listings coming soon"
+              body="The directory lists real products with a working official site."
               href="/submit"
               cta="Submit a tool"
             />
           )}
-        </div>
-      </section>
+        </section>
+      </HomeReveal>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="kicker kicker-lead">Reports</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">Figures you can cite</h2>
-          </div>
-          <Link href="/reports" className="text-sm text-[var(--color-electric)] underline">
-            All reports
-          </Link>
-        </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {dataAssets.map((item) => (
-            <article key={item.href} className="glass lift click-card rounded-3xl p-6">
-              <h3 className="font-semibold tracking-tight text-2xl">
-                <Link className="card-stretch" href={item.href}>
-                  {item.title}
+      <SectionSignal label="02 / search" delay="-0.7s" />
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-reports">
+          <SectionHead
+            id="home-reports"
+            eyebrow="Reports"
+            title="Benchmarks and dated figures"
+            lede="Sourced reports, and tools you can open in the browser."
+            href="/reports"
+            seeAllLabel="See all reports"
+          />
+          <div className={"home-reports"}>
+            <div className={"home-feature-col"}>
+              {featured ? (
+                <Link href={featured.href} className={`focus-ring ${"home-card"} ${"home-feature"}`}>
+                  <p className="kicker">Report</p>
+                  <h3 className={"home-feature-title"}>{featured.title}</h3>
+                  <p className={"home-summary"}>{featured.summary}</p>
+                  <span className={"home-more"}>
+                    Read the report
+                    <ArrowIcon className="h-3.5 w-3.5" />
+                  </span>
                 </Link>
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{item.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="kicker kicker-lead">Flagship research</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">Papers with their own pages</h2>
+              ) : null}
+              {moreReports.slice(0, 2).map((report) => (
+                <Link key={report.href} href={report.href} className={`focus-ring ${"home-card"} ${"home-also"}`}>
+                  <span>
+                    <span className="kicker">Report</span>
+                    <span className={"home-also-title"}>{report.title}</span>
+                  </span>
+                  <ArrowIcon className="h-3.5 w-3.5 shrink-0 text-[var(--color-electric)]" />
+                </Link>
+              ))}
+            </div>
+            <div className={"home-stack"}>
+              {freeTools.map((tool, index) => (
+                <Link key={tool.href} href={tool.href} className={`focus-ring ${"home-card"} ${"home-mini"}`}>
+                  <span className={"home-index"} aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className={"home-mini-copy"}>
+                    <h3 className={"home-card-title"}>{tool.title}</h3>
+                    <p className={"home-card-body"}>{tool.summary}</p>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
-          <Link href="/research" className="text-sm text-[var(--color-electric)] underline">
-            Open the research desk
-          </Link>
-        </div>
-        <div className="mt-8">
-          {research.length ? (
-            <div className="grid gap-4 md:grid-cols-2">
-              {research.map((doc) => (
-                <article key={doc.slug} className="glass lift click-card rounded-3xl p-6">
-                  <p className="kicker">{doc.type.replace("-", " ")}</p>
-                  <h3 className="mt-3 font-semibold tracking-tight text-2xl">
-                    <Link className="card-stretch" href={`/research/${doc.slug}`}>
-                      {doc.title}
-                    </Link>
+        </section>
+      </HomeReveal>
+
+      <SectionSignal label="03 / act" delay="-1.4s" />
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-news">
+          <SectionHead
+            id="home-news"
+            eyebrow="News"
+            title="Latest from the desk"
+            lede="Short notes on what changed, each with a date."
+            href="/blog?category=news"
+            seeAllLabel="See all news"
+          />
+          {news.length ? (
+            <div className={"home-lead"}>
+              {news.map((post, index) => (
+                <StoryCard key={post.slug} post={post} lead={index === 0} />
+              ))}
+            </div>
+          ) : (
+            <EmptyState title="First articles publishing soon" body="News notes will land here once they are written and sourced." href="/blog" cta="Visit the blog" />
+          )}
+        </section>
+      </HomeReveal>
+
+      <SectionSignal label="04 / review" delay="-0.4s" />
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-research">
+          <SectionHead
+            id="home-research"
+            eyebrow="Research"
+            title="Papers with their own pages"
+            lede="Notes with the authors, the link, and what the paper covers."
+            href="/research"
+            seeAllLabel="See all papers"
+          />
+          {papers.length ? (
+            <div className={"home-trio"}>
+              {papers.map((doc) => (
+                <PaperCard key={doc.slug} doc={doc} />
+              ))}
+            </div>
+          ) : (
+            <EmptyState title="Research notes publishing soon" body="Paper pages appear when the source and the authors check out." href="/research" cta="Research desk" />
+          )}
+        </section>
+      </HomeReveal>
+
+      <SectionSignal label="05 / learn" delay="-1.1s" />
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-guides">
+          <SectionHead
+            id="home-guides"
+            eyebrow="Guides"
+            title="Plain-English guides"
+            lede={
+              glossary.length
+                ? "Short guides, plus a glossary of the terms these pages use."
+                : "Short guides on how these systems fit together."
+            }
+            href={guides.length ? "/blog?category=guide" : "/glossary"}
+            seeAllLabel={guides.length ? "See all guides" : "See the glossary"}
+          />
+          {guides.length || glossary.length ? (
+            <div className={guides.length + (glossary.length ? 1 : 0) > 2 ? "home-lead" : "home-trio"}>
+              {guides.map((post, index) => (
+                <StoryCard key={post.slug} post={post} lead={index === 0 && guides.length + (glossary.length ? 1 : 0) > 2} />
+              ))}
+              {glossary.length ? (
+                <Link href="/glossary" className={`focus-ring ${"home-card"} ${"home-guide"}`}>
+                  <p className="kicker">Glossary</p>
+                  <h3 className={"home-card-title"}>
+                    {glossary.length.toLocaleString("en-US")} {plural(glossary.length, "term")}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{doc.description}</p>
-                  {doc.companies?.length ? (
-                    <div className="mt-4">
-                      <CompanyMarks slugs={doc.companies} />
-                    </div>
-                  ) : null}
-                </article>
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="Research notes publishing soon"
-              body={
-                <>
-                  Paper pages will appear when there is a real{" "}
-                  <span className="inline-flex items-center gap-1 align-middle">
-                    <CompanyLogo name="arXiv" src="/logos/arxiv.png" size={16} />
-                    arXiv
-                  </span>{" "}
-                  or DOI link and the authors are correct.
-                </>
-              }
-              href="/research"
-              cta="Research desk"
-            />
-          )}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <p className="kicker kicker-lead">Coverage</p>
-        <h2 className="display mt-3 text-4xl sm:text-5xl">Every beat, end to end</h2>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {topics.map((topic) => (
-            <Link key={topic.slug} href={topic.href} className="glass lift rounded-2xl p-5">
-              <h3 className="font-medium tracking-tight">{topic.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{topic.summary}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <div className="glass rounded-[2rem] p-8 sm:p-10">
-          <p className="kicker kicker-lead">Glossary A–Z</p>
-          <h2 className="display mt-3 text-4xl sm:text-5xl">Words we will not hand-wave</h2>
-          <p className="mt-3 max-w-xl text-[var(--muted)]">
-            Short definitions of terms the site actually uses. Each entry is a page of its own.
-          </p>
-          {letters.length ? (
-            <div className="mt-6 flex flex-wrap gap-2">
-              {letters.map((letter) => (
-                <Link key={letter} href={`/glossary#${letter}`} className="chip grid h-10 w-10 place-items-center px-0">
-                  {letter}
+                  <p className={"home-card-body"}>Short definitions of words these pages use.</p>
+                  <span className={"home-more"}>
+                    Open the glossary
+                    <ArrowIcon className="h-3.5 w-3.5" />
+                  </span>
                 </Link>
-              ))}
+              ) : null}
             </div>
           ) : (
-            <div className="mt-6">
-              <EmptyState title="Glossary entries publishing soon" body="Definitions will show up here as terms are written." href="/glossary" cta="Open the glossary" />
-            </div>
+            <EmptyState title="Guides publishing soon" body="Explainers will appear here as they are written." href="/blog" cta="Visit the blog" />
           )}
-          <Link href="/glossary" className="mt-6 inline-block text-sm text-[var(--color-electric)] underline">
-            Open the glossary
-          </Link>
-        </div>
-      </section>
+        </section>
+      </HomeReveal>
 
-      <section className="mx-auto max-w-3xl px-4 py-16 sm:py-20">
-        <NewsletterSignup id="home" />
-      </section>
+      <SectionSignal delay="-0.2s" />
+
+      <HomeReveal>
+        <div className="mx-auto max-w-3xl px-4" id="newsletter">
+          <NewsletterSignup id="home" />
+        </div>
+      </HomeReveal>
     </div>
+  );
+}
+
+function SectionHead({
+  id,
+  eyebrow,
+  title,
+  lede,
+  href,
+  seeAllLabel,
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lede: string;
+  href: string;
+  seeAllLabel: string;
+}) {
+  return (
+    <div className={"home-head"}>
+      <div>
+        <p className="kicker kicker-lead">{eyebrow}</p>
+        <h2 id={id} className={"home-h2"}>
+          {title}
+        </h2>
+        <p className={"home-lede"}>{lede}</p>
+      </div>
+      <Link href={href} className={`focus-ring ${"home-see"}`} aria-label={seeAllLabel}>
+        See all
+        <ArrowIcon className="h-3.5 w-3.5" />
+      </Link>
+    </div>
+  );
+}
+
+function ToolCard({ listing }: { listing: DirectoryListing }) {
+  const brand = companyForName(listing.name);
+  const category = directoryCategoryTitle(listing.category);
+  const meta = listing.vendor && listing.vendor !== listing.name ? `${category} · ${listing.vendor}` : category;
+
+  return (
+    <Link href={`/directory/${listing.slug}`} className={`focus-ring ${"home-card"} ${"home-tool"}`}>
+      <CompanyLogo name={listing.name} src={listing.logo || undefined} tile={brand?.tile} size="md" />
+      <p className="kicker mt-5">{meta}</p>
+      <h3 className={"home-card-title"}>{listing.name}</h3>
+      <p className={"home-card-body"}>{listing.summary}</p>
+    </Link>
+  );
+}
+
+function StoryCard({ post, lead = false }: { post: BlogPost; lead?: boolean }) {
+  return (
+    <Link href={`/blog/${post.slug}`} className={`focus-ring ${"home-card"} ${"home-story"} ${lead ? "home-lead-card" : ""}`}>
+      <p className="kicker">
+        {categoryTitle(post.category)} · {formatDate(post.date)}
+      </p>
+      <h3 className={"home-card-title"}>{post.title}</h3>
+      <p className={"home-card-body"}>{post.description}</p>
+    </Link>
+  );
+}
+
+function PaperCard({ doc }: { doc: ResearchDoc }) {
+  const when = doc.paperYear ? String(doc.paperYear) : formatDate(doc.date);
+  return (
+    <Link href={`/research/${doc.slug}`} className={`focus-ring ${"home-card"} ${"home-paper"}`}>
+      <p className="kicker">
+        {researchTypeTitle(doc.type)} · {when}
+      </p>
+      <h3 className={"home-card-title"}>{doc.title}</h3>
+      <p className={"home-card-body"}>{doc.description}</p>
+    </Link>
   );
 }
