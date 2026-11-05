@@ -1,0 +1,661 @@
+{
+  "updated": "2026-11-05T06:35:42+05:30",
+  "sources": [
+    "Google Trends via pytrends 4.9 (interest_over_time + related_queries rising), geo US and worldwide, timeframes now 1-d and now 7-d, run 2026-11-05 ~06:33 IST",
+    "Google Trends daily trending RSS https://trends.google.com/trending/rss?geo=US (fetched; no AI terms in top items)",
+    "X API: search_news (AI agents; ChatGPT/Claude/Gemini/OpenAI, last 36-48h), get_posts_counts_recent ('agent harness' OR 'harness engineering', 7d daily), get_trends_by_woeid US (no AI terms trending)",
+    "WebSearch: AI news digests for Nov 4 2026 (aiproplaybook.com, aiweekly.co, theneuron.ai, richard-brooks.com, aiweekdaily.com); arXiv 2610.15150 Harmony Harness; github.com/deepseek-ai/deepseek-harness, thenewstack.io",
+    "Live site sitemap https://www.aiagentsinfo.com/sitemap.xml and GitHub public API repo tree for sarath59/aiagentsinfo"
+  ],
+  "notes": "Google Trends values are relative (0-100 within each comparison set); rising percentages are Google's 'rising' related-query values. No previous keywords.json existed, so history starts today.",
+  "keywords": [
+    {
+      "date": "2026-11-05",
+      "keyword": "agent harness",
+      "type": "head",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): low absolute interest (7d mean 0.8 vs ChatGPT 68.5 in same set) but rising related queries 'deepseek harness github', 'deepseek agent harness'; X posts matching agent harness/harness engineering: 1,010 on Nov 4 UTC vs 534 on Oct 29 (X counts API); X News stories 'Harness Engineering Emerges as Key to Reliable AI Agents' (Nov 3)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 1,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 1,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "harness engineering",
+      "type": "head",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising related 'opus 5.5 harness engineering' (US +132,800%), 'harness engineering for self-improvement' (WW +102,050%), 'learn harness engineering' (+70%); X News 'Builders Shift to Harness Engineering' (Nov 3)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "status": "targeted",
+      "rank": 2,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 2,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "deepseek harness",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): top rising query for 'agent harness' (+90-110%); news: DeepSeek Harness v0.2.2-alpha.3 prerelease reported Nov 4 (woshipm/智东西); repo github.com/deepseek-ai/deepseek-harness",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 3,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 3,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "what is deepseek harness",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): 'deepseek agent harness' and 'agent harness 是 什么' rising (+60-80%)",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 4,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 4,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "harmony harness google",
+      "type": "long-tail",
+      "trend_signal": "X News story (Nov 3) on Google's Harmony Harness; arXiv 2610.15150 (Google + CMU) — no Google Trends data checked for this exact term",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 5,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 5,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "self-improving agent harness",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): 'harness engineering for self-improvement' rising WW +102,050%; Harmony Harness paper on self-evolving harnesses",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 6,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 6,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "opus 5.5 harness engineering",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising US +132,800% under 'harness engineering'",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "status": "new",
+      "rank": 7,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 7,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "what is an ai agent harness",
+      "type": "question",
+      "trend_signal": "Site's core harness query; supported by rising 'agent harness' related queries and X harness-engineering volume (see agent harness)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 8,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 8,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "agent harness vs framework",
+      "type": "question",
+      "trend_signal": "Related to X harness-engineering discussion (Letta, CrewAI frameworks mentioned in X News Nov 3); no direct Trends number",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 9,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 9,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "how to learn harness engineering",
+      "type": "question",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): 'learn harness engineering' rising WW +70%",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "status": "new",
+      "rank": 10,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 10,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "harness comparison",
+      "type": "head",
+      "trend_signal": "Supports harness keyword cluster; tracker page currently empty ('coming soon'); no direct Trends number",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/trackers/harnesses",
+      "status": "targeted",
+      "rank": 11,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 11,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "ai agents",
+      "type": "head",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): 7d mean 13.7 (scale where Claude Code 21.1); rising 'y combinator garry tan ai agents' (+3,600% to +39,350%), 'autonomous ai software agents internet' (+36,050% US), 'ai agents cryptocurrency security risks' (+11,900-14,050%)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/topics/how-agents-work",
+      "status": "targeted",
+      "rank": 12,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 12,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "what are ai agents and how do they work",
+      "type": "question",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising US +130% under 'AI agents'",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/agent",
+      "status": "new",
+      "rank": 13,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 13,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "types of ai agents",
+      "type": "question",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising +110-120% under 'AI agents' (US+WW)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/agent",
+      "status": "new",
+      "rank": 14,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 14,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "how to use ai agents",
+      "type": "question",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising US +60% under 'AI agents'",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/for/everyone",
+      "status": "new",
+      "rank": 15,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 15,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "ai agents crypto security risks",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising +11,550-14,050%; X News: Coinbase AI agent sign-up for controlled trading (Nov 3)",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 16,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 16,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "ai agent swarms minecraft study",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US 7d: top rising under 'AI agent' (+1,166,400%)",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 17,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 17,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "ai agents virtual society study",
+      "type": "long-tail",
+      "trend_signal": "X News (Nov 4): Emergence AI study of Grok/OpenAI/Gemini/Claude agents in 15-day simulations; no Trends number",
+      "intent": "news",
+      "target_url": "https://www.aiagentsinfo.com/glossary/multi-agent",
+      "status": "new",
+      "rank": 18,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 18,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "chatgpt",
+      "type": "head",
+      "trend_signal": "Google Trends US+WW past day & 7d: highest in set (mean ~68.4); rising 'chatgpt dots rcs google messages' (+3,250%)",
+      "intent": "navigational",
+      "target_url": "https://www.aiagentsinfo.com/directory/chatgpt",
+      "status": "targeted",
+      "rank": 19,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 19,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "chatgpt vs claude vs gemini",
+      "type": "long-tail",
+      "trend_signal": "X News stories 'People Compare ChatGPT, Claude, and Gemini for 2026 Needs' and 'ChatGPT vs Claude: Emotional Intelligence Debate' (Nov 3); Trends past-day means ChatGPT 68.4 / Gemini 29.5 / Claude 19.7 / Grok 4.5",
+      "intent": "commercial",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 20,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 20,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "gemini",
+      "type": "head",
+      "trend_signal": "Google Trends past day mean 29.5 (US+WW); rising 'gemini 4 argon coding test' (US +3,150% to +499,500%), 'gemini 4 xenon', 'gemini 4 carbon vs opus 5.5'",
+      "intent": "navigational",
+      "target_url": "https://www.aiagentsinfo.com/directory/gemini",
+      "status": "targeted",
+      "rank": 21,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 21,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "gemini 4 carbon vs opus 5.5",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising +300% under 'Gemini 4'; X News: Artificial Analysis time-per-task benchmark (Nov 4)",
+      "intent": "commercial",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 22,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 22,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "claude",
+      "type": "head",
+      "trend_signal": "Google Trends past day mean 19.7; rising 'anthropic claude code limits' (+1,550%), 'claude ultra' (+250%), 'claude watermark' (+70%)",
+      "intent": "navigational",
+      "target_url": "https://www.aiagentsinfo.com/directory/claude",
+      "status": "targeted",
+      "rank": 23,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 23,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "claude code",
+      "type": "head",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): mean 21.1; rising 'anthropic claude code message threads' (+7,300-9,450%), 'goldman sachs claude code' (+1,600-3,050%), 'cursor claude code extension' (+550-700%); X News 'Developers Compare Claude Code and Codex' (Nov 4)",
+      "intent": "navigational",
+      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
+      "status": "targeted",
+      "rank": 24,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 24,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "claude code limits",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): rising 'anthropic claude code limits' +1,750-2,050%",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
+      "status": "new",
+      "rank": 25,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 25,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "claude message threads api",
+      "type": "long-tail",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): 'anthropic claude code message threads' top rising (+9,450% US); news: Anthropic message threads beta (richard-brooks.com Nov 4 digest)",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 26,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 26,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "claude code vs codex",
+      "type": "long-tail",
+      "trend_signal": "X News 'Developers Compare Claude Code and Codex AI Agents' (Nov 4); Trends 7d mean Codex 27.7 vs Claude Code 21.1",
+      "intent": "commercial",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 27,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 27,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "codex",
+      "type": "head",
+      "trend_signal": "Google Trends past day mean 23.5 (US+WW), 7d 27.7 — but rising queries are mostly unrelated (codex micro keyboard, codex seraphinianus), so ambiguous term",
+      "intent": "navigational",
+      "target_url": "https://www.aiagentsinfo.com/directory/codex",
+      "status": "targeted",
+      "rank": 28,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 28,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "grok",
+      "type": "head",
+      "trend_signal": "Google Trends past day mean 4.5; rising 'spacex grok bot usage limits' (+6,850%), 'grok vortex meaning' (+1,550%)",
+      "intent": "navigational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 29,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 29,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "anthropic ipo",
+      "type": "head",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): 'Anthropic IPO' mean 7.3; rising 'anthropic ipo ai market jitters' (+14,900-16,700%), 'anthropic ipo cancelled' (+2,800-3,350% — a search query, not a confirmed event); news: amended S-1 shows Q3 operating loss of $567M on $17B revenue (aiproplaybook Nov 4)",
+      "intent": "news",
+      "target_url": "https://www.aiagentsinfo.com/blog/anthropic-may-soon-meet-ai-acceleration-threshold",
+      "status": "new",
+      "rank": 30,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 30,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "anthropic s-1 filing explained",
+      "type": "question",
+      "trend_signal": "Same Anthropic IPO cluster; news coverage Nov 4 (TechCrunch via aiproplaybook, The Neuron)",
+      "intent": "news",
+      "target_url": "https://www.aiagentsinfo.com/blog/anthropic-may-soon-meet-ai-acceleration-threshold",
+      "status": "new",
+      "rank": 31,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 31,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "google turning off ai for students search",
+      "type": "long-tail",
+      "trend_signal": "News Nov 4: Google K-12 Gemini and Search off until schools opt in (aiproplaybook, The Neuron); no Trends number",
+      "intent": "news",
+      "target_url": "https://www.aiagentsinfo.com/blog/google-k12-gemini-and-search-off-until-schools-opt-in",
+      "status": "targeted",
+      "rank": 32,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 32,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "vibe coding",
+      "type": "head",
+      "trend_signal": "Google Trends US+WW past 7d (pytrends): mean 2.3, fading (first-day 3.4 → last-day 1.9); X News debates on vibe coding (Nov 4)",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 33,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 33,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "gpt-6 astra",
+      "type": "head",
+      "trend_signal": "Google Trends 'GPT-6' 7d mean 0.4 (low); X News: MIT weight-space programming with GPT-6 Astra; Artificial Analysis time-per-task (Nov 4)",
+      "intent": "news",
+      "target_url": "https://www.aiagentsinfo.com/research/weight-space-programming",
+      "status": "targeted",
+      "rank": 34,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 34,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "can ai shopping agents buy for you",
+      "type": "question",
+      "trend_signal": "No new trend signal observed today; carried as an existing site cluster",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "status": "targeted",
+      "rank": 35,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 35,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "keyword": "apple ai agents risks",
+      "type": "long-tail",
+      "trend_signal": "News Nov 4 (The Neuron): Apple's annual filing warns autonomous agents could exceed permissions; no Trends number",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 36,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 36,
+          "status": "new"
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 ---
-title: "What is an AI agent harness?"
-description: "A plain-language guide to the software around a language model — the loop, tools, memory, permissions, and checks — and what harness engineering means."
+title: "What Is an AI Agent Harness? Plain-English Guide (2026)"
+description: "An agent harness is the software around an AI model: its loop, tools, memory, permissions and checks. See how harnesses like Claude Code, Codex and DeepSeek Harness differ."
 date: "2026-11-03"
-updated: "2026-11-04"
+updated: "2026-11-05"
 category: guide
 topics:
   - harnesses
@@ -73,6 +73,14 @@ sources:
     url: "https://arxiv.org/abs/2603.28052"
   - title: "Yao et al., ReAct (arXiv:2210.03629)"
     url: "https://arxiv.org/abs/2210.03629"
+  - title: "DeepSeek, DeepSeek Harness repository (created August 13, 2026; README and releases checked November 5, 2026)"
+    url: "https://github.com/deepseek-ai/deepseek-harness"
+  - title: "DeepSeek Harness README (developer preview, plugin architecture, MIT license)"
+    url: "https://github.com/deepseek-ai/deepseek-harness/blob/master/README.md"
+  - title: "DeepSeek Harness pre-release v0.2.2-rc.1 (published November 4, 2026)"
+    url: "https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.2.2-rc.1"
+  - title: "Yu et al., Harmony Harness: Multi-Objective Self-Evolution of Agent Harnesses (arXiv:2610.15150)"
+    url: "https://arxiv.org/abs/2610.15150"
 faq:
   - question: "What is an AI agent harness?"
     answer: "An AI agent harness is the software around a language model that lets the model take steps. It holds the tools, the memory, the permissions, the record of what happened, and the rule for when to stop. On this site, an agent is the model plus that harness."
@@ -88,7 +96,7 @@ faq:
     answer: "A guardrail is a check that can allow, block, replace, or pause an action. OpenAI’s Agents SDK uses guardrails for automatic checks on input, output, or tools, and uses a separate approval pause when a person must decide. Pydantic AI’s harness docs describe the same idea at the prompt, the tool call, and the final output."
 ---
 
-Updated November 4, 2026.
+Updated November 5, 2026.
 
 ## What does an agent harness mean in plain language?
 
@@ -258,7 +266,25 @@ This site’s [agent frameworks](/directory/category/agent-frameworks) category 
 </table>
 </div>
 
-Read a row as a pointer, then open the vendor page before you depend on a detail. Model names in sample code move. The [Claude](/directory/claude) and [Codex](/directory/codex) listings are the product doors on this site.
+Read a row as a pointer, then open the vendor page before you depend on a detail. Model names in sample code move. The [Claude](/directory/claude) and [Codex](/directory/codex) listings are the product doors on this site. DeepSeek Harness is not in the table. Its repository was checked separately on November 5, 2026, in the next section.
+
+## What is DeepSeek Harness, and how is it different?
+
+DeepSeek Harness is an agent harness from DeepSeek, published as source. GitHub records the public repository [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) as created on August 13, 2026. The repository description is “DeepSeek Harness: Everything is a Plugin.” The [README](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.md) calls it an open-source agent harness, `dsh`, developed by DeepSeek, built on an everything-is-a-plugin architecture. The same README says the project is in developer preview and that compatibility-breaking changes are expected. GitHub lists the license as MIT, and the README points at the same MIT license file.
+
+On November 5, 2026, GitHub’s latest-release endpoint, which returns the newest release that is not a pre-release, responded 404. The newest item on the releases list was a pre-release: tag `dsh-v0.2.2-rc.1`, name v0.2.2-rc.1, published November 4, 2026. The README’s run instructions are local. `npx @deepseek-ai/dsh web` starts a web interface on the machine where you run it. A checkout can be installed and built from the repository.
+
+That is a different artifact from the products in the table. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products with their own apps and plan pages. DeepSeek’s repository is the harness itself, in preview, organized as plugins. This page does not turn that into a ranking. The [harness comparison](/trackers/harnesses) still waits until each cell has its own source.
+
+## Can an agent harness improve itself?
+
+A research paper can study that question. It does not, by itself, mean a product you can install already rewrites its own workshop.
+
+[Harmony Harness](https://arxiv.org/abs/2610.15150) (arXiv:2610.15150) is a framework described in a paper, “Harmony Harness: Multi-Objective Self-Evolution of Agent Harnesses.” The author list includes researchers affiliated with Google Cloud AI Research, Google DeepMind, and Carnegie Mellon University. The abstract says recent work treats the agent harness as an optimization target that can be improved from execution feedback, and that those approaches mostly optimize a single objective and evolve the harness as one block.
+
+The abstract’s own description of Harmony Harness is narrower. It formulates harness evolution as a multi-objective optimization problem. It uses decomposition-based evolutionary search to keep solutions across different regions of the Pareto frontier. Separate operators refine general-purpose harness mechanisms and benchmark-specific adaptations, and a composition step puts them together when the agent runs. On SecRepoBench and BaxBench, the authors report that it outperformed strong harness-evolution baselines, with gains exceeding 10 percent on both benchmarks. That is the authors’ measurement on those two benchmarks.
+
+It is not a claim that [Claude Code](/directory/claude-code), [Codex](/directory/codex), or DeepSeek Harness rewrites itself. The older pattern of taking a step and reading the result is the [ReAct](/research/react-reasoning-and-acting) note. Designing the surrounding system on purpose is [harness engineering](/glossary/harness-engineering).
 
 ## Why do long tasks need a stronger harness?
 

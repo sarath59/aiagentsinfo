@@ -1,7 +1,8 @@
 ---
-title: "Anthropic says future models may soon meet its AI acceleration rule"
-description: "Anthropic’s November 2, 2026 SEC filing says future-model estimates may soon meet its AI acceleration threshold. No current model is designated over it."
+title: "Anthropic IPO Filing: What It Says About Its AI Acceleration Rule"
+description: "Anthropic’s November 2, 2026 Form S-1/A registers an IPO of Class A stock and says future-model estimates may soon meet its AI acceleration rule. No current model is over that line."
 date: "2026-11-03"
+updated: "2026-11-05"
 category: news
 topics:
   - news
@@ -63,6 +64,16 @@ The same passage sets a limit in Anthropic’s own words: “We do not anticipat
 The filing is also the company’s public account of its recent size. Anthropic states that revenue was $17.0 billion for the three months ended September 30, 2026, up from $1.4 billion for the three months ended September 30, 2025. For the 2026 quarter it states an operating margin of (3)% and an operating loss of $567 million, compared with an operating margin of (224)% and an operating loss of $3.1 billion in the year-earlier quarter. Those figures are the company’s statements in the registration document.
 
 [Julie Bort’s report for TechCrunch](https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/), published the same day, highlighted the recursive-self-improvement language. The sentences above are the wording in the filing itself.
+
+## What does Anthropic’s IPO filing reveal?
+
+The November 2 document is Form S-1/A, an amendment to a registration statement under the Securities Act of 1933. File number 333-299633. The original Form S-1 was filed October 26, 2026. EDGAR’s company feed, checked November 5, 2026, still listed the November 2 amendment as the latest S-1 filing.
+
+The prospectus says: “This is an initial public offering of shares of Class A common stock of Anthropic, PBC.” It says that before this offering there has been no public market for that stock. It says Anthropic has applied to list the Class A shares on the Nasdaq Global Select Market under the symbol “ANT.” The cover is marked “Subject to Completion.” The estimated price per share is printed as a blank range, and the share count is blank. Those blanks are what the filed document shows.
+
+The same prospectus is the source of the acceleration-rule sentences in the previous section, and of the size figures already quoted there. Anthropic states revenue of $17.0 billion for the three months ended September 30, 2026, up from $1.4 billion for the three months ended September 30, 2025. It states an operating margin of (3)% and an operating loss of $567 million for the 2026 quarter, compared with an operating margin of (224)% and an operating loss of $3.1 billion for the three months ended September 30, 2025. Those are the company’s sentences in the registration statement.
+
+[Claude](/directory/claude) is the assistant the prospectus discusses. [Claude Code](/directory/claude-code) is the coding product it uses as the practical example, in the section below. This note stays on the [news](/topics/news) topic. The site’s [verified revenue](/verified-revenue) page is a separate list of payment-processor figures for tools. It does not republish this filing.
 
 ## What does “dramatically accelerated progress” mean in the policy?
 
