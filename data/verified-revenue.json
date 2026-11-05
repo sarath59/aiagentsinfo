@@ -109,26 +109,26 @@
       "maker": "Mateo Starcevic Filipovic",
       "summary": "Generative AI studio for image, video, and audio.",
       "mrr": {
-        "amount": 66796,
+        "amount": 66778,
         "currency": "USD",
-        "display": "$66,796"
+        "display": "$66,778"
       },
       "revenue30d": {
-        "amount": 94882,
+        "amount": 95319,
         "currency": "USD",
-        "display": "$94,882"
+        "display": "$95,319"
       },
       "allTime": {
-        "amount": 296660,
+        "amount": 297353,
         "currency": "USD",
-        "display": "$296,660"
+        "display": "$297,353"
       },
-      "activeSubscriptions": 1981,
+      "activeSubscriptions": 1982,
       "revenue": {
         "sourceName": "TrustMRR",
         "sourceUrl": "https://trustmrr.com/startup/promptwise",
         "verification": "Revenue is verified with Stripe API key.",
-        "sourceUpdated": "Nov 4, 2026, 11:12 PM",
+        "sourceUpdated": "Nov 5, 2026, 05:12 AM",
         "checked": "2026-11-05"
       },
       "pricing": {
@@ -377,26 +377,26 @@
       "maker": null,
       "summary": "Turns long videos into shorts, blogs, and social posts. TrustMRR does not name a founder.",
       "mrr": {
-        "amount": 13732,
+        "amount": 13682,
         "currency": "USD",
-        "display": "$13,732"
+        "display": "$13,682"
       },
       "revenue30d": {
-        "amount": 11889,
+        "amount": 11779,
         "currency": "USD",
-        "display": "$11,889"
+        "display": "$11,779"
       },
       "allTime": {
-        "amount": 1035176,
+        "amount": 1035226,
         "currency": "USD",
-        "display": "$1,035,176"
+        "display": "$1,035,226"
       },
-      "activeSubscriptions": 344,
+      "activeSubscriptions": 343,
       "revenue": {
         "sourceName": "TrustMRR",
         "sourceUrl": "https://trustmrr.com/startup/taja-ai",
         "verification": "Revenue is verified with Stripe API key.",
-        "sourceUpdated": "Nov 4, 2026, 10:32 PM",
+        "sourceUpdated": "Nov 5, 2026, 04:32 AM",
         "checked": "2026-11-05"
       },
       "pricing": {
@@ -411,26 +411,26 @@
       "maker": "Tong Chen",
       "summary": "AI ads agent for Google, Meta, and other ad accounts.",
       "mrr": {
-        "amount": 12994,
+        "amount": 13093,
         "currency": "USD",
-        "display": "$12,994"
+        "display": "$13,093"
       },
       "revenue30d": {
-        "amount": 16391,
+        "amount": 16490,
         "currency": "USD",
-        "display": "$16,391"
+        "display": "$16,490"
       },
       "allTime": {
-        "amount": 67763,
+        "amount": 67862,
         "currency": "USD",
-        "display": "$67,763"
+        "display": "$67,862"
       },
-      "activeSubscriptions": 109,
+      "activeSubscriptions": 110,
       "revenue": {
         "sourceName": "TrustMRR",
         "sourceUrl": "https://trustmrr.com/startup/notfair",
         "verification": "Revenue is verified with Stripe API key.",
-        "sourceUpdated": "Nov 4, 2026, 10:19 PM",
+        "sourceUpdated": "Nov 5, 2026, 04:19 AM",
         "checked": "2026-11-05"
       },
       "pricing": {
@@ -445,26 +445,26 @@
       "maker": "Sanskar Tiwari",
       "summary": "AI presentation maker for Google Slides, PowerPoint, and related apps.",
       "mrr": {
-        "amount": 9850,
+        "amount": 9842,
         "currency": "USD",
-        "display": "$9,850"
+        "display": "$9,842"
       },
       "revenue30d": {
-        "amount": 9476,
+        "amount": 9641,
         "currency": "USD",
-        "display": "$9,476"
+        "display": "$9,641"
       },
       "allTime": {
-        "amount": 730115,
+        "amount": 730309,
         "currency": "USD",
-        "display": "$730,115"
+        "display": "$730,309"
       },
-      "activeSubscriptions": 751,
+      "activeSubscriptions": 750,
       "revenue": {
         "sourceName": "TrustMRR",
         "sourceUrl": "https://trustmrr.com/startup/magicslides-app",
         "verification": "Revenue is verified with Stripe API key.",
-        "sourceUpdated": "Nov 4, 2026, 11:44 PM",
+        "sourceUpdated": "Nov 5, 2026, 05:44 AM",
         "checked": "2026-11-05"
       },
       "pricing": {
@@ -479,26 +479,26 @@
       "maker": "Piotr Obidowski",
       "summary": "AI rendering for architects and interior designers.",
       "mrr": {
-        "amount": 8064,
+        "amount": 8104,
         "currency": "USD",
-        "display": "$8,064"
+        "display": "$8,104"
       },
       "revenue30d": {
-        "amount": 8075,
+        "amount": 8042,
         "currency": "USD",
-        "display": "$8,075"
+        "display": "$8,042"
       },
       "allTime": {
-        "amount": 95325,
+        "amount": 95357,
         "currency": "USD",
-        "display": "$95,325"
+        "display": "$95,357"
       },
-      "activeSubscriptions": 286,
+      "activeSubscriptions": 287,
       "revenue": {
         "sourceName": "TrustMRR",
         "sourceUrl": "https://trustmrr.com/startup/visualizee-ai",
         "verification": "Revenue is verified with Stripe API key.",
-        "sourceUpdated": "Nov 4, 2026, 10:07 PM",
+        "sourceUpdated": "Nov 5, 2026, 04:07 AM",
         "checked": "2026-11-05"
       },
       "pricing": {
@@ -513,26 +513,26 @@
       "maker": "Ben Buaron",
       "summary": "Finds buyers already talking about a market and can draft outbound from that research.",
       "mrr": {
-        "amount": 51278,
+        "amount": 51129,
         "currency": "USD",
-        "display": "$51,278"
+        "display": "$51,129"
       },
       "revenue30d": {
-        "amount": 55238,
+        "amount": 54939,
         "currency": "USD",
-        "display": "$55,238"
+        "display": "$54,939"
       },
       "allTime": {
-        "amount": 161360,
+        "amount": 161509,
         "currency": "USD",
-        "display": "$161,360"
+        "display": "$161,509"
       },
-      "activeSubscriptions": 242,
+      "activeSubscriptions": 241,
       "revenue": {
         "sourceName": "TrustMRR",
         "sourceUrl": "https://trustmrr.com/startup/traxy-ai",
         "verification": "Revenue is verified with Stripe API key.",
-        "sourceUpdated": "Nov 5, 2026, 12:03 AM",
+        "sourceUpdated": "Nov 5, 2026, 06:03 AM",
         "checked": "2026-11-05"
       },
       "pricing": {
@@ -552,21 +552,21 @@
         "display": "$44,848"
       },
       "revenue30d": {
-        "amount": 55084,
+        "amount": 55133,
         "currency": "USD",
-        "display": "$55,084"
+        "display": "$55,133"
       },
       "allTime": {
-        "amount": 331548,
+        "amount": 331597,
         "currency": "USD",
-        "display": "$331,548"
+        "display": "$331,597"
       },
       "activeSubscriptions": 219,
       "revenue": {
         "sourceName": "TrustMRR",
         "sourceUrl": "https://trustmrr.com/startup/rank-prompt",
         "verification": "Revenue is verified with Stripe API key.",
-        "sourceUpdated": "Nov 4, 2026, 10:27 PM",
+        "sourceUpdated": "Nov 5, 2026, 04:27 AM",
         "checked": "2026-11-05"
       },
       "pricing": {
@@ -692,7 +692,7 @@
     },
     {
       "name": "Comp AI",
-      "reason": "TrustMRR marks the revenue as Stripe-verified, but the trycomp.ai homepage did not show a public price.",
+      "reason": "TrustMRR marks the revenue as Stripe-verified. The pricing page, read November 5, 2026, says Comp AI does not publish a rate card and quotes a price on a call. A $34 million Series A line on that page is not a plan price.",
       "sourceUrl": "https://trustmrr.com/startup/comp-ai"
     }
   ]

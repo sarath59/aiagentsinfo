@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { modelById, modelPrices, thirtyDayCost, type ModelPrice } from "@/lib/model-prices";
 
-const providers = ["OpenAI", "Anthropic", "Google"] as const;
+const providers = ["OpenAI", "Anthropic", "Google", "xAI"] as const;
 
 function usd(value: number) {
   const abs = Math.abs(value);

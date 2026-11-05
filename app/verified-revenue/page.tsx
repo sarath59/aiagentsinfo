@@ -205,7 +205,9 @@ export default async function VerifiedRevenuePage() {
 
         <section className="mt-10 text-sm">
           <p>
-            Related: <Link className="text-[var(--link)] underline" href="/directory/stats">directory stats</Link>
+            Related: <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/directory/stats">directory stats</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">agent cost calculator</Link>
             {" · "}

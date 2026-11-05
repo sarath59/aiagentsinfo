@@ -334,6 +334,7 @@ The [task performance](/topics/task-performance) topic is where this site follow
 - Research: [ReAct](/research/react-reasoning-and-acting), [weight-space programming](/research/weight-space-programming)
 - Directory: [agent frameworks](/directory/category/agent-frameworks), [Claude Agent SDK](/directory/claude-agent-sdk), [OpenAI Agents SDK](/directory/openai-agents-sdk), [Codex](/directory/codex), [Google ADK](/directory/google-adk), [Microsoft Agent Framework](/directory/microsoft-agent-framework), [Pydantic AI](/directory/pydantic-ai)
 - Shopping: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
+- Reports: [AI agents, November 2026 to May 2027](/reports/ai-agents-next-6-months), [harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
 - Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [shopping](/topics/shopping)
 
 ## Frequently asked questions

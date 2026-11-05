@@ -36,6 +36,13 @@ import {
 import type { PdfModel, PdfTable } from "@/lib/pdf";
 import { absoluteUrl } from "@/lib/site";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
+import {
+  description as outlookDescription,
+  months as outlookMonths,
+  path as outlookPath,
+  readOn as outlookReadOn,
+  title as outlookTitle,
+} from "@/lib/agents-outlook";
 import { months, description as shoppingDescription, path as shoppingPath, readOn, title as shoppingTitle } from "@/lib/shopping-report";
 import { formatDate } from "@/lib/utils";
 
@@ -44,6 +51,66 @@ function tableFrom(caption: string, columns: SortableColumn[], rows: SortableRow
     caption,
     headers: columns.map((column) => column.label),
     rows: rows.map((row) => columns.map((column) => row.display[column.key] || "")),
+  };
+}
+
+export function agentsOutlookPdf(): PdfModel {
+  const dateLabel = formatDate(outlookReadOn);
+  return {
+    filename: "ai-agents-nov-2026-may-2027.pdf",
+    title: outlookTitle,
+    description: outlookDescription,
+    dateLabel,
+    url: absoluteUrl(outlookPath),
+    sections: [
+      {
+        paragraphs: [
+          "From November 2026 through May 2027, the public record is a short list of things a company or a government has already dated, plus a handful of phrases with no day attached. Anthropic filed an amended prospectus on November 2. Apple's auditors signed the Form 10-K on November 3. AWS, Sysdig, DeepSeek, and Tencent posted on November 3 and 4. The European Commission's AI Act timeline names December 2, 2026. It does not name a product launch between then and May 2027.",
+          "Shopping and payments for the same six months are in the separate report AI shopping agents in the next 6 months. This page does not repeat that checkout record. Scores for coding harnesses are in the November harness benchmark. A month with no dated launch is left empty on purpose.",
+        ],
+      },
+      {
+        heading: "How a claim is sorted",
+        paragraphs: [
+          "Announced means a linked filing, company page, protocol changelog, or official timeline says it.",
+          'Likely means that page aims the work at this six-month stretch and does not name a day. The word means "their phrase covers these months." It is not a new odds estimate from this desk.',
+          "Watch for means a later check should confirm the item or drop it: the page withholds a date, the tense is future, or a follow-up named earlier was not confirmed on November 5, 2026.",
+        ],
+      },
+      {
+        heading: "Announced",
+        paragraphs: [
+          "Anthropic's amended S-1, filed November 2, 2026, describes Claude Code as the coding agent already in market and Claude Cowork as a research preview from January 2026 that, as of September 30, 2026, had outpaced Claude Code's adoption at the equivalent point. The quarterly table shows revenue of $16,956 million and an operating loss of $567 million for the three months ended September 30, 2026. Nine-month revenue is $33,242 million and the operating loss is $1,260 million.",
+          "OpenAI's computer-use guide, read November 5, covers macOS and Windows with ChatGPT Work and Codex. It does not mention Linux. Anthropic's computer-use toolset computer_toolset_20260801 is on the Claude API and Google Cloud and is not in Claude Managed Agents. Tencent's November 4 post says Hy4 can use a command line and a graphical interface. The API is live. WorkBuddy and CodeBuddy are free from November 4 through November 15. The TokenHub discount runs through December 31, 2026.",
+          "AWS posted on November 3 that WorkSpaces for AI agents now supports Linux and Windows 11 cloud desktops in addition to Windows Server. Sysdig announced general availability of Sysdig AI Defense on November 4. DeepSeek Harness v0.2.2-rc.1 was released November 4 and is still marked a developer preview. Harmony Harness, arXiv 2610.15150, submitted October 10, 2026, is a research paper, not a product announcement. The MCP specification dated July 28, 2026 deprecates Roots, Sampling, and Logging with a minimum 12-month window, so those features stay at least through July 28, 2027.",
+          "Apple's Form 10-K, auditor's report dated November 3, 2026, warns that agents can act without authorization and that some consequences may be hard to reverse. It does not describe a specific incident. The EU AI Act timeline dates December 2, 2026 for new prohibitions and an Article 50(2) transition. Annex III high-risk rules are dated December 2, 2027. On October 30, 2026 the UK Digital Regulation Cooperation Forum said existing law already applies to personal AI agents.",
+        ],
+      },
+      {
+        heading: "Likely",
+        paragraphs: [
+          'Anthropic\'s November 2 prospectus says: "We expect our use of short-term compute to continue to increase in the near term and to in turn compress our operating margin and Adjusted Operating Margin as a result." The phrase does not name a month. About $69.8 billion of commitments are due in the 12 months after September 30, 2026, a span that includes this window and runs past it.',
+          'Tencent\'s November 4 post says weights and system cards will be released in the coming days, and that Hy4 Flash is scheduled for release soon. Neither sentence names a day.',
+        ],
+      },
+      {
+        heading: "Watch for",
+        paragraphs: [
+          'Citrix\'s November 4 announcement uses "will be able" and "will become" for two SecurAccess controls and does not name a day. OpenAI\'s computer-use page does not mention Linux. DeepSeek\'s README warns of compatibility-breaking changes and does not end the preview. Harmony Harness does not schedule a product. The next EU dates after this window are August 2, 2027 and December 2, 2027.',
+        ],
+      },
+      {
+        heading: "Month by month, November 2026 to May 2027",
+        paragraphs: [
+          "An empty announcement means no linked source named that month. It is not a prediction that the month will be quiet.",
+        ],
+        table: {
+          caption: "Announced, likely, and watch-for notes by month",
+          headers: ["Month", "Announced", "Likely", "Watch for"],
+          rows: outlookMonths.map((item) => [item.month, item.announced, item.likely, item.watch]),
+        },
+      },
+    ],
   };
 }
 
@@ -202,6 +269,7 @@ export function frameworkReportPdf(): PdfModel {
 }
 
 const pdfModels = {
+  "ai-agents-next-6-months": agentsOutlookPdf,
   "ai-shopping-agents-next-6-months": shoppingReportPdf,
   "agent-harness-benchmark-november-2026": benchmarkReportPdf,
   "ai-agent-framework-github-stats-november-2026": frameworkReportPdf,
@@ -218,6 +286,13 @@ export function reportCsv(slug: string, table: string | null) {
   if (slug === "ai-agent-framework-github-stats-november-2026") {
     if (table && table !== "frameworks") return undefined;
     return frameworkCsv();
+  }
+  if (slug === "ai-agents-next-6-months") {
+    return {
+      filename: "ai-agents-nov-2026-may-2027.csv",
+      headers: ["Month", "Announced", "Likely", "Watch for"],
+      rows: outlookMonths.map((item) => [item.month, item.announced, item.likely, item.watch]),
+    };
   }
   if (slug === "ai-shopping-agents-next-6-months") {
     return {

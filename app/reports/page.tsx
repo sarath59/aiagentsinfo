@@ -11,11 +11,12 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: shopping-agent outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, and a token-cost calculator.",
+  "Dated pages with a source and a citation: six-month outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, and a token-cost calculator.",
   "/reports",
 );
 
 const pdfByHref: Record<string, string> = {
+  "/reports/ai-agents-next-6-months": "/reports/ai-agents-next-6-months/pdf",
   "/reports/ai-shopping-agents-next-6-months": "/reports/ai-shopping-agents-next-6-months/pdf",
   "/reports/agent-harness-benchmark-november-2026": "/reports/agent-harness-benchmark-november-2026/pdf",
   [frameworkGithubPath]: `${frameworkGithubPath}/pdf`,
@@ -24,6 +25,7 @@ const pdfByHref: Record<string, string> = {
 export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
+    "/reports/ai-agents-next-6-months": "2026-11-05",
     "/reports/ai-shopping-agents-next-6-months": "2026-11-05",
     "/reports/agent-harness-benchmark-november-2026": "2026-11-05",
     [frameworkGithubPath]: frameworkGithubDay,
@@ -32,6 +34,7 @@ export default async function ReportsPage() {
     "/agent-cost-calculator": PRICE_READ_ON,
   };
   const kickerByHref: Record<string, string> = {
+    "/reports/ai-agents-next-6-months": "Report",
     "/reports/ai-shopping-agents-next-6-months": "Report",
     "/reports/agent-harness-benchmark-november-2026": "Report",
     [frameworkGithubPath]: "Report",

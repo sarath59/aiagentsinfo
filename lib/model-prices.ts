@@ -2,7 +2,8 @@ export const PRICE_READ_ON = "2026-11-05";
 
 export const OPENAI_PRICING_URL = "https://developers.openai.com/api/docs/pricing";
 export const ANTHROPIC_PRICING_URL = "https://platform.claude.com/docs/en/about-claude/pricing";
-export const GOOGLE_PRICING_URL = "https://ai.google.dev/gemini-api/docs/pricing";
+export const GOOGLE_PRICING_URL = "https://aistudio.google.com/docs/pricing";
+export const XAI_PRICING_URL = "https://docs.x.ai/docs/models";
 
 export type PriceBand = {
   /** Use this band when input tokens per task are at or below this number. The last band has no cap. */
@@ -14,7 +15,7 @@ export type PriceBand = {
 
 export type ModelPrice = {
   id: string;
-  provider: "OpenAI" | "Anthropic" | "Google";
+  provider: "OpenAI" | "Anthropic" | "Google" | "xAI";
   label: string;
   sourceUrl: string;
   bands: PriceBand[];
@@ -23,6 +24,9 @@ export type ModelPrice = {
 
 const openaiLong =
   "OpenAI's pricing page, read November 5, 2026, defines short context as 272,000 input tokens or fewer and long context as more than that. This calculator switches at that line. It does not add the 10% regional or FedRAMP uplift, and it does not use cached, batch, flex, fast, or ultrafast prices.";
+
+const xaiLong =
+  "xAI's models page, read November 5, 2026, bills the higher rate for every token in a request once the prompt reaches 200,000 tokens. This calculator switches at that line. Cached-input prices are not used.";
 
 const openaiSingle =
   "This model has one standard input price and one standard output price on the OpenAI page. A separate long-context price is not listed on that row. Cached, batch, flex, and fast prices are not used.";
@@ -47,6 +51,28 @@ export const modelPrices: ModelPrice[] = [
     bands: [
       { maxInputTokens: 272_000, inputPerMillion: 2, outputPerMillion: 10, label: "Short context" },
       { inputPerMillion: 4, outputPerMillion: 15, label: "Long context" },
+    ],
+    notes: [openaiLong],
+  },
+  {
+    id: "gpt-6.1-terra",
+    provider: "OpenAI",
+    label: "gpt-6.1-terra",
+    sourceUrl: OPENAI_PRICING_URL,
+    bands: [
+      { maxInputTokens: 272_000, inputPerMillion: 1, outputPerMillion: 5, label: "Short context" },
+      { inputPerMillion: 2, outputPerMillion: 7.5, label: "Long context" },
+    ],
+    notes: [openaiLong],
+  },
+  {
+    id: "gpt-6-luna",
+    provider: "OpenAI",
+    label: "gpt-6-luna",
+    sourceUrl: OPENAI_PRICING_URL,
+    bands: [
+      { maxInputTokens: 272_000, inputPerMillion: 0.1, outputPerMillion: 0.5, label: "Short context" },
+      { inputPerMillion: 0.2, outputPerMillion: 0.75, label: "Long context" },
     ],
     notes: [openaiLong],
   },
@@ -200,7 +226,7 @@ export const modelPrices: ModelPrice[] = [
     sourceUrl: GOOGLE_PRICING_URL,
     bands: [{ inputPerMillion: 2, outputPerMillion: 10, label: "Paid standard, through November 30, 2026" }],
     notes: [
-      "Google's Gemini API pricing page lists Gemini 4 Argon paid standard input at $2 per million tokens through November 30, 2026, and $4 starting December 1, 2026. Output, including thinking tokens, is $10 through November 30, 2026, and $20 starting December 1, 2026. This calculator uses the November 5 price and does not change itself on December 1.",
+      "Google's Gemini API pricing page lists Gemini 4 Argon paid standard input at $2 per million tokens through November 30, 2026, and $4 starting December 1, 2026. Output, including thinking tokens, is $10 through November 30, 2026, and $20 starting December 1, 2026. This calculator uses the November 5 price and does not change itself on December 1. The page that served these prices is aistudio.google.com/docs/pricing. The older developer URL redirects there.",
       "The output price includes thinking tokens. If you want those counted, put them in the output box. Search grounding is a separate per-query fee and is not included.",
     ],
   },
@@ -213,7 +239,33 @@ export const modelPrices: ModelPrice[] = [
     notes: [
       "Google's Gemini API pricing page lists Gemini 3.8 Flash paid standard input at $0.75 per million tokens through December 31, 2026, and $1.50 starting January 1, 2027. Output, including thinking tokens, is $3.75 through December 31, 2026, and $7.50 starting January 1, 2027. This calculator uses the November 5 price.",
       "The output price includes thinking tokens. Search grounding is not included.",
+      "The page that served these prices on November 5, 2026 is aistudio.google.com/docs/pricing. The older developer URL redirects there.",
     ],
+  },
+  {
+    id: "grok-4.7",
+    provider: "xAI",
+    label: "grok-4.7",
+    sourceUrl: XAI_PRICING_URL,
+    bands: [
+      { maxInputTokens: 199_999, inputPerMillion: 2, outputPerMillion: 6, label: "Prompt under 200,000 tokens" },
+      { inputPerMillion: 4, outputPerMillion: 12, label: "Prompt of 200,000 tokens or more" },
+    ],
+    notes: [
+      xaiLong,
+      "xAI's models page says Grok 4.7 is the model to use for code and chat. The knowledge cut-off printed on that page is May 2026.",
+    ],
+  },
+  {
+    id: "grok-build-0.1",
+    provider: "xAI",
+    label: "grok-build-0.1",
+    sourceUrl: XAI_PRICING_URL,
+    bands: [
+      { maxInputTokens: 199_999, inputPerMillion: 1, outputPerMillion: 2, label: "Prompt under 200,000 tokens" },
+      { inputPerMillion: 2, outputPerMillion: 4, label: "Prompt of 200,000 tokens or more" },
+    ],
+    notes: [xaiLong],
   },
 ];
 

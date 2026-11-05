@@ -23,6 +23,14 @@ export default async function ShoppingAgentsReportPage() {
     getGlossaryTerm("product-feed"),
   ]);
   const related = [
+    {
+      href: "/reports/ai-agents-next-6-months",
+      title: "AI agents, Nov 2026 to May 2027",
+      description:
+        "What filings and company pages have dated for coding agents, computer use, harnesses, and regulation from November 2026 through May 2027.",
+      kicker: "Report",
+      date: "2026-11-05",
+    },
     guide
       ? {
           href: `/blog/${guide.slug}`,

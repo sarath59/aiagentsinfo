@@ -224,7 +224,9 @@ export default async function DirectoryStatsPage() {
 
         <section className="mt-12 text-sm">
           <p>
-            Related: <Link className="text-[var(--link)] underline" href="/directory">browse the directory</Link>
+            Related: <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/directory">browse the directory</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/submit">submit a tool</Link>
             {" · "}

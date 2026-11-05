@@ -56,6 +56,9 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
           <h2 className="font-semibold tracking-tight text-2xl">Dated figures</h2>
           <ul className="mt-3 grid gap-2">
             <li>
+              <Link href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
+            </li>
+            <li>
               <Link href="/reports/agent-harness-benchmark-november-2026">Harness benchmark, November 2026</Link>
             </li>
             <li>

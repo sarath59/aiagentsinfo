@@ -9,6 +9,7 @@ import {
   GOOGLE_PRICING_URL,
   OPENAI_PRICING_URL,
   PRICE_READ_ON,
+  XAI_PRICING_URL,
   modelPrices,
 } from "@/lib/model-prices";
 import { absoluteUrl } from "@/lib/site";
@@ -25,6 +26,7 @@ const sources = [
   { name: "OpenAI API pricing", url: OPENAI_PRICING_URL },
   { name: "Anthropic Claude API pricing", url: ANTHROPIC_PRICING_URL },
   { name: "Gemini API pricing", url: GOOGLE_PRICING_URL },
+  { name: "xAI model pricing", url: XAI_PRICING_URL },
 ];
 
 export default function CostCalculatorPage() {
@@ -104,14 +106,20 @@ export default function CostCalculatorPage() {
               Google models other than Gemini 4 Argon and Gemini 3.8 Flash. The pricing page has more tiers, and the
               ones whose standard price was not clearly separated from batch and flex were not added.
             </li>
-            <li>xAI, DeepSeek, and other providers, because their pricing pages were not the source for this tool.</li>
+            <li>
+              xAI models other than grok-4.7 and grok-build-0.1. Cached-input prices on the xAI page are not used.
+              DeepSeek and other providers are still left out, because their pricing pages were not copied into this
+              tool on November 5, 2026.
+            </li>
             <li>Tool-call fees, search grounding, image tokens billed apart from the text price, tax, and seat licenses such as Claude Code or Codex plans.</li>
           </ul>
         </section>
 
         <section className="mt-10 text-sm">
           <p>
-            Related: <Link className="text-[var(--link)] underline" href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>
+            Related: <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/directory/category/coding-agents">coding agents</Link>
             {" · "}
@@ -136,8 +144,9 @@ export default function CostCalculatorPage() {
               answer: (
                 <p>
                   For the two Google models, the provider says the output price includes thinking tokens. Add them to
-                  the output box. The OpenAI and Anthropic rows on this page use the listed output price and do not
-                  add a separate thinking line, because those pricing tables do not show one for these standard rows.
+                  the output box. The OpenAI, Anthropic, and xAI rows on this page use the listed output price and do
+                  not add a separate thinking line, because those pricing tables do not show one for these standard
+                  rows.
                 </p>
               ),
             },
@@ -145,8 +154,9 @@ export default function CostCalculatorPage() {
               question: "Why is my provider missing?",
               answer: (
                 <p>
-                  Only prices copied from the three provider pages above are included. A model that is not in the
-                  dropdown was left out rather than guessed.
+                  Only prices copied from the provider pages above are included. A model that is not in the dropdown
+                  was left out rather than guessed. On November 5, 2026 that list gained gpt-6.1-terra, gpt-6-luna,
+                  grok-4.7, and grok-build-0.1. The prices already in the list matched the same pages.
                 </p>
               ),
             },
