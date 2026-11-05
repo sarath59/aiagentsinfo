@@ -6,6 +6,7 @@ export {
   articleJsonLd,
   authorNode,
   breadcrumbJsonLd,
+  datasetJsonLd,
   definedTermJsonLd,
   organizationJsonLd,
   profilePageJsonLd,

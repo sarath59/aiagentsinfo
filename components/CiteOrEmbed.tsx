@@ -30,13 +30,19 @@ function CopyBlock({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function CiteOrEmbed({ citation, embed }: { citation: string; embed: string }) {
+export function CiteOrEmbed({
+  citation,
+  embed,
+  note = "The citation names this page and the date above. The embed is a blockquote with a link back here.",
+}: {
+  citation: string;
+  embed: string;
+  note?: string;
+}) {
   return (
     <section className="citation-panel glass rounded-3xl p-6 sm:p-7">
       <h2 className="text-2xl font-semibold tracking-tight">Cite or embed this</h2>
-      <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
-        The citation names this page and the date above. The embed is a blockquote with a link back here.
-      </p>
+      <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{note}</p>
       <div className="mt-5 grid gap-6">
         <CopyBlock label="Citation" value={citation} />
         <CopyBlock label="Embed" value={embed} />

@@ -1,4 +1,5 @@
 import { getBlogPosts, type BlogPost } from "@/lib/blog";
+import { description as frameworkGithubDescription, path as frameworkGithubPath, title as frameworkGithubTitle } from "@/lib/framework-github-stats";
 import { categoryTitle as directoryCategoryTitle, getDirectoryListings } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
 import { contentDir, loadMarkdownCollection } from "@/lib/markdown";
@@ -75,6 +76,7 @@ export async function buildLlmsTxt() {
         "/reports/agent-harness-benchmark-november-2026",
         "Official SWE-bench and Terminal-Bench scores, read November 5, 2026.",
       ),
+      item(frameworkGithubTitle, frameworkGithubPath, frameworkGithubDescription),
       item("Verified revenue", "/verified-revenue", `Payment-processor-verified revenue. Checked ${verifiedRevenueChecked}.`),
       item("Directory stats", "/directory/stats", "Counts generated from the directory files at build time."),
       item("Agent cost calculator", "/agent-cost-calculator", "30-day token cost from official provider prices."),

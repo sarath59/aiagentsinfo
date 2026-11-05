@@ -4,6 +4,27 @@ import {
   title as benchmarkTitle,
 } from "@/lib/benchmark-report";
 import {
+  description as frameworkDescription,
+  directorySentence,
+  frameworkColumns,
+  frameworkCsv,
+  frameworkRows,
+  keyFigures,
+  leadParagraph,
+  licenceBreakdown,
+  licenceSentence,
+  methodologyFacts,
+  path as frameworkPath,
+  quietReleaseSentence,
+  recentReleaseSentence,
+  recencyColumns,
+  recencyRows,
+  relatedSentence,
+  retrievedDay,
+  tableCaption,
+  title as frameworkTitle,
+} from "@/lib/framework-github-stats";
+import {
   BENCHMARK_READ_ON,
   sweColumns,
   sweRows,
@@ -135,9 +156,55 @@ export function benchmarkReportPdf(): PdfModel {
   };
 }
 
+export function frameworkReportPdf(): PdfModel {
+  const dateLabel = formatDate(retrievedDay);
+  const licenceRows = licenceBreakdown().map((item) => [item.label, String(item.count)]);
+  return {
+    filename: "ai-agent-framework-github-stats-november-2026.pdf",
+    title: frameworkTitle,
+    description: frameworkDescription,
+    dateLabel,
+    url: absoluteUrl(frameworkPath),
+    sections: [
+      {
+        paragraphs: [
+          leadParagraph(),
+          ...keyFigures().map((figure) => `${figure.label}: ${figure.value}. ${figure.note}`),
+        ],
+      },
+      {
+        heading: "Repositories",
+        paragraphs: [
+          "The framework name is the GitHub repository. Open issues + PRs is GitHub's open_issues_count, which includes open pull requests.",
+        ],
+        table: tableFrom(tableCaption(), frameworkColumns, frameworkRows()),
+      },
+      {
+        heading: "Licences",
+        paragraphs: [licenceSentence()],
+        table: {
+          caption: "Licence field returned by GitHub",
+          headers: ["Licence", "Repositories"],
+          rows: licenceRows,
+        },
+      },
+      {
+        heading: "Release recency",
+        paragraphs: [recentReleaseSentence(), quietReleaseSentence()],
+        table: tableFrom(`Days from each latest release to ${dateLabel}`, recencyColumns, recencyRows()),
+      },
+      {
+        heading: "Methodology",
+        paragraphs: [methodologyFacts(), directorySentence(absoluteUrl), relatedSentence(absoluteUrl)].flat().filter(Boolean),
+      },
+    ],
+  };
+}
+
 const pdfModels = {
   "ai-shopping-agents-next-6-months": shoppingReportPdf,
   "agent-harness-benchmark-november-2026": benchmarkReportPdf,
+  "ai-agent-framework-github-stats-november-2026": frameworkReportPdf,
 } as const;
 
 export type ReportSlug = keyof typeof pdfModels;
@@ -148,6 +215,10 @@ export function reportPdf(slug: string) {
 }
 
 export function reportCsv(slug: string, table: string | null) {
+  if (slug === "ai-agent-framework-github-stats-november-2026") {
+    if (table && table !== "frameworks") return undefined;
+    return frameworkCsv();
+  }
   if (slug === "ai-shopping-agents-next-6-months") {
     return {
       filename: "ai-shopping-agents-nov-2026-may-2027.csv",

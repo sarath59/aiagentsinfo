@@ -3,6 +3,7 @@ import { ContentCard } from "@/components/ContentCard";
 import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { PageHeader } from "@/components/PageHeader";
 import { getDirectoryStats } from "@/lib/directory-stats";
+import { path as frameworkGithubPath, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
 import { PRICE_READ_ON } from "@/lib/model-prices";
 import { defaultMetadata } from "@/lib/seo";
 import { dataAssets } from "@/lib/site";
@@ -10,13 +11,14 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: shopping-agent outlooks, harness benchmarks, verified revenue, directory stats, and a token-cost calculator.",
+  "Dated pages with a source and a citation: shopping-agent outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, and a token-cost calculator.",
   "/reports",
 );
 
 const pdfByHref: Record<string, string> = {
   "/reports/ai-shopping-agents-next-6-months": "/reports/ai-shopping-agents-next-6-months/pdf",
   "/reports/agent-harness-benchmark-november-2026": "/reports/agent-harness-benchmark-november-2026/pdf",
+  [frameworkGithubPath]: `${frameworkGithubPath}/pdf`,
 };
 
 export default async function ReportsPage() {
@@ -24,6 +26,7 @@ export default async function ReportsPage() {
   const dateByHref: Record<string, string> = {
     "/reports/ai-shopping-agents-next-6-months": "2026-11-05",
     "/reports/agent-harness-benchmark-november-2026": "2026-11-05",
+    [frameworkGithubPath]: frameworkGithubDay,
     "/verified-revenue": verifiedRevenueChecked,
     "/directory/stats": stats.updated,
     "/agent-cost-calculator": PRICE_READ_ON,
@@ -31,6 +34,7 @@ export default async function ReportsPage() {
   const kickerByHref: Record<string, string> = {
     "/reports/ai-shopping-agents-next-6-months": "Report",
     "/reports/agent-harness-benchmark-november-2026": "Report",
+    [frameworkGithubPath]: "Report",
     "/verified-revenue": "Data",
     "/directory/stats": "Data",
     "/agent-cost-calculator": "Data",

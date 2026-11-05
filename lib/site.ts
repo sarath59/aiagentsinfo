@@ -136,6 +136,12 @@ export const dataAssets = [
       "Public SWE-bench and Terminal-Bench scores for agent harnesses and coding agents, each with the date on the official source. Read November 5, 2026.",
   },
   {
+    href: "/reports/ai-agent-framework-github-stats-november-2026",
+    title: "AI agent framework GitHub stats, November 2026",
+    summary:
+      "Stars, forks, open issues, licences, and latest releases for open-source agent frameworks and SDKs. Pulled from the public GitHub API on 5 November 2026.",
+  },
+  {
     href: "/verified-revenue",
     title: "Verified revenue",
     summary:
@@ -184,6 +190,7 @@ export const footerNav = [
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
       { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
       { href: "/reports/agent-harness-benchmark-november-2026", label: "Harness benchmark, November 2026" },
+      { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework GitHub stats, November 2026" },
       { href: "/verified-revenue", label: "Verified revenue" },
       { href: "/directory/stats", label: "Directory stats" },
       { href: "/agent-cost-calculator", label: "Agent cost calculator" },

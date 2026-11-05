@@ -152,6 +152,41 @@ export function researchArticleJsonLd(input: {
   });
 }
 
+export function datasetJsonLd(input: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  distributionPath?: string;
+  isBasedOn?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: input.title,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    datePublished: schemaDate(input.datePublished),
+    dateModified: schemaDate(input.dateModified ?? input.datePublished),
+    creator: {
+      "@type": "Organization",
+      name: site.name,
+      url: absoluteUrl("/"),
+    },
+    ...(input.isBasedOn ? { isBasedOn: input.isBasedOn } : {}),
+    ...(input.distributionPath
+      ? {
+          distribution: {
+            "@type": "DataDownload",
+            encodingFormat: "text/csv",
+            contentUrl: absoluteUrl(input.distributionPath),
+          },
+        }
+      : {}),
+  };
+}
+
 export function webPageJsonLd(input: {
   title: string;
   description: string;
@@ -316,6 +351,23 @@ function assertNode(value: unknown, path: string) {
     requireString(value.publisher, "name", `${path}.publisher`);
     if (!isRecord(value.mainEntityOfPage)) throw new Error(`${path}.mainEntityOfPage is required`);
     requireString(value.mainEntityOfPage, "@id", `${path}.mainEntityOfPage`);
+  }
+
+  if (type === "Dataset") {
+    requireString(value, "name", path);
+    requireString(value, "description", path);
+    const url = requireString(value, "url", path);
+    if (!url.startsWith("https://")) throw new Error(`${path}.url must be an absolute https URL`);
+    requireDate(value, "datePublished", path);
+    if (value.dateModified) requireDate(value, "dateModified", path);
+    if (value.creator) assertAuthor(value.creator, `${path}.creator`, true);
+    if (value.distribution) {
+      if (!isRecord(value.distribution)) throw new Error(`${path}.distribution must be an object`);
+      const contentUrl = value.distribution.contentUrl;
+      if (typeof contentUrl !== "string" || !contentUrl.startsWith("https://")) {
+        throw new Error(`${path}.distribution.contentUrl must be an absolute https URL`);
+      }
+    }
   }
 
   if (type === "WebPage") {
