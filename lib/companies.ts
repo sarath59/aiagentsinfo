@@ -457,6 +457,24 @@ export const companies: Company[] = [
     aliases: ["DataFast"],
     hosts: ["datafa.st"],
   },
+  {
+    slug: "tencent",
+    name: "Tencent",
+    website: "https://www.tencent.com",
+    logo: "/logos/tencent.png",
+    tile: "dark",
+    aliases: ["Tencent"],
+    hosts: ["tencent.com", "tencent.ai"],
+  },
+  {
+    slug: "openrouter",
+    name: "OpenRouter",
+    website: "https://openrouter.ai",
+    logo: "/logos/openrouter.png",
+    tile: "dark",
+    aliases: ["OpenRouter"],
+    hosts: ["openrouter.ai"],
+  },
 ];
 
 const bySlug = new Map(companies.map((company) => [company.slug, company]));
