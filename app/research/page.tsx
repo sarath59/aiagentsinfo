@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CompanyLogo } from "@/components/CompanyLogo";
-import { CompanyMarks } from "@/components/CompanyMarks";
+import { ContentCard } from "@/components/ContentCard";
+import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
-import {
-  getResearchDocs,
-  researchTopics,
-  researchTypeTitle,
-  researchTypes,
-} from "@/lib/research";
+import { getResearchDocs, researchTopics, researchTypeTitle, researchTypes } from "@/lib/research";
 import { defaultMetadata } from "@/lib/seo";
-import { formatDate, normalizeQuery } from "@/lib/utils";
+import { normalizeQuery } from "@/lib/utils";
 
 export async function generateMetadata({
   searchParams,
@@ -63,6 +59,7 @@ export default async function ResearchIndexPage({
         summary="A note appears here when the paper, the link, and the authors check out. Citations are not invented."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
+        <ContentDeskNav current="/research" />
         <div className="flex flex-wrap gap-2">
           <Link href="/research" className="chip">
             Reset
@@ -88,7 +85,7 @@ export default async function ResearchIndexPage({
             </Link>
           ))}
         </div>
-        <div className="mt-8 grid gap-4">
+        <div className="content-grid mt-8">
           {docs.length === 0 ? (
             <EmptyState
               title="Research notes publishing soon"
@@ -105,22 +102,15 @@ export default async function ResearchIndexPage({
             />
           ) : filtered.length ? (
             filtered.map((doc) => (
-              <article key={doc.slug} className="glass lift click-card rounded-3xl p-6 sm:p-8">
-                <p className="kicker">
-                  {researchTypeTitle(doc.type)} · {formatDate(doc.date)}
-                </p>
-                <h2 className="mt-3 font-semibold tracking-tight text-3xl">
-                  <Link className="card-stretch" href={`/research/${doc.slug}`}>
-                    {doc.title}
-                  </Link>
-                </h2>
-                <p className="mt-3 max-w-3xl text-[var(--muted)]">{doc.description}</p>
-                {doc.companies?.length ? (
-                  <div className="mt-4">
-                    <CompanyMarks slugs={doc.companies} />
-                  </div>
-                ) : null}
-              </article>
+              <ContentCard
+                key={doc.slug}
+                href={`/research/${doc.slug}`}
+                kicker={researchTypeTitle(doc.type)}
+                title={doc.title}
+                description={doc.description}
+                date={doc.date}
+                readingMinutes={doc.readingMinutes}
+              />
             ))
           ) : (
             <EmptyState

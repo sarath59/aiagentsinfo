@@ -126,27 +126,32 @@ export const dataAssets = [
   {
     href: "/reports/ai-shopping-agents-next-6-months",
     title: "AI shopping agents, Nov 2026 to May 2027",
-    summary: "Announced, likely, and watch-for dates for shopping agents, each tied to a company or Adobe page read November 5, 2026.",
+    summary:
+      "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated for shopping agents from November 2026 through May 2027. Checked November 5, 2026.",
   },
   {
     href: "/reports/agent-harness-benchmark-november-2026",
     title: "Harness benchmark, November 2026",
-    summary: "Public SWE-bench and Terminal-Bench scores, each with the date on the official source.",
+    summary:
+      "Public SWE-bench and Terminal-Bench scores for agent harnesses and coding agents, each with the date on the official source. Read November 5, 2026.",
   },
   {
     href: "/verified-revenue",
     title: "Verified revenue",
-    summary: "Payment-processor revenue and a public price, in sortable tables.",
+    summary:
+      "AI tools with payment-processor-verified revenue and a public price. Sort the table. Each figure has a source link and the date it was checked.",
   },
   {
     href: "/directory/stats",
     title: "Directory stats",
-    summary: "Counts from this directory: category, pricing, origin, additions, and submissions.",
+    summary:
+      "Counts from this site's own directory: category, pricing, indie or startup or YC origin, additions, and community submissions. Generated when the site is built.",
   },
   {
     href: "/agent-cost-calculator",
     title: "Agent cost calculator",
-    summary: "A 30-day token bill from official provider prices. No login.",
+    summary:
+      "Estimate a 30-day model bill from official per-token prices. Pick a model, then enter tokens per task and tasks per day. No login is required.",
   },
 ] as const;
 
@@ -156,6 +161,8 @@ export const footerNav = [
     links: [
       { href: "/blog", label: "Blog" },
       { href: "/research", label: "Research" },
+      { href: "/papers", label: "Papers" },
+      { href: "/reports", label: "Reports" },
       { href: "/glossary", label: "Glossary" },
       { href: "/directory", label: "Directory" },
       { href: "/topics", label: "Topics" },

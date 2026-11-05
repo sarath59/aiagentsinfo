@@ -1,6 +1,6 @@
 ---
 title: "Paper breakdown: Weight-space programming — a language model that reads and edits neural weights"
-description: "MIT CSAIL's November 2, 2026 note: GPT-6 Astra edited neural weights and raised a small model's MATH-500 score from 7.9% to 48.1%."
+description: "MIT CSAIL note, November 2, 2026: GPT-6 Astra edited neural weights, with no training loop, and raised a small model's MATH-500 score from 7.9% to 48.1%."
 date: "2026-11-03"
 updated: "2026-11-04"
 type: paper-breakdown

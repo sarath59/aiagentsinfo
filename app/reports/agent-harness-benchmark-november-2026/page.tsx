@@ -1,9 +1,14 @@
 import Link from "next/link";
+import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FaqList } from "@/components/FaqList";
 import { SortableTable } from "@/components/SortableTable";
+import { categoryTitle, getBlogPost } from "@/lib/blog";
+import { description, path, readingMinutes, title } from "@/lib/benchmark-report";
+import { categorySummaries } from "@/lib/directory-meta";
+import { getGlossaryTerm } from "@/lib/glossary";
 import {
   BENCHMARK_READ_ON,
   sweColumns,
@@ -14,17 +19,63 @@ import {
   terminalRows,
 } from "@/lib/harness-benchmark";
 import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
-
-const path = "/reports/agent-harness-benchmark-november-2026";
-const title = "AI Agent Harness Benchmark, November 2026";
-const description =
-  "Public SWE-bench and Terminal-Bench scores for agent harnesses and coding agents, each with the date on the official source. Read November 5, 2026.";
 
 export const metadata = defaultMetadata(title, description, path);
 
-export default function HarnessBenchmarkPage() {
+export default async function HarnessBenchmarkPage() {
+  const [guide, benchmarkTerm] = await Promise.all([
+    getBlogPost("what-is-an-ai-agent-harness"),
+    getGlossaryTerm("benchmark"),
+  ]);
+  const related = [
+    guide
+      ? {
+          href: `/blog/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          kicker: categoryTitle(guide.category),
+          date: guide.date,
+          readingMinutes: guide.readingMinutes,
+        }
+      : undefined,
+    benchmarkTerm
+      ? {
+          href: "/glossary/benchmark",
+          title: benchmarkTerm.term,
+          description: benchmarkTerm.shortDefinition,
+          kicker: "Glossary",
+        }
+      : undefined,
+    {
+      href: "/directory/category/coding-agents",
+      title: "Coding agents in the directory",
+      description: categorySummaries["coding-agents"],
+      kicker: "Directory",
+    },
+    {
+      href: "/directory/category/agent-frameworks",
+      title: "Agent frameworks and harnesses",
+      description: categorySummaries["agent-frameworks"],
+      kicker: "Directory",
+    },
+    {
+      href: "/agent-cost-calculator",
+      title: "Agent cost calculator",
+      description:
+        "Estimate a 30-day model bill from official per-token prices. Pick a model, then enter tokens per task and tasks per day. No login is required.",
+      kicker: "Data",
+      date: "2026-11-05",
+    },
+    {
+      href: "/trackers/benchmarks",
+      title: "Benchmark tracker",
+      description:
+        "A leaderboard for public agent benchmarks. A score is published only with a source, a date, and the harness that produced it.",
+      kicker: "Tracker",
+    },
+  ].filter((item) => item !== undefined);
   const updated = BENCHMARK_READ_ON;
   const updatedLabel = formatDate(updated);
   const pageUrl = absoluteUrl(path);
@@ -47,24 +98,53 @@ export default function HarnessBenchmarkPage() {
           { name: title, path },
         ]}
       />
-      <header className="mx-auto max-w-6xl px-4 pb-8 pt-12">
-        <p className="kicker kicker-lead">Monthly report</p>
-        <h1 className="display mt-3 text-4xl sm:text-5xl">{title}</h1>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
-          This page copies public scores for coding agents and the{" "}
-          <Link href="/glossary/harness">harnesses</Link> around them. A harness is the loop, tools, and limits
-          around a model. The tables use the official SWE-bench leaderboard and the official Terminal-Bench 4.0
-          leaderboard. Each row keeps the date on that source. Nothing here is estimated, and a score from another
-          website is not filled in when the official board does not list it.
-        </p>
-        <p className="mt-3 text-sm text-[var(--muted)]">
-          Last updated <time dateTime={updated}>{updatedLabel}</time>.
-        </p>
-      </header>
-
-      <div className="mx-auto max-w-6xl px-4 pb-20">
-        <section className="glass rounded-3xl p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold tracking-tight">What these numbers are</h2>
+      <ArticleTemplate
+        category="Report"
+        title={title}
+        description={description}
+        published={updated}
+        readingMinutes={readingMinutes}
+        byline={site.bylines.research}
+        wide
+        takeaways={[
+          "This page copies public scores for coding agents and the harnesses around them.",
+          "The tables use the official SWE-bench leaderboard and the official Terminal-Bench 4.0 leaderboard. Each row keeps the date on that source.",
+          "Nothing here is estimated, and a score from another website is not filled in when the official board does not list it.",
+        ]}
+        toc={[
+          { id: "what-these-numbers-are", text: "What these numbers are", level: 2 },
+          { id: "swe-bench-bash", text: "SWE-bench Verified, bash only", level: 2 },
+          { id: "swe-bench-checked", text: "Other harnesses the SWE-bench team checked", level: 2 },
+          { id: "swe-bench-multilingual", text: "SWE-bench Multilingual", level: 2 },
+          { id: "terminal-bench", text: "Terminal-Bench 4.0", level: 2 },
+          { id: "left-out", text: "Left out", level: 2 },
+          { id: "faq", text: "FAQ", level: 2 },
+          { id: "citation", text: "Cite or embed", level: 2 },
+        ]}
+        actions={
+          <>
+            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
+              Download PDF
+            </a>
+            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv?table=swe-bash`}>
+              Download CSV
+            </a>
+          </>
+        }
+        citation={<CiteOrEmbed citation={citation} embed={embed} />}
+        related={related}
+      >
+        <div className="article-prose">
+          <p>
+            This page copies public scores for coding agents and the{" "}
+            <Link href="/glossary/harness">harnesses</Link> around them. A harness is the loop, tools, and limits
+            around a model. The tables use the official SWE-bench leaderboard and the official Terminal-Bench 4.0
+            leaderboard. Each row keeps the date on that source. Nothing here is estimated, and a score from another
+            website is not filled in when the official board does not list it.
+          </p>
+        </div>
+        <section className="glass mt-10 rounded-3xl p-6 sm:p-8">
+          <h2 id="what-these-numbers-are" className="text-2xl font-semibold tracking-tight">What these numbers are</h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
             SWE-bench Verified is 500 real GitHub issues. The score is the percent resolved: the share of issues
             whose tests passed. The bash-only rows all use mini-SWE-agent, so the harness stays the same while the
@@ -87,7 +167,7 @@ export default function HarnessBenchmarkPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">SWE-bench Verified, bash only</h2>
+          <h2 id="swe-bench-bash" className="text-2xl font-semibold tracking-tight">SWE-bench Verified, bash only</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             {swebenchBenchmark.bashOnly.length} rows from the Verified list where the harness is mini-SWE-agent.
             &quot;Team checked&quot; means the SWE-bench page marks the run as performed or checked by the SWE-bench
@@ -103,12 +183,13 @@ export default function HarnessBenchmarkPage() {
               columns={sweColumns}
               rows={sweRows(swebenchBenchmark.bashOnly)}
               defaultSort="resolved"
+              downloadHref={`${path}/csv?table=swe-bash`}
             />
           </div>
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Other harnesses the SWE-bench team checked</h2>
+          <h2 id="swe-bench-checked" className="text-2xl font-semibold tracking-tight">Other harnesses the SWE-bench team checked</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             {swebenchBenchmark.teamCheckedOther.length} Verified rows that use a harness other than mini-SWE-agent
             and that the board marks as team-checked. The full list also has {swebenchBenchmark.uncheckedSubmittedCount}{" "}
@@ -121,12 +202,13 @@ export default function HarnessBenchmarkPage() {
               columns={sweColumns}
               rows={sweRows(swebenchBenchmark.teamCheckedOther)}
               defaultSort="resolved"
+              downloadHref={`${path}/csv?table=swe-checked`}
             />
           </div>
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">SWE-bench Multilingual, same harness</h2>
+          <h2 id="swe-bench-multilingual" className="text-2xl font-semibold tracking-tight">SWE-bench Multilingual, same harness</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             {swebenchBenchmark.multilingualInstances} instances, {swebenchBenchmark.multilingual.length} mini-SWE-agent
             rows on the same official file. This is a separate task set from Verified, so the percents are not a
@@ -138,12 +220,13 @@ export default function HarnessBenchmarkPage() {
               columns={sweColumns}
               rows={sweRows(swebenchBenchmark.multilingual)}
               defaultSort="resolved"
+              downloadHref={`${path}/csv?table=swe-multilingual`}
             />
           </div>
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Terminal-Bench 4.0</h2>
+          <h2 id="terminal-bench" className="text-2xl font-semibold tracking-tight">Terminal-Bench 4.0</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             {terminalBench.rows.length} rows. {terminalBench.description} The board name on Harbor Hub is{" "}
             {terminalBench.name}, and the record was updated {terminalBench.updatedAt}. Read {updatedLabel} from the{" "}
@@ -159,12 +242,13 @@ export default function HarnessBenchmarkPage() {
               rows={terminalRows()}
               defaultSort="rank"
               defaultDirection="asc"
+              downloadHref={`${path}/csv?table=terminal-bench`}
             />
           </div>
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Left out</h2>
+          <h2 id="left-out" className="text-2xl font-semibold tracking-tight">Left out</h2>
           <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-[var(--muted)]">
             <li>
               Third-party score roundups, including pages that list SWE-bench results above the official board, are
@@ -186,46 +270,6 @@ export default function HarnessBenchmarkPage() {
             </li>
           </ul>
         </section>
-
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Related on this site</h2>
-          <ul className="mt-3 grid gap-2 text-sm">
-            <li>
-              <Link className="text-[var(--link)] underline" href="/blog/what-is-an-ai-agent-harness">
-                What is an AI agent harness?
-              </Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/glossary/benchmark">
-                Benchmark, in the glossary
-              </Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/directory/category/coding-agents">
-                Coding agents in the directory
-              </Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/directory/category/agent-frameworks">
-                Agent frameworks and harnesses
-              </Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
-                Agent cost calculator
-              </Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/trackers/benchmarks">
-                Benchmark tracker
-              </Link>
-            </li>
-          </ul>
-        </section>
-
-        <div className="mt-12">
-          <CiteOrEmbed citation={citation} embed={embed} />
-        </div>
 
         <FaqList
           items={[
@@ -272,7 +316,7 @@ export default function HarnessBenchmarkPage() {
         <div className="mt-14">
           <NewsletterSignup id="report-benchmark" />
         </div>
-      </div>
+      </ArticleTemplate>
     </>
   );
 }

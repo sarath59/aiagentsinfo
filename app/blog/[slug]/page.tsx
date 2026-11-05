@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { BylineLink } from "@/components/BylineLink";
-import { CompaniesMentioned, SourceList } from "@/components/CompanyMarks";
+import { SourceList } from "@/components/CompanyMarks";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { PublishedDates } from "@/components/PublishedDates";
-import { TableOfContents } from "@/components/TableOfContents";
-import { getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
+import { categoryTitle, getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
+import { withTableDownloads } from "@/lib/html-tables";
 import { JsonLd, articleJsonLd, defaultMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -28,6 +27,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const [post, all] = await Promise.all([getBlogPost(slug), getBlogPosts()]);
   if (!post) notFound();
   const related = relatedBlogPosts(post, all);
+  const toc = [
+    ...post.toc,
+    ...(post.sources?.length ? [{ id: "sources", text: "Sources", level: 2 as const }] : []),
+  ];
 
   return (
     <>
@@ -48,52 +51,37 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           { name: post.title, path: `/blog/${post.slug}` },
         ]}
       />
-      <article className="mx-auto grid max-w-6xl gap-10 px-4 pb-20 pt-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
-        <div>
-          <p className="kicker">{post.category}</p>
-          <h1 className="display mt-3 text-4xl sm:text-5xl">{post.title}</h1>
-          <p className="mt-4 text-lg text-[var(--muted)]">{post.description}</p>
-          <dl className="mt-6 grid gap-1 text-sm text-[var(--muted)]">
-            <div>
-              <dt className="inline">Byline: </dt>
-              <dd className="inline">
-                <BylineLink name={post.byline ?? site.bylines.editorial} />
-                {" · "}
-                <Link href="/editorial-policy">Editorial policy</Link>
-              </dd>
-            </div>
-          </dl>
-          <PublishedDates published={post.date} updated={post.updated} />
-          <CompaniesMentioned slugs={post.companies} />
-          <div className="mt-10">
-            <MarkdownBody html={post.html} />
-          </div>
-          {post.sources?.length ? (
-            <section className="mt-12">
-              <h2 className="font-semibold tracking-tight text-2xl">Sources</h2>
-              <SourceList sources={post.sources} />
-            </section>
-          ) : null}
-          {related.length ? (
-            <section className="mt-12">
-              <h2 className="font-semibold tracking-tight text-2xl">Related</h2>
-              <ul className="mt-4 grid gap-3">
-                {related.map((item) => (
-                  <li key={item.slug}>
-                    <Link href={`/blog/${item.slug}`}>{item.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-          <div className="mt-14">
-            <NewsletterSignup id="article" />
-          </div>
+      <ArticleTemplate
+        category={categoryTitle(post.category)}
+        title={post.title}
+        description={post.description}
+        published={post.date}
+        updated={post.updated}
+        readingMinutes={post.readingMinutes}
+        byline={post.byline ?? site.bylines.editorial}
+        companies={post.companies}
+        takeaways={post.takeaways}
+        toc={toc}
+        sources={post.sources?.length ? <SourceList sources={post.sources} /> : undefined}
+        related={related.map((item) => ({
+          href: `/blog/${item.slug}`,
+          title: item.title,
+          description: item.description,
+          kicker: categoryTitle(item.category),
+          date: item.date,
+          readingMinutes: item.readingMinutes,
+        }))}
+        actions={
+          <Link className="btn-ghost px-4 py-2 text-sm" href="/editorial-policy">
+            Editorial policy
+          </Link>
+        }
+      >
+        <MarkdownBody html={withTableDownloads(post.html, `/blog/${post.slug}/tables`)} />
+        <div className="mt-14">
+          <NewsletterSignup id="article" />
         </div>
-        <aside className="lg:sticky lg:top-24 lg:self-start">
-          <TableOfContents items={post.toc} />
-        </aside>
-      </article>
+      </ArticleTemplate>
     </>
   );
 }

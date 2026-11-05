@@ -25,6 +25,7 @@ export type BlogFrontmatter = {
   sample?: boolean;
   sources?: { title: string; url: string }[];
   faq?: { question: string; answer: string }[];
+  takeaways?: string[];
 };
 
 export type BlogPost = {
@@ -60,7 +61,7 @@ export async function getBlogPost(slug: string) {
 }
 
 export function relatedBlogPosts(post: BlogPost, all: BlogPost[], limit = 3) {
-  return all
+  const ranked = all
     .filter((other) => other.slug !== post.slug)
     .map((other) => {
       const topicScore = other.topics.filter((topic) =>
@@ -69,10 +70,10 @@ export function relatedBlogPosts(post: BlogPost, all: BlogPost[], limit = 3) {
       const categoryScore = other.category === post.category ? 1 : 0;
       return { other, score: topicScore * 2 + categoryScore };
     })
-    .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map((entry) => entry.other);
+    .sort((a, b) => b.score - a.score || +new Date(b.other.date) - +new Date(a.other.date));
+  const matched = ranked.filter((entry) => entry.score > 0);
+  const chosen = (matched.length ? matched : ranked).slice(0, limit);
+  return chosen.map((entry) => entry.other);
 }
 
 export function categoryTitle(slug: string) {

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CompanyMarks } from "@/components/CompanyMarks";
+import { ContentCard } from "@/components/ContentCard";
+import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import { Pagination } from "@/components/Pagination";
 import { blogCategories, categoryTitle, getBlogPosts } from "@/lib/blog";
 import { defaultMetadata } from "@/lib/seo";
-import { formatDate, normalizeQuery, paginate } from "@/lib/utils";
+import { normalizeQuery, paginate } from "@/lib/utils";
 
 const PER_PAGE = 6;
 
@@ -55,6 +56,7 @@ export default async function BlogIndexPage({
         summary="Explainers, news, and guides about AI agents. A post appears here when it is ready to publish."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
+        <ContentDeskNav current="/blog" />
         {posts.length ? (
           <div className="flex flex-wrap gap-2">
             <Link href="/blog" className={`chip ${!category ? "chip-active" : ""}`}>
@@ -71,7 +73,7 @@ export default async function BlogIndexPage({
             ))}
           </div>
         ) : null}
-        <div className="mt-8 grid gap-4">
+        <div className="content-grid mt-8">
           {posts.length === 0 ? (
             <EmptyState
               title="First articles publishing soon"
@@ -79,22 +81,15 @@ export default async function BlogIndexPage({
             />
           ) : result.items.length ? (
             result.items.map((post) => (
-              <article key={post.slug} className="glass lift click-card rounded-3xl p-6 sm:p-8">
-                <p className="kicker">
-                  {categoryTitle(post.category)} · {formatDate(post.date)} · {post.readingMinutes} min
-                </p>
-                <h2 className="mt-3 font-semibold tracking-tight text-3xl">
-                  <Link className="card-stretch" href={`/blog/${post.slug}`}>
-                    {post.title}
-                  </Link>
-                </h2>
-                <p className="mt-3 max-w-3xl text-[var(--muted)]">{post.description}</p>
-                {post.companies?.length ? (
-                  <div className="mt-4">
-                    <CompanyMarks slugs={post.companies} />
-                  </div>
-                ) : null}
-              </article>
+              <ContentCard
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                kicker={categoryTitle(post.category)}
+                title={post.title}
+                description={post.description}
+                date={post.date}
+                readingMinutes={post.readingMinutes}
+              />
             ))
           ) : (
             <EmptyState

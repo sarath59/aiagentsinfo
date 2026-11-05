@@ -32,7 +32,7 @@ function CopyBlock({ label, value }: { label: string; value: string }) {
 
 export function CiteOrEmbed({ citation, embed }: { citation: string; embed: string }) {
   return (
-    <section className="glass rounded-3xl p-6 sm:p-7">
+    <section className="citation-panel glass rounded-3xl p-6 sm:p-7">
       <h2 className="text-2xl font-semibold tracking-tight">Cite or embed this</h2>
       <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
         The citation names this page and the date above. The embed is a blockquote with a link back here.

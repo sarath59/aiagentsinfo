@@ -1,7 +1,12 @@
-import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ContentCard } from "@/components/ContentCard";
+import { ContentDeskNav } from "@/components/ContentDeskNav";
+import { PageHeader } from "@/components/PageHeader";
+import { getDirectoryStats } from "@/lib/directory-stats";
+import { PRICE_READ_ON } from "@/lib/model-prices";
 import { defaultMetadata } from "@/lib/seo";
 import { dataAssets } from "@/lib/site";
+import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
@@ -9,29 +14,51 @@ export const metadata = defaultMetadata(
   "/reports",
 );
 
-export default function ReportsPage() {
+const pdfByHref: Record<string, string> = {
+  "/reports/ai-shopping-agents-next-6-months": "/reports/ai-shopping-agents-next-6-months/pdf",
+  "/reports/agent-harness-benchmark-november-2026": "/reports/agent-harness-benchmark-november-2026/pdf",
+};
+
+export default async function ReportsPage() {
+  const stats = await getDirectoryStats();
+  const dateByHref: Record<string, string> = {
+    "/reports/ai-shopping-agents-next-6-months": "2026-11-05",
+    "/reports/agent-harness-benchmark-november-2026": "2026-11-05",
+    "/verified-revenue": verifiedRevenueChecked,
+    "/directory/stats": stats.updated,
+    "/agent-cost-calculator": PRICE_READ_ON,
+  };
+  const kickerByHref: Record<string, string> = {
+    "/reports/ai-shopping-agents-next-6-months": "Report",
+    "/reports/agent-harness-benchmark-november-2026": "Report",
+    "/verified-revenue": "Data",
+    "/directory/stats": "Data",
+    "/agent-cost-calculator": "Data",
+  };
+
   return (
     <>
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Reports", path: "/reports" }]} />
-      <header className="mx-auto max-w-6xl px-4 pb-8 pt-12">
-        <p className="kicker kicker-lead">Reports</p>
-        <h1 className="display mt-3 text-4xl sm:text-5xl">Figures with a date and a source</h1>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
-          Each page says when it was updated, how to cite it, and what was left out. A number without a public source
-          does not go up.
-        </p>
-      </header>
-      <div className="mx-auto grid max-w-6xl gap-4 px-4 pb-20 md:grid-cols-2">
-        {dataAssets.map((item) => (
-          <article key={item.href} className="glass lift click-card rounded-3xl p-6">
-            <h2 className="text-2xl font-semibold tracking-tight">
-              <Link className="card-stretch" href={item.href}>
-                {item.title}
-              </Link>
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{item.summary}</p>
-          </article>
-        ))}
+      <PageHeader
+        kicker="Reports"
+        title="Figures with a date and a source"
+        summary="Each page says when it was updated, how to cite it, and what was left out. A number without a public source does not go up."
+      />
+      <div className="mx-auto max-w-6xl px-4 pb-20">
+        <ContentDeskNav current="/reports" />
+        <div className="content-grid">
+          {dataAssets.map((item) => (
+            <ContentCard
+              key={item.href}
+              href={item.href}
+              kicker={kickerByHref[item.href] ?? "Report"}
+              title={item.title}
+              description={item.summary}
+              date={dateByHref[item.href]}
+              downloadHref={pdfByHref[item.href]}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

@@ -1,76 +1,85 @@
 import Link from "next/link";
+import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FaqList } from "@/components/FaqList";
+import { categoryTitle, getBlogPost } from "@/lib/blog";
+import { categorySummaries } from "@/lib/directory-meta";
+import { getGlossaryTerm } from "@/lib/glossary";
+import { description, months, path, readOn, readingMinutes, title } from "@/lib/shopping-report";
 import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
-
-const path = "/reports/ai-shopping-agents-next-6-months";
-const title = "AI shopping agents in the next 6 months (Nov 2026 to May 2027)";
-const description =
-  "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated for shopping agents from November 2026 through May 2027. Checked November 5, 2026.";
-const readOn = "2026-11-05";
-
-const months: { month: string; announced: string; likely: string; watch: string }[] = [
-  {
-    month: "November 2026",
-    announced:
-      "November 4: Google said direct checkout was rolling out to Canadian shoppers in AI Mode and the Gemini app, for lululemon, select Shopify merchants, Shoppers Drug Mart, and Simons.",
-    likely:
-      "Adobe’s forecasts for Thanksgiving (November 26), Black Friday (November 27), and Cyber Monday (November 30). The holiday page also labels a GenAI traffic chart November through December, with 130 percent growth for the season.",
-    watch:
-      "Which Thanksgiving growth rate Adobe is standing behind: 141 percent on the holiday page, or 159 percent in the October 29 report. Whether Google names Canadian retailers beyond the November 4 list.",
-  },
-  {
-    month: "December 2026",
-    announced: "No company in this set named a launch day in December.",
-    likely:
-      "OpenAI’s merchant page still says a self-serve portal “later this year.” If that sentence still means 2026, December is the last month it can land. Adobe’s holiday chart runs through December.",
-    watch:
-      "Google’s “coming months” work on loyalty rewards, which is not pinned to December. PayPal inside Google checkout, described as soon in January and not confirmed in the October or November posts.",
-  },
-  {
-    month: "January 2027",
-    announced: "No page names a day in January.",
-    likely:
-      "January is the first month inside “starting next year” from Google’s November 4 post, and it sits inside “early next year” from the October 19 developer guide, for Merchant Center access in Australia and Canada.",
-    watch:
-      "Merchant Center help says Australia and Canada follow “next year,” without the word early. A January opening would fit the developer guide. The help page does not require it.",
-  },
-  {
-    month: "February 2027",
-    announced: "No dated shopping-agent launch was found.",
-    likely: "Still inside “next year,” and on one reading inside “early next year,” if the Merchant Center hub has not opened.",
-    watch: "Any new Amazon page. The October 29 earnings release does not schedule one.",
-  },
-  {
-    month: "March 2027",
-    announced: "No dated shopping-agent launch was found.",
-    likely:
-      "The same undated Google phrases, if the work has not shipped. OpenAI’s line on other regions is “over time,” which does not prefer March.",
-    watch: "Whether OpenAI has named a country besides the United States. The merchant page does not.",
-  },
-  {
-    month: "April 2027",
-    announced: "No dated shopping-agent launch was found.",
-    likely:
-      "This report does not place the hub in April. “Early next year” is the developer guide’s phrase, and April needs a new sentence from Google before it counts as that phrase.",
-    watch: "A revised Google page that either dates the hub or replaces “early next year.”",
-  },
-  {
-    month: "May 2027",
-    announced: "No source names May. May is the end of this report’s window.",
-    likely: "Nothing in the source set is written to May.",
-    watch:
-      "Whether the Australia and Canada hub, loyalty rewards, and identity linking have shipped. Whether OpenAI’s portal shipped in 2026. Whether Microsoft has named another country.",
-  },
-];
 
 export const metadata = defaultMetadata(title, description, path);
 
-export default function ShoppingAgentsReportPage() {
+export default async function ShoppingAgentsReportPage() {
+  const [guide, harness, shoppingAgent, checkout, feed] = await Promise.all([
+    getBlogPost("can-an-ai-shopping-agent-check-out-for-you"),
+    getBlogPost("what-is-an-ai-agent-harness"),
+    getGlossaryTerm("shopping-agent"),
+    getGlossaryTerm("agentic-checkout"),
+    getGlossaryTerm("product-feed"),
+  ]);
+  const related = [
+    guide
+      ? {
+          href: `/blog/${guide.slug}`,
+          title: guide.title,
+          description: guide.description,
+          kicker: categoryTitle(guide.category),
+          date: guide.date,
+          readingMinutes: guide.readingMinutes,
+        }
+      : undefined,
+    harness
+      ? {
+          href: `/blog/${harness.slug}`,
+          title: harness.title,
+          description: harness.description,
+          kicker: categoryTitle(harness.category),
+          date: harness.date,
+          readingMinutes: harness.readingMinutes,
+        }
+      : undefined,
+    shoppingAgent
+      ? {
+          href: "/glossary/shopping-agent",
+          title: shoppingAgent.term,
+          description: shoppingAgent.shortDefinition,
+          kicker: "Glossary",
+        }
+      : undefined,
+    checkout
+      ? {
+          href: "/glossary/agentic-checkout",
+          title: checkout.term,
+          description: checkout.shortDefinition,
+          kicker: "Glossary",
+        }
+      : undefined,
+    feed
+      ? {
+          href: "/glossary/product-feed",
+          title: feed.term,
+          description: feed.shortDefinition,
+          kicker: "Glossary",
+        }
+      : undefined,
+    {
+      href: "/directory/category/shopping-agents",
+      title: "Shopping agents in the directory",
+      description: categorySummaries["shopping-agents"],
+      kicker: "Directory",
+    },
+    {
+      href: "/topics/shopping",
+      title: "Shopping topic",
+      description: topics.find((topic) => topic.slug === "shopping")?.summary ?? "",
+      kicker: "Topic",
+    },
+  ].filter((item) => item !== undefined);
   const updatedLabel = formatDate(readOn);
   const pageUrl = absoluteUrl(path);
   const citation = `AI Agents Info. "${title}." Last updated ${updatedLabel}. ${pageUrl}.`;
@@ -89,38 +98,71 @@ export default function ShoppingAgentsReportPage() {
           { name: title, path },
         ]}
       />
-      <header className="mx-auto max-w-6xl px-4 pb-8 pt-12">
-        <p className="kicker kicker-lead">Six-month report</p>
-        <h1 className="display mt-3 text-4xl sm:text-5xl">{title}</h1>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
-          From November 2026 through May 2027, the public record is a short list of rollouts already underway and a
-          handful of phrases with no day attached. Google has direct checkout running for named Canadian retailers as
-          of November 4, and a U.S. cart that launched October 15. OpenAI&apos;s merchant page, read November 5, still
-          sends the ChatGPT purchase to the store&apos;s own site or app. Amazon&apos;s October 29 earnings release
-          counts users of Alexa for Shopping and does not name the next launch. Microsoft&apos;s Copilot Checkout page
-          says it cannot give a timeline for other countries.
-        </p>
-        <p className="mt-3 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
-          The dated work inside the window is Google&apos;s: simplified Universal Commerce Protocol tools in Merchant
-          Center “starting next year,” loyalty rewards “in the coming months,” and Australia and Canada “early next
-          year” on the developer guide. OpenAI aims at a self-serve merchant platform “later this year,” and more
-          regions “over time.” Adobe has published holiday traffic forecasts for November and December. Those figures
-          are clicks from an AI source onto a retail site. They are not a count of agents paying on their own.
-        </p>
-        <p className="mt-3 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
-          A month with no dated launch is left empty on purpose. Who can pay today is covered in{" "}
-          <Link className="text-[var(--link)] underline" href="/blog/can-an-ai-shopping-agent-check-out-for-you">
-            Can an AI shopping agent check out for you?
-          </Link>
-        </p>
-        <p className="mt-3 text-sm text-[var(--muted)]">
-          Last updated <time dateTime={readOn}>{updatedLabel}</time>.
-        </p>
-      </header>
-
-      <div className="mx-auto max-w-6xl px-4 pb-20">
-        <section className="glass rounded-3xl p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold tracking-tight">How a claim is sorted</h2>
+      <ArticleTemplate
+        category="Report"
+        title={title}
+        description={description}
+        published={readOn}
+        readingMinutes={readingMinutes}
+        byline={site.bylines.research}
+        wide
+        takeaways={[
+          "From November 2026 through May 2027, the public record is a short list of rollouts already underway and a handful of phrases with no day attached.",
+          "Google has direct checkout running for named Canadian retailers as of November 4, and a U.S. cart that launched October 15.",
+          "OpenAI's merchant page, read November 5, still sends the ChatGPT purchase to the store's own site or app.",
+          "A month with no dated launch is left empty on purpose.",
+        ]}
+        toc={[
+          { id: "how-a-claim-is-sorted", text: "How a claim is sorted", level: 2 },
+          { id: "announced", text: "Announced", level: 2 },
+          { id: "likely", text: "Likely", level: 2 },
+          { id: "watch-for", text: "Watch for", level: 2 },
+          { id: "month-by-month", text: "Month by month", level: 2 },
+          { id: "what-a-shopping-agent-is", text: "What a shopping agent is", level: 2 },
+          { id: "how-to-use-one-today", text: "How to use one today", level: 2 },
+          { id: "where-the-harness-draws-the-line", text: "Where the harness draws the line", level: 2 },
+          { id: "left-out", text: "Left out", level: 2 },
+          { id: "faq", text: "FAQ", level: 2 },
+          { id: "citation", text: "Cite or embed", level: 2 },
+        ]}
+        actions={
+          <>
+            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
+              Download PDF
+            </a>
+            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv`}>
+              Download CSV
+            </a>
+          </>
+        }
+        citation={<CiteOrEmbed citation={citation} embed={embed} />}
+        related={related}
+      >
+        <div className="article-prose">
+          <p>
+            From November 2026 through May 2027, the public record is a short list of rollouts already underway and a
+            handful of phrases with no day attached. Google has direct checkout running for named Canadian retailers as
+            of November 4, and a U.S. cart that launched October 15. OpenAI&apos;s merchant page, read November 5, still
+            sends the ChatGPT purchase to the store&apos;s own site or app. Amazon&apos;s October 29 earnings release
+            counts users of Alexa for Shopping and does not name the next launch. Microsoft&apos;s Copilot Checkout page
+            says it cannot give a timeline for other countries.
+          </p>
+          <p>
+            The dated work inside the window is Google&apos;s: simplified Universal Commerce Protocol tools in Merchant
+            Center “starting next year,” loyalty rewards “in the coming months,” and Australia and Canada “early next
+            year” on the developer guide. OpenAI aims at a self-serve merchant platform “later this year,” and more
+            regions “over time.” Adobe has published holiday traffic forecasts for November and December. Those figures
+            are clicks from an AI source onto a retail site. They are not a count of agents paying on their own.
+          </p>
+          <p>
+            A month with no dated launch is left empty on purpose. Who can pay today is covered in{" "}
+            <Link href="/blog/can-an-ai-shopping-agent-check-out-for-you">
+              Can an AI shopping agent check out for you?
+            </Link>
+          </p>
+        </div>
+        <section className="glass article-callout mt-10 rounded-3xl p-6 sm:p-8">
+          <h2 id="how-a-claim-is-sorted" className="text-2xl font-semibold tracking-tight">How a claim is sorted</h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
             <strong className="font-semibold text-[var(--fg)]">Announced</strong> means a linked company page or an
             Adobe page says it.
@@ -138,7 +180,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Announced</h2>
+          <h2 id="announced" className="text-2xl font-semibold tracking-tight">Announced</h2>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
             <p>
               <a className="text-[var(--link)] underline" href="https://blog.google/products-and-platforms/products/shopping/universal-cart-launch/">
@@ -262,7 +304,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Likely</h2>
+          <h2 id="likely" className="text-2xl font-semibold tracking-tight">Likely</h2>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
             <p>
               Google Canada, November 4: “Starting next year, we&apos;ll begin broadening access by making simplified
@@ -308,7 +350,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Watch for</h2>
+          <h2 id="watch-for" className="text-2xl font-semibold tracking-tight">Watch for</h2>
           <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-[var(--muted)]">
             <li>
               PayPal on Google checkout. The January 11 post said it would arrive soon. The October 15 and November 4
@@ -350,7 +392,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Month by month, November 2026 to May 2027</h2>
+          <h2 id="month-by-month" className="text-2xl font-semibold tracking-tight">Month by month, November 2026 to May 2027</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             An empty announcement means no linked source named that month. It is not a prediction that the month will
             be quiet, and it is not a prediction that a product will ship.
@@ -377,7 +419,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">What a shopping agent is</h2>
+          <h2 id="what-a-shopping-agent-is" className="text-2xl font-semibold tracking-tight">What a shopping agent is</h2>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
             <p>
               <Link className="text-[var(--link)] underline" href="/glossary/agent">
@@ -418,7 +460,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">How to use one today</h2>
+          <h2 id="how-to-use-one-today" className="text-2xl font-semibold tracking-tight">How to use one today</h2>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
             <p>
               How to use AI agents, for a purchase, is the permission on the screen in front of you. On Google, a U.S.
@@ -454,7 +496,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Where the harness draws the line</h2>
+          <h2 id="where-the-harness-draws-the-line" className="text-2xl font-semibold tracking-tight">Where the harness draws the line</h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             An <Link className="text-[var(--link)] underline" href="/blog/what-is-an-ai-agent-harness">agent harness</Link>{" "}
             is the software around the model: which tools it can call, what it is allowed to spend, and when it must
@@ -471,7 +513,7 @@ export default function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Left out</h2>
+          <h2 id="left-out" className="text-2xl font-semibold tracking-tight">Left out</h2>
           <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-[var(--muted)]">
             <li>
               Third-party transcripts of Amazon&apos;s October 29 call include a line that U.S. customers using Alexa
@@ -500,41 +542,6 @@ export default function ShoppingAgentsReportPage() {
             </li>
           </ul>
         </section>
-
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Related on this site</h2>
-          <ul className="mt-3 grid gap-2 text-sm">
-            <li>
-              <Link className="text-[var(--link)] underline" href="/blog/can-an-ai-shopping-agent-check-out-for-you">
-                Can an AI shopping agent check out for you?
-              </Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/glossary/shopping-agent">Shopping agent</Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/glossary/agentic-checkout">Agentic checkout</Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/glossary/product-feed">Product feed</Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/directory/category/shopping-agents">
-                Shopping agents in the directory
-              </Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/topics/shopping">Shopping topic</Link>
-            </li>
-            <li>
-              <Link className="text-[var(--link)] underline" href="/reports">All reports</Link>
-            </li>
-          </ul>
-        </section>
-
-        <div className="mt-12">
-          <CiteOrEmbed citation={citation} embed={embed} />
-        </div>
 
         <FaqList
           items={[
@@ -633,7 +640,7 @@ export default function ShoppingAgentsReportPage() {
         <div className="mt-14">
           <NewsletterSignup id="report-shopping" />
         </div>
-      </div>
+      </ArticleTemplate>
     </>
   );
 }

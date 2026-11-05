@@ -1,6 +1,10 @@
 ---
 title: "Can an AI shopping agent check out for you?"
-description: "Where an assistant can pay, where the purchase finishes on the store's own checkout, and who remains the seller. Checked November 4, 2026."
+description: "Sometimes a shopping agent can pay: only with a checkout path, a saved payment method, and a rule for who must agree. The store remains the seller."
+takeaways:
+  - "A shopping agent can research and compare on its own. It can pay only when the product has a checkout path, a saved payment method, and a rule for who must agree."
+  - "On the pages checked for this guide, Google can take Google Pay or hand items to the store, and ChatGPT sends the purchase to the store's website or app."
+  - "The short version: the assistant is allowed to act. The store still sells the item."
 date: "2026-11-04"
 updated: "2026-11-04"
 category: guide

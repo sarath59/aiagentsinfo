@@ -1,4 +1,5 @@
 import { contentDir, loadMarkdownCollection } from "@/lib/markdown";
+import { readingTime } from "@/lib/utils";
 
 export const researchTypes = [
   { slug: "paper-breakdown", title: "Paper breakdown" },
@@ -42,6 +43,7 @@ export type ResearchDoc = {
   slug: string;
   html: string;
   toc: { id: string; text: string; level: 2 | 3 }[];
+  readingMinutes: number;
 } & ResearchFrontmatter;
 
 export async function getResearchDocs(): Promise<ResearchDoc[]> {
@@ -53,6 +55,16 @@ export async function getResearchDocs(): Promise<ResearchDoc[]> {
       slug: doc.slug,
       html: doc.html,
       toc: doc.toc,
+      readingMinutes: readingTime(
+        [
+          doc.content,
+          doc.data.abstract,
+          doc.data.whyItMatters ?? "",
+          doc.data.methodology,
+          ...doc.data.keyFindings,
+          ...doc.data.limitations,
+        ].join("\n"),
+      ),
       ...doc.data,
     }))
     .filter((doc) => doc.sample !== true)
@@ -62,6 +74,19 @@ export async function getResearchDocs(): Promise<ResearchDoc[]> {
 export async function getResearchDoc(slug: string) {
   const docs = await getResearchDocs();
   return docs.find((doc) => doc.slug === slug);
+}
+
+export function relatedResearchDocs(doc: ResearchDoc, all: ResearchDoc[], limit = 3) {
+  return all
+    .filter((other) => other.slug !== doc.slug)
+    .map((other) => {
+      const topicScore = other.topics.filter((topic) => doc.topics.includes(topic)).length;
+      const typeScore = other.type === doc.type ? 1 : 0;
+      return { other, score: topicScore * 2 + typeScore };
+    })
+    .sort((a, b) => b.score - a.score || +new Date(b.other.date) - +new Date(a.other.date))
+    .slice(0, limit)
+    .map((entry) => entry.other);
 }
 
 export function researchTypeTitle(slug: string) {

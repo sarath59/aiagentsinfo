@@ -92,39 +92,36 @@ export function SourceList({
   sources: { title: string; url?: string; note?: string }[];
 }) {
   return (
-    <ul className="mt-4 grid gap-2">
-      {sources.map((source) => {
+    <ol className="source-list">
+      {sources.map((source, index) => {
         const company = sourceMark(source);
-        const mark = (
-          <CompanyLogo
-            name={company?.name ?? source.title}
-            src={company?.logo}
-            tile={company?.tile}
-            size="xs"
-          />
-        );
-        const label = (
-          <span className="min-w-0 text-left">
-            {source.title}
-            {source.note ? <span className="text-[var(--muted)]"> — {source.note}</span> : null}
-          </span>
+        const body = (
+          <>
+            <CompanyLogo
+              name={company?.name ?? source.title}
+              src={company?.logo}
+              tile={company?.tile}
+              size="xs"
+            />
+            <span>
+              {source.title}
+              {source.note ? <span className="text-[var(--muted)]"> — {source.note}</span> : null}
+            </span>
+          </>
         );
         return (
           <li key={`${source.title}-${source.url ?? ""}`}>
+            <span className="source-index">{index + 1}</span>
             {source.url ? (
-              <a className="chip focus-ring w-fit max-w-full gap-2 py-1.5 pl-1.5 pr-3" href={source.url} rel="noreferrer">
-                {mark}
-                {label}
+              <a className="source-link inline-flex items-start gap-2" href={source.url} rel="noreferrer">
+                {body}
               </a>
             ) : (
-              <span className="chip w-fit max-w-full gap-2 py-1.5 pl-1.5 pr-3">
-                {mark}
-                {label}
-              </span>
+              <span className="source-link inline-flex items-start gap-2">{body}</span>
             )}
           </li>
         );
       })}
-    </ul>
+    </ol>
   );
 }

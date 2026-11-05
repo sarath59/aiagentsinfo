@@ -24,12 +24,14 @@ export function SortableTable({
   defaultSort,
   defaultDirection = "desc",
   caption,
+  downloadHref,
 }: {
   columns: SortableColumn[];
   rows: SortableRow[];
   defaultSort: string;
   defaultDirection?: "asc" | "desc";
   caption: string;
+  downloadHref?: string;
 }) {
   const [sortKey, setSortKey] = useState(defaultSort);
   const [direction, setDirection] = useState<"asc" | "desc">(defaultDirection);
@@ -50,7 +52,15 @@ export function SortableTable({
   }
 
   return (
-    <div className="overflow-x-auto rounded-3xl border border-[var(--stroke)] bg-white/80">
+    <div className="table-block">
+      {downloadHref ? (
+        <p className="table-actions no-print">
+          <a className="btn-ghost px-3 py-1.5 text-sm" href={downloadHref}>
+            Download CSV
+          </a>
+        </p>
+      ) : null}
+      <div className="table-scroll">
       <table className="w-full min-w-[40rem] border-collapse text-sm" aria-label={caption}>
         <thead>
           <tr className="border-b border-[var(--stroke)] text-left">
@@ -101,6 +111,7 @@ export function SortableTable({
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

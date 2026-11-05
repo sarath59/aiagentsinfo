@@ -1,6 +1,10 @@
 ---
 title: "What Is an AI Agent Harness? Plain-English Guide (2026)"
-description: "An agent harness is the software around an AI model: its loop, tools, memory, permissions and checks. See how harnesses like Claude Code, Codex and DeepSeek Harness differ."
+description: "An agent harness is the software around a model: its loop, tools, memory, permissions, and stop rules. The same model can get a different result."
+takeaways:
+  - "A harness is the workshop around a model: the tools, the notebook, the lock on the door, and the rule for when to stop."
+  - "Two workshops can hand the same program a job and get different results. The program did not change. The workshop did."
+  - "On this site, a harness is the runtime around a model: the loop, the tools, the memory, the permissions, and the stop conditions."
 date: "2026-11-03"
 updated: "2026-11-05"
 category: guide

@@ -1,6 +1,10 @@
 ---
 title: "Tencent releases Hy4 with image understanding and computer use"
-description: "On November 4, 2026, Tencent released Hy4. It can read images and operate a computer, the API is live, and the weights are still scheduled for later."
+description: "On November 4, 2026, Tencent released Hy4, a model that can read images and operate a computer. The API is live. The weights are still scheduled."
+takeaways:
+  - "On November 4, 2026, Tencent released Hy4 and said it is the first Hy model that can read images and operate a computer."
+  - "The API is on Tencent Cloud TokenHub as hy4 and on OpenRouter as tencent/hy4."
+  - "Tencent says the weights and a system card are still scheduled for the coming days."
 date: "2026-11-05"
 updated: "2026-11-05"
 category: news

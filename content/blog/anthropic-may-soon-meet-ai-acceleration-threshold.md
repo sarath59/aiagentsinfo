@@ -1,6 +1,10 @@
 ---
 title: "Anthropic IPO Filing: What It Says About Its AI Acceleration Rule"
-description: "Anthropic’s November 2, 2026 Form S-1/A registers an IPO of Class A stock and says future-model estimates may soon meet its AI acceleration rule. No current model is over that line."
+description: "Anthropic's November 2, 2026 Form S-1/A says future-model estimates may soon meet its AI acceleration rule. No current model is past that line."
+takeaways:
+  - "Anthropic told the SEC on November 2, 2026 that its estimates for future models may soon meet its rule for dramatically accelerated progress attributable to AI."
+  - "The filing says it has not designated any current model as exceeding that threshold."
+  - "It does not anticipate letting Claude fully autonomously design successor frontier models without meaningful human supervision."
 date: "2026-11-03"
 updated: "2026-11-05"
 category: news

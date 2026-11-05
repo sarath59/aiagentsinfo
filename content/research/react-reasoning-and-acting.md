@@ -1,6 +1,6 @@
 ---
 title: "Paper breakdown: ReAct — reasoning and acting in language models"
-description: "Editorial notes on Yao et al. 2022, the paper that interleaves free-text reasoning traces with actions in an environment."
+description: "Notes on Yao et al. 2022. ReAct interleaves a written reasoning trace with an action, then reads the observation, on HotpotQA, FEVER, ALFWorld, and WebShop."
 date: "2026-10-18"
 updated: "2026-11-02"
 type: paper-breakdown

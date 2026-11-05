@@ -1,9 +1,15 @@
 import type { ReactNode } from "react";
 
-export function FaqList({ items }: { items: { question: string; answer: ReactNode }[] }) {
+export function FaqList({
+  items,
+  id = "faq",
+}: {
+  items: { question: string; answer: ReactNode }[];
+  id?: string;
+}) {
   return (
-    <section className="mt-14">
-      <h2 className="text-2xl font-semibold tracking-tight">FAQ</h2>
+    <section className="article-prose mt-14" id={id}>
+      <h2>FAQ</h2>
       <div className="mt-4 grid gap-6">
         {items.map((item) => (
           <div key={item.question}>

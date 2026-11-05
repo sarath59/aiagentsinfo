@@ -6,10 +6,10 @@ export function Breadcrumbs({ items }: { items: { name: string; path: string }[]
     <>
       <JsonLd data={breadcrumbJsonLd(items)} />
       <nav aria-label="Breadcrumb" className="mx-auto max-w-6xl px-4 pt-6 text-sm text-[var(--muted)]">
-        <ol className="flex flex-wrap gap-2">
+        <ol>
           {items.map((item, index) => (
-            <li key={item.path} className="flex items-center gap-2">
-              {index > 0 ? <span aria-hidden>/</span> : null}
+            <li key={item.path} className="inline">
+              {index > 0 ? <span aria-hidden>{" / "}</span> : null}
               {index === items.length - 1 ? (
                 <span className="text-[var(--fg)]">{item.name}</span>
               ) : (

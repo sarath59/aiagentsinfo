@@ -17,7 +17,7 @@ import { formatDate } from "@/lib/utils";
 const path = "/agent-cost-calculator";
 const title = "Free AI agent cost calculator";
 const description =
-  "Estimate a 30-day model bill from official per-token prices. Pick a model, enter tokens per task and tasks per day. No login.";
+  "Estimate a 30-day model bill from official per-token prices. Pick a model, then enter tokens per task and tasks per day. No login is required.";
 
 export const metadata = defaultMetadata(title, description, path);
 

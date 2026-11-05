@@ -57,6 +57,7 @@ export async function buildLlmsTxt() {
     section("Key sections", [
       item("Blog", "/blog", "Explainers, news, and guides."),
       item("Research", "/research", "Paper breakdowns and original notes."),
+      item("Papers", "/papers", "Paper breakdowns, each with the source link and the paper's authors."),
       item("Guides", "/blog?category=guide", "Blog posts filed as guides."),
       item("Glossary", "/glossary", "Short definitions used across the site."),
       item("Directory", "/directory", "AI tools, apps, SaaS, and agents, each with a source site."),

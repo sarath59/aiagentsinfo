@@ -12,7 +12,7 @@ export function CopyBibtex({ value }: { value: string }) {
   }
 
   return (
-    <div className="glass rounded-3xl p-5">
+    <div className="citation-panel glass rounded-3xl p-5">
       <div className="mb-3 flex items-center justify-between">
         <p className="kicker">Cite this page</p>
         <button type="button" onClick={copy} className="focus-ring text-sm underline">

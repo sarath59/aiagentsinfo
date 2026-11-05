@@ -1,6 +1,10 @@
 ---
 title: "Google will turn off Gemini and Search for K-12 students unless schools opt in"
-description: "On November 3, 2026, Google said Gemini and Search will be off for K-12 students until a school turns each one on. Search can be enabled without Gemini."
+description: "On November 3, 2026, Google said Gemini and Search stay off for K-12 students until a school turns each one on. Search can be enabled alone."
+takeaways:
+  - "On November 3, 2026, Google said K-12 student accounts will lose access to Gemini and Google Search until a school administrator turns them back on."
+  - "Later the same day, Google's news account said a school can turn Search on by itself, without also turning Gemini on."
+  - "Until that rollout, the sourced claim is the policy, not a report that student Search has already stopped."
 date: "2026-11-04"
 updated: "2026-11-04"
 category: news

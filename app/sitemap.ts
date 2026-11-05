@@ -79,6 +79,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/", maxDate(contentDates), 1),
     entry("/blog", maxDate(posts.map((post) => post.updated ?? post.date)), 0.8),
     entry("/research", maxDate(research.map((doc) => doc.updated ?? doc.date)), 0.8),
+    entry(
+      "/papers",
+      maxDate(research.filter((doc) => doc.type === "paper-breakdown").map((doc) => doc.updated ?? doc.date)),
+      0.8,
+    ),
     entry("/directory", maxDate(listings.map((listing) => listing.lastVerified)), 0.8),
     entry("/topics", maxDate(contentDates), 0.6),
     entry("/about", trustUpdated, 0.5),
