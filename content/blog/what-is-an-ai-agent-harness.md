@@ -1,6 +1,6 @@
 ---
-title: "What Is DeepSeek Harness? An Agent Harness, Explained (2026)"
-description: "DeepSeek Harness is DeepSeek’s open-source agent harness, still in developer preview. An agent harness is the loop, tools, memory, permissions, and stop rules around a model."
+title: "What Is an AI Agent Harness? DeepSeek Harness, Explained (2026)"
+description: "An AI agent harness is the loop, tools, memory, permissions, and stop rules around a model. DeepSeek Harness is DeepSeek’s open-source harness, still in developer preview. A November 2026 note covers the Super Agent router and worker design."
 takeaways:
   - "A harness is the workshop around a model: the tools, the notebook, the lock on the door, and the rule for when to stop."
   - "Two workshops can hand the same program a job and get different results. The program did not change. The workshop did."
@@ -85,9 +85,17 @@ sources:
     url: "https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.2.2-rc.1"
   - title: "Yu et al., Harmony Harness: Multi-Objective Self-Evolution of Agent Harnesses (arXiv:2610.15150)"
     url: "https://arxiv.org/abs/2610.15150"
+  - title: "South China Morning Post, DeepSeek unveils AI super agent (published November 1, 2026; checked November 6, 2026)"
+    url: "https://www.scmp.com/tech/article/3372884/deepseek-unveils-ai-super-agent-coding-race-openai-anthropic"
+  - title: "MarkTechPost, DeepSeek open-sources dsh-superagent, a router-worker coding agent (November 1, 2026)"
+    url: "https://www.marktechpost.com/2026/11/01/deepseek-dsh-superagent-router-worker-coding-agent/"
+  - title: "DeepSeek, dsh-superagent-prototype README (research prototype, MIT license; checked November 6, 2026)"
+    url: "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/README.md"
+  - title: "DeepSeek, dsh-superagent execution notes (router preset, worker session per ticket)"
+    url: "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/003-execution.md"
 faq:
   - question: "What is DeepSeek Harness?"
-    answer: "DeepSeek Harness is an open-source agent harness from DeepSeek, in the repository deepseek-ai/deepseek-harness, created August 13, 2026. The README calls it dsh, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. It is the harness itself, not a shipping app like Claude Code or Codex."
+    answer: "DeepSeek Harness is an open-source agent harness from DeepSeek, in the repository deepseek-ai/deepseek-harness, created August 13, 2026. The README calls it dsh, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. A separate repository, dsh-superagent-prototype, is a research prototype of a router and worker design, not an official DeepSeek product. DeepSeek Harness is the harness itself, not a shipping app like Claude Code or Codex."
   - question: "What is an AI agent harness?"
     answer: "An AI agent harness is the software around a language model that lets the model take steps. It holds the tools, the memory, the permissions, the record of what happened, and the rule for when to stop. On this site, an agent is the model plus that harness."
   - question: "How do a model, a harness, and an agent differ?"
@@ -221,7 +229,7 @@ LangChain’s March 10 post adds a research-shaped caution. It says products suc
 
 A framework is a library. A harness is a configured run: which prompts, tools, sandbox, approvals, and stop rules are actually in force.
 
-This site’s [agent frameworks](/directory/category/agent-frameworks) category is the library shelf. The [LangChain listing](/directory/langchain) says the framework is the open-source library, and the harness is the runtime around the model. [CrewAI](/directory/crewai) and [smolagents](/directory/smolagents) are on that shelf too. The [harness comparison tracker](/trackers/harnesses) stays empty until every cell in a matrix has its own source. The table in the next section is a narrower substitute: what each vendor’s own docs call the harness. Those rows were checked on November 3, 2026. The Pydantic row was checked again on November 4, 2026. Prices and plan limits live on the directory listings, where this site records a last-checked date, and on the vendor pages.
+This site’s [agent frameworks](/directory/category/agent-frameworks) category is the library shelf. The [LangChain listing](/directory/langchain) says the framework is the open-source library, and the harness is the runtime around the model. [CrewAI](/directory/crewai) and [smolagents](/directory/smolagents) are on that shelf too. The [harness comparison tracker](/trackers/harnesses) stays empty until every cell in a matrix has its own source. The table in the next section is a narrower substitute: what each vendor’s own docs call the harness. Those rows were checked on November 3, 2026. The Pydantic row was checked again on November 4, 2026. Prices and plan limits live on the directory listings, where this site records a last-checked date, and on the vendor pages. The side-by-side list prices for the two shipping coding-agent harnesses are [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), checked November 6, 2026.
 
 ## How do current products divide the work?
 
@@ -284,6 +292,16 @@ On November 5, 2026, GitHub’s latest-release endpoint, which returns the newes
 
 That is a different artifact from the products in the table. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products with their own apps and plan pages. DeepSeek’s repository is the harness itself, in preview, organized as plugins. This page does not turn that into a ranking. The [harness comparison](/trackers/harnesses) still waits until each cell has its own source.
 
+### What is the DeepSeek Super Agent design?
+
+At the end of October 2026 the same group described a second shape, and published a prototype beside it. The [South China Morning Post](https://www.scmp.com/tech/article/3372884/deepseek-unveils-ai-super-agent-coding-race-openai-anthropic), in a story published November 1, 2026, says the DeepSeek Harness team published a technical article the day before, a Saturday, about a system it calls a super agent. The Post says the aim is to reduce the human work of coordinating several agents and watching their progress. That story is a news report of the article. It describes the aim. It does not print a results table.
+
+The code published with the discussion is [deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype). The [README](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/README.md), checked November 6, 2026, calls it dsh-superagent: a proactive coding agent for one GitHub repository, packaged as a bundle for DeepSeek Harness. The README says it is a research prototype for reference, not an official DeepSeek product. It says the published code was adapted, so it is not identical to the internal version or to the implementation described in “Exploring Super-agent Design: Towards a More Autonomous Agent System,” and that some designs in that article are later work and are not in the prototype. The README links an MIT license.
+
+[MarkTechPost’s November 1, 2026 article](https://www.marktechpost.com/2026/11/01/deepseek-dsh-superagent-router-worker-coding-agent/) describes the design as two layers. A long-running router handles interaction and dispatch. Isolated worker sessions do the work. The prototype’s [execution notes](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/003-execution.md) say the main session uses a router preset with a smaller tool set, and that each ticket gets its own worker session and directory. Those notes say worker sessions run commands without approval, as the operator’s operating-system user. MarkTechPost also prints simulation times from secondary reports of a DeepSeek test, a p95 of 15.7 minutes for the super-agent setup and 29.5 minutes for a single-session baseline, and it says the runs used synthetic messages and simulated tools. It says real coding quality was not measured. This page has not re-run that test, and it does not treat those minutes as a product score.
+
+The prototype is a harness you can read. The bill for a shipping coding agent is a separate question. [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing) compares those list prices as of November 6, 2026. An open-source workshop can still call a model on a paid plan. The plan is how those calls are billed. The harness is what the calls are allowed to do.
+
 ## Can an agent harness improve itself?
 
 A research paper can study that question. It does not, by itself, mean a product you can install already rewrites its own workshop.
@@ -339,6 +357,7 @@ The [task performance](/topics/task-performance) topic is where this site follow
 - Directory: [agent frameworks](/directory/category/agent-frameworks), [Claude Agent SDK](/directory/claude-agent-sdk), [OpenAI Agents SDK](/directory/openai-agents-sdk), [Codex](/directory/codex), [Google ADK](/directory/google-adk), [Microsoft Agent Framework](/directory/microsoft-agent-framework), [Pydantic AI](/directory/pydantic-ai)
 - Shopping: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
 - Computer use: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
+- Coding-agent prices: [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing)
 - Reports: [AI agents, November 2026 to May 2027](/reports/ai-agents-next-6-months), [harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
 - Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [shopping](/topics/shopping)
 
@@ -346,7 +365,7 @@ The [task performance](/topics/task-performance) topic is where this site follow
 
 ### What is DeepSeek Harness?
 
-It is an open-source [agent harness](/glossary/harness) from DeepSeek, in the repository deepseek-ai/deepseek-harness, which GitHub records as created on August 13, 2026. The README calls the program `dsh`, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products. DeepSeek Harness is the harness itself, still in preview. The longer account is the section above. The work of designing any harness, including this one, is [harness engineering](/glossary/harness-engineering).
+It is an open-source [agent harness](/glossary/harness) from DeepSeek, in the repository deepseek-ai/deepseek-harness, which GitHub records as created on August 13, 2026. The README calls the program `dsh`, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. A later note on this page covers the separate dsh-superagent prototype, a router and worker design published at the end of October 2026. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products. Their list prices are [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). DeepSeek Harness is the harness itself, still in preview. The longer account is the section above. The work of designing any harness, including this one, is [harness engineering](/glossary/harness-engineering).
 
 ### What is an AI agent harness?
 

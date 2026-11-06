@@ -21,9 +21,9 @@ features:
   - Clients listed by OpenAI include ChatGPT, the Codex CLI, an IDE extension, and the web
   - Cloud tasks can keep running after you close your laptop
   - Pull-request review is described on the product page
-pricingSummary: "The Codex page lists Plus at $20, Pro at $100, and Business at $20. Business is noted for 2 or more seats, billed annually. OpenAI's help center says Codex is included on Free and Go as well, with limits that vary by plan, and that Codex Cloud is not included on Free or Go."
-lastVerified: "2026-11-03"
+pricingSummary: "Checked November 6, 2026. Codex docs list Free at $0, Go at $8 a month, Plus at $20, Pro from $100 with tiers at $100, $200, and $500, and Business at $20 per user per month for 2 or more users billed annually ($25 billed monthly). Codex is included on Free and Go with limits. The help center says Codex Cloud is not included on Free or Go."
+lastVerified: "2026-11-06"
 newThisWeek: true
 ---
 
-Codex is a coding [agent](/glossary/agent). Plan limits and which models are available change, so check OpenAI's current pricing and help pages before you rely on a number.
+Codex is a coding [agent](/glossary/agent). Plan limits and which models are available change, so check OpenAI's current pricing and help pages before you rely on a number. The November 6, 2026 comparison with Claude Code, including Go at $8 a month and Pro at $100, $200, and $500, is [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing).

@@ -1,0 +1,55 @@
+{
+  "updated": "2026-11-06",
+  "pages": [
+    {
+      "question": "claude code vs codex pricing",
+      "slug": "claude-code-vs-codex-pricing",
+      "url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
+      "published": "2026-11-06",
+      "status": "published",
+      "notes": "First long-tail Mon/Wed/Fri page"
+    },
+    {
+      "question": "what is an ai agent harness",
+      "slug": "what-is-an-ai-agent-harness",
+      "url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "published": "2026-11-03",
+      "status": "published",
+      "refreshed": "2026-11-06"
+    },
+    {
+      "question": "can an ai shopping agent check out for you",
+      "slug": "can-an-ai-shopping-agent-check-out-for-you",
+      "url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "published": "2026-11-04",
+      "status": "published"
+    },
+    {
+      "question": "can an ai agent use your computer",
+      "slug": "can-an-ai-agent-use-your-computer",
+      "url": "https://www.aiagentsinfo.com/blog/can-an-ai-agent-use-your-computer",
+      "published": "2026-11-05",
+      "status": "published"
+    },
+    {
+      "question": "can chatgpt buy things for me",
+      "slug": "can-an-ai-shopping-agent-check-out-for-you",
+      "url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "published": "2026-11-04",
+      "status": "published",
+      "notes": "Already a dedicated page. The title asks this question. The slug is the shopping-agent guide, so this question is not an unused candidate."
+    }
+  ],
+  "candidates": [
+    {
+      "question": "what is deepseek super agent",
+      "status": "not-yet-published",
+      "notes": "Mentioned in the November 6, 2026 refresh of what-is-an-ai-agent-harness. No dedicated URL yet."
+    },
+    {
+      "question": "claude code subagent cost",
+      "status": "not-yet-published",
+      "notes": "The pricing guide does not quote a separate subagent rate. Neither vendor page checked on 2026-11-06 printed one."
+    }
+  ]
+}

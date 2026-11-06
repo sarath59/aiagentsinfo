@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06T01:30:00Z",
+  "updated": "2026-11-06T09:40:00Z",
   "sources": [
     "Google Trends via pytrends 4.9 (interest_over_time + related_queries rising), geo US and worldwide, timeframes now 1-d and now 7-d, run 2026-11-05 ~06:33 IST",
     "Google Trends daily trending RSS https://trends.google.com/trending/rss?geo=US (fetched; no AI terms in top items)",
@@ -7,7 +7,7 @@
     "WebSearch: AI news digests for Nov 4 2026 (aiproplaybook.com, aiweekly.co, theneuron.ai, richard-brooks.com, aiweekdaily.com); arXiv 2610.15150 Harmony Harness; github.com/deepseek-ai/deepseek-harness, thenewstack.io",
     "Live site sitemap https://www.aiagentsinfo.com/sitemap.xml and GitHub public API repo tree for sarath59/aiagentsinfo"
   ],
-  "notes": "Google Trends values are relative (0-100 within each comparison set); rising percentages are Google's 'rising' related-query values. No previous keywords.json existed before 2026-11-05, so history starts that day. On 2026-11-06, on-page targets were set for the rising phrases what is deepseek harness, deepseek harness, opus 5.5 harness engineering, learn harness engineering, can an ai agent use your computer, can chatgpt buy things for me, and claude code vs codex pricing. No new Trends pull was run that day; new rows record that assignment only.",
+  "notes": "Google Trends values are relative (0-100 within each comparison set); rising percentages are Google's 'rising' related-query values. No previous keywords.json existed before 2026-11-05, so history starts that day. On 2026-11-06, on-page targets were set for the rising phrases what is deepseek harness, deepseek harness, opus 5.5 harness engineering, learn harness engineering, can an ai agent use your computer, can chatgpt buy things for me, and claude code vs codex pricing. No new Trends pull was run that day; new rows record that assignment only. Later on 2026-11-06 the phrase claude code vs codex pricing was pointed at the dedicated guide /blog/claude-code-vs-codex-pricing.",
   "keywords": [
     {
       "date": "2026-11-05",
@@ -724,7 +724,7 @@
       "type": "long-tail",
       "trend_signal": "Assigned on 2026-11-06 from the standing on-page keyword list. Related row 'claude code vs codex' cites X News on Nov 4 and Trends 7d means. No separate Trends figure was pulled for the pricing phrase.",
       "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
+      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
       "status": "targeted",
       "rank": 40,
       "first_seen": "2026-11-06",
@@ -733,6 +733,12 @@
           "date": "2026-11-06",
           "rank": 40,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 40,
+          "status": "targeted",
+          "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing"
         }
       ]
     },

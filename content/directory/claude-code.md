@@ -20,7 +20,7 @@ features:
   - Can explain a codebase, write code, run tests, and open pull requests
   - In the terminal it runs on your computer and asks before it edits files or runs commands
 pricingSummary: "Not included on the Free plan ($0). Included on Pro ($20 per month, or $17 per month when billed annually at $200 up front), Max ($100 per month), and Ultra ($200 per month). Those plans share one usage pool with the rest of Claude. With a Claude Console account, use is billed at standard API rates. Enterprise is $20 per seat per month plus usage at API rates, billed annually. Prices exclude tax."
-lastVerified: "2026-11-03"
+lastVerified: "2026-11-06"
 newThisWeek: true
 ---
 
@@ -36,4 +36,4 @@ OpenAI’s page says Codex is included with a ChatGPT plan, and that you use the
 
 ## How does Claude Code vs Codex pricing compare?
 
-On the pages checked November 5, 2026, both vendors list a $20 plan, and the rest of the ladder is not the same. This page’s pricing summary lists Claude Code Pro at $20 per month, Max at $100, and Ultra at $200, and says Claude Code is not on the Free plan. The Codex paragraph above lists Plus at $20, Pro at $100, and Business at $20 for two or more seats, billed annually. The [Codex listing](/directory/codex) records a different free-tier rule: Codex is included on Free and Go, with limits, and Codex Cloud is not. Those are list prices from the vendor pages, not a measure of how much work each plan includes. The software around either model is a [harness](/glossary/harness). The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Plan limits move. Use the vendor page for a number you intend to rely on.
+On the pages checked November 5, 2026, both vendors list a $20 plan, and the rest of the ladder is not the same. This page’s pricing summary lists Claude Code Pro at $20 per month, Max at $100, and Ultra at $200, and says Claude Code is not on the Free plan. The Codex paragraph above lists Plus at $20, Pro at $100, and Business at $20 for two or more seats, billed annually. The [Codex listing](/directory/codex) records a different free-tier rule: Codex is included on Free and Go, with limits, and Codex Cloud is not. Those are list prices from the vendor pages, not a measure of how much work each plan includes. The full ladder, rechecked November 6, 2026, including Claude Team standard and premium seats and Codex Pro at $100, $200, and $500, is [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). The software around either model is a [harness](/glossary/harness). The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Plan limits move. Use the vendor page for a number you intend to rely on.
