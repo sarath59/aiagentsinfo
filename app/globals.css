@@ -1272,25 +1272,3 @@ article.grid > * {
     color: #0b1f33 !important;
   }
 }
-
-.analytics-track {
-  height: 0.55rem;
-  overflow: hidden;
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--color-navy) 8%, white);
-}
-
-.analytics-track > span,
-.analytics-col {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #0c5cad, #14b8a6);
-}
-
-.analytics-col {
-  width: 100%;
-  min-height: 4px;
-  border-radius: 999px 999px 4px 4px;
-  background: linear-gradient(180deg, #2f9dff, #0c5cad 55%, #0c746e);
-}

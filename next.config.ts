@@ -4,24 +4,6 @@ const nextConfig: NextConfig = {
   // Content is file-based and SEO-first. Keep the classic App Router
   // model so filter/search params and markdown pages stay straightforward.
   cacheComponents: false,
-  async headers() {
-    return [
-      {
-        source: "/admin/:path*",
-        headers: [
-          { key: "X-Robots-Tag", value: "noindex, nofollow" },
-          { key: "Cache-Control", value: "private, no-store" },
-        ],
-      },
-      {
-        source: "/api/analytics/:path*",
-        headers: [
-          { key: "X-Robots-Tag", value: "noindex, nofollow" },
-          { key: "Cache-Control", value: "private, no-store" },
-        ],
-      },
-    ];
-  },
   async redirects() {
     return [
       {

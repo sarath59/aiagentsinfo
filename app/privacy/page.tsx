@@ -40,9 +40,6 @@ export default function PrivacyPage() {
           does not require an account. A valid submission is published to the directory. That public file includes the product details and logo URL, and it does not include your email. If a separate private repository is configured, the email is stored only on a private GitHub issue. Otherwise the email is not stored. If saving is unavailable, the form offers an email to {site.email} instead. Do not send secrets.
         </p>
         <p className="mt-4">
-          A separate first-party counter also runs in the browser. It does not use cookies. A random visitor id stays in local storage and a session id stays in session storage. It records the page, the referring site, utm parameters, screen size, language, how long the tab was visible, the furthest scroll mark (25, 50, 75, or 100 percent), the heading on screen when you leave, clicks to other sites, newsletter submits, and PDF downloads. The server adds the country, region, and city supplied by the host, plus a daily hash of the network address used only to count unique visits. The address itself is not stored. If the browser sends Do Not Track or Global Privacy Control, this counter does not run.
-        </p>
-        <p className="mt-4">
           Page views are measured with{" "}
           <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
             <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />

@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: userAgents.map((userAgent) => ({
       userAgent,
       allow: "/",
-      disallow: ["/api/", "/admin"],
+      disallow: "/api/",
     })),
     sitemap: `${canonical}/sitemap.xml`,
     host: canonical,
