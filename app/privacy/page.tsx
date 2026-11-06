@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           <Link href="/submit" className="text-[var(--link)] underline">
             Submit your tool
           </Link>{" "}
-          does not require an account. A valid submission is published to the directory. That public file includes the product details and logo URL, and it does not include your email. If a separate private repository is configured, the email is stored only on a private GitHub issue. Otherwise the email is not stored. If saving is unavailable, the form offers an email to {site.email} instead. Do not send secrets.
+          does not require an account. A valid submission is published to the directory. Your email is required and is saved with the submission so we can contact you. Directory pages do not show that email. If saving is unavailable, the form offers an email to {site.email} instead. Do not send secrets.
         </p>
         <p className="mt-4">
           Page views are measured with{" "}

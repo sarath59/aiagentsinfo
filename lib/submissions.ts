@@ -416,6 +416,7 @@ export function plainTextToHtml(value: string) {
     .join("");
 }
 
+/** Directory listing. The submitter email stays off the public page. */
 export function submissionToListing(submission: ToolSubmission) {
   const typeTitle = submission.type
     ? (toolTypes.find((item) => item.slug === submission.type)?.title ?? "")
@@ -476,7 +477,10 @@ export function submissionToListing(submission: ToolSubmission) {
   };
 }
 
-/** Public directory file. The submitter email is intentionally omitted. */
+/**
+ * JSON written to `data/submissions`. Includes the submitter email so the desk can reply.
+ * Directory pages use `submissionToListing`, which leaves the email out.
+ */
 export function publicSubmissionRecord(submission: ToolSubmission) {
   return {
     name: submission.name,
@@ -502,6 +506,7 @@ export function publicSubmissionRecord(submission: ToolSubmission) {
     discordUrl: submission.discordUrl,
     instagramUrl: submission.instagramUrl,
     productHuntUrl: submission.productHuntUrl,
+    email: submission.email,
     consent: true as const,
     status: "approved" as const,
     submittedAt: submission.submittedAt,
@@ -526,7 +531,7 @@ export function submissionIssueBody(submission: ToolSubmission) {
     `Website: ${neutralizeMentions(submission.website)}`,
     `Email: ${submission.email}`,
     "",
-    "The email is only in this private issue. It is not in the public directory file.",
+    "The email is stored on the submission record so we can follow up. Directory pages do not show it.",
     `Public file: \`data/submissions/${submission.slug}.json\` on main, with \`"status": "approved"\`.`,
     `Category: ${categoryTitle(submission.category)}`,
     "",

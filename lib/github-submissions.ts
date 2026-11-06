@@ -16,7 +16,7 @@ export function submissionsToken() {
   return token || null;
 }
 
-/** Private repo for the submitter email. Unset, or the public site repo, means the email is dropped. */
+/** Private repo for an extra copy of the submitter email. The submission JSON always keeps it. */
 export function privateIssueRepo() {
   const repo = process.env.GITHUB_SUBMISSIONS_REPO?.trim();
   if (!repo) return null;

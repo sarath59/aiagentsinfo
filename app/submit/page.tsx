@@ -31,7 +31,7 @@ export default function SubmitPage() {
           <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">What happens next</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5">
             <li>We check that the site responds, the domain is new, and the text can be published. Keyboard-mash is rejected. A one-line slogan can go live for visitors and stay out of search. Read the <Link href="/editorial-policy">editorial policy</Link>.</li>
-            <li>We commit the listing to the directory. Your email is not part of that public file.</li>
+            <li>We commit the listing to the directory and save your email with the submission so we can contact you. The directory page does not show your email.</li>
             <li>Your tool will be live in about 2 minutes.</li>
           </ol>
           <p className="mt-4">

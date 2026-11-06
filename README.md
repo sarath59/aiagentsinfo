@@ -76,8 +76,8 @@ Byline is always **AI Agents Info Editorial** or **AI Agents Info Research**. Do
 2. The server sanitizes text and checks the same required fields as the browser. A filled honeypot is ignored. An IP is limited to 5 posts in 15 minutes. Profanity and obvious spam are rejected.
 3. The website URL must be public and respond with a final 2xx status (redirects are followed, up to five hops). Private hosts are refused.
 4. The registrable host, with a leading `www.` removed, is compared with every directory listing and every `data/submissions/*.json` file already on `main`. A repeat domain is rejected.
-5. When `GITHUB_SUBMISSIONS_TOKEN` is set, the server commits `data/submissions/<slug>.json` to `main` on `sarath59/aiagentsinfo` through the GitHub Contents API. `"status"` is `"approved"`. `logoUrl` is stored. **`email` is not in that file.** Vercel redeploys `main`, and the listing usually appears within about two minutes with a Community submitted badge.
-6. If `GITHUB_SUBMISSIONS_REPO` is a different repository, the email is also written to a private GitHub issue labeled `tool-submission` in that repo. If the variable is unset, or points at `sarath59/aiagentsinfo`, the email is dropped.
+5. When `GITHUB_SUBMISSIONS_TOKEN` is set, the server commits `data/submissions/<slug>.json` to `main` on `sarath59/aiagentsinfo` through the GitHub Contents API. `"status"` is `"approved"`. `logoUrl` and `email` are stored. Directory pages, RSS, and share cards do not render `email`. Files already on main without an email still load. Vercel redeploys `main`, and the listing usually appears within about two minutes with a Community submitted badge.
+6. If `GITHUB_SUBMISSIONS_REPO` is a different repository, the email is also written to a private GitHub issue labeled `tool-submission` in that repo. If the variable is unset, or points at `sarath59/aiagentsinfo`, that extra issue is skipped. The email stays on the submission JSON either way.
 7. If the token is missing or GitHub rejects the commit, the API returns an error and a `mailto:` link. The page shows that link. Nothing is described as published.
 8. The deploy reads `data/submissions/*.json`. Only `"approved"` records are rendered, merged with `content/directory`, and added to the sitemap. `"pending"` files are parsed and skipped. A slug that matches an existing listing, or a reserved directory path (`new`, `trending`, `editors-picks`, `submit`), fails the build.
 
@@ -121,6 +121,7 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published fi
   "discordUrl": "",
   "instagramUrl": "",
   "productHuntUrl": "",
+  "email": "maker@example.com",
   "consent": true,
   "status": "approved",
   "submittedAt": "2026-11-03T00:00:00.000Z",
@@ -128,7 +129,7 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published fi
 }
 ```
 
-`type` is `ai-tool`, `saas`, `app`, `agent-framework`, or `other`. `makerType` is `indie-hacker`, `startup`, or `yc` (with `ycBatch`). `pricing` is `free`, `freemium`, `paid`, `open-source`, or `free-trial`. `billingPeriod` is `monthly`, `yearly`, `weekly`, `one-time`, or `usage`, and may be empty. Social URLs and the pricing page are optional and are omitted from the public page when blank. The form accepts `example.com` and `www.example.com` and stores `https://`. Logo files are not uploaded; `logoUrl` is a public image address. There is no `email` field.
+`type` is `ai-tool`, `saas`, `app`, `agent-framework`, or `other`. `makerType` is `indie-hacker`, `startup`, or `yc` (with `ycBatch`). `pricing` is `free`, `freemium`, `paid`, `open-source`, or `free-trial`. `billingPeriod` is `monthly`, `yearly`, `weekly`, `one-time`, or `usage`, and may be empty. Social URLs and the pricing page are optional and are omitted from the public page when blank. The form accepts `example.com` and `www.example.com` and stores `https://`. Logo files are not uploaded; `logoUrl` is a public image address. New submissions require `email`. Older files without it still load. The address is not shown on directory pages, RSS, or share cards.
 
 ## Deploy on Vercel with a custom domain
 

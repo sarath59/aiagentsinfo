@@ -334,10 +334,10 @@ export function SubmitToolForm() {
         <legend className="kicker mb-2">Contact</legend>
         <Field
           id={FIELD_IDS.email}
-          label="Your email"
+          label="Email"
           required
           error={errors.email}
-          hint="Used if we need to follow up. It is not written into the public directory."
+          hint="Required so we can contact you. It is not shown on the directory page."
         >
           <input name="email" type="email" required autoComplete="email" maxLength={254} className={inputClass} />
         </Field>
