@@ -19,9 +19,39 @@ export function announcementPosts(input: ListingAnnouncement) {
   };
 }
 
+/** Visible words of the optional site link. */
+export function listingSiteLabel(input: ListingAnnouncement) {
+  const name = input.name.trim();
+  return name ? `${name} is listed on AI Agents Info` : "Listed on AI Agents Info";
+}
+
+/** Optional HTML the maker can paste on their own site. A text link, not an image. */
+export function listingSiteSnippet(input: ListingAnnouncement) {
+  return `<a href="${escapeHtml(input.url.trim())}">${escapeHtml(listingSiteLabel(input))}</a>`;
+}
+
 export function announcementPostsAreClean(input: ListingAnnouncement) {
   const posts = announcementPosts(input);
-  return !BANNED.test(posts.x) && !BANNED.test(posts.linkedin) && posts.x.length <= 280 && posts.x.includes(input.url.trim());
+  const snippet = listingSiteSnippet(input);
+  return (
+    !BANNED.test(posts.x) &&
+    !BANNED.test(posts.linkedin) &&
+    !BANNED.test(snippet) &&
+    posts.x.length <= 280 &&
+    posts.x.includes(input.url.trim()) &&
+    snippet.startsWith("<a href=") &&
+    snippet.includes(escapeHtml(input.url.trim())) &&
+    !/<img\b/i.test(snippet)
+  );
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function fitPost(head: string, tagline: string, url: string, limit: number) {

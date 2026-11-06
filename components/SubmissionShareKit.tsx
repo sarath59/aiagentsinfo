@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
-import { announcementPosts } from "@/lib/announcement-posts";
+import { announcementPosts, listingSiteLabel, listingSiteSnippet } from "@/lib/announcement-posts";
 import { renderAnnouncementPng } from "@/components/announcement-canvas";
 import "./submission-share.css";
 
@@ -42,8 +42,9 @@ export function SubmissionShareKit({
   onAnother: () => void;
 }) {
   const posts = announcementPosts(share);
+  const siteSnippet = listingSiteSnippet(share);
   const [ribbons, setRibbons] = useState(true);
-  const [copied, setCopied] = useState<"url" | "x" | "linkedin" | null>(null);
+  const [copied, setCopied] = useState<"url" | "x" | "linkedin" | "site" | null>(null);
   const [preview, setPreview] = useState("");
   const [blob, setBlob] = useState<Blob | null>(null);
   const [imageError, setImageError] = useState("");
@@ -72,7 +73,7 @@ export function SubmissionShareKit({
     };
   }, [share]);
 
-  async function copy(text: string, key: "url" | "x" | "linkedin") {
+  async function copy(text: string, key: "url" | "x" | "linkedin" | "site") {
     try {
       await navigator.clipboard.writeText(text);
     } catch {
@@ -192,6 +193,40 @@ export function SubmissionShareKit({
           copied={copied === "linkedin"}
           onCopy={() => copy(posts.linkedin, "linkedin")}
         />
+
+        <div className="mt-8">
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="text-lg font-semibold tracking-tight" id="site-link-label">
+              Text for your site
+            </h3>
+            <button
+              type="button"
+              className="btn-ghost px-4 py-2 text-sm"
+              onClick={() => copy(siteSnippet, "site")}
+              aria-describedby="site-link-label"
+            >
+              {copied === "site" ? "Copied" : "Copy text"}
+            </button>
+          </div>
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            Optional. You are already listed, and you do not need this to stay listed. The line below is a normal text
+            link to your listing. Copy the markup if you want it on an about, press, or integrations page.
+          </p>
+          <p className="mt-4 text-sm">
+            <a className="text-[var(--link)] underline" href={share.url}>
+              {listingSiteLabel(share)}
+            </a>
+          </p>
+          <textarea
+            id="site-link-snippet"
+            readOnly
+            rows={3}
+            value={siteSnippet}
+            className={`${fieldClass} mt-3 font-mono`}
+            aria-describedby="site-link-label"
+            onFocus={(event) => event.currentTarget.select()}
+          />
+        </div>
 
         <button type="button" className="btn-ghost mt-8 px-4 py-2 text-sm" onClick={onAnother}>
           Submit another
