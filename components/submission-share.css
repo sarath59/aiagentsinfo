@@ -1,0 +1,68 @@
+.submit-ribbons {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.submit-ribbon,
+.submit-ribbon-bit {
+  position: absolute;
+  opacity: 0;
+}
+
+.submit-ribbon {
+  left: -18%;
+  width: 136%;
+  border-radius: 999px;
+  transform: rotate(var(--tilt));
+  animation: submit-ribbon 2.35s cubic-bezier(0.16, 0.8, 0.24, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+.submit-ribbon-bit {
+  width: 84px;
+  height: 11px;
+  border-radius: 3px;
+  animation: submit-ribbon-bit 1.9s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes submit-ribbon {
+  0% {
+    transform: translate3d(-42%, 0, 0) rotate(var(--tilt));
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.92;
+  }
+  62% {
+    transform: translate3d(8%, 0, 0) rotate(var(--tilt));
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(16%, -10px, 0) rotate(var(--tilt));
+    opacity: 0;
+  }
+}
+
+@keyframes submit-ribbon-bit {
+  0% {
+    transform: translate3d(0, -24px, 0) rotate(var(--tilt));
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(36px, 70px, 0) rotate(calc(var(--tilt) + 24deg));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submit-ribbons {
+    display: none;
+  }
+}

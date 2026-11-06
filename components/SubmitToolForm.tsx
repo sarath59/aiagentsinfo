@@ -2,6 +2,7 @@
 
 import { cloneElement, useState, type FormEvent, type ReactElement } from "react";
 import { billingPeriods, directoryCategories, pricingModels } from "@/lib/directory-meta";
+import { SubmissionShareKit, type ShareListing } from "@/components/SubmissionShareKit";
 import {
   HONEYPOT_FIELD,
   SUBMISSION_SUCCESS_MESSAGE,
@@ -59,6 +60,7 @@ export function SubmitToolForm() {
   const [mailto, setMailto] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [makerType, setMakerType] = useState("");
+  const [share, setShare] = useState<ShareListing | null>(null);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -86,6 +88,7 @@ export function SubmitToolForm() {
         message?: string;
         mailto?: string;
         errors?: FieldErrors;
+        url?: string;
       };
       if (json.errors && Object.keys(json.errors).length) {
         setStatus("idle");
@@ -102,6 +105,11 @@ export function SubmitToolForm() {
       }
       setStatus("success");
       setMessage(json.message || SUBMISSION_SUCCESS_MESSAGE);
+      setShare(
+        json.url
+          ? { name: clientCheck.value.name, tagline: clientCheck.value.tagline, url: json.url }
+          : null,
+      );
       setMailto("");
       form.reset();
       setMakerType("");
@@ -110,6 +118,20 @@ export function SubmitToolForm() {
       setMessage("We couldn't reach the server. Email this submission instead.");
       setMailto(submissionMailto(payload));
     }
+  }
+
+  if (status === "success" && share) {
+    return (
+      <SubmissionShareKit
+        message={message}
+        share={share}
+        onAnother={() => {
+          setStatus("idle");
+          setMessage("");
+          setShare(null);
+        }}
+      />
+    );
   }
 
   if (status === "success") {

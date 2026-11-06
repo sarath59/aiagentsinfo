@@ -28,7 +28,7 @@ export function privateIssueRepo() {
 }
 
 export type PublishResult =
-  | { ok: true }
+  | { ok: true; slug: string }
   | { ok: false; reason: "duplicate" | "github"; status: number };
 
 export async function publishSubmission(submission: ToolSubmission): Promise<PublishResult> {
@@ -50,7 +50,7 @@ export async function publishSubmission(submission: ToolSubmission): Promise<Pub
     const saved = await createPrivateIssue(token, repo, { ...submission, slug: committed.slug });
     if (!saved) console.error("[submit-tool] private issue was not saved");
   }
-  return { ok: true };
+  return { ok: true, slug: committed.slug };
 }
 
 async function commitApprovedFile(

@@ -13,6 +13,7 @@ import {
   type FieldErrors,
   type SubmissionField,
 } from "@/lib/submissions";
+import { absoluteUrl } from "@/lib/site";
 import { assertPublicUrlReachable } from "@/lib/url-check";
 
 export const runtime = "nodejs";
@@ -90,7 +91,15 @@ export async function POST(request: Request) {
   try {
     const filed = await publishSubmission(validated.value);
     if (filed.ok) {
-      return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
+      return json(
+        {
+          ok: true,
+          message: SUBMISSION_SUCCESS_MESSAGE,
+          slug: filed.slug,
+          url: absoluteUrl(`/directory/${filed.slug}`),
+        },
+        200,
+      );
     }
     if (filed.reason === "duplicate") {
       return fieldError({ website: DUPLICATE_MESSAGE }, 409);
