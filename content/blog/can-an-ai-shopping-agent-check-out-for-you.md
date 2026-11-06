@@ -1,12 +1,12 @@
 ---
-title: "Can an AI shopping agent check out for you?"
-description: "Sometimes a shopping agent can pay: only with a checkout path, a saved payment method, and a rule for who must agree. The store remains the seller."
+title: "Can ChatGPT Buy Things for Me? Shopping Agents and Checkout"
+description: "ChatGPT can help you find products, and the purchase finishes on the merchant’s website or app. A shopping agent can pay only with a checkout path, a saved payment method, and a rule for who must agree. The store remains the seller."
 takeaways:
   - "A shopping agent can research and compare on its own. It can pay only when the product has a checkout path, a saved payment method, and a rule for who must agree."
   - "On the pages checked for this guide, Google can take Google Pay or hand items to the store, and ChatGPT sends the purchase to the store's website or app."
   - "The short version: the assistant is allowed to act. The store still sells the item."
 date: "2026-11-04"
-updated: "2026-11-05"
+updated: "2026-11-06"
 category: guide
 topics:
   - shopping
@@ -66,6 +66,8 @@ sources:
   - title: "Google, Computer use, Gemini API (checked November 5, 2026)"
     url: "https://ai.google.dev/gemini-api/docs/computer-use"
 faq:
+  - question: "Can ChatGPT buy things for me?"
+    answer: "No. On the merchant page checked November 4, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026."
   - question: "Can an AI shopping agent check out for you?"
     answer: "Sometimes, and only inside a product that has a payment path. On November 4, 2026, Google is rolling out direct checkout for eligible Canadian retailers in AI Mode and the Gemini app, after launching Universal Cart in the U.S. on October 15, 2026. ChatGPT's merchant page says people discover products in the chat and complete purchases on the merchant's website or app. Amazon's Alexa for Shopping can auto-buy at a price you set, or use Buy for Me on eligible products from other stores."
   - question: "Who is the seller when an assistant pays?"
@@ -80,7 +82,7 @@ faq:
     answer: "The pages checked here describe U.S. rollout for Google's Universal Cart, ChatGPT shopping, Alexa for Shopping, Copilot Checkout, and Perplexity Instant Buy. Google's November 4, 2026 post adds direct checkout for eligible Canadian retailers. Shopify's help page also lists Australia among the customer countries for its Google direct-checkout channel. A feature on one country's page is not a promise that the same button exists everywhere."
 ---
 
-Updated November 5, 2026.
+Updated November 6, 2026.
 
 ## Can an AI shopping agent check out for you?
 
@@ -187,7 +189,9 @@ Shopify's help page, checked the same day, describes its own direct checkout ins
 
 Google Pay in Google's cart posts and a card payment in Shopify's help page are two implementations. A shopper should read the button in front of them. Both pages still name the merchant as the seller.
 
-## What can ChatGPT buy, and where does the purchase finish?
+## Can ChatGPT buy things for me?
+
+No. On the merchant page checked November 4, 2026, people discover and compare products in [ChatGPT](/directory/chatgpt), and the purchase finishes on the merchant’s website or app. The dates below are how that changed.
 
 On September 29, 2025, OpenAI launched Instant Checkout for U.S. ChatGPT Plus, Pro, and Free users buying from U.S. Etsy sellers, with Shopify merchants described as coming soon. The post said a person taps Buy, confirms the order, and pays without leaving the chat. It also said merchants pay a small fee on completed purchases, and that the fee does not change the price or the ranking. Users confirm each step before an action is taken. Payment tokens are authorized for a specific amount and a specific merchant.
 
@@ -252,6 +256,10 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 - Topics: [shopping](/topics/shopping), [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work)
 
 ## Frequently asked questions
+
+### Can ChatGPT buy things for me?
+
+No. On the merchant page checked November 4, 2026, people discover and compare products in [ChatGPT](/directory/chatgpt), and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026.
 
 ### Can an AI shopping agent check out for you?
 

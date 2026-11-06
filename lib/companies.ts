@@ -229,7 +229,11 @@ export const companies: Company[] = [
     website: "https://claude.com/product/claude-code",
     logo: "/logos/claude-code.svg",
     tile: "light",
-    aliases: ["Claude Code", "Claude Code: Anthropic's Coding Agent – Features, Pricing, Where It Runs"],
+    aliases: [
+      "Claude Code",
+      "Claude Code: Anthropic's Coding Agent – Features, Pricing, Where It Runs",
+      "Claude Code vs Codex Pricing: Plans, Features, and Where It Runs",
+    ],
     hosts: [],
   },
   {

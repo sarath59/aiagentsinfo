@@ -1,12 +1,12 @@
 ---
-title: "Can an AI agent use your computer?"
-description: "Yes, when the product has computer use: the model looks at the screen and the app clicks, types, and scrolls. What Claude, OpenAI, and Gemini offer as of November 5, 2026 — and what still needs a person."
+title: "Can an AI Agent Use Your Computer? Claude Computer Use (2026)"
+description: "Yes, when the product has computer use. Claude computer use, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs can look at a screen and click, type, and scroll. A chat reply that only describes the steps does not. Checked November 5, 2026."
 takeaways:
   - "Yes, when the product has computer use. The model looks at the screen. The app clicks, types, and scrolls. A chat reply that only describes the steps does not do that."
   - "On November 5, 2026, Claude Cowork, Claude Code, and the ChatGPT desktop app can drive a Mac or Windows screen. Anthropic, OpenAI, and Google also document API loops where your code runs each action."
   - "Keep the agent in a sandbox, treat the screen as untrusted, and make a person confirm payments, passwords, and other steps that are hard to undo."
 date: "2026-11-05"
-updated: "2026-11-05"
+updated: "2026-11-06"
 category: guide
 topics:
   - task-performance
@@ -56,7 +56,7 @@ faq:
     answer: "For Claude's desktop feature, yes. Anthropic says the desktop app has to be awake and running, including when you assign the task from your phone with Dispatch. ChatGPT on Windows runs on the active desktop and takes the foreground. On a Mac, ChatGPT can run a scoped task in the background, and an optional locked-use setting can continue a task after the screen locks. An API agent keeps running only while the browser or machine you attached is still up."
 ---
 
-Updated November 5, 2026.
+Updated November 6, 2026.
 
 ## Can an AI agent use your computer?
 
@@ -96,7 +96,7 @@ OpenAI's API guide says your application supplies the driver. The driver reads t
 
 Google's page describes the same four beats for the Gemini API. Your request includes the Computer Use tool, the target environment, the prompt, and a screenshot. The model returns a function call such as a click, a scroll, or a keystroke. For Gemini 4 and Gemini 3.x, the call also includes an `intent` that states why the model chose that action. The response can include a safety decision: allowed, `require_confirmation`, or blocked. Your client executes the action only when it is allowed or a person confirms it, then sends a new screenshot. The action tables for browser, mobile, and desktop use coordinates from 0 to 999, which the client scales to the screen.
 
-On this site that surrounding software is the [harness](/blog/what-is-an-ai-agent-harness). Computer use is one tool it can offer. The [sandbox](/glossary/sandbox) is the bounded machine the tool acts on. [Autonomy](/glossary/autonomy) is how far the loop runs before a person confirms the next step.
+On this site that surrounding software is the [harness](/blog/what-is-an-ai-agent-harness). Designing it on purpose is [harness engineering](/glossary/harness-engineering). Computer use is one tool it can offer. The [sandbox](/glossary/sandbox) is the bounded machine the tool acts on. [Autonomy](/glossary/autonomy) is how far the loop runs before a person confirms the next step.
 
 ## What do Claude, OpenAI, and Gemini offer?
 
@@ -155,13 +155,13 @@ The rows are what each company's own page says, checked November 5, 2026. A mode
 
 Tencent's Hy4 release sits on its own page. The sourced account is [Tencent releases Hy4 with image understanding and computer use](/blog/tencent-releases-hy4-with-computer-use). This table stays with the desktop products and the API guides checked for the rows above.
 
-### What does the Claude desktop feature require?
+## What does Claude computer use require?
 
 Anthropic's article says computer use in Claude Cowork and Claude Code is a research preview for Claude Pro, Max, and Ultra. It runs on macOS and Windows. You enable it in the desktop app settings, and the desktop app has to be awake and running. After that, Anthropic says Claude can open files, use the browser, and run dev tools without further setup. Complex tasks sometimes need a second try.
 
 Dispatch, described in the same article, keeps one conversation going between the phone and the desktop. You can assign a task from the phone. Claude can keep working while you are away, for example on a morning briefing or a pull request. The awake rule still applies: the desktop app has to be running. You can stop Claude at any point. The article says the system scans model activations for prompt injection, and that some apps are off-limits by default. The recommendation on the page is to start with apps you trust and to keep sensitive data out of the task.
 
-### What does the ChatGPT desktop app require?
+## What does the ChatGPT desktop app require?
 
 OpenAI's desktop page, checked November 5, 2026, says Computer Use is available on macOS and Windows with ChatGPT Work and Codex, in supported regions. Setup is Settings, then Computer use. You switch the app to Work or select Codex, and you turn on control for the apps ChatGPT may use. During a task, ChatGPT asks before it uses an app. An app you mark Always allow can be used later without a fresh prompt. You can remove that grant in the same settings screen.
 
@@ -171,7 +171,7 @@ On Windows, Computer Use runs on the active desktop and takes the foreground. It
 
 The page says the feature cannot automate terminal apps or ChatGPT itself, and that it cannot authenticate as an administrator or approve the operating system's own security prompts. For a difficult task that depends on screenshots, OpenAI says to choose GPT-6 Astra when that model is in the selector. For a web app you are building locally, the page says to use the built-in browser first.
 
-### What do the API pages require?
+## What do the API pages require?
 
 The API pages agree on the split. The model proposes the action. Your code performs it.
 

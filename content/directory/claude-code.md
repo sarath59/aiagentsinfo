@@ -1,9 +1,9 @@
 ---
-name: "Claude Code: Anthropic's Coding Agent – Features, Pricing, Where It Runs"
+name: "Claude Code vs Codex Pricing: Plans, Features, and Where It Runs"
 vendor: Anthropic
 website: https://claude.com/product/claude-code
 logo: /logos/claude-code.svg
-summary: Anthropic's coding agent. You describe a change, and it can read the project, edit files, run commands, and open a pull request. It runs in the terminal, in editors, on the web, on mobile, and in Slack.
+summary: "Claude Code vs Codex pricing, from the vendor pages checked November 5, 2026: Claude Code lists Pro at $20 per month and is not on Free; Codex lists Plus at $20 and is included on Free and Go with limits. Claude Code is Anthropic’s coding agent for the terminal, editors, web, mobile, and Slack."
 category: coding-agents
 tags:
   - coding
@@ -34,4 +34,6 @@ Anthropic’s page says you steer Claude Code from the terminal, an IDE, Slack, 
 
 OpenAI’s page says Codex is included with a ChatGPT plan, and that you use the same agent in ChatGPT, an editor, and the terminal. It also describes an IDE extension, cloud tasks that keep running after you close the laptop, and automatic pull-request review. The prices printed there are Plus at $20, Pro at $100, and Business at $20. Business is noted for two or more seats, billed annually.
 
-The [harness](/glossary/harness) is the loop, tools, and permissions around the model in either product. The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Plan limits move. Use the vendor page for a number you intend to rely on.
+## How does Claude Code vs Codex pricing compare?
+
+On the pages checked November 5, 2026, both vendors list a $20 plan, and the rest of the ladder is not the same. This page’s pricing summary lists Claude Code Pro at $20 per month, Max at $100, and Ultra at $200, and says Claude Code is not on the Free plan. The Codex paragraph above lists Plus at $20, Pro at $100, and Business at $20 for two or more seats, billed annually. The [Codex listing](/directory/codex) records a different free-tier rule: Codex is included on Free and Go, with limits, and Codex Cloud is not. Those are list prices from the vendor pages, not a measure of how much work each plan includes. The software around either model is a [harness](/glossary/harness). The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Plan limits move. Use the vendor page for a number you intend to rely on.

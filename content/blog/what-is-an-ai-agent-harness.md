@@ -1,12 +1,12 @@
 ---
-title: "What Is an AI Agent Harness? Plain-English Guide (2026)"
-description: "An agent harness is the software around a model: its loop, tools, memory, permissions, and stop rules. The same model can get a different result."
+title: "What Is DeepSeek Harness? An Agent Harness, Explained (2026)"
+description: "DeepSeek Harness is DeepSeek’s open-source agent harness, still in developer preview. An agent harness is the loop, tools, memory, permissions, and stop rules around a model."
 takeaways:
   - "A harness is the workshop around a model: the tools, the notebook, the lock on the door, and the rule for when to stop."
   - "Two workshops can hand the same program a job and get different results. The program did not change. The workshop did."
   - "On this site, a harness is the runtime around a model: the loop, the tools, the memory, the permissions, and the stop conditions."
 date: "2026-11-03"
-updated: "2026-11-05"
+updated: "2026-11-06"
 category: guide
 topics:
   - harnesses
@@ -86,6 +86,8 @@ sources:
   - title: "Yu et al., Harmony Harness: Multi-Objective Self-Evolution of Agent Harnesses (arXiv:2610.15150)"
     url: "https://arxiv.org/abs/2610.15150"
 faq:
+  - question: "What is DeepSeek Harness?"
+    answer: "DeepSeek Harness is an open-source agent harness from DeepSeek, in the repository deepseek-ai/deepseek-harness, created August 13, 2026. The README calls it dsh, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. It is the harness itself, not a shipping app like Claude Code or Codex."
   - question: "What is an AI agent harness?"
     answer: "An AI agent harness is the software around a language model that lets the model take steps. It holds the tools, the memory, the permissions, the record of what happened, and the rule for when to stop. On this site, an agent is the model plus that harness."
   - question: "How do a model, a harness, and an agent differ?"
@@ -100,7 +102,7 @@ faq:
     answer: "A guardrail is a check that can allow, block, replace, or pause an action. OpenAI’s Agents SDK uses guardrails for automatic checks on input, output, or tools, and uses a separate approval pause when a person must decide. Pydantic AI’s harness docs describe the same idea at the prompt, the tool call, and the final output."
 ---
 
-Updated November 5, 2026.
+Updated November 6, 2026.
 
 ## What does an agent harness mean in plain language?
 
@@ -274,9 +276,9 @@ This site’s [agent frameworks](/directory/category/agent-frameworks) category 
 
 Read a row as a pointer, then open the vendor page before you depend on a detail. Model names in sample code move. The [Claude](/directory/claude) and [Codex](/directory/codex) listings are the product doors on this site. DeepSeek Harness is not in the table. Its repository was checked separately on November 5, 2026, in the next section.
 
-## What is DeepSeek Harness, and how is it different?
+## What is DeepSeek Harness?
 
-DeepSeek Harness is an agent harness from DeepSeek, published as source. GitHub records the public repository [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) as created on August 13, 2026. The repository description is “DeepSeek Harness: Everything is a Plugin.” The [README](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.md) calls it an open-source agent harness, `dsh`, developed by DeepSeek, built on an everything-is-a-plugin architecture. The same README says the project is in developer preview and that compatibility-breaking changes are expected. GitHub lists the license as MIT, and the README points at the same MIT license file.
+DeepSeek Harness is an agent harness from DeepSeek, published as source. The general name for that surrounding software is an [agent harness](/glossary/harness). Designing one on purpose is [harness engineering](/glossary/harness-engineering). GitHub records the public repository [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) as created on August 13, 2026. The repository description is “DeepSeek Harness: Everything is a Plugin.” The [README](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.md) calls it an open-source agent harness, `dsh`, developed by DeepSeek, built on an everything-is-a-plugin architecture. The same README says the project is in developer preview and that compatibility-breaking changes are expected. GitHub lists the license as MIT, and the README points at the same MIT license file.
 
 On November 5, 2026, GitHub’s latest-release endpoint, which returns the newest release that is not a pre-release, responded 404. The newest item on the releases list was a pre-release: tag `dsh-v0.2.2-rc.1`, name v0.2.2-rc.1, published November 4, 2026. The README’s run instructions are local. `npx @deepseek-ai/dsh web` starts a web interface on the machine where you run it. A checkout can be installed and built from the repository.
 
@@ -341,6 +343,10 @@ The [task performance](/topics/task-performance) topic is where this site follow
 - Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [shopping](/topics/shopping)
 
 ## Frequently asked questions
+
+### What is DeepSeek Harness?
+
+It is an open-source [agent harness](/glossary/harness) from DeepSeek, in the repository deepseek-ai/deepseek-harness, which GitHub records as created on August 13, 2026. The README calls the program `dsh`, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products. DeepSeek Harness is the harness itself, still in preview. The longer account is the section above. The work of designing any harness, including this one, is [harness engineering](/glossary/harness-engineering).
 
 ### What is an AI agent harness?
 
