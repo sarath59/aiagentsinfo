@@ -104,6 +104,27 @@ export default function EditorialPolicyPage() {
           </p>
         </section>
 
+        <section id="directory" className="listing-section mt-8">
+          <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">Directory submissions and indexing</h2>
+          <p className="mt-3">
+            There is no login and no fee. A valid submission is published automatically and usually appears within
+            about two minutes. The form is at <Link href="/submit">Submit a tool</Link>.
+          </p>
+          <p className="mt-3">
+            Listings this desk writes are labeled Editorial. They use the vendor&apos;s public site for price and
+            features and show the day that information was last checked. Listings a maker submits are labeled Community
+            submitted. The description is the maker&apos;s text. This desk has not written an independent review of
+            those pages.
+          </p>
+          <p className="mt-3">
+            Short maker blurbs stay on the site for people and are left out of search until the description is a real
+            explanation of the product. A slogan, a sentence that repeats the tagline, or text that is not readable
+            English does not count. Unreadable submissions are not published. Readable but thin ones stay available
+            and are marked noindex, follow so they are not offered as search results. Nothing on a listing is a
+            rating, a user count, or a rank.
+          </p>
+        </section>
+
         <section className="mt-8">
           <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">Corrections</h2>
           <p className="mt-3">

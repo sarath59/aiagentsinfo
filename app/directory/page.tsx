@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
 import { ListingCard } from "@/components/ListingCard";
-import { PageHeader } from "@/components/PageHeader";
 import { SubmitToolButton } from "@/components/SubmitToolButton";
 import {
   allTags,
@@ -70,19 +69,19 @@ export default async function DirectoryPage({
   return (
     <>
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Directory", path: "/directory" }]} />
-      <PageHeader
-        kicker="AI directory"
-        title="Tools, apps, SaaS, and agents — built to grow to thousands"
-        summary="Real products with a working official site. No ratings, user counts, or invented rankings."
-      />
-      <div className="mx-auto max-w-6xl px-4 pb-20">
-        <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)]">
-            No login and no fee. A valid submission is published automatically and usually appears within about two minutes. Short maker blurbs stay on the site for people, and they are left out of search until the description is a real explanation. Nonsensical text is not published.{" "}
-            <Link href="/editorial-policy">Editorial policy</Link>.
+      <header className="mx-auto max-w-6xl px-4 pb-6 pt-10">
+        <p className="kicker kicker-lead">AI directory</p>
+        <h1 className="display mt-3 text-4xl sm:text-5xl">Tools, apps, SaaS, and agents</h1>
+        <div className="mt-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+          <p className="max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
+            Real products with a working official site. No ratings, user counts, or invented rankings. Editorial
+            listings are written by this desk. Community submitted listings are the maker&apos;s text.{" "}
+            <Link href="/editorial-policy#directory">How submissions are published and indexed</Link>.
           </p>
           <SubmitToolButton />
         </div>
+      </header>
+      <div className="mx-auto max-w-6xl px-4 pb-20">
 
         <div className="flex flex-wrap gap-2">
           <Link href="/directory/new" className="chip">
@@ -159,7 +158,7 @@ export default async function DirectoryPage({
             {filtered.map((listing, index) => (
               <span key={listing.slug} className="contents">
                 {index === submitBannerAt(filtered.length) ? <SubmitBanner /> : null}
-                <ListingCard listing={listing} />
+                <ListingCard listing={listing} logoLoading={index < 2 ? "eager" : "lazy"} />
               </span>
             ))}
             {submitBannerAt(filtered.length) >= filtered.length ? <SubmitBanner /> : null}

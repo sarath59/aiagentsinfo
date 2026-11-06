@@ -1,9 +1,9 @@
 ---
-name: "Claude Code vs Codex Pricing: Plans, Features, and Where It Runs"
+name: Claude Code
 vendor: Anthropic
 website: https://claude.com/product/claude-code
 logo: /logos/claude-code.svg
-summary: "Claude Code vs Codex pricing, from the vendor pages checked November 5, 2026: Claude Code lists Pro at $20 per month and is not on Free; Codex lists Plus at $20 and is included on Free and Go with limits. Claude Code is Anthropic’s coding agent for the terminal, editors, web, mobile, and Slack."
+summary: "Anthropic’s coding agent for the terminal, editors, the web, mobile, and Slack. It can explain a codebase, write code, run tests, and open pull requests."
 category: coding-agents
 tags:
   - coding
@@ -24,7 +24,7 @@ lastVerified: "2026-11-06"
 newThisWeek: true
 ---
 
-Claude Code is a [coding agent](/glossary/agent). The product page is the source for where it runs and which plan includes it.
+Claude Code is a [coding agent](/glossary/agent). The product page is the source for where it runs and which plan includes it. The comparison of list prices with Codex is a separate article, [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), not the name of this product.
 
 ## How is Claude Code different from Codex?
 

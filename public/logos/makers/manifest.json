@@ -1,0 +1,51 @@
+{
+  "aimake-videos": {
+    "source": "https://aimakevideos.com/og.png",
+    "file": "/logos/makers/aimake-videos.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1588
+  },
+  "enhancewizard": {
+    "source": "https://enhancewizard.com/icon.svg",
+    "file": "/logos/makers/enhancewizard.svg",
+    "width": 128,
+    "height": 128,
+    "bytes": 192
+  },
+  "genesis-agent": {
+    "source": "https://genaisol.pages.dev/logo.png",
+    "file": "/logos/makers/genesis-agent.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1570
+  },
+  "nextname": {
+    "source": "https://nextname.app/apple-touch-icon.png",
+    "file": "/logos/makers/nextname.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 3078
+  },
+  "openlinker": {
+    "source": "https://openlinker.ai/brand/openlinker-oauth-logo-512.png",
+    "file": "/logos/makers/openlinker.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1768
+  },
+  "ringzel": {
+    "source": "https://ringzel.com/brand/ringzel-icon-512.png",
+    "file": "/logos/makers/ringzel.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 4404
+  },
+  "smew-ai": {
+    "source": "https://smew.ai/apple-touch-icon.png",
+    "file": "/logos/makers/smew-ai.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1928
+  }
+}

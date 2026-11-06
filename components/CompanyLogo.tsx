@@ -67,43 +67,53 @@ export function CompanyLogo({
   src,
   size = "md",
   tile = "light",
+  loading = "lazy",
 }: {
   name: string;
   src?: string;
   size?: LogoSize;
   tile?: LogoTile;
+  /** Eager for a logo that is actually in the intro. Everything else stays lazy. */
+  loading?: "eager" | "lazy";
 }) {
   const px = resolveSize(size);
   const [failedSrc, setFailedSrc] = useState<string | undefined>();
   const failed = Boolean(src) && failedSrc === src;
+  const eager = loading === "eager";
 
   const remote = /^https?:\/\//i.test(src ?? "");
   const local = Boolean(src?.startsWith("/"));
+  // Maker thumbnails are already resized. Serve the file directly so the page does not
+  // ask the image optimizer for a larger variant of a small logo.
+  const direct = remote || Boolean(src?.startsWith("/logos/makers/"));
   if (!src || failed || (!remote && !local)) return <InitialBadge name={name} size={px} />;
 
   const background = tile === "dark" ? "#071421" : "#eef4f9";
+  const alt = `${name} logo`;
 
   return (
     <span style={frameStyle(px, background)}>
-      {remote ? (
-        // User-supplied logo URLs stay on the <img> tag so the image optimizer does not fetch arbitrary hosts.
+      {direct ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={src}
-          alt={`${name} logo`}
+          alt={alt}
           width={px}
           height={px}
-          referrerPolicy="no-referrer"
+          loading={eager ? "eager" : "lazy"}
+          decoding={eager ? "auto" : "async"}
+          referrerPolicy={remote ? "no-referrer" : undefined}
           onError={() => setFailedSrc(src)}
           style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
       ) : (
         <Image
           src={src}
-          alt={`${name} logo`}
+          alt={alt}
           width={px}
           height={px}
           sizes={`${px}px`}
+          loading={eager ? "eager" : "lazy"}
           unoptimized={src.endsWith(".svg")}
           onError={() => setFailedSrc(src)}
           style={{ width: "100%", height: "100%", objectFit: "contain" }}

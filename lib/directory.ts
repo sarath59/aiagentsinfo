@@ -1,4 +1,5 @@
 import { isSpamListing } from "@/lib/indexing";
+import { cachedMakerLogo } from "@/lib/maker-logos";
 import { contentDir, loadMarkdownCollection } from "@/lib/markdown";
 import { approvedSubmissionListings } from "@/lib/submission-files";
 import type { DirectoryCategory, PricingModel } from "@/lib/directory-meta";
@@ -102,7 +103,14 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
   const approved = approvedSubmissionListings(fromMarkdown.map((listing) => listing.slug));
   return [...fromMarkdown, ...approved]
     .filter((listing) => !isSpamListing(listing))
+    .map(withCachedLogo)
     .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function withCachedLogo<T extends { slug: string; logo?: string }>(listing: T): T {
+  const logo = cachedMakerLogo(listing.slug, listing.logo);
+  if ((listing.logo ?? "") === logo) return listing;
+  return { ...listing, logo };
 }
 
 export async function getDirectoryListing(slug: string) {

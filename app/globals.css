@@ -1229,6 +1229,7 @@ article.grid > * {
   footer,
   .no-print,
   .article-toc,
+  .listing-jump,
   .table-actions,
   .content-card-download {
     display: none !important;
@@ -1270,5 +1271,112 @@ article.grid > * {
 
   a {
     color: #0b1f33 !important;
+  }
+}
+
+.listing-section,
+.prose-article h2,
+.prose-article h3 {
+  scroll-margin-top: 8.5rem;
+}
+
+.listing-jump {
+  position: sticky;
+  top: 6.6rem;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  padding: 0.65rem 0;
+  background: color-mix(in oklab, var(--bg) 92%, white);
+}
+
+.listing-jump a {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: #fff;
+  padding: 0.28rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.listing-jump a:hover {
+  border-color: var(--stroke-strong);
+  color: var(--color-electric);
+}
+
+.listing-fit {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  border: 1px solid var(--stroke);
+  border-radius: 1.25rem;
+  background: #fff;
+  padding: 1rem 1.1rem;
+}
+
+.quick-facts {
+  margin-top: 1.25rem;
+  border: 1px solid var(--stroke);
+  border-radius: 1.25rem;
+  background: #fff;
+  padding: 1rem 1.1rem 0.2rem;
+}
+
+.quick-facts h2 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #0f5f78;
+}
+
+.quick-facts dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 0.35rem;
+}
+
+.quick-facts div {
+  display: grid;
+  grid-template-columns: 7.25rem minmax(0, 1fr);
+  gap: 0.35rem 0.75rem;
+  border-top: 1px solid var(--stroke);
+  padding: 0.55rem 0;
+}
+
+.quick-facts dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.quick-facts dd {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+@media (min-width: 640px) {
+  .listing-fit,
+  .quick-facts dl {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .listing-section,
+  .prose-article h2,
+  .prose-article h3 {
+    scroll-margin-top: 7rem;
+  }
+
+  .listing-jump {
+    top: 4.15rem;
   }
 }
