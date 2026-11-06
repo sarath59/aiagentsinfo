@@ -28,10 +28,12 @@ function siteVerification(): Metadata["verification"] {
   };
 }
 
+const defaultTitle = `${site.name} — ${site.tagline}`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: defaultTitle,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -41,8 +43,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: site.locale,
+    title: defaultTitle,
+    description: site.description,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: site.description,
+  },
   manifest: "/manifest.webmanifest",
   verification: siteVerification(),
 };

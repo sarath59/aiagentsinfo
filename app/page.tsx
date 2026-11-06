@@ -14,17 +14,24 @@ import { indexRobots } from "@/lib/seo";
 import { absoluteUrl, dataAssets, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
+const socialTitle = `${site.name} — ${site.tagline}`;
+
 export const metadata = {
-  title: { absolute: `${site.name} — ${site.tagline}` },
+  title: { absolute: socialTitle },
   description: site.description,
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
-    title: `${site.name} — ${site.tagline}`,
+    title: socialTitle,
     description: site.description,
     url: absoluteUrl("/"),
     siteName: site.name,
     type: "website" as const,
     locale: site.locale,
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: socialTitle,
+    description: site.description,
   },
   robots: indexRobots,
 };

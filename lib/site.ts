@@ -20,8 +20,8 @@ export const site = {
   domain: "www.aiagentsinfo.com",
   url: resolveSiteUrl(),
   description:
-    "Clear, plain-English AI news and research for adults, plus a directory of AI tools, apps, SaaS, and agents.",
-  tagline: "Plain-English AI news and research for adults.",
+    "Independent coverage of pricing, harnesses, computer use, and new research—cited and current. Original reports, plus a directory of tools checked against a live site.",
+  tagline: "See what AI agents can actually do",
   email: "hello@aiagentsinfo.com",
   bylines: {
     editorial: "AI Agents Info Editorial",

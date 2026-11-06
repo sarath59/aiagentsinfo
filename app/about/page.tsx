@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "A publication and a directory, not a personality cult",
-  "Plain-English AI news and research for adults: who the byline belongs to, and what we will not invent.",
+  "Who the byline belongs to, and what we will not invent.",
   "/about",
 );
 

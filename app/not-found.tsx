@@ -4,6 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Page not found",
   description: "This URL is not a page on AI Agents Info.",
+  openGraph: {
+    title: "Page not found · AI Agents Info",
+    description: "This URL is not a page on AI Agents Info.",
+  },
+  twitter: {
+    title: "Page not found · AI Agents Info",
+    description: "This URL is not a page on AI Agents Info.",
+  },
   robots: { index: false, follow: false },
 };
 
