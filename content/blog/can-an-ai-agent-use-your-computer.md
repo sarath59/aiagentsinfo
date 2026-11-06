@@ -1,9 +1,9 @@
 ---
 title: "Can an AI Agent Use Your Computer? Claude Computer Use (2026)"
-description: "Yes, when the product has computer use. Claude computer use, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs can look at a screen and click, type, and scroll. A chat reply that only describes the steps does not. Checked November 5, 2026."
+description: "Yes, when the product has computer use. Claude computer use, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs can look at a screen and click, type, and scroll. A chat reply that only describes the steps does not. Claude and OpenAI re-checked November 6, 2026."
 takeaways:
   - "Yes, when the product has computer use. The model looks at the screen. The app clicks, types, and scrolls. A chat reply that only describes the steps does not do that."
-  - "On November 5, 2026, Claude Cowork, Claude Code, and the ChatGPT desktop app can drive a Mac or Windows screen. Anthropic, OpenAI, and Google also document API loops where your code runs each action."
+  - "On November 6, 2026, Claude Cowork, Claude Code, and the ChatGPT desktop app can drive a Mac or Windows screen. Anthropic and OpenAI still document API loops where your code runs each action. Google’s Computer Use page returned an error that day, so the Gemini details below are the November 5 reading."
   - "Keep the agent in a sandbox, treat the screen as untrusted, and make a person confirm payments, passwords, and other steps that are hard to undo."
 date: "2026-11-05"
 updated: "2026-11-06"
@@ -27,27 +27,29 @@ companies:
   - tencent
 byline: "AI Agents Info Editorial"
 sources:
-  - title: "Anthropic, Put Claude to work on your computer (checked November 5, 2026)"
+  - title: "Anthropic, Put Claude to work on your computer (checked November 6, 2026)"
     url: "https://claude.com/resources/articles/dispatch-and-computer-use"
-  - title: "Anthropic, Computer use tool"
+  - title: "Anthropic, Computer use tool (checked November 6, 2026)"
     url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool"
-  - title: "OpenAI, Computer use (API guide)"
+  - title: "OpenAI, Computer use (API guide, checked November 6, 2026)"
     url: "https://developers.openai.com/api/docs/guides/tools-computer-use"
-  - title: "OpenAI, Computer Use in the ChatGPT desktop app (checked November 5, 2026)"
+  - title: "OpenAI, Computer Use in the ChatGPT desktop app (checked November 6, 2026)"
     url: "https://developers.openai.com/codex/computer-use"
-  - title: "Google, Computer use (Gemini API, checked November 5, 2026)"
+  - title: "Google, Computer use (Gemini API, checked November 5, 2026; the page returned HTTP 500 on November 6)"
     url: "https://ai.google.dev/gemini-api/docs/computer-use"
+  - title: "Tencent, Tencent launches Hy4 (re-read November 6, 2026)"
+    url: "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
   - title: "Google, Gemini API changelog, October 30, 2026"
     url: "https://ai.google.dev/gemini-api/docs/changelog"
 faq:
   - question: "Can an AI agent use my real desktop?"
-    answer: "Yes, in the desktop products checked on November 5, 2026. Claude Cowork and Claude Code can point and click on a Mac or Windows PC while the desktop app is awake, in research preview for Claude Pro, Max, and Ultra. The ChatGPT desktop app can operate a Mac or Windows graphical interface for ChatGPT Work and Codex, in supported regions. The Anthropic, OpenAI, and Gemini API pages describe a browser or machine your own code controls, and they recommend keeping that environment isolated."
+    answer: "Yes, in the desktop products checked on November 6, 2026. Claude Cowork and Claude Code can point and click on a Mac or Windows PC while the desktop app is awake, in research preview for Claude Pro, Max, and Ultra. The ChatGPT desktop app can operate a Mac or Windows graphical interface for ChatGPT Work and Codex, in supported regions, after you turn on Computer Use and allow apps. The Anthropic and OpenAI API pages describe a browser or machine your own code controls. Google’s Computer Use page was last read November 5; a request on November 6 returned HTTP 500."
   - question: "Do I need to approve each click?"
     answer: "You need to approve access, and you should approve anything hard to undo. Claude's product article says Claude asks for explicit permission first, and requests permission before it opens a new app. ChatGPT asks before it uses an app, and it may also ask before a sensitive or disruptive action. On the APIs, ordinary clicks can run in a batch if your application allows them. Anthropic, OpenAI, and Google each tell you to confirm purchases and other consequential actions before they run."
   - question: "Is computer use the same thing as an agent harness?"
     answer: "Computer use is a tool. The harness is the software around the model: the loop, the tools, the memory, the permissions, and the rule for when to stop. The harness offers computer use, runs the click, and brings the new screen back. An agent, on this site, is the model plus that harness."
   - question: "How do Claude, OpenAI, and Gemini compare for computer use?"
-    answer: "Claude's consumer feature is a research preview in Claude Cowork and Claude Code on macOS and Windows. ChatGPT's desktop app offers Computer Use on macOS and Windows with ChatGPT Work and Codex. All three companies also document an API where your application executes the action. Google's changelog dates Computer Use general availability to October 30, 2026, on the Interactions and GenerateContent APIs. Anthropic's API toolset is not available in Claude Managed Agents."
+    answer: "Claude's consumer feature is a research preview in Claude Cowork and Claude Code on macOS and Windows. ChatGPT's desktop app offers Computer Use on macOS and Windows with ChatGPT Work and Codex. Anthropic and OpenAI document an API where your application executes the action. On November 6, 2026, Anthropic’s Messages API table lists computer_toolset_20260801 as available for models including Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, and Claude Opus 4.8, and as beta for an older set that includes Claude Opus 4.7 and Claude Sonnet 4.6. It is not available in Claude Managed Agents. Google’s Computer Use page was last read November 5, when the changelog date of general availability was October 30, 2026. That page returned HTTP 500 on November 6."
   - question: "Is computer use reliable enough for money or passwords?"
     answer: "The pages checked here say no, unless a person is in the loop. Anthropic says computer use is still early compared with coding or text, and says to avoid sensitive data. OpenAI says to keep the user in control of purchases and of typing secrets, and the ChatGPT desktop page says to stay present for payment and credential steps. Google says Computer Use can contain errors, and its payments category can block a checkout or ask for confirmation."
   - question: "When should I use a connector instead of clicking the screen?"
@@ -62,7 +64,7 @@ Updated November 6, 2026.
 
 Yes, when the product has [computer use](/glossary/computer-use). The model looks at the screen. The app clicks, types, and scrolls.
 
-A chat reply that tells you which button to press is still a chat. Computer use starts when software can see the current screen and carry out the next action. On November 5, 2026, that software is available in two desktop products and in three companies' APIs. [Claude Cowork and Claude Code](https://claude.com/resources/articles/dispatch-and-computer-use) can drive a Mac or Windows screen in a research preview. The [ChatGPT desktop app](https://developers.openai.com/codex/computer-use) can do the same for ChatGPT Work and Codex, in supported regions. [Anthropic](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool), [OpenAI](https://developers.openai.com/api/docs/guides/tools-computer-use), and [Google](https://ai.google.dev/gemini-api/docs/computer-use) also document API loops in which your application runs each click.
+A chat reply that tells you which button to press is still a chat. Computer use starts when software can see the current screen and carry out the next action. On November 6, 2026, that software is available in two desktop products and in Anthropic’s and OpenAI’s APIs. [Claude Cowork and Claude Code](https://claude.com/resources/articles/dispatch-and-computer-use) can drive a Mac or Windows screen in a research preview. The [ChatGPT desktop app](https://developers.openai.com/codex/computer-use) can do the same for ChatGPT Work and Codex, in supported regions. [Anthropic](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) and [OpenAI](https://developers.openai.com/api/docs/guides/tools-computer-use) document API loops in which your application runs each click. [Google’s Computer Use page](https://ai.google.dev/gemini-api/docs/computer-use) was read on November 5. A request on November 6 returned HTTP 500, so the Gemini details in this guide stay that November 5 reading.
 
 The short version: the model chooses the action. An app you run, or a desktop app that is awake, performs it. Payments, passwords, and other hard-to-undo steps still need a person.
 
@@ -96,11 +98,11 @@ OpenAI's API guide says your application supplies the driver. The driver reads t
 
 Google's page describes the same four beats for the Gemini API. Your request includes the Computer Use tool, the target environment, the prompt, and a screenshot. The model returns a function call such as a click, a scroll, or a keystroke. For Gemini 4 and Gemini 3.x, the call also includes an `intent` that states why the model chose that action. The response can include a safety decision: allowed, `require_confirmation`, or blocked. Your client executes the action only when it is allowed or a person confirms it, then sends a new screenshot. The action tables for browser, mobile, and desktop use coordinates from 0 to 999, which the client scales to the screen.
 
-On this site that surrounding software is the [harness](/blog/what-is-an-ai-agent-harness). Designing it on purpose is [harness engineering](/glossary/harness-engineering). Computer use is one tool it can offer. The [sandbox](/glossary/sandbox) is the bounded machine the tool acts on. [Autonomy](/glossary/autonomy) is how far the loop runs before a person confirms the next step.
+On this site that surrounding software is the [harness](/blog/what-is-an-ai-agent-harness). Designing it on purpose is [harness engineering](/glossary/harness-engineering). Checking one of those actions, such as whether the agent asked before a payment, is a [behavioral evaluation](/blog/how-do-you-evaluate-an-ai-agent-harness). Computer use is one tool the harness can offer. The [sandbox](/glossary/sandbox) is the bounded machine the tool acts on. [Autonomy](/glossary/autonomy) is how far the loop runs before a person confirms the next step.
 
 ## What do Claude, OpenAI, and Gemini offer?
 
-The rows are what each company's own page says, checked November 5, 2026. A model name in a code sample is the name printed in that sample. It is a pointer to the page, and the page can change which models it lists.
+The Claude, ChatGPT, and OpenAI API rows are what those pages said on November 6, 2026. The Gemini row is the November 5 reading, because that page returned HTTP 500 on November 6. A model name in a code sample is the name printed in that sample. It is a pointer to the page, and the page can change which models it lists.
 
 <div class="table-scroll">
 <table>
@@ -108,7 +110,7 @@ The rows are what each company's own page says, checked November 5, 2026. A mode
 <tr>
 <th>Product or path</th>
 <th>Who runs the environment</th>
-<th>Availability on November 5, 2026</th>
+<th>Availability when the page was read</th>
 <th>Notable limits</th>
 </tr>
 </thead>
@@ -122,19 +124,19 @@ The rows are what each company's own page says, checked November 5, 2026. A mode
 <tr>
 <td><a href="/directory/chatgpt">ChatGPT desktop app</a></td>
 <td>Your Mac or Windows desktop, in the apps you allow. On Windows it uses the active desktop.</td>
-<td>In supported regions, with ChatGPT Work and Codex. Open Settings, then Computer use.</td>
+<td>In supported regions, with ChatGPT Work and Codex. Open Settings, then Computer use, and turn on Any App. If that row says Install, follow the prompts.</td>
 <td>Permission before each new app. It cannot automate a terminal app or ChatGPT itself. On Windows it takes the foreground. Stay present for payments and credentials.</td>
 </tr>
 <tr>
 <td>Claude API, <code>computer_toolset_20260801</code></td>
 <td>Your application, in an environment you control. Anthropic recommends a virtual machine or a container.</td>
-<td>Messages API. The quick start needs no beta header. The availability table lists it as available for a set of models, including Claude Opus 5.5 and Claude Sonnet 5.5, and as beta for another set. Not available in Claude Managed Agents.</td>
+<td>Messages API, checked November 6, 2026. The quick start needs no beta header. The availability table lists <code>computer_toolset_20260801</code> as available for Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Mythos Preview, Claude Opus 5.5, Claude Opus 5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Haiku 5.5, and Claude Opus 4.8 on the Claude API and Google Cloud. A second available row, without Mythos Preview, covers AWS, Amazon Bedrock, and Microsoft Foundry. The beta row lists Claude Haiku 4.5, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Opus 4.5, and Claude Sonnet 4.5. Not available in Claude Managed Agents.</td>
 <td>Seventeen member tools. You perform every call. Confirm financial transactions and other consequential actions. Treat the screen as untrusted.</td>
 </tr>
 <tr>
 <td>OpenAI API, <code>ComputerToolset</code> and <code>BrowserToolset</code></td>
 <td>Your driver, on a browser or desktop you run, or a partner sandbox such as Daytona or E2B Desktop.</td>
-<td>API guide checked November 5, 2026. Samples use <code>gpt-6-astra</code> and <code>gpt-6.1-sol</code>. The page says you need a model that supports the computer tool.</td>
+<td>API guide checked November 6, 2026. Samples use <code>gpt-6-astra</code> and <code>gpt-6.1-sol</code>. The page says you need a model that supports the computer tool.</td>
 <td>Isolate the environment. Confirm purchases, destructive changes, and typing secrets. Bound the steps, the time, or the cost.</td>
 </tr>
 <tr>
@@ -146,14 +148,14 @@ The rows are what each company's own page says, checked November 5, 2026. A mode
 <tr>
 <td><a href="/directory/gemini">Gemini API</a> Computer Use</td>
 <td>Your client. Google recommends a sandboxed virtual machine, a container, or a separate browser profile.</td>
-<td>General availability on October 30, 2026, on the Interactions API and the GenerateContent API. The model list names Gemini 4 Argon, Gemini 3.8 Flash as the recommended model, Gemini 3.5 Flash-Lite, and Gemini 3 Flash Preview.</td>
+<td>Read November 5, 2026. The page returned HTTP 500 on November 6, so this cell was not re-checked. On November 5 it said general availability on October 30, 2026, on the Interactions API and the GenerateContent API. The model list then named Gemini 4 Argon, Gemini 3.8 Flash as the recommended model, Gemini 3.5 Flash-Lite, and Gemini 3 Flash Preview.</td>
 <td>Browser, mobile, and desktop for Gemini 4 and Gemini 3.x. The client executes the action. Payments can be blocked or sent for confirmation. Google says the feature can contain errors.</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-Tencent's Hy4 release sits on its own page. The sourced account is [Tencent releases Hy4 with image understanding and computer use](/blog/tencent-releases-hy4-with-computer-use). This table stays with the desktop products and the API guides checked for the rows above.
+Tencent's Hy4 release sits on its own page. The sourced account is [Tencent releases Hy4 with image understanding and computer use](/blog/tencent-releases-hy4-with-computer-use). Tencent’s English announcement, re-read November 6, 2026, still says Hy4 can use a command line and a graphical interface, still places the weights and a system card in the coming days, and says Hy4 Flash is scheduled for release soon. This table stays with the desktop products and the API guides checked for the rows above.
 
 ## What does Claude computer use require?
 
@@ -163,9 +165,9 @@ Dispatch, described in the same article, keeps one conversation going between th
 
 ## What does the ChatGPT desktop app require?
 
-OpenAI's desktop page, checked November 5, 2026, says Computer Use is available on macOS and Windows with ChatGPT Work and Codex, in supported regions. Setup is Settings, then Computer use. You switch the app to Work or select Codex, and you turn on control for the apps ChatGPT may use. During a task, ChatGPT asks before it uses an app. An app you mark Always allow can be used later without a fresh prompt. You can remove that grant in the same settings screen.
+OpenAI's desktop page, checked November 6, 2026, says Computer Use is available on macOS and Windows with ChatGPT Work and Codex, in supported regions. Setup is Settings, then Computer use. Under Control, find Any App. If the row says Install, follow the prompts. If the switch is off, turn it on. If the app shows a Computer Use plugin page instead, follow that page. If Any App is missing, separate controls for a browser or one app do not grant access to other desktop apps. In a managed workspace, an administrator decides whether Computer Use is allowed. You switch the app to Work or select Codex, and you turn on control for the apps ChatGPT may use. During a task, ChatGPT asks before it uses an app. An app you mark Always allow can be used later without a fresh prompt. You can remove that grant in the same settings screen. On Windows, the page says those saved decisions live in `$CODEX_HOME/config.toml`, under `computer_use.windows`, in `always_allowed_app_ids`. A task can start by mentioning `@Computer` or an app name, or by asking ChatGPT to use Computer Use. If the target app has a plugin or an MCP server, the page says to prefer that for data access and for operations you want to repeat.
 
-On a Mac, ChatGPT needs Screen Recording permission so it can see the app, and Accessibility permission so it can click and type. A scoped task can run in the background while you work elsewhere. Locked use is a separate switch. After you enable it, a task started from a connected device can continue once the Mac locks. OpenAI says that unlock is limited to an active Computer Use turn, that ChatGPT covers the displays while the desktop is temporarily unlocked, and that local keyboard or pointer input locks the Mac again.
+On a Mac, ChatGPT needs Screen Recording permission so it can see the app, and Accessibility permission so it can click and type. A scoped task can run in the background while you work elsewhere. Locked use is a separate switch. Enabling it installs an Apple authorization plug-in that participates in the macOS unlock flow. After you enable it, a task started from a connected device can continue once the Mac locks. OpenAI says that unlock is limited to an active Computer Use turn, that ChatGPT covers the displays while the desktop is temporarily unlocked, and that local keyboard or pointer input locks the Mac again.
 
 On Windows, Computer Use runs on the active desktop and takes the foreground. It cannot keep working in the background while you use that same Windows session. If the task should continue while you step away, OpenAI says to leave the device unlocked and online, check it from a phone, or run the desktop app inside a Windows virtual machine so the agent takes over the virtual machine.
 
@@ -175,11 +177,11 @@ The page says the feature cannot automate terminal apps or ChatGPT itself, and t
 
 The API pages agree on the split. The model proposes the action. Your code performs it.
 
-Anthropic's quick start adds `computer_toolset_20260801` to a Messages API request and uses no beta header. The availability table on that page lists the toolset as available for a set of models on the Claude API, including Claude Opus 5.5 and Claude Sonnet 5.5, and as beta for another set of models. The same table says it is not available in Claude Managed Agents. Your application runs every call. Anthropic's precautions are a dedicated virtual machine or container, no sensitive logins in that environment, an allowlist of domains, and a person confirming consequential actions.
+Anthropic's quick start adds `computer_toolset_20260801` to a Messages API request and uses no beta header. On November 6, 2026, the availability table lists that toolset as available for Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Mythos Preview, Claude Opus 5.5, Claude Opus 5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Haiku 5.5, and Claude Opus 4.8 on the Claude API and on Google Cloud. The AWS, Bedrock, and Microsoft Foundry available row names the same models except Mythos Preview. The beta row names Claude Haiku 4.5, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Opus 4.5, and Claude Sonnet 4.5. The same table says the toolset is not available in Claude Managed Agents. Your application runs every call. Anthropic's precautions are a dedicated virtual machine or container, no sensitive logins in that environment, an allowlist of domains, and a person confirming consequential actions.
 
 OpenAI's guide offers three starts. Screenshots plus mouse and keyboard go through `ComputerToolset`. Page text, controls, and tabs go through `BrowserToolset`, with your driver exposing the operations you allow. A browser hosted by OpenAI is the Agents API path, documented separately. Partner environments named on the page include Browserbase, Browser Use, Daytona, and E2B Desktop. The page says to set a session timeout, to close the session even when the run fails, and to restrict which sites the session can reach.
 
-Google's changelog for October 30, 2026 says Computer Use reached general availability that day, on the Interactions API and the GenerateContent API. The model-versions section checked November 5 lists Gemini 4 Argon, Gemini 3.8 Flash, Gemini 3.5 Flash-Lite, and Gemini 3 Flash Preview. The code samples use `gemini-3.8-flash`, and the page calls Gemini 3.8 Flash the recommended model for computer use. Gemini 4 and Gemini 3.x can target a browser, a mobile device, or a desktop. The reference implementation linked from the page is a Docker sandbox you run yourself.
+Google's changelog for October 30, 2026 says Computer Use reached general availability that day, on the Interactions API and the GenerateContent API. The model-versions section checked November 5 lists Gemini 4 Argon, Gemini 3.8 Flash, Gemini 3.5 Flash-Lite, and Gemini 3 Flash Preview. The code samples use `gemini-3.8-flash`, and the page calls Gemini 3.8 Flash the recommended model for computer use. Gemini 4 and Gemini 3.x can target a browser, a mobile device, or a desktop. The reference implementation linked from the page is a Docker sandbox you run yourself. On November 6, 2026, a request to that Computer Use page returned HTTP 500, so this paragraph was not re-checked against a fresh copy. The changelog URL cited with it was not re-read that day either.
 
 ## What safety rules do the vendors publish?
 
@@ -242,8 +244,8 @@ The [task performance](/topics/task-performance) topic is the shelf for computer
 
 ## Where can you read more on this site?
 
-- Glossary: [computer use](/glossary/computer-use), [browser use](/glossary/browser-use), [sandbox](/glossary/sandbox), [harness](/glossary/harness), [tool use](/glossary/tool-use), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [agent](/glossary/agent)
-- Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
+- Glossary: [computer use](/glossary/computer-use), [browser use](/glossary/browser-use), [sandbox](/glossary/sandbox), [harness](/glossary/harness), [tool use](/glossary/tool-use), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [agent](/glossary/agent), [Model Context Protocol](/glossary/model-context-protocol)
+- Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
 - News: [Tencent releases Hy4 with image understanding and computer use](/blog/tencent-releases-hy4-with-computer-use)
 - Directory: [Claude](/directory/claude), [Claude Code](/directory/claude-code), [ChatGPT](/directory/chatgpt), [Gemini](/directory/gemini)
 - Topics: [task performance](/topics/task-performance), [how agents work](/topics/how-agents-work), [harnesses](/topics/harnesses), [tools and SaaS](/topics/tools-saas)
@@ -252,7 +254,7 @@ The [task performance](/topics/task-performance) topic is the shelf for computer
 
 ### Can an AI agent use my real desktop?
 
-Yes, in the desktop products checked on November 5, 2026. Claude Cowork and Claude Code can point and click on a Mac or Windows PC while the desktop app is awake. That feature is a research preview for Claude Pro, Max, and Ultra. The ChatGPT desktop app can operate a Mac or Windows interface for ChatGPT Work and Codex, in supported regions, and only in the apps you allow. The Anthropic, OpenAI, and Gemini API guides describe a browser or machine your code controls, and they recommend keeping it isolated from the computer that holds your passwords.
+Yes, in the desktop products checked on November 6, 2026. Claude Cowork and Claude Code can point and click on a Mac or Windows PC while the desktop app is awake. That feature is a research preview for Claude Pro, Max, and Ultra. The ChatGPT desktop app can operate a Mac or Windows interface for ChatGPT Work and Codex, in supported regions, and only in the apps you allow. The Anthropic and OpenAI API guides describe a browser or machine your code controls, and they recommend keeping it isolated from the computer that holds your passwords. Google’s Computer Use page was last read November 5. A request on November 6 returned HTTP 500.
 
 ### Do I need to approve each click?
 
@@ -264,7 +266,7 @@ Computer use is a tool. The [harness](/glossary/harness) is the software around 
 
 ### How do Claude, OpenAI, and Gemini compare for computer use?
 
-Claude's desktop feature is a research preview in Cowork and Claude Code, on macOS and Windows, for Pro, Max, and Ultra. ChatGPT's desktop app offers Computer Use on macOS and Windows with Work and Codex. All three companies document an API where your application executes the action. Google's changelog dates general availability to October 30, 2026. Anthropic's API toolset is on the Messages API and is not available in Claude Managed Agents. The table above has the limits that were on each page on November 5.
+Claude's desktop feature is a research preview in Cowork and Claude Code, on macOS and Windows, for Pro, Max, and Ultra. ChatGPT's desktop app offers Computer Use on macOS and Windows with Work and Codex. Anthropic and OpenAI document an API where your application executes the action. On November 6, Anthropic’s availability table lists `computer_toolset_20260801` as available for a current set that includes Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, and Claude Opus 4.8, and as beta for an older set. It is not available in Claude Managed Agents. Google's changelog, as read on November 5, dates general availability to October 30, 2026. The Computer Use page itself returned HTTP 500 on November 6. The table above has the limits from each successful read.
 
 ### Is computer use reliable enough for money or passwords?
 
