@@ -20,8 +20,8 @@ export const site = {
   domain: "www.aiagentsinfo.com",
   url: resolveSiteUrl(),
   description:
-    "Independent coverage of pricing, harnesses, computer use, and new research—cited and current. Original reports, plus a directory of tools checked against a live site.",
-  tagline: "See what AI agents can actually do",
+    "Find AI tools and agents in one place. Independent listings checked against a live site, plus original reporting on pricing, harnesses, and computer use.",
+  tagline: "The biggest directory of AI tools and agents",
   email: "hello@aiagentsinfo.com",
   bylines: {
     editorial: "AI Agents Info Editorial",

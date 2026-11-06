@@ -70,7 +70,7 @@ export default function OpenGraphImage() {
               </div>
             </div>
           </div>
-          <div style={{ fontSize: 58, lineHeight: 1.08, letterSpacing: -1.4, maxWidth: 600 }}>{site.tagline}</div>
+          <div style={{ fontSize: 46, lineHeight: 1.14, letterSpacing: -1.1, maxWidth: 560 }}>{site.tagline}</div>
           <div style={{ fontSize: 22, color: "#0F5F78", letterSpacing: 2.4 }}>Directory · Research · Learning</div>
         </div>
         <div

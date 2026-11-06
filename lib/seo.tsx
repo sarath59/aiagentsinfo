@@ -52,9 +52,19 @@ type MetaOptions = {
 /** File route from `app/opengraph-image.tsx`. Same image the homepage already emits. */
 const DEFAULT_SOCIAL_IMAGE_PATH = "/opengraph-image";
 
+/** Changes the image URL when the tagline changes, so crawlers do not keep the previous card. */
+function cardVersion(value: string) {
+  let hash = 2166136261;
+  for (let i = 0; i < value.length; i += 1) {
+    hash ^= value.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, "0");
+}
+
 export function defaultSocialImage() {
   return {
-    url: absoluteUrl(DEFAULT_SOCIAL_IMAGE_PATH),
+    url: absoluteUrl(`${DEFAULT_SOCIAL_IMAGE_PATH}?v=${cardVersion(site.tagline)}`),
     type: "image/png" as const,
     width: 1200,
     height: 630,
