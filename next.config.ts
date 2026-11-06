@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   // Content is file-based and SEO-first. Keep the classic App Router
   // model so filter/search params and markdown pages stay straightforward.
   cacheComponents: false,
+  // tiktoken loads a WASM file from its package. Keep it on Node's loader.
+  serverExternalPackages: ["tiktoken"],
   async redirects() {
     return [
       {

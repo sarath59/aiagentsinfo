@@ -40,6 +40,13 @@ export default function PrivacyPage() {
           does not require an account. A valid submission is published to the directory. Your email is required and is saved with the submission so we can contact you. Directory pages do not show that email. If saving is unavailable, the form offers an email to {site.email} instead. Do not send secrets.
         </p>
         <p className="mt-4">
+          The{" "}
+          <Link href="/agent-prompt-checker" className="text-[var(--link)] underline">
+            prompt and tool checker
+          </Link>{" "}
+          sends the pasted prompt and tool JSON to this site so the server can count tokens and check the schema. That text is not written to a file, a database, or a log.
+        </p>
+        <p className="mt-4">
           Page views are measured with{" "}
           <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
             <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />

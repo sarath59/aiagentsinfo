@@ -1,23 +1,26 @@
 type Bucket = { timestamps: number[] };
 
-const buckets = new Map<string, Bucket>();
+const submitBuckets = new Map<string, Bucket>();
+const promptBuckets = new Map<string, Bucket>();
 
-const WINDOW_MS = 15 * 60 * 1000;
-const MAX_HITS = 5;
+const SUBMIT_WINDOW_MS = 15 * 60 * 1000;
+const SUBMIT_MAX_HITS = 5;
+const PROMPT_WINDOW_MS = 10 * 60 * 1000;
+const PROMPT_MAX_HITS = 30;
 
-export function takeRateLimit(key: string, now = Date.now()) {
+function takeBucket(buckets: Map<string, Bucket>, key: string, now: number, windowMs: number, maxHits: number) {
   if (buckets.size > 5000) {
     for (const [id, bucket] of buckets) {
-      bucket.timestamps = bucket.timestamps.filter((stamp) => now - stamp < WINDOW_MS);
+      bucket.timestamps = bucket.timestamps.filter((stamp) => now - stamp < windowMs);
       if (!bucket.timestamps.length) buckets.delete(id);
     }
   }
 
   const bucket = buckets.get(key) ?? { timestamps: [] };
-  bucket.timestamps = bucket.timestamps.filter((stamp) => now - stamp < WINDOW_MS);
-  if (bucket.timestamps.length >= MAX_HITS) {
+  bucket.timestamps = bucket.timestamps.filter((stamp) => now - stamp < windowMs);
+  if (bucket.timestamps.length >= maxHits) {
     buckets.set(key, bucket);
-    const retryAfterSec = Math.max(1, Math.ceil((WINDOW_MS - (now - bucket.timestamps[0])) / 1000));
+    const retryAfterSec = Math.max(1, Math.ceil((windowMs - (now - bucket.timestamps[0])) / 1000));
     return { ok: false as const, retryAfterSec };
   }
   bucket.timestamps.push(now);
@@ -25,6 +28,15 @@ export function takeRateLimit(key: string, now = Date.now()) {
   return { ok: true as const };
 }
 
+export function takeRateLimit(key: string, now = Date.now()) {
+  return takeBucket(submitBuckets, key, now, SUBMIT_WINDOW_MS, SUBMIT_MAX_HITS);
+}
+
+export function takePromptCheckLimit(key: string, now = Date.now()) {
+  return takeBucket(promptBuckets, key, now, PROMPT_WINDOW_MS, PROMPT_MAX_HITS);
+}
+
 export function clearRateLimits() {
-  buckets.clear();
+  submitBuckets.clear();
+  promptBuckets.clear();
 }

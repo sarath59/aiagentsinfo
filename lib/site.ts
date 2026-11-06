@@ -165,6 +165,12 @@ export const dataAssets = [
     summary:
       "Estimate a 30-day model bill from official per-token prices. Pick a model, then enter tokens per task and tasks per day. No login is required.",
   },
+  {
+    href: "/agent-prompt-checker",
+    title: "Prompt and tool checker",
+    summary:
+      "Paste a system prompt and tool JSON. The server checks OpenAI, Anthropic, and MCP shapes, counts tokens, and estimates a 30-day bill from the same official prices as the cost calculator. The prompt is not stored.",
+  },
 ] as const;
 
 export const footerNav = [
@@ -201,6 +207,7 @@ export const footerNav = [
       { href: "/verified-revenue", label: "Verified revenue" },
       { href: "/directory/stats", label: "Directory stats" },
       { href: "/agent-cost-calculator", label: "Agent cost calculator" },
+      { href: "/agent-prompt-checker", label: "Prompt and tool checker" },
     ],
   },
   {

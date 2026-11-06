@@ -11,7 +11,7 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: six-month outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, and a token-cost calculator.",
+  "Dated pages with a source and a citation: six-month outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, a token-cost calculator, and a prompt and tool checker.",
   "/reports",
 );
 
@@ -32,6 +32,7 @@ export default async function ReportsPage() {
     "/verified-revenue": verifiedRevenueChecked,
     "/directory/stats": stats.updated,
     "/agent-cost-calculator": PRICE_READ_ON,
+    "/agent-prompt-checker": "2026-11-06",
   };
   const kickerByHref: Record<string, string> = {
     "/reports/ai-agents-next-6-months": "Report",
@@ -41,6 +42,7 @@ export default async function ReportsPage() {
     "/verified-revenue": "Data",
     "/directory/stats": "Data",
     "/agent-cost-calculator": "Data",
+    "/agent-prompt-checker": "Data",
   };
 
   return (

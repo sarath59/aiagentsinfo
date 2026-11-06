@@ -56,7 +56,11 @@ export default function CostCalculatorPage() {
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
           Pick a model, enter the input tokens and output tokens for one task, and how many of those tasks you run
           in a day. The page multiplies by the provider&apos;s standard price and by 30. It runs in the browser. There
-          is no account and no request is sent with your numbers.
+          is no account and no request is sent with your numbers. If you have a system prompt and tool JSON, the{" "}
+          <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">
+            prompt and tool checker
+          </Link>{" "}
+          counts that text on the server and checks the schema.
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">
           Prices read <time dateTime={PRICE_READ_ON}>{updatedLabel}</time>.
@@ -111,13 +115,21 @@ export default function CostCalculatorPage() {
               DeepSeek and other providers are still left out, because their pricing pages were not copied into this
               tool on November 5, 2026.
             </li>
-            <li>Tool-call fees, search grounding, image tokens billed apart from the text price, tax, and seat licenses such as Claude Code or Codex plans.</li>
+            <li>
+              Tool-call fees, search grounding, image tokens billed apart from the text price, tax, and seat licenses such as Claude Code or Codex plans. The{" "}
+              <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">
+                prompt and tool checker
+              </Link>{" "}
+              can validate tool JSON and count pasted text. It still does not add a tool-call fee, because these price pages do not publish one.
+            </li>
           </ul>
         </section>
 
         <section className="mt-10 text-sm">
           <p>
-            Related: <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
+            Related: <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">prompt and tool checker</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>
             {" · "}

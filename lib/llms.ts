@@ -85,6 +85,11 @@ export async function buildLlmsTxt() {
       item("Verified revenue", "/verified-revenue", `Payment-processor-verified revenue. Checked ${verifiedRevenueChecked}.`),
       item("Directory stats", "/directory/stats", "Counts generated from the directory files at build time."),
       item("Agent cost calculator", "/agent-cost-calculator", "30-day token cost from official provider prices."),
+      item(
+        "Prompt and tool checker",
+        "/agent-prompt-checker",
+        "Server-side check of pasted prompts and OpenAI, Anthropic, or MCP tool JSON, with a token count and the same official prices.",
+      ),
       item("Submit a tool", "/submit", "Public form. A valid submission is published to the directory."),
     ]),
     section(

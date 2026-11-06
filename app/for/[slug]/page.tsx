@@ -65,6 +65,9 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
               <Link href="/agent-cost-calculator">Agent cost calculator</Link>
             </li>
             <li>
+              <Link href="/agent-prompt-checker">Prompt and tool checker</Link>
+            </li>
+            <li>
               <Link href="/directory/stats">Directory stats</Link>
             </li>
           </ul>

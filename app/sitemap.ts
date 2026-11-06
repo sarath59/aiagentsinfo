@@ -74,6 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/reports/ai-shopping-agents-next-6-months", priority: 0.7 },
     { path: "/directory/stats", priority: 0.6 },
     { path: "/agent-cost-calculator", priority: 0.6 },
+    { path: "/agent-prompt-checker", priority: 0.6 },
     ...audiences.map((item) => ({ path: item.href, priority: 0.6 })),
   ];
 
