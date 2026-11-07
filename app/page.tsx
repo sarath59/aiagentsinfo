@@ -37,7 +37,12 @@ export const metadata = {
 };
 
 const spotlightSlugs = ["cursor", "devin", "crewai"] as const;
-const freeToolHrefs = ["/agent-cost-calculator", "/verified-revenue", "/directory/stats"] as const;
+const freeToolHrefs = [
+  "/agent-cost-calculator",
+  "/agent-prompt-checker",
+  "/verified-revenue",
+  "/directory/stats",
+] as const;
 
 function previewTools(listings: DirectoryListing[]) {
   const picked: DirectoryListing[] = [];
