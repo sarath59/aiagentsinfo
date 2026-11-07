@@ -13,13 +13,6 @@
     "height": 128,
     "bytes": 192
   },
-  "genesis-agent": {
-    "source": "https://genaisol.pages.dev/logo.png",
-    "file": "/logos/makers/genesis-agent.webp",
-    "width": 128,
-    "height": 128,
-    "bytes": 1570
-  },
   "nextname": {
     "source": "https://nextname.app/apple-touch-icon.png",
     "file": "/logos/makers/nextname.webp",
@@ -47,5 +40,12 @@
     "width": 128,
     "height": 128,
     "bytes": 1928
+  },
+  "tecadrise-bot": {
+    "source": "https://tecadrise.ai/logo512.png",
+    "file": "/logos/makers/tecadrise-bot.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1144
   }
 }
