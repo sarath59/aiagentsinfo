@@ -7,6 +7,7 @@ export {
   authorNode,
   breadcrumbJsonLd,
   datasetJsonLd,
+  datasetLicenseUrl,
   definedTermJsonLd,
   organizationJsonLd,
   profilePageJsonLd,

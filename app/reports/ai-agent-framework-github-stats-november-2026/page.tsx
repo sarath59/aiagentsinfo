@@ -35,8 +35,8 @@ import {
   frameworkRows,
 } from "@/lib/framework-github-stats";
 import { BENCHMARK_READ_ON } from "@/lib/harness-benchmark";
-import { JsonLd, datasetJsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(title, description, path);
 
@@ -82,10 +82,23 @@ export default async function FrameworkGithubStatsPage() {
         byline={site.bylines.research}
         wide
         details={
-          <p>
-            Data pulled from GitHub on {retrievedLabel}. Snapshot{" "}
-            <time dateTime={retrievedAt}>{retrievedAt}</time> UTC.
-          </p>
+          <>
+            <p>
+              Data pulled from GitHub on {retrievedLabel}. Snapshot{" "}
+              <time dateTime={retrievedAt}>{retrievedAt}</time> UTC.
+            </p>
+            <p className="mt-2">
+              Data licensed{" "}
+              <a className="text-[var(--link)] underline" href={datasetLicenseUrl}>
+                CC BY 4.0
+              </a>
+              , please credit{" "}
+              <a className="text-[var(--link)] underline" href={absoluteUrl("/")}>
+                {site.name}
+              </a>
+              .
+            </p>
+          </>
         }
         takeaways={takeaways()}
         toc={[

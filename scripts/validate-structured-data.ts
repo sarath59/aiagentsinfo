@@ -5,6 +5,8 @@ import {
   articleJsonLd,
   assertStructuredData,
   breadcrumbJsonLd,
+  datasetJsonLd,
+  datasetLicenseUrl,
   organizationJsonLd,
   profilePageJsonLd,
   researchArticleJsonLd,
@@ -45,6 +47,24 @@ assertStructuredData(
     paperUrl: "https://arxiv.org/abs/2210.03629",
   }),
 );
+const dataset = datasetJsonLd({
+  title: "AI agent framework GitHub stats, November 2026",
+  description: "Stars and forks copied from the public GitHub API.",
+  path: "/reports/ai-agent-framework-github-stats-november-2026",
+  datePublished: "2026-11-05",
+  distributionPath: "/reports/ai-agent-framework-github-stats-november-2026/csv",
+  isBasedOn: "https://docs.github.com/en/rest",
+});
+if (dataset.license !== datasetLicenseUrl) {
+  throw new Error(`Dataset license must be ${datasetLicenseUrl}`);
+}
+if (dataset.creator.name !== site.name || dataset.creator.url !== "https://www.aiagentsinfo.com") {
+  throw new Error("Dataset creator must be AI Agents Info at https://www.aiagentsinfo.com");
+}
+if (dataset.publisher.name !== site.name || dataset.publisher.url !== "https://www.aiagentsinfo.com") {
+  throw new Error("Dataset publisher must be AI Agents Info at https://www.aiagentsinfo.com");
+}
+assertStructuredData(dataset);
 assertStructuredData(
   profilePageJsonLd({
     name: editorial.name,
@@ -71,6 +91,16 @@ rejects("SoftwareApplication", {
   "@type": "SoftwareApplication",
   name: "Example",
   offers: { "@type": "Offer", price: 0 },
+});
+rejects("Dataset without license", {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  name: "Example",
+  description: "Example",
+  url: "https://www.aiagentsinfo.com/reports/example",
+  datePublished: "2026-11-05",
+  creator: { "@type": "Organization", name: site.name, url: "https://www.aiagentsinfo.com" },
+  publisher: { "@type": "Organization", name: site.name, url: "https://www.aiagentsinfo.com" },
 });
 rejects("Article without author url", {
   "@context": "https://schema.org",

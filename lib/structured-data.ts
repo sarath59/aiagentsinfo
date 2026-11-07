@@ -152,6 +152,17 @@ export function researchArticleJsonLd(input: {
   });
 }
 
+/** CC BY 4.0. Google Search Console expects this URL on every Dataset node. */
+export const datasetLicenseUrl = "https://creativecommons.org/licenses/by/4.0/";
+
+function datasetOrganization() {
+  return {
+    "@type": "Organization" as const,
+    name: site.name,
+    url: absoluteUrl("/"),
+  };
+}
+
 export function datasetJsonLd(input: {
   title: string;
   description: string;
@@ -167,13 +178,11 @@ export function datasetJsonLd(input: {
     name: input.title,
     description: input.description,
     url: absoluteUrl(input.path),
+    license: datasetLicenseUrl,
     datePublished: schemaDate(input.datePublished),
     dateModified: schemaDate(input.dateModified ?? input.datePublished),
-    creator: {
-      "@type": "Organization",
-      name: site.name,
-      url: absoluteUrl("/"),
-    },
+    creator: datasetOrganization(),
+    publisher: datasetOrganization(),
     ...(input.isBasedOn ? { isBasedOn: input.isBasedOn } : {}),
     ...(input.distributionPath
       ? {
@@ -360,7 +369,10 @@ function assertNode(value: unknown, path: string) {
     if (!url.startsWith("https://")) throw new Error(`${path}.url must be an absolute https URL`);
     requireDate(value, "datePublished", path);
     if (value.dateModified) requireDate(value, "dateModified", path);
-    if (value.creator) assertAuthor(value.creator, `${path}.creator`, true);
+    const license = requireString(value, "license", path);
+    if (!license.startsWith("https://")) throw new Error(`${path}.license must be an absolute https URL`);
+    assertAuthor(value.creator, `${path}.creator`, true);
+    assertAuthor(value.publisher, `${path}.publisher`, true);
     if (value.distribution) {
       if (!isRecord(value.distribution)) throw new Error(`${path}.distribution must be an object`);
       const contentUrl = value.distribution.contentUrl;
