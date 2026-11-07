@@ -1,4 +1,5 @@
 import { path as outlookPath, title as outlookTitle, description as outlookDescription } from "@/lib/agents-outlook";
+import { path as yearPath, title as yearTitle, description as yearDescription } from "@/lib/agents-12-month-outlook";
 import { path as benchmarkPath, title as benchmarkTitle, description as benchmarkDescription } from "@/lib/benchmark-report";
 import { getBlogPosts } from "@/lib/blog";
 import type { DirectoryListing } from "@/lib/directory";
@@ -70,6 +71,14 @@ export async function listingReading(listing: DirectoryListing): Promise<Listing
     kind: "Benchmark",
     reason: BENCHMARK_NAMED[listing.slug] ?? benchmarkDescription,
     score: BENCHMARK_NAMED[listing.slug] ? 9 : listing.category === "coding-agents" || listing.category === "agent-frameworks" ? 4 : 0,
+  });
+
+  pushReport(candidates, {
+    href: yearPath,
+    title: yearTitle,
+    kind: "Report",
+    reason: yearDescription,
+    score: listing.category === "coding-agents" || listing.category === "agent-frameworks" ? 5 : 0,
   });
 
   pushReport(candidates, {

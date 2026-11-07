@@ -24,6 +24,14 @@ export default async function AgentsOutlookPage() {
   ]);
   const related = [
     {
+      href: "/reports/ai-agents-next-12-months",
+      title: "AI agents, Nov 2026 to Nov 2027",
+      description:
+        "The 12-month flagship. It keeps this window and adds the dated marks through November 2027, including the August EU sandbox date.",
+      kicker: "Report",
+      date: "2026-11-07",
+    },
+    {
       href: "/reports/ai-shopping-agents-next-6-months",
       title: "AI shopping agents, Nov 2026 to May 2027",
       description:

@@ -361,7 +361,7 @@ The [task performance](/topics/task-performance) topic is where this site follow
 - Shopping: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
 - Computer use: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
 - Coding-agent prices: [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing)
-- Reports: [AI agents, November 2026 to May 2027](/reports/ai-agents-next-6-months), [harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
+- Reports: [AI agents, November 2026 to November 2027](/reports/ai-agents-next-12-months), [AI agents, November 2026 to May 2027](/reports/ai-agents-next-6-months), [harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
 - Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [shopping](/topics/shopping)
 
 ## Frequently asked questions

@@ -129,6 +129,8 @@ export default function CostCalculatorPage() {
           <p>
             Related: <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">prompt and tool checker</Link>
             {" · "}
+            <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-12-months">AI agents, Nov 2026 to Nov 2027</Link>
+            {" · "}
             <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>

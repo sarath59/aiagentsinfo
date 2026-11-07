@@ -31,6 +31,14 @@ export default async function HarnessBenchmarkPage() {
   ]);
   const related = [
     {
+      href: "/reports/ai-agents-next-12-months",
+      title: "AI agents, Nov 2026 to Nov 2027",
+      description:
+        "The 12-month flagship for coding agents, computer use, harnesses, and regulation. Official board scores stay on this page.",
+      kicker: "Report",
+      date: "2026-11-07",
+    },
+    {
       href: "/reports/ai-agents-next-6-months",
       title: "AI agents, Nov 2026 to May 2027",
       description:

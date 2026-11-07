@@ -67,6 +67,11 @@ export async function buildLlmsTxt() {
       item("Benchmark leaderboard", "/trackers/benchmarks", "Public agent benchmarks, published only with a source, a date, and the harness."),
       item("Reports", "/reports", "Dated pages with a source and a citation."),
       item(
+        "AI agents in the next 12 months (Nov 2026 to Nov 2027)",
+        "/reports/ai-agents-next-12-months",
+        "Flagship outlook. Announced, likely, and watch-for claims for coding, computer use, harnesses, and regulation through November 2027. Read November 7, 2026.",
+      ),
+      item(
         "AI agents in the next 6 months (Nov 2026 to May 2027)",
         "/reports/ai-agents-next-6-months",
         "Announced, likely, and watch-for claims for coding, computer use, harnesses, and regulation. Read November 5, 2026.",

@@ -43,6 +43,13 @@ import {
   readOn as outlookReadOn,
   title as outlookTitle,
 } from "@/lib/agents-outlook";
+import {
+  description as yearDescription,
+  months as yearMonths,
+  path as yearPath,
+  readOn as yearReadOn,
+  title as yearTitle,
+} from "@/lib/agents-12-month-outlook";
 import { months, description as shoppingDescription, path as shoppingPath, readOn, title as shoppingTitle } from "@/lib/shopping-report";
 import { formatDate } from "@/lib/utils";
 
@@ -108,6 +115,68 @@ export function agentsOutlookPdf(): PdfModel {
           caption: "Announced, likely, and watch-for notes by month",
           headers: ["Month", "Announced", "Likely", "Watch for"],
           rows: outlookMonths.map((item) => [item.month, item.announced, item.likely, item.watch]),
+        },
+      },
+    ],
+  };
+}
+
+export function agents12MonthOutlookPdf(): PdfModel {
+  const dateLabel = formatDate(yearReadOn);
+  return {
+    filename: "ai-agents-nov-2026-nov-2027.pdf",
+    title: yearTitle,
+    description: yearDescription,
+    dateLabel,
+    url: absoluteUrl(yearPath),
+    sections: [
+      {
+        paragraphs: [
+          "From November 2026 through November 2027, the public record is a short list of things a company, a standards body, or a government has already dated, plus a handful of phrases with no day attached. Anthropic filed an amended prospectus on November 2. Apple's auditors signed the Form 10-K on November 3. AWS, Sysdig, DeepSeek, Tencent, and Citrix posted on November 3 and 4. Singapore's Ministry of Digital Development and Information published a speech on November 5. The European Commission's AI Act timeline names December 2, 2026, and then August 2, 2027.",
+          "The six-month agents report stops at May 2027. This page adds the second half. Past May, the dated marks are July 28, 2027, when four MCP features become eligible for removal; August 2, 2027, when EU member states should have a national AI sandbox; and September 30, 2027, the last day of the span in which Anthropic says about $69.8 billion of commitments are due. Annex III high-risk rules are December 2, 2027, after this window. June, October, and November 2027 have no dated launch in this source set.",
+          "Shopping and payments are in the separate report AI shopping agents in the next 6 months. This page does not repeat that checkout record. Scores for coding harnesses are in the November harness benchmark. A month with no dated launch is left empty on purpose.",
+        ],
+      },
+      {
+        heading: "How a claim is sorted",
+        paragraphs: [
+          "Announced means a linked filing, company page, protocol changelog, official timeline, or parliamentary page says it.",
+          'Likely means that page aims the work at this twelve-month stretch and does not name a day. The word means "their phrase covers these months." It is not a new odds estimate from this desk.',
+          "Watch for means a later check should confirm the item or drop it: the page withholds a date, the tense is future, or a follow-up named earlier was not confirmed on November 7, 2026.",
+        ],
+      },
+      {
+        heading: "Announced",
+        paragraphs: [
+          "Anthropic's amended S-1, filed November 2, 2026, describes Claude Code as the coding agent already in market and Claude Cowork as a research preview from January 2026 that, as of September 30, 2026, had outpaced Claude Code's adoption at the equivalent point. The quarterly table shows revenue of $16,956 million and an operating loss of $567 million for the three months ended September 30, 2026. Nine-month revenue is $33,242 million and the operating loss is $1,260 million. The same nine months show a net loss of $104.0 billion, of which $94.3 billion is a fair-value change. Aggregate purchase commitments and leases are about $895.4 billion. About $69.8 billion is due in the 12 months after September 30, 2026, a span that ends September 30, 2027.",
+          "OpenAI's computer-use guide, read November 7, covers macOS and Windows with ChatGPT Work and Codex. It does not mention Linux. Anthropic's computer-use toolset computer_toolset_20260801 gives Claude 17 member tools. The page lists it as available on the Claude API, Google Cloud, Claude Platform on AWS, Amazon Bedrock, and Microsoft Foundry for current models, and as not available in Claude Managed Agents. Tencent's November 4 post says Hy4 can use a command line and a graphical interface. The API is live. WorkBuddy and CodeBuddy are free from November 4 through November 15. The TokenHub discount runs through December 31, 2026. The corporate post prints approximate catalog prices of US$0.90, US$2.70, and US$0.045 per million input, output, and cached input tokens.",
+          "AWS posted on November 3 that WorkSpaces for AI agents now supports Linux and Windows 11 cloud desktops in addition to Windows Server. Sysdig announced general availability of Sysdig AI Defense on November 4, for macOS and Windows. Citrix's November 4 post says SecurSpaces updates are generally available, and that SecurAccess updates will be available by the end of November, without naming a day. DeepSeek Harness v0.2.2-rc.1 was released November 4 and was still the newest release on November 7. The README still says developer preview. Harmony Harness, arXiv 2610.15150, submitted October 10, 2026, is a research paper, not a product announcement.",
+          "The MCP deprecated-features registry for the July 28, 2026 specification says Roots, Sampling, Logging, and Dynamic Client Registration become eligible for removal in the first revision released on or after July 28, 2027. The registry says that date is eligibility, that removal is a later decision, and that no feature has been removed under the policy yet. The lifecycle policy allows an expedited shortening to at least 90 days for an active security risk. No such shortening was on the registry. HTTP+SSE has no calendar day on that page.",
+          "Apple's Form 10-K, auditor's report dated November 3, 2026, warns that agents can act without authorization and that some consequences, such as deleting data or completing a transaction, may be hard to reverse. It does not describe a specific incident. The EU AI Act timeline dates December 2, 2026 for new prohibitions and an Article 50(2) transition, August 2, 2027 for national AI sandboxes, and December 2, 2027 for Annex III high-risk rules. On October 30, 2026 the UK Digital Regulation Cooperation Forum said existing law already applies to personal AI agents and that autonomy does not diminish the deployer's duty. A GOV.UK factsheet updated November 3 says four agentic loss-of-control measures will follow consultation and names no month. Parliament's bill page says Commons proceedings lapse at the end of April 29, 2027 under a November 4 carry-over motion. On November 5 Singapore's MDDI published a speech saying GovTech is developing GovHarness. The speech names no ship date.",
+        ],
+      },
+      {
+        heading: "Likely",
+        paragraphs: [
+          'Anthropic\'s November 2 prospectus says: "We expect our use of short-term compute to continue to increase in the near term and to in turn compress our operating margin and Adjusted Operating Margin as a result." The phrase does not name a month. About $69.8 billion of commitments are due in the 12 months after September 30, 2026. That span includes this window through September 30, 2027, and does not cover October or November 2027.',
+          "Tencent's November 4 post says weights and system cards will be released in the coming days, and that Hy4 Flash is scheduled for release soon. The heading says Hy4 Flash was recently released; this report follows the body, which does not name a day. Citrix's \"by the end of this month\" covers the rest of November 2026 and does not name a day.",
+        ],
+      },
+      {
+        heading: "Watch for",
+        paragraphs: [
+          "Citrix's November 4 announcement uses \"will be able\" and \"will become\" for two SecurAccess controls. The availability line puts those updates at the end of November 2026. OpenAI's computer-use page does not mention Linux. DeepSeek's README warns of compatibility-breaking changes and does not end the preview. Harmony Harness does not schedule a product. GovHarness has no ship date. The UK agentic measures have no month. Annex III high-risk rules are December 2, 2027, after this window.",
+        ],
+      },
+      {
+        heading: "Month by month, November 2026 to November 2027",
+        paragraphs: [
+          "An empty announcement means no linked source named that month. It is not a prediction that the month will be quiet.",
+        ],
+        table: {
+          caption: "Announced, likely, and watch-for notes by month",
+          headers: ["Month", "Announced", "Likely", "Watch for"],
+          rows: yearMonths.map((item) => [item.month, item.announced, item.likely, item.watch]),
         },
       },
     ],
@@ -269,6 +338,7 @@ export function frameworkReportPdf(): PdfModel {
 }
 
 const pdfModels = {
+  "ai-agents-next-12-months": agents12MonthOutlookPdf,
   "ai-agents-next-6-months": agentsOutlookPdf,
   "ai-shopping-agents-next-6-months": shoppingReportPdf,
   "agent-harness-benchmark-november-2026": benchmarkReportPdf,
@@ -286,6 +356,13 @@ export function reportCsv(slug: string, table: string | null) {
   if (slug === "ai-agent-framework-github-stats-november-2026") {
     if (table && table !== "frameworks") return undefined;
     return frameworkCsv();
+  }
+  if (slug === "ai-agents-next-12-months") {
+    return {
+      filename: "ai-agents-nov-2026-nov-2027.csv",
+      headers: ["Month", "Announced", "Likely", "Watch for"],
+      rows: yearMonths.map((item) => [item.month, item.announced, item.likely, item.watch]),
+    };
   }
   if (slug === "ai-agents-next-6-months") {
     return {
