@@ -1,12 +1,12 @@
 ---
 title: "Claude Code vs Codex Pricing: Which Costs Less in 2026?"
-description: "Codex costs less to start. On November 6, 2026 it is included on ChatGPT Free and on Go at $8 a month, and Claude Code starts on Pro at $20 a month, or $17 a month on an annual bill. The $100 and $200 individual prices match, and Codex Pro also lists a $500 tier."
+description: "Codex costs less to start. On November 6, 2026 it is included on ChatGPT Free and on Go at $8 a month, and Claude Code starts on Pro at $20 a month, or $17 a month on an annual bill. Anthropic Claude Code limits on Pro are a five-hour window and a weekly cap, shared with the rest of Claude. The $100 and $200 individual prices match, and Codex Pro also lists a $500 tier."
 takeaways:
   - "Codex is the lower cost to start. ChatGPT Free includes it at $0, and Go is $8 a month. Claude Code starts on Pro."
   - "The monthly stickers then match: $20 for Claude Pro or ChatGPT Plus, $100 for Claude Max or Codex Pro, and $200 for Claude Ultra or Codex Pro. Claude Pro is $17 a month if you pay $200 up front. Codex Pro also has a $500 tier."
   - "Equal stickers are not equal coding time. Claude Code shares one usage pool with the rest of Claude. Codex shares its allowance with ChatGPT Work. Read the limit on the vendor page before you treat a price as a budget."
 date: "2026-11-06"
-updated: "2026-11-06"
+updated: "2026-11-07"
 category: guide
 topics:
   - tools-saas
@@ -60,9 +60,11 @@ faq:
     answer: "The entry annual price is $20 per person on both sides, with a minimum of two people. Claude Team standard seats are $20 per member per month billed annually, or $25 billed monthly. Premium seats are $100 annually or $125 monthly. ChatGPT Business is $20 per user per month for two or more users billed annually, or $25 billed monthly. Claude’s pricing FAQ lists Enterprise at $20 per seat per month plus usage at API rates, billed annually."
   - question: "Can I pay API rates instead of a subscription?"
     answer: "Yes. Anthropic says a Claude Console account bills Claude Code at standard API rates, and paid Claude plans can turn on usage credits at those rates after the included limit. OpenAI’s API-key path bills Codex at API rates in the CLI, SDK, or IDE extension, and it says that path has no cloud features such as GitHub code review and Slack."
+  - question: "What are the Anthropic Claude Code limits?"
+    answer: "On the pages checked November 6, 2026, they are the plan’s limits, not a separate Claude Code meter. Pro has a five-hour session limit and a weekly limit, shared with the rest of Claude. Max is 5 times Pro usage on both windows. Ultra is 10 times Pro usage every week, and verified accounts have no five-hour limit. Those pages do not print a separate price for a background subagent."
 ---
 
-Updated November 6, 2026.
+Updated November 7, 2026. The prices below were checked November 6, 2026.
 
 ## Which costs less, Claude Code or Codex?
 
@@ -269,6 +271,14 @@ Two billing paths sit beside the stickers. A Claude Console account, and extra u
 
 The software that spends those tokens is the harness. A $20 plan with a tight loop and a $20 plan with a long cloud task are different bills even when the sticker matches. [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness) is the page for that split. The directory rows for [Claude Code](/directory/claude-code) and [Codex](/directory/codex) keep the short product notes.
 
+## What are the Anthropic Claude Code limits?
+
+Anthropic Claude Code limits, on the pages checked November 6, 2026, are the plan’s limits. Claude Code is not a separate meter.
+
+Pro has a five-hour session limit and a weekly limit. Both are shared with the rest of Claude. The pricing FAQ says there is no fixed message count. Max is 5 times Pro usage every five hours and every week. Ultra is 10 times Pro usage every week, and verified accounts have no five-hour limit. The tables above put those windows next to Codex. [Claude Code](/directory/claude-code) is the product note. [Codex](/directory/codex) is the other column.
+
+This page does not have a separate price for a Claude Code subagent. The vendor pages checked for this comparison do not print one. A background task still draws on the same pool, or on API rates after the included allowance, which is the split in the sections above.
+
 ## What should you check before you pay?
 
 1. Pick the surface first. Claude Code’s product page lists the terminal, the web, iOS, Android, GitHub, VS Code, JetBrains, and Slack, and it says the VS Code extension also covers Cursor and Devin Desktop. Codex’s docs list the CLI, the IDE, the desktop app, the web, and cloud tasks on the plans that include cloud.
@@ -305,3 +315,7 @@ Claude Team standard and ChatGPT Business are both $20 per person per month when
 ### Can I pay API rates instead of a subscription?
 
 Yes. Console bills Claude Code at standard API rates. An OpenAI API key bills Codex at API rates in the CLI, SDK, or IDE, without the cloud integrations. Paid subscriptions can also buy credits after the included allowance runs out.
+
+### What are the Anthropic Claude Code limits?
+
+They are the plan’s limits, not a separate Claude Code meter. On the November 6, 2026 check, Pro has a five-hour session limit and a weekly limit, shared with the rest of Claude. Max is 5 times Pro usage on both windows. Ultra is 10 times Pro usage every week, and verified accounts have no five-hour limit. The pages checked here do not print a separate price for a background subagent. The [Claude Code listing](/directory/claude-code) has the same plan names, and [Codex](/directory/codex) is the other product.
