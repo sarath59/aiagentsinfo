@@ -479,6 +479,15 @@ export const companies: Company[] = [
     aliases: ["OpenRouter"],
     hosts: ["openrouter.ai"],
   },
+  {
+    slug: "thoughtworks",
+    name: "Thoughtworks",
+    website: "https://www.thoughtworks.com",
+    logo: "/logos/thoughtworks.png",
+    tile: "light",
+    aliases: ["Thoughtworks"],
+    hosts: ["thoughtworks.com"],
+  },
 ];
 
 const bySlug = new Map(companies.map((company) => [company.slug, company]));
