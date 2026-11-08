@@ -90,7 +90,7 @@ Sometimes. A [shopping agent](/glossary/shopping-agent) can research and compare
 
 On the pages re-read for this update, that rule is not the same in every app. Google's Universal Cart can take Google Pay at participating stores, or hand the items to the store's own cart. ChatGPT's merchant page, re-read November 7, 2026, sends the purchase to the store's website or app. Amazon's Alexa for Shopping can buy inside Amazon when a price you set is reached, and it can place an eligible order on another store through Buy for Me. Microsoft Copilot Checkout can finish a purchase inside the assistant for participating merchants. Perplexity Instant Buy is included from the help article retrieved November 4. That page did not load on November 7.
 
-The short version: the assistant is allowed to act. The store still sells the item.
+The short version: the assistant is allowed to act. The store still sells the item. Licence, list price, and checkout path for four products are in [Best AI agent for shopping](/best/ai-agents-for-shopping).
 
 ## What is a shopping agent?
 

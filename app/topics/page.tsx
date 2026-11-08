@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
-import { COMPARISON_HUB, COMPARISON_VERIFIED_ON } from "@/lib/comparisons";
+import { COMPARISON_HUB, COMPARISON_VERIFIED_ON, comparisonPages } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
-import { comparisons, topics } from "@/lib/site";
+import { topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 export const metadata = defaultMetadata(
@@ -30,8 +30,8 @@ export default function TopicsIndexPage() {
           scores.
         </p>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          {comparisons.map((page) => (
-            <Link key={page.href} href={page.href} className="glass lift rounded-3xl p-6">
+          {comparisonPages.map((page) => (
+            <Link key={page.path} href={page.path} className="glass lift rounded-3xl p-6">
               <h3 className="font-semibold tracking-tight text-xl">{page.title}</h3>
               <p className="mt-2 text-sm text-[var(--muted)]">{page.summary}</p>
             </Link>

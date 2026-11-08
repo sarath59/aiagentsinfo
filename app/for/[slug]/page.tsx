@@ -9,6 +9,8 @@ import { getBlogPosts } from "@/lib/blog";
 import { getDirectoryListings } from "@/lib/directory";
 import { getResearchDocs } from "@/lib/research";
 import { companyForName } from "@/lib/companies";
+import { BestOfLinks } from "@/components/BestOfLinks";
+import { comparisonPages } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
 import { audiences } from "@/lib/site";
 
@@ -51,6 +53,12 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
           <p className="mt-3 text-[var(--muted)]">{block.body}</p>
         </section>
       ))}
+      {slug === "everyone" ? (
+        <BestOfLinks
+          pages={comparisonPages.filter((page) => page.kind === "consumer")}
+          intro="Sourced tables for shopping, search, travel, email, and other everyday jobs. Last verified November 2026."
+        />
+      ) : null}
       {slug === "builders" || slug === "research" ? (
         <section className="mt-10">
           <h2 className="font-semibold tracking-tight text-2xl">Dated figures</h2>
@@ -165,7 +173,7 @@ function copyFor(slug: string) {
       },
       {
         title: "What you can read here",
-        body: "Plain-English AI news and research for adults: what an agent is, where the tools are actually used, and what the papers change.",
+        body: "Plain-English AI news and research for adults: what an agent is, where the tools are actually used, and what the papers change. Sourced consumer tables cover shopping, web search, travel booking, email, personal assistant tasks, research, scheduling, writing, students, and small business under Best AI agents.",
       },
     ];
   }

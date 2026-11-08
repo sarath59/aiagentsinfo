@@ -29,4 +29,4 @@ lastVerified: "2026-11-07"
 newThisWeek: true
 ---
 
-ReplyCurrent turns a site, help center, docs, and PDFs into an assistant that answers visitor questions and cites the passage it used. You name it, set the tone, and paste one snippet into the site. Growth covers one assistant. Pro adds a second assistant and lead capture. Agency adds client workspaces.
+ReplyCurrent turns a site, help center, docs, and PDFs into an assistant that answers visitor questions and cites the passage it used. You name it, set the tone, and paste one snippet into the site. Growth covers one assistant. Pro adds a second assistant and lead capture. Agency adds client workspaces. It is compared in [Best AI agent for small business](/best/ai-agents-for-small-business).

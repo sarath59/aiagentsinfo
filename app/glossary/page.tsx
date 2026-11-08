@@ -25,7 +25,7 @@ export default async function GlossaryPage() {
         summary="Plain definitions of real terms. A word is listed when the definition is accurate."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
-        <BestOfLinks intro="Sourced comparisons of harnesses, computer use agents, and evaluation tools. Last verified November 2026." />
+        <BestOfLinks intro="Sourced comparisons of harnesses, computer use, evaluation tools, and consumer jobs such as shopping and writing. Last verified November 2026." />
         {groups.length === 0 ? (
           <EmptyState title="Glossary entries publishing soon" body="Definitions of real terms will appear here as they are written." />
         ) : null}

@@ -5,6 +5,7 @@ import {
   COMPARISON_HUB,
   COMPARISON_VERIFIED_ON,
   comparisonPages,
+  type ComparisonPage,
 } from "@/lib/comparisons";
 import {
   breadcrumbJsonLd,
@@ -58,17 +59,33 @@ export default function BestIndexPage() {
         title={COMPARISON_HUB.heading}
         summary={COMPARISON_HUB.description}
       />
-      <div className="mx-auto grid max-w-6xl gap-4 px-4 pb-20 sm:grid-cols-3">
-        {comparisonPages.map((page) => (
+      <HubGroup
+        heading="For builders"
+        pages={comparisonPages.filter((page) => page.kind === "builder")}
+      />
+      <HubGroup
+        heading="For everyone"
+        pages={comparisonPages.filter((page) => page.kind === "consumer")}
+      />
+    </>
+  );
+}
+
+function HubGroup({ heading, pages }: { heading: string; pages: ComparisonPage[] }) {
+  return (
+    <section className="mx-auto max-w-6xl px-4 pb-16">
+      <h2 className="text-2xl font-semibold tracking-tight">{heading}</h2>
+      <div className="mt-4 grid gap-4 sm:grid-cols-3">
+        {pages.map((page) => (
           <Link key={page.path} href={page.path} className="glass lift rounded-3xl p-6">
             <p className="kicker">
               {page.title} · Last verified {formatDate(COMPARISON_VERIFIED_ON)}
             </p>
-            <h2 className="mt-3 font-semibold tracking-tight text-2xl">{page.question}</h2>
+            <h3 className="mt-3 font-semibold tracking-tight text-2xl">{page.question}</h3>
             <p className="mt-2 text-sm text-[var(--muted)]">{page.metaDescription}</p>
           </Link>
         ))}
       </div>
-    </>
+    </section>
   );
 }

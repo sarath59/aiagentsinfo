@@ -1,4 +1,5 @@
 import type { RelatedCard } from "@/components/ArticleTemplate";
+import { consumerComparisons } from "@/lib/consumer-comparisons";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
 
 export const COMPARISON_VERIFIED_ON = "2026-11-08";
@@ -8,18 +9,20 @@ export const COMPARISON_HUB = {
   href: "/best",
   title: "Best AI agents",
   heading: "Best AI agents in 2026",
-  metaTitle: "Best AI agents: 3 sourced tables (2026)",
+  metaTitle: "Best AI agents: 13 sourced tables (2026)",
   metaDescription:
-    "Best AI agents compared by job: harness, computer use, and evaluation. Open three sourced tables of licence, list price, and platform (Nov 2026).",
+    "Best AI agents compared by job: 3 builder tables and 10 for shopping, search, travel, email, and more. Licence, list price, platform (Nov 2026).",
   summary:
-    "Sourced comparisons of the best AI agent harness, the best computer use agents, and the best AI agent evaluation tools. Last verified November 2026.",
+    "Sourced comparisons of the best AI agent harness, computer use agents, evaluation tools, and 10 consumer jobs. Last verified November 2026.",
   description:
-    "Best AI agents on this site are compared by job. The three tables cover the best AI agent harness, the best computer use agents, and the best AI agent evaluation tools, using licence, list price, and platform from official pages.",
+    "Best AI agents on this site are compared by job. Three tables cover harnesses, computer use, and evaluation. Ten more cover shopping, web search, travel booking, email, personal assistant tasks, research, scheduling, writing, students, and small business. Cells are licence, list price, and platform from official pages.",
 } as const;
 
 export type ComparisonFaq = { question: string; answer: string };
 export type ComparisonSource = { title: string; url: string };
 export type ComparisonPick = { title: string; body: string; href?: string };
+export type ComparisonKind = "builder" | "consumer";
+export type ComparisonSection = { id: string; heading: string; paragraphs: string[] };
 
 export type ComparisonRow = {
   id: string;
@@ -55,6 +58,7 @@ export type ComparisonPage = {
   faqHeading: string;
   faqLead: string;
   applicationCategory: string;
+  kind: ComparisonKind;
   topics: string[];
   categories: string[];
   takeaways: string[];
@@ -64,6 +68,7 @@ export type ComparisonPage = {
   faq: ComparisonFaq[];
   related: RelatedCard[];
   columns: SortableColumn[];
+  sections?: ComparisonSection[];
 };
 
 const LISTING_LOGOS: Record<string, string> = {
@@ -80,6 +85,11 @@ const LISTING_LOGOS: Record<string, string> = {
   smolagents: "/logos/huggingface.svg",
   langchain: "/logos/langchain.png",
   crewai: "/logos/crewai.png",
+  "amazon-rufus": "/logos/amazon.png",
+  perplexity: "/logos/perplexity.png",
+  khanmigo: "/logos/khanmigo.png",
+  typingmind: "/logos/typingmind.png",
+  replycurrent: "/logos/replycurrent.png",
 };
 
 export function comparisonLogo(row: ComparisonRow) {
@@ -87,7 +97,12 @@ export function comparisonLogo(row: ComparisonRow) {
 }
 
 const GLOSSARY_COMPARISON_SLUGS: Record<string, string[]> = {
-  agent: [],
+  agent: [
+    "ai-agents-for-shopping",
+    "ai-agents-for-web-search",
+    "ai-agents-for-personal-assistant-tasks",
+    "ai-agents-for-writing",
+  ],
   harness: ["ai-agent-harnesses"],
   "harness-engineering": ["ai-agent-harnesses"],
   orchestration: ["ai-agent-harnesses"],
@@ -95,6 +110,14 @@ const GLOSSARY_COMPARISON_SLUGS: Record<string, string[]> = {
   "browser-use": ["computer-use-agents"],
   "behavioral-evaluation": ["ai-agent-evaluation-tools"],
   benchmark: ["ai-agent-evaluation-tools"],
+  "shopping-agent": ["ai-agents-for-shopping"],
+  "agentic-checkout": ["ai-agents-for-shopping"],
+  "product-feed": ["ai-agents-for-shopping"],
+  rag: ["ai-agents-for-research"],
+  prompt: ["ai-agents-for-writing"],
+  "digital-worker": ["ai-agents-for-personal-assistant-tasks", "ai-agents-for-small-business"],
+  "tool-use": ["ai-agents-for-web-search", "ai-agents-for-email"],
+  autonomy: ["ai-agents-for-shopping", "ai-agents-for-personal-assistant-tasks"],
 };
 
 export function comparisonRows(rows: ComparisonRow[]): SortableRow[] {
@@ -151,6 +174,7 @@ export const harnessComparison: ComparisonPage = {
   faqLead:
     "These short answers cover cost, Windows, open source, local runtimes, and why this page has no star ratings.",
   applicationCategory: "DeveloperApplication",
+  kind: "builder",
   columns: [
     { key: "name", label: "Tool" },
     { key: "vendor", label: "Maker" },
@@ -493,6 +517,7 @@ export const computerUseComparison: ComparisonPage = {
   faqLead:
     "These short answers cover Windows, open source, cost, and whether you should let an agent handle money or passwords.",
   applicationCategory: "DesktopApplication",
+  kind: "builder",
   columns: [
     { key: "name", label: "Tool" },
     { key: "vendor", label: "Maker" },
@@ -755,6 +780,7 @@ export const evaluationComparison: ComparisonPage = {
   faqLead:
     "These short answers cover open source, hosted platforms, cost, and how a behavioral eval differs from a benchmark.",
   applicationCategory: "DeveloperApplication",
+  kind: "builder",
   columns: [
     { key: "name", label: "Tool" },
     { key: "vendor", label: "Maker" },
@@ -1001,7 +1027,12 @@ export const evaluationComparison: ComparisonPage = {
   ],
 };
 
-export const comparisonPages = [harnessComparison, computerUseComparison, evaluationComparison] as const;
+export const comparisonPages: ComparisonPage[] = [
+  harnessComparison,
+  computerUseComparison,
+  evaluationComparison,
+  ...consumerComparisons,
+];
 
 export function comparisonBySlug(slug: string) {
   return comparisonPages.find((page) => page.slug === slug);
