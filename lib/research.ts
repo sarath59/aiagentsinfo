@@ -33,6 +33,12 @@ export type ResearchFrontmatter = {
   whyItMatters?: string;
   /** When true, Article JSON-LD carries the CC BY 4.0 license URL. The paper keeps its own license. */
   contentLicense?: boolean;
+  /** Numbers tabulated on the page. Rendered as Dataset JSON-LD, separate from the article. */
+  dataset?: {
+    title: string;
+    description: string;
+    isBasedOn?: string;
+  };
   faq?: { question: string; answer: string }[];
   references: { title: string; url?: string; note?: string }[];
   citation: {

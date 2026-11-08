@@ -10,7 +10,7 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { companyForUrl } from "@/lib/companies";
 import { withTableDownloads } from "@/lib/html-tables";
 import { getResearchDoc, getResearchDocs, relatedResearchDocs, researchTypeTitle } from "@/lib/research";
-import { JsonLd, defaultMetadata, researchArticleJsonLd } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, defaultMetadata, researchArticleJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 function RichText({ text }: { text: string }) {
@@ -75,6 +75,18 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           license: doc.contentLicense === true,
         })}
       />
+      {doc.dataset ? (
+        <JsonLd
+          data={datasetJsonLd({
+            title: doc.dataset.title,
+            description: doc.dataset.description,
+            path: `/research/${doc.slug}`,
+            datePublished: doc.date,
+            dateModified: doc.updated ?? doc.date,
+            isBasedOn: doc.dataset.isBasedOn,
+          })}
+        />
+      ) : null}
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
