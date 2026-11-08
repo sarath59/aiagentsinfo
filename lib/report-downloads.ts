@@ -50,6 +50,7 @@ import {
   readOn as yearReadOn,
   title as yearTitle,
 } from "@/lib/agents-12-month-outlook";
+import { codingAgents30DayPdf, dateCsv, priceCsv, repoCsv } from "@/lib/coding-agents-30-day";
 import { months, description as shoppingDescription, path as shoppingPath, readOn, title as shoppingTitle } from "@/lib/shopping-report";
 import { formatDate } from "@/lib/utils";
 
@@ -338,6 +339,7 @@ export function frameworkReportPdf(): PdfModel {
 }
 
 const pdfModels = {
+  "ai-coding-agents-next-30-days": codingAgents30DayPdf,
   "ai-agents-next-12-months": agents12MonthOutlookPdf,
   "ai-agents-next-6-months": agentsOutlookPdf,
   "ai-shopping-agents-next-6-months": shoppingReportPdf,
@@ -353,6 +355,12 @@ export function reportPdf(slug: string) {
 }
 
 export function reportCsv(slug: string, table: string | null) {
+  if (slug === "ai-coding-agents-next-30-days") {
+    if (table === "repos") return repoCsv();
+    if (table === "dates") return dateCsv();
+    if (table && table !== "prices") return undefined;
+    return priceCsv();
+  }
   if (slug === "ai-agent-framework-github-stats-november-2026") {
     if (table && table !== "frameworks") return undefined;
     return frameworkCsv();

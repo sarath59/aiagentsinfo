@@ -11,11 +11,12 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: the 12-month agents outlook, six-month outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, a token-cost calculator, and a prompt and tool checker.",
+  "Dated pages with a source and a citation: a 30-day coding-agents brief, the 12-month agents outlook, six-month outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, a token-cost calculator, and a prompt and tool checker.",
   "/reports",
 );
 
 const pdfByHref: Record<string, string> = {
+  "/reports/ai-coding-agents-next-30-days": "/reports/ai-coding-agents-next-30-days/pdf",
   "/reports/ai-agents-next-12-months": "/reports/ai-agents-next-12-months/pdf",
   "/reports/ai-agents-next-6-months": "/reports/ai-agents-next-6-months/pdf",
   "/reports/ai-shopping-agents-next-6-months": "/reports/ai-shopping-agents-next-6-months/pdf",
@@ -26,6 +27,7 @@ const pdfByHref: Record<string, string> = {
 export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
+    "/reports/ai-coding-agents-next-30-days": "2026-11-08",
     "/reports/ai-agents-next-12-months": "2026-11-07",
     "/reports/ai-agents-next-6-months": "2026-11-05",
     "/reports/ai-shopping-agents-next-6-months": "2026-11-05",
@@ -37,6 +39,7 @@ export default async function ReportsPage() {
     "/agent-prompt-checker": "2026-11-06",
   };
   const kickerByHref: Record<string, string> = {
+    "/reports/ai-coding-agents-next-30-days": "Report",
     "/reports/ai-agents-next-12-months": "Report",
     "/reports/ai-agents-next-6-months": "Report",
     "/reports/ai-shopping-agents-next-6-months": "Report",

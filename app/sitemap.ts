@@ -98,6 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/submit", trustUpdated, 0.6),
     entry("/verified-revenue", new Date(`${verifiedRevenueChecked}T00:00:00.000Z`), 0.6),
     entry(frameworkGithubPath, new Date(`${frameworkGithubDay}T00:00:00.000Z`), 0.7),
+    entry("/reports/ai-coding-agents-next-30-days", new Date("2026-11-08T00:00:00.000Z"), 0.7),
     ...authors.map((author) => entry(`/authors/${author.slug}`, trustUpdated, 0.5)),
     entry("/best", comparisonUpdated, 0.7),
     ...comparisonPages.map((item) => entry(item.path, comparisonUpdated, 0.8)),
