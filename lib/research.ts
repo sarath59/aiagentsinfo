@@ -31,6 +31,8 @@ export type ResearchFrontmatter = {
   limitations: string[];
   /** Rendered after the abstract on longform breakdowns. */
   whyItMatters?: string;
+  /** When true, Article JSON-LD carries the CC BY 4.0 license URL. The paper keeps its own license. */
+  contentLicense?: boolean;
   faq?: { question: string; answer: string }[];
   references: { title: string; url?: string; note?: string }[];
   citation: {

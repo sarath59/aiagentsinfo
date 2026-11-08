@@ -7,7 +7,7 @@ import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { categoryTitle, getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
 import { withTableDownloads } from "@/lib/html-tables";
-import { JsonLd, articleJsonLd, defaultMetadata } from "@/lib/seo";
+import { JsonLd, articleJsonLd, datasetJsonLd, defaultMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export async function generateStaticParams() {
@@ -42,8 +42,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           date: post.date,
           updated: post.updated,
           byline: post.byline ?? site.bylines.editorial,
+          license: post.contentLicense === true,
         })}
       />
+      {post.dataset ? (
+        <JsonLd
+          data={datasetJsonLd({
+            title: post.dataset.title,
+            description: post.dataset.description,
+            path: `/blog/${post.slug}`,
+            datePublished: post.date,
+            dateModified: post.updated ?? post.date,
+            isBasedOn: post.dataset.isBasedOn,
+          })}
+        />
+      ) : null}
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },

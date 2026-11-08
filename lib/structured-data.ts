@@ -62,6 +62,9 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   };
 }
 
+/** CC BY 4.0. Google Search Console expects this URL on every Dataset node. */
+export const datasetLicenseUrl = "https://creativecommons.org/licenses/by/4.0/";
+
 function publisherNode() {
   return {
     "@type": "Organization",
@@ -97,6 +100,8 @@ export function articleJsonLd(input: {
   updated?: string;
   byline: string;
   about?: Record<string, unknown>;
+  /** Our article. The paper, when `about` is set, keeps its own license. */
+  license?: boolean;
 }) {
   return {
     "@context": "https://schema.org",
@@ -108,6 +113,7 @@ export function articleJsonLd(input: {
     mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(input.path) },
     author: authorNode(input.byline),
     publisher: publisherNode(),
+    ...(input.license ? { license: datasetLicenseUrl } : {}),
     ...(input.about ? { about: input.about } : {}),
   };
 }
@@ -131,6 +137,7 @@ export function researchArticleJsonLd(input: {
   paperTitle?: string;
   paperAuthors?: string;
   paperYear?: number;
+  license?: boolean;
 }) {
   const about =
     input.paperUrl && input.paperTitle
@@ -151,11 +158,9 @@ export function researchArticleJsonLd(input: {
     updated: input.updated,
     byline: site.bylines.research,
     about,
+    license: input.license,
   });
 }
-
-/** CC BY 4.0. Google Search Console expects this URL on every Dataset node. */
-export const datasetLicenseUrl = "https://creativecommons.org/licenses/by/4.0/";
 
 function datasetOrganization() {
   return {

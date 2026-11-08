@@ -26,6 +26,14 @@ export type BlogFrontmatter = {
   sources?: { title: string; url: string }[];
   faq?: { question: string; answer: string }[];
   takeaways?: string[];
+  /** When true, Article JSON-LD carries the CC BY 4.0 license URL. */
+  contentLicense?: boolean;
+  /** Original numbers on the page. Rendered as Dataset JSON-LD, separate from the article. */
+  dataset?: {
+    title: string;
+    description: string;
+    isBasedOn?: string;
+  };
 };
 
 export type BlogPost = {

@@ -72,6 +72,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           paperTitle: doc.paperTitle,
           paperAuthors: doc.paperAuthors,
           paperYear: doc.paperYear,
+          license: doc.contentLicense === true,
         })}
       />
       <Breadcrumbs
