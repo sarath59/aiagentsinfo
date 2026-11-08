@@ -6,7 +6,7 @@ takeaways:
   - "An end-to-end benchmark still answers whether the job finished. Google’s September 9, 2026 post says the benchmark is the destination and the behavioral eval is the check you use while you iterate."
   - "NVIDIA’s November 4, 2026 NeMo post turns a stored failure into a test, changes one part of the harness, and scores that change on tasks the editor was not shown."
 date: "2026-11-06"
-updated: "2026-11-06"
+updated: "2026-11-08"
 category: guide
 topics:
   - harnesses
@@ -29,7 +29,7 @@ byline: "AI Agents Info Editorial"
 sources:
   - title: "Taylor Mullen and Christian Gunderman, Google Developers Blog, The Anatomy of Harness Engineering (September 9, 2026)"
     url: "https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/"
-  - title: "Patrick Moorhead, Sean Lopp, and Moon Chung, NVIDIA Technical Blog, Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes (November 4, 2026)"
+  - title: "Patrick Moorhead, Sean Lopp, and Moon Chung, NVIDIA Technical Blog, Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes (November 4, 2026; read November 8, 2026)"
     url: "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/"
   - title: "OpenAI, Harness engineering: leveraging Codex in an agent-first world (February 11, 2026)"
     url: "https://openai.com/index/harness-engineering/"
@@ -43,7 +43,7 @@ sources:
     url: "https://arxiv.org/abs/2611.06254"
   - title: "Agent Skills specification (agentskills.io, read November 6, 2026)"
     url: "https://agentskills.io/specification"
-  - title: "Model Context Protocol, specification revision 2026-07-28 (read November 6, 2026)"
+  - title: "Model Context Protocol, specification revision 2026-07-28 (read November 8, 2026)"
     url: "https://modelcontextprotocol.io/specification/2026-07-28"
 faq:
   - question: "What is a behavioral evaluation of an AI agent?"
@@ -62,7 +62,7 @@ faq:
     answer: "On the Agent Skills specification, a skill is a folder whose required file is SKILL.md. The file starts with a name and a description, then instructions the agent loads when a task matches. LangChain’s March 10, 2026 harness post treats skills as a harness feature that keeps tool and MCP instructions out of the context window until they are needed."
 ---
 
-Updated November 6, 2026.
+Updated November 8, 2026.
 
 ## How do you evaluate an AI agent harness?
 
@@ -70,7 +70,7 @@ You evaluate an [agent harness](/glossary/harness) by checking the actions you e
 
 A [behavioral evaluation](/glossary/behavioral-evaluation) watches one step you can point at in the trace: a tool call, a file edit, a clarifying question, a test command. An end-to-end [benchmark](/glossary/benchmark) scores a frozen set of tasks and tells you whether the bundle of model plus harness succeeded. [Google’s September 9, 2026 post](https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/) says a composite score can move a few points and still leave you unsure which step changed. The behavioral check is how you name that step.
 
-The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses).
+The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The cycle inside that workshop is [How do AI agents work?](/blog/how-do-ai-agents-work). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses).
 
 ## What is a behavioral evaluation?
 
@@ -214,7 +214,7 @@ A second pass on the updated traces dropped the send-without-confirmation findin
 
 The same post applies the loop to a harder engineering example. LEO, the engineering Virtual Companion from Dassault Systèmes, proposes car-door design changes and tests them in simulation. Compass found `QueryModel` arguments placed outside the expected `options` field, with an empty error, across multiple traces. A coding agent added a validation step that catches misplaced arguments. NVIDIA reports malformed tool calls falling from 142 to zero, with accuracy unchanged and no regressions on the other scenarios. An unattended overnight pass of about 12 hours, across six scenarios, is reported as a 28 percent relative improvement in the overall evaluation score and 35 percent fewer tool calls per run. Those figures are NVIDIA’s account of that example.
 
-The post’s setup list, for readers who want the version pins, is a Linux machine running Docker, with Ubuntu 24.04, 8 vCPUs, and 32 GB of RAM recommended. It names OpenShell 0.1.2, Harbor 0.22.0, an NVIDIA API key from build.nvidia.com, and a coding agent Eval Author supports, such as Codex or Claude Code. Confirm those versions on the post before you install anything. This guide does not re-run the blueprint.
+The post’s setup list, for readers who want the version pins, is a Linux machine running Docker, with Ubuntu 24.04, 8 vCPUs, and 32 GB of RAM recommended. On November 8, 2026, that post still names OpenShell 0.1.2, Harbor 0.22.0, an NVIDIA API key from build.nvidia.com, and a coding agent Eval Author supports, such as Codex or Claude Code. This guide does not re-run the blueprint.
 
 ## How does evaluation fit harness engineering?
 
@@ -242,7 +242,7 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 ## Where can you read more on this site?
 
 - This guide’s terms: [behavioral evaluation](/glossary/behavioral-evaluation), [agent skill](/glossary/agent-skill), [Model Context Protocol](/glossary/model-context-protocol)
-- Harness hub: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [tool use](/glossary/tool-use)
+- Harness hub: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do AI agents work?](/blog/how-do-ai-agents-work), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [agent loop](/glossary/agent-loop), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [tool use](/glossary/tool-use)
 - Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization)
 - Nearby guides: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing)
 - Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research)

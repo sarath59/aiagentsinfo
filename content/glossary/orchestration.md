@@ -2,9 +2,11 @@
 term: Orchestration
 shortDefinition: The rules for which step, tool, or agent runs next, and who owns the answer.
 related:
+  - agent-loop
   - harness
   - multi-agent
   - guardrail
+  - agent-to-agent-protocol
 topics:
   - harnesses
 ---
@@ -13,4 +15,4 @@ topics:
 
 [OpenAI’s Agents SDK](https://developers.openai.com/api/docs/guides/agents/orchestration) describes two patterns. A handoff gives the next specialist ownership of that branch. An agent used as a tool leaves the manager in charge of the final answer. [Google’s ADK 2.0 page](https://adk.dev/2.0/) describes another form: a graph of agents, tools, and functions with explicit routes. [LangChain’s March 10, 2026 anatomy post](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) lists orchestration as subagent spawning, handoffs, and model routing.
 
-The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). A sourced comparison of those runtimes is [Best AI agent harness](/best/ai-agent-harnesses).
+The longer guide to the single-agent cycle is [How do AI agents work?](/blog/how-do-ai-agents-work). The workshop around that cycle is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). A sourced comparison of those runtimes is [Best AI agent harness](/best/ai-agent-harnesses).
