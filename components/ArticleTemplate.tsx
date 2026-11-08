@@ -60,7 +60,7 @@ export function ArticleTemplate({
   wide?: boolean;
   children: ReactNode;
 }) {
-  const modified = updated && updated.slice(0, 10) !== published.slice(0, 10) ? updated : undefined;
+  const modified = updated || undefined;
   const tocItems: TocItem[] = [
     ...(takeaways?.length ? [{ id: "key-takeaways", text: "Key takeaways", level: 2 as const }] : []),
     ...toc,

@@ -488,6 +488,15 @@ export const companies: Company[] = [
     aliases: ["Thoughtworks"],
     hosts: ["thoughtworks.com"],
   },
+  {
+    slug: "ligo",
+    name: "Ligo",
+    website: "https://ligo.bio",
+    logo: "/logos/ligo.png",
+    tile: "light",
+    aliases: ["Ligo", "Ligo Biosciences", "Ligo Bio"],
+    hosts: ["ligo.bio"],
+  },
 ];
 
 const bySlug = new Map(companies.map((company) => [company.slug, company]));
