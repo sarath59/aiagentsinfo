@@ -3,7 +3,7 @@ name: Claude Code
 vendor: Anthropic
 website: https://claude.com/product/claude-code
 logo: /logos/claude-code.svg
-summary: "Anthropic’s coding agent for the terminal, editors, the web, mobile, and Slack. It can explain a codebase, write code, run tests, and open pull requests. Claude Duet is a separate proactive agent, not a Claude Code mode."
+summary: "Anthropic’s coding agent for the terminal, editors, the web, mobile, and Slack. It can explain a codebase, write code, run tests, and open pull requests. Anthropic Claude Code limits on Pro and Max are a five-hour session and a weekly cap, shared with the rest of Claude. Claude Code vs Codex list prices are in a separate guide. Claude Duet is a separate proactive agent, not a Claude Code mode."
 category: coding-agents
 tags:
   - coding
@@ -26,7 +26,7 @@ lastVerified: "2026-11-07"
 newThisWeek: true
 ---
 
-Claude Code is a [coding agent](/glossary/agent). The product page is the source for where it runs and which plan includes it. The comparison of list prices with Codex is a separate article, [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), not the name of this product.
+Claude Code is a [coding agent](/glossary/agent). The product page is the source for where it runs and which plan includes it. Anthropic Claude Code limits for Pro, Max, and Ultra are in the section below. The comparison of list prices with Codex is a separate article, [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), not the name of this product.
 
 ## How is Claude Code different from Codex?
 

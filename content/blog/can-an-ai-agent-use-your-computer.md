@@ -1,12 +1,12 @@
 ---
-title: "Can an AI Agent Use Your Computer? Claude Computer Use (2026)"
-description: "Yes, when the product has computer use. Claude computer use, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs can look at a screen and click, type, and scroll. A chat reply that only describes the steps does not. Re-checked November 7, 2026."
+title: "Can an AI Agent Use Your Computer? Computer Use Agents (2026)"
+description: "Yes. A computer use agent can use your computer when the product includes computer use. Claude, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs can look at a screen and click, type, and scroll. A chat reply that only describes the steps does not. Re-checked November 7, 2026."
 takeaways:
   - "Yes, when the product has computer use. The model looks at the screen. The app clicks, types, and scrolls. A chat reply that only describes the steps does not do that."
   - "On November 7, 2026, Claude Cowork, Claude Code, and the ChatGPT desktop app can drive a Mac or Windows screen. Anthropic and OpenAI still document API loops where your code runs each action. Google’s Computer Use guide loaded that day on AI Studio, after the old address returned HTTP 500 on November 6."
   - "Keep the agent in a sandbox, treat the screen as untrusted, and make a person confirm payments, passwords, and other steps that are hard to undo."
 date: "2026-11-05"
-updated: "2026-11-07"
+updated: "2026-11-08"
 category: guide
 topics:
   - task-performance
@@ -42,6 +42,8 @@ sources:
   - title: "Google, Gemini API changelog, October 30, 2026 entry (page re-read November 7, 2026)"
     url: "https://ai.google.dev/gemini-api/docs/changelog"
 faq:
+  - question: "What is a computer use agent?"
+    answer: "A computer use agent is an agent whose tool is computer use. The model looks at the screen and asks for a click, a keystroke, or a scroll. The app runs that action and returns the new screen. On the pages re-read November 7, 2026, Claude Cowork, Claude Code, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs are the cases this guide covers."
   - question: "Can an AI agent use my real desktop?"
     answer: "Yes, in the desktop products re-read on November 7, 2026. Claude Cowork and Claude Code can point and click on a Mac or Windows PC while the desktop app is awake, in research preview for Claude Pro, Max, and Ultra. The ChatGPT desktop app can operate a Mac or Windows graphical interface for ChatGPT Work and Codex, in supported regions, after you turn on Computer Use and allow apps. The Anthropic and OpenAI API pages describe a browser or machine your own code controls. Google’s Computer Use guide loaded the same day on AI Studio. The previous address returned HTTP 500 on November 6."
   - question: "Do I need to approve each click?"
@@ -58,7 +60,7 @@ faq:
     answer: "For Claude's desktop feature, yes. Anthropic says the desktop app has to be awake and running, including when you assign the task from your phone with Dispatch. ChatGPT on Windows runs on the active desktop and takes the foreground. On a Mac, ChatGPT can run a scoped task in the background, and an optional locked-use setting can continue a task after the screen locks. An API agent keeps running only while the browser or machine you attached is still up."
 ---
 
-Updated November 7, 2026.
+Updated November 8, 2026.
 
 ## Can an AI agent use your computer?
 
@@ -67,6 +69,10 @@ Yes, when the product has [computer use](/glossary/computer-use). The model look
 A chat reply that tells you which button to press is still a chat. Computer use starts when software can see the current screen and carry out the next action. On November 7, 2026, that software is available in two desktop products and in the Anthropic, OpenAI, and Gemini APIs. [Claude Cowork and Claude Code](https://claude.com/resources/articles/dispatch-and-computer-use) can drive a Mac or Windows screen in a research preview. The [ChatGPT desktop app](https://developers.openai.com/codex/computer-use) can do the same for ChatGPT Work and Codex, in supported regions. [Anthropic](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) and [OpenAI](https://developers.openai.com/api/docs/guides/tools-computer-use) document API loops in which your application runs each click. [Google’s Computer Use guide](https://aistudio.google.com/docs/computer-use) loaded on November 7. The older address, `ai.google.dev/gemini-api/docs/computer-use`, redirected there. A request to that older address on November 6 had returned HTTP 500.
 
 The short version: the model chooses the action. An app you run, or a desktop app that is awake, performs it. Payments, passwords, and other hard-to-undo steps still need a person. A workplace agent that returns a file for review, and only uses the screen as a last resort, is [What is an AI employee?](/blog/what-is-an-ai-employee).
+
+## What is a computer use agent?
+
+A computer use agent is an [agent](/glossary/agent) whose tool is [computer use](/glossary/computer-use). The model looks at the screen and asks for a click, a keystroke, or a scroll. The app runs that action and returns the new screen. The glossary entry is the short definition. The product notes below are from the pages re-read on November 7, 2026.
 
 ## What does computer use mean?
 
@@ -251,6 +257,10 @@ The [task performance](/topics/task-performance) topic is the shelf for computer
 - Topics: [task performance](/topics/task-performance), [how agents work](/topics/how-agents-work), [harnesses](/topics/harnesses), [tools and SaaS](/topics/tools-saas)
 
 ## Frequently asked questions
+
+### What is a computer use agent?
+
+It is an [agent](/glossary/agent) whose tool is [computer use](/glossary/computer-use). The model looks at the screen and asks for a click, a keystroke, or a scroll. The app runs that action and returns the new screen. On the pages re-read November 7, 2026, the cases in this guide are Claude Cowork, Claude Code, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs.
 
 ### Can an AI agent use my real desktop?
 

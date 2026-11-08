@@ -1,12 +1,12 @@
 ---
-title: "What Is an AI Agent Harness? DeepSeek Harness and Super Agent (2026)"
-description: "An AI agent harness is the loop, tools, memory, permissions, and stop rules around a model. Harness engineering is the work of designing that system. DeepSeek Harness is DeepSeek’s open-source harness, still in developer preview. The DeepSeek super agent note covers the router and worker prototype."
+title: "What Is an AI Agent Harness? DeepSeek Super Agent and DeepSeek Harness (2026)"
+description: "What is DeepSeek Harness? DeepSeek’s open-source agent harness, still in developer preview. The documented start command runs a web interface on your own machine. The DeepSeek super agent note covers the router and worker prototype. An AI agent harness is the loop, tools, memory, permissions, and stop rules around a model."
 takeaways:
   - "A harness is the workshop around a model: the tools, the notebook, the lock on the door, and the rule for when to stop."
   - "Two workshops can hand the same program a job and get different results. The program did not change. The workshop did."
   - "On this site, a harness is the runtime around a model: the loop, the tools, the memory, the permissions, and the stop conditions."
 date: "2026-11-03"
-updated: "2026-11-07"
+updated: "2026-11-08"
 category: guide
 topics:
   - harnesses
@@ -95,7 +95,9 @@ sources:
     url: "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/003-execution.md"
 faq:
   - question: "What is DeepSeek Harness?"
-    answer: "DeepSeek Harness is an open-source agent harness from DeepSeek, in the repository deepseek-ai/deepseek-harness, created August 13, 2026. The README calls it dsh, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. A separate repository, dsh-superagent-prototype, is a research prototype of a router and worker design, not an official DeepSeek product. DeepSeek Harness is the harness itself, not a shipping app like Claude Code or Codex."
+    answer: "DeepSeek Harness is an open-source agent harness from DeepSeek, in the repository deepseek-ai/deepseek-harness, created August 13, 2026. The README calls it dsh, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. The README’s run instructions are local: npx @deepseek-ai/dsh web starts a web interface on the machine where you run it. A separate repository, dsh-superagent-prototype, is a research prototype of a router and worker design, not an official DeepSeek product. DeepSeek Harness is the harness itself, not a shipping app like Claude Code or Codex."
+  - question: "What does DeepSeek Harness desktop refer to on this page?"
+    answer: "It refers to the local run in the DeepSeek Harness README, checked November 5, 2026. The instructions run on your own machine. npx @deepseek-ai/dsh web starts a web interface there. A checkout can be installed and built from the repository."
   - question: "What is the DeepSeek super agent?"
     answer: "In the sources on this page, DeepSeek super agent is the name used for a router and worker design the DeepSeek Harness group described at the end of October 2026. The repository deepseek-ai/dsh-superagent-prototype calls itself a research prototype, not an official DeepSeek product, and says the published code is not identical to the internal version. The South China Morning Post’s November 1, 2026 story reports the aim as reducing the human work of coordinating several agents. This page has not re-run any timing test."
   - question: "What is an AI agent harness?"
@@ -103,7 +105,7 @@ faq:
   - question: "How do a model, a harness, and an agent differ?"
     answer: "The model reads context and produces the next text, including a request to use a tool. The harness runs the tool, stores the result, and decides what the model may see and do. The agent is the working combination of the two. Databricks’ June 17, 2026 explainer and LangChain’s March 10, 2026 explainer both use the shorthand agent equals model plus harness."
   - question: "What is harness engineering?"
-    answer: "Harness engineering is the work of designing that surrounding system. OpenAI’s February 11, 2026 post uses the phrase for engineers who specify intent, shape the repository and tools, and build feedback loops so agents can do the implementation. Prompt wording is one part of the harness, not the whole job."
+    answer: "Harness engineering is the work of designing that surrounding system. OpenAI’s February 11, 2026 post uses the phrase for engineers who specify intent, shape the repository and tools, and build feedback loops so agents can do the implementation. Prompt wording is one part of the harness, not the whole job. Thoughtworks’ November 4, 2026 account of the same work at organization scale is the harness engineering at scale note on this site."
   - question: "Is an agent framework the same thing as a harness?"
     answer: "A framework is a library for building agents. A harness is the running system: the prompts, tools, sandbox, permissions, and stop rules configured for a job. The same framework can host many different harnesses. This site’s directory lists frameworks separately from the finished products that use them."
   - question: "Why can the same model score differently in two harnesses?"
@@ -112,7 +114,7 @@ faq:
     answer: "A guardrail is a check that can allow, block, replace, or pause an action. OpenAI’s Agents SDK uses guardrails for automatic checks on input, output, or tools, and uses a separate approval pause when a person must decide. Pydantic AI’s harness docs describe the same idea at the prompt, the tool call, and the final output."
 ---
 
-Updated November 7, 2026.
+Updated November 8, 2026.
 
 ## What does an agent harness mean in plain language?
 
@@ -215,7 +217,7 @@ Screen clicks sit on the tools row and the sandbox row together. The guide to th
 
 ## What is harness engineering?
 
-[Harness engineering](/glossary/harness-engineering) is the discipline of designing that workshop on purpose.
+[Harness engineering](/glossary/harness-engineering) is the discipline of designing that workshop on purpose. Thoughtworks’ November 4, 2026 account of the same work across an organization is [What is harness engineering at scale?](/blog/what-is-harness-engineering-at-scale-thoughtworks-radar).
 
 OpenAI’s [February 11, 2026 post](https://openai.com/index/harness-engineering/) by Ryan Lopopolo describes one internal experiment under that name. The team’s line is that humans steer and agents execute. The post says humans never directly contributed code on that project, and that Codex wrote the application, tests, CI configuration, documentation, observability, and internal tooling. The first commit to an empty repository landed in late August 2025. The post says the initial scaffold was generated by the Codex CLI using GPT-5. Five months later, the post says, the repository held on the order of a million lines, about 1,500 pull requests had been opened and merged, and a team of three engineers had driven the agents, later growing to seven. It reports an average of 3.5 pull requests per engineer per day for that earlier team of three, and says throughput rose as the team grew. It says the product had hundreds of internal users, including daily power users, and that the authors estimate the build took about one tenth of the time a hand-written version would have taken. Those figures are the company’s account of its own beta. This page does not have a separate audit.
 
@@ -290,7 +292,11 @@ Read a row as a pointer, then open the vendor page before you depend on a detail
 
 DeepSeek Harness is an agent harness from DeepSeek, published as source. The general name for that surrounding software is an [agent harness](/glossary/harness). Designing one on purpose is [harness engineering](/glossary/harness-engineering). GitHub records the public repository [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) as created on August 13, 2026. The repository description is “DeepSeek Harness: Everything is a Plugin.” The [README](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.md) calls it an open-source agent harness, `dsh`, developed by DeepSeek, built on an everything-is-a-plugin architecture. The same README says the project is in developer preview and that compatibility-breaking changes are expected. GitHub lists the license as MIT, and the README points at the same MIT license file.
 
-On November 5, 2026, GitHub’s latest-release endpoint, which returns the newest release that is not a pre-release, responded 404. The newest item on the releases list was a pre-release: tag `dsh-v0.2.2-rc.1`, name v0.2.2-rc.1, published November 4, 2026. The README’s run instructions are local. `npx @deepseek-ai/dsh web` starts a web interface on the machine where you run it. A checkout can be installed and built from the repository.
+On November 5, 2026, GitHub’s latest-release endpoint, which returns the newest release that is not a pre-release, responded 404. The newest item on the releases list was a pre-release: tag `dsh-v0.2.2-rc.1`, name v0.2.2-rc.1, published November 4, 2026.
+
+## What does “DeepSeek Harness desktop” refer to here?
+
+On this page it refers to the local run already in the README. The instructions run on your own machine. `npx @deepseek-ai/dsh web` starts a web interface there. A checkout can be installed and built from the repository.
 
 That is a different artifact from the products in the table. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products with their own apps and plan pages. DeepSeek’s repository is the harness itself, in preview, organized as plugins. This page does not turn that into a ranking. The [harness comparison](/trackers/harnesses) still waits until each cell has its own source.
 
@@ -355,6 +361,7 @@ The [task performance](/topics/task-performance) topic is where this site follow
 ## Where can you read more on this site?
 
 - Glossary: [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), [guardrail](/glossary/guardrail), [agent](/glossary/agent), [tool use](/glossary/tool-use), [computer use](/glossary/computer-use), [browser use](/glossary/browser-use), [sandbox](/glossary/sandbox), [autonomy](/glossary/autonomy), [benchmark](/glossary/benchmark), [behavioral evaluation](/glossary/behavioral-evaluation)
+- At organization scale: [What is harness engineering at scale?](/blog/what-is-harness-engineering-at-scale-thoughtworks-radar)
 - Evaluation: [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness)
 - Research: [ReAct](/research/react-reasoning-and-acting), [weight-space programming](/research/weight-space-programming)
 - Directory: [agent frameworks](/directory/category/agent-frameworks), [Claude Agent SDK](/directory/claude-agent-sdk), [OpenAI Agents SDK](/directory/openai-agents-sdk), [Codex](/directory/codex), [Google ADK](/directory/google-adk), [Microsoft Agent Framework](/directory/microsoft-agent-framework), [Pydantic AI](/directory/pydantic-ai)
@@ -368,7 +375,11 @@ The [task performance](/topics/task-performance) topic is where this site follow
 
 ### What is DeepSeek Harness?
 
-It is an open-source [agent harness](/glossary/harness) from DeepSeek, in the repository deepseek-ai/deepseek-harness, which GitHub records as created on August 13, 2026. The README calls the program `dsh`, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. A later section covers the DeepSeek super agent note: the separate dsh-superagent prototype, a router and worker design published at the end of October 2026. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products. Their list prices are [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). DeepSeek Harness is the harness itself, still in preview. The longer account is the section above. The work of designing any harness, including this one, is [harness engineering](/glossary/harness-engineering).
+It is an open-source [agent harness](/glossary/harness) from DeepSeek, in the repository deepseek-ai/deepseek-harness, which GitHub records as created on August 13, 2026. The README calls the program `dsh`, says everything is a plugin, and says the project is in developer preview. On November 5, 2026, the newest item on the releases list was the pre-release v0.2.2-rc.1, published November 4, 2026. The README’s run instructions are local: `npx @deepseek-ai/dsh web` starts a web interface on the machine where you run it. A later section covers the DeepSeek super agent note: the separate dsh-superagent prototype, a router and worker design published at the end of October 2026. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products. Their list prices are [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). DeepSeek Harness is the harness itself, still in preview. The longer account is the section above. The work of designing any harness, including this one, is [harness engineering](/glossary/harness-engineering).
+
+### What does “DeepSeek Harness desktop” refer to here?
+
+It refers to the local run in the README, checked November 5, 2026. The instructions run on your own machine. `npx @deepseek-ai/dsh web` starts a web interface there. A checkout can be installed and built from the repository. The section above is the same note.
 
 ### What is the DeepSeek super agent?
 
@@ -384,7 +395,7 @@ The model reads context and produces the next text, including a request to use a
 
 ### What is harness engineering?
 
-It is the work of designing that surrounding system. [OpenAI’s February 11, 2026 post](https://openai.com/index/harness-engineering/) uses the phrase for engineers who specify intent, shape the tools and the repository, and build feedback loops so agents can do the implementation. Writing a better prompt is one part of the job.
+It is the work of designing that surrounding system. [OpenAI’s February 11, 2026 post](https://openai.com/index/harness-engineering/) uses the phrase for engineers who specify intent, shape the tools and the repository, and build feedback loops so agents can do the implementation. Writing a better prompt is one part of the job. Thoughtworks’ November 4, 2026 account of the same work at organization scale is [What is harness engineering at scale?](/blog/what-is-harness-engineering-at-scale-thoughtworks-radar).
 
 ### Is an agent framework the same thing as a harness?
 

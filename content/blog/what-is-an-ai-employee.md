@@ -1,12 +1,12 @@
 ---
 title: "What Is an AI Employee? Workplace Agents Explained (2026)"
-description: "An AI employee, or digital worker, is workplace software that takes a goal, uses tools, and returns work for a person to review. It is not a chatbot, a fixed script, or a legal employee. Checked November 7, 2026."
+description: "What is an AI employee? Workplace software, also called a digital worker, that takes a goal, uses tools, and returns work for a person to review. Always-on AI agents, on the pages checked November 7, 2026, keep a cloud task running after the laptop closes or start on a schedule. The software is not a legal employee."
 takeaways:
   - "An AI employee is a label for workplace software, usually an agent, that is given a job and returns a file or an action for a person to review. The software is not a legal employee and is not the party accountable for a mistake."
   - "On November 7, 2026, Claude Cowork and ChatGPT Work are the two large workplace products that start from a goal and hand back finished work. Chat stays a conversation. Fixed workflow automation still follows rules written in advance."
   - "University rollouts checked the same day, including UNSW, the University of Sydney, and La Trobe, are adult ChatGPT Edu access with staged availability. They are workplace learning, and they are a different subject from school-account policy."
 date: "2026-11-07"
-updated: "2026-11-07"
+updated: "2026-11-08"
 category: guide
 topics:
   - how-agents-work
@@ -56,6 +56,8 @@ sources:
 faq:
   - question: "What is an AI employee?"
     answer: "An AI employee, also called a digital worker, is a label for workplace software that is given a job, uses tools, and returns work for a person to review. On the product pages read November 7, 2026, Claude Cowork and ChatGPT Work are examples. The label does not make the software a legal employee or the party accountable for a mistake."
+  - question: "What do people mean by always-on AI agents?"
+    answer: "On the product pages read November 7, 2026, the phrase matches a workplace job that continues after you leave the chat. Claude Cowork can keep a phone-assigned task running in the cloud after the laptop closes, on Pro, Max, Ultra, and Team, and Enterprise plans can opt in. ChatGPT Work can run a scheduled task once, on a cadence, or when an event happens. A workspace agent can start on a schedule. A person still reviews the result. The software is not a staff member who stays on duty."
   - question: "Is an AI employee the same thing as a chatbot?"
     answer: "A chatbot answers in the conversation. OpenAI’s business guide, read November 7, 2026, says a question-answering chatbot can even call a tool for a current policy and still cannot plan a multi-step job unless every step is programmed. A workplace agent starts from a goal, chooses tools, and can adapt when a source is missing."
   - question: "How is an AI employee different from RPA?"
@@ -72,7 +74,7 @@ faq:
     answer: "They are adult access to ChatGPT for students and staff, staged by each university, plus training and assessment rules. UNSW, the University of Sydney, and La Trobe describe ChatGPT Edu access aimed at study, research, and later work. That is workplace learning. It is not a job title, and it is separate from Google’s K-12 account policy."
 ---
 
-Updated November 7, 2026.
+Updated November 8, 2026.
 
 ## What is an AI employee?
 
@@ -203,7 +205,13 @@ The [help article](https://help.openai.com/en/articles/20001143-chatgpt-workspac
 
 Files attached to an agent are limited, on that page, to 512 MB per file and 10 GB total. The article says very large collections can keep the agent from running, and it tells builders to add only the files the job needs.
 
-Edu appears on both the Work availability line and the workspace-agent plan list. A university that buys ChatGPT Edu is buying a workspace with those controls available, not a promise that every student agent is turned on. The next section is what three universities have actually published.
+Edu appears on both the Work availability line and the workspace-agent plan list. A university that buys ChatGPT Edu is buying a workspace with those controls available, not a promise that every student agent is turned on. The university section below is what three campuses have actually published.
+
+## What do people mean by always-on AI agents?
+
+On the pages read November 7, 2026, an always-on AI agent is a workplace job that continues after you leave the chat. Claude Cowork says tasks assigned from a phone keep running in the cloud after the laptop is closed, on Pro, Max, Ultra, and Team. Enterprise plans can opt in. ChatGPT Work can run a scheduled task once, on a cadence, or when an event happens. A workspace agent can start in ChatGPT, in Slack, on a schedule, or from an API trigger.
+
+That is still an AI employee in the sense of this guide: a goal, the tools it is allowed to use, and work a person reviews. The short definition is [digital worker](/glossary/digital-worker). The product notes are [Claude](/directory/claude) for Cowork and [ChatGPT](/directory/chatgpt) for Work and workspace agents. Claude’s Cowork page says agentic tasks use more of the usage allowance than a short chat. A saved permission that skips the review is a wider grant, covered in the next section.
 
 ## When must a person approve an agent’s action?
 
@@ -269,6 +277,10 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 ### What is an AI employee?
 
 It is a label for workplace software that is given a job and returns work for a person to review. The glossary entry is [digital worker](/glossary/digital-worker). On November 7, 2026, the two product pages that match the label most closely are Claude Cowork and ChatGPT Work. The software is not a legal employee. [Deloitte’s September 10, 2026 essay](https://www.deloitte.com/global/en/insights/topics/technology-management/ai-agents-human-workplace.html) says to treat a review that names the agent as the responsible party as a sign that accountability has slipped.
+
+### What do people mean by always-on AI agents?
+
+On the product pages read November 7, 2026, the phrase matches a workplace job that continues after you leave the chat. Claude Cowork can keep a phone-assigned task running in the cloud after the laptop closes. ChatGPT Work and workspace agents can start on a schedule. The [digital worker](/glossary/digital-worker) entry is the short definition. [Claude](/directory/claude) and [ChatGPT](/directory/chatgpt) are the directory notes. A person still reviews the result.
 
 ### Is an AI employee the same thing as a chatbot?
 

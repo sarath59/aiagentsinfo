@@ -1,12 +1,12 @@
 ---
 title: "What Is Harness Engineering at Scale? Thoughtworks Radar Volume 35 Explained"
-description: "Thoughtworks Technology Radar Volume 35, released November 4, 2026, makes harness engineering at scale a theme and treats the agent harness as a product."
+description: "What is harness engineering? It is the work of designing the software around an AI agent. Thoughtworks Technology Radar Volume 35, released November 4, 2026, makes harness engineering at scale a theme and treats the agent harness as a product."
 takeaways:
   - "On November 4, 2026, Thoughtworks released Technology Radar Volume 35 and named harness engineering at scale as a theme rather than a single blip."
   - "The same day’s press release says the Adopt ring holds 11 practices and technologies, including agent sandboxing and threat modeling."
   - "Cecilia Geraldo’s November 4 post says the harness is everything between the model and the work, and that it needs an owner, versions, and evaluation."
 date: "2026-11-07"
-updated: "2026-11-07"
+updated: "2026-11-08"
 category: news
 topics:
   - news
@@ -38,6 +38,8 @@ sources:
   - title: "Agent Patch Notes #3 (November 6, 2026)"
     url: "https://agentpatchnotes.beehiiv.com/p/agent-patch-notes-3"
 faq:
+  - question: "What is harness engineering?"
+    answer: "Harness engineering is the work of designing the software around a model: the loop, the tools, the memory, the permissions, and the checks. This site’s glossary uses that definition. The longer guide is What is an AI agent harness? This page is Thoughtworks’ November 4, 2026 account of that work at organization scale."
   - question: "What is harness engineering at scale?"
     answer: "In Thoughtworks Technology Radar Volume 35, released November 4, 2026, harness engineering at scale is a theme, not one blip. It is the work of building and maintaining the environment around an AI agent — prompts, tools, memory, guardrails, and feedback loops — as a system with owners, versions, evaluation, security, and access control. Cecilia Geraldo’s same-day post calls that surrounding layer a product."
   - question: "What is an agent harness, according to Thoughtworks?"
@@ -55,6 +57,10 @@ faq:
 On November 4, 2026, Thoughtworks released Volume 35 of its Technology Radar and made harness engineering at scale one of the edition’s themes. The same day’s [press release](https://www.thoughtworks.com/about-us/news/2026/thoughtworks-technology-radar-highlights-stronger-controls) quotes chief technology officer Rachel Laycock: clients used to ask how fast agents could write code. They now ask whether anyone can trust, review, and afford what those agents produce. Cecilia Geraldo’s [blog post](https://www.thoughtworks.com/en-us/insights/blog/generative-ai/harness-is-a-product), also dated November 4, states the practical claim in the headline. The harness is a product.
 
 An [agent](/glossary/agent), on this site, is a model plus the software that offers tools, runs a step, and brings the result back. That software is the [agent harness](/glossary/harness). [Harness engineering](/glossary/harness-engineering) is the work of designing it. This note, published November 7, 2026, is about the Radar and the two write-ups that explained it. The standing definition stays on the [harness guide](/blog/what-is-an-ai-agent-harness). The pages cited here were re-read on November 7.
+
+## What is harness engineering?
+
+[Harness engineering](/glossary/harness-engineering) is the work of designing the software around a model: the loop, the tools, the memory, the permissions, and the checks. The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Harness engineering at scale, in the next section, is Thoughtworks’ name for that same work once an organization has to own it, version it, and evaluate it.
 
 ## What is harness engineering at scale?
 
@@ -384,6 +390,10 @@ The standing pages here are the glossary and the two guides already linked: [wha
 Volume 35’s own next step, on the radar page, is the interactive edition and the PDF. The sourced claim on November 7 is the one in the press release and the theme: Thoughtworks is telling teams to engineer the harness as a product, with sandboxing and threat modeling in Adopt, and the enterprise version still in Assess.
 
 ## Frequently asked questions
+
+### What is harness engineering?
+
+It is the work of designing the software around a model: the loop, the tools, the memory, the permissions, and the checks. The glossary entry is [harness engineering](/glossary/harness-engineering). The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The rest of this page is Thoughtworks’ November 4, 2026 account of that work at organization scale.
 
 ### What is harness engineering at scale?
 
