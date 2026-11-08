@@ -71,6 +71,28 @@ export default async function HarnessBenchmarkPage() {
       kicker: "Directory",
     },
     {
+      href: "/best",
+      title: "Best AI agents",
+      description: "The hub for sourced harness, computer use, and evaluation comparisons.",
+      kicker: "Hub",
+      date: "2026-11-08",
+    },
+    {
+      href: "/best/ai-agent-harnesses",
+      title: "Best AI agent harness",
+      description:
+        "Licence, list price, and platform for coding, open-source, and local harnesses. Last verified November 2026.",
+      kicker: "Comparison",
+      date: "2026-11-08",
+    },
+    {
+      href: "/best/ai-agent-evaluation-tools",
+      title: "Best AI agent evaluation tools",
+      description: "Regression and trajectory evaluation stacks, including open source.",
+      kicker: "Comparison",
+      date: "2026-11-08",
+    },
+    {
       href: "/directory/category/agent-frameworks",
       title: "Agent frameworks and harnesses",
       description: categorySummaries["agent-frameworks"],

@@ -19,7 +19,7 @@ topics:
 
 [LangChain’s March 10, 2026 explainer](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) uses the phrase for building the system around a model so the model’s output becomes work. [Databricks’ June 17, 2026 explainer](https://www.databricks.com/blog/ai-harness) places it after prompt engineering and context engineering: the artifact is the harness itself.
 
-The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). How to test a change to that workshop is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). Dated public scores, each with the date on its source, are in the [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026). The [harnesses](/topics/harnesses) topic is the shelf for those guides. A check that allows, blocks, or pauses an action is a [guardrail](/glossary/guardrail). Choosing the next step is [orchestration](/glossary/orchestration).
+The longer guide is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). How to test a change to that workshop is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). A sourced comparison of runtimes is [Best AI agent harness](/best/ai-agent-harnesses). Dated public scores, each with the date on its source, are in the [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026). The [harnesses](/topics/harnesses) topic is the shelf for those guides. A check that allows, blocks, or pauses an action is a [guardrail](/glossary/guardrail). Choosing the next step is [orchestration](/glossary/orchestration).
 
 ## What does OpenAI mean by harness engineering?
 

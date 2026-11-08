@@ -9,6 +9,8 @@ import { getBlogPosts } from "@/lib/blog";
 import { getDirectoryListings } from "@/lib/directory";
 import { getResearchDocs } from "@/lib/research";
 import { companyForName } from "@/lib/companies";
+import { BestOfLinks } from "@/components/BestOfLinks";
+import { comparisonPages } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
 import { audiences } from "@/lib/site";
 
@@ -51,6 +53,12 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
           <p className="mt-3 text-[var(--muted)]">{block.body}</p>
         </section>
       ))}
+      {slug === "everyone" ? (
+        <BestOfLinks
+          pages={comparisonPages.filter((page) => page.kind === "consumer")}
+          intro="Sourced tables for shopping, search, travel, email, and other everyday jobs. Last verified November 2026."
+        />
+      ) : null}
       {slug === "builders" || slug === "research" ? (
         <section className="mt-10">
           <h2 className="font-semibold tracking-tight text-2xl">Dated figures</h2>
@@ -60,6 +68,18 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
             </li>
             <li>
               <Link href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
+            </li>
+            <li>
+              <Link href="/best">Best AI agents</Link>
+            </li>
+            <li>
+              <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>
+            </li>
+            <li>
+              <Link href="/best/computer-use-agents">Best computer use agents</Link>
+            </li>
+            <li>
+              <Link href="/best/ai-agent-evaluation-tools">Best AI agent evaluation tools</Link>
             </li>
             <li>
               <Link href="/reports/agent-harness-benchmark-november-2026">Harness benchmark, November 2026</Link>
@@ -153,7 +173,7 @@ function copyFor(slug: string) {
       },
       {
         title: "What you can read here",
-        body: "Plain-English AI news and research for adults: what an agent is, where the tools are actually used, and what the papers change.",
+        body: "Plain-English AI news and research for adults: what an agent is, where the tools are actually used, and what the papers change. Sourced consumer tables cover shopping, web search, travel booking, email, personal assistant tasks, research, scheduling, writing, students, and small business under Best AI agents.",
       },
     ];
   }
@@ -161,7 +181,7 @@ function copyFor(slug: string) {
     return [
       {
         title: "Harnesses over vibes",
-        body: "Start with the loop: tools, observations, stop conditions, evals. Framework names are in the directory. We will not crown a winner without a sourced comparison.",
+        body: "Start with the loop: tools, observations, stop conditions, evals. Framework names are in the directory. Sourced comparisons of harnesses, computer use agents, and evaluation tools live under Compare. They list licence, list price, and platform. They do not invent a ranking.",
       },
       {
         title: "Ship a listing when you ship a product",
@@ -175,8 +195,8 @@ function copyFor(slug: string) {
       body: "Research pages carry the paper link, the authors, and BibTeX. We will not invent citations.",
     },
     {
-      title: "Trackers wait for sources",
-      body: "The harness comparison stays empty until each cell has a source. The November harness benchmark lists the leaderboard rows that had a source and a date.",
+        title: "Trackers wait for sources",
+        body: "The sourced harness comparison lists licence, list price, and platform. The November harness benchmark lists the leaderboard rows that had a source and a date. Neither page invents a quality score.",
     },
   ];
 }

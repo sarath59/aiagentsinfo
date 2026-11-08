@@ -9,7 +9,10 @@ export {
   datasetJsonLd,
   datasetLicenseUrl,
   definedTermJsonLd,
+  faqPageJsonLd,
+  itemListJsonLd,
   organizationJsonLd,
+  softwareApplicationJsonLd,
   profilePageJsonLd,
   researchArticleJsonLd,
   webPageJsonLd,
@@ -48,6 +51,8 @@ type MetaOptions = {
    * Reports stay `website`; their structured data is Dataset, not Article.
    */
   openGraphType?: "website" | "article";
+  /** Skip the "%s · AI Agents Info" template so the title tag can stay under 60 characters. */
+  absoluteTitle?: boolean;
 };
 
 /** File route from `app/opengraph-image.tsx`. Same image the homepage already emits. */
@@ -78,7 +83,7 @@ export function defaultMetadata(title: string, description: string, path = "/", 
   const canonical = absoluteUrl(options.canonicalPath ?? path);
   const openGraphType = options.openGraphType ?? "website";
   return {
-    title,
+    title: options.absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical },
     openGraph: {

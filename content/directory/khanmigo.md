@@ -23,4 +23,4 @@ pricingSummary: "Khan Academy's pricing page says Khanmigo is free for teachers.
 lastVerified: "2026-11-03"
 ---
 
-Education tools need supervision policies that this listing does not evaluate. See [agents in education](/topics/education).
+Education tools need supervision policies that this listing does not evaluate. See [agents in education](/topics/education). Khanmigo is compared in [Best AI agent for students](/best/ai-agents-for-students).

@@ -8,6 +8,8 @@ import {
   directoryCategories,
   getDirectoryListings,
 } from "@/lib/directory";
+import { BestOfLinks } from "@/components/BestOfLinks";
+import { comparisonsForCategory } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -47,6 +49,12 @@ export default async function DirectoryCategoryPage({
         <p className="kicker">Category</p>
         <h1 className="display mt-3 text-5xl">{categoryPageTitle(slug)}</h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">{categorySummaries[category.slug]}</p>
+        {comparisonsForCategory(slug).length ? (
+          <BestOfLinks
+            pages={comparisonsForCategory(slug)}
+            intro="Sourced comparison for this category. Last verified November 2026."
+          />
+        ) : null}
         {listings.length ? (
           <>
             <p className="mt-4 text-[var(--muted)]">

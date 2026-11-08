@@ -84,7 +84,7 @@ People also say “digital worker,” “AI teammate,” and “employee agent.�
 
 The software is not a legal employee. It has no duties of its own, and a mistake is still the organization’s to own. [Deloitte’s September 10, 2026 essay](https://www.deloitte.com/global/en/insights/topics/technology-management/ai-agents-human-workplace.html) treats “agents as labor” and “agents as infrastructure” as two choices a company might make, and it tells leaders to watch for moments when agents are treated as the responsible party in a review. That is a warning about accountability, not a feature list.
 
-This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in).
+This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in). Sourced tables for the same jobs are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks) and [Best AI agent for small business](/best/ai-agents-for-small-business).
 
 ## What is a digital worker?
 

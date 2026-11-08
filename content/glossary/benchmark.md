@@ -12,4 +12,4 @@ topics:
 
 A **benchmark** is an evaluation suite. For agents, the [harness](/glossary/harness) is part of what you are measuring. Read dates, cost, and contamination notes before you believe a chart.
 
-A [behavioral evaluation](/glossary/behavioral-evaluation) checks one action, such as a tool call, rather than the suite’s overall score. The comparison is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness).
+A [behavioral evaluation](/glossary/behavioral-evaluation) checks one action, such as a tool call, rather than the suite’s overall score. The comparison is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). Tools that run those checks are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools).

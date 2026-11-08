@@ -72,7 +72,7 @@ Codex costs less to start. On the pages checked November 6, 2026, [Codex](/direc
 
 After that, the individual monthly prices line up. Claude Pro and ChatGPT Plus are both $20 a month. Claude Max and the first Codex Pro tier are both $100. Claude Ultra and the middle Codex Pro tier are both $200. Codex Pro also lists a $500 tier, and the Claude individual pages checked here do not. Those are list prices. They are not a count of how much code each plan will write.
 
-[Claude Code](https://claude.com/product/claude-code) is Anthropic’s coding agent. Codex is OpenAI’s. Each one is an [agent](/glossary/agent): a model plus the [harness](/glossary/harness) that runs tools, keeps a record, and stops. The longer account of that surrounding software is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). [Claude](/directory/claude) is the chat product on the same Anthropic plans. [ChatGPT](/directory/chatgpt) is the plan Codex rides on.
+[Claude Code](https://claude.com/product/claude-code) is Anthropic’s coding agent. Codex is OpenAI’s. Each one is an [agent](/glossary/agent): a model plus the [harness](/glossary/harness) that runs tools, keeps a record, and stops. The longer account of that surrounding software is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The sourced harness table is [Best AI agent harness](/best/ai-agent-harnesses). [Claude](/directory/claude) is the chat product on the same Anthropic plans. [ChatGPT](/directory/chatgpt) is the plan Codex rides on.
 
 Prices below exclude tax where the vendor says so. Anthropic says its prices can change. OpenAI’s pages describe the current cards and send you to a usage dashboard for the live limit. Use the vendor page for a number you intend to pay.
 

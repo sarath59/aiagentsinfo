@@ -28,7 +28,7 @@ pricingSummary: "The pricing page lists Free at $0 per month, then $17 per month
 lastVerified: "2026-11-07"
 ---
 
-Citations in the product are only as good as the retrieved pages. This site prefers primary sources on the [research desk](/research).
+Citations in the product are only as good as the retrieved pages. This site prefers primary sources on the [research desk](/research). Perplexity is compared in [Best AI agent for shopping](/best/ai-agents-for-shopping), [Best AI agent for web search](/best/ai-agents-for-web-search), and [Best AI agent for research](/best/ai-agents-for-research).
 
 ## What are Perplexity Teammates?
 

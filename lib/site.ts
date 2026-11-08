@@ -30,6 +30,9 @@ export const site = {
   locale: "en_US",
 } as const;
 
+/** Official profiles found in this repo. No X, LinkedIn, or Medium profile is published here. */
+export const organizationSameAs = ["https://github.com/sarath59/aiagentsinfo"] as const;
+
 export const audiences = [
   {
     slug: "everyone",
@@ -115,11 +118,33 @@ export const nav = [
   { href: "/directory", label: "Directory" },
   { href: "/submit", label: "Submit" },
   { href: "/reports", label: "Reports" },
+  { href: "/best", label: "Best AI agents" },
   { href: "/verified-revenue", label: "Revenue" },
   { href: "/research", label: "Research" },
   { href: "/blog", label: "Blog" },
   { href: "/glossary", label: "Glossary" },
   { href: "/topics", label: "Topics" },
+] as const;
+
+export const comparisons = [
+  {
+    href: "/best/ai-agent-harnesses",
+    title: "Best AI agent harness",
+    summary:
+      "Coding, open-source, and local harnesses. Licence, list price, and platform from official pages. Last verified November 2026.",
+  },
+  {
+    href: "/best/computer-use-agents",
+    title: "Best computer use agents",
+    summary:
+      "Desktop, API, open-source, and Windows computer use. Last verified November 2026. No invented scores.",
+  },
+  {
+    href: "/best/ai-agent-evaluation-tools",
+    title: "Best AI agent evaluation tools",
+    summary:
+      "Regression and trajectory evaluation stacks, including open source. Last verified November 2026.",
+  },
 ] as const;
 
 export const dataAssets = [
@@ -187,6 +212,7 @@ export const footerNav = [
       { href: "/research", label: "Research" },
       { href: "/papers", label: "Papers" },
       { href: "/reports", label: "Reports" },
+      { href: "/best", label: "Best AI agents" },
       { href: "/glossary", label: "Glossary" },
       { href: "/directory", label: "Directory" },
       { href: "/topics", label: "Topics" },
@@ -203,6 +229,19 @@ export const footerNav = [
   {
     title: "Trackers",
     links: [
+      { href: "/best/ai-agent-harnesses", label: "Best AI agent harness" },
+      { href: "/best/computer-use-agents", label: "Best computer use agents" },
+      { href: "/best/ai-agent-evaluation-tools", label: "Best AI agent evaluation tools" },
+      { href: "/best/ai-agents-for-shopping", label: "Best AI agent for shopping" },
+      { href: "/best/ai-agents-for-web-search", label: "Best AI agent for web search" },
+      { href: "/best/ai-agents-for-travel-booking", label: "Best AI agent for travel booking" },
+      { href: "/best/ai-agents-for-email", label: "Best AI agent for email" },
+      { href: "/best/ai-agents-for-personal-assistant-tasks", label: "Best AI agent for personal assistant tasks" },
+      { href: "/best/ai-agents-for-research", label: "Best AI agent for research" },
+      { href: "/best/ai-agents-for-scheduling", label: "Best AI agent for scheduling" },
+      { href: "/best/ai-agents-for-writing", label: "Best AI agent for writing" },
+      { href: "/best/ai-agents-for-students", label: "Best AI agent for students" },
+      { href: "/best/ai-agents-for-small-business", label: "Best AI agent for small business" },
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },

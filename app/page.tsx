@@ -11,7 +11,7 @@ import { categoryTitle as directoryCategoryTitle, getDirectoryListings, type Dir
 import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs, researchTypeTitle, type ResearchDoc } from "@/lib/research";
 import { indexRobots } from "@/lib/seo";
-import { absoluteUrl, dataAssets, site } from "@/lib/site";
+import { absoluteUrl, comparisons, dataAssets, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 const socialTitle = `${site.name} — ${site.tagline}`;
@@ -251,7 +251,35 @@ export default async function HomePage() {
         </section>
       </HomeReveal>
 
-      <SectionSignal label="05 / learn" delay="-1.1s" />
+      <SectionSignal label="05 / compare" delay="-0.8s" />
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-compare">
+          <SectionHead
+            id="home-compare"
+            eyebrow="Best AI agents"
+            title="Best AI agents"
+            lede="Licence, list price, and platform from official pages. Last verified November 2026. No invented scores."
+            href="/best"
+            seeAllLabel="Best AI agents"
+          />
+          <div className="home-trio">
+            {comparisons.map((page) => (
+              <Link key={page.href} href={page.href} className={`focus-ring ${"home-card"} ${"home-guide"}`}>
+                <p className="kicker">Comparison</p>
+                <h3 className={"home-card-title"}>{page.title}</h3>
+                <p className={"home-card-body"}>{page.summary}</p>
+                <span className={"home-more"}>
+                  Open the table
+                  <ArrowIcon className="h-3.5 w-3.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </HomeReveal>
+
+      <SectionSignal label="06 / learn" delay="-1.1s" />
 
       <HomeReveal>
         <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-guides">
@@ -327,8 +355,8 @@ function SectionHead({
         </h2>
         <p className={"home-lede"}>{lede}</p>
       </div>
-      <Link href={href} className={`focus-ring ${"home-see"}`} aria-label={seeAllLabel}>
-        See all
+      <Link href={href} className={`focus-ring ${"home-see"}`}>
+        {seeAllLabel}
         <ArrowIcon className="h-3.5 w-3.5" />
       </Link>
     </div>

@@ -11,6 +11,7 @@ import { getGlossaryTerms } from "@/lib/glossary";
 import { communityListingIsIndexable, topicIsIndexable } from "@/lib/indexing";
 import { path as frameworkGithubPath, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
 import { getResearchDocs } from "@/lib/research";
+import { COMPARISON_VERIFIED_ON, comparisonPages } from "@/lib/comparisons";
 import { absoluteUrl, audiences, topics } from "@/lib/site";
 import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
@@ -78,6 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/agent-prompt-checker", priority: 0.6 },
     ...audiences.map((item) => ({ path: item.href, priority: 0.6 })),
   ];
+  const comparisonUpdated = new Date(`${COMPARISON_VERIFIED_ON}T00:00:00.000Z`);
 
   return [
     entry("/", maxDate(contentDates), 1),
@@ -97,6 +99,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/verified-revenue", new Date(`${verifiedRevenueChecked}T00:00:00.000Z`), 0.6),
     entry(frameworkGithubPath, new Date(`${frameworkGithubDay}T00:00:00.000Z`), 0.7),
     ...authors.map((author) => entry(`/authors/${author.slug}`, trustUpdated, 0.5)),
+    entry("/best", comparisonUpdated, 0.7),
+    ...comparisonPages.map((item) => entry(item.path, comparisonUpdated, 0.8)),
     ...staticPaths.map((item) => entry(item.path, undefined, item.priority)),
     ...indexableTopics.map((topic) => entry(topic.href, maxDate(contentDates), 0.6)),
     ...indexableCategories.map((category) =>

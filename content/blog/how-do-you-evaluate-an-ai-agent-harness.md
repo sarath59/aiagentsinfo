@@ -70,7 +70,7 @@ You evaluate an [agent harness](/glossary/harness) by checking the actions you e
 
 A [behavioral evaluation](/glossary/behavioral-evaluation) watches one step you can point at in the trace: a tool call, a file edit, a clarifying question, a test command. An end-to-end [benchmark](/glossary/benchmark) scores a frozen set of tasks and tells you whether the bundle of model plus harness succeeded. [Google’s September 9, 2026 post](https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/) says a composite score can move a few points and still leave you unsure which step changed. The behavioral check is how you name that step.
 
-The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic.
+The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses).
 
 ## What is a behavioral evaluation?
 

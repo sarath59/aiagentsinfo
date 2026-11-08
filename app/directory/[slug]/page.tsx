@@ -11,7 +11,7 @@ import {
   listingsForCollection,
 } from "@/lib/directory";
 import { communityListingIsIndexable } from "@/lib/indexing";
-import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd, defaultMetadata, softwareApplicationJsonLd, webPageJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const listings = await getDirectoryListings();
@@ -81,13 +81,29 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
   return (
     <>
       <JsonLd
-        data={webPageJsonLd({
-          title: listing.name,
-          description: listing.summary,
-          path: `/directory/${listing.slug}`,
-          dateModified: listing.lastVerified,
-          datePublished: listing.communitySubmitted ? listing.lastVerified : undefined,
-        })}
+        data={[
+          webPageJsonLd({
+            title: listing.name,
+            description: listing.summary,
+            path: `/directory/${listing.slug}`,
+            dateModified: listing.lastVerified,
+            datePublished: listing.communitySubmitted ? listing.lastVerified : undefined,
+          }),
+          softwareApplicationJsonLd({
+            name: listing.name,
+            url: `/directory/${listing.slug}`,
+            sameAs: listing.website,
+            description: listing.summary,
+            applicationCategory:
+              listing.category === "coding-agents" ||
+              listing.category === "agent-frameworks" ||
+              listing.category === "developer-tools"
+                ? "DeveloperApplication"
+                : listing.category === "productivity" || listing.category === "automation"
+                  ? "BusinessApplication"
+                  : undefined,
+          }),
+        ]}
       />
       <Breadcrumbs
         items={[

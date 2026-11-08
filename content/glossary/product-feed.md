@@ -14,4 +14,4 @@ A **product feed** is a file of product rows that a merchant maintains. [OpenAI'
 
 A [shopping agent](/glossary/shopping-agent) that quotes a price should be reading a feed like this, or a merchant catalog with the same job, rather than inventing a number. Google's Shopping Graph and Merchant Center are the feed path behind its cart. The payment step that may follow is [agentic checkout](/glossary/agentic-checkout). Fetching the row is [tool use](/glossary/tool-use).
 
-The longer guide is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you).
+The longer guide is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). The sourced table is [Best AI agent for shopping](/best/ai-agents-for-shopping).

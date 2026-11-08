@@ -28,4 +28,4 @@ Alexa for Shopping is the name Amazon now uses in its store for the assistant th
 
 Amazon's [guide updated October 29, 2026](https://www.aboutamazon.com/news/retail/how-to-use-amazon-shopping-ai-assistant) says all U.S. customers can use it. The same guide separates a cart you still check out yourself, an auto-buy that purchases when a price you set is reached, and Buy for Me for eligible products on other stores. Amazon's [Buy for Me article](https://www.aboutamazon.com/news/retail/amazon-shopping-app-buy-for-me-brands) says the brand sends the confirmation and handles delivery, returns, and customer service.
 
-The longer account, with the other assistants beside it, is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you).
+The longer account, with the other assistants beside it, is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). The sourced table is [Best AI agent for shopping](/best/ai-agents-for-shopping).

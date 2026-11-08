@@ -28,4 +28,4 @@ lastVerified: "2026-11-03"
 newThisWeek: true
 ---
 
-This SDK is a [harness](/glossary/harness) you embed in your own app. It is not the ChatGPT product.
+This SDK is a [harness](/glossary/harness) you embed in your own app. It is not the ChatGPT product. A sourced comparison with other runtimes is [Best AI agent harness](/best/ai-agent-harnesses).

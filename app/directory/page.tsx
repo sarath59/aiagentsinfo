@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
+import { BestOfLinks } from "@/components/BestOfLinks";
 import { ListingCard } from "@/components/ListingCard";
 import { SubmitToolButton } from "@/components/SubmitToolButton";
 import {
@@ -82,6 +83,7 @@ export default async function DirectoryPage({
         </div>
       </header>
       <div className="mx-auto max-w-6xl px-4 pb-20">
+        <BestOfLinks intro="Directory listings that appear in a sourced comparison keep the same product name and official site." />
 
         <div className="flex flex-wrap gap-2">
           <Link href="/directory/new" className="chip">

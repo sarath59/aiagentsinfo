@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BestOfLinks } from "@/components/BestOfLinks";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { InlineCompanyText } from "@/components/CompanyMarks";
 import { ListingRow, ListingStatus } from "@/components/ListingCard";
@@ -11,6 +12,7 @@ import {
   pricingTitle,
   type DirectoryListing,
 } from "@/lib/directory";
+import { comparisonsForListing } from "@/lib/comparisons";
 import { listingReading } from "@/lib/listing-reading";
 import {
   bestFitSummary,
@@ -33,6 +35,7 @@ export async function ListingProfile({
   const substantial = listingIsSubstantial(listing);
   const alternatives = listingAlternatives(listing, listings);
   const reading = await listingReading(listing);
+  const relatedComparisons = comparisonsForListing(listing.slug);
   const sections = profileSections({
     substantial,
     hasFeatures: listing.features.length > 0,
@@ -243,6 +246,13 @@ export async function ListingProfile({
             ))}
           </ul>
         </section>
+      ) : null}
+
+      {relatedComparisons.length ? (
+        <BestOfLinks
+          pages={relatedComparisons}
+          intro={`${listing.name} appears in a sourced comparison. Last verified November 2026.`}
+        />
       ) : null}
 
       {reading.length ? (

@@ -124,7 +124,7 @@ Two workshops can hand the same program a job and get different results. One wor
 
 If you have used a chat box, you have used a model. When a product can click, edit, or buy, the software around the chat is doing extra work: it offers the tools, carries out the chosen step, and brings the result back. That extra software is the harness.
 
-The rest of this guide is the full account for adult readers, including people who build these systems. Short definitions live in the glossary: [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), and [guardrail](/glossary/guardrail).
+The rest of this guide is the full account for adult readers, including people who build these systems. Short definitions live in the glossary: [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), and [guardrail](/glossary/guardrail). A sourced comparison of shipping harnesses, without invented scores, is [Best AI agent harness](/best/ai-agent-harnesses).
 
 ## What is an AI agent harness?
 
@@ -298,7 +298,7 @@ On November 5, 2026, GitHub’s latest-release endpoint, which returns the newes
 
 On this page it refers to the local run already in the README. The instructions run on your own machine. `npx @deepseek-ai/dsh web` starts a web interface there. A checkout can be installed and built from the repository.
 
-That is a different artifact from the products in the table. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products with their own apps and plan pages. DeepSeek’s repository is the harness itself, in preview, organized as plugins. This page does not turn that into a ranking. The [harness comparison](/trackers/harnesses) still waits until each cell has its own source.
+That is a different artifact from the products in the table. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products with their own apps and plan pages. DeepSeek’s repository is the harness itself, in preview, organized as plugins. This page does not turn that into a ranking. The sourced table is [Best AI agent harness](/best/ai-agent-harnesses). The [harness comparison tracker](/trackers/harnesses) points at that page.
 
 ## What is the DeepSeek super agent?
 

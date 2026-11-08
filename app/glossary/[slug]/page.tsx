@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BestOfLinks } from "@/components/BestOfLinks";
 import { MarkdownBody } from "@/components/MarkdownBody";
+import { comparisonsForGlossary, glossaryShowsBestOf } from "@/lib/comparisons";
 import { getGlossaryTerm, getGlossaryTerms } from "@/lib/glossary";
 import { JsonLd, defaultMetadata, definedTermJsonLd } from "@/lib/seo";
 
@@ -46,6 +48,12 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
         <div className="mt-10">
           <MarkdownBody html={term.html} />
         </div>
+        {glossaryShowsBestOf(term.slug) ? (
+          <BestOfLinks
+            pages={comparisonsForGlossary(term.slug)}
+            intro="Sourced comparisons related to this term. Last verified November 2026."
+          />
+        ) : null}
         {related.length ? (
           <section className="mt-10">
             <h2 className="font-semibold tracking-tight text-2xl">Related terms</h2>

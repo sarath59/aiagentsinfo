@@ -13,7 +13,7 @@ topics:
 
 In classical AI textbooks, an **agent** perceives and acts. On this site the word usually means a language model plus a [harness](/glossary/harness). The model chooses a step. The harness runs a [tool](/glossary/tool-use), checks the result, and puts that result back in front of the model. The loop continues until the goal is met or a limit stops it.
 
-A chatbot that only replies in a thread is a useful model. It is not, by itself, an agent in this sense. The longer account of the workshop around the model is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The [how agents work](/topics/how-agents-work) topic collects the explainers.
+A chatbot that only replies in a thread is a useful model. It is not, by itself, an agent in this sense. The longer account of the workshop around the model is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The [how agents work](/topics/how-agents-work) topic collects the explainers. Sourced job-fit tables are on [Best AI agents](/best): [Best AI agent harness](/best/ai-agent-harnesses), [Best computer use agents](/best/computer-use-agents), [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools), [Best AI agent for shopping](/best/ai-agents-for-shopping), [Best AI agent for web search](/best/ai-agents-for-web-search), [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks), and [Best AI agent for writing](/best/ai-agents-for-writing).
 
 ## What types of AI agents are there?
 
