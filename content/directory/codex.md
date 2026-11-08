@@ -26,4 +26,4 @@ lastVerified: "2026-11-06"
 newThisWeek: true
 ---
 
-Codex is a coding [agent](/glossary/agent). Plan limits and which models are available change, so check OpenAI's current pricing and help pages before you rely on a number. The November 6, 2026 comparison with Claude Code, including Go at $8 a month and Pro at $100, $200, and $500, is [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing).
+Codex is a coding [agent](/glossary/agent). Plan limits and which models are available change, so check OpenAI's current pricing and help pages before you rely on a number. The November 6, 2026 comparison with Claude Code, including Go at $8 a month and Pro at $100, $200, and $500, is [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). The harness comparison is [Best AI agent harness](/best/ai-agent-harnesses). Desktop Computer Use is in [Best computer use agents](/best/computer-use-agents).

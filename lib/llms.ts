@@ -4,7 +4,7 @@ import { categoryTitle as directoryCategoryTitle, getDirectoryListings } from "@
 import { getGlossaryTerms } from "@/lib/glossary";
 import { contentDir, loadMarkdownCollection } from "@/lib/markdown";
 import { getResearchDocs } from "@/lib/research";
-import { absoluteUrl, audiences, site, topics } from "@/lib/site";
+import { absoluteUrl, audiences, comparisons, site, topics } from "@/lib/site";
 import { verifiedRevenueChecked, verifiedRevenueEntries } from "@/lib/verified-revenue";
 
 const LATEST_POSTS = 20;
@@ -63,7 +63,9 @@ export async function buildLlmsTxt() {
       item("Glossary", "/glossary", "Short definitions used across the site."),
       item("Directory", "/directory", "AI tools, apps, SaaS, and agents, each with a source site."),
       item("Breakthroughs timeline", "/trackers/breakthroughs", "Public agent moments, added only with a date and a source."),
-      item("Harness comparison", "/trackers/harnesses", "Harness and framework comparison, published only when each cell is sourced."),
+      item("Best AI agents", "/best", "Sourced comparisons of the best AI agent harness, the best computer use agents, and the best AI agent evaluation tools. Last verified November 2026."),
+      ...comparisons.map((page) => item(page.title, page.href, page.summary)),
+      item("Harness comparison", "/trackers/harnesses", "Pointer to the sourced harness comparison. Cells are published only with a source."),
       item("Benchmark leaderboard", "/trackers/benchmarks", "Public agent benchmarks, published only with a source, a date, and the harness."),
       item("Reports", "/reports", "Dated pages with a source and a citation."),
       item(

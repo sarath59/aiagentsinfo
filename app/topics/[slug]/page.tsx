@@ -10,6 +10,7 @@ import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs } from "@/lib/research";
 import { companyForName } from "@/lib/companies";
 import { topicIsIndexable } from "@/lib/indexing";
+import { COMPARISON_HUB, comparisonsForTopic } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
 import { topics } from "@/lib/site";
 
@@ -61,6 +62,18 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         <p className="kicker">Coverage</p>
         <h1 className="display mt-3 text-5xl">{topic.title}</h1>
         <p className="mt-4 text-lg text-[var(--muted)]">{topic.summary}</p>
+        {comparisonsForTopic(slug).length ? (
+          <Section title={COMPARISON_HUB.title} emptyTitle="" empty="">
+            <li>
+              <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>
+            </li>
+            {comparisonsForTopic(slug).map((page) => (
+              <li key={page.path}>
+                <Link href={page.path}>{page.title}</Link>
+              </li>
+            ))}
+          </Section>
+        ) : null}
         <Section title="From the blog" emptyTitle="First articles publishing soon" empty="Posts on this beat will appear when they are published.">
           {relatedPosts.map((post) => (
             <li key={post.slug} className="flex flex-wrap items-center gap-2">

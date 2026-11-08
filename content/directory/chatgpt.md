@@ -29,4 +29,4 @@ lastVerified: "2026-11-03"
 
 ChatGPT is OpenAI's chat product. Treat model names, tool availability, and plan limits as moving parts: read the vendor changelog before you depend on a specific capability.
 
-Related reading on this site is about [agents](/glossary/agent) versus chat, not an endorsement.
+Related reading on this site is about [agents](/glossary/agent) versus chat, not an endorsement. ChatGPT desktop Computer Use is compared in [Best computer use agents](/best/computer-use-agents).

@@ -1,5 +1,5 @@
 import { authorByName } from "@/lib/authors";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl, organizationSameAs, site } from "@/lib/site";
 
 const ISO_DATE = /^\d{4}(-\d{2}-\d{2})?$/;
 
@@ -25,6 +25,7 @@ export function organizationJsonLd() {
       width: 512,
       height: 512,
     },
+    sameAs: [...organizationSameAs],
   };
 }
 
@@ -72,6 +73,7 @@ function publisherNode() {
       width: 512,
       height: 512,
     },
+    sameAs: [...organizationSameAs],
   };
 }
 
@@ -216,6 +218,89 @@ export function webPageJsonLd(input: {
   };
 }
 
+export function faqPageJsonLd(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function softwareApplicationJsonLd(input: {
+  name: string;
+  url: string;
+  sameAs?: string | string[];
+  description?: string;
+  applicationCategory?: string;
+  operatingSystem?: string;
+  nested?: boolean;
+}) {
+  const url = input.url.startsWith("https://") ? input.url : absoluteUrl(input.url);
+  const sameAs = input.sameAs
+    ? Array.isArray(input.sameAs)
+      ? input.sameAs
+      : [input.sameAs]
+    : undefined;
+  return {
+    ...(input.nested ? {} : { "@context": "https://schema.org" }),
+    "@type": "SoftwareApplication",
+    name: input.name,
+    url,
+    ...(sameAs?.length ? { sameAs: sameAs.length === 1 ? sameAs[0] : sameAs } : {}),
+    ...(input.description ? { description: input.description } : {}),
+    ...(input.applicationCategory ? { applicationCategory: input.applicationCategory } : {}),
+    ...(input.operatingSystem ? { operatingSystem: input.operatingSystem } : {}),
+  };
+}
+
+export function itemListJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+  items: {
+    name: string;
+    url: string;
+    description?: string;
+    sameAs?: string | string[];
+    applicationCategory?: string;
+    operatingSystem?: string;
+    software?: boolean;
+  }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    numberOfItems: input.items.length,
+    itemListElement: input.items.map((item, index) => {
+      const url = item.url.startsWith("https://") ? item.url : absoluteUrl(item.url);
+      if (item.software) {
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          item: softwareApplicationJsonLd({ ...item, url, nested: true }),
+        };
+      }
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        url,
+        ...(item.description ? { description: item.description } : {}),
+      };
+    }),
+  };
+}
+
 export function profilePageJsonLd(input: {
   name: string;
   description: string;
@@ -292,14 +377,40 @@ function assertNode(value: unknown, path: string) {
   if (typeof type !== "string") return;
 
   if (type === "FAQPage") {
-    throw new Error(
-      `${path} FAQPage markup is not allowed. Google removed FAQ rich results, and this site is not a government or health publisher.`,
-    );
+    if (!Array.isArray(value.mainEntity) || value.mainEntity.length < 1) {
+      throw new Error(`${path}.mainEntity needs at least one Question`);
+    }
+    value.mainEntity.forEach((item, index) => {
+      if (!isRecord(item)) throw new Error(`${path}.mainEntity[${index}] must be an object`);
+      if (item["@type"] !== "Question") {
+        throw new Error(`${path}.mainEntity[${index}].@type must be Question`);
+      }
+      requireString(item, "name", `${path}.mainEntity[${index}]`);
+      if (!isRecord(item.acceptedAnswer) || item.acceptedAnswer["@type"] !== "Answer") {
+        throw new Error(`${path}.mainEntity[${index}].acceptedAnswer must be an Answer`);
+      }
+      requireString(item.acceptedAnswer, "text", `${path}.mainEntity[${index}].acceptedAnswer`);
+    });
   }
   if (type === "SoftwareApplication") {
-    throw new Error(
-      `${path} SoftwareApplication markup is not allowed without a real review or aggregateRating. This site does not publish ratings, and inventing one would be misleading.`,
-    );
+    requireString(value, "name", path);
+    if (value.aggregateRating || value.review) {
+      throw new Error(
+        `${path} must not include aggregateRating or review. This site does not publish ratings.`,
+      );
+    }
+    if (value.url) {
+      const url = requireString(value, "url", path);
+      if (!url.startsWith("https://")) throw new Error(`${path}.url must be an absolute https URL`);
+    }
+    if (value.sameAs) {
+      const sameAs = Array.isArray(value.sameAs) ? value.sameAs : [value.sameAs];
+      sameAs.forEach((entry, index) => {
+        if (typeof entry !== "string" || !entry.startsWith("https://")) {
+          throw new Error(`${path}.sameAs[${index}] must be an absolute https URL`);
+        }
+      });
+    }
   }
 
   if (type === "Organization") {
@@ -312,6 +423,14 @@ function assertNode(value: unknown, path: string) {
       if (typeof value.logo.width !== "number" || typeof value.logo.height !== "number") {
         throw new Error(`${path}.logo needs numeric width and height`);
       }
+    }
+    if (value.sameAs) {
+      const sameAs = Array.isArray(value.sameAs) ? value.sameAs : [value.sameAs];
+      sameAs.forEach((entry, index) => {
+        if (typeof entry !== "string" || !entry.startsWith("https://")) {
+          throw new Error(`${path}.sameAs[${index}] must be an absolute https URL`);
+        }
+      });
     }
   }
 

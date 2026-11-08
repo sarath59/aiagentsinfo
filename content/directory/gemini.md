@@ -27,4 +27,4 @@ pricingSummary: "Google's AI plans page lists Google AI Plus at $4.99 per month,
 lastVerified: "2026-11-03"
 ---
 
-Google ships Gemini through several products. Name the surface you mean (the Gemini app, AI Studio, or Vertex) when you write about it.
+Google ships Gemini through several products. Name the surface you mean (the Gemini app, AI Studio, or Vertex) when you write about it. Computer Use on the Gemini API is compared in [Best computer use agents](/best/computer-use-agents).

@@ -28,4 +28,4 @@ lastVerified: "2026-11-03"
 newThisWeek: true
 ---
 
-ADK is an agent framework. The library is free. The model you connect may not be.
+ADK is an agent framework. The library is free. The model you connect may not be. A sourced comparison is [Best AI agent harness](/best/ai-agent-harnesses).

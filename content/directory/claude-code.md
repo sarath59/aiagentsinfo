@@ -26,7 +26,7 @@ lastVerified: "2026-11-07"
 newThisWeek: true
 ---
 
-Claude Code is a [coding agent](/glossary/agent). The product page is the source for where it runs and which plan includes it. Anthropic Claude Code limits for Pro, Max, and Ultra are in the section below. The comparison of list prices with Codex is a separate article, [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), not the name of this product.
+Claude Code is a [coding agent](/glossary/agent). The product page is the source for where it runs and which plan includes it. Anthropic Claude Code limits for Pro, Max, and Ultra are in the section below. The comparison of list prices with Codex is a separate article, [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), not the name of this product. The harness comparison is [Best AI agent harness](/best/ai-agent-harnesses). Computer use on the desktop is in [Best computer use agents](/best/computer-use-agents).
 
 ## How is Claude Code different from Codex?
 

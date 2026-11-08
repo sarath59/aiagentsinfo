@@ -27,7 +27,9 @@ export default function BenchmarksPage() {
         <p className="text-[var(--muted)]">
           The November 2026 reading of the official SWE-bench and Terminal-Bench boards is the{" "}
           <Link href="/reports/agent-harness-benchmark-november-2026">harness benchmark</Link>. Each score there has a
-          source and a date. This tracker does not add a second set of numbers.
+          source and a date. This tracker does not add a second set of numbers. Licence and list-price comparisons
+          for the runtimes around those scores are in <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>
+          {" "}and <Link href="/best/ai-agent-evaluation-tools">Best AI agent evaluation tools</Link>.
         </p>
       </div>
     </>

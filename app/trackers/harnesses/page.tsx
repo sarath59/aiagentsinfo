@@ -1,11 +1,11 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
 
 export const metadata = defaultMetadata(
   "Harness comparison table",
-  "A comparison of agent harnesses and frameworks. Cells are published only when each one is sourced.",
+  "Sourced comparison of agent harnesses. Licence, list price, and platform from official pages. Last verified November 2026.",
   "/trackers/harnesses",
 );
 
@@ -21,15 +21,18 @@ export default function HarnessesTrackerPage() {
       <PageHeader
         kicker="Living tracker"
         title="Harness comparison"
-        summary="A comparison appears when each cell has a source. No feature matrix is guessed."
+        summary="The sourced table lives on the comparison page. Cells are licence, list price, and platform from official pages. Nothing is scored."
       />
       <div className="mx-auto max-w-3xl px-4 pb-20">
-        <EmptyState
-          title="Harness comparisons coming soon"
-          body="Frameworks already in the directory stay listed there. This table waits until the cells are checked."
-          href="/directory/category/agent-frameworks"
-          cta="Browse frameworks"
-        />
+        <p className="text-[var(--muted)]">
+          The November 2026 comparison is{" "}
+          <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>, listed on{" "}
+          <Link href="/best">Best AI agents</Link>. It covers coding, open-source, and
+          local variants. Official SWE-bench and Terminal-Bench scores stay on the{" "}
+          <Link href="/reports/agent-harness-benchmark-november-2026">harness benchmark</Link>. Frameworks already in
+          the directory remain at{" "}
+          <Link href="/directory/category/agent-frameworks">agent frameworks</Link>.
+        </p>
       </div>
     </>
   );

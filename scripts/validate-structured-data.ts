@@ -7,9 +7,12 @@ import {
   breadcrumbJsonLd,
   datasetJsonLd,
   datasetLicenseUrl,
+  faqPageJsonLd,
+  itemListJsonLd,
   organizationJsonLd,
   profilePageJsonLd,
   researchArticleJsonLd,
+  softwareApplicationJsonLd,
   websiteJsonLd,
 } from "@/lib/structured-data";
 
@@ -85,12 +88,47 @@ function rejects(label: string, data: unknown) {
   throw new Error(`Expected ${label} to fail validation`);
 }
 
-rejects("FAQPage", { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [] });
-rejects("SoftwareApplication", {
+rejects("empty FAQPage", { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [] });
+assertStructuredData(
+  faqPageJsonLd([
+    {
+      question: "What is a harness?",
+      answer: "The loop, tools, memory, permissions, and stop rules around a model.",
+    },
+  ]),
+);
+assertStructuredData(
+  itemListJsonLd({
+    name: "Example comparison",
+    description: "Sourced tools.",
+    path: "/best/example",
+    items: [
+      {
+        name: "Example",
+        url: "/directory/example",
+        description: "A listed tool.",
+        sameAs: "https://example.com",
+        applicationCategory: "DeveloperApplication",
+        software: true,
+      },
+    ],
+  }),
+);
+assertStructuredData(
+  softwareApplicationJsonLd({
+    name: "Example",
+    url: "/directory/example",
+    sameAs: "https://example.com",
+    description: "A listed tool.",
+    applicationCategory: "DeveloperApplication",
+  }),
+);
+rejects("SoftwareApplication with invented rating", {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Example",
-  offers: { "@type": "Offer", price: 0 },
+  url: "https://www.aiagentsinfo.com/directory/example",
+  aggregateRating: { "@type": "AggregateRating", ratingValue: 5, ratingCount: 1 },
 });
 rejects("Dataset without license", {
   "@context": "https://schema.org",

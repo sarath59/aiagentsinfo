@@ -27,4 +27,4 @@ lastVerified: "2026-11-03"
 newThisWeek: true
 ---
 
-smolagents is a small framework. The price, if any, comes from the model provider, not from the library.
+smolagents is a small framework. The price, if any, comes from the model provider, not from the library. Local-model notes are in [Best AI agent harness](/best/ai-agent-harnesses).

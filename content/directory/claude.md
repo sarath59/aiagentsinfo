@@ -28,4 +28,4 @@ pricingSummary: "Free is $0. Pro is $20 per month, or $17 per month when billed 
 lastVerified: "2026-11-03"
 ---
 
-Claude is Anthropic's assistant brand. For agent builders, the relevant public materials are Anthropic's own notes on tool use and computer use.
+Claude is Anthropic's assistant brand. For agent builders, the relevant public materials are Anthropic's own notes on tool use and computer use. Desktop and API computer use are compared in [Best computer use agents](/best/computer-use-agents).

@@ -27,4 +27,4 @@ lastVerified: "2026-11-03"
 newThisWeek: true
 ---
 
-Pydantic AI is a framework. Logfire is the paid product on the same company's pricing page, and it is optional.
+Pydantic AI is a framework. Logfire is the paid product on the same company's pricing page, and it is optional. The harness comparison is [Best AI agent harness](/best/ai-agent-harnesses). The eval package is on [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools).
