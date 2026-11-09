@@ -112,9 +112,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 function toolsForPost(slug: string, category: string) {
   const tools: ("calculator" | "checker" | "picker")[] = [];
-  if (/pric|cost|token|harness|eval/.test(slug)) tools.push("calculator");
-  if (/prompt|tool-json|harness|eval/.test(slug)) tools.push("checker");
-  if (category === "guide" || /agent|employee|shopping|computer/.test(slug)) tools.push("picker");
+  if (/pric|cost|token|harness|eval|chatgpt|recommended/.test(slug)) tools.push("calculator");
+  if (/prompt|tool-json|harness|eval|chatgpt|recommended/.test(slug)) tools.push("checker");
+  if (category === "guide" || /agent|employee|shopping|computer|chatgpt|recommended/.test(slug)) {
+    tools.push("picker");
+  }
   return tools;
 }
 
@@ -178,6 +180,37 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
         href: "/agent-prompt-checker",
         title: "prompt checker",
         note: "tool JSON is part of the harness you are testing",
+      },
+    };
+  }
+  if (slug === "how-to-get-your-ai-tool-recommended-by-chatgpt-and-google") {
+    return {
+      reads: [
+        {
+          href: "/submit",
+          title: "Submit your tool",
+          note: "No login. A valid listing is usually live in about two minutes.",
+        },
+        {
+          href: "/blog/how-do-ai-agents-work",
+          title: "How do AI agents work?",
+          note: "The loop an assistant is running when it might cite you.",
+        },
+        {
+          href: "/mcp",
+          title: "Directory MCP server",
+          note: "A public, read-only way for assistants to search this catalog.",
+        },
+        {
+          href: "/editorial-policy#directory",
+          title: "How listings are published",
+          note: "Thin community blurbs stay out of the sitemap.",
+        },
+      ],
+      tool: {
+        href: "/tools/agent-picker",
+        title: "agent picker",
+        note: "four questions, then three directory listings",
       },
     };
   }

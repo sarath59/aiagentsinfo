@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { BestOfLinks } from "@/components/BestOfLinks";
 import { FeaturedSnippet } from "@/components/FeaturedSnippet";
+import { ListingChecklist } from "@/components/ListingChecklist";
+import { ListingRank } from "@/components/ListingRank";
 import { TrackLink } from "@/components/TrackLink";
 import { UpdatedLine } from "@/components/UpdatedLine";
 import { CompanyLogo } from "@/components/CompanyLogo";
@@ -15,7 +16,8 @@ import {
   pricingTitle,
   type DirectoryListing,
 } from "@/lib/directory";
-import { comparisonsForListing } from "@/lib/comparisons";
+import { listingChecklist } from "@/lib/listing-checklist";
+import { listingRankView } from "@/lib/listing-rank";
 import { listingReading } from "@/lib/listing-reading";
 import {
   bestFitSummary,
@@ -38,7 +40,8 @@ export async function ListingProfile({
   const substantial = listingIsSubstantial(listing);
   const alternatives = listingAlternatives(listing, listings);
   const reading = await listingReading(listing);
-  const relatedComparisons = comparisonsForListing(listing.slug);
+  const checklist = listingChecklist(listing);
+  const rank = listingRankView(listing, listings);
   const sections = profileSections({
     substantial,
     hasFeatures: listing.features.length > 0,
@@ -125,6 +128,7 @@ export async function ListingProfile({
             Is this your tool? Claim / update this listing
           </TrackLink>
         </p>
+        <ListingChecklist items={checklist} slug={listing.slug} />
         <FeaturedSnippet path={`/directory/${listing.slug}`} />
         <div className="listing-fit">
           {pricingNote ? (
@@ -273,12 +277,7 @@ export async function ListingProfile({
         </section>
       ) : null}
 
-      {relatedComparisons.length ? (
-        <BestOfLinks
-          pages={relatedComparisons}
-          intro={`${listing.name} appears in a sourced comparison. Last verified November 2026.`}
-        />
-      ) : null}
+      <ListingRank rank={rank} />
 
       {reading.length ? (
         <section id="reports" className="listing-section mt-10">

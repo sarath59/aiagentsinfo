@@ -3,6 +3,12 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { announcementPosts, listingSiteLabel, listingSiteSnippet } from "@/lib/announcement-posts";
 import { renderAnnouncementPng } from "@/components/announcement-canvas";
+import { FounderReading, FreeToolsStrip } from "@/components/FounderFollowup";
+import { ListingChecklist } from "@/components/ListingChecklist";
+import { ListingRank } from "@/components/ListingRank";
+import type { FollowupCard } from "@/lib/founder-followup";
+import type { ChecklistItem } from "@/lib/listing-checklist";
+import type { ListingRankView } from "@/lib/listing-rank";
 import "./submission-share.css";
 
 const RIBBONS = [
@@ -30,15 +36,24 @@ export type ShareListing = {
   name: string;
   tagline: string;
   url: string;
+  slug: string;
 };
 
 export function SubmissionShareKit({
   message,
   share,
+  checklist,
+  rank,
+  reading,
+  tools,
   onAnother,
 }: {
   message: string;
   share: ShareListing;
+  checklist: ChecklistItem[];
+  rank: ListingRankView | null;
+  reading: FollowupCard[];
+  tools: FollowupCard[];
   onAnother: () => void;
 }) {
   const posts = announcementPosts(share);
@@ -140,6 +155,12 @@ export function SubmissionShareKit({
           {share.name} is now listed
         </h2>
         <p className="mt-3 text-lg leading-relaxed">{message}</p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+          The listing URL is live after that deploy. Open it, then finish the fields this desk already tracks.
+        </p>
+        <a className="btn-primary mt-5 inline-flex px-6 py-3 text-sm" href={share.url}>
+          Open your listing page
+        </a>
 
         <div className="mt-6 grid gap-2">
           <label className="text-sm font-medium" htmlFor="listing-url">
@@ -151,10 +172,17 @@ export function SubmissionShareKit({
               {copied === "url" ? "Copied" : "Copy link"}
             </button>
           </div>
-          <a className="text-sm text-[var(--link)] underline" href={share.url}>
-            Open the listing
-          </a>
         </div>
+
+        <ListingChecklist
+          items={checklist}
+          slug={share.slug}
+          embedded
+          intro="Checked against what you just submitted. Add the missing lines by emailing the desk — the form below is for a new product, not an edit. There is no login."
+        />
+        {rank ? <ListingRank rank={rank} embedded /> : null}
+        <FounderReading posts={reading} />
+        <FreeToolsStrip tools={tools} />
 
         <div className="mt-8">
           <h3 className="text-lg font-semibold tracking-tight">Announcement image</h3>

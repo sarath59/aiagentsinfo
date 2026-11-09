@@ -4,6 +4,9 @@ import { cloneElement, useState, type FormEvent, type ReactElement } from "react
 import { trackGoal } from "@/lib/analytics";
 import { billingPeriods, directoryCategories, pricingModels } from "@/lib/directory-meta";
 import { SubmissionShareKit, type ShareListing } from "@/components/SubmissionShareKit";
+import type { FollowupCard } from "@/lib/founder-followup";
+import { checklistFromDraft, type ChecklistItem } from "@/lib/listing-checklist";
+import type { ListingRankView } from "@/lib/listing-rank";
 import {
   HONEYPOT_FIELD,
   SUBMISSION_SUCCESS_MESSAGE,
@@ -15,6 +18,12 @@ import {
   type FieldErrors,
   type SubmissionField,
 } from "@/lib/submissions";
+
+export type SubmitFollowup = {
+  rankByCategory: Record<string, ListingRankView>;
+  reading: FollowupCard[];
+  tools: FollowupCard[];
+};
 
 const inputClass =
   "focus-ring w-full rounded-2xl border border-[var(--stroke)] bg-white px-4 py-3 text-[var(--fg)]";
@@ -55,13 +64,15 @@ const FIELD_IDS: Record<SubmissionField, string> = {
   consent: "submit-consent",
 };
 
-export function SubmitToolForm() {
+export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "fallback">("idle");
   const [message, setMessage] = useState("");
   const [mailto, setMailto] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [makerType, setMakerType] = useState("");
   const [share, setShare] = useState<ShareListing | null>(null);
+  const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
+  const [rank, setRank] = useState<ListingRankView | null>(null);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -91,6 +102,7 @@ export function SubmitToolForm() {
         mailto?: string;
         errors?: FieldErrors;
         url?: string;
+        slug?: string;
       };
       if (json.errors && Object.keys(json.errors).length) {
         setStatus("idle");
@@ -107,11 +119,34 @@ export function SubmitToolForm() {
       }
       setStatus("success");
       setMessage(json.message || SUBMISSION_SUCCESS_MESSAGE);
+      const slug = json.slug || slugFromListingUrl(json.url);
       setShare(
-        json.url
-          ? { name: clientCheck.value.name, tagline: clientCheck.value.tagline, url: json.url }
+        json.url && slug
+          ? { name: clientCheck.value.name, tagline: clientCheck.value.tagline, url: json.url, slug }
           : null,
       );
+      if (slug) {
+        setChecklist(
+          checklistFromDraft({
+            slug,
+            description: clientCheck.value.description,
+            startingPrice: clientCheck.value.startingPrice,
+            pricingPageUrl: clientCheck.value.pricingPageUrl,
+            pricing: clientCheck.value.pricing,
+            youtubeUrl: clientCheck.value.youtubeUrl,
+            makerX: clientCheck.value.makerX,
+            linkedinUrl: clientCheck.value.linkedinUrl,
+            githubUrl: clientCheck.value.githubUrl,
+            discordUrl: clientCheck.value.discordUrl,
+            instagramUrl: clientCheck.value.instagramUrl,
+            productHuntUrl: clientCheck.value.productHuntUrl,
+          }),
+        );
+        const view = followup.rankByCategory[clientCheck.value.category];
+        setRank(
+          view ? { ...view, top3Note: view.top3Note.replaceAll("Your listing", clientCheck.value.name) } : null,
+        );
+      }
       setMailto("");
       form.reset();
       setMakerType("");
@@ -127,10 +162,16 @@ export function SubmitToolForm() {
       <SubmissionShareKit
         message={message}
         share={share}
+        checklist={checklist}
+        rank={rank}
+        reading={followup.reading}
+        tools={followup.tools}
         onAnother={() => {
           setStatus("idle");
           setMessage("");
           setShare(null);
+          setChecklist([]);
+          setRank(null);
         }}
       />
     );
@@ -508,4 +549,14 @@ function focusFirst(fieldErrors: FieldErrors) {
   const first = (Object.keys(FIELD_IDS) as SubmissionField[]).find((key) => fieldErrors[key]);
   if (!first) return;
   document.getElementById(FIELD_IDS[first])?.focus();
+}
+
+function slugFromListingUrl(url?: string) {
+  if (!url) return "";
+  try {
+    const slug = new URL(url).pathname.split("/").filter(Boolean).pop() || "";
+    return slug === "directory" ? "" : slug;
+  } catch {
+    return "";
+  }
 }

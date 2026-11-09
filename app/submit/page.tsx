@@ -1,8 +1,17 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ListingChecklist } from "@/components/ListingChecklist";
 import { PageHeader } from "@/components/PageHeader";
 import { SubmitToolForm } from "@/components/SubmitToolForm";
-import { getDirectoryListing } from "@/lib/directory";
+import { getBlogPosts } from "@/lib/blog";
+import { getDirectoryListing, getDirectoryListings } from "@/lib/directory";
+import { FOUNDER_TOOLS, founderReadingCards } from "@/lib/founder-followup";
+import {
+  listingChecklist,
+  listingUpdateMailto,
+  parseChecklistNeeds,
+} from "@/lib/listing-checklist";
+import { rankByCategory } from "@/lib/listing-rank";
 import { defaultMetadata } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -15,13 +24,22 @@ export const metadata = defaultMetadata(
 export default async function SubmitPage({
   searchParams,
 }: {
-  searchParams: Promise<{ claim?: string }>;
+  searchParams: Promise<{ claim?: string; need?: string }>;
 }) {
-  const { claim } = await searchParams;
-  const listing = claim ? await getDirectoryListing(claim) : undefined;
-  const mailto = listing
-    ? `mailto:${site.email}?subject=${encodeURIComponent(`Claim / update listing: ${listing.name}`)}&body=${encodeURIComponent(`Listing: ${absoluteUrl(`/directory/${listing.slug}`)}\n\nWhat should change:\n`)}`
-    : "";
+  const { claim, need } = await searchParams;
+  const [listing, listings, posts] = await Promise.all([
+    claim ? getDirectoryListing(claim) : Promise.resolve(undefined),
+    getDirectoryListings(),
+    getBlogPosts(),
+  ]);
+  const needs = parseChecklistNeeds(need);
+  const mailto = listing ? listingUpdateMailto(listing, needs) : "";
+  const checklist = listing ? listingChecklist(listing) : [];
+  const followup = {
+    rankByCategory: rankByCategory(listings),
+    reading: founderReadingCards(posts),
+    tools: [...FOUNDER_TOOLS],
+  };
 
   return (
     <>
@@ -38,23 +56,31 @@ export default async function SubmitPage({
       />
       <div className="mx-auto grid max-w-2xl gap-12 px-4 pb-20">
         {listing ? (
-          <p className="rounded-3xl border border-[var(--stroke)] bg-white p-5 text-sm leading-relaxed">
-            {listing.name} is already listed at{" "}
-            <Link href={`/directory/${listing.slug}`}>{absoluteUrl(`/directory/${listing.slug}`)}</Link>. To claim or
-            update that page, email the desk. The form below is for a product that is not listed yet. A duplicate
-            domain is not published twice.
-            {mailto ? (
-              <>
-                {" "}
-                <a className="text-[var(--link)] underline" href={mailto}>
-                  Email an update for {listing.name}
-                </a>
-                .
-              </>
-            ) : null}
-          </p>
+          <div className="grid gap-6">
+            <p className="rounded-3xl border border-[var(--stroke)] bg-white p-5 text-sm leading-relaxed">
+              {listing.name} is already listed at{" "}
+              <Link href={`/directory/${listing.slug}`}>{absoluteUrl(`/directory/${listing.slug}`)}</Link>. To claim or
+              update that page, email the desk. The form below is for a product that is not listed yet. A duplicate
+              domain is not published twice.
+              {mailto ? (
+                <>
+                  {" "}
+                  <a className="text-[var(--link)] underline" href={mailto}>
+                    Email an update for {listing.name}
+                    {needs.length ? ` (${needs.length} missing field${needs.length === 1 ? "" : "s"})` : ""}
+                  </a>
+                  .
+                </>
+              ) : null}
+            </p>
+            <ListingChecklist
+              items={checklist}
+              slug={listing.slug}
+              intro="Checked against the live listing. Each missing line opens an email to the desk with that field named. There is no login."
+            />
+          </div>
         ) : null}
-        <SubmitToolForm />
+        <SubmitToolForm followup={followup} />
         <section className="text-sm leading-relaxed text-[var(--muted)]">
           <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">What happens next</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5">
