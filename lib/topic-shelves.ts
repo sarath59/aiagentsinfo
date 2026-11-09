@@ -23,6 +23,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "The loop, tools, memory, permissions, and stop rules around a model, including DeepSeek Harness.",
       },
       {
+        href: "/blog/what-is-multi-agent-orchestration",
+        anchor: "What is multi-agent orchestration?",
+        note: "November 5, 2026 paper: dropping the interaction term costs 7.2 and 17.3 points on the authors’ code tasks.",
+      },
+      {
         href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
         anchor: "How to evaluate an AI agent harness",
         note: "Test one action you can see, then check that the whole job still finishes.",
@@ -150,6 +155,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/blog/how-do-ai-agents-work",
         anchor: "How do AI agents work?",
         note: "The control loop from a goal to an action, checked against current product docs.",
+      },
+      {
+        href: "/blog/what-is-multi-agent-orchestration",
+        anchor: "What is multi-agent orchestration?",
+        note: "An orchestrator chooses the next worker. A November 5, 2026 paper measures the cost of ignoring pairs of those choices.",
       },
       {
         href: "/glossary/agent",

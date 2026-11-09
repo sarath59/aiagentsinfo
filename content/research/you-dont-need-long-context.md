@@ -2,7 +2,7 @@
 title: "Paper breakdown: You don't need long context — short working memory still finishes the job"
 description: "A November 3, 2026 technical report: compaction kept Claude Opus 4.5 and GPT 5.6 Sol near full-history accuracy while the live context stayed short."
 date: "2026-11-04"
-updated: "2026-11-04"
+updated: "2026-11-09"
 type: paper-breakdown
 topics:
   - harnesses
@@ -28,7 +28,7 @@ abstract: |
 whyItMatters: |
   Agent products already spend much of their engineering on the harness: what the model sees, which tools it can call, and what is saved between turns. This report is a direct test of one harness choice, compaction, against the habit of keeping the whole history in the window. The practical claim is that a written handoff can stand in for a very long transcript on the workloads they measured.
 
-  That claim sits next to products that still advertise huge windows and already offer compaction of their own. Checked on November 4, 2026, Anthropic's context-window page gives a 1 million token window to a list of current Claude models beginning with Claude Opus 4.6, and says other Claude models have a 200,000 token window. Claude Opus 4.5, the model in the main experiments, is not on the 1 million token list. The same page says server-side compaction is the primary strategy for long-running agent work. OpenAI's GPT 5.6 Sol page lists a 1,050,000 token window, with higher prices once a prompt passes 272,000 input tokens. OpenAI's compaction guide describes a server-written summary that is not meant to be read by a person. The report's handoff is the opposite: a recap the model writes in ordinary language, then a new conversation.
+  That claim sits next to products that still advertise huge windows and already offer compaction of their own. Re-read on November 9, 2026, Anthropic's context-window page gives a 1 million token window to Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5.5, Claude Sonnet 5, Claude Sonnet 4.6, Claude Haiku 5.5, and Claude Mythos Preview. A request to any of them can generate up to 128,000 output tokens. Other Claude models, including Claude Sonnet 4.5, which that page now marks deprecated, have a 200,000 token window. Claude Opus 4.5, the model in the main experiments, is not on the 1 million token list. For every 1 million token model, 1 million is the default and long-context requests are billed at standard pricing, except Claude Haiku 5.5, where prompts over 100,000 tokens cost more. The same page says server-side compaction is the primary strategy for long-running agent work. OpenAI's GPT 5.6 Sol page, re-read the same day, still lists a 1,050,000 token window. It prices the model at 4 USD per million input tokens and 20 USD per million output tokens, and it calls those rates promotional through November 30, 2026, a 20 percent reduction on input and a 33 percent reduction on output. Prompts above 272,000 input tokens are priced at 2 times input and 1.5 times output for the whole request. Cached input on the same card is 0.40 USD per million tokens. Cache writes are billed at 1.25 times the uncached input rate. OpenAI's compaction guide says the carried item is opaque and not intended to be human-interpretable. The report's handoff is a recap the model writes in ordinary language, then a new conversation.
 
   For the loop these experiments sit on, see the site's note on ReAct and the glossary entries for a harness and a context window. Those pages describe the machinery. This report measures what happens when that machinery throws most of the transcript away.
 keyFindings:
@@ -65,19 +65,19 @@ references:
     url: "https://github.com/SWE-agent/mini-swe-agent"
   - title: "Anthropic, context windows, including compaction as the stated strategy for long agent work"
     url: "https://platform.claude.com/docs/en/build-with-claude/context-windows"
-    note: "Read November 4, 2026."
+    note: "Re-read November 9, 2026. The 1 million token list now runs from Claude Fable 5.1 and Claude Mythos 5.1 through Claude Opus 4.6, Claude Sonnet 4.6, and Claude Haiku 5.5, plus Claude Mythos Preview. Claude Sonnet 4.5 is marked deprecated at 200,000 tokens."
   - title: "Anthropic, compaction at a token threshold"
     url: "https://platform.claude.com/docs/en/build-with-claude/compaction-threshold"
-    note: "Read November 4, 2026. Default trigger 150,000 input tokens; the smallest allowed trigger is 50,000."
+    note: "Re-read November 9, 2026. Default trigger 150,000 input tokens; the smallest allowed trigger is 50,000. The page says threshold compaction is in beta on select models."
   - title: "OpenAI, GPT 5.6 Sol model page"
     url: "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
-    note: "Read November 4, 2026."
+    note: "Re-read November 9, 2026. Window 1,050,000 tokens. The 4 USD and 20 USD rates are labeled promotional through November 30, 2026. Above 272,000 input tokens the page charges 2 times input and 1.5 times output."
   - title: "OpenAI, compaction guide"
     url: "https://developers.openai.com/api/docs/guides/compaction"
-    note: "Read November 4, 2026."
+    note: "Re-read November 9, 2026. The carried item is opaque and not intended to be human-interpretable."
   - title: "SWE-bench leaderboards"
     url: "https://www.swebench.com/"
-    note: "Resolved rates quoted here were read from the leaderboard data embedded in that page on November 4, 2026."
+    note: "Opened again November 9, 2026. The highest embedded Verified rate was still 79.2%, and the newest dates in that table were still in February 2026."
   - title: "Yao et al., ReAct (arXiv:2210.03629)"
     url: "https://arxiv.org/abs/2210.03629"
     note: "The report cites this as the loop its harness implements."
@@ -103,14 +103,14 @@ faq:
   - question: "Did every model tolerate a short context?"
     answer: "No. In the open-weight SWE-bench Verified table, Qwen 3 Coder Next scored 53.0% with a full history and 3.6% when the total context limit was 16,000 tokens and compaction started at 12,000. Qwen 3.6 27B and MiniMax M2.7 lost less at that same setting, moving from 68.6% to 65.0% and from 72.6% to 67.8%."
   - question: "Is this the same feature Anthropic and OpenAI already ship?"
-    answer: "Both companies document compaction, and it is not the procedure in this report. On November 4, 2026, Anthropic's threshold compaction defaults to 150,000 input tokens and cannot be set below 50,000, and it is described for Claude 4.6 and later. OpenAI's guide says the compaction item carries state forward and is not meant to be read. The report compacts much earlier, often between 6,000 and 36,000 tokens, and the handoff is text the model writes for the next conversation."
+    answer: "Both companies document compaction, and it is a different procedure from this report. Re-read on November 9, 2026, Anthropic's threshold compaction still defaults to 150,000 input tokens and cannot be set below 50,000. The page says threshold compaction is in beta on select models, and it adds separate rules for Claude 5.1 and later. OpenAI's guide says the compaction item is opaque and not intended to be human-interpretable. The report compacts much earlier, often between 6,000 and 36,000 tokens, and the handoff is text the model writes for the next conversation."
   - question: "Where is the paper, and is there code?"
     answer: "The report is on arXiv as 2611.05306. The PDF and the HTML version are linked from that record. The report also links the lab page and the Local Frontier Intelligence project page. It uses the public mini-swe-agent harness, version 2.4, and describes the compaction prompts in an appendix. This page did not find a separate code release for those harness changes."
 ---
 
 ## How it compares with methods in use today
 
-The report compares each short-context run with the same model and harness keeping the full history. It does not enter those numbers on a public leaderboard. This section puts the report next to three live sources checked on November 4, 2026: the authors' own tables, the compaction docs from Anthropic and OpenAI, and the SWE-bench leaderboard page.
+The report compares each short-context run with the same model and harness keeping the full history. It does not enter those numbers on a public leaderboard. This section puts the report next to three live sources. The authors' tables are unchanged. The compaction docs from Anthropic and OpenAI were re-read on November 9, 2026. The SWE-bench leaderboard page was opened the same day, and its highest embedded Verified rate was still 79.2%.
 
 **Against a growing transcript.** On SWE-bench Verified, 500 tasks, the full-history scores are 70.0% for Claude Opus 4.5 and 84.4% for GPT 5.6 Sol. Compaction, written as "total context limit / threshold" in tokens:
 
@@ -143,11 +143,11 @@ Median peak context under the one-action setting is 8,000 tokens on SWE-bench Ve
 
 **Against reading the whole document.** When the input itself is long, the harness puts the files on disk and lets the model search. On Needle in a Haystack, both models reach 100% and never compact. The full-document baselines are 60.0% and 80.0%. On AA-LCR, Opus moves from 65.0% to 84.0% at a 16,000 token limit, and GPT 5.6 Sol from 82.0% to 83.0%. On BABILong, the gains are 67.1% to 92.0% and 70.7% to 94.0%. The report's stated range for Opus on the long-input group is 0.4 points down to 40.0 points up. The 40 point jump is the needle test, 60.0% to 100%.
 
-**Against the compaction already in products.** Anthropic's context-window page, read November 4, 2026, says server-side compaction is the primary way to manage long agent conversations, and that accuracy falls as the token count grows. The separate threshold page sets the default trigger at 150,000 input tokens, with 50,000 as the minimum, for Claude 4.6 and later. OpenAI's GPT 5.6 Sol page lists a 1,050,000 token window, prices of 4 USD, 0.40 USD, and 20 USD per million input, cached-input, and output tokens, and a higher rate once input passes 272,000 tokens. Those standard token prices match the nominal rates the report cites from OpenAI documentation it accessed on September 29, 2026. OpenAI's compaction guide says the carried item is opaque.
+**Against the compaction already in products.** Anthropic's context-window page, re-read November 9, 2026, says server-side compaction is the primary way to manage long agent conversations, and that accuracy falls as the token count grows. The separate threshold page still sets the default trigger at 150,000 input tokens, with 50,000 as the minimum. It now says threshold compaction is in beta on select models, and it adds rules for Claude 5.1 and later: a custom-instruction summary sees the visible conversation, and earlier thinking blocks are not part of that summary. OpenAI's GPT 5.6 Sol page lists a 1,050,000 token window. The card shows 4 USD per million input tokens, 0.40 USD cached input, and 20 USD per million output tokens. The page calls the 4 USD and 20 USD rates promotional through November 30, 2026. Prompts above 272,000 input tokens are priced at 2 times input and 1.5 times output for the whole request, which is 8 USD and 30 USD on those promotional rates. The 4 USD and 20 USD figures match the nominal rates the report cites from OpenAI documentation it accessed on September 29, 2026. The November 9 page adds the promotion end date and the multipliers. OpenAI's compaction guide says the carried item is opaque and not intended to be human-interpretable.
 
-The report is testing a tighter and more readable version of an idea both vendors already ship. It is not a measurement of those vendor implementations. Its Opus model is Claude Opus 4.5. Anthropic's 1 million token list on the November 4 page starts at Claude Opus 4.6 and does not include Opus 4.5. The report's own reference window for Opus 4.5, from Anthropic docs it accessed on September 29, 2026, is 200,000 tokens.
+The report is testing a tighter version of an idea both vendors already ship, and the handoff is text a person can read. It measures the authors' harness. The vendor compaction features are a separate implementation. Its Opus model is Claude Opus 4.5. Anthropic's 1 million token list on the November 9 page names Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5.5, Claude Sonnet 5, Claude Sonnet 4.6, Claude Haiku 5.5, and Claude Mythos Preview. Opus 4.5 does not appear on that list. The report's own reference window for Opus 4.5, from Anthropic docs it accessed on September 29, 2026, is 200,000 tokens. The November 9 page still places models outside that 1 million list, including deprecated Claude Sonnet 4.5, at 200,000 tokens.
 
-**Against the public SWE-bench leaderboard.** The [SWE-bench](https://www.swebench.com/) page on November 4, 2026 embeds a Verified table whose highest resolved rate is 79.2%, for Claude 4.5 Opus with live-SWE-agent, dated December 15, 2025, and the same 79.2% for the Sonar Foundation Agent, dated December 5, 2025. The mini-SWE-agent row named "Claude 4.5 Opus (high)," version 2.0.0, dated February 17, 2026, is 76.8%. The newest dates in that embedded Verified table are in February 2026. GPT 5.6 Sol does not appear. The report uses mini-swe-agent 2.4 and prints 70.0% as its own Opus full-history baseline. Those are different runs. A higher number in the report is not a new leaderboard result, and the lower baseline is not a claim that Opus got worse.
+**Against the public SWE-bench leaderboard.** The [SWE-bench](https://www.swebench.com/) page, opened again on November 9, 2026, still embeds a Verified table whose highest resolved rate is 79.2%, for Claude 4.5 Opus with live-SWE-agent, dated December 15, 2025, and the same 79.2% for the Sonar Foundation Agent, dated December 5, 2025. The mini-SWE-agent row named "Claude 4.5 Opus (high)," version 2.0.0, dated February 17, 2026, is 76.8%. The newest dates in that embedded Verified table are still in February 2026. GPT 5.6 Sol does not appear. The report uses mini-swe-agent 2.4 and prints 70.0% as its own Opus full-history baseline. Those are different runs. A higher number in the report is a different harness, and the lower baseline is the authors' own full-history run.
 
 **Against smaller open models.** The negative result is part of the finding. On SWE-bench Verified, five local models:
 

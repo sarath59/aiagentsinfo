@@ -5,6 +5,8 @@ related:
   - agent-loop
   - harness
   - multi-agent
+  - orchestrator
+  - agent-handoff
   - guardrail
   - agent-to-agent-protocol
 topics:
@@ -15,4 +17,4 @@ topics:
 
 [OpenAI’s Agents SDK](https://developers.openai.com/api/docs/guides/agents/orchestration) describes two patterns. A handoff gives the next specialist ownership of that branch. An agent used as a tool leaves the manager in charge of the final answer. [Google’s ADK 2.0 page](https://adk.dev/2.0/) describes another form: a graph of agents, tools, and functions with explicit routes. [LangChain’s March 10, 2026 anatomy post](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) lists orchestration as subagent spawning, handoffs, and model routing.
 
-The longer guide to the single-agent cycle is [How do AI agents work?](/blog/how-do-ai-agents-work). The workshop around that cycle is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). A sourced comparison of those runtimes is [Best AI agent harness](/best/ai-agent-harnesses).
+The longer guide to the single-agent cycle is [How do AI agents work?](/blog/how-do-ai-agents-work). The part that fills the seat is an [orchestrator](/glossary/orchestrator). A specialist that takes over the reply is an [agent handoff](/glossary/agent-handoff). A November 5, 2026 paper that trains the choice, and the points it reports on code, is [What is multi-agent orchestration?](/blog/what-is-multi-agent-orchestration). The workshop around that cycle is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). A sourced comparison of those runtimes is [Best AI agent harness](/best/ai-agent-harnesses).

@@ -8,6 +8,7 @@ related:
   - autonomy
   - harness-engineering
   - orchestration
+  - context-compaction
   - guardrail
   - behavioral-evaluation
 topics:
