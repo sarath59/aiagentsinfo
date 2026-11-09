@@ -170,8 +170,8 @@
       "type": "long-tail",
       "trend_signal": "pytrends US 1-d rising under 'Claude Code': 'what does ultracode do in claude code' +10,150, 'what is ultracode in claude code' +70",
       "intent": "informational",
-      "target_url": "new page",
-      "status": "new",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-does-ultracode-do-in-claude-code",
+      "status": "targeted",
       "rank": 7,
       "first_seen": "2026-11-09",
       "history": [
@@ -179,6 +179,11 @@
           "date": "2026-11-09",
           "rank": 7,
           "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 7,
+          "status": "targeted"
         }
       ]
     },

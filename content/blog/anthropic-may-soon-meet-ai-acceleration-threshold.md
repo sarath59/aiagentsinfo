@@ -1,13 +1,14 @@
 ---
-title: "Anthropic may soon meet its AI acceleration threshold (Nov 2, 2026)"
-description: "Anthropic’s November 2, 2026 Form S-1/A says estimates for future models may soon meet its AI acceleration rule. No current model is designated past that line."
+title: "Has Anthropic Met Its AI Acceleration Threshold? No (Nov 9, 2026)"
+description: "Has Anthropic met its AI acceleration threshold? No. On November 9, 2026, EDGAR still listed the November 2 Form S-1/A as the latest S-1, and that filing has not designated any current model past the line."
 absoluteTitle: true
 takeaways:
   - "Anthropic told the SEC on November 2, 2026 that its estimates for future models may soon meet its rule for dramatically accelerated progress attributable to AI."
+  - "On November 9, 2026, EDGAR’s S-1 list for CIK 0002130357 still ended with that November 2 amendment. No later S-1 was on the list."
   - "The filing says it has not designated any current model as exceeding that threshold."
   - "It does not anticipate letting Claude fully autonomously design successor frontier models without meaningful human supervision."
 date: "2026-11-03"
-updated: "2026-11-05"
+updated: "2026-11-09"
 category: news
 topics:
   - news
@@ -29,6 +30,8 @@ sources:
     url: "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm"
   - title: "EDGAR index for accession 0001628280-26-068676"
     url: "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/0001628280-26-068676-index.htm"
+  - title: "EDGAR company search, CIK 0002130357, form type S-1 (checked November 9, 2026)"
+    url: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002130357&type=S-1&dateb=&owner=include&count=10"
   - title: "Anthropic Responsible Scaling Policy, version 3.4 (effective July 8, 2026)"
     url: "https://www-cdn.anthropic.com/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf"
   - title: "Anthropic Responsible Scaling Policy updates"
@@ -74,7 +77,7 @@ The filing is also the company’s public account of its recent size. Anthropic 
 
 ## What does Anthropic’s IPO filing reveal?
 
-The November 2 document is Form S-1/A, an amendment to a registration statement under the Securities Act of 1933. File number 333-299633. The original Form S-1 was filed October 26, 2026. EDGAR’s company feed, checked November 5, 2026, still listed the November 2 amendment as the latest S-1 filing.
+The November 2 document is Form S-1/A, an amendment to a registration statement under the Securities Act of 1933. File number 333-299633. The original Form S-1 was filed October 26, 2026. EDGAR’s company search for CIK 0002130357, filtered to form type S-1, was checked again on November 9, 2026. The list still had two rows: the October 26 Form S-1, accession 0001628280-26-067168, and the November 2 Form S-1/A, accession 0001628280-26-068676. No later S-1 was on that list.
 
 The prospectus says: “This is an initial public offering of shares of Class A common stock of Anthropic, PBC.” It says that before this offering there has been no public market for that stock. It says Anthropic has applied to list the Class A shares on the Nasdaq Global Select Market under the symbol “ANT.” The cover is marked “Subject to Completion.” The estimated price per share is printed as a blank range, and the share count is blank. Those blanks are what the filed document shows.
 
@@ -84,7 +87,7 @@ The same prospectus is the source of the acceleration-rule sentences in the prev
 
 ## What does “dramatically accelerated progress” mean in the policy?
 
-The phrase in the filing points at Anthropic’s Responsible Scaling Policy, not at a new public benchmark. The current policy text is [version 3.4, effective July 8, 2026](https://www-cdn.anthropic.com/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf). Anthropic’s [policy page](https://www.anthropic.com/responsible-scaling-policy), which says it was last updated August 14, 2026, still lists version 3.4 as the current policy. The August 14 note on that page is a risk report, and the page does not list a policy version after 3.4.
+The phrase in the filing points at Anthropic’s Responsible Scaling Policy, not at a new public benchmark. The current policy text is [version 3.4, effective July 8, 2026](https://www-cdn.anthropic.com/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf). Anthropic’s [policy page](https://www.anthropic.com/responsible-scaling-policy), read again on November 9, 2026, still says it was last updated August 14, 2026, and still lists version 3.4 as the current policy. The August 14 note on that page is a risk report, and the page does not list a policy version after 3.4.
 
 Version 3.4 says the automated R&D threshold is met if Anthropic determines either of two things. The first is that its models would be able to “fully substitute for our entire set of Research Scientists and Research Engineers, at competitive costs (i.e., within a factor of 5).” The second is that there is “dramatic acceleration” of the pace of AI progress for reasons that likely relate to automating AI R&D.
 

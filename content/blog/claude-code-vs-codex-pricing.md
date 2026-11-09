@@ -275,7 +275,7 @@ The software that spends those tokens is the harness. A $20 plan with a tight lo
 
 Anthropic Claude Code limits, on the pages checked November 6, 2026, are the plan’s limits. Claude Code is not a separate meter.
 
-Pro has a five-hour session limit and a weekly limit. Both are shared with the rest of Claude. The pricing FAQ says there is no fixed message count. Max is 5 times Pro usage every five hours and every week. Ultra is 10 times Pro usage every week, and verified accounts have no five-hour limit. The tables above put those windows next to Codex. [Claude Code](/directory/claude-code) is the product note. [Codex](/directory/codex) is the other column.
+Pro has a five-hour session limit and a weekly limit. Both are shared with the rest of Claude. The pricing FAQ says there is no fixed message count. Max is 5 times Pro usage every five hours and every week. Ultra is 10 times Pro usage every week, and verified accounts have no five-hour limit. The tables above put those windows next to Codex. [Claude Code](/directory/claude-code) is the product note. [Codex](/directory/codex) is the other column. A session with ultracode on draws on this same pool, and the workflows page read for [What does ultracode do in Claude Code?](/blog/what-does-ultracode-do-in-claude-code) does not print a separate price for that setting.
 
 This page does not have a separate price for a Claude Code subagent. The vendor pages checked for this comparison do not print one. A background task still draws on the same pool, or on API rates after the included allowance, which is the split in the sections above.
 

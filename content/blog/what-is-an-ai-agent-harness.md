@@ -298,7 +298,7 @@ On November 5, 2026, GitHub’s latest-release endpoint, which returns the newes
 
 On this page it refers to the local run already in the README. The instructions run on your own machine. `npx @deepseek-ai/dsh web` starts a web interface there. A checkout can be installed and built from the repository.
 
-That is a different artifact from the products in the table. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products with their own apps and plan pages. DeepSeek’s repository is the harness itself, in preview, organized as plugins. This page does not turn that into a ranking. The sourced table is [Best AI agent harness](/best/ai-agent-harnesses). The [harness comparison tracker](/trackers/harnesses) points at that page.
+That is a different artifact from the products in the table. [Claude Code](/directory/claude-code) and [Codex](/directory/codex) are shipping products with their own apps and plan pages. Inside Claude Code, ultracode is the setting that plans a workflow for a substantive task. The November 9, 2026 reading of that setting is [What does ultracode do in Claude Code?](/blog/what-does-ultracode-do-in-claude-code). DeepSeek’s repository is the harness itself, in preview, organized as plugins. This page does not turn that into a ranking. The sourced table is [Best AI agent harness](/best/ai-agent-harnesses). The [harness comparison tracker](/trackers/harnesses) points at that page.
 
 ## What is the DeepSeek super agent?
 
