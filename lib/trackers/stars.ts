@@ -1,4 +1,6 @@
 import snapshot from "@/data/trackers/stars-snapshot.json";
+
+export const starsSnapshotDay = snapshot.retrievedDay;
 import { STAR_REPOS, githubRepoApiUrl } from "@/lib/trackers/catalog";
 import { fetchJson, githubAuthHeaders, integer, isoDay } from "@/lib/trackers/http";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";

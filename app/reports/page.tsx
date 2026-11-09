@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { ContentCard } from "@/components/ContentCard";
 import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { PageHeader } from "@/components/PageHeader";
@@ -81,6 +82,12 @@ export default async function ReportsPage() {
             />
           ))}
         </div>
+        <DataSourceLine
+          title="Reports"
+          updated={Object.values(dateByHref).sort().at(-1)}
+          path="/reports"
+          showCite
+        />
       </div>
     </>
   );

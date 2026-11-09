@@ -238,6 +238,7 @@ export default async function CodingAgents30DayPage() {
               defaultSort="date"
               defaultDirection="asc"
               downloadHref={`${path}/csv?table=dates`}
+              source={{ title, updated: readOn, path }}
             />
           </div>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
@@ -326,6 +327,7 @@ export default async function CodingAgents30DayPage() {
               defaultSort="price"
               defaultDirection="asc"
               downloadHref={`${path}/csv`}
+              source={{ title, updated: readOn, path }}
             />
           </div>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
@@ -407,6 +409,7 @@ export default async function CodingAgents30DayPage() {
               defaultSort="stars"
               defaultDirection="desc"
               downloadHref={`${path}/csv?table=repos`}
+              source={{ title, updated: readOn, path }}
             />
           </div>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">

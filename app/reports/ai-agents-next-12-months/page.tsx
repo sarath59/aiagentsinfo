@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
@@ -239,6 +240,7 @@ export default async function AgentsTwelveMonthOutlookPage() {
                 ))}
               </tbody>
             </table>
+            <DataSourceLine title={title} updated={readOn} path={path} />
           </div>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             One earlier date belongs in the same record and was not on the six-month page. On November 4, 2026 the
@@ -670,6 +672,7 @@ export default async function AgentsTwelveMonthOutlookPage() {
               </article>
             ))}
           </div>
+          <DataSourceLine title={title} updated={readOn} path={path} />
           <p className="mt-4 text-sm">
             <a className="text-[var(--link)] underline" href={`${path}/csv`}>
               Download the month table as CSV

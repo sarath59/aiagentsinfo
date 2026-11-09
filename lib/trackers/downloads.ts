@@ -1,4 +1,6 @@
 import snapshot from "@/data/trackers/downloads-snapshot.json";
+
+export const downloadsSnapshotDay = snapshot.retrievedDay;
 import {
   NPM_PACKAGES,
   PYPI_PACKAGES,

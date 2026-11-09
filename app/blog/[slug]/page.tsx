@@ -99,7 +99,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         }
       >
         {nextRead ? <NextRead reads={nextRead.reads} tool={nextRead.tool} /> : null}
-        <MarkdownBody html={withTableDownloads(post.html, `/blog/${post.slug}/tables`)} />
+        <MarkdownBody
+          html={withTableDownloads(post.html, `/blog/${post.slug}/tables`, {
+            title: post.title,
+            updated: post.updated ?? post.date,
+            path: `/blog/${post.slug}`,
+            showCite: true,
+          })}
+        />
         <ToolCtas tools={toolsForPost(post.slug, post.category)} />
         {nextRead ? <ListYourAgent /> : null}
         <div className="mt-14">

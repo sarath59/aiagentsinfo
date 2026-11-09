@@ -1,5 +1,7 @@
 import { buildLlmsFullTxt } from "@/lib/llms";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   const body = await buildLlmsFullTxt();
   return new Response(body, {

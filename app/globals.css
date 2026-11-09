@@ -493,6 +493,19 @@ article.grid > * {
   margin: 1.35rem 0;
 }
 
+.data-source {
+  margin-top: 0.75rem;
+  max-width: 48rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.data-source a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
 .table-actions {
   display: flex;
   justify-content: flex-end;

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { entityLine, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "A publication and a directory, not a personality cult",
@@ -20,7 +20,8 @@ export default function AboutPage() {
         summary={`${site.name} is an independent publication of plain-English AI news and research for adults. There is no fake staff page.`}
       />
       <div className="mx-auto max-w-3xl px-4 pb-20 text-[var(--muted)]">
-        <p>
+        <p className="text-[var(--fg)]">{entityLine}</p>
+        <p className="mt-4">
           The byline on news and explainers is <strong className="text-[var(--fg)]">{site.bylines.editorial}</strong>.
           The byline on research pages is <strong className="text-[var(--fg)]">{site.bylines.research}</strong>.
           Those are desk names, not invented biographies.

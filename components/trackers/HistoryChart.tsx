@@ -1,3 +1,6 @@
+import { DataSourceLine } from "@/components/DataSourceLine";
+import type { PageSource } from "@/lib/attribution";
+
 const PALETTE = ["#0c5cad", "#0c746e", "#0b1f33", "#e0b04a", "#2f9dff"];
 
 export type ChartSeries = {
@@ -9,9 +12,11 @@ export type ChartSeries = {
 export function HistoryChart({
   series,
   caption,
+  source,
 }: {
   series: ChartSeries[];
   caption: string;
+  source?: PageSource;
 }) {
   const width = 720;
   const height = 280;
@@ -75,6 +80,7 @@ export function HistoryChart({
           </span>
         ))}
       </figcaption>
+      {source ? <DataSourceLine title={source.title} updated={source.updated} path={source.path} /> : null}
     </figure>
   );
 }

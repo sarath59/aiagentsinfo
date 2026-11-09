@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { InlineCompanyText, SourceList } from "@/components/CompanyMarks";
 import { CopyBibtex } from "@/components/CopyBibtex";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ToolCtas } from "@/components/ToolCtas";
@@ -52,6 +53,12 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
   const paper = doc.paperUrl ? companyForUrl(doc.paperUrl) : undefined;
   const code = doc.codeUrl ? companyForUrl(doc.codeUrl) : undefined;
   const related = relatedResearchDocs(doc, all);
+  const hasTable = /<table\b/i.test(doc.html);
+  const source = {
+    title: doc.title,
+    updated: doc.updated ?? doc.date,
+    path: `/research/${doc.slug}`,
+  };
   const toc = [
     { id: "abstract", text: "Abstract / summary", level: 2 as const },
     ...(doc.whyItMatters ? [{ id: "why-it-matters", text: "Why it matters", level: 2 as const }] : []),
@@ -197,7 +204,8 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
             ))}
           </ul>
         </section>
-        <MarkdownBody html={withTableDownloads(doc.html, `/research/${doc.slug}/tables`)} />
+        <MarkdownBody html={withTableDownloads(doc.html, `/research/${doc.slug}/tables`, source)} />
+        {hasTable ? null : <DataSourceLine title={source.title} updated={source.updated} path={source.path} />}
         {doc.faq?.length ? (
           <section id="faq">
             <h2>FAQ</h2>

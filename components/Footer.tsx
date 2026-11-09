@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { footerNav, site } from "@/lib/site";
+import { entityLine, footerNav, site } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -13,7 +13,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-5">
         <div className="md:col-span-1">
           <Logo />
-          <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">{site.tagline}</p>
+          <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">{entityLine}</p>
         </div>
         {footerNav.map((group) => (
           <div key={group.title}>

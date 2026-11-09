@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { ContentCard } from "@/components/ContentCard";
 import { PageHeader } from "@/components/PageHeader";
 import { TrackerNav } from "@/components/trackers/TrackerNav";
 import { JsonLd, defaultMetadata, faqPageJsonLd, itemListJsonLd, webPageJsonLd } from "@/lib/seo";
 import { livingPointers, liveTrackers } from "@/lib/trackers";
+import { agentsMdSnapshotDay } from "@/lib/trackers/agents-md";
 import { TRACKER_PATHS } from "@/lib/trackers/catalog";
+import { downloadsSnapshotDay } from "@/lib/trackers/downloads";
+import { starsSnapshotDay } from "@/lib/trackers/stars";
 
 export const revalidate = 86400;
 
@@ -35,6 +39,7 @@ const faq = [
 export const metadata = defaultMetadata(title, description, path);
 
 export default function TrackersIndexPage() {
+  const updated = [downloadsSnapshotDay, agentsMdSnapshotDay, starsSnapshotDay].sort().at(-1);
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path })} />
@@ -96,6 +101,7 @@ export default function TrackersIndexPage() {
               </li>
             ))}
           </ul>
+          <DataSourceLine title={title} updated={updated} path={path} showCite />
         </section>
         <section className="article-prose mt-14" id="faq">
           <h2>FAQ</h2>

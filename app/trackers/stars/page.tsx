@@ -148,6 +148,7 @@ export default async function StarsTrackerPage() {
                 rows={starRows(report.rows)}
                 defaultSort="stars"
                 filters={["stars"]}
+                source={{ title, updated: report.retrievedAt, path }}
               />
             </div>
           ) : (

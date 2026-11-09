@@ -1,4 +1,6 @@
 import snapshot from "@/data/trackers/agents-md-snapshot.json";
+
+export const agentsMdSnapshotDay = snapshot.retrievedDay;
 import { fetchJson, fetchText, githubAuthHeaders, githubToken, integer, isoDay, shortDate } from "@/lib/trackers/http";
 
 const PAPER = {

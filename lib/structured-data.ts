@@ -1,5 +1,5 @@
 import { authorByName } from "@/lib/authors";
-import { absoluteUrl, organizationSameAs, publisherAlternateName, publisherName, site } from "@/lib/site";
+import { absoluteUrl, entityLine, organizationSameAs, publisherAlternateName, publisherName, site } from "@/lib/site";
 
 const ISO_DATE = /^\d{4}(-\d{2}-\d{2})?$/;
 
@@ -171,6 +171,7 @@ function datasetOrganization() {
     name: publisherName,
     alternateName: publisherAlternateName,
     url: absoluteUrl("/"),
+    description: entityLine,
     sameAs: [...organizationSameAs],
   };
 }

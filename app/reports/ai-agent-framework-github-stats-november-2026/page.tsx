@@ -229,6 +229,7 @@ export default async function FrameworkGithubStatsPage() {
               defaultSort="stars"
               downloadHref={csvPath}
               filters={["stars", "free", "openSource"]}
+              source={{ title, updated: retrievedDay, path }}
             />
           </div>
         </section>
@@ -252,6 +253,7 @@ export default async function FrameworkGithubStatsPage() {
               columns={recencyColumns}
               rows={recencyRows()}
               defaultSort="days"
+              source={{ title, updated: retrievedDay, path }}
             />
           </div>
         </section>

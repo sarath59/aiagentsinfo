@@ -181,6 +181,7 @@ export async function ComparisonGuide({
 }
 
 function ComparisonTable({ page }: { page: ComparisonPage }) {
+  const verifiedOn = page.verifiedOn ?? COMPARISON_VERIFIED_ON;
   const rows = comparisonRows(page.rows);
   const withStars = rows.some((row) => typeof row.facets?.stars === "number");
   const columns = withStars
@@ -195,6 +196,7 @@ function ComparisonTable({ page }: { page: ComparisonPage }) {
       defaultDirection={withStars ? "desc" : "asc"}
       filters={["stars", "free", "openSource", "useCase"]}
       starsReadOn={withStars ? FRAMEWORK_STARS_READ : undefined}
+      source={{ title: page.title, updated: verifiedOn, path: page.path }}
     />
   );
 }

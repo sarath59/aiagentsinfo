@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { trackGoal } from "@/lib/analytics";
+import type { PageSource } from "@/lib/attribution";
 import type { SortableColumn, SortableRow, TableFilterKey } from "@/lib/sortable";
 import { formatDate } from "@/lib/utils";
 
@@ -29,6 +31,7 @@ export function SortableTable({
   downloadHref,
   filters = [],
   starsReadOn,
+  source,
 }: {
   columns: SortableColumn[];
   rows: SortableRow[];
@@ -39,12 +42,13 @@ export function SortableTable({
   filters?: TableFilterKey[];
   /** ISO day for a star count that comes from the GitHub snapshot, when it is not the page's own date. */
   starsReadOn?: string;
+  source?: PageSource;
 }) {
   const [sortKey, setSortKey] = useState(defaultSort);
   const [direction, setDirection] = useState<"asc" | "desc">(defaultDirection);
   const [minStars, setMinStars] = useState("");
   const [price, setPrice] = useState<"all" | "free" | "paid">("all");
-  const [source, setSource] = useState<"all" | "open" | "closed">("all");
+  const [licenceFilter, setLicenceFilter] = useState<"all" | "open" | "closed">("all");
   const [useCase, setUseCase] = useState("all");
   const sortedOnce = useRef(false);
 
@@ -64,11 +68,11 @@ export function SortableTable({
         if (typeof row.facets?.stars !== "number" || row.facets.stars < minimum) return false;
       }
       if (showFree && price !== "all" && row.facets?.free !== (price === "free")) return false;
-      if (showSource && source !== "all" && row.facets?.openSource !== (source === "open")) return false;
+      if (showSource && licenceFilter !== "all" && row.facets?.openSource !== (licenceFilter === "open")) return false;
       if (useCase !== "all" && row.facets?.useCase !== useCase) return false;
       return true;
     });
-  }, [rows, minStars, price, source, useCase, showStars, showFree, showSource]);
+  }, [rows, minStars, price, licenceFilter, useCase, showStars, showFree, showSource]);
 
   const ordered = useMemo(
     () => [...filtered].sort((a, b) => compare(a, b, sortKey, direction)),
@@ -122,7 +126,7 @@ export function SortableTable({
           {showSource ? (
             <label className="grid gap-1 text-sm">
               <span className="kicker">Open source</span>
-              <select className={selectClass} value={source} onChange={(event) => setSource(event.target.value as typeof source)}>
+              <select className={selectClass} value={licenceFilter} onChange={(event) => setLicenceFilter(event.target.value as typeof licenceFilter)}>
                 <option value="all">All</option>
                 <option value="open">Open source</option>
                 <option value="closed">Not open source</option>
@@ -210,6 +214,7 @@ export function SortableTable({
         </tbody>
       </table>
       </div>
+      {source ? <DataSourceLine title={source.title} updated={source.updated} path={source.path} /> : null}
     </div>
   );
 }

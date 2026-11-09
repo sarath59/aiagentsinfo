@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { CostCalculator } from "@/components/CostCalculator";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
@@ -138,6 +139,7 @@ export default function CostCalculatorPage() {
               </li>
             ))}
           </ul>
+          <DataSourceLine title={title} updated={PRICE_READ_ON} path={path} />
         </section>
 
         <section className="mt-10">

@@ -94,6 +94,7 @@ export default async function DirectoryStatsPage() {
               ]}
               rows={categoryRows}
               defaultSort="count"
+              source={{ title, updated: stats.updated, path }}
             />
           </div>
         </section>
@@ -110,6 +111,7 @@ export default async function DirectoryStatsPage() {
               ]}
               rows={pricingRows}
               defaultSort="count"
+              source={{ title, updated: stats.updated, path }}
             />
           </div>
         </section>
@@ -129,6 +131,7 @@ export default async function DirectoryStatsPage() {
               ]}
               rows={originRows}
               defaultSort="count"
+              source={{ title, updated: stats.updated, path }}
             />
           </div>
         </section>

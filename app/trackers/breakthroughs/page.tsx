@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
@@ -29,6 +30,7 @@ export default function BreakthroughsPage() {
           title="Timeline entries publishing soon"
           body="Moments will appear here when each one has a date and a source. Nothing is listed early."
         />
+        <DataSourceLine title="Agent breakthroughs timeline" path="/trackers/breakthroughs" showCite />
       </div>
     </>
   );

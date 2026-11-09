@@ -226,6 +226,7 @@ export default async function AgentsMdTrackerPage() {
               ]}
               rows={rows}
               defaultSort="date"
+              source={{ title, updated: report.retrievedAt, path }}
             />
           </div>
         </section>

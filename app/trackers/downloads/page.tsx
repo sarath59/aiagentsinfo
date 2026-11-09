@@ -184,6 +184,7 @@ export default async function DownloadsTrackerPage() {
                 columns={downloadsColumns()}
                 rows={downloadsRows(report.pypi)}
                 defaultSort="window"
+                source={{ title, updated: report.retrievedAt, path }}
               />
             </div>
           ) : (
@@ -214,6 +215,7 @@ export default async function DownloadsTrackerPage() {
                 columns={downloadsColumns()}
                 rows={downloadsRows(report.npm)}
                 defaultSort="window"
+                source={{ title, updated: report.retrievedAt, path }}
               />
             </div>
           ) : (
@@ -241,12 +243,14 @@ export default async function DownloadsTrackerPage() {
             <HistoryChart
               caption="Daily PyPI without_mirrors downloads for the five largest packages in this set"
               series={chartSeries(report.pypi)}
+              source={{ title, updated: report.retrievedAt, path }}
             />
           ) : null}
           {report.npm.length ? (
             <HistoryChart
               caption="Daily npm downloads for the packages in this set"
               series={chartSeries(report.npm)}
+              source={{ title, updated: report.retrievedAt, path }}
             />
           ) : null}
         </section>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { ContentCard } from "@/components/ContentCard";
 import { ContentDeskNav } from "@/components/ContentDeskNav";
@@ -33,6 +34,7 @@ export default async function ResearchIndexPage({
   const topic = normalizeQuery(params.topic);
   const type = normalizeQuery(params.type);
   const docs = await getResearchDocs();
+  const updated = docs.map((doc) => doc.updated ?? doc.date).sort().at(-1);
   const topics = researchTopics(docs);
   const filtered = docs.filter((doc) => {
     if (topic && !doc.topics.includes(topic)) return false;
@@ -121,6 +123,7 @@ export default async function ResearchIndexPage({
             />
           )}
         </div>
+        {updated ? <DataSourceLine title="Research" updated={updated} path="/research" showCite /> : null}
       </div>
     </>
   );

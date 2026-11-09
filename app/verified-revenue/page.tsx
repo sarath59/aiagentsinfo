@@ -241,6 +241,7 @@ export default async function VerifiedRevenuePage() {
               ]}
               rows={revenueRows}
               defaultSort="mrr"
+              source={{ title, updated: verifiedRevenueChecked, path }}
             />
           </div>
         </section>
@@ -262,6 +263,7 @@ export default async function VerifiedRevenuePage() {
               rows={priceRows}
               defaultSort="name"
               defaultDirection="asc"
+              source={{ title, updated: verifiedRevenueChecked, path }}
             />
           </div>
         </section>

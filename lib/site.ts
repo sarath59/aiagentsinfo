@@ -14,13 +14,16 @@ function resolveSiteUrl() {
   return CANONICAL_ORIGIN;
 }
 
+/** One sentence, used verbatim in the footer, About page, default meta description, and Organization/WebSite JSON-LD. */
+export const entityLine =
+  "aiagentsinfo.com is an independent directory and research site tracking AI agents, agent harnesses, frameworks and agent benchmarks.";
+
 export const site = {
   name: "AI Agents Info",
   shortName: "Agents Info",
   domain: "www.aiagentsinfo.com",
   url: resolveSiteUrl(),
-  description:
-    "Find AI tools and agents in one place. Independent listings checked against a live site, plus original reporting on pricing, harnesses, and computer use.",
+  description: entityLine,
   tagline: "The biggest directory of AI tools and agents",
   email: "hello@aiagentsinfo.com",
   bylines: {
@@ -34,8 +37,14 @@ export const site = {
 export const publisherName = "AI Agents Info (aiagentsinfo.com)";
 export const publisherAlternateName = "aiagentsinfo.com";
 
-/** Official profiles found in this repo. No X, LinkedIn, or Medium profile is published here. */
-export const organizationSameAs = ["https://github.com/sarath59/aiagentsinfo"] as const;
+/**
+ * Profiles that exist. GitHub is this repository. Medium @sarathc225 publishes notes that say they
+ * were first published at aiagentsinfo.com. No X profile for the site is named in this repo.
+ */
+export const organizationSameAs = [
+  "https://github.com/sarath59/aiagentsinfo",
+  "https://medium.com/@sarathc225",
+] as const;
 
 export const audiences = [
   {

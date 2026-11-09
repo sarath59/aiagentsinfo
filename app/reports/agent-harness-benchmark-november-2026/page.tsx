@@ -312,6 +312,7 @@ export default async function HarnessBenchmarkPage() {
               rows={sweRows(swebenchBenchmark.bashOnly)}
               defaultSort="resolved"
               downloadHref={`${path}/csv?table=swe-bash`}
+              source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
         </section>
@@ -331,6 +332,7 @@ export default async function HarnessBenchmarkPage() {
               rows={sweRows(swebenchBenchmark.teamCheckedOther)}
               defaultSort="resolved"
               downloadHref={`${path}/csv?table=swe-checked`}
+              source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
         </section>
@@ -349,6 +351,7 @@ export default async function HarnessBenchmarkPage() {
               rows={sweRows(swebenchBenchmark.multilingual)}
               defaultSort="resolved"
               downloadHref={`${path}/csv?table=swe-multilingual`}
+              source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
         </section>
@@ -376,6 +379,7 @@ export default async function HarnessBenchmarkPage() {
               defaultSort="rank"
               defaultDirection="asc"
               downloadHref={`${path}/csv?table=terminal-bench`}
+              source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
         </section>

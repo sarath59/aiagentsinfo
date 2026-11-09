@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
@@ -273,6 +274,7 @@ export default async function BrowserComputerUseReportPage() {
               defaultDirection="asc"
               caption="Ten browser and computer-use agents, read November 9, 2026"
               downloadHref={`${path}/csv`}
+              source={{ title, updated: readOn, path }}
             />
           </div>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
@@ -405,6 +407,7 @@ export default async function BrowserComputerUseReportPage() {
               defaultDirection="asc"
               caption="Scores printed in the text of OSWorld 2.0, read November 9, 2026"
               downloadHref={`${path}/csv?table=osworld`}
+              source={{ title, updated: readOn, path }}
             />
           </div>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
@@ -549,6 +552,7 @@ export default async function BrowserComputerUseReportPage() {
               </article>
             ))}
           </div>
+          <DataSourceLine title={title} updated={readOn} path={path} />
         </section>
 
         <section className="mt-12">

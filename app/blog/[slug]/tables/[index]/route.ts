@@ -7,5 +7,9 @@ export async function GET(_request: Request, context: { params: Promise<{ slug: 
   const post = await getBlogPost(slug);
   const table = post ? extractHtmlTables(post.html)[Number(index) - 1] : undefined;
   if (!post || !table || !table.headers.length) return new Response("Not found", { status: 404 });
-  return csvResponse(table.headers, table.rows, `${slug}-table-${index}.csv`);
+  return csvResponse(table.headers, table.rows, `${slug}-table-${index}.csv`, {
+    title: post.title,
+    updated: post.updated ?? post.date,
+    path: `/blog/${post.slug}`,
+  });
 }

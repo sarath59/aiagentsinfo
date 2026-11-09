@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -523,6 +524,7 @@ export default async function AgentsOutlookPage() {
               </article>
             ))}
           </div>
+          <DataSourceLine title={title} updated={readOn} path={path} />
           <p className="mt-4 text-sm">
             <a className="text-[var(--link)] underline" href={`${path}/csv`}>
               Download the month table as CSV

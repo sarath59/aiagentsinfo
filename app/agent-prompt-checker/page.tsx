@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { FaqList } from "@/components/FaqList";
 import { PromptChecker } from "@/components/PromptChecker";
 import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
@@ -138,6 +139,7 @@ export default function PromptCheckerPage() {
           </p>
         </section>
 
+        <DataSourceLine title={title} updated={SCHEMA_READ_ON} path={path} />
         <div className="mt-10">
           <CiteOrEmbed citation={citation} embed={embed} />
         </div>

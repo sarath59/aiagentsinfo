@@ -102,6 +102,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
     entry("/directory", maxDate(listings.map((listing) => listing.lastVerified)), 0.8),
     entry("/topics", maxDate(contentDates), 0.6),
+    entry("/llms.txt", maxDate(contentDates), 0.4),
+    entry("/llms-full.txt", maxDate(contentDates), 0.4),
     entry("/about", trustUpdated, 0.5),
     entry("/contact", trustUpdated, 0.5),
     entry("/editorial-policy", trustUpdated, 0.5),

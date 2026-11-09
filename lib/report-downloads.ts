@@ -50,7 +50,16 @@ import {
   readOn as yearReadOn,
   title as yearTitle,
 } from "@/lib/agents-12-month-outlook";
-import { codingAgents30DayPdf, dateCsv, priceCsv, repoCsv } from "@/lib/coding-agents-30-day";
+import {
+  codingAgents30DayPdf,
+  dateCsv,
+  path as codingPath,
+  priceCsv,
+  readOn as codingReadOn,
+  repoCsv,
+  title as codingTitle,
+} from "@/lib/coding-agents-30-day";
+import type { PageSource } from "@/lib/attribution";
 import { months, description as shoppingDescription, path as shoppingPath, readOn, title as shoppingTitle } from "@/lib/shopping-report";
 import {
   description as browserDescription,
@@ -423,6 +432,27 @@ export type ReportSlug = keyof typeof pdfModels;
 export function reportPdf(slug: string) {
   if (!(slug in pdfModels)) return undefined;
   return pdfModels[slug as ReportSlug]();
+}
+
+export function reportAttribution(slug: string): PageSource | undefined {
+  const pages: Record<string, PageSource> = {
+    "ai-agents-next-12-months": { title: yearTitle, updated: yearReadOn, path: yearPath },
+    "ai-agents-next-6-months": { title: outlookTitle, updated: outlookReadOn, path: outlookPath },
+    "ai-shopping-agents-next-6-months": { title: shoppingTitle, updated: readOn, path: shoppingPath },
+    "browser-and-computer-use-agents-next-6-months": { title: browserTitle, updated: browserReadOn, path: browserPath },
+    "ai-coding-agents-next-30-days": { title: codingTitle, updated: codingReadOn, path: codingPath },
+    "ai-agent-framework-github-stats-november-2026": {
+      title: frameworkTitle,
+      updated: retrievedDay,
+      path: frameworkPath,
+    },
+    "agent-harness-benchmark-november-2026": {
+      title: benchmarkTitle,
+      updated: BENCHMARK_READ_ON,
+      path: benchmarkPath,
+    },
+  };
+  return pages[slug];
 }
 
 export function reportCsv(slug: string, table: string | null) {

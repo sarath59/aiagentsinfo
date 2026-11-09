@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { PageHeader } from "@/components/PageHeader";
+import { COMPARISON_VERIFIED_ON } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
 
 export const metadata = defaultMetadata(
@@ -38,6 +40,12 @@ export default function HarnessesTrackerPage() {
           those pages are collected on the <Link href="/topics/harnesses">agent harnesses hub</Link>. Frameworks already
           in the directory remain at <Link href="/directory/category/agent-frameworks">agent frameworks</Link>.
         </p>
+        <DataSourceLine
+          title="Harness comparison"
+          updated={COMPARISON_VERIFIED_ON}
+          path="/trackers/harnesses"
+          showCite
+        />
       </div>
     </>
   );
