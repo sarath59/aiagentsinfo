@@ -101,6 +101,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/tools/agent-picker", new Date("2026-11-09T00:00:00.000Z"), 0.7),
     entry("/tools/cursor-vs-claude-code-vs-codex-pricing", new Date("2026-11-09T00:00:00.000Z"), 0.7),
     entry("/reports/ai-coding-agents-next-30-days", new Date("2026-11-08T00:00:00.000Z"), 0.7),
+    entry("/reports/browser-and-computer-use-agents-next-6-months", new Date("2026-11-09T00:00:00.000Z"), 0.7),
     ...authors.map((author) => entry(`/authors/${author.slug}`, trustUpdated, 0.5)),
     entry("/best", comparisonUpdated, 0.7),
     ...comparisonPages.map((item) => entry(item.path, comparisonUpdated, 0.8)),

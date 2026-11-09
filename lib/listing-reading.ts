@@ -7,6 +7,11 @@ import { directoryMatches, path as frameworkPath, retrievedLabel, title as frame
 import { conciseText } from "@/lib/listing-scan";
 import { getResearchDocs } from "@/lib/research";
 import { path as shoppingPath, title as shoppingTitle, description as shoppingDescription } from "@/lib/shopping-report";
+import {
+  description as browserDescription,
+  path as browserPath,
+  title as browserTitle,
+} from "@/lib/browser-computer-report";
 import { websiteDomain } from "@/lib/submissions";
 import { verifiedRevenueEntries } from "@/lib/verified-revenue";
 
@@ -20,6 +25,8 @@ export type ListingReading = {
 const FRAMEWORK_SLUGS = new Set(directoryMatches().map((match) => match.slug));
 
 const SHOPPING_SLUGS = new Set(["gemini", "chatgpt", "amazon-rufus", "perplexity"]);
+
+const BROWSER_COMPUTER_SLUGS = new Set(["chatgpt", "claude", "claude-code", "codex", "gemini", "perplexity"]);
 
 const BENCHMARK_NAMED: Record<string, string> = {
   "claude-code":
@@ -87,6 +94,17 @@ export async function listingReading(listing: DirectoryListing): Promise<Listing
     kind: "Report",
     reason: outlookDescription,
     score: listing.category === "coding-agents" || listing.category === "agent-frameworks" ? 4 : 0,
+  });
+
+  const browserNamed = BROWSER_COMPUTER_SLUGS.has(listing.slug);
+  pushReport(candidates, {
+    href: browserPath,
+    title: browserTitle,
+    kind: "Report",
+    reason: browserNamed
+      ? `${listing.name} is one of the products in this browser and computer-use report, with the date on the company page.`
+      : browserDescription,
+    score: browserNamed ? 9 : 0,
   });
 
   const shoppingNamed = SHOPPING_SLUGS.has(listing.slug);

@@ -165,6 +165,12 @@ export const comparisons = [
 
 export const dataAssets = [
   {
+    href: "/reports/browser-and-computer-use-agents-next-6-months",
+    title: "Browser and computer-use agents, Nov 2026 to May 2027",
+    summary:
+      "Ten live browser and computer-use agents, the one day a vendor has named through May 9, 2027, and the OSWorld 2.0 scores printed on the benchmark page. Checked November 9, 2026.",
+  },
+  {
     href: "/reports/ai-coding-agents-next-30-days",
     title: "AI coding agents, 8 Nov to 8 Dec 2026",
     summary:
@@ -269,6 +275,7 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/reports/browser-and-computer-use-agents-next-6-months", label: "Browser and computer-use agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-coding-agents-next-30-days", label: "AI coding agents, 8 Nov to 8 Dec 2026" },
       { href: "/reports/ai-agents-next-12-months", label: "AI agents, Nov 2026 to Nov 2027" },
       { href: "/reports/ai-agents-next-6-months", label: "AI agents, Nov 2026 to May 2027" },

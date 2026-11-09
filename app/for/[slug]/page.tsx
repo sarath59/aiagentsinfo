@@ -70,6 +70,11 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
               <Link href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
             </li>
             <li>
+              <Link href="/reports/browser-and-computer-use-agents-next-6-months">
+                Browser and computer-use agents, Nov 2026 to May 2027
+              </Link>
+            </li>
+            <li>
               <Link href="/best">Best AI agents</Link>
             </li>
             <li>

@@ -172,6 +172,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "Yes, when the product includes computer use. Re-checked November 7, 2026.",
       },
       {
+        href: "/reports/browser-and-computer-use-agents-next-6-months",
+        anchor: "Browser and computer-use agents next 6 months: 10 products, one date",
+        note: "Ten live products from November 9, 2026 through May 9, 2027. The only named day is November 18.",
+      },
+      {
         href: "/agent-cost-calculator",
         anchor: "AI agent cost calculator and chatbot cost calculator",
         note: "A 30-day token bill from official prices. Seat prices are separate.",

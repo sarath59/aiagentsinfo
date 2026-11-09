@@ -32,6 +32,14 @@ export default async function AgentsOutlookPage() {
       date: "2026-11-07",
     },
     {
+      href: "/reports/browser-and-computer-use-agents-next-6-months",
+      title: "Browser and computer-use agents, Nov 2026 to May 2027",
+      description:
+        "Ten live browser and computer-use agents, and the one day a vendor has named through May 9, 2027. This page does not repeat that table.",
+      kicker: "Report",
+      date: "2026-11-09",
+    },
+    {
       href: "/reports/ai-shopping-agents-next-6-months",
       title: "AI shopping agents, Nov 2026 to May 2027",
       description:
@@ -184,7 +192,11 @@ export default async function AgentsOutlookPage() {
             <Link href="/reports/ai-shopping-agents-next-6-months">
               AI shopping agents in the next 6 months
             </Link>
-            . This page does not repeat that checkout record. Scores for coding harnesses are in the{" "}
+            . Browser agents and desktop computer use for the same stretch are in{" "}
+            <Link href="/reports/browser-and-computer-use-agents-next-6-months">
+              Browser and computer-use agents next 6 months
+            </Link>
+            . This page does not repeat that checkout record or that product table. Scores for coding harnesses are in the{" "}
             <Link href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>. A month
             with no dated launch is left empty on purpose.
           </p>

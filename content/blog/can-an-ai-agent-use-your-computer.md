@@ -256,6 +256,7 @@ The [task performance](/topics/task-performance) topic is the shelf for computer
 - Glossary: [computer use](/glossary/computer-use), [browser use](/glossary/browser-use), [sandbox](/glossary/sandbox), [harness](/glossary/harness), [tool use](/glossary/tool-use), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [agent](/glossary/agent), [Model Context Protocol](/glossary/model-context-protocol)
 - Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [What is an AI employee?](/blog/what-is-an-ai-employee), [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
 - News: [Tencent releases Hy4 with image understanding and computer use](/blog/tencent-releases-hy4-with-computer-use)
+- Report: [Browser and computer-use agents next 6 months: 10 products, one date](/reports/browser-and-computer-use-agents-next-6-months)
 - Directory: [Claude](/directory/claude), [Claude Code](/directory/claude-code), [ChatGPT](/directory/chatgpt), [Gemini](/directory/gemini)
 - Topics: [task performance](/topics/task-performance), [how agents work](/topics/how-agents-work), [harnesses](/topics/harnesses), [tools and SaaS](/topics/tools-saas)
 

@@ -52,6 +52,17 @@ import {
 } from "@/lib/agents-12-month-outlook";
 import { codingAgents30DayPdf, dateCsv, priceCsv, repoCsv } from "@/lib/coding-agents-30-day";
 import { months, description as shoppingDescription, path as shoppingPath, readOn, title as shoppingTitle } from "@/lib/shopping-report";
+import {
+  description as browserDescription,
+  months as browserMonths,
+  osworldColumns,
+  osworldRows,
+  path as browserPath,
+  productColumns,
+  productRows,
+  readOn as browserReadOn,
+  title as browserTitle,
+} from "@/lib/browser-computer-report";
 import { formatDate } from "@/lib/utils";
 
 function tableFrom(caption: string, columns: SortableColumn[], rows: SortableRow[]): PdfTable {
@@ -223,6 +234,63 @@ export function shoppingReportPdf(): PdfModel {
   };
 }
 
+export function browserComputerReportPdf(): PdfModel {
+  const dateLabel = formatDate(browserReadOn);
+  return {
+    filename: "browser-and-computer-use-agents-nov-2026-may-2027.pdf",
+    title: browserTitle,
+    description: browserDescription,
+    dateLabel,
+    url: absoluteUrl(browserPath),
+    sections: [
+      {
+        paragraphs: [
+          "From November 9, 2026 through May 9, 2027, the public record for browser agents and computer-use agents is ten products you can already use, and one day a vendor has actually named. That day is November 18, 2026, when OpenAI says Enterprise dots leave a free preview and billing starts.",
+          "Operator is not a current product. OpenAI's ChatGPT agent help page, read November 9, says the agent is no longer available and that the Operator website is no longer accessible. The browser that remains is ChatGPT Work's cloud browser, on paid plans except Free and Go.",
+          "OSWorld 2.0's own page prints 20.6 percent as the best 500-step completion, for Claude Opus 4.8, with a 54.8 percent partial score. Browser Use's 89.1 percent WebVoyager post is dated December 15, 2024, on 586 tasks with gpt-4o, after 55 tasks were removed. It is not a 2026 score.",
+        ],
+      },
+      {
+        heading: "How a claim is sorted",
+        paragraphs: [
+          "Announced means a linked page names the fact. A date counts only when that page prints the day.",
+          "Likely means the page aims the work at this stretch and does not name a day. It is not a new odds estimate.",
+          "Watch for means a later check should confirm the item or drop it.",
+        ],
+      },
+      {
+        heading: "Ten products, read November 9, 2026",
+        paragraphs: [
+          "A browser agent stays on the web. A computer-use agent can also drive other apps. A score cell is copied from the vendor page. None means that page did not print one.",
+        ],
+        table: tableFrom(
+          "Ten browser and computer-use agents",
+          productColumns,
+          productRows(),
+        ),
+      },
+      {
+        heading: "OSWorld 2.0 scores printed on the benchmark page",
+        paragraphs: [
+          "108 tasks. Human median about 1.6 hours. 69.6 percent of tasks take more than an hour. Above 163 minutes, binary completion falls to zero for every model kept in the plot. The interactive chart did not return rows on November 9, so only the sentences on the page are copied.",
+        ],
+        table: tableFrom("OSWorld 2.0 scores in the page text", osworldColumns, osworldRows()),
+      },
+      {
+        heading: "Month by month, November 2026 to May 2027",
+        paragraphs: [
+          "An empty announcement means no linked source named that month.",
+        ],
+        table: {
+          caption: "Announced, likely, and watch-for notes by month",
+          headers: ["Month", "Announced", "Likely", "Watch for"],
+          rows: browserMonths.map((item) => [item.month, item.announced, item.likely, item.watch]),
+        },
+      },
+    ],
+  };
+}
+
 export function benchmarkReportPdf(): PdfModel {
   const dateLabel = formatDate(BENCHMARK_READ_ON);
   return {
@@ -345,6 +413,7 @@ const pdfModels = {
   "ai-agents-next-12-months": agents12MonthOutlookPdf,
   "ai-agents-next-6-months": agentsOutlookPdf,
   "ai-shopping-agents-next-6-months": shoppingReportPdf,
+  "browser-and-computer-use-agents-next-6-months": browserComputerReportPdf,
   "agent-harness-benchmark-november-2026": benchmarkReportPdf,
   "ai-agent-framework-github-stats-november-2026": frameworkReportPdf,
 } as const;
@@ -386,6 +455,28 @@ export function reportCsv(slug: string, table: string | null) {
       filename: "ai-shopping-agents-nov-2026-may-2027.csv",
       headers: ["Month", "Announced", "Likely", "Watch for"],
       rows: months.map((item) => [item.month, item.announced, item.likely, item.watch]),
+    };
+  }
+  if (slug === "browser-and-computer-use-agents-next-6-months") {
+    if (table === "months") {
+      return {
+        filename: "browser-and-computer-use-agents-months.csv",
+        headers: ["Month", "Announced", "Likely", "Watch for"],
+        rows: browserMonths.map((item) => [item.month, item.announced, item.likely, item.watch]),
+      };
+    }
+    if (table === "osworld") {
+      return {
+        filename: "osworld-2-scores-printed-nov-2026.csv",
+        headers: osworldColumns.map((column) => column.label),
+        rows: osworldRows().map((row) => osworldColumns.map((column) => row.display[column.key] || "")),
+      };
+    }
+    if (table && table !== "products") return undefined;
+    return {
+      filename: "browser-and-computer-use-agents-nov-2026.csv",
+      headers: productColumns.map((column) => column.label),
+      rows: productRows().map((row) => productColumns.map((column) => row.display[column.key] || "")),
     };
   }
   if (slug !== "agent-harness-benchmark-november-2026") return undefined;

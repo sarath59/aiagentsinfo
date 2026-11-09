@@ -41,6 +41,14 @@ export default async function AgentsTwelveMonthOutlookPage() {
       date: "2026-11-05",
     },
     {
+      href: "/reports/browser-and-computer-use-agents-next-6-months",
+      title: "Browser and computer-use agents, Nov 2026 to May 2027",
+      description:
+        "Ten live browser and computer-use agents, and the one day a vendor has named through May 9, 2027.",
+      kicker: "Report",
+      date: "2026-11-09",
+    },
+    {
       href: "/reports/ai-shopping-agents-next-6-months",
       title: "AI shopping agents, Nov 2026 to May 2027",
       description:
@@ -191,7 +199,11 @@ export default async function AgentsTwelveMonthOutlookPage() {
             is the flagship for the full year. It keeps the claims that were re-read on November 7, 2026, and it adds
             the second half. Shopping and payments are in{" "}
             <Link href="/reports/ai-shopping-agents-next-6-months">AI shopping agents in the next 6 months</Link>.
-            This page does not repeat that checkout record. Scores on the official SWE-bench and Terminal-Bench
+            Browser agents and desktop computer use through May 9, 2027 are in{" "}
+            <Link href="/reports/browser-and-computer-use-agents-next-6-months">
+              Browser and computer-use agents next 6 months
+            </Link>
+            . This page does not repeat that checkout record or that product table. Scores on the official SWE-bench and Terminal-Bench
             boards are in the{" "}
             <Link href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>. A month
             with no dated launch is left empty on purpose.

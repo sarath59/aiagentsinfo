@@ -49,8 +49,12 @@ export default function BestComputerUseAgentsPage() {
             <Link href="/blog/can-an-ai-agent-use-your-computer">Can an AI agent use your computer?</Link> A model
             that can operate a computer, such as Tencent Hy4, is not by itself a complete desktop agent; that note is{" "}
             <Link href="/blog/tencent-releases-hy4-with-computer-use">Tencent releases Hy4 with computer use</Link>.
-            Work that stays on a web page is <Link href="/glossary/browser-use">browser use</Link>. The shelf for this
-            table is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>.
+            Work that stays on a web page is <Link href="/glossary/browser-use">browser use</Link>. What is dated from
+            November 9, 2026 through May 9, 2027, including browser agents, is{" "}
+            <Link href="/reports/browser-and-computer-use-agents-next-6-months">
+              Browser and computer-use agents next 6 months
+            </Link>
+            . The shelf for this table is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>.
           </p>
         </section>
         <section id="open-source" className="mt-12">
