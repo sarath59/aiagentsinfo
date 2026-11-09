@@ -256,6 +256,8 @@ The GPT-5.4 table is three benchmarks, and WebShop reverses the ranking against 
 
 The reproducibility statement says the implementation and the scripts for the tables and figures will be released. The arXiv record, checked November 6, 2026, did not link a repository. Until that code is public, the tables are the authors' report of their own runs.
 
+The pinned harnesses in the table are product runtimes. They are not the open-source framework repositories whose latest GitHub releases, pulled 5 November 2026, are listed in [AI agent framework release, November 2026](/reports/ai-agent-framework-github-stats-november-2026).
+
 ## Read the paper
 
 The November 4 paper, the March harness optimizer it reruns, and the four pinned harnesses:

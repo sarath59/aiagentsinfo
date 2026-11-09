@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
+import { FaqList } from "@/components/FaqList";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SortableTable } from "@/components/SortableTable";
 import { description as benchmarkDescription, path as benchmarkPath, title as benchmarkTitle } from "@/lib/benchmark-report";
@@ -13,6 +14,7 @@ import {
   description,
   directoryMatches,
   embedHtml,
+  frameworkFaq,
   keyFigures,
   leadParagraph,
   licenceSentence,
@@ -35,7 +37,7 @@ import {
   frameworkRows,
 } from "@/lib/framework-github-stats";
 import { BENCHMARK_READ_ON } from "@/lib/harness-benchmark";
-import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(title, description, path);
@@ -44,6 +46,7 @@ export default async function FrameworkGithubStatsPage() {
   const stats = await getDirectoryStats();
   const matches = directoryMatches();
   const packageNote = packageReleaseNote();
+  const faq = frameworkFaq();
 
   return (
     <>
@@ -66,6 +69,9 @@ export default async function FrameworkGithubStatsPage() {
           distributionPath: `${path}/csv`,
           isBasedOn: source,
         })}
+      />
+      <JsonLd
+        data={faqPageJsonLd(faq.map((item) => ({ question: item.question, answer: `${item.lead} ${item.detail}` })))}
       />
       <Breadcrumbs
         items={[
@@ -107,6 +113,7 @@ export default async function FrameworkGithubStatsPage() {
           { id: "licences", text: "Licences", level: 2 },
           { id: "release-recency", text: "Release recency", level: 2 },
           { id: "methodology", text: "Methodology", level: 2 },
+          { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
         actions={
@@ -273,6 +280,17 @@ export default async function FrameworkGithubStatsPage() {
           </p>
         </section>
 
+        <FaqList
+          items={faq.map((item) => ({
+            question: item.question,
+            answer: (
+              <>
+                <p>{item.lead}</p>
+                <p>{item.detail}</p>
+              </>
+            ),
+          }))}
+        />
         <div className="mt-14">
           <NewsletterSignup id="report-framework-github" />
         </div>

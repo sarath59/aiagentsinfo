@@ -57,7 +57,7 @@ const repos: FrameworkRepo[] = snapshot.repos.map((repo) => ({
 }));
 
 export const path = "/reports/ai-agent-framework-github-stats-november-2026";
-export const title = "AI agent framework GitHub stats, November 2026";
+export const title = "AI agent framework release, November 2026";
 export const retrievedAt = snapshot.retrieved_at;
 export const source = snapshot.source;
 export const retrievedDay = isoDay(retrievedAt);
@@ -68,14 +68,68 @@ export const citationUrl = `https://aiagentsinfo.com${path}`;
 export const csvPath = `${path}/csv?table=frameworks`;
 export const pdfPath = `${path}/pdf`;
 
-export const description = `Stars, forks, open issues, licences, primary languages, and latest releases for ${integer(repos.length)} open-source agent frameworks and SDKs, copied from the public GitHub REST API on ${retrievedLabel}.`;
+export const description = `AI agent framework release, November 2026: latest GitHub releases for ${integer(repos.length)} open-source frameworks and SDKs, pulled ${retrievedLabel}. ${integer(recentRepos().length)} of ${integer(repos.length)} were within ${integer(RECENT_RELEASE_DAYS)} days.`;
 
 export const citation = `AI Agents Info, "${title}", ${citationDate}, ${citationUrl}`;
 
-export const embedHtml = `<a href="${citationUrl}">AI agent framework GitHub stats (Nov 2026) - AI Agents Info</a>`;
+export const embedHtml = `<a href="${citationUrl}">AI agent framework release, November 2026 - AI Agents Info</a>`;
 
 export function leadParagraph() {
-  return `Data pulled from GitHub on ${retrievedLabel}. This page lists public GitHub figures for ${integer(repos.length)} open-source agent frameworks and SDKs. Stars, forks, open issues, the detected licence, the primary language, the creation date, and the latest release are copied from that snapshot. Nothing on this page is estimated.`;
+  return `Data pulled from GitHub on ${retrievedLabel}. This page lists public GitHub figures for ${integer(repos.length)} open-source agent frameworks and SDKs, including each repository's latest release. Stars, forks, open issues, the detected licence, the primary language, the creation date, and the latest release are copied from that snapshot. Nothing on this page is estimated.`;
+}
+
+export type FrameworkFaqItem = {
+  question: string;
+  /** One-sentence answer. Also the start of the FAQPage schema text. */
+  lead: string;
+  detail: string;
+};
+
+export function frameworkFaq(): FrameworkFaqItem[] {
+  const november = repos
+    .filter((repo) => repo.latest_release_at.startsWith("2026-11"))
+    .sort((a, b) => a.repo.localeCompare(b.repo));
+  const recent = recentRepos().length;
+  const quiet = [...quietRepos()].sort(
+    (a, b) => b.daysSinceRelease - a.daysSinceRelease || a.repo.localeCompare(b.repo),
+  );
+  const top = mostStarred();
+  const novemberList = joinList(
+    november.map((repo) => `${repo.repo} (${repo.latest_release}, ${formatDate(repo.latest_release_at)})`),
+  );
+  const quietList = joinList(
+    quiet.map(
+      (repo) =>
+        `${repo.repo} (${repo.latest_release} on ${formatDate(repo.latest_release_at)}, ${integer(repo.daysSinceRelease)} days)`,
+    ),
+  );
+  return [
+    {
+      question: "Which AI agent frameworks had a GitHub release in November 2026?",
+      lead: `${integer(november.length)} of the ${integer(repos.length)} repositories in this snapshot have a latest GitHub release dated in November 2026.`,
+      detail: `The snapshot was pulled on ${retrievedLabel}, so it cannot speak for the rest of the month. Those latest releases are ${novemberList}. A latest release still dated in October means GitHub had not published a newer release by the pull.`,
+    },
+    {
+      question: "How many AI agent frameworks does the November 2026 report compare?",
+      lead: `It compares ${integer(repos.length)} open-source agent frameworks and SDKs.`,
+      detail: `For each one it copies stars, forks, open issues plus pull requests, the detected licence, the primary language, the creation date, and the latest release from the public GitHub REST API on ${retrievedLabel}.`,
+    },
+    {
+      question: "Which AI agent framework has the most GitHub stars in this November 2026 snapshot?",
+      lead: `${top.repo} has the most stars in this snapshot, at ${integer(top.stars)}.`,
+      detail: `That count is the star field GitHub returned on ${retrievedLabel}. Stars are a popularity signal. This page does not treat them as a quality ranking.`,
+    },
+    {
+      question: "Did every framework in the November 2026 snapshot ship a recent release?",
+      lead: `No. ${integer(recent)} of ${integer(repos.length)} have a latest release within ${integer(RECENT_RELEASE_DAYS)} days of ${retrievedLabel}, and ${integer(quiet.length)} have a latest release ${integer(QUIET_RELEASE_DAYS)} or more days earlier.`,
+      detail: `The quieter latest releases are ${quietList}. The day counts use the tag dates GitHub returned.`,
+    },
+    {
+      question: "Where do the November 2026 AI agent framework release numbers come from?",
+      lead: `They are copied from the public GitHub REST API on ${retrievedLabel}. Nothing in the table is estimated.`,
+      detail: `The recorded source is ${source}. The snapshot time is ${retrievedAt} UTC. The calls were the repository endpoint and /releases/latest.`,
+    },
+  ];
 }
 
 export function takeaways() {

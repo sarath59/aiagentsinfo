@@ -180,9 +180,9 @@ export const dataAssets = [
   },
   {
     href: "/reports/ai-agent-framework-github-stats-november-2026",
-    title: "AI agent framework GitHub stats, November 2026",
+    title: "AI agent framework release, November 2026",
     summary:
-      "Stars, forks, open issues, licences, and latest releases for open-source agent frameworks and SDKs. Pulled from the public GitHub API on 5 November 2026.",
+      "The latest GitHub release for each of 19 open-source agent frameworks and SDKs, pulled 5 November 2026. Fourteen of the 19 had a release within 30 days.",
   },
   {
     href: "/verified-revenue",
@@ -256,7 +256,7 @@ export const footerNav = [
       { href: "/reports/ai-agents-next-6-months", label: "AI agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
       { href: "/reports/agent-harness-benchmark-november-2026", label: "Agent harness benchmark, November 2026" },
-      { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework GitHub stats, November 2026" },
+      { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework releases, November 2026" },
       { href: "/verified-revenue", label: "Verified revenue" },
       { href: "/directory/stats", label: "Directory stats" },
       { href: "/agent-cost-calculator", label: "Agent cost calculator" },

@@ -281,7 +281,7 @@ This page does not have a separate price for a Claude Code subagent. The vendor 
 
 ## What should you check before you pay?
 
-1. Pick the surface first. Claude Code’s product page lists the terminal, the web, iOS, Android, GitHub, VS Code, JetBrains, and Slack, and it says the VS Code extension also covers Cursor and Devin Desktop. Codex’s docs list the CLI, the IDE, the desktop app, the web, and cloud tasks on the plans that include cloud.
+1. Pick the surface first. Claude Code’s product page lists the terminal, the web, iOS, Android, GitHub, VS Code, JetBrains, and Slack, and it says the VS Code extension also covers Cursor and [Devin Desktop](/directory/devin#what-is-devin-ide). Codex’s docs list the CLI, the IDE, the desktop app, the web, and cloud tasks on the plans that include cloud.
 2. Read the pool, not only the price. Claude Code and Claude chat draw from one pool. Codex, ChatGPT Work, and the other agent features named on the help page draw from a shared allowance when your plan uses one.
 3. Treat message ranges as estimates. Anthropic says the mix of length, model, and features means there is no fixed message count. OpenAI says similar tasks can consume different amounts, and prompt length alone is a poor estimate.
 4. Keep a receipt path for overage. Usage credits, a Console account, or an API key are how either product continues after the included allowance. Team monthly API credits are not that path for Claude Code.

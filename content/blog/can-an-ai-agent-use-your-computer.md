@@ -94,6 +94,8 @@ Anthropic's API page says the browser use tool is the closer fit for tasks that 
 
 A full desktop is the wider grant. It can open a local app, a file dialog, or a system setting. The safety sections below treat that wider grant as the case that needs the tighter sandbox.
 
+Cognition documents a separate browser inside a Devin session. The [session tools](https://docs.devin.ai/work-with-devin/devin-session-tools) page, read November 9, 2026, says that tab is labeled Computer when computer use is enabled for the organization. What those docs call Devin IDE, and how that differs from Devin Desktop, is [What is Devin IDE?](/directory/devin#what-is-devin-ide).
+
 ## How does the loop work?
 
 The loop has four beats. The app sends the goal and a picture of the screen. The model chooses the next action. The app runs that action. The app sends back the new picture. The cycle repeats until the model answers in text, or until a limit or a person stops it.
@@ -104,7 +106,7 @@ OpenAI's API guide says your application supplies the driver. The driver reads t
 
 Google's page describes the same four beats for the Gemini API. Your request includes the Computer Use tool, the target environment, the prompt, and a screenshot. The model returns a function call such as a click, a scroll, or a keystroke. For Gemini 4 and Gemini 3.x, the call also includes an `intent` that states why the model chose that action. The response can include a safety decision: allowed, `require_confirmation`, or blocked. Your client executes the action only when it is allowed or a person confirms it, then sends a new screenshot. The action tables for browser, mobile, and desktop print coordinates from 0 to 999, which the client scales to the screen. A code sample on the same page, read November 7, describes that scale as a 1,000 by 1,000 grid.
 
-On this site that surrounding software is the [harness](/blog/what-is-an-ai-agent-harness). Designing it on purpose is [harness engineering](/glossary/harness-engineering). Checking one of those actions, such as whether the agent asked before a payment, is a [behavioral evaluation](/blog/how-do-you-evaluate-an-ai-agent-harness). Computer use is one tool the harness can offer. The [sandbox](/glossary/sandbox) is the bounded machine the tool acts on. [Autonomy](/glossary/autonomy) is how far the loop runs before a person confirms the next step.
+On this site that surrounding software is the [harness](/blog/what-is-an-ai-agent-harness). Open-source libraries for building that loop, with each repository's latest GitHub release as of 5 November 2026, are in [AI agent framework release, November 2026](/reports/ai-agent-framework-github-stats-november-2026). Designing the loop on purpose is [harness engineering](/glossary/harness-engineering). Checking one of those actions, such as whether the agent asked before a payment, is a [behavioral evaluation](/blog/how-do-you-evaluate-an-ai-agent-harness). Computer use is one tool the harness can offer. The [sandbox](/glossary/sandbox) is the bounded machine the tool acts on. [Autonomy](/glossary/autonomy) is how far the loop runs before a person confirms the next step.
 
 ## What do Claude, OpenAI, and Gemini offer?
 

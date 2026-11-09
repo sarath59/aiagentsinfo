@@ -43,6 +43,11 @@ export async function ListingProfile({
     hasAlternatives: alternatives.length > 0,
     hasResearch: reading.length > 0,
   });
+  const pageSections =
+    listing.slug === "devin" && sections.length
+      ? [sections[0], { id: "what-is-devin-ide", label: "What is Devin IDE?" }, ...sections.slice(1)]
+      : sections;
+  const devinAnswerFirst = listing.slug === "devin" && Boolean(listing.html.trim());
   const checked = formatDate(listing.lastVerified);
   const domain = websiteDomain(listing.website);
   const cta = listing.name.length > 48 ? "Visit website" : `Visit ${listing.name}`;
@@ -138,14 +143,20 @@ export async function ListingProfile({
         </div>
       </header>
 
-      {sections.length ? (
+      {pageSections.length ? (
         <nav className="listing-jump" aria-label="On this page">
-          {sections.map((section) => (
+          {pageSections.map((section) => (
             <a key={section.id} className="focus-ring" href={`#${section.id}`}>
               {section.label}
             </a>
           ))}
         </nav>
+      ) : null}
+
+      {devinAnswerFirst ? (
+        <div className="mt-8">
+          <MarkdownBody html={listing.html} />
+        </div>
       ) : null}
 
       {substantial && facts.length ? (
@@ -212,7 +223,7 @@ export async function ListingProfile({
         </section>
       ) : null}
 
-      {listing.html.trim() ? (
+      {listing.html.trim() && !devinAnswerFirst ? (
         <div className="mt-8">
           <MarkdownBody html={listing.html} />
         </div>

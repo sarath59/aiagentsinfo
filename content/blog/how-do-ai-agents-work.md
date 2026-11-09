@@ -213,13 +213,13 @@ Today’s loop has seven parts. The names differ by vendor. The jobs show up in 
 </table>
 </div>
 
-A click on a real screen is the same loop with a narrower tool. That guide is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer). A workplace job with a file to review is [What is an AI employee?](/blog/what-is-an-ai-employee).
+A click on a real screen is the same loop with a narrower tool. That guide is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer). A coding agent that keeps an editor and a browser inside its own web session is a different product note, [What is Devin IDE?](/directory/devin#what-is-devin-ide). A workplace job with a file to review is [What is an AI employee?](/blog/what-is-an-ai-employee).
 
 ## Where does the harness fit?
 
 The harness is the software that runs the loop: tools, memory, permissions, and the stop rule. The model proposes. The harness is what makes the proposal an action.
 
-[Harness engineering](/glossary/harness-engineering) is the work of designing that software on purpose. [Orchestration](/glossary/orchestration) is the part that chooses the next step or the next specialist. A [guardrail](/glossary/guardrail) allows, blocks, rewrites, or pauses one action. An [agent framework](/directory/category/agent-frameworks) is a library for building those pieces. The running configuration for one job is the harness. [Claude’s Agent SDK](/directory/claude-agent-sdk) and the [OpenAI Agents SDK](/directory/openai-agents-sdk) describe that loop on the pages read November 8, 2026. The [Microsoft Agent Framework](/directory/microsoft-agent-framework) documents the multi-agent patterns on the orchestration pages read the same day. The comparison of shipping runtimes is [Best AI agent harness](/best/ai-agent-harnesses).
+[Harness engineering](/glossary/harness-engineering) is the work of designing that software on purpose. [Orchestration](/glossary/orchestration) is the part that chooses the next step or the next specialist. A [guardrail](/glossary/guardrail) allows, blocks, rewrites, or pauses one action. An [agent framework](/directory/category/agent-frameworks) is a library for building those pieces. The running configuration for one job is the harness. Latest GitHub releases for 19 open-source frameworks and SDKs, pulled 5 November 2026, are in [AI agent framework release, November 2026](/reports/ai-agent-framework-github-stats-november-2026). [Claude’s Agent SDK](/directory/claude-agent-sdk) and the [OpenAI Agents SDK](/directory/openai-agents-sdk) describe that loop on the pages read November 8, 2026. The [Microsoft Agent Framework](/directory/microsoft-agent-framework) documents the multi-agent patterns on the orchestration pages read the same day. The comparison of shipping runtimes is [Best AI agent harness](/best/ai-agent-harnesses).
 
 The long account of the workshop is the [harness guide](/blog/what-is-an-ai-agent-harness). How a recorded failure becomes one check is the [evaluation guide](/blog/how-do-you-evaluate-an-ai-agent-harness). This page stays on the loop those pages assume.
 
