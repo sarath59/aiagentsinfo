@@ -1,5 +1,7 @@
 import type { RelatedCard } from "@/components/ArticleTemplate";
+import { codingAgentsComparison } from "@/lib/coding-agents-comparison";
 import { consumerComparisons } from "@/lib/consumer-comparisons";
+import { frameworkComparison } from "@/lib/framework-comparison";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
 
 export const COMPARISON_VERIFIED_ON = "2026-11-08";
@@ -9,13 +11,13 @@ export const COMPARISON_HUB = {
   href: "/best",
   title: "Best AI agents",
   heading: "Best AI agents in 2026",
-  metaTitle: "Best AI agents: 13 sourced tables (2026)",
+  metaTitle: "Best AI agents: 15 sourced tables (2026)",
   metaDescription:
-    "Best AI agents compared by job: 3 builder tables and 10 for shopping, search, travel, email, and more. Licence, list price, platform (Nov 2026).",
+    "Best AI agents compared by job: 5 builder tables and 10 for shopping, search, travel, email, and more. Licence, list price, platform (Nov 2026).",
   summary:
-    "Sourced comparisons of the best AI agent harness, computer use agents, evaluation tools, and 10 consumer jobs. Last verified November 2026.",
+    "Sourced comparisons of harnesses, frameworks, coding agents, computer use, evaluation tools, and 10 consumer jobs. Last verified November 2026.",
   description:
-    "Best AI agents on this site are compared by job. Three tables cover harnesses, computer use, and evaluation. Ten more cover shopping, web search, travel booking, email, personal assistant tasks, research, scheduling, writing, students, and small business. Cells are licence, list price, and platform from official pages.",
+    "Best AI agents on this site are compared by job. Five tables cover harnesses, frameworks, coding-agent prices, computer use, and evaluation. Ten more cover shopping, web search, travel booking, email, personal assistant tasks, research, scheduling, writing, students, and small business.",
 } as const;
 
 export type ComparisonFaq = { question: string; answer: string };
@@ -69,6 +71,12 @@ export type ComparisonPage = {
   related: RelatedCard[];
   columns: SortableColumn[];
   sections?: ComparisonSection[];
+  /** ISO day when this page was checked. Other pages keep the shared November 2026 label. */
+  verifiedOn?: string;
+  /** Replaces the default “licence, list price, and platform” note. */
+  cellsNote?: string;
+  /** Replaces the default method paragraph about list prices. */
+  methodNote?: string;
 };
 
 const LISTING_LOGOS: Record<string, string> = {
@@ -86,6 +94,8 @@ const LISTING_LOGOS: Record<string, string> = {
   langchain: "/logos/langchain.png",
   crewai: "/logos/crewai.png",
   "amazon-rufus": "/logos/amazon.png",
+  cursor: "/logos/cursor.svg",
+  "github-copilot": "/logos/github-copilot.svg",
   perplexity: "/logos/perplexity.png",
   khanmigo: "/logos/khanmigo.png",
   typingmind: "/logos/typingmind.png",
@@ -103,7 +113,7 @@ const GLOSSARY_COMPARISON_SLUGS: Record<string, string[]> = {
     "ai-agents-for-personal-assistant-tasks",
     "ai-agents-for-writing",
   ],
-  harness: ["ai-agent-harnesses"],
+  harness: ["ai-agent-harnesses", "ai-agent-frameworks"],
   "harness-engineering": ["ai-agent-harnesses"],
   orchestration: ["ai-agent-harnesses"],
   "computer-use": ["computer-use-agents"],
@@ -1029,6 +1039,8 @@ export const evaluationComparison: ComparisonPage = {
 
 export const comparisonPages: ComparisonPage[] = [
   harnessComparison,
+  frameworkComparison,
+  codingAgentsComparison,
   computerUseComparison,
   evaluationComparison,
   ...consumerComparisons,

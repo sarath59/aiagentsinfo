@@ -1,5 +1,5 @@
 import { authorByName } from "@/lib/authors";
-import { absoluteUrl, organizationSameAs, site } from "@/lib/site";
+import { absoluteUrl, organizationSameAs, publisherAlternateName, publisherName, site } from "@/lib/site";
 
 const ISO_DATE = /^\d{4}(-\d{2}-\d{2})?$/;
 
@@ -15,7 +15,8 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": absoluteUrl("/#organization"),
-    name: site.name,
+    name: publisherName,
+    alternateName: publisherAlternateName,
     url: absoluteUrl("/"),
     email: site.email,
     description: site.description,
@@ -34,7 +35,8 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": absoluteUrl("/#website"),
-    name: site.name,
+    name: publisherName,
+    alternateName: publisherAlternateName,
     url: absoluteUrl("/"),
     description: site.description,
     publisher: { "@id": absoluteUrl("/#organization") },
@@ -68,7 +70,8 @@ export const datasetLicenseUrl = "https://creativecommons.org/licenses/by/4.0/";
 function publisherNode() {
   return {
     "@type": "Organization",
-    name: site.name,
+    name: publisherName,
+    alternateName: publisherAlternateName,
     url: absoluteUrl("/"),
     logo: {
       "@type": "ImageObject",
@@ -165,8 +168,10 @@ export function researchArticleJsonLd(input: {
 function datasetOrganization() {
   return {
     "@type": "Organization" as const,
-    name: site.name,
+    name: publisherName,
+    alternateName: publisherAlternateName,
     url: absoluteUrl("/"),
+    sameAs: [...organizationSameAs],
   };
 }
 

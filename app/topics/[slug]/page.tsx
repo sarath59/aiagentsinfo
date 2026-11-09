@@ -13,6 +13,7 @@ import { topicIsIndexable } from "@/lib/indexing";
 import { COMPARISON_HUB, comparisonsForTopic } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
 import { topics } from "@/lib/site";
+import { topicShelves } from "@/lib/topic-shelves";
 
 export async function generateStaticParams() {
   return topics.map((topic) => ({ slug: topic.slug }));
@@ -62,6 +63,20 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         <p className="kicker">Coverage</p>
         <h1 className="display mt-3 text-5xl">{topic.title}</h1>
         <p className="mt-4 text-lg text-[var(--muted)]">{topic.summary}</p>
+        {topicShelves[slug] ? (
+          <section className="mt-10">
+            <h2 className="font-semibold tracking-tight text-2xl">{topicShelves[slug].heading}</h2>
+            <p className="mt-3 text-[var(--muted)]">{topicShelves[slug].answer}</p>
+            <ul className="mt-4 grid gap-3">
+              {topicShelves[slug].links.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.anchor}</Link>
+                  <p className="text-sm text-[var(--muted)]">{item.note}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
         {comparisonsForTopic(slug).length ? (
           <Section title={COMPARISON_HUB.title} emptyTitle="" empty="">
             <li>

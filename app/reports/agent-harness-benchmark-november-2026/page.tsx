@@ -181,7 +181,10 @@ export default async function HarnessBenchmarkPage() {
             website is not filled in when the official board does not list it. The product table is{" "}
             <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>. How to test one action, rather than a
             whole score, is{" "}
-            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>.
+            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>. The
+            shelf for the guides, the research notes, and this benchmark is the{" "}
+            <Link href="/topics/harnesses">agent harnesses hub</Link>. The short pointer page is the{" "}
+            <Link href="/trackers/harnesses">harness comparison tracker</Link>.
           </p>
         </div>
         <section className="glass mt-10 rounded-3xl p-6 sm:p-8">

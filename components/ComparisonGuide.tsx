@@ -35,12 +35,13 @@ export function ComparisonGuide({
   children: ReactNode;
   toc: { id: string; text: string; level: 2 | 3 }[];
 }) {
-  const updatedLabel = formatDate(COMPARISON_VERIFIED_ON);
+  const verifiedOn = page.verifiedOn ?? COMPARISON_VERIFIED_ON;
+  const updatedLabel = page.verifiedOn ? formatDate(page.verifiedOn) : COMPARISON_VERIFIED_LABEL;
   const pageUrl = absoluteUrl(page.path);
-  const citation = `AI Agents Info. "${page.title}." Last verified ${COMPARISON_VERIFIED_LABEL}. ${pageUrl}.`;
+  const citation = `AI Agents Info. "${page.title}." Last verified ${updatedLabel}. ${pageUrl}.`;
   const embed = `<blockquote cite="${pageUrl}">
 <p>${page.description}</p>
-<footer><a href="${pageUrl}">${page.title}</a>, AI Agents Info, last verified ${COMPARISON_VERIFIED_LABEL}.</footer>
+<footer><a href="${pageUrl}">${page.title}</a>, AI Agents Info, last verified ${updatedLabel}.</footer>
 </blockquote>`;
 
   return (
@@ -52,8 +53,8 @@ export function ComparisonGuide({
             title: page.heading,
             description: page.metaDescription,
             path: page.path,
-            datePublished: COMPARISON_VERIFIED_ON,
-            dateModified: COMPARISON_VERIFIED_ON,
+            datePublished: verifiedOn,
+            dateModified: verifiedOn,
           }),
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
@@ -73,8 +74,8 @@ export function ComparisonGuide({
         category="Comparison"
         title={page.heading}
         description={page.description}
-        published={COMPARISON_VERIFIED_ON}
-        updated={COMPARISON_VERIFIED_ON}
+        published={verifiedOn}
+        updated={verifiedOn}
         byline={site.bylines.editorial}
         wide
         takeaways={page.takeaways}
@@ -84,12 +85,13 @@ export function ComparisonGuide({
         related={page.related}
         details={
           <p className="text-sm text-[var(--muted)]">
-            Last verified {updatedLabel}. Cells are licence, list price, and platform from official pages. This is not
-            a quality ranking.
+            Last verified {updatedLabel}.{" "}
+            {page.cellsNote ??
+              "Cells are licence, list price, and platform from official pages. This is not a quality ranking."}
           </p>
         }
       >
-        <p className="text-sm font-medium text-[var(--gold)]">Last verified {COMPARISON_VERIFIED_LABEL}</p>
+        <p className="text-sm font-medium text-[var(--gold)]">Last verified {updatedLabel}</p>
         {children}
         <section className="mt-12" id="comparison-table">
           <h2 className="text-2xl font-semibold tracking-tight">{page.tableHeading}</h2>
@@ -146,9 +148,8 @@ export function ComparisonGuide({
           <h2 className="text-2xl font-semibold tracking-tight">{page.methodHeading}</h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{page.methodLead}</p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            Prices are list prices with the billing unit the vendor printed. Licences are the SPDX or file name on
-            the repository, not a guess. This page does not invent ratings, traffic, or a composite score, and it
-            does not treat benchmark percentages from different tasks as one experiment.
+            {page.methodNote ??
+              "Prices are list prices with the billing unit the vendor printed. Licences are the SPDX or file name on the repository, not a guess. This page does not invent ratings, traffic, or a composite score, and it does not treat benchmark percentages from different tasks as one experiment."}
           </p>
         </section>
         <FaqList

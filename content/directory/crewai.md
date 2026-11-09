@@ -26,4 +26,4 @@ pricingSummary: "The cloud pricing page lists Basic at free, with 50 workflow ex
 lastVerified: "2026-11-03"
 ---
 
-[Multi-agent](/glossary/multi-agent) in product copy often means multiple prompts or roles, not multiple companies. Read the docs for the actual execution model. The framework row is in [Best AI agent harness](/best/ai-agent-harnesses).
+[Multi-agent](/glossary/multi-agent) in product copy often means multiple prompts or roles, not multiple companies. Read the docs for the actual execution model. The framework row is in [Best AI agent harness](/best/ai-agent-harnesses). The November 9, 2026 release tag is on [Best AI agent frameworks](/best/ai-agent-frameworks).

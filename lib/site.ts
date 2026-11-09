@@ -30,6 +30,10 @@ export const site = {
   locale: "en_US",
 } as const;
 
+/** Organization, WebSite, and article publisher name. Visible chrome keeps site.name. */
+export const publisherName = "AI Agents Info (aiagentsinfo.com)";
+export const publisherAlternateName = "aiagentsinfo.com";
+
 /** Official profiles found in this repo. No X, LinkedIn, or Medium profile is published here. */
 export const organizationSameAs = ["https://github.com/sarath59/aiagentsinfo"] as const;
 
@@ -134,6 +138,18 @@ export const comparisons = [
       "Coding, open-source, and local harnesses. Licence, list price, and platform from official pages. Last verified November 2026.",
   },
   {
+    href: "/best/ai-agent-frameworks",
+    title: "Best AI agent frameworks",
+    summary:
+      "19 free and open-source frameworks and SDKs. Licence and latest GitHub release read November 9, 2026.",
+  },
+  {
+    href: "/best/ai-coding-agents",
+    title: "Best AI coding agents",
+    summary:
+      "Claude Code, Codex, Cursor, and GitHub Copilot list prices, free and paid, read November 9, 2026.",
+  },
+  {
     href: "/best/computer-use-agents",
     title: "Best computer use agents",
     summary:
@@ -168,7 +184,7 @@ export const dataAssets = [
   },
   {
     href: "/reports/ai-shopping-agents-next-6-months",
-    title: "AI shopping agents, Nov 2026 to May 2027",
+    title: "AI shopping agents next 6 months: 6 companies",
     summary:
       "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated for shopping agents from November 2026 through May 2027. Checked November 5, 2026.",
   },
@@ -198,9 +214,9 @@ export const dataAssets = [
   },
   {
     href: "/agent-cost-calculator",
-    title: "Agent cost calculator",
+    title: "AI agent cost calculator",
     summary:
-      "Estimate a 30-day model bill from official per-token prices. Pick a model, then enter tokens per task and tasks per day. No login is required.",
+      "Free AI agent and chatbot cost calculator. Estimate a 30-day model bill from official per-token prices. No login is required.",
   },
   {
     href: "/agent-prompt-checker",
@@ -236,6 +252,8 @@ export const footerNav = [
     title: "Trackers",
     links: [
       { href: "/best/ai-agent-harnesses", label: "Best AI agent harness" },
+      { href: "/best/ai-agent-frameworks", label: "Best AI agent frameworks" },
+      { href: "/best/ai-coding-agents", label: "Best AI coding agents" },
       { href: "/best/computer-use-agents", label: "Best computer use agents" },
       { href: "/best/ai-agent-evaluation-tools", label: "Best AI agent evaluation tools" },
       { href: "/best/ai-agents-for-shopping", label: "Best AI agent for shopping" },
@@ -259,7 +277,7 @@ export const footerNav = [
       { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework releases, November 2026" },
       { href: "/verified-revenue", label: "Verified revenue" },
       { href: "/directory/stats", label: "Directory stats" },
-      { href: "/agent-cost-calculator", label: "Agent cost calculator" },
+      { href: "/agent-cost-calculator", label: "AI agent cost calculator" },
       { href: "/agent-prompt-checker", label: "Prompt and tool checker" },
     ],
   },

@@ -247,8 +247,9 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 - Harness hub: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do AI agents work?](/blog/how-do-ai-agents-work), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [agent loop](/glossary/agent-loop), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [tool use](/glossary/tool-use)
 - Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs)
 - Nearby guides: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing)
-- Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research)
-- Report: [harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
+- Topics: [agent harnesses hub](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research)
+- Comparisons: [Best AI agent harness](/best/ai-agent-harnesses), [Best AI agent frameworks](/best/ai-agent-frameworks), [Harness comparison tracker](/trackers/harnesses)
+- Report: [agent harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
 
 ## Frequently asked questions
 

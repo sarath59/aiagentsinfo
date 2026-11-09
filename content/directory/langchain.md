@@ -27,4 +27,4 @@ pricingSummary: "The framework is open source. LangSmith Developer is $0 per sea
 lastVerified: "2026-11-03"
 ---
 
-A framework is not a finished agent. The [harness](/glossary/harness) is the runtime around the model. LangSmith eval pricing is in [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The framework row is in [Best AI agent harness](/best/ai-agent-harnesses).
+A framework is not a finished agent. The [harness](/glossary/harness) is the runtime around the model. LangSmith eval pricing is in [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The framework row is in [Best AI agent harness](/best/ai-agent-harnesses). The November 9, 2026 release tag is on [Best AI agent frameworks](/best/ai-agent-frameworks).

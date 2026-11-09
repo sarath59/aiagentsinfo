@@ -1,6 +1,6 @@
 import { authorBySlug } from "@/lib/authors";
 import { communityListingIsIndexable, isGibberish, isSpamListing } from "@/lib/indexing";
-import { site } from "@/lib/site";
+import { publisherName, site } from "@/lib/site";
 import {
   articleJsonLd,
   assertStructuredData,
@@ -19,8 +19,19 @@ import {
 const editorial = authorBySlug("editorial");
 if (!editorial) throw new Error("Missing editorial author");
 
-assertStructuredData(organizationJsonLd());
-assertStructuredData(websiteJsonLd());
+const organization = organizationJsonLd();
+const website = websiteJsonLd();
+assertStructuredData(organization);
+assertStructuredData(website);
+if (organization.name !== publisherName || organization.alternateName !== "aiagentsinfo.com") {
+  throw new Error("Organization JSON-LD name must be AI Agents Info (aiagentsinfo.com)");
+}
+if (website.name !== publisherName || website.alternateName !== "aiagentsinfo.com") {
+  throw new Error("WebSite JSON-LD name must be AI Agents Info (aiagentsinfo.com)");
+}
+if (organization.url !== "https://www.aiagentsinfo.com" || website.url !== "https://www.aiagentsinfo.com") {
+  throw new Error("Organization and WebSite url must be https://www.aiagentsinfo.com");
+}
 assertStructuredData(
   breadcrumbJsonLd([
     { name: "Home", path: "/" },
@@ -61,11 +72,14 @@ const dataset = datasetJsonLd({
 if (dataset.license !== datasetLicenseUrl) {
   throw new Error(`Dataset license must be ${datasetLicenseUrl}`);
 }
-if (dataset.creator.name !== site.name || dataset.creator.url !== "https://www.aiagentsinfo.com") {
-  throw new Error("Dataset creator must be AI Agents Info at https://www.aiagentsinfo.com");
+if (dataset.creator.name !== publisherName || dataset.creator.url !== "https://www.aiagentsinfo.com") {
+  throw new Error("Dataset creator must be AI Agents Info (aiagentsinfo.com) at https://www.aiagentsinfo.com");
 }
-if (dataset.publisher.name !== site.name || dataset.publisher.url !== "https://www.aiagentsinfo.com") {
-  throw new Error("Dataset publisher must be AI Agents Info at https://www.aiagentsinfo.com");
+if (dataset.publisher.name !== publisherName || dataset.publisher.url !== "https://www.aiagentsinfo.com") {
+  throw new Error("Dataset publisher must be AI Agents Info (aiagentsinfo.com) at https://www.aiagentsinfo.com");
+}
+if (dataset.creator.alternateName !== "aiagentsinfo.com" || dataset.publisher.alternateName !== "aiagentsinfo.com") {
+  throw new Error("Dataset creator and publisher need alternateName aiagentsinfo.com");
 }
 assertStructuredData(dataset);
 assertStructuredData(

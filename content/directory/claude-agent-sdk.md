@@ -27,4 +27,4 @@ lastVerified: "2026-11-03"
 newThisWeek: true
 ---
 
-The Agent SDK is the [harness](/glossary/harness) behind Claude Code, packaged as a library you run. It is not the Claude chat app. A sourced comparison with other runtimes is [Best AI agent harness](/best/ai-agent-harnesses).
+The Agent SDK is the [harness](/glossary/harness) behind Claude Code, packaged as a library you run. It is not the Claude chat app. A sourced comparison with other runtimes is [Best AI agent harness](/best/ai-agent-harnesses). The November 9, 2026 release tag is on [Best AI agent frameworks](/best/ai-agent-frameworks).

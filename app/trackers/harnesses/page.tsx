@@ -29,9 +29,13 @@ export default function HarnessesTrackerPage() {
           <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>, listed on{" "}
           <Link href="/best">Best AI agents</Link>. It covers coding, open-source, and
           local variants. Official SWE-bench and Terminal-Bench scores stay on the{" "}
-          <Link href="/reports/agent-harness-benchmark-november-2026">harness benchmark</Link>. Frameworks already in
-          the directory remain at{" "}
-          <Link href="/directory/category/agent-frameworks">agent frameworks</Link>.
+          <Link href="/reports/agent-harness-benchmark-november-2026">agent harness benchmark for November 2026</Link>.
+          Release tags for 19 libraries are on{" "}
+          <Link href="/best/ai-agent-frameworks">Best AI agent frameworks</Link>. The definition is{" "}
+          <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link>, and how to test one is{" "}
+          <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>. All of
+          those pages are collected on the <Link href="/topics/harnesses">agent harnesses hub</Link>. Frameworks already
+          in the directory remain at <Link href="/directory/category/agent-frameworks">agent frameworks</Link>.
         </p>
       </div>
     </>

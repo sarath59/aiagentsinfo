@@ -27,4 +27,4 @@ lastVerified: "2026-11-03"
 newThisWeek: true
 ---
 
-This is a framework and a [harness](/glossary/harness), not a finished chatbot. Microsoft says to prefer an ordinary function when the task does not need an agent. A sourced comparison is [Best AI agent harness](/best/ai-agent-harnesses).
+This is a framework and a [harness](/glossary/harness), not a finished chatbot. Microsoft says to prefer an ordinary function when the task does not need an agent. A sourced comparison is [Best AI agent harness](/best/ai-agent-harnesses). The November 9, 2026 release tag is on [Best AI agent frameworks](/best/ai-agent-frameworks).
