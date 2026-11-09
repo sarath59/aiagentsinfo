@@ -100,6 +100,66 @@ const broken = errorsOf("{");
 assert.equal(broken.accepted, false);
 assert.ok(broken.errors[0]?.includes("not valid JSON"));
 
+const dotted = errorsOf(
+  JSON.stringify([
+    {
+      type: "function",
+      name: "orders.lookup",
+      description: "Look up an order by its id.",
+      strict: true,
+      parameters: {
+        type: "object",
+        properties: { order_id: { type: "string" } },
+        required: ["order_id"],
+        additionalProperties: false,
+      },
+    },
+  ]),
+);
+assert.deepEqual(dotted.errors, []);
+assert.ok(dotted.warnings.some((item) => item.includes("contains a dot")));
+assert.ok(dotted.warnings.some((item) => item.includes("(?![\\s\\S]*[\\r\\n])")));
+
+const dottedNamespace = errorsOf(
+  JSON.stringify([
+    {
+      type: "namespace",
+      name: "orders",
+      description: "Order tools.",
+      tools: [
+        {
+          type: "function",
+          name: "orders.lookup",
+          description: "Look up an order by its id.",
+          parameters: {
+            type: "object",
+            properties: { order_id: { type: "string" } },
+            required: ["order_id"],
+            additionalProperties: false,
+          },
+        },
+      ],
+    },
+  ]),
+);
+assert.ok(dottedNamespace.errors.some((item) => item.includes("inside a namespace")));
+
+const mcpDotted = errorsOf(
+  JSON.stringify({
+    tools: [
+      {
+        name: "admin.tools.list",
+        description: "List admin tools.",
+        inputSchema: { type: "object", additionalProperties: false },
+      },
+    ],
+  }),
+  "mcp",
+);
+assert.deepEqual(mcpDotted.errors, []);
+assert.ok(mcpDotted.warnings.some((item) => item.includes("2026-07-28")));
+assert.equal(mcpDotted.warnings.some((item) => item.includes("does not publish")), false);
+
 const strictGap = errorsOf(
   JSON.stringify([
     {

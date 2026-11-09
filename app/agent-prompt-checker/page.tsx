@@ -36,7 +36,7 @@ const sources = [
   { name: "Anthropic, define tools", url: ANTHROPIC_DEFINE_TOOLS_URL, read: SCHEMA_READ_ON },
   { name: "Anthropic, tool use overview", url: ANTHROPIC_TOOL_USE_URL, read: SCHEMA_READ_ON },
   { name: "Anthropic, strict tool use", url: ANTHROPIC_STRICT_TOOLS_URL, read: SCHEMA_READ_ON },
-  { name: "MCP tools specification, 2025-06-18", url: MCP_TOOLS_URL, read: SCHEMA_READ_ON },
+  { name: "MCP tools specification, 2026-07-28", url: MCP_TOOLS_URL, read: SCHEMA_READ_ON },
   { name: "tiktoken", url: TIKTOKEN_URL, read: SCHEMA_READ_ON },
   { name: "OpenAI API pricing", url: OPENAI_PRICING_URL, read: PRICE_READ_ON },
   { name: "Anthropic Claude API pricing", url: ANTHROPIC_PRICING_URL, read: PRICE_READ_ON },
@@ -114,6 +114,10 @@ export default function PromptCheckerPage() {
             Related:{" "}
             <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
               agent cost calculator
+            </Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/blog/agent-tool-json-cost-across-models">
+              agent tool JSON cost
             </Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/blog/what-is-an-ai-agent-harness">

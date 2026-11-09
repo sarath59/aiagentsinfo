@@ -1,10 +1,10 @@
-export const SCHEMA_READ_ON = "2026-11-06";
+export const SCHEMA_READ_ON = "2026-11-09";
 
 export const OPENAI_FUNCTION_CALLING_URL = "https://developers.openai.com/api/docs/guides/function-calling";
 export const ANTHROPIC_DEFINE_TOOLS_URL = "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools";
 export const ANTHROPIC_TOOL_USE_URL = "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview";
 export const ANTHROPIC_STRICT_TOOLS_URL = "https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use";
-export const MCP_TOOLS_URL = "https://modelcontextprotocol.io/specification/2025-06-18/server/tools";
+export const MCP_TOOLS_URL = "https://modelcontextprotocol.io/specification/2026-07-28/server/tools";
 
 export type ToolTarget = "auto" | "openai" | "anthropic" | "mcp";
 
@@ -33,7 +33,15 @@ type Kind =
   | "tool-call"
   | "unknown";
 
-const NAME_PATTERN = /^[a-zA-Z0-9_-]{1,128}$/;
+/** Anthropic's define-tools page requires this pattern. The Responses reference prints it for a function name inside a namespace. */
+const NO_DOT_NAME = /^[a-zA-Z0-9_-]{1,128}$/;
+/**
+ * Widest function-name pattern printed in the Responses reference, on a function loaded inside a tool-search namespace.
+ * A top-level function name on that reference has no separate pattern. Newlines are already outside the character class.
+ */
+const OPENAI_FUNCTION_NAME = /^[a-zA-Z0-9_.-]{1,128}$/;
+/** MCP tools page, revision 2026-07-28: letters, digits, underscore, hyphen, and dot, 1 to 128 characters. */
+const MCP_NAME = /^[A-Za-z0-9_.-]{1,128}$/;
 const JSON_TYPES = new Set(["string", "number", "integer", "boolean", "object", "array", "null"]);
 const OPENAI_BUILTINS = new Set([
   "file_search",
@@ -289,7 +297,7 @@ function validate(tool: Record<string, unknown>, kind: Kind, path: string, issue
 }
 
 function validateNamespace(tool: Record<string, unknown>, path: string, issues: ToolIssue[]) {
-  const name = readName(tool.name, `${path}.name`, issues, "openai");
+  const name = readName(tool.name, `${path}.name`, issues, "openai-namespace-name");
   if (typeof tool.description !== "string" || !tool.description.trim()) {
     issues.push(
       issue("warning", `${path}.description`, "The namespace example in the function-calling guide includes a description."),
@@ -307,7 +315,7 @@ function validateNamespace(tool: Record<string, unknown>, path: string, issues: 
       item.type === "function" && isRecord(item.function)
         ? validateOpenAiChat(item, child, issues)
         : item.type === "function" || typeof item.name === "string"
-          ? validateOpenAiFunction(item, child, issues, "responses")
+          ? validateOpenAiFunction(item, child, issues, "responses", "namespace")
           : null;
     if (!found) issues.push(issue("error", child, "A namespace tool should be a function with type \"function\"."));
     omittedStrict = omittedStrict || Boolean(found?.omittedStrict);
@@ -350,12 +358,13 @@ function validateOpenAiFunction(
   path: string,
   issues: ToolIssue[],
   shape: "responses",
+  scope: "top" | "namespace" = "top",
 ) {
   if (shape === "responses" && tool.type !== "function") {
     issues.push(issue("error", `${path}.type`, "An OpenAI function tool sets type to \"function\"."));
   }
   rejectForeignSchema(tool, path, issues, "openai");
-  const name = readName(tool.name, `${path}.name`, issues, "openai");
+  const name = readName(tool.name, `${path}.name`, issues, scope === "namespace" ? "openai-namespace" : "openai");
   readDescription(tool.description, `${path}.description`, issues, "openai");
   const strict = resolveStrict(tool.strict, undefined, path, issues);
   readParameters(tool.parameters, `${path}.parameters`, issues, strict === "true", "OpenAI");
@@ -454,30 +463,84 @@ function rejectForeignSchema(tool: Record<string, unknown>, path: string, issues
   }
 }
 
-function readName(value: unknown, path: string, issues: ToolIssue[], owner: "openai" | "anthropic" | "mcp") {
+function readName(
+  value: unknown,
+  path: string,
+  issues: ToolIssue[],
+  owner: "openai" | "openai-namespace" | "openai-namespace-name" | "anthropic" | "mcp",
+) {
   if (typeof value !== "string" || !value.trim()) {
     issues.push(issue("error", path, "The tool needs a name."));
     return null;
   }
-  if (NAME_PATTERN.test(value)) return value;
   const shown = clip(value);
+  if (owner === "anthropic") {
+    if (!NO_DOT_NAME.test(value)) {
+      issues.push(
+        issue(
+          "error",
+          path,
+          `"${shown}" does not match ^[a-zA-Z0-9_-]{1,128}$. Anthropic's define-tools page requires that pattern.`,
+        ),
+      );
+    }
+    return value;
+  }
+  if (owner === "openai-namespace" || owner === "openai-namespace-name") {
+    if (!NO_DOT_NAME.test(value)) {
+      issues.push(
+        issue(
+          "error",
+          path,
+          owner === "openai-namespace"
+            ? `"${shown}" does not match ^[a-zA-Z0-9_-]{1,128}$. The Responses reference publishes that pattern for a function name inside a namespace, up to 128 characters.`
+            : `"${shown}" does not match ^[a-zA-Z0-9_-]{1,128}$. A function name inside a namespace uses that pattern, up to 128 characters. The namespace field on a function-call output uses ^[a-zA-Z0-9_-]+$ up to 64 characters. The Namespace tool's own name field prints minLength 1 and the example crm.`,
+        ),
+      );
+    }
+    return value;
+  }
   if (owner === "mcp") {
+    if (MCP_NAME.test(value)) {
+      if (!NO_DOT_NAME.test(value)) {
+        issues.push(
+          issue(
+            "warning",
+            path,
+            `"${shown}" fits the tool-name guidance on the MCP tools page for revision 2026-07-28: 1 to 128 characters from letters, digits, underscore, hyphen, and dot. The page's own example is admin.tools.list. Anthropic's define-tools page requires ^[a-zA-Z0-9_-]{1,128}$, which rejects a dot. OpenAI publishes that no-dot pattern for a function name inside a namespace.`,
+          ),
+        );
+      }
+      return value;
+    }
     issues.push(
       issue(
         "warning",
         path,
-        `"${shown}" does not match ^[a-zA-Z0-9_-]{1,128}$. The MCP tools page does not publish that pattern. Anthropic's define-tools page requires it, and OpenAI's Responses reference publishes it for function names inside a namespace, with a maximum of 128 characters. A name outside the pattern will not copy to those APIs.`,
+        `"${shown}" is outside the tool-name guidance on the MCP tools page for revision 2026-07-28. A name SHOULD be 1 to 128 characters and SHOULD use only letters, digits, underscore, hyphen, and dot. Anthropic's define-tools page requires ^[a-zA-Z0-9_-]{1,128}$.`,
       ),
     );
     return value;
   }
-  issues.push(
-    issue(
-      "error",
-      path,
-      `"${shown}" does not match ^[a-zA-Z0-9_-]{1,128}$. Anthropic's define-tools page requires that pattern. OpenAI's Responses reference publishes the same pattern for function names inside a namespace, up to 128 characters.`,
-    ),
-  );
+  if (!OPENAI_FUNCTION_NAME.test(value)) {
+    issues.push(
+      issue(
+        "error",
+        path,
+        `"${shown}" does not match ^(?![\\s\\S]*[\\r\\n])[a-zA-Z0-9_.-]+$ with a length of 1 to 128. That is the widest function-name pattern the Responses reference prints, on a function loaded inside a tool-search namespace. A top-level function name on that reference has no separate pattern. Anthropic's define-tools page requires ^[a-zA-Z0-9_-]{1,128}$.`,
+      ),
+    );
+    return value;
+  }
+  if (!NO_DOT_NAME.test(value)) {
+    issues.push(
+      issue(
+        "warning",
+        path,
+        `"${shown}" contains a dot. The Responses reference allows a dot in ^(?![\\s\\S]*[\\r\\n])[a-zA-Z0-9_.-]+$ for a function loaded inside a tool-search namespace, and it does not print a pattern on a top-level function name. A function name inside a namespace tool must match ^[a-zA-Z0-9_-]{1,128}$, which rejects a dot. Anthropic's define-tools page requires that same no-dot pattern.`,
+      ),
+    );
+  }
   return value;
 }
 

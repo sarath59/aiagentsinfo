@@ -100,7 +100,7 @@ export async function buildLlmsTxt() {
       item(
         "AI agent cost calculator: free 30-day bill",
         "/agent-cost-calculator",
-        "Free AI agent and chatbot cost calculator. 21 official models. Prices read November 5, 2026.",
+        "Free AI agent and chatbot cost calculator. 21 official models. Prices read November 9, 2026.",
       ),
       item(
         "Prompt and tool checker",

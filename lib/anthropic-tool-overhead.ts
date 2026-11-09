@@ -1,10 +1,10 @@
 import { ANTHROPIC_TOOL_USE_URL } from "@/lib/tool-definitions";
 
-export const ANTHROPIC_TOOL_PROMPT_READ_ON = "2026-11-06";
+export const ANTHROPIC_TOOL_PROMPT_READ_ON = "2026-11-09";
 export { ANTHROPIC_TOOL_USE_URL };
 
 /**
- * Tool-use system prompt tokens from Anthropic's tool-use overview, read 2026-11-06.
+ * Tool-use system prompt tokens from Anthropic's tool-use overview, read 2026-11-09.
  * autoOrNone is the published count for tool_choice auto or none when at least one tool is sent.
  * anyOrTool is omitted when that cell on the page was blank.
  */

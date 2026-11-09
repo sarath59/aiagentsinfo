@@ -18,7 +18,7 @@ import { formatDate } from "@/lib/utils";
 const path = "/agent-cost-calculator";
 const title = "AI agent cost calculator: free 30-day bill";
 const description =
-  "Free AI agent and chatbot cost calculator for 21 official models. Enter tokens per task and tasks per day for a 30-day bill. No login. Prices read November 5, 2026.";
+  "Free AI agent and chatbot cost calculator for 21 official models. Enter tokens per task and tasks per day for a 30-day bill. No login. Prices read November 9, 2026.";
 
 export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 
@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "What is an AI agent cost calculator?",
     answer:
-      "It estimates a 30-day model bill. You pick one of 21 models, enter tokens per task and tasks per day, and the page multiplies by the provider’s standard per-token price. Prices were read November 5, 2026.",
+      "It estimates a 30-day model bill. You pick one of 21 models, enter tokens per task and tasks per day, and the page multiplies by the provider’s standard per-token price. Prices were read November 9, 2026.",
   },
   {
     question: "Is this a chatbot cost calculator?",
