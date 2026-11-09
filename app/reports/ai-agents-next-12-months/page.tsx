@@ -9,7 +9,7 @@ import { categoryTitle, getBlogPost } from "@/lib/blog";
 import { description, months, path, readOn, readingMinutes, sources, title } from "@/lib/agents-12-month-outlook";
 import { categorySummaries } from "@/lib/directory-meta";
 import { getGlossaryTerm } from "@/lib/glossary";
-import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
@@ -124,6 +124,7 @@ export default async function AgentsTwelveMonthOutlookPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path, datePublished: readOn, dateModified: readOn })} />
+      <JsonLd data={datasetJsonLd({ title, description, path, datePublished: readOn, dateModified: readOn })} />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },

@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { BestOfLinks } from "@/components/BestOfLinks";
+import { FeaturedSnippet } from "@/components/FeaturedSnippet";
+import { TrackLink } from "@/components/TrackLink";
+import { UpdatedLine } from "@/components/UpdatedLine";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { InlineCompanyText } from "@/components/CompanyMarks";
 import { ListingRow, ListingStatus } from "@/components/ListingCard";
@@ -103,6 +106,7 @@ export async function ListingProfile({
           ) : null}
           Last verified: <time dateTime={listing.lastVerified}>{checked}</time>
         </p>
+        <UpdatedLine date={listing.lastVerified} />
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <a className="btn-primary focus-ring px-4 py-2 text-sm" href={listing.website} rel="noreferrer">
             {cta}
@@ -112,6 +116,16 @@ export async function ListingProfile({
             {categoryTitle(listing.category)}
           </Link>
         </div>
+        <p className="mt-4 text-sm">
+          <TrackLink
+            href={`/submit?claim=${listing.slug}`}
+            goal="claim_click"
+            className="text-[var(--link)] underline"
+          >
+            Is this your tool? Claim / update this listing
+          </TrackLink>
+        </p>
+        <FeaturedSnippet path={`/directory/${listing.slug}`} />
         <div className="listing-fit">
           {pricingNote ? (
             <div>

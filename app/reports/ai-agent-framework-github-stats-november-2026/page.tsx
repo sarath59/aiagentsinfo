@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ToolCtas } from "@/components/ToolCtas";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { FaqList } from "@/components/FaqList";
@@ -40,7 +41,7 @@ import { BENCHMARK_READ_ON } from "@/lib/harness-benchmark";
 import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 
-export const metadata = defaultMetadata(title, description, path);
+export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 
 export default async function FrameworkGithubStatsPage() {
   const stats = await getDirectoryStats();
@@ -85,6 +86,7 @@ export default async function FrameworkGithubStatsPage() {
         title={title}
         description={description}
         published={retrievedDay}
+        updated={retrievedDay}
         byline={site.bylines.research}
         wide
         details={
@@ -108,11 +110,11 @@ export default async function FrameworkGithubStatsPage() {
         }
         takeaways={takeaways()}
         toc={[
-          { id: "key-figures", text: "Key figures", level: 2 },
-          { id: "repositories", text: "Repositories", level: 2 },
-          { id: "licences", text: "Licences", level: 2 },
-          { id: "release-recency", text: "Release recency", level: 2 },
-          { id: "methodology", text: "Methodology", level: 2 },
+          { id: "key-figures", text: "Which figures does this snapshot report?", level: 2 },
+          { id: "repositories", text: "Which frameworks are in the table?", level: 2 },
+          { id: "licences", text: "What licences does GitHub report?", level: 2 },
+          { id: "release-recency", text: "Which frameworks released recently?", level: 2 },
+          { id: "methodology", text: "Where do the numbers come from?", level: 2 },
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
@@ -169,8 +171,11 @@ export default async function FrameworkGithubStatsPage() {
 
         <section className="mt-10" aria-labelledby="key-figures">
           <h2 id="key-figures" className="text-2xl font-semibold tracking-tight">
-            Key figures
+            Which figures does this November 2026 snapshot report?
           </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed">
+            {takeaways()[0]}
+          </p>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             Each card is calculated from the snapshot of {retrievedAt}.
           </p>
@@ -195,8 +200,11 @@ export default async function FrameworkGithubStatsPage() {
 
         <section className="mt-12">
           <h2 id="repositories" className="text-2xl font-semibold tracking-tight">
-            Repositories
+            Which AI agent frameworks are in the sortable table?
           </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed">
+            The table lists every repository in the snapshot and sorts by stars. Filter by a minimum star count or by whether GitHub detected an open-source licence.
+          </p>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             The framework name links to the GitHub repository. Open issues + PRs is GitHub&apos;s open_issues_count,
             which includes open pull requests. {packageNote}
@@ -208,20 +216,21 @@ export default async function FrameworkGithubStatsPage() {
               rows={frameworkRows()}
               defaultSort="stars"
               downloadHref={csvPath}
+              filters={["stars", "free", "openSource"]}
             />
           </div>
         </section>
 
         <section className="mt-12">
           <h2 id="licences" className="text-2xl font-semibold tracking-tight">
-            Licences
+            What licences does GitHub report?
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{licenceSentence()}</p>
         </section>
 
         <section className="mt-12">
           <h2 id="release-recency" className="text-2xl font-semibold tracking-tight">
-            Release recency
+            Which AI agent frameworks released recently?
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{recentReleaseSentence()}</p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{quietReleaseSentence()}</p>
@@ -237,7 +246,7 @@ export default async function FrameworkGithubStatsPage() {
 
         <section className="mt-12">
           <h2 id="methodology" className="text-2xl font-semibold tracking-tight">
-            Methodology
+            Where do the November 2026 numbers come from?
           </h2>
           {methodologyFacts().map((fact) => (
             <p key={fact} className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
@@ -265,6 +274,10 @@ export default async function FrameworkGithubStatsPage() {
               {benchmarkTitle}
             </Link>
             ,{" "}
+            <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
+              AI agent framework comparison table
+            </Link>
+            ,{" "}
             <Link className="text-[var(--link)] underline" href="/directory/category/agent-frameworks">
               agent frameworks
             </Link>
@@ -280,6 +293,7 @@ export default async function FrameworkGithubStatsPage() {
           </p>
         </section>
 
+        <ToolCtas tools={["picker", "calculator"]} />
         <FaqList
           items={faq.map((item) => ({
             question: item.question,

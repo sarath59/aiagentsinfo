@@ -40,7 +40,12 @@ export default function BestAiCodingAgentsPage() {
           </p>
           <p>
             A plan price is not a count of how much code the agent will write. Token bills, separate from these seat
-            prices, are the <Link href="/agent-cost-calculator">AI agent cost calculator</Link>. The libraries those
+            prices, are the <Link href="/agent-cost-calculator">AI agent cost calculator</Link>. Cursor, Claude Code,
+            and Codex seat prices sit beside that calculator on the{" "}
+            <Link href="/tools/cursor-vs-claude-code-vs-codex-pricing">
+              Cursor vs Claude Code vs Codex pricing calculator
+            </Link>
+            . The libraries those
             products sit beside are <Link href="/best/ai-agent-frameworks">Best AI agent frameworks</Link>. The loop
             around the model is <Link href="/topics/harnesses">Agent harnesses</Link>.
           </p>

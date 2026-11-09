@@ -2,6 +2,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ContentCard } from "@/components/ContentCard";
 import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { PageHeader } from "@/components/PageHeader";
+import { ToolHub } from "@/components/ToolHub";
+import { WeeklySignup } from "@/components/WeeklySignup";
 import { getDirectoryStats } from "@/lib/directory-stats";
 import { path as frameworkGithubPath, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
 import { PRICE_READ_ON } from "@/lib/model-prices";
@@ -61,6 +63,8 @@ export default async function ReportsPage() {
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <ContentDeskNav current="/reports" />
+        <ToolHub />
+        <WeeklySignup />
         <div className="content-grid">
           {dataAssets.map((item) => (
             <ContentCard

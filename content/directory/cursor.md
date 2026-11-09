@@ -1,6 +1,6 @@
 ---
 name: Cursor
-title: "Cursor AI: what it is and the Nov 2026 price"
+title: "Cursor AI: Free $0, Plus $8/mo (Nov 9, 2026)"
 absoluteTitle: true
 vendor: Anysphere
 website: https://cursor.com

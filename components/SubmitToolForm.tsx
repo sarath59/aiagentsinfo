@@ -1,6 +1,7 @@
 "use client";
 
 import { cloneElement, useState, type FormEvent, type ReactElement } from "react";
+import { trackGoal } from "@/lib/analytics";
 import { billingPeriods, directoryCategories, pricingModels } from "@/lib/directory-meta";
 import { SubmissionShareKit, type ShareListing } from "@/components/SubmissionShareKit";
 import {
@@ -77,6 +78,7 @@ export function SubmitToolForm() {
 
     setStatus("loading");
     setErrors({});
+    trackGoal("submit_click");
     setMessage("");
     try {
       const response = await fetch("/api/submit-tool", {

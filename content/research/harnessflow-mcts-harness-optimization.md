@@ -1,8 +1,15 @@
 ---
-title: "Paper breakdown: HarnessFlow — MCTS search for agent harness optimization"
-description: "November 4, 2026 arXiv paper: with 15 refinement attempts per benchmark, HarnessFlow averaged 69.48%, 10.89 points above Vanilla and 3.95 points above Meta-Harness."
+title: "HarnessFlow MCTS harness optimization: 69.48% average"
+description: "HarnessFlow MCTS harness optimization, arXiv November 4, 2026: with 15 refinement attempts per benchmark, the average is 69.48%, 10.89 points above Vanilla and 3.95 points above Meta-Harness. The comparison table is on this page."
 date: "2026-11-06"
-updated: "2026-11-06"
+updated: "2026-11-09"
+absoluteTitle: true
+ledeQuestion: "What average did HarnessFlow report?"
+ledeAnswer: "With 15 refinement attempts per benchmark, HarnessFlow averaged 69.48%, 10.89 points above Vanilla and 3.95 points above Meta-Harness."
+dataset:
+  title: "HarnessFlow benchmark means, November 2026"
+  description: "Mean test scores from Hong et al., arXiv:2611.06254, with 15 refinement attempts per benchmark. HarnessFlow averaged 69.48%."
+  isBasedOn: "https://arxiv.org/abs/2611.06254"
 type: paper-breakdown
 topics:
   - harnesses

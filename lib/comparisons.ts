@@ -1,8 +1,10 @@
 import type { RelatedCard } from "@/components/ArticleTemplate";
 import { codingAgentsComparison } from "@/lib/coding-agents-comparison";
 import { consumerComparisons } from "@/lib/consumer-comparisons";
+import { starsForRepo } from "@/lib/framework-stars";
 import { frameworkComparison } from "@/lib/framework-comparison";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
+import { licenceIsOpenSource, textIsFree } from "@/lib/table-facets";
 
 export const COMPARISON_VERIFIED_ON = "2026-11-08";
 export const COMPARISON_VERIFIED_LABEL = "November 2026";
@@ -131,30 +133,41 @@ const GLOSSARY_COMPARISON_SLUGS: Record<string, string[]> = {
 };
 
 export function comparisonRows(rows: ComparisonRow[]): SortableRow[] {
-  return rows.map((row) => ({
-    id: row.id,
-    sort: {
-      name: row.name,
-      vendor: row.vendor,
-      bestFor: row.bestFor,
-      license: row.license,
-      pricing: row.pricing,
-      platform: row.platform,
-      sources: row.sourceIds.join(","),
-    },
-    display: {
-      name: row.name,
-      vendor: row.vendor,
-      bestFor: row.bestFor,
-      license: row.license,
-      pricing: row.pricing,
-      platform: row.platform,
-      sources: row.sourceIds.map((id) => `[${id}]`).join(" "),
-    },
-    href: {
-      name: row.listingSlug ? `/directory/${row.listingSlug}` : row.website,
-    },
-  }));
+  return rows.map((row) => {
+    const stars = starsForRepo(row.vendor);
+    return {
+      id: row.id,
+      sort: {
+        name: row.name,
+        vendor: row.vendor,
+        bestFor: row.bestFor,
+        license: row.license,
+        pricing: row.pricing,
+        platform: row.platform,
+        sources: row.sourceIds.join(","),
+        stars,
+      },
+      display: {
+        name: row.name,
+        vendor: row.vendor,
+        bestFor: row.bestFor,
+        license: row.license,
+        pricing: row.pricing,
+        platform: row.platform,
+        sources: row.sourceIds.map((id) => `[${id}]`).join(" "),
+        stars: stars == null ? "" : stars.toLocaleString("en-US"),
+      },
+      href: {
+        name: row.listingSlug ? `/directory/${row.listingSlug}` : row.website,
+      },
+      facets: {
+        stars,
+        free: textIsFree(row.pricing, row.license),
+        openSource: licenceIsOpenSource(row.license),
+        useCase: row.bestFor,
+      },
+    };
+  });
 }
 
 export const harnessComparison: ComparisonPage = {

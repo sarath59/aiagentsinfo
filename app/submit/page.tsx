@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { SubmitToolForm } from "@/components/SubmitToolForm";
+import { getDirectoryListing } from "@/lib/directory";
 import { defaultMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Submit your tool",
@@ -11,7 +12,17 @@ export const metadata = defaultMetadata(
   "/submit",
 );
 
-export default function SubmitPage() {
+export default async function SubmitPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ claim?: string }>;
+}) {
+  const { claim } = await searchParams;
+  const listing = claim ? await getDirectoryListing(claim) : undefined;
+  const mailto = listing
+    ? `mailto:${site.email}?subject=${encodeURIComponent(`Claim / update listing: ${listing.name}`)}&body=${encodeURIComponent(`Listing: ${absoluteUrl(`/directory/${listing.slug}`)}\n\nWhat should change:\n`)}`
+    : "";
+
   return (
     <>
       <Breadcrumbs
@@ -26,6 +37,23 @@ export default function SubmitPage() {
         summary="No account and no fee. A valid submission is published automatically. Payment does not buy a listing or a rank."
       />
       <div className="mx-auto grid max-w-2xl gap-12 px-4 pb-20">
+        {listing ? (
+          <p className="rounded-3xl border border-[var(--stroke)] bg-white p-5 text-sm leading-relaxed">
+            {listing.name} is already listed at{" "}
+            <Link href={`/directory/${listing.slug}`}>{absoluteUrl(`/directory/${listing.slug}`)}</Link>. To claim or
+            update that page, email the desk. The form below is for a product that is not listed yet. A duplicate
+            domain is not published twice.
+            {mailto ? (
+              <>
+                {" "}
+                <a className="text-[var(--link)] underline" href={mailto}>
+                  Email an update for {listing.name}
+                </a>
+                .
+              </>
+            ) : null}
+          </p>
+        ) : null}
         <SubmitToolForm />
         <section className="text-sm leading-relaxed text-[var(--muted)]">
           <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">What happens next</h2>

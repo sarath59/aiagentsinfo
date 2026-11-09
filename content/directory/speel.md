@@ -1,5 +1,7 @@
 ---
 name: Speel
+title: "Speel: Starter $49/mo, 1,200 credits (Nov 4, 2026)"
+absoluteTitle: true
 vendor: Speel
 website: https://www.speel.co
 logo: /logos/speel.png

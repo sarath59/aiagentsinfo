@@ -3,7 +3,11 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
 import { BestOfLinks } from "@/components/BestOfLinks";
 import { ListingCard } from "@/components/ListingCard";
+import { ListYourAgent } from "@/components/ListYourAgent";
 import { SubmitToolButton } from "@/components/SubmitToolButton";
+import { ToolHub } from "@/components/ToolHub";
+import { UpdatedLine } from "@/components/UpdatedLine";
+import { WeeklySignup } from "@/components/WeeklySignup";
 import {
   allTags,
   allUseCases,
@@ -23,6 +27,7 @@ export async function generateMetadata({
 }) {
   const params = await searchParams;
   const filters = directoryFilters(params);
+  const listings = await getDirectoryListings();
   const filtered = Object.values(filters).some(Boolean);
   const onlyCategory =
     Boolean(filters.category) &&
@@ -33,12 +38,13 @@ export async function generateMetadata({
     !filters.audience &&
     !filters.tag;
   return defaultMetadata(
-    "Tools, apps, SaaS, and agents",
-    "A directory of AI SaaS, tools, apps, and agents. Each listing names a real product and its official site.",
+    `AI agent directory: ${listings.length} tools`,
+    `AI agent directory of ${listings.length} tools, apps, SaaS products, and agents. Each listing names a real product and its official site. No ratings.`,
     "/directory",
     {
       index: !filtered,
       canonicalPath: onlyCategory ? `/directory/category/${filters.category}` : "/directory",
+      absoluteTitle: true,
     },
   );
 }
@@ -63,6 +69,7 @@ export default async function DirectoryPage({
   const filters = directoryFilters(params);
   const listings = await getDirectoryListings();
   const filtered = filterDirectory(listings, filters);
+  const updated = listings.reduce((latest, listing) => (listing.lastVerified > latest ? listing.lastVerified : latest), "");
   const tags = allTags(listings);
   const useCases = allUseCases(listings);
   const select = "focus-ring rounded-full border border-[var(--stroke)] bg-transparent px-3 py-2 text-sm";
@@ -72,7 +79,11 @@ export default async function DirectoryPage({
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Directory", path: "/directory" }]} />
       <header className="mx-auto max-w-6xl px-4 pb-6 pt-10">
         <p className="kicker kicker-lead">AI directory</p>
-        <h1 className="display mt-3 text-4xl sm:text-5xl">Tools, apps, SaaS, and agents</h1>
+        <h1 className="display mt-3 text-4xl sm:text-5xl">What is in the AI agent directory?</h1>
+        {updated ? <UpdatedLine date={updated} /> : null}
+        <p className="mt-3 max-w-2xl text-lg leading-relaxed">
+          {listings.length} listings, each with an official site. No ratings and no invented rankings.
+        </p>
         <div className="mt-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <p className="max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
             Real products with a working official site. No ratings, user counts, or invented rankings. Editorial
@@ -84,6 +95,8 @@ export default async function DirectoryPage({
       </header>
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <BestOfLinks intro="Directory listings that appear in a sourced comparison keep the same product name and official site." />
+        <ToolHub />
+        <WeeklySignup />
 
         <div className="flex flex-wrap gap-2">
           <Link href="/directory/new" className="chip">
@@ -179,6 +192,7 @@ export default async function DirectoryPage({
             />
           </div>
         )}
+        <ListYourAgent />
       </div>
     </>
   );

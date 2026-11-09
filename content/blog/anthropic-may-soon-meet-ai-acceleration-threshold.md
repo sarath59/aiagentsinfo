@@ -1,5 +1,5 @@
 ---
-title: "Anthropic AI acceleration threshold, Nov 2 2026"
+title: "Anthropic may soon meet its AI acceleration threshold (Nov 2, 2026)"
 description: "Anthropic’s November 2, 2026 Form S-1/A says estimates for future models may soon meet its AI acceleration rule. No current model is designated past that line."
 absoluteTitle: true
 takeaways:

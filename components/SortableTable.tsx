@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import type { SortableColumn, SortableRow } from "@/lib/sortable";
+import { useMemo, useRef, useState } from "react";
+import { trackGoal } from "@/lib/analytics";
+import type { SortableColumn, SortableRow, TableFilterKey } from "@/lib/sortable";
+import { formatDate } from "@/lib/utils";
 
 function compare(a: SortableRow, b: SortableRow, key: string, direction: "asc" | "desc") {
   const left = a.sort[key];
@@ -25,6 +27,8 @@ export function SortableTable({
   defaultDirection = "desc",
   caption,
   downloadHref,
+  filters = [],
+  starsReadOn,
 }: {
   columns: SortableColumn[];
   rows: SortableRow[];
@@ -32,16 +36,50 @@ export function SortableTable({
   defaultDirection?: "asc" | "desc";
   caption: string;
   downloadHref?: string;
+  filters?: TableFilterKey[];
+  /** ISO day for a star count that comes from the GitHub snapshot, when it is not the page's own date. */
+  starsReadOn?: string;
 }) {
   const [sortKey, setSortKey] = useState(defaultSort);
   const [direction, setDirection] = useState<"asc" | "desc">(defaultDirection);
+  const [minStars, setMinStars] = useState("");
+  const [price, setPrice] = useState<"all" | "free" | "paid">("all");
+  const [source, setSource] = useState<"all" | "open" | "closed">("all");
+  const [useCase, setUseCase] = useState("all");
+  const sortedOnce = useRef(false);
+
+  const showStars = filters.includes("stars") && rows.some((row) => typeof row.facets?.stars === "number");
+  const showFree = filters.includes("free") && rows.some((row) => typeof row.facets?.free === "boolean");
+  const showSource = filters.includes("openSource") && rows.some((row) => typeof row.facets?.openSource === "boolean");
+  const useCases = filters.includes("useCase")
+    ? [...new Set(rows.map((row) => row.facets?.useCase).filter((value): value is string => Boolean(value)))].sort((a, b) =>
+        a.localeCompare(b),
+      )
+    : [];
+
+  const filtered = useMemo(() => {
+    const minimum = minStars.trim() === "" ? null : Number(minStars);
+    return rows.filter((row) => {
+      if (showStars && minimum != null && Number.isFinite(minimum)) {
+        if (typeof row.facets?.stars !== "number" || row.facets.stars < minimum) return false;
+      }
+      if (showFree && price !== "all" && row.facets?.free !== (price === "free")) return false;
+      if (showSource && source !== "all" && row.facets?.openSource !== (source === "open")) return false;
+      if (useCase !== "all" && row.facets?.useCase !== useCase) return false;
+      return true;
+    });
+  }, [rows, minStars, price, source, useCase, showStars, showFree, showSource]);
 
   const ordered = useMemo(
-    () => [...rows].sort((a, b) => compare(a, b, sortKey, direction)),
-    [rows, sortKey, direction],
+    () => [...filtered].sort((a, b) => compare(a, b, sortKey, direction)),
+    [filtered, sortKey, direction],
   );
 
   function onSort(key: string) {
+    if (!sortedOnce.current) {
+      sortedOnce.current = true;
+      trackGoal("table_sort");
+    }
     if (key === sortKey) {
       setDirection((current) => (current === "asc" ? "desc" : "asc"));
       return;
@@ -51,8 +89,67 @@ export function SortableTable({
     setDirection(column?.numeric ? "desc" : "asc");
   }
 
+  const selectClass = "focus-ring rounded-full border border-[var(--stroke)] bg-white px-3 py-2 text-sm";
+
   return (
     <div className="table-block">
+      {showStars || showFree || showSource || useCases.length ? (
+        <div className="no-print mb-3 flex flex-wrap items-end gap-3">
+          {showStars ? (
+            <label className="grid gap-1 text-sm">
+              <span className="kicker">Minimum stars</span>
+              <input
+                type="number"
+                min={0}
+                inputMode="numeric"
+                value={minStars}
+                onChange={(event) => setMinStars(event.target.value)}
+                placeholder="Any"
+                className="focus-ring w-32 rounded-full border border-[var(--stroke)] bg-white px-3 py-2"
+              />
+            </label>
+          ) : null}
+          {showFree ? (
+            <label className="grid gap-1 text-sm">
+              <span className="kicker">Price</span>
+              <select className={selectClass} value={price} onChange={(event) => setPrice(event.target.value as typeof price)}>
+                <option value="all">All</option>
+                <option value="free">Free</option>
+                <option value="paid">Paid</option>
+              </select>
+            </label>
+          ) : null}
+          {showSource ? (
+            <label className="grid gap-1 text-sm">
+              <span className="kicker">Open source</span>
+              <select className={selectClass} value={source} onChange={(event) => setSource(event.target.value as typeof source)}>
+                <option value="all">All</option>
+                <option value="open">Open source</option>
+                <option value="closed">Not open source</option>
+              </select>
+            </label>
+          ) : null}
+          {useCases.length ? (
+            <label className="grid gap-1 text-sm">
+              <span className="kicker">Use case</span>
+              <select className={selectClass} value={useCase} onChange={(event) => setUseCase(event.target.value)}>
+                <option value="all">All</option>
+                {useCases.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </label>
+          ) : null}
+        </div>
+      ) : null}
+      {showStars && starsReadOn ? (
+        <p className="mb-3 max-w-3xl text-sm text-[var(--muted)]">
+          Star counts are the GitHub snapshot from <time dateTime={starsReadOn}>{formatDate(starsReadOn)}</time>. A row
+          without a count drops out when a minimum is set. A blank licence stays in All only.
+        </p>
+      ) : null}
       {downloadHref ? (
         <p className="table-actions no-print">
           <a className="btn-ghost px-3 py-1.5 text-sm" href={downloadHref}>
@@ -60,6 +157,7 @@ export function SortableTable({
           </a>
         </p>
       ) : null}
+      {ordered.length === 0 ? <p className="mb-3 text-sm text-[var(--muted)]">No rows match these filters.</p> : null}
       <div className="table-scroll">
       <table className="w-full min-w-[40rem] border-collapse text-sm" aria-label={caption}>
         <thead>

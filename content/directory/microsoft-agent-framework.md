@@ -1,5 +1,7 @@
 ---
 name: Microsoft Agent Framework
+title: "Microsoft Agent Framework: MIT, no framework fee"
+absoluteTitle: true
 vendor: Microsoft
 website: https://learn.microsoft.com/en-us/agent-framework/overview/
 logo: /logos/microsoft.png

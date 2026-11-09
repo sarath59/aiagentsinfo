@@ -7,10 +7,11 @@ import { InlineCompanyText, SourceList } from "@/components/CompanyMarks";
 import { CopyBibtex } from "@/components/CopyBibtex";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { ToolCtas } from "@/components/ToolCtas";
 import { companyForUrl } from "@/lib/companies";
 import { withTableDownloads } from "@/lib/html-tables";
 import { getResearchDoc, getResearchDocs, relatedResearchDocs, researchTypeTitle } from "@/lib/research";
-import { JsonLd, datasetJsonLd, defaultMetadata, researchArticleJsonLd } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, defaultMetadata, faqPageJsonLd, researchArticleJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 function RichText({ text }: { text: string }) {
@@ -78,6 +79,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           license: doc.contentLicense === true,
         })}
       />
+      {doc.faq?.length ? <JsonLd data={faqPageJsonLd(doc.faq)} /> : null}
       {doc.dataset ? (
         <JsonLd
           data={datasetJsonLd({
@@ -165,6 +167,12 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           readingMinutes: item.readingMinutes,
         }))}
       >
+        {doc.ledeQuestion && doc.ledeAnswer ? (
+          <section id="answer">
+            <h2>{doc.ledeQuestion}</h2>
+            <p>{doc.ledeAnswer}</p>
+          </section>
+        ) : null}
         <section id="abstract">
           <h2>Abstract / summary</h2>
           <RichText text={doc.abstract} />
@@ -201,6 +209,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
             ))}
           </section>
         ) : null}
+        <ToolCtas tools={["picker", "calculator"]} />
         <div className="mt-14">
           <NewsletterSignup id="research" />
         </div>

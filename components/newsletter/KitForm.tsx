@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useEffect, useRef } from "react";
+import { trackGoal } from "@/lib/analytics";
 import { markNewsletterSubscribed } from "./storage";
 
 const KIT_SRC = "https://ai-agents-3.kit.com/f0dc320687/index.js";
@@ -81,7 +82,10 @@ function startGuard() {
   window.__aaiKitGuard = true;
   document.addEventListener("ckjs:submission:complete", (event) => {
     const uid = (event as CustomEvent<{ uid?: string }>).detail?.uid;
-    if (!uid || uid === KIT_UID) markNewsletterSubscribed();
+    if (!uid || uid === KIT_UID) {
+      markNewsletterSubscribed();
+      trackGoal("newsletter_signup");
+    }
   });
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {

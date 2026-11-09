@@ -18,7 +18,7 @@ import {
   terminalColumns,
   terminalRows,
 } from "@/lib/harness-benchmark";
-import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
@@ -129,6 +129,7 @@ export default async function HarnessBenchmarkPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path, datePublished: updated, dateModified: updated })} />
+      <JsonLd data={datasetJsonLd({ title, description, path, datePublished: updated, dateModified: updated })} />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },

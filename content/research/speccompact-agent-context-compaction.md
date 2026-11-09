@@ -1,9 +1,15 @@
 ---
-title: "SpecCompact agent context compaction: 8.68×"
-description: "SpecCompact, posted November 4, 2026, sped Hermes-style agent context compaction by 2.04–5.63× on AppWorld and τ³, and by 8.68× median in a Hermes user study."
+title: "SpecCompact agent context compaction: 8.68× median"
+description: "SpecCompact agent context compaction, posted November 4, 2026: 2.04–5.63× on AppWorld and τ³, and an 8.68× median in a Hermes user study. The speed tables are on this page."
 absoluteTitle: true
+ledeQuestion: "What is SpecCompact agent context compaction?"
+ledeAnswer: "A November 4, 2026 method that sped a Hermes user-study compaction by 8.68× at the median."
+dataset:
+  title: "SpecCompact compaction speedups, November 2026"
+  description: "Speedups from An, Feng, and Yin, arXiv:2611.06876. Hermes user-study median paired speedup was 8.68×. AppWorld and τ³ speedups were 2.04–5.63×."
+  isBasedOn: "https://arxiv.org/abs/2611.06876"
 date: "2026-11-05"
-updated: "2026-11-05"
+updated: "2026-11-09"
 type: paper-breakdown
 topics:
   - harnesses

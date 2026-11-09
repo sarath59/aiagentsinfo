@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { trackGoal } from "@/lib/analytics";
 import { modelById, modelPrices, thirtyDayCost, type ModelPrice } from "@/lib/model-prices";
 
 const providers = ["OpenAI", "Anthropic", "Google", "xAI"] as const;
@@ -27,6 +28,13 @@ export function CostCalculator() {
   const [inputTokens, setInputTokens] = useState("4000");
   const [outputTokens, setOutputTokens] = useState("800");
   const [tasksPerDay, setTasksPerDay] = useState("10");
+  const used = useRef(false);
+
+  function markUse() {
+    if (used.current) return;
+    used.current = true;
+    trackGoal("calculator_use");
+  }
 
   const model = modelById(modelId);
   const input = readNumber(inputTokens);
@@ -47,7 +55,10 @@ export function CostCalculator() {
           <span className="kicker">Model</span>
           <select
             value={modelId}
-            onChange={(event) => setModelId(event.target.value)}
+            onChange={(event) => {
+              markUse();
+              setModelId(event.target.value);
+            }}
             className="focus-ring rounded-2xl border border-[var(--stroke)] bg-white px-3 py-3"
           >
             {grouped.map((group) => (
@@ -61,9 +72,9 @@ export function CostCalculator() {
             ))}
           </select>
         </label>
-        <NumberField id="input-tokens" label="Input tokens per task" value={inputTokens} onChange={setInputTokens} />
-        <NumberField id="output-tokens" label="Output tokens per task" value={outputTokens} onChange={setOutputTokens} />
-        <NumberField id="tasks-per-day" label="Tasks per day" value={tasksPerDay} onChange={setTasksPerDay} />
+        <NumberField id="input-tokens" label="Input tokens per task" value={inputTokens} onChange={(value) => { markUse(); setInputTokens(value); }} />
+        <NumberField id="output-tokens" label="Output tokens per task" value={outputTokens} onChange={(value) => { markUse(); setOutputTokens(value); }} />
+        <NumberField id="tasks-per-day" label="Tasks per day" value={tasksPerDay} onChange={(value) => { markUse(); setTasksPerDay(value); }} />
       </div>
       <p className="mt-3 text-sm text-[var(--muted)]">
         The boxes start at 4,000 input tokens, 800 output tokens, and 10 tasks a day so the math is visible. That

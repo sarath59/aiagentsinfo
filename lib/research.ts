@@ -40,6 +40,9 @@ export type ResearchFrontmatter = {
     isBasedOn?: string;
   };
   faq?: { question: string; answer: string }[];
+  /** Question heading and the one-line answer, when the page leads with one. */
+  ledeQuestion?: string;
+  ledeAnswer?: string;
   /** When true, the title tag is the title alone, so it can stay under 60 characters. */
   absoluteTitle?: boolean;
   references: { title: string; url?: string; note?: string }[];

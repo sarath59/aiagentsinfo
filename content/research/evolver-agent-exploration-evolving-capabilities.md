@@ -1,8 +1,15 @@
 ---
-title: "Paper breakdown: Evolver — turning agent exploration into evolving capabilities"
-description: "November 5, 2026 arXiv paper: on 320 paired diagnostic runs inside Claude Code and Codex, Evolver raised task success from 83.13% to 87.50% and cut recorded task-execution tokens by 24.24%."
+title: "Evolver agent exploration: 320 runs, 83.13% to 87.50%"
+description: "Evolver agent exploration, arXiv November 5, 2026: 320 paired diagnostic runs inside Claude Code and Codex. Success rose from 83.13% to 87.50%. Recorded task-execution tokens fell 24.24%. This page has the tables."
 date: "2026-11-07"
-updated: "2026-11-07"
+updated: "2026-11-09"
+absoluteTitle: true
+ledeQuestion: "Did Evolver raise agent task success?"
+ledeAnswer: "On 320 paired diagnostic runs, success rose from 83.13% to 87.50%, and recorded task-execution tokens fell 24.24%."
+dataset:
+  title: "Evolver paired diagnostic runs, November 2026"
+  description: "320 paired diagnostic executions from Zhang et al., arXiv:2611.07595. Task success 83.13% without Evolver and 87.50% with it. Recorded task-execution tokens fell 24.24%."
+  isBasedOn: "https://arxiv.org/abs/2611.07595"
 type: paper-breakdown
 topics:
   - harnesses

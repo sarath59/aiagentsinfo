@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { trackGoal } from "@/lib/analytics";
 import type { PromptCheckResult } from "@/lib/prompt-check";
 import { modelPrices } from "@/lib/model-prices";
 import type { ToolTarget } from "@/lib/tool-definitions";
@@ -69,6 +70,7 @@ export function PromptChecker() {
   const [tasksPerDay, setTasksPerDay] = useState("10");
   const [pending, setPending] = useState(false);
   const requestId = useRef(0);
+  const used = useRef(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<PromptCheckResult | null>(null);
 
@@ -102,6 +104,10 @@ export function PromptChecker() {
         return;
       }
       setResult(payload);
+      if (!used.current) {
+        used.current = true;
+        trackGoal("prompt_checker_use");
+      }
     } catch {
       if (id === requestId.current) setError("The checker could not be reached.");
     } finally {

@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import snapshot from "@/data/framework-github-stats/2026-11.json";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
+import { licenceIsOpenSource } from "@/lib/table-facets";
 import { formatDate } from "@/lib/utils";
 
 /** Windows named in the November 2026 report. Day counts use UTC calendar dates. */
@@ -57,7 +58,7 @@ const repos: FrameworkRepo[] = snapshot.repos.map((repo) => ({
 }));
 
 export const path = "/reports/ai-agent-framework-github-stats-november-2026";
-export const title = "AI agent framework release, November 2026";
+export const title = `AI agent framework release November 2026: sortable table of ${integer(repos.length)} repos`;
 export const retrievedAt = snapshot.retrieved_at;
 export const source = snapshot.source;
 export const retrievedDay = isoDay(retrievedAt);
@@ -68,7 +69,7 @@ export const citationUrl = `https://aiagentsinfo.com${path}`;
 export const csvPath = `${path}/csv?table=frameworks`;
 export const pdfPath = `${path}/pdf`;
 
-export const description = `AI agent framework release, November 2026: latest GitHub releases for ${integer(repos.length)} open-source frameworks and SDKs, pulled ${retrievedLabel}. ${integer(recentRepos().length)} of ${integer(repos.length)} were within ${integer(RECENT_RELEASE_DAYS)} days.`;
+export const description = `AI agent framework release November 2026: a sortable table of the latest GitHub releases for ${integer(repos.length)} open-source frameworks and SDKs, pulled ${retrievedLabel}. ${integer(recentRepos().length)} of ${integer(repos.length)} were within ${integer(RECENT_RELEASE_DAYS)} days. Stars, forks, licences, and release dates are on this page.`;
 
 export const citation = `AI Agents Info, "${title}", ${citationDate}, ${citationUrl}`;
 
@@ -239,6 +240,11 @@ export function frameworkRows(): SortableRow[] {
       releaseDate: formatDate(repo.latest_release_at),
     },
     href: { repo: repo.html_url },
+    facets: {
+      stars: repo.stars,
+      free: licenceIsOpenSource(repo.licenceLabel) === true ? true : null,
+      openSource: licenceIsOpenSource(repo.licenceLabel),
+    },
   }));
 }
 

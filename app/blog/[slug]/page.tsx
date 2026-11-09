@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { ToolCtas } from "@/components/ToolCtas";
 import { categoryTitle, getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
 import { withTableDownloads } from "@/lib/html-tables";
 import { JsonLd, articleJsonLd, datasetJsonLd, defaultMetadata, faqPageJsonLd } from "@/lib/seo";
@@ -97,10 +98,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         }
       >
         <MarkdownBody html={withTableDownloads(post.html, `/blog/${post.slug}/tables`)} />
+        <ToolCtas tools={toolsForPost(post.slug, post.category)} />
         <div className="mt-14">
           <NewsletterSignup id="article" />
         </div>
       </ArticleTemplate>
     </>
   );
+}
+
+function toolsForPost(slug: string, category: string) {
+  const tools: ("calculator" | "checker" | "picker")[] = [];
+  if (/pric|cost|token/.test(slug)) tools.push("calculator");
+  if (/prompt|tool-json/.test(slug)) tools.push("checker");
+  if (category === "guide" || /agent|employee|shopping|computer/.test(slug)) tools.push("picker");
+  return tools;
 }

@@ -6,11 +6,15 @@ import { BestOfLinks } from "@/components/BestOfLinks";
 import { getGlossaryTerms, glossaryByLetter } from "@/lib/glossary";
 import { defaultMetadata } from "@/lib/seo";
 
-export const metadata = defaultMetadata(
-  "Glossary of AI agent terms",
-  "A–Z definitions for AI agents, harnesses, tools, and evaluation.",
-  "/glossary",
-);
+export async function generateMetadata() {
+  const terms = await getGlossaryTerms();
+  return defaultMetadata(
+    `AI agent glossary: ${terms.length} definitions`,
+    `AI agent glossary of ${terms.length} terms, A to Z. Each entry defines one word this site uses, including agent, harness, and computer use.`,
+    "/glossary",
+    { absoluteTitle: true },
+  );
+}
 
 export default async function GlossaryPage() {
   const terms = await getGlossaryTerms();
@@ -21,8 +25,8 @@ export default async function GlossaryPage() {
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Glossary", path: "/glossary" }]} />
       <PageHeader
         kicker="Glossary A–Z"
-        title="Define the word before you argue about the system"
-        summary="Plain definitions of real terms. A word is listed when the definition is accurate."
+        title="What is in the AI agent glossary?"
+        summary={`${terms.length} plain definitions, A to Z. A word is listed when the definition is accurate.`}
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <BestOfLinks intro="Sourced comparisons of harnesses, computer use, evaluation tools, and consumer jobs such as shopping and writing. Last verified November 2026." />

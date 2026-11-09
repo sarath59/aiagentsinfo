@@ -184,7 +184,7 @@ export const dataAssets = [
   },
   {
     href: "/reports/ai-shopping-agents-next-6-months",
-    title: "AI shopping agents next 6 months: 6 companies",
+    title: "AI shopping agents next 6 months: 6 companies (Nov 2026–May 2027)",
     summary:
       "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated for shopping agents from November 2026 through May 2027. Checked November 5, 2026.",
   },
@@ -196,9 +196,9 @@ export const dataAssets = [
   },
   {
     href: "/reports/ai-agent-framework-github-stats-november-2026",
-    title: "AI agent framework release, November 2026",
+    title: "AI agent framework release November 2026",
     summary:
-      "The latest GitHub release for each of 19 open-source agent frameworks and SDKs, pulled 5 November 2026. Fourteen of the 19 had a release within 30 days.",
+      "Sortable table of the latest GitHub release for each of 19 open-source agent frameworks and SDKs, pulled 5 November 2026. Fourteen of the 19 had a release within 30 days.",
   },
   {
     href: "/verified-revenue",

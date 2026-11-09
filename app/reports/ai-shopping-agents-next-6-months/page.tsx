@@ -3,12 +3,13 @@ import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { ToolCtas } from "@/components/ToolCtas";
 import { FaqList } from "@/components/FaqList";
 import { categoryTitle, getBlogPost } from "@/lib/blog";
 import { categorySummaries } from "@/lib/directory-meta";
 import { getGlossaryTerm } from "@/lib/glossary";
-import { description, months, path, readOn, readingMinutes, title } from "@/lib/shopping-report";
-import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { description, months, path, readOn, readingMinutes, shoppingFaq, title } from "@/lib/shopping-report";
+import { JsonLd, datasetJsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
@@ -114,6 +115,16 @@ export default async function ShoppingAgentsReportPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path, datePublished: readOn, dateModified: readOn })} />
+      <JsonLd
+        data={datasetJsonLd({
+          title,
+          description,
+          path,
+          datePublished: readOn,
+          dateModified: readOn,
+        })}
+      />
+      <JsonLd data={faqPageJsonLd(shoppingFaq)} />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -126,6 +137,7 @@ export default async function ShoppingAgentsReportPage() {
         title={title}
         description={description}
         published={readOn}
+        updated={readOn}
         readingMinutes={readingMinutes}
         byline={site.bylines.research}
         wide
@@ -572,6 +584,7 @@ export default async function ShoppingAgentsReportPage() {
           </ul>
         </section>
 
+        <ToolCtas tools={["picker"]} />
         <FaqList
           items={[
             {

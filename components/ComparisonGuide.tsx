@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
+import { AgentPicker } from "@/components/AgentPicker";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { SourceList } from "@/components/CompanyMarks";
 import { FaqList } from "@/components/FaqList";
+import { ListYourAgent } from "@/components/ListYourAgent";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SortableTable } from "@/components/SortableTable";
+import { ToolCtas } from "@/components/ToolCtas";
 import {
   COMPARISON_HUB,
   COMPARISON_VERIFIED_LABEL,
@@ -24,9 +27,12 @@ import {
   webPageJsonLd,
 } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
+import { toPickerListings } from "@/lib/agent-picker";
+import { getDirectoryListings } from "@/lib/directory";
+import { FRAMEWORK_STARS_READ } from "@/lib/framework-stars";
 import { formatDate } from "@/lib/utils";
 
-export function ComparisonGuide({
+export async function ComparisonGuide({
   page,
   children,
   toc,
@@ -35,6 +41,7 @@ export function ComparisonGuide({
   children: ReactNode;
   toc: { id: string; text: string; level: 2 | 3 }[];
 }) {
+  const listings = toPickerListings(await getDirectoryListings());
   const verifiedOn = page.verifiedOn ?? COMPARISON_VERIFIED_ON;
   const updatedLabel = page.verifiedOn ? formatDate(page.verifiedOn) : COMPARISON_VERIFIED_LABEL;
   const pageUrl = absoluteUrl(page.path);
@@ -113,13 +120,16 @@ export function ComparisonGuide({
             ))}
           </ul>
           <div className="mt-5">
-            <SortableTable
-              caption={page.tableCaption}
-              columns={page.columns}
-              rows={comparisonRows(page.rows)}
-              defaultSort="name"
-              defaultDirection="asc"
-            />
+            <ComparisonTable page={page} />
+          </div>
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold tracking-tight">Which AI agent fits me?</h3>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+              Four answers, then three directory listings. The match uses category, pricing tags, and use. It is not a score.
+            </p>
+            <div className="mt-4">
+              <AgentPicker listings={listings} compact />
+            </div>
           </div>
         </section>
         <section className="mt-12" id="best-for">
@@ -160,10 +170,31 @@ export function ComparisonGuide({
             answer: <p>{item.answer}</p>,
           }))}
         />
+        <ToolCtas tools={["calculator", "checker", "picker"]} />
+        <ListYourAgent />
         <div className="mt-14">
           <NewsletterSignup id={`comparison-${page.slug}`} />
         </div>
       </ArticleTemplate>
     </>
+  );
+}
+
+function ComparisonTable({ page }: { page: ComparisonPage }) {
+  const rows = comparisonRows(page.rows);
+  const withStars = rows.some((row) => typeof row.facets?.stars === "number");
+  const columns = withStars
+    ? [...page.columns, { key: "stars", label: "GitHub stars", numeric: true }]
+    : page.columns;
+  return (
+    <SortableTable
+      caption={page.tableCaption}
+      columns={columns}
+      rows={rows}
+      defaultSort={withStars ? "stars" : "name"}
+      defaultDirection={withStars ? "desc" : "asc"}
+      filters={["stars", "free", "openSource", "useCase"]}
+      starsReadOn={withStars ? FRAMEWORK_STARS_READ : undefined}
+    />
   );
 }

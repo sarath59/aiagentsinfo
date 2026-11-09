@@ -1,5 +1,7 @@
 ---
 name: Devin
+title: "Devin: Free $0, Pro $20/mo (checked Nov 3, 2026)"
+absoluteTitle: true
 vendor: Cognition
 website: https://devin.ai
 logo: /logos/devin.png

@@ -1,9 +1,9 @@
 export type ShoppingMonth = { month: string; announced: string; likely: string; watch: string };
 
 export const path = "/reports/ai-shopping-agents-next-6-months";
-export const title = "AI shopping agents next 6 months: 6 companies";
+export const title = "AI shopping agents next 6 months: 6 companies (Nov 2026–May 2027)";
 export const description =
-  "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated for shopping agents from November 2026 through May 2027. Checked November 5, 2026.";
+  "AI shopping agents for the next 6 months: what Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated from November 2026 through May 2027. The month-by-month table is on this page. Checked November 5, 2026.";
 export const readOn = "2026-11-05";
 
 export const months: ShoppingMonth[] = [
@@ -62,3 +62,41 @@ export const months: ShoppingMonth[] = [
 ];
 
 export const readingMinutes = 10;
+
+export const shoppingFaq = [
+  {
+    question: "Can AI shopping agents buy for you between November 2026 and May 2027?",
+    answer:
+      "On some products, they already can, inside rules a company has published. Google’s November 4, 2026 post says Canadian shoppers can buy from eligible retailers in AI Mode and the Gemini app with Google Pay, and the retailer stays the seller. OpenAI’s merchant page, read November 5, says ChatGPT shoppers finish the purchase on the merchant’s website or app. Amazon’s guide, updated October 29, says a U.S. customer can set a target price and have Alexa for Shopping buy with the default payment method. Microsoft’s page says Copilot Checkout can finish a purchase inside Copilot for eligible U.S. sales. No page in this set schedules a new country, or a new checkout button, for a named day through May 2027.",
+  },
+  {
+    question: "What is already announced for this six-month stretch?",
+    answer:
+      "Google’s Canada post says simplified protocol tools in Merchant Center start next year, and loyalty rewards are work for the coming months. The developer guide, last updated October 19, 2026, says Australia and Canada get the Merchant Center hub early next year, and identity linking is coming soon. OpenAI’s merchant page says it is building a self-serve merchant platform later this year and plans to add regions over time. The U.S. cart, the Canada rollout, U.S. ChatGPT discovery, and U.S. Copilot Checkout are already in market.",
+  },
+  {
+    question: "What counts as likely, and what is only something to watch?",
+    answer:
+      "Likely, on this page, means a linked source points at November 2026 through May 2027 and does not name a day. That covers Google’s next-year Merchant Center access, Google’s coming-months loyalty work, OpenAI’s later-this-year portal, and Adobe’s November and December traffic forecasts. Watch for means the source refused a date, two sources disagree, or a promised follow-up was not confirmed on November 5. Identity linking, PayPal on Google checkout, Walmart’s phone apps inside ChatGPT, and any Copilot country besides the United States are in that second group.",
+  },
+  {
+    question: "Will ChatGPT check out inside the chat?",
+    answer:
+      "The merchant page read on November 5, 2026 says OpenAI is moving away from a standalone Instant Checkout experience. Shoppers discover and compare in ChatGPT. Purchases are completed on merchant-owned websites or apps. The March 24, 2026 post said the first Instant Checkout was not flexible enough for what OpenAI wanted. The same post said Walmart’s in-ChatGPT app was available in web browsers, with iOS and Android to follow. This report did not find a later OpenAI page confirming those phone apps.",
+  },
+  {
+    question: "When does Google say Canada and Australia can onboard in Merchant Center?",
+    answer:
+      "The developer guide says the hub is rolling out in the United States, with Australia and Canada early next year. The Merchant Center help page says Australia and Canada follow next year, and it does not say early. The November 4 Canada post says simplified integration in Merchant Center starts next year. None of the three pages names a month.",
+  },
+  {
+    question: "Did Amazon schedule a new shopping-agent launch?",
+    answer:
+      "The October 29, 2026 earnings release says Alexa for Shopping was used by 400 million or more customers in the last 12 months, with interactions up 570 percent year over year, and that more than 100 capabilities had been added. Fourth-quarter guidance in that release is for company net sales and operating income. It does not give an Alexa for Shopping date between November 2026 and May 2027.",
+  },
+  {
+    question: "What did Adobe actually measure?",
+    answer:
+      "In the October 29, 2026 report, September AI traffic to U.S. retail sites grew 71 percent year over year. Adobe defines that traffic as users clicking a link. The same month, that traffic converted 90 percent better than other traffic, and revenue per visit was 83 percent higher. The report expects the revenue-per-visit advantage to double in the holiday season, and it gives Thanksgiving, Black Friday, and Cyber Monday growth rates of 159, 95, and 88 percent. The holiday forecast page instead says August traffic grew 127 percent, the season is projected at 130 percent, and Thanksgiving at 141 percent.",
+  },
+];

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
+import { ListYourAgent } from "@/components/ListYourAgent";
 import { ListingCard } from "@/components/ListingCard";
 import { ListingProfile } from "@/components/ListingProfile";
 import {
@@ -62,7 +63,9 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
                 <ListingCard key={listing.slug} listing={listing} logoLoading="lazy" />
               ))}
             </div>
-          ) : (
+          ) : null}
+          <ListYourAgent />
+          {items.length ? null : (
             <div className="mt-8">
               <EmptyState
                 title="Nothing in this collection yet"

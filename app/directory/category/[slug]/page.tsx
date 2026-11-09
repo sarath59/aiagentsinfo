@@ -9,6 +9,7 @@ import {
   getDirectoryListings,
 } from "@/lib/directory";
 import { BestOfLinks } from "@/components/BestOfLinks";
+import { ListYourAgent } from "@/components/ListYourAgent";
 import { comparisonsForCategory } from "@/lib/comparisons";
 import { defaultMetadata } from "@/lib/seo";
 
@@ -76,6 +77,7 @@ export default async function DirectoryCategoryPage({
             />
           </div>
         )}
+        <ListYourAgent />
       </div>
     </>
   );

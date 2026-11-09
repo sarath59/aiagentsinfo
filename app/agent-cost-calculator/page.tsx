@@ -101,14 +101,22 @@ export default function CostCalculatorPage() {
           <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">
             prompt and tool checker
           </Link>{" "}
-          counts that text on the server and checks the schema. Seat prices for coding products are on{" "}
+          counts that text on the server and checks the schema.           Seat prices for Cursor, Claude Code, and Codex are on the{" "}
+          <Link className="text-[var(--link)] underline" href="/tools/cursor-vs-claude-code-vs-codex-pricing">
+            Cursor vs Claude Code vs Codex pricing calculator
+          </Link>
+          . The four-product table is{" "}
           <Link className="text-[var(--link)] underline" href="/best/ai-coding-agents">
             Best AI coding agents
+          </Link>
+          . The framework table is the{" "}
+          <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
+            AI agent framework comparison table
           </Link>
           .
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">
-          Prices read <time dateTime={PRICE_READ_ON}>{updatedLabel}</time>.
+          Updated <time dateTime={PRICE_READ_ON}>{updatedLabel}</time>. Prices were read that day.
         </p>
       </header>
       <div className="mx-auto max-w-6xl px-4 pb-20">

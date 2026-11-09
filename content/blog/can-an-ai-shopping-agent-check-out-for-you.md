@@ -1,5 +1,5 @@
 ---
-title: "Can an AI shopping agent check out for you?"
+title: "Can an AI shopping agent check out for you? (Nov 7, 2026)"
 description: "A shopping agent can pay only with a checkout path, a saved card, and an approval rule. The store remains the seller. Pages re-checked November 7, 2026."
 absoluteTitle: true
 takeaways:

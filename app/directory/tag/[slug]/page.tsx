@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ListYourAgent } from "@/components/ListYourAgent";
 import { ListingCard } from "@/components/ListingCard";
 import { allTags, getDirectoryListings } from "@/lib/directory";
 import { defaultMetadata } from "@/lib/seo";
@@ -39,6 +40,7 @@ export default async function DirectoryTagPage({ params }: { params: Promise<{ s
             <ListingCard key={listing.slug} listing={listing} logoLoading="lazy" />
           ))}
         </div>
+        <ListYourAgent />
       </div>
     </>
   );

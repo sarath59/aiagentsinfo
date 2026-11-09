@@ -1,5 +1,6 @@
 ---
-title: "What Is an AI Employee? Workplace Agents Explained (2026)"
+title: "What is an AI employee? A digital worker, not a legal employee"
+absoluteTitle: true
 description: "What is an AI employee? Workplace software, also called a digital worker, that takes a goal, uses tools, and returns work for a person to review. Always-on AI agents, on the pages checked November 7, 2026, keep a cloud task running after the laptop closes or start on a schedule. The software is not a legal employee."
 takeaways:
   - "An AI employee is a label for workplace software, usually an agent, that is given a job and returns a file or an action for a person to review. The software is not a legal employee and is not the party accountable for a mistake."
