@@ -7,7 +7,7 @@ import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { categoryTitle, getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
 import { withTableDownloads } from "@/lib/html-tables";
-import { JsonLd, articleJsonLd, datasetJsonLd, defaultMetadata } from "@/lib/seo";
+import { JsonLd, articleJsonLd, datasetJsonLd, defaultMetadata, faqPageJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export async function generateStaticParams() {
@@ -56,6 +56,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             isBasedOn: post.dataset.isBasedOn,
           })}
         />
+      ) : null}
+      {post.faq?.length && post.html.includes('id="faq"') ? (
+        <JsonLd data={faqPageJsonLd(post.faq)} />
       ) : null}
       <Breadcrumbs
         items={[

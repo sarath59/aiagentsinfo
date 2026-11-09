@@ -497,6 +497,15 @@ export const companies: Company[] = [
     aliases: ["Ligo", "Ligo Biosciences", "Ligo Bio"],
     hosts: ["ligo.bio"],
   },
+  {
+    slug: "nvidia",
+    name: "NVIDIA",
+    website: "https://www.nvidia.com",
+    logo: "/logos/nvidia.png",
+    tile: "light",
+    aliases: ["NVIDIA", "Nvidia"],
+    hosts: ["nvidia.com"],
+  },
 ];
 
 const bySlug = new Map(companies.map((company) => [company.slug, company]));
