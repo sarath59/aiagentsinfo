@@ -5,6 +5,7 @@ const desks = [
   { href: "/research", label: "Research" },
   { href: "/papers", label: "Papers" },
   { href: "/reports", label: "Reports" },
+  { href: "/trackers", label: "Trackers" },
 ] as const;
 
 export function ContentDeskNav({ current }: { current: (typeof desks)[number]["href"] }) {

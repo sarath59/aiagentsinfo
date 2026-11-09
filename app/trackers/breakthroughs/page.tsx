@@ -15,6 +15,7 @@ export default function BreakthroughsPage() {
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
+          { name: "Trackers", path: "/trackers" },
           { name: "Breakthroughs timeline", path: "/trackers/breakthroughs" },
         ]}
       />

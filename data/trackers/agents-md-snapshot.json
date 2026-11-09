@@ -1,0 +1,22 @@
+{
+  "retrievedAt": "2026-11-09T16:53:39.456187Z",
+  "retrievedDay": "2026-11-09",
+  "github": [],
+  "specStars": 25409,
+  "specStarsRetrievedAt": "2026-11-09T16:53:39.456187Z",
+  "homepageClaim": "over 60k open-source projects",
+  "homepageRetrievedAt": "2026-11-09T16:53:39.456187Z",
+  "sourcegraph": {
+    "retrievedAt": "2026-11-09T16:50:00Z",
+    "queryRootAgentsMd": "context:global file:^AGENTS.md$ count:all",
+    "queryRootClaudeMd": "context:global file:^CLAUDE.md$ count:all",
+    "rootAgentsMd": 13756,
+    "rootClaudeMd": 6744,
+    "source": "Sourcegraph public code search of GitHub, excluding forks and archives",
+    "warnings": [
+      "Root AGENTS.md pass reported 2 backends unavailable.",
+      "Root CLAUDE.md pass reported 4 backends unavailable.",
+      "These are lower bounds from one public index, not a census of every GitHub repository."
+    ]
+  }
+}

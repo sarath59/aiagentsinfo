@@ -3,6 +3,7 @@ import { companyForName, resolveCompanies, type LogoTile } from "@/lib/companies
 import { getDirectoryListings } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs } from "@/lib/research";
+import { liveTrackers } from "@/lib/trackers";
 
 export type SearchMark = {
   name: string;
@@ -11,7 +12,7 @@ export type SearchMark = {
 };
 
 export type SearchHit = {
-  type: "Blog" | "Research" | "Glossary" | "Directory";
+  type: "Blog" | "Research" | "Glossary" | "Directory" | "Tracker";
   title: string;
   description: string;
   href: string;
@@ -67,6 +68,17 @@ export async function searchSite(query: string): Promise<SearchHit[]> {
         title: term.term,
         description: term.shortDefinition,
         href: `/glossary/${term.slug}`,
+        marks: [],
+      });
+    }
+  }
+  for (const tracker of liveTrackers) {
+    if (`${tracker.title} ${tracker.summary} ${tracker.kicker}`.toLowerCase().includes(q)) {
+      hits.push({
+        type: "Tracker",
+        title: tracker.title,
+        description: tracker.summary,
+        href: tracker.href,
         marks: [],
       });
     }

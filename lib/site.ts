@@ -122,6 +122,7 @@ export const nav = [
   { href: "/directory", label: "Directory" },
   { href: "/submit", label: "Submit" },
   { href: "/reports", label: "Reports" },
+  { href: "/trackers", label: "Trackers" },
   { href: "/best", label: "Best AI agents" },
   { href: "/verified-revenue", label: "Revenue" },
   { href: "/research", label: "Research" },
@@ -258,6 +259,10 @@ export const footerNav = [
   {
     title: "Trackers",
     links: [
+      { href: "/trackers", label: "Live data trackers" },
+      { href: "/trackers/downloads", label: "Framework downloads" },
+      { href: "/trackers/agents-md", label: "AGENTS.md adoption" },
+      { href: "/trackers/stars", label: "Framework GitHub stars" },
       { href: "/best/ai-agent-harnesses", label: "Best AI agent harness" },
       { href: "/best/ai-agent-frameworks", label: "Best AI agent frameworks" },
       { href: "/best/ai-coding-agents", label: "Best AI coding agents" },

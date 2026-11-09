@@ -137,6 +137,18 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/trackers/downloads",
+            title: "AI agent framework downloads tracker (updated daily)",
+            description: "PyPI and npm file requests for these libraries, refreshed from public APIs.",
+            kicker: "Tracker",
+          },
+          {
+            href: "/trackers/stars",
+            title: "AI agent framework GitHub stars tracker (updated daily)",
+            description: "Live stargazers_count for the same repositories.",
+            kicker: "Tracker",
+          },
+          {
             href: benchmarkPath,
             title: benchmarkTitle,
             description: benchmarkDescription,

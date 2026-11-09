@@ -11,6 +11,7 @@ import { categoryTitle as directoryCategoryTitle, getDirectoryListings, type Dir
 import { getGlossaryTerms } from "@/lib/glossary";
 import { getResearchDocs, researchTypeTitle, type ResearchDoc } from "@/lib/research";
 import { indexRobots } from "@/lib/seo";
+import { liveTrackers } from "@/lib/trackers";
 import { absoluteUrl, comparisons, dataAssets, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
@@ -203,7 +204,35 @@ export default async function HomePage() {
         </section>
       </HomeReveal>
 
-      <SectionSignal label="03 / act" delay="-1.4s" />
+      <SectionSignal label="03 / track" delay="-1.0s" />
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-trackers">
+          <SectionHead
+            id="home-trackers"
+            eyebrow="Live data"
+            title="Trackers that refresh daily"
+            lede="Public download, AGENTS.md, and GitHub star counts. Each page names the source and how to cite it."
+            href="/trackers"
+            seeAllLabel="See all trackers"
+          />
+          <div className="home-trio">
+            {liveTrackers.map((item) => (
+              <Link key={item.href} href={item.href} className={`focus-ring ${"home-card"} ${"home-guide"}`}>
+                <p className="kicker">{item.kicker}</p>
+                <h3 className={"home-card-title"}>{item.title}</h3>
+                <p className={"home-card-body"}>{item.summary}</p>
+                <span className={"home-more"}>
+                  Open the tracker
+                  <ArrowIcon className="h-3.5 w-3.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </HomeReveal>
+
+      <SectionSignal label="04 / act" delay="-1.4s" />
 
       <HomeReveal>
         <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-news">
@@ -227,7 +256,7 @@ export default async function HomePage() {
         </section>
       </HomeReveal>
 
-      <SectionSignal label="04 / review" delay="-0.4s" />
+      <SectionSignal label="05 / review" delay="-0.4s" />
 
       <HomeReveal>
         <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-research">
@@ -251,7 +280,7 @@ export default async function HomePage() {
         </section>
       </HomeReveal>
 
-      <SectionSignal label="05 / compare" delay="-0.8s" />
+      <SectionSignal label="06 / compare" delay="-0.8s" />
 
       <HomeReveal>
         <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-compare">
@@ -279,7 +308,7 @@ export default async function HomePage() {
         </section>
       </HomeReveal>
 
-      <SectionSignal label="06 / learn" delay="-1.1s" />
+      <SectionSignal label="07 / learn" delay="-1.1s" />
 
       <HomeReveal>
         <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-guides">

@@ -15,6 +15,7 @@ export default function BenchmarksPage() {
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
+          { name: "Trackers", path: "/trackers" },
           { name: "Benchmark leaderboard", path: "/trackers/benchmarks" },
         ]}
       />

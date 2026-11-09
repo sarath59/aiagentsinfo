@@ -62,7 +62,7 @@ export default async function ReportsPage() {
       <PageHeader
         kicker="Reports"
         title="Figures with a date and a source"
-        summary="Each page says when it was updated, how to cite it, and what was left out. A number without a public source does not go up."
+        summary="Each page says when it was updated, how to cite it, and what was left out. A number without a public source does not go up. Daily download, AGENTS.md, and star counts live on the trackers."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <ContentDeskNav current="/reports" />

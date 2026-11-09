@@ -15,6 +15,7 @@ export default function HarnessesTrackerPage() {
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
+          { name: "Trackers", path: "/trackers" },
           { name: "Harness comparison", path: "/trackers/harnesses" },
         ]}
       />

@@ -249,7 +249,7 @@ The paper’s own reading of that gap: the models agree with each other more clo
 
 ## What would a fresh count have to change?
 
-A count that wants to update the 6,006 has to keep the frame or publish a new one. “Over 60,000” does not update it.
+A count that wants to update the 6,006 has to keep the frame or publish a new one. “Over 60,000” does not update it. A live GitHub code search for files named `AGENTS.md`, kept on a separate row so it is not mistaken for this census, is the [AGENTS.md adoption tracker](/trackers/agents-md).
 
 The homepage number, read November 9, has no date, no star floor, and no language list on the sentence itself. The census has all three, and a day. Adding nested `AGENTS.md` files, dropping the star floor, or including archived repositories would move the numerator and the denominator together. The paper’s data-availability section says the dataset is on Hugging Face and does not print a URL. This note did not locate the dataset from that sentence, and it did not re-run the search.
 

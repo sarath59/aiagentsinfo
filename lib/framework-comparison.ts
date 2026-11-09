@@ -346,6 +346,12 @@ export const frameworkComparison: ComparisonPage = {
   ],
   related: [
     {
+      href: "/trackers/downloads",
+      title: "AI agent framework downloads tracker (updated daily)",
+      description: "PyPI and npm file requests for these libraries. A download is not a user.",
+      kicker: "Tracker",
+    },
+    {
       href: "/topics/harnesses",
       title: "Agent harnesses topic",
       description: "The hub for harness guides, research notes, the benchmark, and the tracker.",

@@ -43,6 +43,16 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "Licence and latest GitHub release, read November 9, 2026.",
       },
       {
+        href: "/trackers/downloads",
+        anchor: "AI agent framework downloads tracker",
+        note: "PyPI and npm file requests, refreshed daily. A download is not a user.",
+      },
+      {
+        href: "/trackers/agents-md",
+        anchor: "AGENTS.md adoption tracker",
+        note: "Live GitHub search for the filename, kept next to the October 2026 census.",
+      },
+      {
         href: "/reports/agent-harness-benchmark-november-2026",
         anchor: "Agent harness benchmark, November 2026",
         note: "Public SWE-bench and Terminal-Bench scores, each with the date on the source.",
@@ -200,6 +210,16 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/best/ai-agent-frameworks",
         anchor: "Best AI agent frameworks",
         note: "19 free and open-source libraries, with release tags from November 9, 2026.",
+      },
+      {
+        href: "/trackers/downloads",
+        anchor: "AI agent framework downloads tracker",
+        note: "What pip and npm fetched, refreshed daily from pypistats and npm.",
+      },
+      {
+        href: "/trackers/agents-md",
+        anchor: "AGENTS.md adoption tracker",
+        note: "How many public files are named AGENTS.md, next to the October 2026 census.",
       },
       {
         href: "/topics/harnesses",

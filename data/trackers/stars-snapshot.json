@@ -1,0 +1,191 @@
+{
+  "retrievedAt": "2026-11-09T16:53:33.369612Z",
+  "retrievedDay": "2026-11-09",
+  "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo}",
+  "rows": [
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "repo": "langchain-ai/langchain",
+      "stars": 149267,
+      "forks": 25096,
+      "openIssues": 730,
+      "pushedAt": "2026-11-09T16:25:38Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/langchain-ai/langchain",
+      "directory": "langchain"
+    },
+    {
+      "id": "autogen",
+      "name": "AutoGen",
+      "repo": "microsoft/autogen",
+      "stars": 61760,
+      "forks": 9391,
+      "openIssues": 1168,
+      "pushedAt": "2026-10-28T14:45:27Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/microsoft/autogen"
+    },
+    {
+      "id": "crewai",
+      "name": "CrewAI",
+      "repo": "crewAIInc/crewAI",
+      "stars": 60690,
+      "forks": 9123,
+      "openIssues": 1216,
+      "pushedAt": "2026-11-09T16:19:22Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/crewAIInc/crewAI",
+      "directory": "crewai"
+    },
+    {
+      "id": "llama-index",
+      "name": "LlamaIndex",
+      "repo": "run-llama/llama_index",
+      "stars": 52859,
+      "forks": 8533,
+      "openIssues": 1332,
+      "pushedAt": "2026-11-08T21:41:55Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/run-llama/llama_index"
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "repo": "langchain-ai/langgraph",
+      "stars": 44700,
+      "forks": 7701,
+      "openIssues": 478,
+      "pushedAt": "2026-11-08T00:33:40Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/langchain-ai/langgraph"
+    },
+    {
+      "id": "openai-agents",
+      "name": "OpenAI Agents SDK",
+      "repo": "openai/openai-agents-python",
+      "stars": 30578,
+      "forks": 5021,
+      "openIssues": 29,
+      "pushedAt": "2026-11-09T16:46:19Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/openai/openai-agents-python",
+      "directory": "openai-agents-sdk"
+    },
+    {
+      "id": "smolagents",
+      "name": "smolagents",
+      "repo": "huggingface/smolagents",
+      "stars": 30279,
+      "forks": 3201,
+      "openIssues": 1054,
+      "pushedAt": "2026-11-03T18:36:41Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/huggingface/smolagents",
+      "directory": "smolagents"
+    },
+    {
+      "id": "mastra",
+      "name": "Mastra",
+      "repo": "mastra-ai/mastra",
+      "stars": 29432,
+      "forks": 3088,
+      "openIssues": 856,
+      "pushedAt": "2026-11-09T16:50:14Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/mastra-ai/mastra"
+    },
+    {
+      "id": "ai-sdk",
+      "name": "Vercel AI SDK",
+      "repo": "vercel/ai",
+      "stars": 27832,
+      "forks": 5562,
+      "openIssues": 1524,
+      "pushedAt": "2026-11-09T16:53:33Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/vercel/ai",
+      "note": "Broader than agent frameworks. Kept because the npm tracker rows the same repository."
+    },
+    {
+      "id": "google-adk",
+      "name": "Google ADK",
+      "repo": "google/adk-python",
+      "stars": 22161,
+      "forks": 4326,
+      "openIssues": 439,
+      "pushedAt": "2026-11-09T06:23:33Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/google/adk-python",
+      "directory": "google-adk"
+    },
+    {
+      "id": "pydantic-ai",
+      "name": "Pydantic AI",
+      "repo": "pydantic/pydantic-ai",
+      "stars": 21103,
+      "forks": 3137,
+      "openIssues": 1871,
+      "pushedAt": "2026-11-09T16:52:55Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/pydantic/pydantic-ai",
+      "directory": "pydantic-ai"
+    },
+    {
+      "id": "strands",
+      "name": "Strands Agents",
+      "repo": "strands-agents/harness-sdk",
+      "stars": 9087,
+      "forks": 1488,
+      "openIssues": 1158,
+      "pushedAt": "2026-11-09T16:47:42Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/strands-agents/harness-sdk"
+    },
+    {
+      "id": "claude-agent-sdk",
+      "name": "Claude Agent SDK",
+      "repo": "anthropics/claude-agent-sdk-python",
+      "stars": 8503,
+      "forks": 1403,
+      "openIssues": 619,
+      "pushedAt": "2026-11-06T17:57:32Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/anthropics/claude-agent-sdk-python",
+      "directory": "claude-agent-sdk"
+    },
+    {
+      "id": "ag2",
+      "name": "AG2",
+      "repo": "ag2ai/ag2",
+      "stars": 5053,
+      "forks": 787,
+      "openIssues": 85,
+      "pushedAt": "2026-11-09T16:23:32Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/ag2ai/ag2"
+    },
+    {
+      "id": "openai-agents-js",
+      "name": "OpenAI Agents JS",
+      "repo": "openai/openai-agents-js",
+      "stars": 3996,
+      "forks": 1008,
+      "openIssues": 40,
+      "pushedAt": "2026-11-09T16:47:49Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/openai/openai-agents-js"
+    },
+    {
+      "id": "google-adk-js",
+      "name": "Google ADK JS",
+      "repo": "google/adk-js",
+      "stars": 1471,
+      "forks": 248,
+      "openIssues": 135,
+      "pushedAt": "2026-11-06T21:37:41Z",
+      "archived": false,
+      "sourceUrl": "https://api.github.com/repos/google/adk-js"
+    }
+  ]
+}

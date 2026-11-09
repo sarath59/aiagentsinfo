@@ -388,6 +388,8 @@ export function relatedSentence(toAbsolute: (href: string) => string) {
   const links = [
     ["Agent harness benchmark, November 2026", "/reports/agent-harness-benchmark-november-2026"],
     ["Agent frameworks", "/directory/category/agent-frameworks"],
+    ["Framework downloads tracker", "/trackers/downloads"],
+    ["Framework GitHub stars tracker", "/trackers/stars"],
     ["Harness comparison", "/trackers/harnesses"],
     ["Directory stats", "/directory/stats"],
   ] as const;

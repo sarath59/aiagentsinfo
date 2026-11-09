@@ -12,6 +12,11 @@ const links = [
     body: "Seat prices read November 9, 2026, plus the same token calculator.",
   },
   {
+    href: "/trackers/downloads",
+    title: "AI agent framework downloads tracker",
+    body: "PyPI and npm file requests, refreshed daily. A download is not a user.",
+  },
+  {
     href: "/best/ai-agent-frameworks",
     title: "AI agent framework comparison table",
     body: "19 free and open-source frameworks. Sortable. Releases read November 9, 2026.",

@@ -25,11 +25,16 @@ function maxDate(values: (string | undefined)[]) {
   return max === Number.NEGATIVE_INFINITY ? undefined : new Date(max);
 }
 
-function entry(path: string, lastModified?: Date, priority = 0.7): MetadataRoute.Sitemap[number] {
+function entry(
+  path: string,
+  lastModified?: Date,
+  priority = 0.7,
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = path === "/" ? "weekly" : "monthly",
+): MetadataRoute.Sitemap[number] {
   return {
     url: absoluteUrl(path),
     ...(lastModified ? { lastModified } : {}),
-    changeFrequency: path === "/" ? "weekly" : "monthly",
+    changeFrequency,
     priority,
   };
 }
@@ -66,6 +71,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/privacy", priority: 0.3 },
     { path: "/terms", priority: 0.3 },
     { path: "/advertise", priority: 0.3 },
+    { path: "/trackers", priority: 0.7, changeFrequency: "daily" as const },
+    { path: "/trackers/downloads", priority: 0.8, changeFrequency: "daily" as const },
+    { path: "/trackers/agents-md", priority: 0.8, changeFrequency: "daily" as const },
+    { path: "/trackers/stars", priority: 0.7, changeFrequency: "daily" as const },
     { path: "/trackers/breakthroughs", priority: 0.5 },
     { path: "/trackers/harnesses", priority: 0.5 },
     { path: "/trackers/benchmarks", priority: 0.5 },
@@ -106,7 +115,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...authors.map((author) => entry(`/authors/${author.slug}`, trustUpdated, 0.5)),
     entry("/best", comparisonUpdated, 0.7),
     ...comparisonPages.map((item) => entry(item.path, comparisonUpdated, 0.8)),
-    ...staticPaths.map((item) => entry(item.path, undefined, item.priority)),
+    ...staticPaths.map((item) =>
+      entry(item.path, undefined, item.priority, "changeFrequency" in item ? item.changeFrequency : undefined),
+    ),
     ...indexableTopics.map((topic) => entry(topic.href, maxDate(contentDates), 0.6)),
     ...indexableCategories.map((category) =>
       entry(

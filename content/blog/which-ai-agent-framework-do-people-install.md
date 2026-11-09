@@ -67,7 +67,7 @@ faq:
 
 **155,918,257.** That is how many times the PyPI distribution `langchain` was downloaded from October 10 through November 8, 2026, in the `without_mirrors` series.
 
-The [November 5 star snapshot](/reports/ai-agent-framework-github-stats-november-2026) is the page that already shows up for agent-framework stats. It ranks repositories by stars and latest release. It does not say which distribution pip actually fetched. This page sums the daily download rows for the distributions behind that set, adds the one the snapshot left out, and reads the star field again on November 9.
+The [November 5 star snapshot](/reports/ai-agent-framework-github-stats-november-2026) is the page that already shows up for agent-framework stats. It ranks repositories by stars and latest release. It does not say which distribution pip actually fetched. This page sums the daily download rows for the distributions behind that set, adds the one the snapshot left out, and reads the star field again on November 9. The same method, refreshed daily from pypistats and npm, is the [AI agent framework downloads tracker](/trackers/downloads). GitHub stars for the paired repositories are the [stars tracker](/trackers/stars).
 
 ## Which AI agent framework do people install?
 
@@ -165,7 +165,7 @@ A download count is the right tool for “what did pip and npm fetch,” and a w
 
 CI, a dependency, and a person trying a tutorial all increment the same field. `langchain` 1.4.9 pulling `langgraph`, and `pydantic-ai` pulling `pydantic-ai-slim`, are the cases checked above. Other dependencies inside these graphs were not fully expanded. Quality, licence, and whether the README still promises fixes are separate questions. AutoGen’s install name in its own README is `autogen-agentchat`, and that distribution’s 401,015 downloads sit next to a repository whose maintenance statement is already written up.
 
-The [agent picker](/tools/agent-picker) is the directory’s filter for a job. [How do AI agents work?](/blog/how-do-ai-agents-work) is the loop those libraries wrap. A star census of agent products, rather than of these libraries, is [How many GitHub stars does OpenClaw have?](/research/how-many-github-stars-does-openclaw-have). How many popular repositories write instructions for the coding agents these SDKs drive is [How many repos use AGENTS.md?](/research/how-many-repos-use-agents-md).
+The [agent picker](/tools/agent-picker) is the directory’s filter for a job. [How do AI agents work?](/blog/how-do-ai-agents-work) is the loop those libraries wrap. A star census of agent products, rather than of these libraries, is [How many GitHub stars does OpenClaw have?](/research/how-many-github-stars-does-openclaw-have). How many popular repositories write instructions for the coding agents these SDKs drive is [How many repos use AGENTS.md?](/research/how-many-repos-use-agents-md). The live filename search next to that census is the [AGENTS.md adoption tracker](/trackers/agents-md).
 
 ## FAQ
 
