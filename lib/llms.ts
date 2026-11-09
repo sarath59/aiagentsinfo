@@ -63,6 +63,11 @@ export async function buildLlmsTxt() {
       item("Guides", "/blog?category=guide", "Blog posts filed as guides."),
       item("Glossary", "/glossary", "Short definitions used across the site."),
       item("Directory", "/directory", "AI tools, apps, SaaS, and agents, each with a source site."),
+      item(
+        "AI agents directory MCP server",
+        "/mcp",
+        "Public, read-only Model Context Protocol server at /api/mcp for searching listings, comparisons, and research.",
+      ),
       item("Breakthroughs timeline", "/trackers/breakthroughs", "Public agent moments, added only with a date and a source."),
       item("Best AI agents", "/best", "Sourced comparisons of harnesses, computer use, evaluation tools, and consumer jobs such as shopping, search, travel, email, and writing. Last verified November 2026."),
       ...comparisonPages.map((page) => item(page.title, page.path, page.summary)),

@@ -2,11 +2,14 @@ type Bucket = { timestamps: number[] };
 
 const submitBuckets = new Map<string, Bucket>();
 const promptBuckets = new Map<string, Bucket>();
+const mcpBuckets = new Map<string, Bucket>();
 
 const SUBMIT_WINDOW_MS = 15 * 60 * 1000;
 const SUBMIT_MAX_HITS = 5;
 const PROMPT_WINDOW_MS = 10 * 60 * 1000;
 const PROMPT_MAX_HITS = 30;
+const MCP_WINDOW_MS = 5 * 60 * 1000;
+const MCP_MAX_HITS = 90;
 
 function takeBucket(buckets: Map<string, Bucket>, key: string, now: number, windowMs: number, maxHits: number) {
   if (buckets.size > 5000) {
@@ -36,7 +39,12 @@ export function takePromptCheckLimit(key: string, now = Date.now()) {
   return takeBucket(promptBuckets, key, now, PROMPT_WINDOW_MS, PROMPT_MAX_HITS);
 }
 
+export function takeMcpLimit(key: string, now = Date.now()) {
+  return takeBucket(mcpBuckets, key, now, MCP_WINDOW_MS, MCP_MAX_HITS);
+}
+
 export function clearRateLimits() {
   submitBuckets.clear();
   promptBuckets.clear();
+  mcpBuckets.clear();
 }

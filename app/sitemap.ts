@@ -77,6 +77,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/directory/stats", priority: 0.6 },
     { path: "/agent-cost-calculator", priority: 0.6 },
     { path: "/agent-prompt-checker", priority: 0.6 },
+    { path: "/mcp", priority: 0.7 },
     ...audiences.map((item) => ({ path: item.href, priority: 0.6 })),
   ];
   const comparisonUpdated = new Date(`${COMPARISON_VERIFIED_ON}T00:00:00.000Z`);

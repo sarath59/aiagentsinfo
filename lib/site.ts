@@ -128,6 +128,7 @@ export const nav = [
   { href: "/blog", label: "Blog" },
   { href: "/glossary", label: "Glossary" },
   { href: "/topics", label: "Topics" },
+  { href: "/mcp", label: "MCP" },
 ] as const;
 
 export const comparisons = [
@@ -298,6 +299,7 @@ export const footerNav = [
       { href: "/privacy", label: "Privacy" },
       { href: "/terms", label: "Terms" },
       { href: "/advertise", label: "Advertise" },
+      { href: "/mcp", label: "MCP server" },
     ],
   },
 ] as const;

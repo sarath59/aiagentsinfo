@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   // model so filter/search params and markdown pages stay straightforward.
   cacheComponents: false,
   // tiktoken loads a WASM file from its package. Keep it on Node's loader.
-  serverExternalPackages: ["tiktoken"],
+  serverExternalPackages: ["tiktoken", "@modelcontextprotocol/server", "mcp-handler"],
   async redirects() {
     return [
       {
