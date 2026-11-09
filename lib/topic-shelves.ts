@@ -63,6 +63,16 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "Thoughtworks Technology Radar Volume 35, released November 4, 2026.",
       },
       {
+        href: "/research/garry-tan-harness-evals-november-2026",
+        anchor: "Garry Tan harness evals, November 2026",
+        note: "A November 5 matrix that did not separate harnesses on pass rate, and the cost figures that report does print.",
+      },
+      {
+        href: "/blog/claude-code-dont-ask-again",
+        anchor: "Claude Code Don't Ask Again",
+        note: "What a saved Bash approval writes into .claude/settings.local.json.",
+      },
+      {
         href: "/glossary/harness-engineering",
         anchor: "Harness engineering, defined",
         note: "The short glossary entry for designing the software around the model.",

@@ -174,7 +174,7 @@ On this site an [approval gate](/glossary/approval-gate) holds a named action un
 
 The practical split, from the permissions table, is smaller than the headline. A file edit you approve is forgotten at the end of the session. A Bash command you tell it not to ask about again is stored, in the project, until you take the rule out. The census says 1,122 public copies still had a secret in that stored rule. The settings page says the protection that is supposed to keep the file local lives in one user's global git excludes, on one computer.
 
-How a harness is scored once the permissions are in place is a different question. The method is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). The product definition is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness).
+How a harness is scored once the permissions are in place is a different question. The method is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). The product definition is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Those pages, and a November 5 cost comparison of harnesses, are on the [agent harnesses hub](/topics/harnesses). The cost note is [Garry Tan harness evals](/research/garry-tan-harness-evals-november-2026).
 
 ## FAQ
 
