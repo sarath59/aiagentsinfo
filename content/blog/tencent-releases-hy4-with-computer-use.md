@@ -1,12 +1,12 @@
 ---
 title: "Tencent releases Hy4 with image understanding and computer use"
-description: "On November 4, 2026, Tencent released Hy4, a model that can read images and operate a computer. The API is live. The weights are still scheduled."
+description: "On November 4, 2026, Tencent released Hy4, a model that can read images and operate a computer. The API is live. On November 9 the announcement still had not published the weights."
 takeaways:
   - "On November 4, 2026, Tencent released Hy4 and said it is the first Hy model that can read images and operate a computer."
   - "The API is on Tencent Cloud TokenHub as hy4 and on OpenRouter as tencent/hy4."
-  - "Tencent says the weights and a system card are still scheduled for the coming days."
+  - "On November 9, 2026, Tencent’s announcement still said the weights and a system card were coming in the coming days. It did not link a download."
 date: "2026-11-05"
-updated: "2026-11-05"
+updated: "2026-11-09"
 category: news
 topics:
   - news
@@ -22,8 +22,10 @@ companies:
   - openrouter
 byline: "AI Agents Info Editorial"
 sources:
-  - title: "Tencent, Tencent launches Hy4 (November 4, 2026)"
+  - title: "Tencent, Tencent launches Hy4 (November 4, 2026; page re-read November 9, 2026)"
     url: "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+  - title: "Hugging Face, tencent/Hy4-preview (HTTP 200 on November 9, 2026)"
+    url: "https://huggingface.co/tencent/Hy4-preview"
   - title: "Tencent Cloud TokenHub, model list (updated November 4, 2026, 12:13:30)"
     url: "https://cloud.tencent.com/document/product/1823/130051"
   - title: "Tencent Cloud TokenHub, model prices (updated November 4, 2026, 12:13:30)"
@@ -42,14 +44,20 @@ faq:
   - question: "How much does Hy4 cost?"
     answer: "TokenHub’s price page, updated November 4, 2026 at 12:13:30, lists Hy4 at 6 yuan per million input tokens, 18 yuan per million output tokens, and 0.3 yuan per million cache-hit tokens. The same page says usage is billed at 50 percent of that catalog price through 23:59:59 Beijing time on December 31, 2026. Tencent’s English announcement approximates the catalog at US$0.90, US$2.70, and US$0.045 per million tokens."
   - question: "Are the Hy4 weights public?"
-    answer: "Tencent’s November 4 announcement says the weights and system cards will be released in the coming days. On November 5, 2026, the public record checked for this article was the API listing, not a weight download. A smaller model named HyCell, which Tencent ties to the same research harness, has a weights-and-code note in the Hyra-results repository dated November 2, 2026."
+    answer: "Not as of November 9, 2026. Tencent’s November 4 announcement, re-read that day, still says the weights and system cards will be released in the coming days, and it does not link a download. The Hy4-preview weights on Hugging Face responded with HTTP 200 the same day. A smaller model named HyCell, which Tencent ties to the same research harness, has a weights-and-code note in the Hyra-results repository dated November 2, 2026."
   - question: "What is the Hyra 2.0 harness?"
     answer: "Hyra 2.0 is Tencent’s research agent harness, described in a November 1, 2026 post. It splits work among an Overall coordinator, Mission leads, and Workers, keeps a task queue and a research board, and requires evidence when a worker says a job is done. The November 4 Hy4 announcement says that harness, with Hy4, optimized pre-training infrastructure for smaller models of the same architecture."
   - question: "How is Hy4 different from Hy4 Preview on TokenHub?"
     answer: "On the TokenHub model list updated November 4, 2026, both rows list a 1M context window, retained thinking, structured output, function calling, and a cache. Hy4 adds image understanding. The catalog price on the price page is the same for both: 6 yuan, 18 yuan, and 0.3 yuan per million input, output, and cache-hit tokens. The 50 percent discount note on that page names Hy4."
 ---
 
-On November 4, 2026, Tencent released Hy4, the next Hy [language model](/glossary/llm). Tencent says this is the first Hy model that can read images and operate a computer, both through a command line and through a graphical screen. The API is already on Tencent Cloud TokenHub, under the model id `hy4`, and on [OpenRouter](https://openrouter.ai/tencent/hy4) as `tencent/hy4`. Tencent says the weights and a system card are still scheduled for the coming days. The same announcement says Hy4, inside the Hyra 2.0 [agent harness](/glossary/harness), changed the pre-training setup for smaller models that share its architecture. A model with computer use is not, by itself, a complete desktop agent. Those products are compared in [Best computer use agents](/best/computer-use-agents).
+On November 4, 2026, Tencent released Hy4, the next Hy [language model](/glossary/llm). Tencent says this is the first Hy model that can read images and operate a computer, both through a command line and through a graphical screen. The API is already on Tencent Cloud TokenHub, under the model id `hy4`, and on [OpenRouter](https://openrouter.ai/tencent/hy4) as `tencent/hy4`.
+
+## Are the Hy4 weights public yet?
+
+No. On November 9, 2026, Tencent’s November 4 announcement still said the weights and a system card would come in the coming days, and the page still did not link a download.
+
+The same re-read still says WorkBuddy and CodeBuddy are free from November 4 through November 15, 2026, and that TokenHub bills Hy4 at 50 percent of the catalog price through December 31, 2026. [Hy4-preview weights](https://huggingface.co/tencent/Hy4-preview) responded with HTTP 200 that day. Those are the preview weights, not the Hy4 release the announcement still describes as upcoming. The same announcement says Hy4, inside the Hyra 2.0 [agent harness](/glossary/harness), changed the pre-training setup for smaller models that share its architecture. A model with computer use is not, by itself, a complete desktop agent. Those products are compared in [Best computer use agents](/best/computer-use-agents).
 
 ## What did Tencent release on November 4?
 

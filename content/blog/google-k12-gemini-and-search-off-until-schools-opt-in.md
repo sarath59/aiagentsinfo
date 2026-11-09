@@ -1,12 +1,12 @@
 ---
 title: "Google will turn off Gemini and Search for K-12 students unless schools opt in"
-description: "On November 3, 2026, Google said Gemini and Search stay off for K-12 students until a school turns each one on. Search can be enabled alone. The same blog, re-read November 6, still places that switch in the coming months."
+description: "On November 3, 2026, Google said Gemini and Search stay off for K-12 students until a school turns each one on. Re-read November 9, the blog still places that switch in the coming months."
 takeaways:
   - "On November 3, 2026, Google said K-12 student accounts will lose access to Gemini and Google Search until a school administrator turns them back on."
   - "Later the same day, Google's news account said a school can turn Search on by itself, without also turning Gemini on."
   - "Until that rollout, the sourced claim is the policy, not a report that student Search has already stopped."
 date: "2026-11-04"
-updated: "2026-11-06"
+updated: "2026-11-09"
 category: news
 topics:
   - news
@@ -19,7 +19,7 @@ companies:
   - gemini
 byline: "AI Agents Info Editorial"
 sources:
-  - title: "Chris Phillips, Google, Designing responsible AI for learning (November 3, 2026; page re-read November 6, 2026)"
+  - title: "Chris Phillips, Google, Designing responsible AI for learning (November 3, 2026; page re-read November 9, 2026)"
     url: "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/"
   - title: "Google, AI in the learning era (November 3, 2026)"
     url: "https://blog.google/products-and-platforms/products/education/ai-learning-era-2026/"
@@ -45,7 +45,7 @@ sources:
     url: "https://x.com/SenSanders/status/2117700813544185865"
 faq:
   - question: "Will Google turn off Search for K-12 student accounts?"
-    answer: "Google’s November 3, 2026 blog says access to Gemini, Gemini Notebook, Gemini in Classroom, and Google Search will be entirely off for K-12 student accounts until a school administrator turns them on. Re-read on November 6, 2026, the same page still says Google will share more specifics in the coming months before that change rolls out. It does not say the switch has already happened. A summary bullet on the page also says administrators now have full control to enable or disable AI products for those accounts."
+    answer: "Google’s November 3, 2026 blog says access to Gemini, Gemini Notebook, Gemini in Classroom, and Google Search will be entirely off for K-12 student accounts until a school administrator turns them on. Re-read on November 9, 2026, the same page still says Google will share more specifics in the coming months before that change rolls out. It does not say the switch has already happened."
   - question: "Can a school turn Search on without turning Gemini on?"
     answer: "Google’s news account on X said yes later on November 3. The post says Gemini, Gemini Notebook, and Search start off, and that a school can turn on one, two, or all of those three. The same post says school Search is being updated so AI Mode and AI Overviews walk students through problems step by step."
   - question: "What is Guided Learning?"
@@ -60,7 +60,7 @@ On November 3, 2026, Google said K-12 student accounts will lose access to [Gemi
 
 A school Google login is the account on a classroom computer. Google’s change is about that login. It is a switch a school controls. It is not a new chatbot for home use, and the posts do not say a student’s Search box is already dark. Student-facing products, including this school-account rule, are compared in [Best AI agent for students](/best/ai-agents-for-students).
 
-On November 6, 2026, Phillips’s blog was still the page at that URL. The body still says access will be entirely off until an administrator turns the products on, and that Google will share specifics in the coming months before the rollout. The page’s summary bullets also say school administrators now have full control to enable or disable AI products for K-12 student accounts. The post still does not give a calendar day, and it does not say the off switch is already in effect. The Search Guided Learning pilot is still described as starting in select U.S. schools later in November 2026. The page does not name those schools, and it does not say the pilot has begun. The X posts cited below were not re-fetched on November 6. Their November 3 timestamps are unchanged in this account.
+On November 9, 2026, Phillips’s blog was still the page at that URL. The body still says access will be entirely off until an administrator turns the products on, and that Google will share specifics in the coming months before the rollout. The post still does not give a calendar day, and it does not say the off switch is already in effect. The Search Guided Learning pilot is still described as beginning in select U.S. schools later this month. The page does not name those schools, and it does not say the pilot has begun. The X posts cited below were not re-fetched on November 9. Their November 3 timestamps are unchanged in this account. This page is for adult readers following a school-account policy. It is not written for students.
 
 ## What did Google announce for K-12 accounts?
 
