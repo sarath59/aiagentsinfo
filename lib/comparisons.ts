@@ -1011,6 +1011,13 @@ export const evaluationComparison: ComparisonPage = {
       date: "2026-11-06",
     },
     {
+      href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+      title: "How to build an eval harness for AI agents",
+      description: "Tasks, isolated trials, and graders. Harbor, Inspect, or a local pytest suite.",
+      kicker: "Guide",
+      date: "2026-11-09",
+    },
+    {
       href: "/glossary/behavioral-evaluation",
       title: "Behavioral evaluation",
       description: "A test that checks one observable agent action rather than a whole benchmark score.",

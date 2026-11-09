@@ -2,9 +2,12 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { FaqList } from "@/components/FaqList";
+import { ListYourAgent } from "@/components/ListYourAgent";
+import { NextRead } from "@/components/NextRead";
 import { SortableTable } from "@/components/SortableTable";
+import { ToolCtas } from "@/components/ToolCtas";
 import { getDirectoryListings } from "@/lib/directory";
-import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 import type { SortableRow } from "@/lib/sortable";
 import { formatDate } from "@/lib/utils";
@@ -18,7 +21,34 @@ import {
 const path = "/verified-revenue";
 const title = "Verified AI revenue";
 const description =
-  "AI tools with payment-processor-verified revenue and a public price. Sort the table. Each figure has a source link and the date it was checked.";
+  "Which AI tools have verified revenue? Payment-processor-verified figures plus a public price from each product site. Sort the table. Each figure has a source link and the date it was checked.";
+
+const faq = [
+  {
+    question: "What does verified mean here?",
+    answer:
+      "TrustMRR says the revenue is verified with a payment-processor API key, and the profile was read on the checked date. It does not mean this site audited the account.",
+  },
+  {
+    question: "Why can MRR and the last 30 days disagree?",
+    answer:
+      "TrustMRR prints them as separate figures. Speel is the clear case: the last-30-days total is much smaller than the MRR on the same page. Both are shown with their labels. Neither is converted into the other.",
+  },
+  {
+    question: "Why are the prices a day older than the revenue?",
+    answer:
+      "Revenue was re-read from TrustMRR on November 5, 2026. The product prices were copied on November 3 or 4 and were not opened again, so they keep those dates.",
+  },
+  {
+    question: "Can I sort this?",
+    answer: "Yes. Use the column buttons. The default order is MRR, highest first.",
+  },
+  {
+    question: "Is this an agent harness benchmark?",
+    answer:
+      "No. This page is revenue of shipping products, read from a processor connection. Public SWE-bench and Terminal-Bench scores sit on the November 2026 harness benchmark. How to test a harness is the evaluation guide.",
+  },
+];
 
 export const metadata = defaultMetadata(title, description, path);
 
@@ -96,6 +126,7 @@ export default async function VerifiedRevenuePage() {
           dateModified: verifiedRevenueChecked,
         })}
       />
+      <JsonLd data={faqPageJsonLd(faq)} />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -104,12 +135,35 @@ export default async function VerifiedRevenuePage() {
         ]}
       />
       <header className="mx-auto max-w-6xl px-4 pb-8 pt-12">
-        <p className="kicker kicker-lead">Stripe-checked</p>
-        <h1 className="display mt-3 text-4xl sm:text-5xl">Verified revenue</h1>
+        <p className="kicker kicker-lead">Processor-verified</p>
+        <h1 className="display mt-3 text-4xl sm:text-5xl">Which AI tools have verified revenue?</h1>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
           {verifiedRevenueEntries.length} tools with a public revenue figure read from a payment-processor connection,
           plus a price read from the product&apos;s own site. Whole-dollar amounts are the TrustMRR page data rounded
           to the nearest dollar. Nothing here is a founder screenshot or an estimated ARR.
+        </p>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+          This is not an agent-harness scoreboard. Public SWE-bench and Terminal-Bench rows sit on the{" "}
+          <Link className="text-[var(--link)] underline" href="/reports/agent-harness-benchmark-november-2026">
+            November 2026 harness benchmark
+          </Link>
+          . How to test the software around a model is{" "}
+          <Link className="text-[var(--link)] underline" href="/blog/how-do-you-evaluate-an-ai-agent-harness">
+            How to evaluate an AI agent harness
+          </Link>
+          . A token bill is the{" "}
+          <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
+            agent cost calculator
+          </Link>
+          . To add a product,{" "}
+          <Link className="text-[var(--link)] underline" href="/submit">
+            submit a listing
+          </Link>{" "}
+          or claim one already in the{" "}
+          <Link className="text-[var(--link)] underline" href="/directory">
+            directory
+          </Link>
+          .
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">
           Last updated <time dateTime={verifiedRevenueChecked}>{updatedLabel}</time>.
@@ -117,12 +171,41 @@ export default async function VerifiedRevenuePage() {
       </header>
 
       <div className="mx-auto max-w-6xl px-4 pb-20">
+        <NextRead
+          reads={[
+            {
+              href: "/directory",
+              title: "AI agents directory",
+              note: "Listings with a live site. Claim a page or add a missing product.",
+            },
+            {
+              href: "/reports/agent-harness-benchmark-november-2026",
+              title: "November 2026 harness benchmark",
+              note: "Official coding-agent scores, each with the harness on the row.",
+            },
+            {
+              href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+              title: "How to evaluate an AI agent harness",
+              note: "One observable action, then whether the job still finishes.",
+            },
+            {
+              href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+              title: "How to build an eval harness for AI agents",
+              note: "Tasks, isolated trials, and graders — not a revenue table.",
+            },
+          ]}
+          tool={{
+            href: "/agent-cost-calculator",
+            title: "agent cost calculator",
+            note: "official per-token prices, no login",
+          }}
+        />
         <section className="glass rounded-3xl p-6 sm:p-8">
           <h2 className="text-xl font-semibold tracking-tight">How a number gets on this page</h2>
           <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-[var(--muted)] md:grid-cols-3">
             <li className="rounded-2xl border border-[var(--stroke)] bg-white/70 p-4">
-              Revenue comes from a TrustMRR profile that says the figure is verified with a Stripe API key, and that
-              names an MRR.
+              Revenue comes from a TrustMRR profile that says the figure is verified with a payment-processor API key,
+              and that names an MRR.
             </li>
             <li className="rounded-2xl border border-[var(--stroke)] bg-white/70 p-4">
               The price is copied from the product site. A price that exists only on TrustMRR is not used. Those
@@ -205,7 +288,15 @@ export default async function VerifiedRevenuePage() {
 
         <section className="mt-10 text-sm">
           <p>
-            Related: <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-12-months">AI agents, Nov 2026 to Nov 2027</Link>
+            Related: <Link className="text-[var(--link)] underline" href="/directory">directory</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/submit">submit a listing</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/trackers">live trackers</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/trackers/downloads">framework downloads</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-12-months">AI agents, Nov 2026 to Nov 2027</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-6-months">AI agents, Nov 2026 to May 2027</Link>
             {" · "}
@@ -217,6 +308,10 @@ export default async function VerifiedRevenuePage() {
               November harness benchmark
             </Link>
             {" · "}
+            <Link className="text-[var(--link)] underline" href="/blog/how-do-you-evaluate-an-ai-agent-harness">
+              evaluate an agent harness
+            </Link>
+            {" · "}
             <Link className="text-[var(--link)] underline" href="/reports">all reports</Link>
           </p>
         </section>
@@ -225,41 +320,13 @@ export default async function VerifiedRevenuePage() {
           <CiteOrEmbed citation={citation} embed={embed} />
         </div>
 
+        <ToolCtas tools={["calculator", "picker"]} />
+        <ListYourAgent />
         <FaqList
-          items={[
-            {
-              question: "What does verified mean here?",
-              answer: (
-                <p>
-                  TrustMRR says the revenue is verified with a Stripe API key, and the profile was read on the checked
-                  date. It does not mean this site audited the Stripe account.
-                </p>
-              ),
-            },
-            {
-              question: "Why can MRR and the last 30 days disagree?",
-              answer: (
-                <p>
-                  TrustMRR prints them as separate figures. Speel is the clear case: the last-30-days total is much
-                  smaller than the MRR on the same page. Both are shown with their labels. Neither is converted into
-                  the other.
-                </p>
-              ),
-            },
-            {
-              question: "Why are the prices a day older than the revenue?",
-              answer: (
-                <p>
-                  Revenue was re-read from TrustMRR on November 5, 2026. The product prices were copied on November 3
-                  or 4 and were not opened again, so they keep those dates.
-                </p>
-              ),
-            },
-            {
-              question: "Can I sort this?",
-              answer: <p>Yes. Use the column buttons. The default order is MRR, highest first.</p>,
-            },
-          ]}
+          items={faq.map((item) => ({
+            question: item.question,
+            answer: <p>{item.answer}</p>,
+          }))}
         />
       </div>
     </>

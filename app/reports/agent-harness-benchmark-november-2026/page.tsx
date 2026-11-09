@@ -2,9 +2,12 @@ import Link from "next/link";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
+import { ListYourAgent } from "@/components/ListYourAgent";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { NextRead } from "@/components/NextRead";
 import { FaqList } from "@/components/FaqList";
 import { SortableTable } from "@/components/SortableTable";
+import { ToolCtas } from "@/components/ToolCtas";
 import { categoryTitle, getBlogPost } from "@/lib/blog";
 import { description, path, readingMinutes, title } from "@/lib/benchmark-report";
 import { categorySummaries } from "@/lib/directory-meta";
@@ -18,18 +21,40 @@ import {
   terminalColumns,
   terminalRows,
 } from "@/lib/harness-benchmark";
-import { JsonLd, datasetJsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 export const metadata = defaultMetadata(title, description, path);
 
 export default async function HarnessBenchmarkPage() {
-  const [guide, benchmarkTerm] = await Promise.all([
+  const [guide, evalGuide, buildGuide, benchmarkTerm] = await Promise.all([
     getBlogPost("what-is-an-ai-agent-harness"),
+    getBlogPost("how-do-you-evaluate-an-ai-agent-harness"),
+    getBlogPost("how-to-build-an-eval-harness-for-ai-agents"),
     getGlossaryTerm("benchmark"),
   ]);
   const related = [
+    evalGuide
+      ? {
+          href: `/blog/${evalGuide.slug}`,
+          title: evalGuide.title,
+          description: evalGuide.description,
+          kicker: categoryTitle(evalGuide.category),
+          date: evalGuide.date,
+          readingMinutes: evalGuide.readingMinutes,
+        }
+      : undefined,
+    buildGuide
+      ? {
+          href: `/blog/${buildGuide.slug}`,
+          title: buildGuide.title,
+          description: buildGuide.description,
+          kicker: categoryTitle(buildGuide.category),
+          date: buildGuide.date,
+          readingMinutes: buildGuide.readingMinutes,
+        }
+      : undefined,
     {
       href: "/reports/ai-agents-next-12-months",
       title: "AI agents, Nov 2026 to Nov 2027",
@@ -130,6 +155,29 @@ export default async function HarnessBenchmarkPage() {
     <>
       <JsonLd data={webPageJsonLd({ title, description, path, datePublished: updated, dateModified: updated })} />
       <JsonLd data={datasetJsonLd({ title, description, path, datePublished: updated, dateModified: updated })} />
+      <JsonLd
+        data={faqPageJsonLd([
+          {
+            question: "Does a higher percent mean a better product?",
+            answer:
+              "Only inside one table, and only for the harness named on the row. A bash-only SWE-bench score and a Terminal-Bench score are different tests. A mini-SWE-agent 1.x row and a 2.x row are not described by SWE-bench as a clean comparison.",
+          },
+          {
+            question: "Why are some famous models missing?",
+            answer: `They were not on the official file when it was read on ${updatedLabel}. A score that exists only on a recap site is left out. The newest SWE-bench Verified date in that file is ${swebenchBenchmark.newestResultDate}.`,
+          },
+          {
+            question: "Who checked the runs?",
+            answer:
+              "The SWE-bench tables have a team-checked column taken from the official file. Terminal-Bench rows are the rows on the official 4.0 board. This site did not re-run the tasks.",
+          },
+          {
+            question: "How often does this page change?",
+            answer:
+              "It is the November 2026 agent harness benchmark. A later month gets its own page when the boards are read again. The reports index is where that page will be linked.",
+          },
+        ])}
+      />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -182,12 +230,45 @@ export default async function HarnessBenchmarkPage() {
             website is not filled in when the official board does not list it. The product table is{" "}
             <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>. How to test one action, rather than a
             whole score, is{" "}
-            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>. The
-            shelf for the guides, the research notes, and this benchmark is the{" "}
+            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>. How
+            to stand up tasks, isolated trials, and graders is{" "}
+            <Link href="/blog/how-to-build-an-eval-harness-for-ai-agents">How to build an eval harness for AI agents</Link>
+            . The shelf for the guides, the research notes, and this benchmark is the{" "}
             <Link href="/topics/harnesses">agent harnesses hub</Link>. The short pointer page is the{" "}
-            <Link href="/trackers/harnesses">harness comparison tracker</Link>.
+            <Link href="/trackers/harnesses">harness comparison tracker</Link>. Live install counts are on the{" "}
+            <Link href="/trackers">trackers</Link> and the{" "}
+            <Link href="/trackers/downloads">downloads tracker</Link>.
           </p>
         </div>
+        <NextRead
+          reads={[
+            {
+              href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+              title: "How to evaluate an AI agent harness",
+              note: "One observable action, then whether the whole job still finishes.",
+            },
+            {
+              href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+              title: "How to build an eval harness for AI agents",
+              note: "Isolate every trial, grade the environment, keep a held-out set.",
+            },
+            {
+              href: "/blog/what-is-an-ai-agent-harness",
+              title: "What is an AI agent harness?",
+              note: "The workshop these scores are measuring.",
+            },
+            {
+              href: "/best/ai-agent-harnesses",
+              title: "Best AI agent harness",
+              note: "Licence and list price, not a quality ranking.",
+            },
+          ]}
+          tool={{
+            href: "/agent-cost-calculator",
+            title: "agent cost calculator",
+            note: "a 30-day token bill from official prices",
+          }}
+        />
         <section className="glass mt-10 rounded-3xl p-6 sm:p-8">
           <h2 id="what-these-numbers-are" className="text-2xl font-semibold tracking-tight">What is this agent harness benchmark?</h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
@@ -277,7 +358,10 @@ export default async function HarnessBenchmarkPage() {
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             The agent column changes by row, so this harness comparison includes Claude Code, Codex, Grok Build,
             mini-SWE-agent, or Muse Code, not one shared harness. {terminalBench.rows.length} rows.{" "}
-            {terminalBench.description} The board name on Harbor Hub is{" "}
+            {terminalBench.description} Harbor, from the Terminal-Bench authors, is one way to run a task folder
+            against those agents; how to build that kind of eval is{" "}
+            <Link href="/blog/how-to-build-an-eval-harness-for-ai-agents">How to build an eval harness for AI agents</Link>
+            . The board name on Harbor Hub is{" "}
             {terminalBench.name}, and the record was updated {terminalBench.updatedAt}. Read {updatedLabel} from the{" "}
             <a className="text-[var(--link)] underline" href={terminalBench.pageUrl}>
               Terminal-Bench site
@@ -370,6 +454,8 @@ export default async function HarnessBenchmarkPage() {
             },
           ]}
         />
+        <ToolCtas tools={["calculator", "checker", "picker"]} />
+        <ListYourAgent />
         <div className="mt-14">
           <NewsletterSignup id="report-benchmark" />
         </div>

@@ -60,6 +60,8 @@ faq:
     answer: "Google’s September 9 post says no. Behavioral evals and end-to-end suites are complementary. A small check can pass while the user-facing job still fails, which is the failure Anthropic described on November 26, 2025, when an agent marked features done after unit tests or curl checks that missed end-to-end bugs. Keep a destination score and the smaller behavior checks."
   - question: "What is an agent skill in a coding harness?"
     answer: "On the Agent Skills specification, a skill is a folder whose required file is SKILL.md. The file starts with a name and a description, then instructions the agent loads when a task matches. LangChain’s March 10, 2026 harness post treats skills as a harness feature that keeps tool and MCP instructions out of the context window until they are needed."
+  - question: "How do you build an eval harness for AI agents?"
+    answer: "Write tasks with checkable outcomes, isolate every trial, grade the environment or a tool call, and keep a held-out set. Harbor, Inspect, and a local pytest suite are three runners. The guide is How to build an eval harness for AI agents."
 ---
 
 Updated November 9, 2026.
@@ -70,7 +72,7 @@ How to evaluate an AI agent harness: check the actions you expect, then check wh
 
 A [behavioral evaluation](/glossary/behavioral-evaluation) watches one step you can point at in the trace: a tool call, a file edit, a clarifying question, a test command. An end-to-end [benchmark](/glossary/benchmark) scores a frozen set of tasks and tells you whether the bundle of model plus [harness](/glossary/harness) succeeded. [Google’s September 9, 2026 post](https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/) says a composite score can move a few points and still leave you unsure which step changed. The behavioral check is how you name that step.
 
-The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The cycle inside that workshop is [How do AI agents work?](/blog/how-do-ai-agents-work). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses).
+The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). How to build the infrastructure that runs the checks — tasks, isolated trials, graders — is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents). The cycle inside that workshop is [How do AI agents work?](/blog/how-do-ai-agents-work). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses). Dated public boards are the [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026). Live install counts sit on the [trackers](/trackers) and the [downloads tracker](/trackers/downloads).
 
 ## What is a behavioral evaluation?
 
@@ -151,7 +153,7 @@ Anthropic’s long-running note is a third clock. The eval that matters there is
 
 ## How is a behavioral eval written?
 
-Write a behavioral eval as a test of one action, such as the tool call in Google’s September 9 example, then rerun the suite so older checks still hold. This section describes that example. It does not add an API beyond what the post shows.
+Write a behavioral eval as a test of one action, such as the tool call in Google’s September 9 example, then rerun the suite so older checks still hold. This section describes that example. It does not add an API beyond what the post shows. Folding that assertion into a task folder, a sandbox, and a numeric reward is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents).
 
 The example is a Python test. It imports `Agent`, `LocalAgentConfig`, and `types` from a module path the post writes as `google.antigravity`. The test asks an agent for the weather in Mountain View, California, collects the names of the tool calls on the reply, and asserts that a built-in web-search tool is among them. The assertion message says the agent answered from memory without consulting live search. The comment above the assertion is the design rule: assert the behavior, not the prose of the answer.
 
@@ -246,9 +248,10 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 - This guide’s terms: [behavioral evaluation](/glossary/behavioral-evaluation), [agent skill](/glossary/agent-skill), [Model Context Protocol](/glossary/model-context-protocol)
 - Harness hub: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do AI agents work?](/blog/how-do-ai-agents-work), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [agent loop](/glossary/agent-loop), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [tool use](/glossary/tool-use)
 - Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs)
-- Nearby guides: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing)
+- Nearby guides: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents)
 - Topics: [agent harnesses hub](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research)
 - Comparisons: [Best AI agent harness](/best/ai-agent-harnesses), [Best AI agent frameworks](/best/ai-agent-frameworks), [Harness comparison tracker](/trackers/harnesses)
+- Trackers: [live trackers](/trackers), [framework downloads](/trackers/downloads)
 - Report: [agent harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
 
 ## Frequently asked questions
@@ -280,3 +283,7 @@ Google says the two are complementary. A small check can pass while the job a pe
 ### What is an agent skill in a coding harness?
 
 A skill is a folder with a `SKILL.md` file: a name, a description, and instructions the agent loads when a task matches. The open format is the [Agent Skills specification](https://agentskills.io/specification). [LangChain](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) treats skills as part of the harness, loaded in stages so unused MCP and tool instructions do not fill the context window. The glossary entry is [agent skill](/glossary/agent-skill).
+
+### How do you build an eval harness for AI agents?
+
+Write tasks with checkable outcomes, isolate every trial, grade the environment or a tool call, and keep a held-out set. Harbor, Inspect, and a local pytest suite are three runners. The guide is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents).

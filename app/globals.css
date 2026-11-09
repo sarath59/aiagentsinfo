@@ -1121,6 +1121,51 @@ article.grid > * {
   margin-top: 3.5rem;
 }
 
+.next-read {
+  margin: 1.5rem 0 2rem;
+}
+
+.article-prose .next-read h2,
+.prose-article .next-read h2 {
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  margin: 0.35rem 0 0;
+}
+
+.next-read ol {
+  margin: 0.7rem 0 0;
+  padding-left: 1.25rem;
+  list-style: decimal;
+}
+
+.next-read li + li {
+  margin-top: 0.4rem;
+}
+
+.next-read li::marker {
+  color: var(--color-electric);
+}
+
+.next-read-note,
+.next-read-meta {
+  color: var(--muted);
+}
+
+.next-read-note {
+  font-size: 0.92em;
+}
+
+.next-read-meta {
+  margin-top: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.next-read-meta a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+}
+
 .content-grid {
   display: grid;
   gap: 1rem;

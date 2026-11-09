@@ -46,7 +46,9 @@ export default function BestAiAgentEvaluationToolsPage() {
             point at in a run. An end-to-end <Link href="/glossary/benchmark">benchmark</Link> still answers whether
             the job finished. The working guide is{" "}
             <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How do you evaluate an AI agent harness?</Link>{" "}
-            Official SWE-bench and Terminal-Bench rows stay on the{" "}
+            How to stand up the tasks and sandboxes is{" "}
+            <Link href="/blog/how-to-build-an-eval-harness-for-ai-agents">How to build an eval harness for AI agents</Link>
+            . Official SWE-bench and Terminal-Bench rows stay on the{" "}
             <Link href="/reports/agent-harness-benchmark-november-2026">November 2026 harness benchmark</Link>. The
             shelf for this table is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>.
           </p>

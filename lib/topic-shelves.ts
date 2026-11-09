@@ -5,7 +5,7 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
   harnesses: {
     heading: "Which agent harness pages should you read first?",
     answer:
-      "Start with the definition, then the evaluation guide, the comparison tables, the November benchmark, and the research notes.",
+      "Start with the definition, then the evaluation guide, how to build an eval harness, the comparison tables, the November benchmark, and the research notes.",
     links: [
       {
         href: "/blog/is-autogen-deprecated",
@@ -31,6 +31,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
         anchor: "How to evaluate an AI agent harness",
         note: "Test one action you can see, then check that the whole job still finishes.",
+      },
+      {
+        href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+        anchor: "How to build an eval harness for AI agents",
+        note: "Isolate every trial, grade the environment, keep a held-out set. Harbor, Inspect, or local pytest.",
       },
       {
         href: "/best/ai-agent-harnesses",
@@ -165,6 +170,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/blog/how-do-ai-agents-work",
         anchor: "How do AI agents work?",
         note: "The control loop from a goal to an action, checked against current product docs.",
+      },
+      {
+        href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+        anchor: "How to build an eval harness for AI agents",
+        note: "The evaluation layer: isolated trials, graders, and a held-out set.",
       },
       {
         href: "/blog/what-is-multi-agent-orchestration",

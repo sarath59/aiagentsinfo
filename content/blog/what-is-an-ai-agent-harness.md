@@ -227,7 +227,7 @@ GPT-5 in that story is the model the post names for the August 2025 scaffold. It
 
 Databricks’ June 17 table is the clean teaching version of the same shift. Prompt engineering writes a better input. Context engineering chooses what the model sees, and when. Harness engineering designs the tools, sandboxes, loops, and guardrails. The first two live inside the third.
 
-LangChain’s March 10 post adds a research-shaped caution. It says products such as Claude Code and Codex are post-trained with the harness in the loop, so a model can get worse when the tool format changes, even if a person would find the new format easy. That is the company’s argument, tied to a Codex prompting guide it cites. Treat it as a reason to test a harness change. The test for one observable action is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). The short definition of the job is the [harness engineering](/glossary/harness-engineering) glossary entry.
+LangChain’s March 10 post adds a research-shaped caution. It says products such as Claude Code and Codex are post-trained with the harness in the loop, so a model can get worse when the tool format changes, even if a person would find the new format easy. That is the company’s argument, tied to a Codex prompting guide it cites. Treat it as a reason to test a harness change. The test for one observable action is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). How to stand up the tasks, sandboxes, and graders is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents). The short definition of the job is the [harness engineering](/glossary/harness-engineering) glossary entry.
 
 ## How is a framework different from a harness?
 
@@ -362,7 +362,7 @@ The [task performance](/topics/task-performance) topic is where this site follow
 
 - Glossary: [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [orchestration](/glossary/orchestration), [guardrail](/glossary/guardrail), [agent](/glossary/agent), [tool use](/glossary/tool-use), [computer use](/glossary/computer-use), [browser use](/glossary/browser-use), [sandbox](/glossary/sandbox), [autonomy](/glossary/autonomy), [benchmark](/glossary/benchmark), [behavioral evaluation](/glossary/behavioral-evaluation)
 - At organization scale: [What is harness engineering at scale?](/blog/what-is-harness-engineering-at-scale-thoughtworks-radar)
-- Evaluation: [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness)
+- Evaluation: [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents)
 - Research: [ReAct](/research/react-reasoning-and-acting), [weight-space programming](/research/weight-space-programming)
 - Directory: [agent frameworks](/directory/category/agent-frameworks), [Claude Agent SDK](/directory/claude-agent-sdk), [OpenAI Agents SDK](/directory/openai-agents-sdk), [Codex](/directory/codex), [Google ADK](/directory/google-adk), [Microsoft Agent Framework](/directory/microsoft-agent-framework), [Pydantic AI](/directory/pydantic-ai)
 - Shopping: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)

@@ -3,8 +3,10 @@ import { notFound } from "next/navigation";
 import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
+import { ListYourAgent } from "@/components/ListYourAgent";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { NextRead, type NextReadItem } from "@/components/NextRead";
 import { ToolCtas } from "@/components/ToolCtas";
 import { categoryTitle, getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
 import { withTableDownloads } from "@/lib/html-tables";
@@ -31,6 +33,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const [post, all] = await Promise.all([getBlogPost(slug), getBlogPosts()]);
   if (!post) notFound();
   const related = relatedBlogPosts(post, all);
+  const nextRead = nextReadForPost(post.slug);
   const toc = [
     ...post.toc,
     ...(post.sources?.length ? [{ id: "sources", text: "Sources", level: 2 as const }] : []),
@@ -61,9 +64,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           })}
         />
       ) : null}
-      {post.faq?.length && post.html.includes('id="faq"') ? (
-        <JsonLd data={faqPageJsonLd(post.faq)} />
-      ) : null}
+      {post.faq?.length ? <JsonLd data={faqPageJsonLd(post.faq)} /> : null}
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -97,8 +98,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </Link>
         }
       >
+        {nextRead ? <NextRead reads={nextRead.reads} tool={nextRead.tool} /> : null}
         <MarkdownBody html={withTableDownloads(post.html, `/blog/${post.slug}/tables`)} />
         <ToolCtas tools={toolsForPost(post.slug, post.category)} />
+        {nextRead ? <ListYourAgent /> : null}
         <div className="mt-14">
           <NewsletterSignup id="article" />
         </div>
@@ -109,8 +112,105 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 function toolsForPost(slug: string, category: string) {
   const tools: ("calculator" | "checker" | "picker")[] = [];
-  if (/pric|cost|token/.test(slug)) tools.push("calculator");
-  if (/prompt|tool-json/.test(slug)) tools.push("checker");
+  if (/pric|cost|token|harness|eval/.test(slug)) tools.push("calculator");
+  if (/prompt|tool-json|harness|eval/.test(slug)) tools.push("checker");
   if (category === "guide" || /agent|employee|shopping|computer/.test(slug)) tools.push("picker");
   return tools;
+}
+
+function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "how-do-you-evaluate-an-ai-agent-harness") {
+    return {
+      reads: [
+        {
+          href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+          title: "How to build an eval harness for AI agents",
+          note: "Tasks, isolated trials, and graders, including Harbor and pytest.",
+        },
+        {
+          href: "/blog/what-is-an-ai-agent-harness",
+          title: "What is an AI agent harness?",
+          note: "The loop, tools, memory, and stop rules around a model.",
+        },
+        {
+          href: "/reports/agent-harness-benchmark-november-2026",
+          title: "November 2026 harness benchmark",
+          note: "Official SWE-bench and Terminal-Bench rows, each with a date.",
+        },
+        {
+          href: "/best/ai-agent-evaluation-tools",
+          title: "Best AI agent evaluation tools",
+          note: "Libraries and hosted stacks, with licence and list price.",
+        },
+      ],
+      tool: {
+        href: "/agent-prompt-checker",
+        title: "prompt checker",
+        note: "counts tokens and checks tool JSON in the browser",
+      },
+    };
+  }
+  if (slug === "how-to-build-an-eval-harness-for-ai-agents") {
+    return {
+      reads: [
+        {
+          href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+          title: "How to evaluate an AI agent harness",
+          note: "Behavioral checks versus an end-to-end destination score.",
+        },
+        {
+          href: "/blog/what-is-an-ai-agent-harness",
+          title: "What is an AI agent harness?",
+          note: "The workshop the eval harness is scoring.",
+        },
+        {
+          href: "/reports/agent-harness-benchmark-november-2026",
+          title: "November 2026 harness benchmark",
+          note: "Public boards, not a substitute for your own tasks.",
+        },
+        {
+          href: "/best/ai-agent-evaluation-tools",
+          title: "Best AI agent evaluation tools",
+          note: "Inspect, Promptfoo, and the hosted companions.",
+        },
+      ],
+      tool: {
+        href: "/agent-prompt-checker",
+        title: "prompt checker",
+        note: "tool JSON is part of the harness you are testing",
+      },
+    };
+  }
+  if (slug === "what-is-an-ai-agent-harness") {
+    return {
+      reads: [
+        {
+          href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+          title: "How to evaluate an AI agent harness",
+          note: "One observable action, then the whole job.",
+        },
+        {
+          href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+          title: "How to build an eval harness for AI agents",
+          note: "Isolate trials, grade the environment, keep a held-out set.",
+        },
+        {
+          href: "/reports/agent-harness-benchmark-november-2026",
+          title: "November 2026 harness benchmark",
+          note: "Dated public scores with the harness named on the row.",
+        },
+        {
+          href: "/best/ai-agent-harnesses",
+          title: "Best AI agent harness",
+          note: "Licence, list price, and platform from official pages.",
+        },
+      ],
+      tool: {
+        href: "/tools/agent-picker",
+        title: "agent picker",
+        note: "four questions, then three directory listings",
+      },
+    };
+  }
+  return null;
 }
