@@ -8,6 +8,16 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
       "Start with the definition, then the evaluation guide, the comparison tables, the November benchmark, and the research notes.",
     links: [
       {
+        href: "/blog/is-autogen-deprecated",
+        anchor: "Is AutoGen deprecated?",
+        note: "61,753 stars on November 9, 2026. The README says archived. GitHub’s archive flag was false.",
+      },
+      {
+        href: "/research/how-many-github-stars-does-openclaw-have",
+        anchor: "How many GitHub stars does OpenClaw have?",
+        note: "394,222 at 07:41 UTC on November 9, 2026, beside ten other repositories from the same pull.",
+      },
+      {
         href: "/blog/what-is-an-ai-agent-harness",
         anchor: "What an AI agent harness is",
         note: "The loop, tools, memory, permissions, and stop rules around a model, including DeepSeek Harness.",
