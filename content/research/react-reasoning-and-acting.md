@@ -1,6 +1,7 @@
 ---
-title: "Paper breakdown: ReAct — reasoning and acting in language models"
-description: "Notes on Yao et al. 2022. ReAct interleaves a written reasoning trace with an action, then reads the observation, on HotpotQA, FEVER, ALFWorld, and WebShop."
+title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+description: "ReAct (Yao et al., 2022) interleaves a reasoning trace with an action, then reads the observation. The paper reports this on HotpotQA, FEVER, ALFWorld, and WebShop."
+absoluteTitle: true
 date: "2026-10-18"
 updated: "2026-11-08"
 type: paper-breakdown
@@ -48,9 +49,11 @@ citation:
     }
 ---
 
-## Why this paper is here
+## What is ReAct: Synergizing Reasoning and Acting in Language Models?
 
-If you have seen an agent print “Thought:” then “Action:” then “Observation:”, you have seen a descendant of **ReAct**. The contribution is not a new model. It is a prompting pattern that treats language as both a scratchpad and an interface to tools.
+ReAct is a 2022 prompting pattern that writes a reasoning trace, takes an action, then reads the observation before the next step.
+
+If you have seen an agent print “Thought:” then “Action:” then “Observation:”, you have seen a descendant of **ReAct**. The contribution is not a new model. It is a prompting pattern that treats language as both a scratchpad and an interface to tools. The paper’s own title is ReAct: Synergizing Reasoning and Acting in Language Models. Yao, Zhao, Yu, Du, Shafran, Narasimhan, and Cao posted it as arXiv:2210.03629. It later appeared at ICLR 2023.
 
 The pattern sits next to the [harness](/glossary/harness) glossary entry: the loop around the model, not the weights. The broader account of that loop, including the product runtimes checked November 8, 2026, is [How do AI agents work?](/blog/how-do-ai-agents-work). The short definition of the cycle is [agent loop](/glossary/agent-loop).
 
@@ -69,4 +72,4 @@ Do not paste the original task scores into a modern [benchmark](/glossary/benchm
 - Paper: [arXiv:2210.03629](https://arxiv.org/abs/2210.03629). The abstract still states the 34% and 10% success-rate sentences. Re-read November 8, 2026.
 - Project site: [react-lm.github.io](https://react-lm.github.io). It resolved on November 8, 2026.
 - Code: [ysymyth/ReAct](https://github.com/ysymyth/ReAct). The repository resolved on November 8, 2026. GitHub lists its last push as February 6, 2024. It is the paper’s code.
-- Related on this site: [How do AI agents work?](/blog/how-do-ai-agents-work), [agent loop](/glossary/agent-loop), [tool use](/glossary/tool-use), [autonomy](/glossary/autonomy)
+- Related on this site: [Agent harnesses](/topics/harnesses), [How do AI agents work?](/blog/how-do-ai-agents-work), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [agent loop](/glossary/agent-loop), [tool use](/glossary/tool-use), [autonomy](/glossary/autonomy)

@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { CostCalculator } from "@/components/CostCalculator";
 import { FaqList } from "@/components/FaqList";
-import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
+import { JsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import {
   ANTHROPIC_PRICING_URL,
   GOOGLE_PRICING_URL,
@@ -16,11 +16,47 @@ import { absoluteUrl } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 const path = "/agent-cost-calculator";
-const title = "Free AI agent cost calculator";
+const title = "AI agent cost calculator: free 30-day bill";
 const description =
-  "Estimate a 30-day model bill from official per-token prices. Pick a model, then enter tokens per task and tasks per day. No login is required.";
+  "Free AI agent and chatbot cost calculator for 21 official models. Enter tokens per task and tasks per day for a 30-day bill. No login. Prices read November 5, 2026.";
 
-export const metadata = defaultMetadata(title, description, path);
+export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
+
+const faqs = [
+  {
+    question: "What is an AI agent cost calculator?",
+    answer:
+      "It estimates a 30-day model bill. You pick one of 21 models, enter tokens per task and tasks per day, and the page multiplies by the provider’s standard per-token price. Prices were read November 5, 2026.",
+  },
+  {
+    question: "Is this a chatbot cost calculator?",
+    answer:
+      "Yes, for the model bill. A chatbot and an agent that share a model use the same per-token price. This page does not add a seat fee, a tool-call fee, or tax.",
+  },
+  {
+    question: "What is the cost of AI agents?",
+    answer:
+      "There is no single cost. A seat such as Cursor or GitHub Copilot is a subscription, and a model call is a separate token bill. This calculator covers the token bill for the 21 models in the list.",
+  },
+  {
+    question: "Is the 30-day figure a calendar month?",
+    answer: "No. It is the daily cost times 30. A 31-day month would be one day more, and February would be less.",
+  },
+  {
+    question: "Do thinking tokens count?",
+    answer:
+      "For the two Google models, the provider says the output price includes thinking tokens. Add them to the output box. The OpenAI, Anthropic, and xAI rows use the listed output price and do not add a separate thinking line, because those pricing tables do not show one for these standard rows.",
+  },
+  {
+    question: "Why is my provider missing?",
+    answer:
+      "Only prices copied from the provider pages above are included. A model that is not in the dropdown was left out rather than guessed. On November 5, 2026 that list gained gpt-6.1-terra, gpt-6-luna, grok-4.7, and grok-build-0.1.",
+  },
+  {
+    question: "Do I need an account?",
+    answer: "No. The calculation stays in the browser. The numbers you type are not submitted.",
+  },
+];
 
 const sources = [
   { name: "OpenAI API pricing", url: OPENAI_PRICING_URL },
@@ -41,26 +77,35 @@ export default function CostCalculatorPage() {
   return (
     <>
       <JsonLd
-        data={webPageJsonLd({
-          title,
-          description,
-          path,
-          datePublished: PRICE_READ_ON,
-          dateModified: PRICE_READ_ON,
-        })}
+        data={[
+          webPageJsonLd({
+            title,
+            description,
+            path,
+            datePublished: PRICE_READ_ON,
+            dateModified: PRICE_READ_ON,
+          }),
+          faqPageJsonLd(faqs),
+        ]}
       />
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Reports", path: "/reports" }, { name: title, path }]} />
       <header className="mx-auto max-w-6xl px-4 pb-8 pt-12">
         <p className="kicker kicker-lead">Calculator</p>
         <h1 className="display mt-3 text-4xl sm:text-5xl">{title}</h1>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
-          Pick a model, enter the input tokens and output tokens for one task, and how many of those tasks you run
-          in a day. The page multiplies by the provider&apos;s standard price and by 30. It runs in the browser. There
-          is no account and no request is sent with your numbers. If you have a system prompt and tool JSON, the{" "}
+          This free AI agent cost calculator estimates a 30-day model bill from official per-token prices. The same
+          sum is a chatbot cost calculator when the chatbot uses one of these models. Pick a model, enter the input
+          tokens and output tokens for one task, and how many of those tasks you run in a day. The page multiplies by
+          the provider&apos;s standard price and by 30. It runs in the browser. There is no account and no request is
+          sent with your numbers. If you have a system prompt and tool JSON, the{" "}
           <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">
             prompt and tool checker
           </Link>{" "}
-          counts that text on the server and checks the schema.
+          counts that text on the server and checks the schema. Seat prices for coding products are on{" "}
+          <Link className="text-[var(--link)] underline" href="/best/ai-coding-agents">
+            Best AI coding agents
+          </Link>
+          .
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">
           Prices read <time dateTime={PRICE_READ_ON}>{updatedLabel}</time>.
@@ -70,9 +115,9 @@ export default function CostCalculatorPage() {
         <CostCalculator />
 
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold tracking-tight">Models in the list</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Which models does the AI agent cost calculator include?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            {modelPrices.length} models. The price is the standard per-million-token price on the provider page, not a
+            It includes {modelPrices.length} models, with the standard per-million-token price from the provider page, not a
             reseller quote. Cached input, batch, flex, fast, and regional uplifts are left out on purpose, so a real
             invoice can be lower or higher.
           </p>
@@ -88,7 +133,10 @@ export default function CostCalculatorPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold tracking-tight">Sources</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Where do the AI agent cost calculator prices come from?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            They were copied from the provider pricing pages below on {updatedLabel}. A price that was not on those pages is not in the calculator.
+          </p>
           <ul className="mt-3 grid gap-2 text-sm">
             {sources.map((source) => (
               <li key={source.url}>
@@ -102,7 +150,10 @@ export default function CostCalculatorPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold tracking-tight">Left out</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">What does the cost of AI agents leave out here?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            The calculator leaves out cached, batch, and tool-call fees, plus seat licenses. A real invoice can be lower or higher than the 30-day figure.
+          </p>
           <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-[var(--muted)]">
             <li>OpenAI models that are on the pricing page but not in the dropdown, including gpt-4o, o3, and the pro variants.</li>
             <li>Anthropic models marked limited availability or retired, and every cache-write price.</li>
@@ -148,37 +199,12 @@ export default function CostCalculatorPage() {
         </div>
 
         <FaqList
-          items={[
-            {
-              question: "Is the 30-day figure a calendar month?",
-              answer: <p>No. It is the daily cost times 30. A 31-day month would be one day more, and February would be less.</p>,
-            },
-            {
-              question: "Do thinking tokens count?",
-              answer: (
-                <p>
-                  For the two Google models, the provider says the output price includes thinking tokens. Add them to
-                  the output box. The OpenAI, Anthropic, and xAI rows on this page use the listed output price and do
-                  not add a separate thinking line, because those pricing tables do not show one for these standard
-                  rows.
-                </p>
-              ),
-            },
-            {
-              question: "Why is my provider missing?",
-              answer: (
-                <p>
-                  Only prices copied from the provider pages above are included. A model that is not in the dropdown
-                  was left out rather than guessed. On November 5, 2026 that list gained gpt-6.1-terra, gpt-6-luna,
-                  grok-4.7, and grok-build-0.1. The prices already in the list matched the same pages.
-                </p>
-              ),
-            },
-            {
-              question: "Do I need an account?",
-              answer: <p>No. The calculation stays in the browser. The numbers you type are not submitted.</p>,
-            },
-          ]}
+          heading="What do people ask about the cost of AI agents?"
+          lead="A seat price and a token bill are different costs. This page calculates the token bill."
+          items={faqs.map((item) => ({
+            question: item.question,
+            answer: <p>{item.answer}</p>,
+          }))}
         />
       </div>
     </>

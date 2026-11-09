@@ -1,6 +1,7 @@
 ---
-title: "Can an AI Agent Use Your Computer? Computer Use Agents (2026)"
-description: "Yes. A computer use agent can use your computer when the product includes computer use. Claude, the ChatGPT desktop app, and the Claude, OpenAI, and Gemini APIs can look at a screen and click, type, and scroll. A chat reply that only describes the steps does not. Re-checked November 7, 2026."
+title: "Can an AI agent use your computer? Yes (2026)"
+description: "Yes, when the product has computer use. On November 7, 2026, Claude and ChatGPT desktop apps and the Claude, OpenAI, and Gemini APIs can click, type, and scroll."
+absoluteTitle: true
 takeaways:
   - "Yes, when the product has computer use. The model looks at the screen. The app clicks, types, and scrolls. A chat reply that only describes the steps does not do that."
   - "On November 7, 2026, Claude Cowork, Claude Code, and the ChatGPT desktop app can drive a Mac or Windows screen. Anthropic and OpenAI still document API loops where your code runs each action. Google’s Computer Use guide loaded that day on AI Studio, after the old address returned HTTP 500 on November 6."

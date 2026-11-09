@@ -1,6 +1,7 @@
 ---
-title: "Anthropic IPO Filing: What It Says About Its AI Acceleration Rule"
-description: "Anthropic's November 2, 2026 Form S-1/A says future-model estimates may soon meet its AI acceleration rule. No current model is past that line."
+title: "Anthropic AI acceleration threshold, Nov 2 2026"
+description: "Anthropic’s November 2, 2026 Form S-1/A says estimates for future models may soon meet its AI acceleration rule. No current model is designated past that line."
+absoluteTitle: true
 takeaways:
   - "Anthropic told the SEC on November 2, 2026 that its estimates for future models may soon meet its rule for dramatically accelerated progress attributable to AI."
   - "The filing says it has not designated any current model as exceeding that threshold."
@@ -47,7 +48,9 @@ faq:
     answer: "The amended registration statement is on SEC EDGAR: Anthropic, PBC Form S-1/A, accession number 0001628280-26-068676, filing date November 2, 2026. The capability rule is in Responsible Scaling Policy version 3.4, linked from anthropic.com/responsible-scaling-policy."
 ---
 
-Anthropic told the U.S. Securities and Exchange Commission on November 2, 2026 that its internal estimates and expectations for future models indicate it may soon meet its own rule for “dramatically accelerated progress attributable to AI.” In the same [Form S-1/A](https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm), the company says it has not designated any current model as over that line, and that it does not expect to let [Claude](/directory/claude) design successor frontier models fully on its own without meaningful human supervision.
+## Has Anthropic met its AI acceleration threshold?
+
+No. Anthropic told the U.S. Securities and Exchange Commission on November 2, 2026 that its internal estimates and expectations for future models indicate it may soon meet its own rule for “dramatically accelerated progress attributable to AI.” In the same [Form S-1/A](https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm), the company says it has not designated any current model as over that line, and that it does not expect to let [Claude](/directory/claude) design successor frontier models fully on its own without meaningful human supervision.
 
 ## What did Anthropic tell the SEC?
 

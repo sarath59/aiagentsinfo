@@ -40,6 +40,8 @@ export type ResearchFrontmatter = {
     isBasedOn?: string;
   };
   faq?: { question: string; answer: string }[];
+  /** When true, the title tag is the title alone, so it can stay under 60 characters. */
+  absoluteTitle?: boolean;
   references: { title: string; url?: string; note?: string }[];
   citation: {
     bibtex: string;

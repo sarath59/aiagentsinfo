@@ -12,7 +12,7 @@ import { JsonLd, defaultMetadata, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
-export const metadata = defaultMetadata(title, description, path);
+export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 
 export default async function ShoppingAgentsReportPage() {
   const [guide, harness, shoppingAgent, checkout, feed] = await Promise.all([
@@ -83,6 +83,13 @@ export default async function ShoppingAgentsReportPage() {
           kicker: "Glossary",
         }
       : undefined,
+    {
+      href: "/directory/amazon-rufus",
+      title: "Amazon Rufus latest features (Nov 2026)",
+      description:
+        "Alexa for Shopping, including the November 6, 2026 text rollout for some U.S. customers.",
+      kicker: "Directory",
+    },
     {
       href: "/directory/category/shopping-agents",
       title: "Shopping agents in the directory",
@@ -175,6 +182,12 @@ export default async function ShoppingAgentsReportPage() {
             <Link href="/blog/can-an-ai-shopping-agent-check-out-for-you">
               Can an AI shopping agent check out for you?
             </Link>
+            . Amazon Rufus, now shown in the store as Alexa for Shopping, added text shopping for some U.S. customers
+            on November 6, 2026. That note is{" "}
+            <Link href="/directory/amazon-rufus#what-are-the-latest-amazon-rufus-features-and-expansion-in-november-2026">
+              Amazon Rufus latest features and expansion in November 2026
+            </Link>
+            .
           </p>
         </div>
         <section className="glass article-callout mt-10 rounded-3xl p-6 sm:p-8">

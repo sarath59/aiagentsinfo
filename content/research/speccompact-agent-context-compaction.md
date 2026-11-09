@@ -1,6 +1,7 @@
 ---
-title: "Paper breakdown: SpecCompact — faster agent context compaction inside the harness"
-description: "November 4, 2026 arXiv paper: SpecCompact made Hermes-style agent context compaction 2.04–5.63× faster on AppWorld and τ³, with an 8.68× median speedup in a Hermes user study."
+title: "SpecCompact agent context compaction: 8.68×"
+description: "SpecCompact, posted November 4, 2026, sped Hermes-style agent context compaction by 2.04–5.63× on AppWorld and τ³, and by 8.68× median in a Hermes user study."
+absoluteTitle: true
 date: "2026-11-05"
 updated: "2026-11-05"
 type: paper-breakdown
@@ -112,6 +113,10 @@ faq:
   - question: "Where is the paper, and is there code?"
     answer: "The record is arXiv 2611.06876. The abstract page, the HTML version, and the PDF are linked in the references on this page. The paper cites the Hermes agent repository and the OpenClaw compaction docs. This page did not find a separate SpecCompact code release on the arXiv record."
 ---
+
+## What is SpecCompact agent context compaction?
+
+SpecCompact is a November 4, 2026 method that drafts an agent’s context summary faster. A Hermes user study in the paper measured an 8.68× median speedup. The harness guides that this compaction sits inside are on [Agent harnesses](/topics/harnesses).
 
 ## How it compares with methods in use today
 
@@ -253,4 +258,4 @@ The November 4 paper, and the two harnesses it builds on:
 - [Hermes agent](https://github.com/NousResearch/hermes-agent)
 - [OpenClaw compaction](https://docs.openclaw.ai/concepts/compaction)
 
-Related pages on this site: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research), [You don't need long context](/research/you-dont-need-long-context), [ReAct](/research/react-reasoning-and-acting), [harness](/glossary/harness), and [agent](/glossary/agent).
+Related pages on this site: [Agent harnesses](/topics/harnesses), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [how agents work](/topics/how-agents-work), [You don't need long context](/research/you-dont-need-long-context), [ReAct: Synergizing Reasoning and Acting in Language Models](/research/react-reasoning-and-acting), [harness](/glossary/harness), and [agent](/glossary/agent).

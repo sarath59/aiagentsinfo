@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const headline = listing.title?.trim() || listing.name;
   return defaultMetadata(headline, listing.summary, `/directory/${listing.slug}`, {
     index: communityListingIsIndexable(listing),
+    absoluteTitle: listing.absoluteTitle === true,
   });
 }
 

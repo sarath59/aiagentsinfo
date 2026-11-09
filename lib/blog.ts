@@ -28,6 +28,8 @@ export type BlogFrontmatter = {
   takeaways?: string[];
   /** When true, Article JSON-LD carries the CC BY 4.0 license URL. */
   contentLicense?: boolean;
+  /** When true, the title tag is the title alone, so it can stay under 60 characters. */
+  absoluteTitle?: boolean;
   /** Original numbers on the page. Rendered as Dataset JSON-LD, separate from the article. */
   dataset?: {
     title: string;

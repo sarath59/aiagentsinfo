@@ -1,7 +1,7 @@
 export type ShoppingMonth = { month: string; announced: string; likely: string; watch: string };
 
 export const path = "/reports/ai-shopping-agents-next-6-months";
-export const title = "AI shopping agents in the next 6 months (Nov 2026 to May 2027)";
+export const title = "AI shopping agents next 6 months: 6 companies";
 export const description =
   "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated for shopping agents from November 2026 through May 2027. Checked November 5, 2026.";
 export const readOn = "2026-11-05";

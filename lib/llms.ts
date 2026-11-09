@@ -85,9 +85,9 @@ export async function buildLlmsTxt() {
         "Announced, likely, and watch-for claims for coding, computer use, harnesses, and regulation. Read November 5, 2026.",
       ),
       item(
-        "AI shopping agents in the next 6 months (Nov 2026 to May 2027)",
+        "AI shopping agents next 6 months: 6 companies",
         "/reports/ai-shopping-agents-next-6-months",
-        "Announced, likely, and watch-for claims, read November 5, 2026.",
+        "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated from November 2026 through May 2027. Checked November 5, 2026.",
       ),
       item(
         "Agent harness benchmark, November 2026",
@@ -97,7 +97,11 @@ export async function buildLlmsTxt() {
       item(frameworkGithubTitle, frameworkGithubPath, frameworkGithubDescription),
       item("Verified revenue", "/verified-revenue", `Payment-processor-verified revenue. Checked ${verifiedRevenueChecked}.`),
       item("Directory stats", "/directory/stats", "Counts generated from the directory files at build time."),
-      item("Agent cost calculator", "/agent-cost-calculator", "30-day token cost from official provider prices."),
+      item(
+        "AI agent cost calculator: free 30-day bill",
+        "/agent-cost-calculator",
+        "Free AI agent and chatbot cost calculator. 21 official models. Prices read November 5, 2026.",
+      ),
       item(
         "Prompt and tool checker",
         "/agent-prompt-checker",

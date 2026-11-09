@@ -1,6 +1,7 @@
 ---
-title: "Can ChatGPT Buy Things for Me? Shopping Agents and Checkout"
-description: "ChatGPT can help you find products, and the purchase finishes on the merchant’s website or app. A shopping agent can pay only with a checkout path, a saved payment method, and a rule for who must agree. The store remains the seller."
+title: "Can an AI shopping agent check out for you?"
+description: "A shopping agent can pay only with a checkout path, a saved card, and an approval rule. The store remains the seller. Pages re-checked November 7, 2026."
+absoluteTitle: true
 takeaways:
   - "A shopping agent can research and compare on its own. It can pay only when the product has a checkout path, a saved payment method, and a rule for who must agree."
   - "On the pages checked for this guide, Google can take Google Pay or hand items to the store, and ChatGPT sends the purchase to the store's website or app."
@@ -252,8 +253,9 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 
 - Glossary: [shopping agent](/glossary/shopping-agent), [agentic checkout](/glossary/agentic-checkout), [product feed](/glossary/product-feed), [harness](/glossary/harness), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [tool use](/glossary/tool-use), [orchestration](/glossary/orchestration)
 - Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [What is an AI employee?](/blog/what-is-an-ai-employee), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
-- Directory: [Alexa for Shopping](/directory/amazon-rufus), [ChatGPT](/directory/chatgpt), [Gemini](/directory/gemini), [Perplexity](/directory/perplexity), [shopping agents](/directory/category/shopping-agents)
-- Topics: [shopping](/topics/shopping), [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work)
+- Directory: [Amazon Rufus latest features, November 2026](/directory/amazon-rufus#what-are-the-latest-amazon-rufus-features-and-expansion-in-november-2026), [ChatGPT](/directory/chatgpt), [Gemini](/directory/gemini), [Perplexity](/directory/perplexity), [shopping agents](/directory/category/shopping-agents)
+- Report: [AI shopping agents next 6 months: 6 companies](/reports/ai-shopping-agents-next-6-months)
+- Topics: [Agents in shopping](/topics/shopping), [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work)
 
 ## Frequently asked questions
 
