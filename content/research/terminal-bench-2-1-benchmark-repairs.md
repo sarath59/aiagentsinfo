@@ -1,8 +1,8 @@
 ---
-title: "Paper breakdown: Terminal-Bench 2.1 — 28 of 89 tasks were repaired, and scores moved by up to 12 points"
-description: "28 of 89 Terminal-Bench 2.0 tasks were repaired for version 2.1. Individual scores shift by up to 12 points and ranks move by at most 3, with Spearman 0.958. Posted to arXiv on November 5, 2026."
+title: "Terminal-Bench 2.1: 28 of 89 repaired (2026)"
+description: "Terminal-Bench 2.1 repairs 28 of 89 tasks from version 2.0. Individual scores shift by up to 12 points, ranks move by at most 3. Spearman 0.958."
 date: "2026-11-08"
-updated: "2026-11-08"
+updated: "2026-11-09"
 type: paper-breakdown
 topics:
   - research
@@ -114,9 +114,9 @@ Terminal-Bench 2.1 is a repair of a benchmark that was already supposed to be cl
 
 This page was published November 8, 2026. The PDF, the HTML, the arXiv record, the 2.1 repository, pull request 53, and the Terminal-Bench homepage were read that day.
 
-## What did the repair change?
+## What did the Terminal-Bench 2.1 repair change?
 
-The repair changes tasks, not models. Section 5 says the audit found issues in 28 tasks, roughly a third of the 89. The paper sorts the defects into three piles, and a task can sit in more than one. Figure 3a prints the shares. Table 2 prints the counts.
+The Terminal-Bench 2.1 repair changes tasks, not models. Section 5 says the audit found issues in 28 tasks, roughly a third of the 89. The paper sorts the defects into three piles, and a task can sit in more than one. Figure 3a prints the shares. Table 2 prints the counts.
 
 | Defect | Tasks in Table 2 | Share of the 28 in Figure 3a |
 | --- | --- | --- |
@@ -130,9 +130,9 @@ The sources of the 28 are also printed. Eleven tasks had already been flagged in
 
 Z.ai's earlier audit, which this paper cites, is a different measurement. The paper says environment fixes alone, on all 89 task images, moved Claude Opus 4.5 from 52.4% to 57.9% in that earlier report. That 5.5-point gap is Z.ai's number. It is not a row in Table 7.
 
-## Which of the 28 tasks actually moved?
+## Which of the 28 Terminal-Bench 2.1 tasks moved?
 
-Table 7 is the number a reader can check. Each rate is the pass rate of that task averaged across the paper's agent-model pairs. After the repair, the paper says no task in the table is still at zero for every agent. The largest drop is `overfull-hbox`, from 53.3% to 36.7%, which the appendix explains as a broken build that had been giving credit the repaired grader refuses.
+Table 7 lists the pass rate of each of the 28 repaired tasks, averaged across the paper's agent-model pairs. After the repair, the paper says no task in the table is still at zero for every agent. The largest drop is `overfull-hbox`, from 53.3% to 36.7%, which the appendix explains as a broken build that had been giving credit the repaired grader refuses.
 
 The five tasks that go from at most 15% to over 50% are the ones the main text says account for roughly 62.7% of the absolute pass-rate change on the modified tasks. Adding the absolute changes on those five rows gives 305.9 points. Adding the absolute changes on all 28 rows gives 487.5 points. 305.9 / 487.5 is 62.7%.
 
@@ -173,7 +173,7 @@ Claude Code with Claude Opus 4.6 is the one agent the text names for a rank chan
 
 ## Did the ordering of agents survive?
 
-Mostly. Spearman ρ = 0.958 between version 2.0 and version 2.1 across 19 agents. The task-bootstrap 95% interval is 0.881 to 0.979. The fitted line in the text is TB2.1 = 2.1 + 1.04 × TB2.0. A correlation that high means the broad order is stable. A move of three ranks, which is the maximum the paper reports, is enough to change which of two close agents you would call the leader.
+Mostly. Spearman ρ = 0.958 between version 2.0 and Terminal-Bench 2.1 across 19 agents. The task-bootstrap 95% interval is 0.881 to 0.979. The fitted line in the text is TB2.1 = 2.1 + 1.04 × TB2.0. A correlation that high means the broad order is stable. A move of three ranks, which is the maximum the paper reports, is enough to change which of two close agents you would call the leader.
 
 Table 6 is the configuration list, and it has 20 rows, not 19. Three use Claude Code (Opus 4.6, Sonnet 4.6, GLM 5.1). Four use Codex (GPT 5.3 Codex, GPT 5.4, GPT 5.4 mini, GPT 5.5). Two use Gemini CLI (Gemini Flash 3, Gemini Pro 3.1). Eleven use Terminus-2, including Gemma 4 31B and Kimi K2.6. Qwen 3.5 9B and Qwen 3.5 27B appear in the model table and in the budget curves, and they are not in Table 6. This page stops at that count. It does not guess which row was left out of the 19.
 
@@ -204,7 +204,7 @@ Figure 3b says something compatible about failures. More than half of failed tri
 
 GLM 5.1 is the efficiency outlier the text names. On the budget sweep it solves 8 more tasks on version 2.1 than on 2.0 and overtakes GPT 5.4, whose coverage barely changes. The Qwen curves barely change at all. A longer clock and a repaired task set can reorder agents even when the default-time ranking looks stable.
 
-Terminus-2 is the baseline [harness](/glossary/harness): a single-agent ReAct loop with a shell and file tools. The ReAct paper is the [reasoning-and-acting note](/research/react-reasoning-and-acting) on this site. Claude Code and Codex are the provider harnesses in the same figure. A harness guide that starts from the product side, rather than from this benchmark, is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). The November harness board on the live site is a different version, and the [November harness benchmark](/reports/agent-harness-benchmark-november-2026) reads that board.
+Terminus-2 is the baseline [harness](/glossary/harness): a single-agent ReAct loop with a shell and file tools. The ReAct paper is the [reasoning-and-acting note](/research/react-reasoning-and-acting) on this site. Claude Code and Codex are the provider harnesses in the same figure. A sourced comparison of those shipping runtimes is [Best AI agent harness](/best/ai-agent-harnesses). A harness guide that starts from the product side, rather than from this benchmark, is [How to evaluate an AI agent harness](/blog/how-do-you-evaluate-an-ai-agent-harness). The November harness board on the live site is a different version, and the [November 2026 agent harness benchmark](/reports/agent-harness-benchmark-november-2026) reads that board.
 
 ## What was on GitHub the day this page was written?
 

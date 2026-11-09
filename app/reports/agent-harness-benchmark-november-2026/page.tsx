@@ -150,12 +150,12 @@ export default async function HarnessBenchmarkPage() {
           "Nothing here is estimated, and a score from another website is not filled in when the official board does not list it.",
         ]}
         toc={[
-          { id: "what-these-numbers-are", text: "What these numbers are", level: 2 },
-          { id: "swe-bench-bash", text: "SWE-bench Verified, bash only", level: 2 },
-          { id: "swe-bench-checked", text: "Other harnesses the SWE-bench team checked", level: 2 },
-          { id: "swe-bench-multilingual", text: "SWE-bench Multilingual", level: 2 },
-          { id: "terminal-bench", text: "Terminal-Bench 4.0", level: 2 },
-          { id: "left-out", text: "Left out", level: 2 },
+          { id: "what-these-numbers-are", text: "What is this agent harness benchmark?", level: 2 },
+          { id: "swe-bench-bash", text: "What does SWE-bench show when the harness stays the same?", level: 2 },
+          { id: "swe-bench-checked", text: "Which other harnesses did the SWE-bench team check?", level: 2 },
+          { id: "swe-bench-multilingual", text: "How does SWE-bench Multilingual compare on one harness?", level: 2 },
+          { id: "terminal-bench", text: "What does Terminal-Bench 4.0 show in this harness comparison?", level: 2 },
+          { id: "left-out", text: "What does this harness comparison leave out?", level: 2 },
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
@@ -174,21 +174,25 @@ export default async function HarnessBenchmarkPage() {
       >
         <div className="article-prose">
           <p>
-            This page copies public scores for coding agents and the{" "}
+            This is the November 2026 agent harness benchmark. It copies public scores for coding agents and the{" "}
             <Link href="/glossary/harness">harnesses</Link> around them. A harness is the loop, tools, and limits
             around a model. The tables use the official SWE-bench leaderboard and the official Terminal-Bench 4.0
             leaderboard. Each row keeps the date on that source. Nothing here is estimated, and a score from another
-            website is not filled in when the official board does not list it.
+            website is not filled in when the official board does not list it. The product table is{" "}
+            <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>. How to test one action, rather than a
+            whole score, is{" "}
+            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>.
           </p>
         </div>
         <section className="glass mt-10 rounded-3xl p-6 sm:p-8">
-          <h2 id="what-these-numbers-are" className="text-2xl font-semibold tracking-tight">What these numbers are</h2>
+          <h2 id="what-these-numbers-are" className="text-2xl font-semibold tracking-tight">What is this agent harness benchmark?</h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
-            SWE-bench Verified is 500 real GitHub issues. The score is the percent resolved: the share of issues
-            whose tests passed. The bash-only rows all use mini-SWE-agent, so the harness stays the same while the
-            model changes. The SWE-bench site says release 2.x calls tools, while release 1.x reads the action out
-            of the model&apos;s text, and that those two generations are not necessarily comparable. The version
-            column is the release named on the row.
+            This agent harness benchmark copies public SWE-bench and Terminal-Bench scores, and it does not fill in a
+            score the official board leaves out. SWE-bench Verified is 500 real GitHub issues. The score is the percent
+            resolved: the share of issues whose tests passed. The bash-only rows all use mini-SWE-agent, so the harness
+            stays the same while the model changes. The SWE-bench site says release 2.x calls tools, while release 1.x
+            reads the action out of the model&apos;s text, and that those two generations are not necessarily
+            comparable. The version column is the release named on the row.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
             Terminal-Bench 4.0 is the current board on tbench.ai. The agent column changes by row, so those scores
@@ -199,14 +203,15 @@ export default async function HarnessBenchmarkPage() {
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
             The newest result date on the SWE-bench Verified file, as read on {updatedLabel}, is{" "}
             {swebenchBenchmark.newestResultDate}. The Terminal-Bench 4.0 board record says it was updated{" "}
-            {terminalBench.updatedAt}. This November report is a reading of those boards. It is not a claim that
-            either project published a new run in November.
+            {terminalBench.updatedAt}. Read as an AI coding agent benchmark for November 2026, this page is a reading
+            of those boards. It is not a claim that either project published a new run in November.
           </p>
         </section>
 
         <section className="mt-12">
-          <h2 id="swe-bench-bash" className="text-2xl font-semibold tracking-tight">SWE-bench Verified, bash only</h2>
+          <h2 id="swe-bench-bash" className="text-2xl font-semibold tracking-tight">What does SWE-bench show when the harness stays the same?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            These rows all use mini-SWE-agent, so the harness stays the same while the model changes.{" "}
             {swebenchBenchmark.bashOnly.length} rows from the Verified list where the harness is mini-SWE-agent.
             &quot;Team checked&quot; means the SWE-bench page marks the run as performed or checked by the SWE-bench
             team. A &quot;No&quot; means the row is on the official board without that mark. Source:{" "}
@@ -227,10 +232,10 @@ export default async function HarnessBenchmarkPage() {
         </section>
 
         <section className="mt-12">
-          <h2 id="swe-bench-checked" className="text-2xl font-semibold tracking-tight">Other harnesses the SWE-bench team checked</h2>
+          <h2 id="swe-bench-checked" className="text-2xl font-semibold tracking-tight">Which other harnesses did the SWE-bench team check?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            {swebenchBenchmark.teamCheckedOther.length} Verified rows that use a harness other than mini-SWE-agent
-            and that the board marks as team-checked. The full list also has {swebenchBenchmark.uncheckedSubmittedCount}{" "}
+            The SWE-bench team checked {swebenchBenchmark.teamCheckedOther.length} Verified rows that use a harness
+            other than mini-SWE-agent. The full list also has {swebenchBenchmark.uncheckedSubmittedCount}{" "}
             submitted rows without that mark. The highest of those is {topUnchecked}. They are named here and left
             out of the table.
           </p>
@@ -246,11 +251,11 @@ export default async function HarnessBenchmarkPage() {
         </section>
 
         <section className="mt-12">
-          <h2 id="swe-bench-multilingual" className="text-2xl font-semibold tracking-tight">SWE-bench Multilingual, same harness</h2>
+          <h2 id="swe-bench-multilingual" className="text-2xl font-semibold tracking-tight">How does SWE-bench Multilingual compare on one harness?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            {swebenchBenchmark.multilingualInstances} instances, {swebenchBenchmark.multilingual.length} mini-SWE-agent
-            rows on the same official file. This is a separate task set from Verified, so the percents are not a
-            second reading of the 500 Verified issues.
+            It is a separate task set from Verified, scored here with the same mini-SWE-agent harness, so the percents
+            are not a second reading of the 500 Verified issues. {swebenchBenchmark.multilingualInstances} instances,{" "}
+            {swebenchBenchmark.multilingual.length} mini-SWE-agent rows on the same official file.
           </p>
           <div className="mt-5">
             <SortableTable
@@ -264,9 +269,11 @@ export default async function HarnessBenchmarkPage() {
         </section>
 
         <section className="mt-12">
-          <h2 id="terminal-bench" className="text-2xl font-semibold tracking-tight">Terminal-Bench 4.0</h2>
+          <h2 id="terminal-bench" className="text-2xl font-semibold tracking-tight">What does Terminal-Bench 4.0 show in this harness comparison?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            {terminalBench.rows.length} rows. {terminalBench.description} The board name on Harbor Hub is{" "}
+            The agent column changes by row, so this harness comparison includes Claude Code, Codex, Grok Build,
+            mini-SWE-agent, or Muse Code, not one shared harness. {terminalBench.rows.length} rows.{" "}
+            {terminalBench.description} The board name on Harbor Hub is{" "}
             {terminalBench.name}, and the record was updated {terminalBench.updatedAt}. Read {updatedLabel} from the{" "}
             <a className="text-[var(--link)] underline" href={terminalBench.pageUrl}>
               Terminal-Bench site
@@ -286,7 +293,10 @@ export default async function HarnessBenchmarkPage() {
         </section>
 
         <section className="mt-12">
-          <h2 id="left-out" className="text-2xl font-semibold tracking-tight">Left out</h2>
+          <h2 id="left-out" className="text-2xl font-semibold tracking-tight">What does this harness comparison leave out?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            A score is left out when it is not on the official board this page read.
+          </p>
           <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-[var(--muted)]">
             <li>
               Third-party score roundups, including pages that list SWE-bench results above the official board, are
@@ -305,6 +315,11 @@ export default async function HarnessBenchmarkPage() {
               Verified and Terminal-Bench 2.1 runs. Those are the authors&apos; runs, not rows on the public boards,
               and they stay on the{" "}
               <Link href="/research/you-dont-need-long-context">research note</Link>.
+            </li>
+            <li>
+              A separate note covers{" "}
+              <Link href="/research/terminal-bench-2-1-benchmark-repairs">Terminal-Bench 2.1</Link>. This page&apos;s
+              Terminal-Bench table is the 4.0 board only.
             </li>
           </ul>
         </section>
@@ -344,7 +359,7 @@ export default async function HarnessBenchmarkPage() {
               question: "How often does this page change?",
               answer: (
                 <p>
-                  It is the November 2026 edition. A later month gets its own page when the boards are read again.
+                  It is the November 2026 agent harness benchmark. A later month gets its own page when the boards are read again.
                   The <Link href="/reports">reports index</Link> is where that page will be linked.
                 </p>
               ),

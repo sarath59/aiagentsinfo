@@ -174,9 +174,9 @@ export const dataAssets = [
   },
   {
     href: "/reports/agent-harness-benchmark-november-2026",
-    title: "Harness benchmark, November 2026",
+    title: "Agent harness benchmark, November 2026",
     summary:
-      "Public SWE-bench and Terminal-Bench scores for agent harnesses and coding agents, each with the date on the official source. Read November 5, 2026.",
+      "Agent harness benchmark for November 2026: public SWE-bench and Terminal-Bench scores for coding agents, each with the date on the official source.",
   },
   {
     href: "/reports/ai-agent-framework-github-stats-november-2026",
@@ -255,7 +255,7 @@ export const footerNav = [
       { href: "/reports/ai-agents-next-12-months", label: "AI agents, Nov 2026 to Nov 2027" },
       { href: "/reports/ai-agents-next-6-months", label: "AI agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
-      { href: "/reports/agent-harness-benchmark-november-2026", label: "Harness benchmark, November 2026" },
+      { href: "/reports/agent-harness-benchmark-november-2026", label: "Agent harness benchmark, November 2026" },
       { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework GitHub stats, November 2026" },
       { href: "/verified-revenue", label: "Verified revenue" },
       { href: "/directory/stats", label: "Directory stats" },

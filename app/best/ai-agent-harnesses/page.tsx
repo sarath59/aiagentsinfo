@@ -15,8 +15,8 @@ const toc = [
   { id: "direct-answer", text: harnessComparison.question, level: 2 as const },
   { id: "comparison-table", text: harnessComparison.tableHeading, level: 2 as const },
   { id: "best-for", text: harnessComparison.bestForHeading, level: 2 as const },
-  { id: "coding", text: "Which AI agent is best for coding in 2026?", level: 2 as const },
-  { id: "open-source", text: "Which open source AI agent harness can you run in 2026?", level: 2 as const },
+  { id: "coding", text: "What is the best coding agent harness in 2026?", level: 2 as const },
+  { id: "open-source", text: "What is the best open source AI agent harness in 2026?", level: 2 as const },
   { id: "local", text: "Can you run an AI agent harness locally in 2026?", level: 2 as const },
   { id: "how-this-was-checked", text: harnessComparison.methodHeading, level: 2 as const },
   { id: "faq", text: harnessComparison.faqHeading, level: 2 as const },
@@ -53,21 +53,23 @@ export default function BestAiAgentHarnessPage() {
             Public board scores stay on the{" "}
             <Link href="/reports/agent-harness-benchmark-november-2026">November 2026 harness benchmark</Link>. How to
             test a change without trusting a composite score is{" "}
-            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How do you evaluate an AI agent harness?</Link>{" "}
+            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>{" "}
             The shelf for this table is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>.
           </p>
         </section>
         <section id="coding" className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Which AI agent is best for coding in 2026?</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">What is the best coding agent harness in 2026?</h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            Claude Code and Codex are the two finished coding products with public plan pages and editor or terminal
-            clients on this site. A coding harness is a runtime that can read a repository, edit files, run commands,
-            and stop. Both products sit in the{" "}
+            Claude Code and Codex are the two finished coding products on this page, and this comparison does not rank
+            them by a score. A coding harness is a runtime that can read a repository, edit files, run commands, and
+            stop. Both products sit in the{" "}
             <Link href="/directory/category/coding-agents">coding agents</Link> category. The Claude Agent SDK is the
-            same loop as Claude Code, packaged for Python or TypeScript. Pydantic AI’s Coder
-            agent documents file and shell tools on a LocalWorkspace. Microsoft’s overview describes a Harness Agent
-            for long, multi-step work. Those are different delivery shapes. A Terminal-Bench score that names one of
-            them is not a ranking of the others.
+            same loop as Claude Code, packaged for Python or TypeScript. Pydantic AI’s Coder agent documents file and
+            shell tools on a LocalWorkspace. Microsoft’s overview describes a Harness Agent for long, multi-step work.
+            Those are different delivery shapes. A Terminal-Bench score that names one of them is not a ranking of the
+            others. Public scores with their source dates are in the{" "}
+            <Link href="/reports/agent-harness-benchmark-november-2026">November 2026 agent harness benchmark</Link>.{" "}
+            <Link href="/research/terminal-bench-2-1-benchmark-repairs">Terminal-Bench 2.1</Link> is a separate note.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             List prices for Claude Code and Codex, rechecked in early November 2026, are compared in{" "}
@@ -76,13 +78,14 @@ export default function BestAiAgentHarnessPage() {
           </p>
         </section>
         <section id="open-source" className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight">Which open source AI agent harness can you run in 2026?</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">What is the best open source AI agent harness in 2026?</h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            MIT or Apache 2.0 runtimes in the table include the OpenAI Agents SDK, Pydantic AI, Google ADK, Microsoft
-            Agent Framework, smolagents, DeepSeek Harness, and CrewAI’s framework. Open source here means a public
-            licence on the runtime, not a free hosted product. The Claude Agent SDK’s Python package is MIT;
-            Anthropic still says use of the SDK is under its Commercial Terms unless a component says otherwise.
-            LangChain’s libraries are open source; LangSmith is a platform with seats and traces.
+            There is no single best open source AI agent harness in this table. MIT or Apache 2.0 runtimes include the
+            OpenAI Agents SDK, Pydantic AI, Google ADK, Microsoft Agent Framework, smolagents, DeepSeek Harness, and
+            CrewAI’s framework. Open source here means a public licence on the runtime, not a free hosted product. The
+            Claude Agent SDK’s Python package is MIT; Anthropic still says use of the SDK is under its Commercial Terms
+            unless a component says otherwise. LangChain’s libraries are open source; LangSmith is a platform with
+            seats and traces.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             DeepSeek Harness is still in developer preview. Its README says compatibility-breaking changes are

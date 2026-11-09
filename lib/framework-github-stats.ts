@@ -326,7 +326,7 @@ export function directorySentence(toAbsolute: (href: string) => string) {
 
 export function relatedSentence(toAbsolute: (href: string) => string) {
   const links = [
-    ["Harness benchmark, November 2026", "/reports/agent-harness-benchmark-november-2026"],
+    ["Agent harness benchmark, November 2026", "/reports/agent-harness-benchmark-november-2026"],
     ["Agent frameworks", "/directory/category/agent-frameworks"],
     ["Harness comparison", "/trackers/harnesses"],
     ["Directory stats", "/directory/stats"],

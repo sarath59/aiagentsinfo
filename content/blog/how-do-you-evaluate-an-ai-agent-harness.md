@@ -1,12 +1,12 @@
 ---
-title: "How Do You Evaluate an AI Agent Harness? Behavioral Evals Explained (2026)"
-description: "A behavioral eval checks one observable action, such as a tool call or a test run, instead of a whole benchmark score. Here is when to write one, and how a recorded failure becomes a harness fix."
+title: "How to Evaluate an AI Agent Harness (Nov 2026)"
+description: "How to evaluate an AI agent harness: test one action you can see, then check the whole job still finishes. A benchmark score does not name which step moved."
 takeaways:
   - "A behavioral evaluation checks one action you can see in the run, such as a search, a question, or a test command. It does not grade the whole project."
   - "An end-to-end benchmark still answers whether the job finished. Google’s September 9, 2026 post says the benchmark is the destination and the behavioral eval is the check you use while you iterate."
   - "NVIDIA’s November 4, 2026 NeMo post turns a stored failure into a test, changes one part of the harness, and scores that change on tasks the editor was not shown."
 date: "2026-11-06"
-updated: "2026-11-08"
+updated: "2026-11-09"
 category: guide
 topics:
   - harnesses
@@ -48,8 +48,8 @@ sources:
 faq:
   - question: "What is a behavioral evaluation of an AI agent?"
     answer: "A behavioral evaluation checks one observable action in a run. Google’s September 9, 2026 post gives the examples of asking a clarifying question, running a local validator before calling a build file done, and including canonical links in documentation. The check looks at the step, such as a tool call, rather than at whether a whole project passed."
-  - question: "How is a behavioral eval different from an end-to-end benchmark?"
-    answer: "A benchmark scores a frozen set of tasks. A behavioral eval scores a specific action. Google’s September 9 post says end-to-end suites such as Terminal-Bench and DeepSWE show that a score moved and usually do not show which step caused the move. The same post says the two checks work together: the benchmark is the destination, and the behavioral eval is the partner you use while you change the harness."
+  - question: "How is a behavioral eval different from an agent harness benchmark?"
+    answer: "An agent harness benchmark scores a frozen set of tasks, and the harness is part of the bundle being scored. A behavioral eval scores a specific action. Google’s September 9 post says end-to-end suites such as Terminal-Bench and DeepSWE show that a score moved and usually do not show which step caused the move. The same post says the two checks work together: the benchmark is the destination, and the behavioral eval is the partner you use while you change the harness."
   - question: "When should you start evaluating an agent harness?"
     answer: "Google’s September 9 post says to dogfood first. Evals belong to the next phase, once the agent can already do routine work in its own codebase. Their purpose is confidence that a prompt change, a tool change, or a model change did not make the agent worse. NVIDIA’s November 4 post starts the written test from a failure you can already see in stored traces."
   - question: "What is NVIDIA NeMo Compass?"
@@ -62,13 +62,13 @@ faq:
     answer: "On the Agent Skills specification, a skill is a folder whose required file is SKILL.md. The file starts with a name and a description, then instructions the agent loads when a task matches. LangChain’s March 10, 2026 harness post treats skills as a harness feature that keeps tool and MCP instructions out of the context window until they are needed."
 ---
 
-Updated November 8, 2026.
+Updated November 9, 2026.
 
 ## How do you evaluate an AI agent harness?
 
-You evaluate an [agent harness](/glossary/harness) by checking the actions you expect, then checking whether the whole job still finishes.
+How to evaluate an AI agent harness: check the actions you expect, then check whether the whole job still finishes.
 
-A [behavioral evaluation](/glossary/behavioral-evaluation) watches one step you can point at in the trace: a tool call, a file edit, a clarifying question, a test command. An end-to-end [benchmark](/glossary/benchmark) scores a frozen set of tasks and tells you whether the bundle of model plus harness succeeded. [Google’s September 9, 2026 post](https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/) says a composite score can move a few points and still leave you unsure which step changed. The behavioral check is how you name that step.
+A [behavioral evaluation](/glossary/behavioral-evaluation) watches one step you can point at in the trace: a tool call, a file edit, a clarifying question, a test command. An end-to-end [benchmark](/glossary/benchmark) scores a frozen set of tasks and tells you whether the bundle of model plus [harness](/glossary/harness) succeeded. [Google’s September 9, 2026 post](https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/) says a composite score can move a few points and still leave you unsure which step changed. The behavioral check is how you name that step.
 
 The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The cycle inside that workshop is [How do AI agents work?](/blog/how-do-ai-agents-work). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses).
 
@@ -88,9 +88,9 @@ The same idea applies outside coding agents. Any AI evaluation that scores only 
 
 A narrow check can also be the wrong check. [Anthropic’s November 26, 2025 note](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) describes agents that marked features done after unit tests or `curl` checks, while the feature still failed when someone clicked through it. The note’s response was to require browser testing, through the Puppeteer MCP, used the way a person would. A behavioral eval is only as good as the action it names. “The unit test ran” and “a person could complete the click path” are different actions.
 
-## How does a behavioral eval differ from an end-to-end benchmark?
+## How does a behavioral eval differ from an agent harness benchmark?
 
-Google’s post treats them as a pair. Macro benchmarks verify the destination. Micro behavioral evals are the partner that lets you change a prompt, a tool, or a model without guessing.
+A behavioral eval checks one action. An agent harness benchmark scores whether the model plus harness finished a frozen set of tasks. Google’s post treats them as a pair. Macro benchmarks verify the destination. Micro behavioral evals are the partner that lets you change a prompt, a tool, or a model without guessing.
 
 <div class="table-scroll">
 <table>
@@ -131,7 +131,7 @@ Google’s post treats them as a pair. Macro benchmarks verify the destination. 
 </table>
 </div>
 
-[LangChain’s March 10, 2026 anatomy post](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) is the public reminder that the destination score still moves when only the harness changes. The company wrote that a harness-only change took one of its coding agents from the top 30 to the top 5 on Terminal-Bench 2.0. That is LangChain’s account of a leaderboard on that date. It is also why a single headline number is a poor debugging tool: the score moved, and a behavioral suite is how you would ask which new behavior carried it.
+[LangChain’s March 10, 2026 anatomy post](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) is the public reminder that the destination score still moves when only the harness changes. The company wrote that a harness-only change took one of its coding agents from the top 30 to the top 5 on Terminal-Bench 2.0. That is LangChain’s account of a leaderboard on that date. It is also why a single headline number is a poor debugging tool: the score moved, and a behavioral suite is how you would ask which new behavior carried it. LangChain’s account names Terminal-Bench 2.0. A separate note on [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs) is on this site, and the dated public boards are the [November 2026 agent harness benchmark](/reports/agent-harness-benchmark-november-2026).
 
 A research search sits on the benchmark side. [HarnessFlow](/research/harnessflow-mcts-harness-optimization), arXiv:2611.06254, posted November 4, 2026, keeps the model fixed and searches for a better executable harness. This site’s breakdown, checked the same day as this guide, reports the authors’ average of 69.48 percent across six benchmarks after 15 refinement attempts each, 10.89 points above the starting harness and 3.95 points above the Meta-Harness rerun in that paper. Those are automatic grades of whole runs. They answer a different question from “did the agent call search before it answered.”
 
@@ -151,7 +151,7 @@ Anthropic’s long-running note is a third clock. The eval that matters there is
 
 ## How is a behavioral eval written?
 
-Google’s September 9 post prints one example and a three-step loop. This section describes that example. It does not add an API beyond what the post shows.
+Write a behavioral eval as a test of one action, such as the tool call in Google’s September 9 example, then rerun the suite so older checks still hold. This section describes that example. It does not add an API beyond what the post shows.
 
 The example is a Python test. It imports `Agent`, `LocalAgentConfig`, and `types` from a module path the post writes as `google.antigravity`. The test asks an agent for the weather in Mountain View, California, collects the names of the tool calls on the reply, and asserts that a built-in web-search tool is among them. The assertion message says the agent answered from memory without consulting live search. The comment above the assertion is the design rule: assert the behavior, not the prose of the answer.
 
@@ -167,7 +167,7 @@ Two harness features show up in the thing you might assert, and they have their 
 
 ## How do you turn a failure into a harness fix?
 
-NVIDIA’s November 4 post, by Patrick Moorhead, Sean Lopp, and Moon Chung, walks through one cycle with NVIDIA NeMo. The blueprint it points to is NemoClaw for agent optimization. The example agent is a Hermes assistant for a fictional company, running in an NVIDIA OpenShell sandbox, connected through MCP to chat, email, files, and tickets.
+Turn a stored failure into a test, change one part of the harness, and rerun it on cases the editor did not see. NVIDIA’s November 4 post, by Patrick Moorhead, Sean Lopp, and Moon Chung, walks through one cycle with NVIDIA NeMo. The blueprint it points to is NemoClaw for agent optimization. The example agent is a Hermes Agent for a fictional company, running in an NVIDIA OpenShell sandbox, connected through MCP to chat, email, files, and tickets.
 
 The post says the blueprint uses three libraries: NeMo Compass, NeMo Eval Author, and NVIDIA NeMo Relay. The walkthrough below is the part the post actually demonstrates: Compass, Eval Author, a harness edit, and a rerun.
 
@@ -177,7 +177,7 @@ NeMo Compass reads stored traces plus a short expected-behavior file, `ETHOS.md`
 
 NeMo Eval Author is the next step. The post says it provides skills and workflows for a coding agent such as Codex or Claude Code, and that it can write evaluations in Harbor format or in NVIDIA NeMo Gym format. You hand the coding agent the Compass findings, the raw traces, `ETHOS.md`, and the agent repository, then review what it writes. In the example it produced four Harbor tasks similar to “draft a response,” plus a verifier that fails the run if `send_message` was called without human confirmation.
 
-The harness edit in the example is one instruction in the Hermes agent’s `SOUL.md`, which the post calls a Hermes concept similar to a system prompt. The new line says a request to write, draft, compose, prepare, or suggest a message authorizes the draft only. The agent should show the draft and stop before sending. A token returned by a preparation tool is the technical ability to act, and it is not the user’s consent. The post says other harness edits can be middleware or plugins. This one is a prompt-level rule inside the harness.
+The harness edit in the example is one instruction in the Hermes Agent’s `SOUL.md`, which the post calls a Hermes concept similar to a system prompt. The new line says a request to write, draft, compose, prepare, or suggest a message authorizes the draft only. The agent should show the draft and stop before sending. A token returned by a preparation tool is the technical ability to act, and it is not the user’s consent. The post says other harness edits can be middleware or plugins. This one is a prompt-level rule inside the harness.
 
 They then reran the four tasks. Two tasks, marked held out, were hidden from the coding agents that proposed the change.
 
@@ -218,7 +218,7 @@ The post’s setup list, for readers who want the version pins, is a Linux machi
 
 ## How does evaluation fit harness engineering?
 
-[Harness engineering](/glossary/harness-engineering) is the work of designing the loop, the tools, the memory, the permissions, and the stop rules. Evaluation is how you tell whether a change to that design helped.
+Evaluation tells you whether a change to the harness helped. [Harness engineering](/glossary/harness-engineering) is the work of designing the loop, the tools, the memory, the permissions, and the stop rules.
 
 [OpenAI’s February 11, 2026 post](https://openai.com/index/harness-engineering/) describes the human job on one internal project as specifying intent, shaping the repository and the tools, and building feedback loops so agents could do the implementation. The authors say a missing capability had to be made legible and enforceable. A behavioral eval is one way to make a failure legible: the test fails until the harness, not a plea to “try harder,” produces the action you named. The longer account of that post is the [harness guide](/blog/what-is-an-ai-agent-harness).
 
@@ -229,6 +229,8 @@ A [guardrail](/glossary/guardrail) is the check that allows, blocks, or pauses a
 [Computer use](/blog/can-an-ai-agent-use-your-computer) is a case where the action is a click. The behavioral question is whether the agent asked before a payment, a password, or another hard-to-undo step. The safety rules on that guide are the harness controls. An eval would record whether those controls held.
 
 ## What should you write down before the first eval?
+
+Write down one failure you have already seen, the action that should have happened, and at least one case you will keep out of the edit.
 
 1. Name one failure you have already seen, in a trace or in dogfooding. Google’s first step and NVIDIA’s Compass step are the same habit.
 2. Write the action that should have happened, in one sentence. “Called the test runner” is an action. “Did a good job” is not.
@@ -243,7 +245,7 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 
 - This guide’s terms: [behavioral evaluation](/glossary/behavioral-evaluation), [agent skill](/glossary/agent-skill), [Model Context Protocol](/glossary/model-context-protocol)
 - Harness hub: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do AI agents work?](/blog/how-do-ai-agents-work), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [agent loop](/glossary/agent-loop), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [tool use](/glossary/tool-use)
-- Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization)
+- Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs)
 - Nearby guides: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing)
 - Topics: [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research)
 - Report: [harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
@@ -254,9 +256,9 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 
 It is a test of one observable action. [Google’s September 9, 2026 post](https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/) uses asking a clarifying question, running a validator before calling a build file done, and including canonical documentation links. The [glossary entry](/glossary/behavioral-evaluation) is the short definition. The check reads the step, such as a tool call, rather than grading an entire project.
 
-### How is a behavioral eval different from an end-to-end benchmark?
+### How is a behavioral eval different from an agent harness benchmark?
 
-A [benchmark](/glossary/benchmark) scores a frozen task set. A behavioral eval scores a specific action. Google says suites such as Terminal-Bench and DeepSWE show that a score moved and usually do not show which step moved it. The table above is the comparison. Google also says the behavioral check does not replace the destination score.
+An agent harness benchmark scores a frozen task set, and the harness is part of the bundle being scored. A behavioral eval scores a specific action. Google says suites such as Terminal-Bench and DeepSWE show that a score moved and usually do not show which step moved it. The table above is the comparison. Dated public boards are the [November 2026 agent harness benchmark](/reports/agent-harness-benchmark-november-2026). Google also says the behavioral check does not replace the destination score.
 
 ### When should you start evaluating an agent harness?
 

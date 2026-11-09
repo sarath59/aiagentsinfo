@@ -41,6 +41,8 @@ export const directoryCollections = [
 
 export type DirectoryFrontmatter = {
   name: string;
+  /** Search title when it should differ from the product name used as the H1. */
+  title?: string;
   vendor: string;
   website: string;
   /** Public path such as /logos/claude.png. Empty when no official logo was found. */

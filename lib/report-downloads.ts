@@ -234,16 +234,16 @@ export function benchmarkReportPdf(): PdfModel {
     sections: [
       {
         paragraphs: [
-          "This page copies public scores for coding agents and the harnesses around them. A harness is the loop, tools, and limits around a model. The tables use the official SWE-bench leaderboard and the official Terminal-Bench 4.0 leaderboard. Each row keeps the date on that source. Nothing here is estimated, and a score from another website is not filled in when the official board does not list it.",
+          "This is the November 2026 agent harness benchmark. It copies public scores for coding agents and the harnesses around them. A harness is the loop, tools, and limits around a model. The tables use the official SWE-bench leaderboard and the official Terminal-Bench 4.0 leaderboard. Each row keeps the date on that source. Nothing here is estimated, and a score from another website is not filled in when the official board does not list it.",
           "SWE-bench Verified is 500 real GitHub issues. The score is the percent resolved: the share of issues whose tests passed. The bash-only rows all use mini-SWE-agent, so the harness stays the same while the model changes. The SWE-bench site says release 2.x calls tools, while release 1.x reads the action out of the model's text, and that those two generations are not necessarily comparable. The version column is the release named on the row.",
           "Terminal-Bench 4.0 is the current board on tbench.ai. The agent column changes by row, so those scores include Claude Code, Codex, Grok Build, mini-SWE-agent, or Muse Code, not one shared harness. Accuracy and the 95% half-width are the fields on the official leaderboard. The cost cell is copied as printed, including a partial-trial note where the board includes one.",
-          `The newest result date on the SWE-bench Verified file, as read on ${dateLabel}, is ${swebenchBenchmark.newestResultDate}. The Terminal-Bench 4.0 board record says it was updated ${terminalBench.updatedAt}. This November report is a reading of those boards. It is not a claim that either project published a new run in November.`,
+          `The newest result date on the SWE-bench Verified file, as read on ${dateLabel}, is ${swebenchBenchmark.newestResultDate}. The Terminal-Bench 4.0 board record says it was updated ${terminalBench.updatedAt}. Read as an AI coding agent benchmark for November 2026, this page is a reading of those boards. It is not a claim that either project published a new run in November.`,
         ],
       },
       {
-        heading: "SWE-bench Verified, bash only",
+        heading: "What does SWE-bench show when the harness stays the same?",
         paragraphs: [
-          `${swebenchBenchmark.bashOnly.length} rows from the Verified list where the harness is mini-SWE-agent. "Team checked" means the SWE-bench page marks the run as performed or checked by the SWE-bench team. A "No" means the row is on the official board without that mark. Source: swebench.com, read ${dateLabel}.`,
+          `These rows all use mini-SWE-agent, so the harness stays the same while the model changes. ${swebenchBenchmark.bashOnly.length} rows from the Verified list where the harness is mini-SWE-agent. "Team checked" means the SWE-bench page marks the run as performed or checked by the SWE-bench team. A "No" means the row is on the official board without that mark. Source: swebench.com, read ${dateLabel}.`,
         ],
         table: tableFrom(
           "SWE-bench Verified bash-only scores",
@@ -252,9 +252,9 @@ export function benchmarkReportPdf(): PdfModel {
         ),
       },
       {
-        heading: "Other harnesses the SWE-bench team checked",
+        heading: "Which other harnesses did the SWE-bench team check?",
         paragraphs: [
-          `${swebenchBenchmark.teamCheckedOther.length} Verified rows that use a harness other than mini-SWE-agent and that the board marks as team-checked.`,
+          `The SWE-bench team checked ${swebenchBenchmark.teamCheckedOther.length} Verified rows that use a harness other than mini-SWE-agent.`,
         ],
         table: tableFrom(
           "Team-checked SWE-bench Verified rows outside the bash-only harness",
@@ -263,9 +263,9 @@ export function benchmarkReportPdf(): PdfModel {
         ),
       },
       {
-        heading: "SWE-bench Multilingual, same harness",
+        heading: "How does SWE-bench Multilingual compare on one harness?",
         paragraphs: [
-          `${swebenchBenchmark.multilingualInstances} instances, ${swebenchBenchmark.multilingual.length} mini-SWE-agent rows on the same official file. This is a separate task set from Verified, so the percents are not a second reading of the 500 Verified issues.`,
+          `It is a separate task set from Verified, scored here with the same mini-SWE-agent harness, so the percents are not a second reading of the 500 Verified issues. ${swebenchBenchmark.multilingualInstances} instances, ${swebenchBenchmark.multilingual.length} mini-SWE-agent rows on the same official file.`,
         ],
         table: tableFrom(
           "SWE-bench Multilingual mini-SWE-agent scores",
@@ -274,19 +274,21 @@ export function benchmarkReportPdf(): PdfModel {
         ),
       },
       {
-        heading: "Terminal-Bench 4.0",
+        heading: "What does Terminal-Bench 4.0 show in this harness comparison?",
         paragraphs: [
-          `${terminalBench.rows.length} rows. ${terminalBench.description} The board name on Harbor Hub is ${terminalBench.name}, and the record was updated ${terminalBench.updatedAt}. Read ${dateLabel}.`,
+          `The agent column changes by row, so this harness comparison includes Claude Code, Codex, Grok Build, mini-SWE-agent, or Muse Code, not one shared harness. ${terminalBench.rows.length} rows. ${terminalBench.description} The board name on Harbor Hub is ${terminalBench.name}, and the record was updated ${terminalBench.updatedAt}. Read ${dateLabel}.`,
         ],
         table: tableFrom("Terminal-Bench 4.0 official leaderboard", terminalColumns, terminalRows()),
       },
       {
-        heading: "Left out",
+        heading: "What does this harness comparison leave out?",
+        paragraphs: ["A score is left out when it is not on the official board this page read."],
         bullets: [
           "Third-party score roundups, including pages that list SWE-bench results above the official board, are not used. If the official file does not contain the row, it is not on this page.",
           "SWE-bench Full, Lite, and Multimodal are on swebench.com and were not copied into this month's tables.",
           "OSWorld, WebArena, GAIA, and SWE-bench Pro were not read from an official board for this edition, so they are not given scores here.",
           'The November 3, 2026 paper "You don\'t need long context" reports its own SWE-bench Verified and Terminal-Bench 2.1 runs. Those are the authors\' runs, not rows on the public boards, and they stay on the research note.',
+          "A separate note covers Terminal-Bench 2.1 at /research/terminal-bench-2-1-benchmark-repairs. This page's Terminal-Bench table is the 4.0 board only.",
         ],
       },
     ],

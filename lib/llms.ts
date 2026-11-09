@@ -90,9 +90,9 @@ export async function buildLlmsTxt() {
         "Announced, likely, and watch-for claims, read November 5, 2026.",
       ),
       item(
-        "AI Agent Harness Benchmark, November 2026",
+        "Agent harness benchmark, November 2026",
         "/reports/agent-harness-benchmark-november-2026",
-        "Official SWE-bench and Terminal-Bench scores, read November 5, 2026.",
+        "Agent harness benchmark for November 2026: public SWE-bench and Terminal-Bench scores for coding agents, each with the date on the official source.",
       ),
       item(frameworkGithubTitle, frameworkGithubPath, frameworkGithubDescription),
       item("Verified revenue", "/verified-revenue", `Payment-processor-verified revenue. Checked ${verifiedRevenueChecked}.`),

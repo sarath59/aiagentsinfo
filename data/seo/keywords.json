@@ -1,556 +1,555 @@
 {
-  "updated": "2026-11-07T06:39:43+05:30",
+  "updated": "2026-11-09T06:46:58+05:30",
   "sources": [
-    "Google Trends via pytrends interest_over_time + related_queries rising; geo US and worldwide; timeframes now 1-d and now 7-d; run 2026-11-07 ~06:37 IST; raw /workspace/aiagentsinfo/research/pytrends_2026-11-07.json (WW 1-d head/head2/niche partial 429s after US batches)",
-    "Google Trends daily trending RSS https://trends.google.com/trending/rss?geo=US (fetched 2026-11-07 ~06:35 IST; no AI terms in top items — NBA/sports, ICE, Netflix)",
-    "X API namespace x: get_trends_by_woeid (1 WW, 23424977 US — #VoiceAgent in US top ~50), search_news (AI agents; Claude Code/harness/computer use/DeepSeek; voice agent/AI receptionist; max_age_hours 48), get_posts_counts_recent for harness, Claude Code pricing cluster, voice agents, computer use, Perplexity Teammates/Antigravity",
-    "WebSearch Nov 6–7 2026 digests: Agent Patch Notes #3, ai0.news Nov 6 (Claude Code email leak), DEV/AIToolsRecap Nov 7 (Gemini Omni, Grok watermark), NextBig AI agent / coding-agents market",
-    "Live sitemap https://www.aiagentsinfo.com/sitemap.xml",
-    "Prior keywords.json from /cursor/stores/user/aiagentsinfo/keywords.json (updated 2026-11-06). Note: routine path /cursor/stores/bot/aiagentsinfo is not writable on this box; wrote user store + workspace data/seo + agent-data store."
+    "Google Trends via pytrends 4.x (venv /workspace/ptv) interest_over_time + related_queries (top/rising); geo US and worldwide; timeframes now 7-d and now 1-d; 5 batches x 4 runs = 20/20 batches OK, 0 errors (no 429s); run 2026-11-09 ~06:50-07:00 IST; raw /workspace/aiagentsinfo/research/pytrends_2026-11-09.json; script /tmp/pytrends_2026-11-09.py",
+    "X API namespace x (2026-11-09 ~06:40 IST): get_trends_by_woeid 1 (WW) and 23424977 (US) - no AI terms (NFL Sunday; Nvidia/Jensen, $GOAI only); search_news 'AI agents' and 'Claude OR ChatGPT OR Gemini OR Grok OR OpenAI OR Anthropic' (36h); get_posts_counts_recent for Opus 5.5 degradation, harness+coding agents, Hermes Agent, Gemini 4 (Carbon), Claude Code vs Codex, AI agents+entry-level jobs",
+    "WebSearch 2026-11-09: AI news Nov 8 (dailysummaryof.com, aifreshsignal.com briefing: Claude Code 2.1.319 backgrounds MCP tasks, ADK 2.14 A2A stable, Alexa text shopping; byobot.ai: DeepMind 1024-bit RSA weaknesses, Gemini Omni 1.2 Flash GA); Apiiro 'don't ask again' secrets research (The Hacker News, Nov 2026); github.com/garrytan/g-harness-evals; Harness-Bench arXiv 2605.27922",
+    "Live sitemap https://www.aiagentsinfo.com/sitemap.xml fetched 2026-11-09 (200 URLs; saved research/sitemap-2026-11-09.xml). New since Nov 8 list: /best (14 best-of pages incl. ai-agent-harnesses, computer-use-agents), /blog/how-do-ai-agents-work, /blog/how-many-official-mcp-servers-are-there, /blog/what-is-t3-code, /reports/ai-coding-agents-next-30-days, /research/mcphallu-mcp-agent-hallucinations, /research/terminal-bench-2-1-benchmark-repairs, glossary agent-loop/agent-to-agent-protocol/human-on-the-loop. Still no page for Hermes Agent, Claude Code 'don't ask again', Garry Tan harness evals, Opus 5.5 regression, Claude Duet, Google Antigravity, voice agents.",
+    "Prior keywords.json from /cursor/stores/user/aiagentsinfo/keywords.json (updated 2026-11-08T06:36:47+05:30)."
   ],
-  "notes": "Google Trends values are relative 0–100 within each comparison batch — do not compare means across batches as absolute volumes. Rising percentages are Google's related_queries rising values (filter sports/travel noise). Prefer winnable long-tail question keywords. US daily trending RSS had no AI terms (sports/politics). Top rising today: harness engineering, voice agents/#VoiceAgent, Claude Duet, Perplexity Teammates/Antigravity always-on agents, DeepSeek super agent. Content routines must weave top keywords into titles/H2/intros/meta/FAQs naturally — never stuff, never compromise accuracy.",
+  "notes": "Google Trends values are relative 0-100 within each comparison batch - do not compare means across batches as absolute volumes. Rising values are Google's related_queries rising percentages (sports/travel/recipe/security-quiz noise filtered). X location trends had no AI terms (NFL Sunday). Top rising today: Claude Code 'don't ask again' risk (GT +41,850 + Apiiro secrets leak story), Garry Tan harness evals (GT +39,100 + X News + public repo), Hermes Agent (top longtail batch mean 21.38 + 525 X posts/day + tied #1 in Tan's evals), Opus 5.5 regression complaints (X posts tripled Nov 6->8; GT +1,000 'opus 5.5 game restriction'), Codex usage limits/dashboard (GT WW 1-d +7,600). Several top terms have no matching page yet (status 'new') - content routines should prioritize honest new pages for 'claude code don't ask again', 'garry tan harness evals'/'hermes agent', and 'is claude opus 5.5 getting worse' (attribute claims; benchmarks show no clear drop). DeepSeek super agent and AI employee cooling. Content routines must weave top keywords into titles/H2/intros/meta/FAQs naturally - never stuff, never compromise accuracy. Audience is normal adults; AI news and research only; no kids content.",
   "top5_rising": [
-    "what is harness engineering",
-    "what is a voice agent",
-    "claude duet",
-    "perplexity teammates",
-    "deepseek super agent"
+    "claude code don't ask again",
+    "garry tan harness evals",
+    "hermes agent",
+    "is claude opus 5.5 getting worse",
+    "codex usage limits"
+  ],
+  "optimize_pages": [
+    {
+      "url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
+      "keywords": [
+        "how to evaluate an AI agent harness",
+        "how do you evaluate an ai agent harness",
+        "agent harness benchmark",
+        "hermes agent"
+      ]
+    },
+    {
+      "url": "https://www.aiagentsinfo.com/best/ai-agent-harnesses",
+      "keywords": [
+        "best AI agent harness",
+        "best coding agent harness",
+        "open source AI agent harness"
+      ]
+    },
+    {
+      "url": "https://www.aiagentsinfo.com/reports/agent-harness-benchmark-november-2026",
+      "keywords": [
+        "agent harness benchmark",
+        "AI coding agent benchmark November 2026",
+        "harness comparison"
+      ]
+    },
+    {
+      "url": "https://www.aiagentsinfo.com/research/terminal-bench-2-1-benchmark-repairs",
+      "keywords": [
+        "Terminal-Bench 2.1"
+      ]
+    },
+    {
+      "url": "https://www.aiagentsinfo.com/directory/codex",
+      "keywords": [
+        "Codex usage limits",
+        "Codex pricing 2026"
+      ]
+    }
   ],
   "keywords": [
     {
-      "date": "2026-11-07",
-      "keyword": "what is harness engineering",
+      "date": "2026-11-09",
+      "keyword": "claude code don't ask again",
       "type": "long-tail",
-      "trend_signal": "X News Nov 6 'Harness Engineering Emerges as Key AI Agent Discipline' (updated ~18:17 UTC); X counts 7d harness/agent harness=5,555 (Nov 6=963); Google Trends US 1-d rising under harness engineering: 'google harness engineering' +561,650; WW 7-d rising 'openai harness engineering'",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
-      "status": "targeted",
+      "trend_signal": "pytrends 7-d rising under 'Claude Code': 'claude code dont ask again risk' +41,850 US / +40,600 WW (top rising Claude Code query); Apiiro research reported by The Hacker News Nov 7 2026: 1,122 public copies of .claude/settings.local.json hold at least one secret (1,379 distinct secrets)",
+      "intent": "informational/security",
+      "target_url": "new page",
+      "status": "new",
       "rank": 1,
-      "first_seen": "2026-11-07",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 1,
-          "status": "targeted"
+          "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "what is a voice agent",
+      "date": "2026-11-09",
+      "keyword": "garry tan harness evals",
       "type": "long-tail",
-      "trend_signal": "X US trends include #VoiceAgent (Nov 7 ~01:05 UTC); X posts 7d voice agent/AI receptionist/voice AI/#VoiceAgent=6,313 with Nov 6 spike 1,414 (vs ~700–900 prior days); pytrends US 7-d long-tail AI receptionist mean 7.0 (same batch); X News Voice Arena/Cekura Bench + Meta Muse voice",
-      "intent": "informational",
+      "trend_signal": "pytrends 7-d rising under 'AI agents': 'y combinator garry tan ai agents' +39,100 US and WW; X News 'Garry Tan Shares AI Coding Harness Evaluation Results' updated 2026-11-08T23:14Z; github.com/garrytan/g-harness-evals (created Nov 5): 7 harnesses, 20 tasks, pass rates statistically indistinguishable, ranked by cost per solved task ($0.17-$0.44)",
+      "intent": "informational/comparison",
       "target_url": "new page",
       "status": "new",
       "rank": 2,
-      "first_seen": "2026-11-07",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 2,
           "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "claude duet",
-      "type": "long-tail",
-      "trend_signal": "Google Trends US 1-d rising under 'AI agent': 'claude duet' +400; X News Nov 7 Anthropic Claude Duet mobile control for Claude Code sessions (updated ~00:12 UTC Nov 7)",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
+      "date": "2026-11-09",
+      "keyword": "hermes agent",
+      "type": "head",
+      "trend_signal": "pytrends 7-d longtail batch: 'Hermes agent' mean 21.38 US / 21.47 WW (highest in batch vs T3 Code 7.28, DeepSeek Super Agent 3.32); 1-d rising under 'AI agents' +200 US; X posts \"Hermes Agent\" 4,134/7d (Nov 8 = 525); tied rank 1 on cost in Garry Tan's harness evals on both Opus 5.5 and GPT-6.1 Sol",
+      "intent": "informational/navigational",
+      "target_url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
       "status": "targeted",
       "rank": 3,
-      "first_seen": "2026-11-07",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 3,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "perplexity teammates",
+      "date": "2026-11-09",
+      "keyword": "is claude opus 5.5 getting worse",
       "type": "long-tail",
-      "trend_signal": "X News Nov 6 Perplexity Teammates always-on AI agents for Max; X counts (Perplexity Teammates|always-on agent|Antigravity) 7d=12,181 with Nov 6 spike 2,818 (~1.7x prior days)",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/directory/perplexity",
-      "status": "targeted",
+      "trend_signal": "pytrends US 1-d rising under 'Claude': 'claude opus 5.5 game restriction' +1,000; X posts '\"Opus 5.5\" (nerfed|worse|lazy|dumber|degraded)' rose 70 (Nov 6) -> 133 (Nov 7) -> 212 (Nov 8 UTC); X News 'Claude Opus 5.5 Shows Sharp Reasoning Shift Around November 3' updated 2026-11-09T00:12Z",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
       "rank": 4,
-      "first_seen": "2026-11-07",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 4,
-          "status": "targeted"
+          "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "deepseek super agent",
+      "date": "2026-11-09",
+      "keyword": "codex usage limits",
       "type": "long-tail",
-      "trend_signal": "Google Trends WW 7-d rising under agent harness: 'deepseek super agent' +941,800; under DeepSeek: deepseek superagent +71,950 / superagent +70,650; still dominant vs Nov 6",
+      "trend_signal": "pytrends WW 1-d rising under 'Codex': 'codex usage dashboard' +7,600; 'codex could not start its user interface' +140; X Claude Code vs Codex posts 1,427/7d (Nov 8 = 140, cooling from 239 on Nov 3)",
       "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "target_url": "https://www.aiagentsinfo.com/directory/codex",
       "status": "targeted",
       "rank": 5,
-      "first_seen": "2026-11-06",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-06",
-          "rank": 7,
-          "status": "new"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 5,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "what is deepseek harness",
-      "type": "long-tail",
-      "trend_signal": "Google Trends US/WW 7-d rising under agent harness: deepseek harness github/desktop/agent harness; DeepSeek niche rising super agent cluster; prior rank #1 carried with fresh X harness news",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "date": "2026-11-09",
+      "keyword": "best ai agent harness",
+      "type": "head",
+      "trend_signal": "X posts harness+(coding agent|Claude Code|Codex|Garry Tan|harness engineering) 5,648/7d (Nov 8 = 692); X News 'AI Coding Harness Design Outshines Model Choice' updated 2026-11-08T20:11Z (same model varied up to 18.4 pts across 9 harnesses on Terminal-Bench 2.0); pytrends 'agent harness' 7-d mean 4.49 US; page /best/ai-agent-harnesses added to sitemap Nov 8",
+      "intent": "commercial/comparison",
+      "target_url": "https://www.aiagentsinfo.com/best/ai-agent-harnesses",
       "status": "targeted",
       "rank": 6,
-      "first_seen": "2026-11-05",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-05",
-          "rank": 4,
-          "status": "new"
-        },
-        {
-          "date": "2026-11-06",
-          "rank": 1,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 6,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "claude code vs codex pricing",
+      "date": "2026-11-09",
+      "keyword": "what does ultracode do in claude code",
       "type": "long-tail",
-      "trend_signal": "X counts 7d Claude Code+(pricing|cost|vs|Codex|Duet|email)=24,345 (~3.4–3.9k/day); pytrends US 7-d Claude Code mean 17.33 vs Codex 22.64 (head2 batch); X News Claude Code desktop vs Codex + 99% subagent cost cut",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
-      "status": "targeted",
-      "rank": 7,
-      "first_seen": "2026-11-06",
-      "history": [
-        {
-          "date": "2026-11-06",
-          "rank": 3,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
-          "rank": 7,
-          "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "anthropic claude code limits",
-      "type": "long-tail",
-      "trend_signal": "Google Trends US/WW 7-d rising under Claude: 'anthropic claude code limits' +1,600–1,800; under Claude Code: message threads +11,550 / limits +1,950; X News email User-Agent leak + privacy fix 2.1.317",
+      "trend_signal": "pytrends US 1-d rising under 'Claude Code': 'what does ultracode do in claude code' +10,150, 'what is ultracode in claude code' +70",
       "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
-      "status": "targeted",
-      "rank": 8,
-      "first_seen": "2026-11-06",
-      "history": [
-        {
-          "date": "2026-11-06",
-          "rank": 12,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
-          "rank": 8,
-          "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "google antigravity",
-      "type": "long-tail",
-      "trend_signal": "X News Nov 6 Google Antigravity 2.29 remote cloud agents + Gemini Live voice mode; bundled in X count spike Nov 6 (2,818 with Teammates/always-on); prior keyword retained with stronger news signal",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
-      "status": "targeted",
-      "rank": 9,
-      "first_seen": "2026-11-07",
-      "history": [
-        {
-          "date": "2026-11-07",
-          "rank": 9,
-          "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "ai receptionist",
-      "type": "long-tail",
-      "trend_signal": "pytrends US 7-d long-tail mean 7.0 (highest in long batch); WW rising related 'retell ai' +140 / 'ai receptionist for small business' +80; aligns with #VoiceAgent US trend",
-      "intent": "commercial",
       "target_url": "new page",
       "status": "new",
-      "rank": 10,
-      "first_seen": "2026-11-07",
+      "rank": 7,
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-07",
-          "rank": 10,
+          "date": "2026-11-09",
+          "rank": 7,
           "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "can an ai agent use your computer",
+      "date": "2026-11-09",
+      "keyword": "claude personal finance vs chatgpt",
       "type": "long-tail",
-      "trend_signal": "X counts 7d computer use+(Claude|ChatGPT|OpenAI|Gemini|agent|Glasshand)=3,200; US 1-d computer use mean 8.81 (up vs US 7-d 5.02); X News Glasshand iPhone/Mac rental for agents",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-agent-use-your-computer",
-      "status": "targeted",
-      "rank": 11,
-      "first_seen": "2026-11-06",
+      "trend_signal": "pytrends US 1-d rising under 'Claude': 'claude personal finance vs chatgpt finances' +2,200; 7-d 'claude personal finance' +1,600 US; 'Claude Personal Finance' batch mean 12.22 US 7-d (up from 9.09 Nov 8)",
+      "intent": "comparison",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 8,
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-06",
-          "rank": 2,
-          "status": "targeted"
-        },
+          "date": "2026-11-09",
+          "rank": 8,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "keyword": "gemini spark",
+      "type": "head",
+      "trend_signal": "pytrends WW 7-d rising under 'Gemini Omni': 'gemini spark' +76,050; AIFreshSignal Nov 8: Gemini Spark Gems freeze is 9 days out",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 9,
+      "first_seen": "2026-11-09",
+      "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
+          "rank": 9,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "keyword": "deepseek harness linux",
+      "type": "long-tail",
+      "trend_signal": "pytrends 1-d rising under 'DeepSeek': 'deepseek harness linux' +150 US / +350 WW, 'deepseek herness' (misspelling) +15,150 WW / +180 US",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 10,
+      "first_seen": "2026-11-09",
+      "history": [
+        {
+          "date": "2026-11-09",
+          "rank": 10,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "keyword": "how do ai agents work",
+      "type": "long-tail",
+      "trend_signal": "pytrends Nov 8 US 1-d rising under 'AI': 'how agentic ai systems work in automation' +150; 7-d rising under AI agents 'which ai paradigm involves understanding context planning workflows connecting to external tools' +90 US/+100 WW; page /blog/how-do-ai-agents-work published Nov 8",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/how-do-ai-agents-work",
+      "status": "targeted",
+      "rank": 11,
+      "first_seen": "2026-11-09",
+      "history": [
+        {
+          "date": "2026-11-09",
           "rank": 11,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "harness engineering",
-      "type": "head",
-      "trend_signal": "X News discipline framing Nov 6; US 1-d rising 'google harness engineering' Breakout-scale +561,650; site glossary already covers",
+      "date": "2026-11-09",
+      "keyword": "agent harness benchmark",
+      "type": "long-tail",
+      "trend_signal": "pytrends WW 7-d rising under 'agent harness': 'agent harness a survey' +15,800; Harness-Bench (arXiv 2605.27922) 7 harnesses x 10 backends; X News harness tests updated 2026-11-08T20:11Z",
       "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "target_url": "https://www.aiagentsinfo.com/reports/agent-harness-benchmark-november-2026",
       "status": "targeted",
       "rank": 12,
-      "first_seen": "2026-11-05",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-05",
-          "rank": 2,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-06",
-          "rank": 9,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 12,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "opus 5.5 harness engineering",
+      "date": "2026-11-09",
+      "keyword": "claude ai deletes files",
       "type": "long-tail",
-      "trend_signal": "X News Nov 6 developers harness Claude Opus 5.5 for long-running agents; continues Nov 5–6 Exo/Artificial Analysis signal",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
-      "status": "targeted",
+      "trend_signal": "pytrends 7-d rising under 'Claude': 'claude ai deletes william baude files' +2,800 US / +2,750 WW (news story; verify facts before covering)",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "watch",
       "rank": 13,
-      "first_seen": "2026-11-05",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-05",
-          "rank": 7,
-          "status": "new"
-        },
-        {
-          "date": "2026-11-06",
-          "rank": 4,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 13,
-          "status": "targeted"
+          "status": "watch"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "claude code subagent cost",
+      "date": "2026-11-09",
+      "keyword": "grok bot usage limits",
       "type": "long-tail",
-      "trend_signal": "X News Anthropic ~99% Claude Code background-subagent status cost cut (v2.1.316+); still in Claude Code pricing cluster (24k posts/7d)",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
-      "status": "targeted",
+      "trend_signal": "pytrends 7-d rising under 'Grok': 'spacex grok bot usage limits' +28,750 US, 'elon musk grok bot limits' +9,550, 'grok bot shut down' +1,400 (news; no matching page)",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "watch",
       "rank": 14,
-      "first_seen": "2026-11-06",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-06",
-          "rank": 11,
-          "status": "new"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 14,
-          "status": "targeted"
+          "status": "watch"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "can chatgpt buy things for me",
+      "date": "2026-11-09",
+      "keyword": "terminal-bench 2.1",
       "type": "long-tail",
-      "trend_signal": "pytrends US/WW 7-d long-tail 'can ChatGPT buy' mean 3.81; shopping-agent pages live; commercial buyer intent",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "trend_signal": "X News harness tests cite Terminal-Bench 2.0 18.4-pt harness spread (updated 2026-11-08T20:11Z); page /research/terminal-bench-2-1-benchmark-repairs published Nov 8 (28 of 89 tasks repaired)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/research/terminal-bench-2-1-benchmark-repairs",
       "status": "targeted",
       "rank": 15,
-      "first_seen": "2026-11-06",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-06",
-          "rank": 5,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 15,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "deepseek harness",
-      "type": "head",
-      "trend_signal": "Related rising under agent harness US/WW 7-d; pairs with deepseek super agent cluster",
+      "date": "2026-11-09",
+      "keyword": "what is t3 code",
+      "type": "long-tail",
+      "trend_signal": "pytrends 'T3 Code' 7-d mean 7.28 US (longtail batch #2 after Hermes agent); 1-d max 91 US / 100 WW; page /blog/what-is-t3-code published Nov 8",
       "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-t3-code",
       "status": "targeted",
       "rank": 16,
-      "first_seen": "2026-11-05",
+      "first_seen": "2026-11-08",
       "history": [
         {
-          "date": "2026-11-05",
+          "date": "2026-11-08",
           "rank": 3,
           "status": "new"
         },
         {
-          "date": "2026-11-06",
-          "rank": 6,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 16,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "agent harness",
-      "type": "head",
-      "trend_signal": "pytrends US 7-d head2 mean 0.63; rising queries dominated by DeepSeek harness variants; core site focus term",
+      "date": "2026-11-09",
+      "keyword": "deepseek super agent",
+      "type": "long-tail",
+      "trend_signal": "pytrends 7-d rising under 'DeepSeek': 'super agent deepseek github' +450, 'deepseek superagent' +350 (down from +2,150/+2,000 on Nov 8); longtail mean 3.32 US (Nov 8: 4.62) - cooling",
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
       "rank": 17,
-      "first_seen": "2026-11-05",
+      "first_seen": "2026-11-06",
       "history": [
         {
-          "date": "2026-11-05",
-          "rank": 1,
-          "status": "targeted"
-        },
-        {
           "date": "2026-11-06",
-          "rank": 8,
-          "status": "targeted"
+          "rank": 7,
+          "status": "new"
         },
         {
           "date": "2026-11-07",
+          "rank": 5,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 2,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
           "rank": 17,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "what is an ai agent harness",
+      "date": "2026-11-09",
+      "keyword": "anthropic claude code limits",
       "type": "long-tail",
-      "trend_signal": "Core evergreen question; rising DeepSeek/harness engineering news keeps demand; live page",
+      "trend_signal": "pytrends 7-d rising under 'Claude': +1,400 US / +1,350 WW; under 'Claude Code' +1,700 US / +1,850 WW (stable vs Nov 8); 'Claude Code limits' longtail mean 0.82",
       "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
       "status": "targeted",
       "rank": 18,
-      "first_seen": "2026-11-05",
+      "first_seen": "2026-11-06",
       "history": [
         {
-          "date": "2026-11-05",
-          "rank": 8,
-          "status": "targeted"
-        },
-        {
           "date": "2026-11-06",
-          "rank": 10,
+          "rank": 12,
           "status": "targeted"
         },
         {
           "date": "2026-11-07",
+          "rank": 9,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 4,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
           "rank": 18,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "computer use agent",
+      "date": "2026-11-09",
+      "keyword": "anthropic claude code message threads",
       "type": "long-tail",
-      "trend_signal": "US 1-d computer use mean 8.81 vs 7-d 5.02 (up day); Glasshand + Codex computer-use edge news",
+      "trend_signal": "pytrends 7-d rising under 'Claude Code': +10,850 US / +11,400 WW (Nov 8: +450 US / +10,550 WW)",
       "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/glossary/computer-use",
+      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
       "status": "targeted",
       "rank": 19,
-      "first_seen": "2026-11-06",
+      "first_seen": "2026-11-08",
       "history": [
         {
-          "date": "2026-11-06",
-          "rank": 13,
+          "date": "2026-11-08",
+          "rank": 56,
           "status": "targeted"
         },
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 19,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "livekit voice agent",
+      "date": "2026-11-09",
+      "keyword": "goldman sachs claude code",
       "type": "long-tail",
-      "trend_signal": "Google Trends US 7-d rising under voice agent: 'livekit voice agent quickstart' +60; developer how-to intent",
+      "trend_signal": "pytrends 7-d rising under 'Claude Code': +2,400 US / +18,950 WW (news)",
+      "intent": "news",
+      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
+      "status": "watch",
+      "rank": 20,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 45,
+          "status": "monitor"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 39,
+          "status": "watch"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 17,
+          "status": "watch"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 20,
+          "status": "watch"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "keyword": "claude duet",
+      "type": "head",
+      "trend_signal": "pytrends 7-d 'Claude Duet' mean 51.41 US / 51.33 WW in extra batch (highest); 1-d rising 'claude duet vs muse' +60, 'claude duet download' +60; no dedicated page",
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 20,
+      "rank": 21,
       "first_seen": "2026-11-07",
       "history": [
         {
           "date": "2026-11-07",
-          "rank": 20,
-          "status": "new"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "claude code vs codex",
-      "type": "long-tail",
-      "trend_signal": "Ongoing comparison demand; pytrends WW 7-d 'Claude Code vs Codex' mean 1.79; X News desktop quality shift",
-      "intent": "comparison",
-      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
-      "status": "targeted",
-      "rank": 21,
-      "first_seen": "2026-11-05",
-      "history": [
-        {
-          "date": "2026-11-05",
-          "rank": 27,
-          "status": "new"
-        },
-        {
-          "date": "2026-11-06",
-          "rank": 19,
+          "rank": 6,
           "status": "targeted"
         },
         {
-          "date": "2026-11-07",
+          "date": "2026-11-08",
+          "rank": 55,
+          "status": "watch"
+        },
+        {
+          "date": "2026-11-09",
           "rank": 21,
-          "status": "targeted"
+          "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "ai shopping agent",
-      "type": "long-tail",
-      "trend_signal": "Stable commercial cluster; live checkout guide; WW 7-d mean 0.14 in long batch",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
-      "status": "targeted",
+      "date": "2026-11-09",
+      "keyword": "google antigravity",
+      "type": "head",
+      "trend_signal": "pytrends 7-d 'Google Antigravity' mean 29.09 US / 29.11 WW (extra batch #2); no dedicated page",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
       "rank": 22,
-      "first_seen": "2026-11-06",
+      "first_seen": "2026-11-07",
       "history": [
         {
-          "date": "2026-11-06",
-          "rank": 17,
+          "date": "2026-11-07",
+          "rank": 10,
           "status": "targeted"
         },
         {
-          "date": "2026-11-07",
+          "date": "2026-11-08",
+          "rank": 8,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
           "rank": 22,
-          "status": "targeted"
+          "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "can an ai shopping agent check out for you",
+      "date": "2026-11-09",
+      "keyword": "microsoft staff response ai push",
       "type": "long-tail",
-      "trend_signal": "Question form of shopping-agent intent; page live Nov 6",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
-      "status": "targeted",
+      "trend_signal": "pytrends 1-d rising under 'AI': +7,000 US / +17,200 WW; 7-d +2,200 (news; off-niche for agents)",
+      "intent": "news",
+      "target_url": "new page",
+      "status": "watch",
       "rank": 23,
-      "first_seen": "2026-11-06",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-06",
-          "rank": 18,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 23,
-          "status": "targeted"
+          "status": "watch"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "always-on ai agents",
+      "date": "2026-11-09",
+      "keyword": "livekit voice agent",
       "type": "long-tail",
-      "trend_signal": "Perplexity Teammates framing + Antigravity remote agents; X cluster spike Nov 6",
+      "trend_signal": "pytrends WW 7-d rising under 'voice agent': 'livekit voice agent quickstart' +250",
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
@@ -559,92 +558,994 @@
       "history": [
         {
           "date": "2026-11-07",
+          "rank": 21,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 29,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
           "rank": 24,
           "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "how do you evaluate an ai agent harness",
+      "date": "2026-11-09",
+      "keyword": "ai receptionist for small business",
       "type": "long-tail",
-      "trend_signal": "Pairs with harness-engineering rise; live behavioral-evals guide",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
-      "status": "targeted",
+      "trend_signal": "pytrends 1-d rising under 'AI receptionist': +80 US / +70 WW",
+      "intent": "commercial",
+      "target_url": "new page",
+      "status": "new",
       "rank": 25,
-      "first_seen": "2026-11-07",
+      "first_seen": "2026-11-08",
       "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-08",
+          "rank": 16,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
           "rank": 25,
-          "status": "targeted"
+          "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "claude personal finance",
+      "date": "2026-11-09",
+      "keyword": "perplexity vs chatgpt",
       "type": "long-tail",
-      "trend_signal": "Google Trends US/WW 7-d rising under Claude: 'claude personal finance' +1,150–1,200; Anthropic Plaid read-only finance news",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/directory/claude",
+      "trend_signal": "pytrends US 1-d rising under 'Perplexity': 'perplexity ai vs chatgpt' +110; 'who owns perplexity ai' +140",
+      "intent": "comparison",
+      "target_url": "https://www.aiagentsinfo.com/directory/perplexity",
       "status": "targeted",
       "rank": 26,
-      "first_seen": "2026-11-07",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 26,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "gemini omni",
+      "date": "2026-11-09",
+      "keyword": "ai coding agent harness",
       "type": "long-tail",
-      "trend_signal": "Google Trends US 1-d rising under Gemini: 'gemini omni' +60; Nov 7 digests cite Gemini Omni clips",
+      "trend_signal": "X News 'AI Coding Agents Thrive on Engineered Harnesses, Not Just Prompts' updated 2026-11-08T11:51Z; Dario Amodei NBC interview urging people to learn to build AI harnesses (X News updated 2026-11-08T21:40Z)",
       "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/directory/gemini",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
       "rank": 27,
-      "first_seen": "2026-11-07",
+      "first_seen": "2026-11-09",
       "history": [
         {
-          "date": "2026-11-07",
+          "date": "2026-11-09",
           "rank": 27,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "ai agent builder",
+      "date": "2026-11-08",
+      "keyword": "what is an ai employee",
       "type": "long-tail",
-      "trend_signal": "US 1-d rising under AI agent: 'ai agent builder' +160; Oumi FAiE custom agent builder news",
-      "intent": "commercial",
-      "target_url": "new page",
-      "status": "new",
+      "trend_signal": "pytrends US 7-d longtail batch mean 18.12 (highest vs DeepSeek Super Agent 4.62, Managed Agents 0.67, what is a voice agent 0.24); X posts 7d \"AI employee(s)\"=2,281 (Nov 7=210 after Nov 3 peak 630); X News 'Coinbase CEO Brian Armstrong Runs Workflow on AI Agent Teams' updated 2026-11-08T00:12:05Z; site published /blog/what-is-an-ai-employee on Nov 7 | 2026-11-09: pytrends 'what is an AI employee' 7-d mean 0.69 US (cooling); X News Coinbase CEO agent hierarchy updated 2026-11-08T23:23Z",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-employee",
+      "status": "targeted",
       "rank": 28,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 1,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 28,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "claude code vs codex pricing",
+      "type": "long-tail",
+      "trend_signal": "X News 'Developers Weigh Claude vs Codex for AI Coding' updated 2026-11-07T23:34:34Z; X cluster 16,904/7d (Nov 7=1,915 vs midweek peak 3,035); pytrends US 7-d head2 Claude Code mean 10.04 vs Codex 13.25; existing pricing page",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
+      "status": "targeted",
+      "rank": 29,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 3,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 3,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 5,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 29,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "what is harness engineering",
+      "type": "long-tail",
+      "trend_signal": "X News 'Harness Engineering Emerges as Key AI Agent Discipline' still listed (updated 2026-11-06T18:17:02Z); X (harness|agent harness|harness engineering) 49,861/7d, Nov 7=7,039 (slightly up vs Nov 6=6,861); pytrends US 7-d niche 'harness engineering' mean 0.17 (low vs computer use noise); new Thoughtworks-at-scale blog live Nov 7 plus glossary",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "status": "targeted",
+      "rank": 30,
       "first_seen": "2026-11-07",
       "history": [
         {
           "date": "2026-11-07",
-          "rank": 28,
+          "rank": 1,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 6,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 30,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "claude personal finance",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 7-d rising under Claude: 'claude personal finance' +1300, 'claude finance' +200; still no sitemap page; Nov 7 digests continue to mention the Plaid-connected Claude Personal Finance beta",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 31,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 4,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 7,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 31,
           "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
+      "keyword": "perplexity teammates",
+      "type": "long-tail",
+      "trend_signal": "X News Perplexity Teammates still circulating; PCMag updated Nov 7; official changelog 'Teammates, fully local Computer on Mac, and Voice mode'; X Perplexity+(Teammates|teammate|always-on)=772/7d, launch spike Nov 6=386 then Nov 7=183 (still far above pre-launch 1–4/day); pytrends US 7-d Perplexity mean 5.75, no Teammates rising row yet",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/directory/perplexity",
+      "status": "targeted",
+      "rank": 32,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 7,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 9,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 32,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "what is a voice agent",
+      "type": "long-tail",
+      "trend_signal": "Cooling vs Nov 7: not in X US/WW top-50 trends today (yesterday #VoiceAgent was); X voice agent/AI receptionist/voice AI/#VoiceAgent=10,101/7d but Nov 7=971 after Nov 6 spike 2,240; pytrends US 7-d voice agent mean 6.47 (niche batch), longtail 'what is a voice agent' mean 0.24; still no dedicated page",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 33,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 2,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 10,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 33,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "vercel computer use",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 7-d rising under computer use: 'vercel computer use' +450 (ignore foreign-intelligence quiz noise that also ranks); X (computer use|Glasshand)+(agent|agents)=2,708/7d (Nov 7=315, slowly cooling); maps to existing computer-use glossary and desktop-control blog",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/computer-use",
+      "status": "targeted",
+      "rank": 34,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 11,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 34,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "deepseek harness desktop",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 7-d rising under agent harness: 'deepseek harness desktop' +70, 'deepseek harness'/'deepseek agent harness' +100; Nov 7 coverage of DeepSeek Harness 0.2.2-rc.1 (Git worktrees, delegate to Codex/Claude, npx @deepseek-ai/dsh web)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 35,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 12,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 35,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "what is deepseek harness",
+      "type": "long-tail",
+      "trend_signal": "Continues as the open-source harness people search around the Super Agent spike; X DeepSeek harness cluster 8,102/7d; Thoughtworks Radar Nov 2026 'Assess' on DeepSeek Harness (DSH); target existing explainer",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 36,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 4,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 1,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 8,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 13,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 36,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "claude managed agents",
+      "type": "long-tail",
+      "trend_signal": "Nov 7 Daily Agents News: Anthropic Managed Agents architecture (brain/session+harness vs hands/sandbox); official docs platform.claude.com/docs/en/managed-agents; pytrends US 7-d longtail 'Managed Agents' mean 0.67; X \"Managed Agents\"/\"Claude Managed Agents\"=839/7d (Nov 7=100); no dedicated page",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 37,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 14,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 37,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "harness engineering at scale",
+      "type": "long-tail",
+      "trend_signal": "New Nov 7 page on Thoughtworks Radar harness engineering at scale; X harness cluster still ~7k posts/day; pairs with glossary 'what is harness engineering'",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-harness-engineering-at-scale-thoughtworks-radar",
+      "status": "targeted",
+      "rank": 38,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 15,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 38,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "can an ai agent use your computer",
+      "type": "long-tail",
+      "trend_signal": "X computer-use/Glasshand cluster 2,708/7d; Glasshand iPhone/Mac rental story still in X News; Perplexity also shipped fully local Computer on Mac; existing explainer",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-agent-use-your-computer",
+      "status": "targeted",
+      "rank": 39,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 2,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 12,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 18,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 39,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "agent harness a survey",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 7-d rising under agent harness: 'agent harness a survey' +250; evaluation/benchmark intent — existing eval guide plus harness benchmark report",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 40,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 19,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 40,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "ai receptionist",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 7-d niche mean 3.12; X voice/receptionist cluster cooling after Nov 6 spike; still no page",
+      "intent": "commercial",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 41,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 11,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 20,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 41,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "harness engineering",
+      "type": "head",
+      "trend_signal": "X News discipline story still featured; ~7k English posts/day in the broader harness query; glossary plus new at-scale blog",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "status": "targeted",
+      "rank": 42,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 2,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 9,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 13,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 21,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 42,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "opus 5.5 harness engineering",
+      "type": "long-tail",
+      "trend_signal": "Carry-forward pillar around Opus 5.5 + harness engineering (X News/GDPx cite Opus 5.5; Claude Code debate also references Opus 5.5). Glossary remains the target.",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "status": "targeted",
+      "rank": 43,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 7,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 4,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 14,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 22,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 43,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "claude code subagent cost",
+      "type": "long-tail",
+      "trend_signal": "Still adjacent to the fresh Claude vs Codex pricing debate and earlier 99% subagent-cost coverage; existing pricing page",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
+      "status": "targeted",
+      "rank": 44,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 11,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 15,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 23,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 44,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "can chatgpt buy things for me",
+      "type": "long-tail",
+      "trend_signal": "X News Nov 7 'Users Doubt AI Will Automate Travel Booking Joy' (Airbnb 500k daily bookings, specialized travel AI for 2027); keeps shopping-agent intent warm",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "status": "targeted",
+      "rank": 45,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 5,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 16,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 24,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 45,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "deepseek harness",
+      "type": "head",
+      "trend_signal": "pytrends rising under Claude Code (+40) and agent harness (+100); Super Agent / 0.2.2 news; 275k+ GitHub stars cited in Nov 7 coverage",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 46,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 3,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 6,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 17,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 25,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 46,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "agent harness",
+      "type": "head",
+      "trend_signal": "pytrends US 7-d niche mean 4.89; rising queries dominated by DeepSeek variants plus 'agent harness a survey'; X harness cluster 49,861/7d",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 47,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 1,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 8,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 18,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 26,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 47,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "what is an ai agent harness",
+      "type": "long-tail",
+      "trend_signal": "Evergreen explainer matching Super Agent and 0.2.2 updates; keep targeting the existing blog",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 48,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 8,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 10,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 19,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 27,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 48,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "computer use agent",
+      "type": "long-tail",
+      "trend_signal": "Niche 'computer use' interest is high but contaminated by security-quiz queries; agent-intent rising term is 'vercel computer use' +450; Glasshand still in news",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/computer-use",
+      "status": "targeted",
+      "rank": 49,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 13,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 20,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 28,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 49,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "claude code vs codex",
+      "type": "long-tail",
+      "trend_signal": "Same fresh Nov 7 X News debate as the pricing page; comparison intent",
+      "intent": "comparison",
+      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
+      "status": "targeted",
+      "rank": 50,
+      "first_seen": "2026-11-05",
+      "history": [
+        {
+          "date": "2026-11-05",
+          "rank": 27,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-06",
+          "rank": 19,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 22,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 30,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 50,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "ai shopping agent",
+      "type": "long-tail",
+      "trend_signal": "Travel-booking skepticism story Nov 7 keeps consumer agent checkout questions in circulation",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "status": "targeted",
+      "rank": 51,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 17,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 23,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 31,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 51,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "can an ai shopping agent check out for you",
+      "type": "long-tail",
+      "trend_signal": "Existing checkout explainer; reinforce with travel-booking AI doubt coverage",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "status": "targeted",
+      "rank": 52,
+      "first_seen": "2026-11-06",
+      "history": [
+        {
+          "date": "2026-11-06",
+          "rank": 18,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-07",
+          "rank": 24,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 32,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 52,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "always-on ai agents",
+      "type": "long-tail",
+      "trend_signal": "Perplexity Teammates + Coinbase agent-teams + Managed Agents all point at always-on work agents; retarget from 'new page' to the new AI employee explainer",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-employee",
+      "status": "targeted",
+      "rank": 53,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 25,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 33,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 53,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "how do you evaluate an ai agent harness",
+      "type": "long-tail",
+      "trend_signal": "X News Nov 6 'Leaderboard Reveals Harness Beats Model' (28,849 tests / Terminal-Bench 2.1); pairs with eval guide",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
+      "status": "targeted",
+      "rank": 54,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 26,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 34,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 54,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "gemini omni",
+      "type": "long-tail",
+      "trend_signal": "Nov 7 digests: Gemini Omni 1.2 Flash GA, 15-second clips, conversational editing, ~30% cheaper; directory page",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/directory/gemini",
+      "status": "targeted",
+      "rank": 55,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 27,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 35,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 55,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "hugging face ai agents course",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 7-d rising under AI agents: 'hugging face ai agents course' +130; educational intent, no matching page",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 56,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 36,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 56,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "y combinator ai agents",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 7-d rising under AI agents: 'y combinator garry tan ai agents' +38300 (news breakout — treat carefully, may be short-lived); also 'autonomous ai software agents internet' +36500",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/directory/category/ai-agents",
+      "status": "watch",
+      "rank": 57,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 37,
+          "status": "watch"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 57,
+          "status": "watch"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
       "keyword": "claude code",
       "type": "head",
-      "trend_signal": "US 1-d mean 17.86 / US 7-d 17.33 in head2 batch; sustained high interest vs Grok/Codex batch peers",
+      "trend_signal": "pytrends US 7-d head2 mean 10.04; X coding-agent news still Claude Code-heavy (guides, desktop, vs Codex, limits)",
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
       "status": "targeted",
-      "rank": 29,
+      "rank": 58,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -661,18 +1562,28 @@
           "date": "2026-11-07",
           "rank": 29,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 38,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 58,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "chatgpt",
       "type": "head",
-      "trend_signal": "US 1-d mean 35.51 / US 7-d 31.28 in head batch; still largest assistant head term",
+      "trend_signal": "pytrends US 7-d head mean 32.06 (second to AI); X News Nov 7 OpenAI building a ChatGPT visibility/analytics dashboard for businesses",
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory/chatgpt",
       "status": "targeted",
-      "rank": 30,
+      "rank": 59,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -689,18 +1600,28 @@
           "date": "2026-11-07",
           "rank": 30,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 39,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 59,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "claude",
       "type": "head",
-      "trend_signal": "US 1-d mean 10.98 / 7-d 9.64; rising finance/limits related queries",
+      "trend_signal": "pytrends US 7-d head mean 9.78; rising queries are Claude Code limits and Personal Finance",
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory/claude",
       "status": "targeted",
-      "rank": 31,
+      "rank": 60,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -717,18 +1638,28 @@
           "date": "2026-11-07",
           "rank": 31,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 40,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 60,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "gemini",
       "type": "head",
-      "trend_signal": "US 1-d mean 15.68 / 7-d 13.27; rising gemini omni / gemini 4 argon coding test",
+      "trend_signal": "pytrends US 7-d head mean 13.54; Omni 1.2 Flash coverage Nov 7",
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory/gemini",
       "status": "targeted",
-      "rank": 32,
+      "rank": 61,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -745,18 +1676,28 @@
           "date": "2026-11-07",
           "rank": 32,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 41,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 61,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "grok",
       "type": "head",
-      "trend_signal": "US 1-d mean 40.14 / 7-d 44.1 in head2 batch; rising 'spacex grok bot usage limits' +27,400 US 7-d",
+      "trend_signal": "pytrends US 7-d head2 mean 25.74 (highest in that batch); rising queries include 'spacex grok bot usage limits' +27500 (product-limit news, not a site topic) and grok vortex; no dedicated grok directory page",
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory",
       "status": "watch",
-      "rank": 33,
+      "rank": 62,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -773,18 +1714,28 @@
           "date": "2026-11-07",
           "rank": 33,
           "status": "watch"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 42,
+          "status": "watch"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 62,
+          "status": "watch"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "ai agents",
       "type": "head",
-      "trend_signal": "US 1-d mean 0.43 / 7-d 0.39 in head batch (relative); prefer long-tails for targeting",
+      "trend_signal": "pytrends US 7-d head mean 0.40 vs ChatGPT 32.06 in the same batch (relative); rising: YC/Garry Tan +38300, autonomous agents +36500, crypto security risks +11750",
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/category/ai-agents",
       "status": "watch",
-      "rank": 34,
+      "rank": 63,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -801,36 +1752,56 @@
           "date": "2026-11-07",
           "rank": 34,
           "status": "watch"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 43,
+          "status": "watch"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 63,
+          "status": "watch"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "ai agent",
       "type": "head",
-      "trend_signal": "US 7-d head2 mean 14.37; rising claude duet / builder; use for internal links not new thin pages",
+      "trend_signal": "Head variant of ai agents; keep category page",
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/category/ai-agents",
       "status": "watch",
-      "rank": 35,
+      "rank": 64,
       "first_seen": "2026-11-07",
       "history": [
         {
           "date": "2026-11-07",
           "rank": 35,
           "status": "watch"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 44,
+          "status": "watch"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 64,
+          "status": "watch"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "codex",
       "type": "head",
-      "trend_signal": "US 1-d mean 23.81 / 7-d 22.64 head2; noisy related (MTG/keyboard) — prefer 'openai codex' / vs Claude Code",
+      "trend_signal": "pytrends US 7-d head2 mean 13.25 (ahead of Claude Code 10.04); filter non-AI rising noise (micro keyboard, seraphinianus)",
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory/codex",
       "status": "targeted",
-      "rank": 36,
+      "rank": 65,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -847,18 +1818,28 @@
           "date": "2026-11-07",
           "rank": 36,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 45,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 65,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "agent harness vs framework",
       "type": "long-tail",
-      "trend_signal": "Evergreen comparison supporting harness focus; keep interlinked from harness pages",
+      "trend_signal": "Evergreen comparison still served by the harness explainer and Thoughtworks/DSH coverage",
       "intent": "comparison",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 37,
+      "rank": 66,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -875,18 +1856,28 @@
           "date": "2026-11-07",
           "rank": 37,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 46,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 66,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "how to learn harness engineering",
       "type": "long-tail",
-      "trend_signal": "Educational intent alongside discipline news spike",
+      "trend_signal": "Carry-forward learning intent on the glossary; complement with the new at-scale Thoughtworks blog via internal links",
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
       "status": "targeted",
-      "rank": 38,
+      "rank": 67,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -903,123 +1894,130 @@
           "date": "2026-11-07",
           "rank": 38,
           "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "goldman sachs claude code",
-      "type": "long-tail",
-      "trend_signal": "Google Trends WW 7-d rising under Claude Code +2,500; enterprise adoption angle",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
-      "status": "watch",
-      "rank": 39,
-      "first_seen": "2026-11-06",
-      "history": [
-        {
-          "date": "2026-11-06",
-          "rank": 45,
-          "status": "monitor"
         },
         {
-          "date": "2026-11-07",
-          "rank": 39,
-          "status": "watch"
+          "date": "2026-11-08",
+          "rank": 47,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 67,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "retell ai",
+      "date": "2026-11-08",
+      "keyword": "openai harness engineering",
       "type": "long-tail",
-      "trend_signal": "WW 7-d rising related to AI receptionist +140; voice-agent vendor discoverability",
-      "intent": "commercial",
-      "target_url": "new page",
-      "status": "new",
-      "rank": 40,
+      "trend_signal": "Carry-forward related query from prior WW 7-d rising; glossary remains the right target",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
+      "status": "targeted",
+      "rank": 68,
       "first_seen": "2026-11-07",
       "history": [
         {
           "date": "2026-11-07",
-          "rank": 40,
-          "status": "new"
+          "rank": 45,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 48,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 68,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "keyword": "glasshand ai agents",
       "type": "long-tail",
-      "trend_signal": "X News Glasshand rents real iPhones/Macs for computer-use agents; pairs with computer-use pages",
+      "trend_signal": "X News Glasshand (rent real iPhones/Macs for agents) still listed; computer-use blog already covers the category",
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-agent-use-your-computer",
       "status": "targeted",
-      "rank": 41,
+      "rank": 69,
       "first_seen": "2026-11-07",
       "history": [
         {
           "date": "2026-11-07",
           "rank": 41,
           "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "muse ai voice",
-      "type": "long-tail",
-      "trend_signal": "X News Meta Muse real-time voice chats; voice-agent adjacent",
-      "intent": "informational",
-      "target_url": "new page",
-      "status": "new",
-      "rank": 42,
-      "first_seen": "2026-11-07",
-      "history": [
+        },
         {
-          "date": "2026-11-07",
-          "rank": 42,
-          "status": "new"
+          "date": "2026-11-08",
+          "rank": 49,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 69,
+          "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "harness comparison",
-      "type": "long-tail",
-      "trend_signal": "Supports November harness benchmark report traffic",
-      "intent": "comparison",
-      "target_url": "https://www.aiagentsinfo.com/reports/agent-harness-benchmark-november-2026",
+      "date": "2026-11-08",
+      "keyword": "t3 code",
+      "type": "head",
+      "trend_signal": "Head form of today's breakout coding-agent orchestrator (Theo Browne); 5,365 posts/7d and rising; new page needed",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-t3-code",
       "status": "targeted",
-      "rank": 43,
-      "first_seen": "2026-11-05",
+      "rank": 70,
+      "first_seen": "2026-11-08",
       "history": [
         {
-          "date": "2026-11-05",
-          "rank": 11,
-          "status": "targeted"
+          "date": "2026-11-08",
+          "rank": 50,
+          "status": "new"
         },
         {
-          "date": "2026-11-06",
-          "rank": 43,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-07",
-          "rank": 43,
+          "date": "2026-11-09",
+          "rank": 70,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
+      "keyword": "ai employee",
+      "type": "head",
+      "trend_signal": "Head form of today's top long-tail; pytrends longtail-batch mean 18.12; target the new explainer | 2026-11-09: pytrends 'what is an AI employee' 7-d mean 0.69 US (cooling); X News Coinbase CEO agent hierarchy updated 2026-11-08T23:23Z",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-employee",
+      "status": "targeted",
+      "rank": 71,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 51,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 71,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
       "keyword": "self-improving agent harness",
       "type": "long-tail",
-      "trend_signal": "Research/HarnessFlow adjacency; keep glossary/blog interlinks",
+      "trend_signal": "Still matched by HarnessFlow research and DeepSeek super-agent coordination coverage",
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/research/harnessflow-mcts-harness-optimization",
       "status": "targeted",
-      "rank": 44,
+      "rank": 72,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1036,105 +2034,188 @@
           "date": "2026-11-07",
           "rank": 44,
           "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "openai harness engineering",
-      "type": "long-tail",
-      "trend_signal": "WW 7-d rising under harness engineering +50; Factory Droid harness rebuild news context",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
-      "status": "targeted",
-      "rank": 45,
-      "first_seen": "2026-11-07",
-      "history": [
+        },
         {
-          "date": "2026-11-07",
-          "rank": 45,
+          "date": "2026-11-08",
+          "rank": 52,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 72,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "can ai shopping agents buy for you",
+      "date": "2026-11-08",
+      "keyword": "harness comparison",
       "type": "long-tail",
-      "trend_signal": "Alt phrasing of shopping checkout question; same target page",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
+      "trend_signal": "X News Nov 6 harness-vs-model leaderboard (mini-swe-agent 51.4% vs OpenClaw 27.3% on Terminal-Bench 2.1); benchmark report",
+      "intent": "comparison",
+      "target_url": "https://www.aiagentsinfo.com/reports/agent-harness-benchmark-november-2026",
       "status": "targeted",
-      "rank": 46,
+      "rank": 73,
       "first_seen": "2026-11-05",
       "history": [
         {
           "date": "2026-11-05",
-          "rank": 35,
+          "rank": 11,
           "status": "targeted"
         },
         {
           "date": "2026-11-06",
-          "rank": 49,
+          "rank": 43,
           "status": "targeted"
         },
         {
           "date": "2026-11-07",
-          "rank": 46,
+          "rank": 43,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 53,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 73,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
-      "keyword": "claude code ide",
-      "type": "long-tail",
-      "trend_signal": "US 1-d rising under Claude Code +110; desktop/IDE adoption",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
+      "date": "2026-11-08",
+      "keyword": "ai coding agents",
+      "type": "head",
+      "trend_signal": "T3 Code, Claude Code vs Codex, and DeepSeek Harness 0.2.2 all sit in this head; coding-agents category",
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/directory/category/coding-agents",
       "status": "targeted",
-      "rank": 47,
+      "rank": 74,
       "first_seen": "2026-11-07",
       "history": [
         {
           "date": "2026-11-07",
-          "rank": 47,
+          "rank": 49,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 54,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 74,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
+      "keyword": "chatgpt visibility analytics",
+      "type": "long-tail",
+      "trend_signal": "X News Nov 7 'OpenAI Builds Business Analytics Tool for ChatGPT Visibility' (updated 2026-11-07T17:59:58Z); no matching page — watch/new",
+      "intent": "commercial",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 75,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 57,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 75,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "muse ai voice",
+      "type": "long-tail",
+      "trend_signal": "Carry-forward voice adjacent; cluster cooling; still no page",
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 76,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 42,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 58,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 76,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "keyword": "retell ai",
+      "type": "long-tail",
+      "trend_signal": "Carry-forward voice-vendor term; no page",
+      "intent": "commercial",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 77,
+      "first_seen": "2026-11-07",
+      "history": [
+        {
+          "date": "2026-11-07",
+          "rank": 40,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-08",
+          "rank": 59,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 77,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
       "keyword": "deepseek harness github",
       "type": "long-tail",
-      "trend_signal": "US 7-d rising under agent harness +150; builder intent",
+      "trend_signal": "pytrends 'super agent deepseek github' +2150; keep pointing at the harness explainer",
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 48,
+      "rank": 78,
       "first_seen": "2026-11-07",
       "history": [
         {
           "date": "2026-11-07",
           "rank": 48,
           "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-07",
-      "keyword": "ai coding agents",
-      "type": "head",
-      "trend_signal": "Category demand (Claude Code/Codex/Cursor); NextBig Nov 2026 coding-agents market +386% YoY context",
-      "intent": "commercial",
-      "target_url": "https://www.aiagentsinfo.com/directory/category/coding-agents",
-      "status": "targeted",
-      "rank": 49,
-      "first_seen": "2026-11-07",
-      "history": [
+        },
         {
-          "date": "2026-11-07",
-          "rank": 49,
+          "date": "2026-11-08",
+          "rank": 60,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 78,
           "status": "targeted"
         }
       ]

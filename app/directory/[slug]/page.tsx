@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
   const listing = await getDirectoryListing(slug);
   if (!listing) return {};
-  return defaultMetadata(listing.name, listing.summary, `/directory/${listing.slug}`, {
+  const headline = listing.title?.trim() || listing.name;
+  return defaultMetadata(headline, listing.summary, `/directory/${listing.slug}`, {
     index: communityListingIsIndexable(listing),
   });
 }
@@ -83,7 +84,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
       <JsonLd
         data={[
           webPageJsonLd({
-            title: listing.name,
+            title: listing.title?.trim() || listing.name,
             description: listing.summary,
             path: `/directory/${listing.slug}`,
             dateModified: listing.lastVerified,

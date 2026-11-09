@@ -152,9 +152,9 @@ export const harnessComparison: ComparisonPage = {
   path: "/best/ai-agent-harnesses",
   title: "Best AI agent harness",
   heading: "Best AI agent harness in 2026",
-  metaTitle: "Best AI agent harness: we compared 11 (2026)",
+  metaTitle: "Best AI agent harness: 11 compared (Nov 2026)",
   metaDescription:
-    "There is no single best AI agent harness. We compared 11 coding, open-source, and local runtimes on licence, list price, and platform (Nov 2026).",
+    "There is no single best AI agent harness. We compared 11 coding, open-source, and local runtimes on licence, list price, and platform. Checked November 2026.",
   description:
     "There is no single best AI agent harness. A harness is the loop, tools, memory, permissions, and stop rules around a model. Use Claude Code or Codex when you want a shipping coding product; use the Claude Agent SDK or OpenAI Agents SDK when you want that loop inside your own app; use Pydantic AI, Google ADK, Microsoft Agent Framework, smolagents, or DeepSeek Harness when you want an open-source runtime you can run yourself.",
   summary:
@@ -412,7 +412,7 @@ export const harnessComparison: ComparisonPage = {
     {
       question: "What is the best open source AI agent harness?",
       answer:
-        "Several rows are open source: the OpenAI Agents SDK and Microsoft Agent Framework are MIT; Pydantic AI is MIT; Google ADK and smolagents are Apache 2.0; DeepSeek Harness and CrewAI’s framework are MIT. LangChain’s libraries are open source; LangSmith is a separate platform. Licence text is not the same as a hosted product being free.",
+        "There is no single best open source AI agent harness on this page. Several rows are open source: the OpenAI Agents SDK and Microsoft Agent Framework are MIT; Pydantic AI is MIT; Google ADK and smolagents are Apache 2.0; DeepSeek Harness and CrewAI’s framework are MIT. LangChain’s libraries are open source; LangSmith is a separate platform. Licence text is not the same as a hosted product being free.",
     },
     {
       question: "What is the best local AI agent harness?",
