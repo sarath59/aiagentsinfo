@@ -145,6 +145,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
       "The six-company timeline, the checkout guide, and the Amazon Rufus note are the three pages that say who can pay.",
     links: [
       {
+        href: "/blog/ucp-vs-acp-spec-versions-november-2026",
+        anchor: "OpenAI’s checkout example is still API version 2025-09-12",
+        note: "ACP’s GitHub snapshot is 2026-04-17. UCP’s latest release tag is v2026-08-25. Read November 10, 2026.",
+      },
+      {
         href: "/reports/ai-shopping-agents-next-6-months",
         anchor: "AI shopping agents next 6 months: 6 companies",
         note: "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated through May 2027.",
@@ -240,6 +245,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/blog/can-an-ai-agent-use-your-computer",
         anchor: "Can an AI agent use your computer?",
         note: "Yes, when the product includes computer use. Re-checked November 7, 2026.",
+      },
+      {
+        href: "/research/browser-use-vs-stagehand-installs-november-2026",
+        anchor: "Browser Use had 6,423,201 PyPI downloads. Stagehand had 8,582,033 on npm.",
+        note: "October 10 through November 8, 2026. The Python rank and the npm rank disagree.",
       },
       {
         href: "/reports/browser-and-computer-use-agents-next-6-months",

@@ -60,7 +60,7 @@ Publish a product row the agent can quote. That row is a [product feed](/glossar
 
 [OpenAI's feed spec](https://developers.openai.com/commerce/specs/file-upload/products), read November 10, 2026, names those nine fields as the discovery minimum. Search eligibility defaults to on. Checkout defaults to off.
 
-Who can pay today, product by product, is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). The six-company calendar from November 2026 through May 2027 is [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months). The software that calls the feed is an [agent harness](/glossary/harness). The payment step, when a product allows it, is [agentic checkout](/glossary/agentic-checkout).
+Who can pay today, product by product, is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). Which UCP and ACP version string to code against, read the same day, is [OpenAI’s checkout example is still API version 2025-09-12](/blog/ucp-vs-acp-spec-versions-november-2026). The six-company calendar from November 2026 through May 2027 is [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months). The software that calls the feed is an [agent harness](/glossary/harness). The payment step, when a product allows it, is [agentic checkout](/glossary/agentic-checkout).
 
 ## What file does ChatGPT read?
 

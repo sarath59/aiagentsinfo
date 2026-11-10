@@ -173,6 +173,7 @@ export const shoppingComparison: ComparisonPage = {
     hubCard(),
     { href: "/glossary/shopping-agent", title: "Shopping agent", description: "A model plus the tools to search, compare, and sometimes buy.", kicker: "Glossary" },
     { href: "/blog/can-an-ai-shopping-agent-check-out-for-you", title: "Can an AI shopping agent check out for you?", description: "The longer checkout guide this table is built from.", kicker: "Guide", date: "2026-11-04" },
+    { href: "/blog/ucp-vs-acp-spec-versions-november-2026", title: "OpenAI’s checkout example is still API version 2025-09-12", description: "ACP’s GitHub snapshot is 2026-04-17. UCP’s latest release tag is v2026-08-25.", kicker: "Guide", date: "2026-11-10" },
     { href: "/directory/amazon-rufus", title: "Alexa for Shopping", description: "Amazon’s store assistant.", kicker: "Directory" },
     { href: "/best/ai-agents-for-travel-booking", title: "Best AI agent for travel booking", description: "Flights and hotels with a named booking path.", kicker: "Comparison" },
   ],

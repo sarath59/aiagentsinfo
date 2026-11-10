@@ -749,6 +749,13 @@ export const computerUseComparison: ComparisonPage = {
       kicker: "Glossary",
     },
     {
+      href: "/research/browser-use-vs-stagehand-installs-november-2026",
+      title: "Browser Use had 6,423,201 PyPI downloads. Stagehand had 8,582,033 on npm.",
+      description: "October 10 through November 8, 2026. PyPI and npm name different leaders.",
+      kicker: "Research",
+      date: "2026-11-10",
+    },
+    {
       href: "/blog/tencent-releases-hy4-with-computer-use",
       title: "Tencent releases Hy4 with computer use",
       description: "A model with computer use is not, by itself, a complete desktop agent.",
