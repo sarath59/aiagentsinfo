@@ -9,7 +9,6 @@ import {
   findings,
   keyNumbers,
   path,
-  productionCsv,
   readOn,
   readingMinutes,
   reportCharts,
@@ -31,7 +30,6 @@ export default function ProductionAgentsReportPage() {
 <p>${thesis}</p>
 <footer><a href="${pageUrl}">${title}</a>, AI Agents Info, ${updatedLabel}.</footer>
 </blockquote>`;
-  const csv = productionCsv();
 
   return (
     <>
@@ -118,9 +116,6 @@ export default function ProductionAgentsReportPage() {
         ]}
       >
         <ReportChapters chapters={chapters} charts={reportCharts} />
-        <p className="report-chart-source">
-          CSV columns: {csv.headers.join(", ")}. {csv.rows.length} data rows.
-        </p>
       </ReportLayout>
     </>
   );

@@ -8,7 +8,6 @@ import {
   executiveSummary,
   findings,
   keyNumbers,
-  mcpOutlookCsv,
   path,
   readOn,
   readingMinutes,
@@ -31,7 +30,6 @@ export default function McpOutlookPage() {
 <p>${thesis}</p>
 <footer><a href="${pageUrl}">${title}</a>, AI Agents Info, ${updatedLabel}.</footer>
 </blockquote>`;
-  const csv = mcpOutlookCsv();
 
   return (
     <>
@@ -116,9 +114,6 @@ export default function McpOutlookPage() {
         ]}
       >
         <ReportChapters chapters={chapters} charts={reportCharts} />
-        <p className="report-chart-source">
-          CSV columns: {csv.headers.join(", ")}. {csv.rows.length} data rows.
-        </p>
       </ReportLayout>
     </>
   );

@@ -40,12 +40,6 @@ export default function PrivacyPage() {
           does not require an account. A valid submission is published to the directory. Your email is required and is saved with the submission so we can contact you. Directory pages do not show that email. If saving is unavailable, the form offers an email to {site.email} instead. Do not send secrets.
         </p>
         <p className="mt-4">
-          <Link href="/reports" className="text-[var(--link)] underline">
-            Report downloads
-          </Link>{" "}
-          ask for your name, work email, company, and role, plus a few optional details. We save that so we know who requested the file. We email you later reports only if you check the box. The report page itself stays readable without the form. Those details are not committed to the public site repository.
-        </p>
-        <p className="mt-4">
           The{" "}
           <Link href="/agent-prompt-checker" className="text-[var(--link)] underline">
             prompt and tool checker

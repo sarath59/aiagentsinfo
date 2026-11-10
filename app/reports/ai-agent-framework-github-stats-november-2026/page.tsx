@@ -4,7 +4,6 @@ import { ToolCtas } from "@/components/ToolCtas";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { FaqList } from "@/components/FaqList";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SortableTable } from "@/components/SortableTable";
 import { description as benchmarkDescription, path as benchmarkPath, title as benchmarkTitle } from "@/lib/benchmark-report";
 import { categorySummaries } from "@/lib/directory-meta";
@@ -22,6 +21,7 @@ import {
   packageReleaseNote,
   path,
   quietReleaseSentence,
+  readingMinutes,
   recentReleaseSentence,
   recencyColumns,
   recencyRows,
@@ -85,6 +85,7 @@ export default async function FrameworkGithubStatsPage() {
         description={description}
         published={retrievedDay}
         updated={retrievedDay}
+        readingMinutes={readingMinutes}
         byline={site.bylines.research}
         wide
         details={
@@ -313,9 +314,6 @@ export default async function FrameworkGithubStatsPage() {
             ),
           }))}
         />
-        <div className="mt-14">
-          <NewsletterSignup id="report-framework-github" />
-        </div>
       </ReportLayout>
     </>
   );

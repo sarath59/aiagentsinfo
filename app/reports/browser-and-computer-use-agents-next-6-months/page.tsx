@@ -5,7 +5,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { FaqList } from "@/components/FaqList";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SortableTable } from "@/components/SortableTable";
 import { ToolCtas } from "@/components/ToolCtas";
 import { categoryTitle, getBlogPost } from "@/lib/blog";
@@ -517,9 +516,6 @@ export default async function BrowserComputerUseReportPage() {
             An empty announcement means no linked source named that month. It is not a prediction that the month will
             be quiet.
           </p>
-          <p className="mt-3 text-sm text-[var(--muted)]">
-            The month table is included in the CSV from the download form on this page.
-          </p>
           <div className="mt-5 grid gap-4">
             {months.map((item) => (
               <article key={item.month} className="glass rounded-3xl p-6">
@@ -598,9 +594,6 @@ export default async function BrowserComputerUseReportPage() {
             answer: <p>{item.answer}</p>,
           }))}
         />
-        <div className="mt-12">
-          <NewsletterSignup id="report-browser-computer" />
-        </div>
       </ReportLayout>
     </>
   );

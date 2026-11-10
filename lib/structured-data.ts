@@ -182,7 +182,6 @@ export function datasetJsonLd(input: {
   path: string;
   datePublished: string;
   dateModified?: string;
-  distributionPath?: string;
   isBasedOn?: string;
 }) {
   return {
@@ -197,15 +196,6 @@ export function datasetJsonLd(input: {
     creator: datasetOrganization(),
     publisher: datasetOrganization(),
     ...(input.isBasedOn ? { isBasedOn: input.isBasedOn } : {}),
-    ...(input.distributionPath
-      ? {
-          distribution: {
-            "@type": "DataDownload",
-            encodingFormat: "text/csv",
-            contentUrl: absoluteUrl(input.distributionPath),
-          },
-        }
-      : {}),
   };
 }
 
@@ -515,12 +505,8 @@ function assertNode(value: unknown, path: string) {
     if (!license.startsWith("https://")) throw new Error(`${path}.license must be an absolute https URL`);
     assertAuthor(value.creator, `${path}.creator`, true);
     assertAuthor(value.publisher, `${path}.publisher`, true);
-    if (value.distribution) {
-      if (!isRecord(value.distribution)) throw new Error(`${path}.distribution must be an object`);
-      const contentUrl = value.distribution.contentUrl;
-      if (typeof contentUrl !== "string" || !contentUrl.startsWith("https://")) {
-        throw new Error(`${path}.distribution.contentUrl must be an absolute https URL`);
-      }
+    if (value.distribution || value.downloadUrl) {
+      throw new Error(`${path} must not include distribution or downloadUrl`);
     }
   }
 

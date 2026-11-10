@@ -3,7 +3,6 @@ import { ReportLayout } from "@/components/ReportLayout";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { ListYourAgent } from "@/components/ListYourAgent";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { NextRead } from "@/components/NextRead";
 import { FaqList } from "@/components/FaqList";
 import { SortableTable } from "@/components/SortableTable";
@@ -459,9 +458,6 @@ export default async function HarnessBenchmarkPage() {
         />
         <ToolCtas tools={["calculator", "checker", "picker"]} />
         <ListYourAgent />
-        <div className="mt-14">
-          <NewsletterSignup id="report-benchmark" />
-        </div>
       </ReportLayout>
     </>
   );

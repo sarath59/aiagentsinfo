@@ -3,7 +3,6 @@ import { ReportLayout } from "@/components/ReportLayout";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { NextRead } from "@/components/NextRead";
 import { ToolCtas } from "@/components/ToolCtas";
 import { FaqList } from "@/components/FaqList";
@@ -717,9 +716,6 @@ export default async function ShoppingAgentsReportPage() {
             },
           ]}
         />
-        <div className="mt-14">
-          <NewsletterSignup id="report-shopping" />
-        </div>
       </ReportLayout>
     </>
   );

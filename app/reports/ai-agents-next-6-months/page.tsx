@@ -3,7 +3,6 @@ import { ReportLayout } from "@/components/ReportLayout";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { FaqList } from "@/components/FaqList";
 import { categoryTitle, getBlogPost } from "@/lib/blog";
 import { description, months, path, readOn, readingMinutes, title } from "@/lib/agents-outlook";
@@ -516,9 +515,6 @@ export default async function AgentsOutlookPage() {
             ))}
           </div>
           <DataSourceLine title={title} updated={readOn} path={path} />
-          <p className="mt-4 text-sm text-[var(--muted)]">
-            The month table is included in the CSV from the download form on this page.
-          </p>
         </section>
 
         <section className="mt-12">
@@ -699,9 +695,6 @@ export default async function AgentsOutlookPage() {
             },
           ]}
         />
-        <div className="mt-14">
-          <NewsletterSignup id="report-agents-outlook" />
-        </div>
       </ReportLayout>
     </>
   );

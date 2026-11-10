@@ -99,20 +99,21 @@ Research practice. Third annual wave. n = 2,360 executives, 16 markets, nine ind
 | Callouts and pull quotes | Exhibit callouts, deck quotations, finding boxes | A callout, a sourced pull quote, and a "what this means" box at the end of each chapter |
 | Methodology | McKinsey "About the research," Deloitte methodology, Menlo method note, Epoch caveats | A methodology section that states what was counted and what was not |
 | Citations | Footnotes, figure credits, "how to cite" | Numbered sources, inline, linking to the primary page |
-| Print | The PDFs are the product for Index, Deloitte, McKinsey | The PDF is issued after the download form. A normal browser print of the HTML hides the report body and shows where to request the file. |
+| Print | The PDFs are the product for Index, Deloitte, McKinsey | The HTML page is the report. Print CSS drops navigation and prints the chapters, charts, and tables. It does not add a download or a print button. |
 | Type | Serif or display headlines, grotesque body, ~60–75 character measure on the article reports. The Air Street deck is the exception. | Source Serif 4, self-hosted with `next/font`, on report headings only. Body stays Inter. Measure stays `70ch`. |
 | Forecast hygiene | Air Street scores last year's predictions. McKinsey separates expected workforce cuts from reported ones. | Forecasts are labeled, and the 2027 report lists what would falsify them |
 
-## Gated download
+## On-page reading
 
-Every report uses one gated download. `ReportLayout` sets `shell="report"` on the shared article template, and that template renders the "Download this report" form. A new report that uses `ReportLayout` gets the form without a separate embed. The reports index does not offer a direct file.
+Reports on aiagentsinfo.com are read on the site. There is no download, no PDF, no CSV, and no form, on current reports or on ones added later. The weekly newsletter stays on the rest of the site. It is not on `/reports` or on a report page. `ReportLayout` sets `shell="report"` on the shared article template. That template renders the title, the reading time, the key numbers, and a table of contents with section anchors. On a wide screen the contents list stays in view beside the chapters. On a narrow screen it sits above the chapters. A new report that uses `ReportLayout` gets that chrome and does not get a file link or a form.
 
-The HTML report stays on the page, readable and crawlable. PDF and CSV URLs answer only when they carry a short-lived token issued after a valid form submission. There is no open download link. Browser printing of the HTML report hides the body and prints: "Download the full report at <url>".
+The page is the full report. Charts are inline SVG, and each chart has its table and its source line in the HTML. Sources and the citation snippet stay on the page. Dataset JSON-LD describes the page. It does not include `distribution` or `downloadUrl`.
 
-The form asks for name, work email, company, role, company size, industry, country, intended use, and how the reader heard about the site, plus optional phone, LinkedIn, and an unchecked opt-in for later reports. A honeypot and a per-network rate limit sit in front of the save. Lead rows are not written into this git repository. Storage is a private Redis/KV database (`KV_REST_API_URL` + `KV_REST_API_TOKEN`, or `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`) or an HTTPS webhook (`LEADS_WEBHOOK_URL`). `REPORT_DOWNLOAD_SECRET` signs the download link. `ADMIN_TOKEN` protects `GET /api/admin/report-leads`, which returns CSV when the store can list rows. A webhook can receive leads and cannot list them from this site.
+An old `/reports/<slug>/pdf` or `/reports/<slug>/csv` URL, including one with a `table` or `token` query, answers 308 and sends the reader to `/reports/<slug>`. It does not 404, and it does not return a file.
 
 ## What we refused
 
+- A download, a PDF, a CSV, or a lead form. The report is the page.
 - Dark slide decks. The site is light mode only.
 - A second body font. Inter stays the text face.
 - A chart with no table. The SVG is the picture. The table is the number.

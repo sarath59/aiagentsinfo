@@ -8,7 +8,6 @@ export function ContentCard({
   description,
   date,
   readingMinutes,
-  downloadHref,
 }: {
   href: string;
   kicker: string;
@@ -16,7 +15,6 @@ export function ContentCard({
   description: string;
   date?: string;
   readingMinutes?: number;
-  downloadHref?: string;
 }) {
   const meta = [date ? formatDate(date) : "", readingMinutes ? `${readingMinutes} min read` : ""]
     .filter(Boolean)
@@ -33,14 +31,11 @@ export function ContentCard({
         </Link>
       </h2>
       <p className="content-card-dek">{description}</p>
-      <div className="content-card-foot">
-        {meta ? <p className="content-card-meta">{meta}</p> : <span />}
-        {downloadHref ? (
-          <a className="content-card-download" href={downloadHref}>
-            Download PDF
-          </a>
-        ) : null}
-      </div>
+      {meta ? (
+        <div className="content-card-foot">
+          <p className="content-card-meta">{meta}</p>
+        </div>
+      ) : null}
     </article>
   );
 }

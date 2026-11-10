@@ -1,6 +1,4 @@
-import type { PdfModel } from "@/lib/pdf";
-import { chapterPdf, chartsCsv, plain, type ChartSpec, type ReportChapter } from "@/lib/report-model";
-import { absoluteUrl } from "@/lib/site";
+import type { ChartSpec, ReportChapter } from "@/lib/report-model";
 
 const num = new Intl.NumberFormat("en-US");
 
@@ -846,28 +844,3 @@ const chapters: ReportChapter[] = [
 ];
 
 export { chapters };
-
-export function mcpOutlookPdf(): PdfModel {
-  return {
-    filename: "mcp-nov-2026-may-2027.pdf",
-    title,
-    description: thesis,
-    dateLabel: "November 10, 2026",
-    url: absoluteUrl(path),
-    sections: [
-      { heading: "Executive summary", paragraphs: executiveSummary.map((paragraph) => plain(paragraph)) },
-      ...chapterPdf(chapters, charts),
-      {
-        heading: "Sources",
-        paragraphs: sources.map((source) => `[${source.n}] ${source.title}. ${source.detail} ${source.url}`),
-      },
-    ],
-  };
-}
-
-export function mcpOutlookCsv() {
-  return {
-    filename: "mcp-nov-2026-may-2027.csv",
-    ...chartsCsv(charts),
-  };
-}

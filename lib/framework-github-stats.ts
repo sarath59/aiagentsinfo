@@ -3,7 +3,7 @@ import { join } from "node:path";
 import snapshot from "@/data/framework-github-stats/2026-11.json";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
 import { licenceIsOpenSource } from "@/lib/table-facets";
-import { formatDate } from "@/lib/utils";
+import { formatDate, readingTime } from "@/lib/utils";
 
 /** Windows named in the November 2026 report. Day counts use UTC calendar dates. */
 const RECENT_RELEASE_DAYS = 30;
@@ -66,8 +66,6 @@ export const retrievedLabel = longDate(retrievedAt);
 export const citationDate = shortDate(retrievedAt);
 /** Citation URL requested for this report. The site canonical host redirects this apex host. */
 export const citationUrl = `https://aiagentsinfo.com${path}`;
-export const csvPath = `${path}/csv?table=frameworks`;
-export const pdfPath = `${path}/pdf`;
 
 export const description = `AI agent framework release November 2026: a sortable table of the latest GitHub releases for ${integer(repos.length)} open-source frameworks and SDKs, pulled ${retrievedLabel}. ${integer(recentRepos().length)} of ${integer(repos.length)} were within ${integer(RECENT_RELEASE_DAYS)} days. Stars, forks, licences, and release dates are on this page.`;
 
@@ -145,6 +143,24 @@ export function takeaways() {
     `${integer(recent.length)} ${plural(recent.length, "repository has", "repositories have")} a latest GitHub release within ${integer(RECENT_RELEASE_DAYS)} days of that pull. ${integer(quiet.length)} ${plural(quiet.length, "repository has", "repositories have")} a latest release ${integer(QUIET_RELEASE_DAYS)} or more days earlier.`,
   ];
 }
+
+/** Words on the page, including both tables, at the site's 220 words-per-minute rate. */
+export const readingMinutes = readingTime(
+  [
+    description,
+    leadParagraph(),
+    ...takeaways(),
+    ...keyFigures().flatMap((figure) => [figure.label, figure.value, figure.note]),
+    tableCaption(),
+    ...frameworkRows().flatMap((row) => Object.values(row.display)),
+    licenceSentence(),
+    recentReleaseSentence(),
+    quietReleaseSentence(),
+    ...recencyRows().flatMap((row) => Object.values(row.display)),
+    ...methodologyFacts(),
+    ...frameworkFaq().flatMap((item) => [item.question, item.lead, item.detail]),
+  ].join("\n"),
+);
 
 export type KeyFigure = {
   id: string;
@@ -246,14 +262,6 @@ export function frameworkRows(): SortableRow[] {
       openSource: licenceIsOpenSource(repo.licenceLabel),
     },
   }));
-}
-
-export function frameworkCsv() {
-  return {
-    filename: "ai-agent-framework-github-stats-november-2026.csv",
-    headers: frameworkColumns.map((column) => column.label),
-    rows: frameworkRows().map((row) => frameworkColumns.map((column) => row.display[column.key] || "")),
-  };
 }
 
 export function licenceBreakdown() {

@@ -66,7 +66,6 @@ const dataset = datasetJsonLd({
   description: "Stars and forks copied from the public GitHub API.",
   path: "/reports/ai-agent-framework-github-stats-november-2026",
   datePublished: "2026-11-05",
-  distributionPath: "/reports/ai-agent-framework-github-stats-november-2026/csv",
   isBasedOn: "https://docs.github.com/en/rest",
 });
 if (dataset.license !== datasetLicenseUrl) {
@@ -143,6 +142,14 @@ rejects("SoftwareApplication with invented rating", {
   name: "Example",
   url: "https://www.aiagentsinfo.com/directory/example",
   aggregateRating: { "@type": "AggregateRating", ratingValue: 5, ratingCount: 1 },
+});
+rejects("Dataset with a download", {
+  ...dataset,
+  distribution: {
+    "@type": "DataDownload",
+    encodingFormat: "text/csv",
+    contentUrl: "https://www.aiagentsinfo.com/reports/ai-agent-framework-github-stats-november-2026/csv",
+  },
 });
 rejects("Dataset without license", {
   "@context": "https://schema.org",

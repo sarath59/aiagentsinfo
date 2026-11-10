@@ -28,7 +28,6 @@ export function SortableTable({
   defaultSort,
   defaultDirection = "desc",
   caption,
-  downloadHref,
   filters = [],
   starsReadOn,
   source,
@@ -38,7 +37,6 @@ export function SortableTable({
   defaultSort: string;
   defaultDirection?: "asc" | "desc";
   caption: string;
-  downloadHref?: string;
   filters?: TableFilterKey[];
   /** ISO day for a star count that comes from the GitHub snapshot, when it is not the page's own date. */
   starsReadOn?: string;
@@ -152,13 +150,6 @@ export function SortableTable({
         <p className="mb-3 max-w-3xl text-sm text-[var(--muted)]">
           Star counts are the GitHub snapshot from <time dateTime={starsReadOn}>{formatDate(starsReadOn)}</time>. A row
           without a count drops out when a minimum is set. A blank licence stays in All only.
-        </p>
-      ) : null}
-      {downloadHref ? (
-        <p className="table-actions no-print">
-          <a className="btn-ghost px-3 py-1.5 text-sm" href={downloadHref}>
-            Download CSV
-          </a>
         </p>
       ) : null}
       {ordered.length === 0 ? <p className="mb-3 text-sm text-[var(--muted)]">No rows match these filters.</p> : null}

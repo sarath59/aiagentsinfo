@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { BylineLink } from "@/components/BylineLink";
 import { CompanyMarks, InlineCompanyText } from "@/components/CompanyMarks";
 import { ContentCard } from "@/components/ContentCard";
-import { ReportDownloadGate, ReportPrintNotice } from "@/components/ReportDownloadGate";
 import { TableOfContents } from "@/components/TableOfContents";
 import type { TocItem } from "@/lib/markdown";
 import { formatDate } from "@/lib/utils";
@@ -89,18 +88,11 @@ export function ArticleTemplate({
   if (report && executiveSummary) preface.push({ id: "executive-summary", text: "Executive summary" });
   if (report && takeaways?.length) preface.push({ id: findingsId, text: "Key findings" });
   const tail: { id: string; text: string }[] = [];
+  if (report && methodology) tail.push({ id: "methodology", text: "Methodology" });
   if (report && sources) tail.push({ id: sourcesId, text: sourcesTitle });
-
-  const downloadJump = report ? (
-    <a className="btn-primary px-4 py-2 text-sm" href="#download-report">
-      Download this report
-    </a>
-  ) : null;
 
   return (
     <article className={report ? "article-shell report-shell" : "article-shell"}>
-      {report ? <ReportPrintNotice /> : null}
-      <div className={report ? "report-print-body" : undefined}>
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 sm:pt-10">
         <header className="article-hero">
           <div className="article-hero-panel">
@@ -132,12 +124,7 @@ export function ArticleTemplate({
                 <CompanyMarks slugs={companies} />
               </div>
             ) : null}
-            {downloadJump || actions ? (
-              <div className="article-actions no-print">
-                {downloadJump}
-                {actions}
-              </div>
-            ) : null}
+            {actions ? <div className="article-actions no-print">{actions}</div> : null}
           </div>
         </header>
 
@@ -235,8 +222,6 @@ export function ArticleTemplate({
           ) : null}
         </div>
 
-        {report ? <ReportDownloadGate /> : null}
-
         {related?.length ? (
           <section className="article-related" aria-labelledby="related-heading">
             <h2 id="related-heading" className="display text-3xl">
@@ -257,7 +242,6 @@ export function ArticleTemplate({
             </div>
           </section>
         ) : null}
-      </div>
       </div>
     </article>
   );

@@ -7,7 +7,6 @@ import {
   description,
   executiveSummary,
   findings,
-  forecastCsv,
   keyNumbers,
   path,
   readOn,
@@ -107,7 +106,6 @@ export default function Agents2027ReportPage() {
         ]}
       >
         <ReportChapters chapters={chapters} charts={reportCharts} />
-        <p className="report-chart-source">CSV of the charts: {forecastCsv().rows.length} rows.</p>
       </ReportLayout>
     </>
   );

@@ -4,9 +4,17 @@ import { ContentCard } from "@/components/ContentCard";
 import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { PageHeader } from "@/components/PageHeader";
 import { ToolHub } from "@/components/ToolHub";
-import { WeeklySignup } from "@/components/WeeklySignup";
 import { getDirectoryStats } from "@/lib/directory-stats";
-import { path as frameworkGithubPath, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
+import { readingMinutes as yearMinutes } from "@/lib/agents-12-month-outlook";
+import { readingMinutes as forecastMinutes } from "@/lib/agents-2027";
+import { readingMinutes as productionMinutes } from "@/lib/agents-in-production-2026";
+import { readingMinutes as outlookMinutes } from "@/lib/agents-outlook";
+import { readingMinutes as benchmarkMinutes } from "@/lib/benchmark-report";
+import { readingMinutes as browserMinutes } from "@/lib/browser-computer-report";
+import { readingMinutes as codingMinutes } from "@/lib/coding-agents-30-day";
+import { path as frameworkGithubPath, readingMinutes as frameworkMinutes, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
+import { readingMinutes as mcpMinutes } from "@/lib/mcp-outlook";
+import { readingMinutes as shoppingMinutes } from "@/lib/shopping-report";
 import { PRICE_READ_ON } from "@/lib/model-prices";
 import { defaultMetadata } from "@/lib/seo";
 import { dataAssets } from "@/lib/site";
@@ -37,6 +45,18 @@ export default async function ReportsPage() {
     "/agent-prompt-checker": "2026-11-06",
     "/tools/agents-md-generator": "2026-11-10",
   };
+  const minutesByHref: Record<string, number> = {
+    "/reports/ai-agents-in-production-2026": productionMinutes,
+    "/reports/ai-agents-in-2027": forecastMinutes,
+    "/reports/mcp-next-6-months": mcpMinutes,
+    "/reports/browser-and-computer-use-agents-next-6-months": browserMinutes,
+    "/reports/ai-coding-agents-next-30-days": codingMinutes,
+    "/reports/ai-agents-next-12-months": yearMinutes,
+    "/reports/ai-agents-next-6-months": outlookMinutes,
+    "/reports/ai-shopping-agents-next-6-months": shoppingMinutes,
+    "/reports/agent-harness-benchmark-november-2026": benchmarkMinutes,
+    [frameworkGithubPath]: frameworkMinutes,
+  };
   const kickerByHref: Record<string, string> = {
     "/reports/ai-agents-in-production-2026": "Report",
     "/reports/ai-agents-in-2027": "Report",
@@ -66,7 +86,6 @@ export default async function ReportsPage() {
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <ContentDeskNav current="/reports" />
         <ToolHub />
-        <WeeklySignup />
         <div className="content-grid">
           {dataAssets.map((item) => (
             <ContentCard
@@ -76,6 +95,7 @@ export default async function ReportsPage() {
               title={item.title}
               description={item.summary}
               date={dateByHref[item.href]}
+              readingMinutes={minutesByHref[item.href]}
             />
           ))}
         </div>
