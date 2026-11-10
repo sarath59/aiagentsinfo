@@ -1,13 +1,14 @@
 ---
-title: "How Do AI Agents Work? The Control Loop From Goal to Action (2026)"
-description: "How do AI agents work? A language model proposes a step. A harness runs an allowed tool, returns the result, and the loop continues until the goal is met, a limit hits, or a person must approve."
+title: "How Do AI Agents Work? Agentic vs Generative"
+absoluteTitle: true
+description: "What is agentic AI vs generative AI? Agentic AI plans steps and uses tools. A generative reply stops at the text. Plain words on AI agents for beginners."
 takeaways:
   - "An AI agent is a language model plus a harness. The model proposes a step. The harness runs an allowed tool, returns the result, and the loop continues until the goal is met, a limit hits, or a person must approve."
   - "A chatbot replies. A RAG app answers from text the application retrieved. A fixed workflow follows rules written in advance. An agent lets the model choose the next step. A multi-agent system splits that work across roles."
   - "On November 8, 2026, the Claude Agent SDK and OpenAI’s Agents SDK both describe that loop, and the Model Context Protocol specification’s current version is still 2026-07-28. Agent2Agent (A2A) 1.0.0 is the separate protocol for one agent talking to another."
   - "Deloitte’s November 18, 2025 essay predicts a shift toward human-on-the-loop supervision during 2026. That is a forecast. A person who must approve a step before it counts is still human in the loop."
 date: "2026-11-08"
-updated: "2026-11-08"
+updated: "2026-11-10"
 category: guide
 topics:
   - how-agents-work
@@ -65,6 +66,8 @@ sources:
 faq:
   - question: "How do AI agents work?"
     answer: "An AI agent is a language model plus a harness. The model proposes a step. The harness runs an allowed tool, returns the result, and the loop continues until the goal is met, a limit hits, or a person must approve. Anthropic’s November 2, 2026 prospectus calls that cycle the agent loop."
+  - question: "What is agentic AI vs generative AI?"
+    answer: "Anthropic’s November 2, 2026 prospectus calls agentic AI a system that can plan and carry out steps, including with tools, on a user’s behalf, and calls the agent loop its core pattern. On this page, generative AI means a model that writes a reply and stops, as a chatbot or the generator in a RAG app does. An agent adds the loop: the model chooses the next step and a harness runs it."
   - question: "What is an agent loop?"
     answer: "An agent loop is the cycle of proposing an action, running an allowed tool, observing the result, and choosing the next step until a stop condition. Anthropic’s prospectus, read November 8, 2026, defines it as receiving a task, taking an action, observing the result, and deciding the next step until the task is complete."
   - question: "What is the difference between a chatbot, a RAG app, a workflow, and an AI agent?"
@@ -92,6 +95,14 @@ That cycle is the control loop from goal to action. [Anthropic’s Form S-1/A](h
 AI Agents Info uses those words the same way on the glossary and on this guide. The short definition stays at [What are AI agents and how do they work?](/glossary/agent). This page is the long explainer. A model that only replies, a retrieval step that fills the prompt, and a script that follows rules written in advance are the neighboring systems. Each one is spelled out below.
 
 The workshop around the model is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Testing one observable action in that workshop is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). Standing up the tasks and graders is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents). The 2022 prompting pattern that interleaved a written thought with an action is [ReAct](/research/react-reasoning-and-acting). The dated public record for the coming year is [AI agents, the next 12 months](/reports/ai-agents-next-12-months). Read those for the workshop, the tests, the paper, and the forecast.
+
+## What is agentic AI vs generative AI?
+
+Agentic AI carries out steps. On this page, a generative reply is text a model writes and then stops.
+
+Anthropic’s prospectus, quoted in the previous section, calls agentic AI a system that can plan and carry out steps, including with tools, services, datasets, and environments, on a user’s behalf. The same defined terms call the agent loop the core execution pattern of agentic AI. On this page, generative AI is that reply. A chatbot returns text. Lewis et al. describe a generator that writes an answer from retrieved passages. That is one generation. An agent lets the model choose the next step, and a [harness](/glossary/harness) runs the tool the rules allow.
+
+AI agents for beginners are the agent side of that split. The model proposes a step. The harness runs an allowed tool and returns the result. The loop continues until the goal is met, a limit hits, or a person must approve. The short definition is [What are AI agents and how do they work?](/glossary/agent).
 
 ## What is an agent loop?
 
@@ -288,6 +299,10 @@ No source read for this guide names a month in which agents will work without a 
 ### How do AI agents work?
 
 A language model proposes a step. A [harness](/glossary/harness) runs an allowed tool, returns the result, and the [agent loop](/glossary/agent-loop) continues until the goal is met, a limit hits, or a person must approve. [Anthropic’s November 2, 2026 prospectus](https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm) calls that cycle the agent loop. The short definition is [What are AI agents and how do they work?](/glossary/agent).
+
+### What is agentic AI vs generative AI?
+
+Anthropic’s November 2, 2026 prospectus calls agentic AI a system that can plan and carry out steps, including with tools, on a user’s behalf, and calls the agent loop its core pattern. On this page, generative AI means a model that writes a reply and stops, as a chatbot or the generator in a RAG app does. An agent adds the loop: the model chooses the next step and a [harness](/glossary/harness) runs it.
 
 ### What is an agent loop?
 

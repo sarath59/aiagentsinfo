@@ -1,12 +1,13 @@
 ---
-title: "What Does Ultracode Do in Claude Code? It Plans a Workflow at Any Effort (2026)"
-description: "Ultracode plans a dynamic workflow for each substantive Claude Code task, at the effort level the session already uses. Claude Code v2.1.284, dated September 28, 2026, is the release that stopped forcing that session to xhigh."
+title: "What Is Ultracode in Claude Code?"
+absoluteTitle: true
+description: "Ultracode is a Claude Code setting. It plans a dynamic workflow for each substantive task at any effort level, and it is not a model or a separate plan."
 takeaways:
   - "On the workflows page read November 9, 2026, ultracode is a Claude Code setting. With it on, Claude plans a dynamic workflow for each substantive task instead of waiting to be asked."
   - "The changelog for v2.1.284, dated September 28, 2026, says the /effort toggle no longer forces xhigh. claude --effort ultracode still turns ultracode on and sets the level to xhigh."
   - "The same workflows page says each request uses more tokens and takes longer, and those tokens draw on the plan's usage limits. It does not print a separate ultracode price."
 date: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-10"
 category: guide
 topics:
   - harnesses
@@ -51,7 +52,7 @@ faq:
     answer: "The workflows page says /effort ultracode off. That form requires Claude Code v2.1.284 or later. Before that version, the same page says /effort ultracode off failed with Invalid argument. Turning dynamic workflows off, in /config or with \"disableWorkflows\": true, also removes the Ultracode toggle."
 ---
 
-What does ultracode do in Claude Code? It plans a dynamic workflow for each substantive task, at the effort level the session is already using. On the [workflows page](https://code.claude.com/docs/en/workflows) read November 9, 2026, `/effort ultracode` is the command that turns that setting on for the current session, and the [changelog](https://code.claude.com/docs/en/changelog) dates the split from a forced `xhigh` effort at Claude Code v2.1.284, September 28, 2026.
+Ultracode is a Claude Code setting. It plans a dynamic workflow for each substantive task, at the effort level the session is already using. On the [workflows page](https://code.claude.com/docs/en/workflows) read November 9, 2026, `/effort ultracode` is the command that turns that setting on for the current session, and the [changelog](https://code.claude.com/docs/en/changelog) dates the split from a forced `xhigh` effort at Claude Code v2.1.284, September 28, 2026.
 
 The pages read for this note are that workflows guide, the [model-config page](https://code.claude.com/docs/en/model-config), the [settings reference](https://code.claude.com/docs/en/settings-reference), and the changelog entries for v2.1.284 and v2.1.160. A [Hacker News thread](https://news.ycombinator.com/item?id=48314397) asks the short form, “What is ultracode mode?” A [Reddit thread](https://www.reddit.com/r/ClaudeCode/comments/1u5d69n/any_reason_not_to_use_ultracode/) asks whether there is a reason to leave it off. The answers below are the docs, not the comment threads.
 
@@ -147,7 +148,7 @@ Run `/effort ultracode off`. On v2.1.284 and later, that turns the setting off f
 
 To stop workflows entirely, use the Dynamic workflows toggle or `"disableWorkflows": true`, as the previous section quotes. That also removes the Ultracode toggle.
 
-The approval prompt on a workflow is a different switch. In the CLI, the per-run prompt can offer “Yes, and don’t ask again” for a bundled, saved, or plugin workflow run by name, and the workflows page says that option is not offered for a script Claude wrote for the current task. With ultracode on, auto mode skips the first-launch prompt. That prompt option is not the saved Bash rule covered in the permissions docs. The harness around either choice is the longer guide, [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness).
+The approval prompt on a workflow is a different switch. In the CLI, the per-run prompt can offer “Yes, and don’t ask again” for a bundled, saved, or plugin workflow run by name, and the workflows page says that option is not offered for a script Claude wrote for the current task. With ultracode on, auto mode skips the first-launch prompt. That prompt option is not the saved Bash rule covered in the permissions docs. The public GitHub copies of that saved Bash rule are counted in [Did Claude Code leak secrets to GitHub?](/blog/claude-code-dont-ask-again). The harness around either choice is the longer guide, [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness).
 
 ## FAQ
 

@@ -1,12 +1,13 @@
 ---
-title: "Claude Code Don't Ask Again: 1,122 Public Files Held a Secret (Nov 2026)"
-description: "1,122 public copies of .claude/settings.local.json held at least one secret, 1,379 in all, in the census The Hacker News and iTnews attribute to Apiiro. Claude Code writes that file when you pick Yes, and don't ask again."
+title: "Did Claude Code Leak Secrets to GitHub?"
+absoluteTitle: true
+description: "Claude Code GitHub secret leaks: The Hacker News and iTnews, citing Apiiro, report 1,122 public copies holding 1,379 secrets. This page did not recount GitHub."
 takeaways:
   - "Claude Code's permissions page says Yes, and don't ask again saves a Bash command permanently, per repository, in .claude/settings.local.json. A file-edit approval is not saved there. It lasts until the session ends."
   - "The Hacker News on November 7, 2026, and iTnews on November 9, citing Apiiro, report 104,185 public copies of that file. 1,122 of them hold at least one secret, 1,379 distinct secrets in all. Apiiro did not test whether the secrets still work."
   - "The settings page says the first write adds the filename to a global git excludes file on that computer. It does not add the filename to the project's own .gitignore, and a global exclude does not untrack a file that is already committed."
 date: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-10"
 category: explainer
 topics:
   - news
@@ -42,6 +43,8 @@ sources:
   - title: "Claude Code in the AI Agents Info directory"
     url: "https://www.aiagentsinfo.com/directory/claude-code"
 faq:
+  - question: "Did Claude Code leak secrets to GitHub?"
+    answer: "The Hacker News on November 7, 2026, and iTnews on November 9, both citing Apiiro, report 1,122 public copies of .claude/settings.local.json that hold at least one secret, 1,379 distinct secrets in all. Claude Code writes that file when you pick Yes, and don't ask again for a Bash command, and the saved rule can be the full command. AI Agents Info did not recount GitHub, and both articles say Apiiro did not test whether the secrets still work."
   - question: "What does don't ask again do in Claude Code?"
     answer: "On the permissions page read November 9, 2026, Yes, and don't ask again saves an allow rule for a Bash command permanently, for that repository and that command. The same choice for a WebFetch domain is permanent per repository and domain. A file-edit approval is different. It lasts until the session ends and is not written to .claude/settings.local.json."
   - question: "How many Claude Code settings files held a secret?"
@@ -56,9 +59,13 @@ faq:
     answer: "The researchers' order, as The Hacker News prints it, is to rotate every password, token, and key the file has ever held before you delete the file. Deleting the current copy leaves older copies in git history and in forks. Then stop tracking the file and add it to the repository's own .gitignore. Open the copy on your own computer, even if it was never committed, and delete any rule that contains a secret."
 ---
 
-On November 9, 2026, the phrase people were searching was Claude Code don't ask again. The product answer is on Claude Code's own permissions page. The count attached to it is someone else's. [The Hacker News](https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html), on November 7, and [iTnews](https://www.itnews.com.au/news/dont-ask-again-in-anthropics-claude-code-leaks-developer-secrets-630203), on November 9, both cite an Apiiro census: 1,122 public copies of `.claude/settings.local.json` hold at least one secret, 1,379 distinct secrets in all. AI Agents Info read those two articles, the permissions page, and the settings page on November 9. A direct request to [Apiiro's write-up](https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again) that day returned a Cloudflare challenge, so the census below is the census those articles attribute to Apiiro. This page did not recount GitHub, and it did not test a key.
+Claude Code GitHub secret leaks, as [The Hacker News](https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html) on November 7 and [iTnews](https://www.itnews.com.au/news/dont-ask-again-in-anthropics-claude-code-leaks-developer-secrets-630203) on November 9 report them, are 1,379 secrets inside 1,122 public copies of `.claude/settings.local.json`. Both articles cite an Apiiro census. The product answer is on Claude Code's own permissions page: the file is what Claude Code writes when you pick Yes, and don't ask again. AI Agents Info read those two articles, the permissions page, and the settings page on November 9. A direct request to [Apiiro's write-up](https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again) that day returned a Cloudflare challenge, so the census below is the census those articles attribute to Apiiro. This page did not recount GitHub, and it did not test a key.
 
 The file sits inside the [harness](/glossary/harness): the loop, tools, and permission stops around the model. The stop, on this site, is an [approval gate](/glossary/approval-gate). Claude Code is the coding agent in the [directory](/directory/claude-code). A separate November 9 note reads a public cost comparison of that harness against others: [Garry Tan harness evals](/research/garry-tan-harness-evals-november-2026).
+
+## Did Claude Code leak secrets to GitHub?
+
+The public copies in that census are on GitHub. The Hacker News and iTnews, citing Apiiro, report that 1,122 of 104,185 public copies of `.claude/settings.local.json` hold at least one secret, and that those copies hold 1,379 distinct secrets. Claude Code writes the file when you pick Yes, and don't ask again for a Bash command, and the saved rule can be the command itself. Both articles say Apiiro did not test whether the credentials still work. AI Agents Info did not recount GitHub. The permission rule, the wider counts, and the cleanup order are the sections below.
 
 ## What does “don’t ask again” do in Claude Code?
 
@@ -177,6 +184,10 @@ The practical split, from the permissions table, is smaller than the headline. A
 How a harness is scored once the permissions are in place is a different question. The method is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). The product definition is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Those pages, and a November 5 cost comparison of harnesses, are on the [agent harnesses hub](/topics/harnesses). The cost note is [Garry Tan harness evals](/research/garry-tan-harness-evals-november-2026).
 
 ## FAQ
+
+### Did Claude Code leak secrets to GitHub?
+
+The Hacker News on November 7, 2026, and iTnews on November 9, both citing Apiiro, report 1,122 public copies of `.claude/settings.local.json` that hold at least one secret, 1,379 distinct secrets in all. Claude Code writes that file when you pick Yes, and don't ask again for a Bash command, and the saved rule can be the full command. AI Agents Info did not recount GitHub, and both articles say Apiiro did not test whether the secrets still work.
 
 ### What does don’t ask again do in Claude Code?
 
