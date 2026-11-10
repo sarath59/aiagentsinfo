@@ -30,6 +30,12 @@ import {
   readOn as codingReadOn,
   title as codingTitle,
 } from "@/lib/coding-agents-30-day";
+import { description as forecastDescription, path as forecastPath, title as forecastTitle } from "@/lib/agents-2027";
+import {
+  description as productionDescription,
+  path as productionPath,
+  title as productionTitle,
+} from "@/lib/agents-in-production-2026";
 import { description as benchmarkDescription, path as benchmarkPath, title as benchmarkTitle } from "@/lib/benchmark-report";
 import {
   description as checklistDescription,
@@ -126,6 +132,16 @@ function dataPageSummaries() {
         ? `${starTop.name} (${starTop.repo}) had ${integer(starTop.stars)} stars in that snapshot. The live page reads stargazers_count from the GitHub repository API.`
         : "The snapshot had no rows.",
     ),
+    articleBlock(productionTitle, [
+      `URL: ${absoluteUrl(productionPath)}`,
+      "Published: 2026-11-10",
+      productionDescription,
+    ], "Cross-section of agents in production: McKinsey's large-company scaling split, Menlo's deployment estimates, SWE-bench and Terminal-Bench with the harness named, OSWorld 2.0, and registry downloads. Forecasts are on the 2027 page."),
+    articleBlock(forecastTitle, [
+      `URL: ${absoluteUrl(forecastPath)}`,
+      "Published: 2026-11-10",
+      forecastDescription,
+    ], "Labeled forecast. Coding agents remain the default production deployment, computer use stays on runbooks, and task cost does not fall at Epoch's question-price rate. Falsifiers are on the page."),
     articleBlock(benchmarkTitle, [
       `URL: ${absoluteUrl(benchmarkPath)}`,
       `Read: ${BENCHMARK_READ_ON}`,
@@ -202,6 +218,8 @@ export async function buildLlmsTxt() {
     ]),
     section("Reports", [
       item("Reports", "/reports", "Dated pages with a source and a citation."),
+      item(productionTitle, productionPath, productionDescription),
+      item(forecastTitle, forecastPath, forecastDescription),
       item(browserTitle, browserPath, browserDescription),
       item(codingTitle, codingPath, codingDescription),
       item(yearTitle, yearPath, yearDescription),

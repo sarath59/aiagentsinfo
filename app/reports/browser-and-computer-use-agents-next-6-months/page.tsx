@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ReportLayout } from "@/components/ReportLayout";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
@@ -159,9 +159,10 @@ export default async function BrowserComputerUseReportPage() {
           { name: title, path },
         ]}
       />
-      <ArticleTemplate
+      <ReportLayout
         category="Report"
         title={title}
+        thesis="Ten live browser and computer-use agents. One vendor has named a day through May 9, 2027."
         description={description}
         published={readOn}
         updated={readOn}
@@ -614,7 +615,7 @@ export default async function BrowserComputerUseReportPage() {
         <div className="mt-12">
           <NewsletterSignup id="report-browser-computer" />
         </div>
-      </ArticleTemplate>
+      </ReportLayout>
     </>
   );
 }

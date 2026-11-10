@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ReportLayout } from "@/components/ReportLayout";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
@@ -140,9 +140,10 @@ export default async function AgentsOutlookPage() {
           { name: title, path },
         ]}
       />
-      <ArticleTemplate
+      <ReportLayout
         category="Report"
         title={title}
+        thesis="Through May 2027, the dated public record is filings, a few product posts, and two EU dates."
         description={description}
         published={readOn}
         readingMinutes={readingMinutes}
@@ -713,7 +714,7 @@ export default async function AgentsOutlookPage() {
         <div className="mt-14">
           <NewsletterSignup id="report-agents-outlook" />
         </div>
-      </ArticleTemplate>
+      </ReportLayout>
     </>
   );
 }

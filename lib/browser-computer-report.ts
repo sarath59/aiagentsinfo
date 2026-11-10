@@ -326,7 +326,7 @@ export const osworldColumns: SortableColumn[] = [
   { key: "tokens", label: "Output tokens" },
 ];
 
-const osworld = [
+export const osworldScores = [
   {
     id: "opus-48",
     model: "Claude Opus 4.8",
@@ -354,7 +354,7 @@ const osworld = [
 ];
 
 export function osworldRows(): SortableRow[] {
-  return osworld.map((item) => ({
+  return osworldScores.map((item) => ({
     id: item.id,
     sort: {
       model: item.model,

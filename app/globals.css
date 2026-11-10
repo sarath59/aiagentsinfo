@@ -1334,8 +1334,322 @@ article.grid > * {
 
 .listing-section,
 .prose-article h2,
-.prose-article h3 {
+.prose-article h3,
+.report-shell h2,
+.report-shell h3 {
   scroll-margin-top: 8.5rem;
+}
+
+.report-shell h1,
+.report-shell .article-column h2,
+.report-shell .report-numbers-value,
+.report-shell .report-quote p {
+  font-family: var(--font-report-display), Georgia, "Times New Roman", serif;
+  font-weight: 600;
+}
+
+.report-shell .article-column {
+  counter-reset: report-chapter;
+}
+
+.report-shell .article-column h2:not(.kicker):not(.report-unnumbered) {
+  counter-increment: report-chapter;
+  font-size: 1.85rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.report-shell .article-column h2:not(.kicker):not(.report-unnumbered)::before {
+  content: counter(report-chapter, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #0f5f78;
+}
+
+.report-thesis {
+  margin-top: 1rem;
+  max-width: 36em;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--fg);
+}
+
+.report-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.report-numbers li {
+  border: 1px solid var(--stroke);
+  border-top: 3px solid var(--color-electric);
+  border-radius: 1rem;
+  background: white;
+  padding: 0.9rem 1rem 0.85rem;
+}
+
+.report-numbers-value {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
+}
+
+.report-numbers-label {
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.report-numbers-note {
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.report-summary,
+.report-method {
+  max-width: 70ch;
+  margin-bottom: 1.5rem;
+}
+
+.report-findings {
+  max-width: 70ch;
+  margin-bottom: 1.75rem;
+}
+
+.report-findings ol {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.report-findings li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--gold-bright) 42%, var(--stroke));
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(224, 176, 74, 0.12), white 42%);
+  padding: 0.85rem 1rem;
+  line-height: 1.55;
+}
+
+.report-finding-index {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #7a560c;
+}
+
+.report-chapter h3 {
+  font-size: 1.2rem;
+}
+
+.report-quote {
+  margin: 1.4rem 0;
+  border: 0;
+  border-left: 3px solid var(--color-electric);
+  padding: 0.2rem 0 0.2rem 1.1rem;
+}
+
+.report-quote p {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.report-quote footer {
+  margin-top: 0.55rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.report-callout,
+.report-means {
+  margin: 1.3rem 0;
+  border: 1px solid var(--stroke);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.report-callout {
+  background: color-mix(in oklab, var(--color-cyan-bright) 10%, white);
+  border-color: color-mix(in oklab, var(--color-cyan) 35%, var(--stroke));
+}
+
+.report-means {
+  background: color-mix(in oklab, var(--color-electric) 8%, white);
+  border-color: color-mix(in oklab, var(--color-electric) 30%, var(--stroke));
+}
+
+.report-callout p,
+.report-means p {
+  margin: 0.45rem 0 0;
+}
+
+.report-cite {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.72em;
+  line-height: 0;
+  margin-left: 0.08em;
+}
+
+.report-cite a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.report-chart,
+.report-table-wrap {
+  margin: 1.4rem 0 1.6rem;
+  max-width: 100%;
+}
+
+.report-chart figcaption,
+.report-table-wrap caption,
+.report-chart-source {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.report-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 0.7rem;
+}
+
+.report-chart table,
+.report-table-wrap table {
+  width: 100%;
+  margin-top: 0.8rem;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.report-chart th,
+.report-chart td,
+.report-table-wrap th,
+.report-table-wrap td {
+  border-bottom: 1px solid var(--stroke);
+  padding: 0.4rem 0.5rem 0.4rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.report-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+}
+
+.report-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.report-legend span {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 2px;
+}
+
+.report-toc-index {
+  display: inline-block;
+  min-width: 1.7rem;
+  margin-right: 0.35rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0f5f78;
+}
+
+.report-toc-preface,
+.report-toc-tail {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.report-toc-preface {
+  margin-bottom: 0.85rem;
+}
+
+.report-toc-tail {
+  margin-top: 0.85rem;
+  font-size: 0.875rem;
+}
+
+.report-toc-preface a,
+.report-toc-tail a {
+  color: var(--muted);
+}
+
+.report-toc-preface li + li,
+.report-toc-tail li + li {
+  margin-top: 0.4rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media print {
+  .report-shell {
+    font-size: 11pt;
+  }
+
+  .report-numbers,
+  .report-findings ol,
+  .content-grid {
+    display: block !important;
+  }
+
+  .report-numbers li,
+  .report-findings li,
+  .report-chart,
+  .report-quote,
+  .report-callout,
+  .report-means {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .report-shell a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
 }
 
 .listing-jump {

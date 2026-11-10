@@ -14,11 +14,13 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: a browser and computer-use brief, a 30-day coding-agents brief, the 12-month agents outlook, six-month outlooks, harness benchmarks, framework GitHub stats, verified revenue, directory stats, a token-cost calculator, and a prompt and tool checker.",
+  "Dated pages with a source and a citation: the 2026 production report, the 2027 agents forecast, a browser and computer-use brief, a 30-day coding-agents brief, the 12-month outlook, six-month outlooks, harness benchmarks, and framework GitHub stats.",
   "/reports",
 );
 
 const pdfByHref: Record<string, string> = {
+  "/reports/ai-agents-in-production-2026": "/reports/ai-agents-in-production-2026/pdf",
+  "/reports/ai-agents-in-2027": "/reports/ai-agents-in-2027/pdf",
   "/reports/browser-and-computer-use-agents-next-6-months": "/reports/browser-and-computer-use-agents-next-6-months/pdf",
   "/reports/ai-coding-agents-next-30-days": "/reports/ai-coding-agents-next-30-days/pdf",
   "/reports/ai-agents-next-12-months": "/reports/ai-agents-next-12-months/pdf",
@@ -31,6 +33,8 @@ const pdfByHref: Record<string, string> = {
 export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
+    "/reports/ai-agents-in-production-2026": "2026-11-10",
+    "/reports/ai-agents-in-2027": "2026-11-10",
     "/reports/browser-and-computer-use-agents-next-6-months": "2026-11-09",
     "/reports/ai-coding-agents-next-30-days": "2026-11-08",
     "/reports/ai-agents-next-12-months": "2026-11-07",
@@ -45,6 +49,8 @@ export default async function ReportsPage() {
     "/tools/agents-md-generator": "2026-11-10",
   };
   const kickerByHref: Record<string, string> = {
+    "/reports/ai-agents-in-production-2026": "Report",
+    "/reports/ai-agents-in-2027": "Report",
     "/reports/browser-and-computer-use-agents-next-6-months": "Report",
     "/reports/ai-coding-agents-next-30-days": "Report",
     "/reports/ai-agents-next-12-months": "Report",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ReportLayout } from "@/components/ReportLayout";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { SourceList } from "@/components/CompanyMarks";
@@ -125,9 +125,10 @@ export default async function CodingAgents30DayPage() {
           { name: title, path },
         ]}
       />
-      <ArticleTemplate
+      <ReportLayout
         category="Report"
         title={title}
+        thesis="Eleven coding-agent list prices, checked November 8, 2026, and three dates the vendors have already set."
         description={description}
         published={readOn}
         readingMinutes={readingMinutes}
@@ -553,7 +554,7 @@ export default async function CodingAgents30DayPage() {
             },
           ]}
         />
-      </ArticleTemplate>
+      </ReportLayout>
     </>
   );
 }

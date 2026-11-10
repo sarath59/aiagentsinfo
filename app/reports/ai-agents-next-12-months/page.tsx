@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ReportLayout } from "@/components/ReportLayout";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
@@ -33,6 +33,20 @@ export default async function AgentsTwelveMonthOutlookPage() {
     getGlossaryTerm("autonomy"),
   ]);
   const related = [
+    {
+      href: "/reports/ai-agents-in-production-2026",
+      title: "AI agents in production, 2026",
+      description: "Where agents are actually running: graded coding work, survey 'scaling,' and the computer-use gap.",
+      kicker: "Report",
+      date: "2026-11-10",
+    },
+    {
+      href: "/reports/ai-agents-in-2027",
+      title: "AI agents in 2027",
+      description: "A labeled forecast. This calendar does not make those calls, and that forecast does not refill this grid.",
+      kicker: "Report",
+      date: "2026-11-10",
+    },
     {
       href: "/reports/ai-agents-next-6-months",
       title: "AI agents, Nov 2026 to May 2027",
@@ -141,9 +155,10 @@ export default async function AgentsTwelveMonthOutlookPage() {
           { name: title, path },
         ]}
       />
-      <ArticleTemplate
+      <ReportLayout
         category="Report"
         title={title}
+        thesis="From November 2026 through November 2027, the public record is a short list of dated filings, not a launch calendar."
         description={description}
         published={readOn}
         readingMinutes={readingMinutes}
@@ -882,7 +897,7 @@ export default async function AgentsTwelveMonthOutlookPage() {
         <div className="mt-14">
           <NewsletterSignup id="report-agents-12-month-outlook" />
         </div>
-      </ArticleTemplate>
+      </ReportLayout>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ReportLayout } from "@/components/ReportLayout";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { ListYourAgent } from "@/components/ListYourAgent";
@@ -55,6 +55,13 @@ export default async function HarnessBenchmarkPage() {
           readingMinutes: buildGuide.readingMinutes,
         }
       : undefined,
+    {
+      href: "/reports/ai-agents-in-production-2026",
+      title: "AI agents in production, 2026",
+      description: "How these board scores sit next to enterprise scaling and spend. The harness stays in the sentence.",
+      kicker: "Report",
+      date: "2026-11-10",
+    },
     {
       href: "/reports/ai-agents-next-12-months",
       title: "AI agents, Nov 2026 to Nov 2027",
@@ -185,9 +192,10 @@ export default async function HarnessBenchmarkPage() {
           { name: title, path },
         ]}
       />
-      <ArticleTemplate
+      <ReportLayout
         category="Report"
         title={title}
+        thesis="Public SWE-bench and Terminal-Bench scores, each still wearing the harness and the date on the official board."
         description={description}
         published={updated}
         readingMinutes={readingMinutes}
@@ -468,7 +476,7 @@ export default async function HarnessBenchmarkPage() {
         <div className="mt-14">
           <NewsletterSignup id="report-benchmark" />
         </div>
-      </ArticleTemplate>
+      </ReportLayout>
     </>
   );
 }

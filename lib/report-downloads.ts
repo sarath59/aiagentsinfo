@@ -72,6 +72,20 @@ import {
   readOn as browserReadOn,
   title as browserTitle,
 } from "@/lib/browser-computer-report";
+import {
+  forecastCsv,
+  forecastPdf,
+  path as forecastPath,
+  readOn as forecastReadOn,
+  title as forecastTitle,
+} from "@/lib/agents-2027";
+import {
+  path as productionPath,
+  productionCsv,
+  productionPdf,
+  readOn as productionReadOn,
+  title as productionTitle,
+} from "@/lib/agents-in-production-2026";
 import { formatDate } from "@/lib/utils";
 
 function tableFrom(caption: string, columns: SortableColumn[], rows: SortableRow[]): PdfTable {
@@ -418,6 +432,8 @@ export function frameworkReportPdf(): PdfModel {
 }
 
 const pdfModels = {
+  "ai-agents-in-production-2026": productionPdf,
+  "ai-agents-in-2027": forecastPdf,
   "ai-coding-agents-next-30-days": codingAgents30DayPdf,
   "ai-agents-next-12-months": agents12MonthOutlookPdf,
   "ai-agents-next-6-months": agentsOutlookPdf,
@@ -436,6 +452,8 @@ export function reportPdf(slug: string) {
 
 export function reportAttribution(slug: string): PageSource | undefined {
   const pages: Record<string, PageSource> = {
+    "ai-agents-in-production-2026": { title: productionTitle, updated: productionReadOn, path: productionPath },
+    "ai-agents-in-2027": { title: forecastTitle, updated: forecastReadOn, path: forecastPath },
     "ai-agents-next-12-months": { title: yearTitle, updated: yearReadOn, path: yearPath },
     "ai-agents-next-6-months": { title: outlookTitle, updated: outlookReadOn, path: outlookPath },
     "ai-shopping-agents-next-6-months": { title: shoppingTitle, updated: readOn, path: shoppingPath },
@@ -456,6 +474,14 @@ export function reportAttribution(slug: string): PageSource | undefined {
 }
 
 export function reportCsv(slug: string, table: string | null) {
+  if (slug === "ai-agents-in-production-2026") {
+    if (table) return undefined;
+    return productionCsv();
+  }
+  if (slug === "ai-agents-in-2027") {
+    if (table) return undefined;
+    return forecastCsv();
+  }
   if (slug === "ai-coding-agents-next-30-days") {
     if (table === "repos") return repoCsv();
     if (table === "dates") return dateCsv();

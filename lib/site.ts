@@ -162,6 +162,18 @@ export const comparisons = [
 
 export const dataAssets = [
   {
+    href: "/reports/ai-agents-in-production-2026",
+    title: "AI agents in production, 2026: the grader decides who is shipping",
+    summary:
+      "McKinsey's scaling split, Menlo's spend estimates, SWE-bench and Terminal-Bench with the harness named, OSWorld 2.0, and the packages builders download. Checked November 10, 2026.",
+  },
+  {
+    href: "/reports/ai-agents-in-2027",
+    title: "AI agents in 2027: task cost will not fall like token cost",
+    summary:
+      "A labeled forecast. Coding agents stay, computer use stays on runbooks, and a cheaper token is not a cheaper successful run. Checked November 10, 2026.",
+  },
+  {
     href: "/reports/browser-and-computer-use-agents-next-6-months",
     title: "Browser and computer-use agents, Nov 2026 to May 2027",
     summary:
@@ -282,6 +294,8 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/reports/ai-agents-in-production-2026", label: "AI agents in production, 2026" },
+      { href: "/reports/ai-agents-in-2027", label: "AI agents in 2027" },
       { href: "/reports/browser-and-computer-use-agents-next-6-months", label: "Browser and computer-use agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-coding-agents-next-30-days", label: "AI coding agents, 8 Nov to 8 Dec 2026" },
       { href: "/reports/ai-agents-next-12-months", label: "AI agents, Nov 2026 to Nov 2027" },

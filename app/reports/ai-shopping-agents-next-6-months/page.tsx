@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ReportLayout } from "@/components/ReportLayout";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
@@ -145,9 +145,10 @@ export default async function ShoppingAgentsReportPage() {
           { name: title, path },
         ]}
       />
-      <ArticleTemplate
+      <ReportLayout
         category="Report"
         title={title}
+        thesis="Six companies have dated shopping-agent steps through May 2027. Months without a date stay empty."
         description={description}
         published={readOn}
         updated={readOn}
@@ -729,7 +730,7 @@ export default async function ShoppingAgentsReportPage() {
         <div className="mt-14">
           <NewsletterSignup id="report-shopping" />
         </div>
-      </ArticleTemplate>
+      </ReportLayout>
     </>
   );
 }

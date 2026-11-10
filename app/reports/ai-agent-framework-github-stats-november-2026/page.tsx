@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { ReportLayout } from "@/components/ReportLayout";
 import { ToolCtas } from "@/components/ToolCtas";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
@@ -81,9 +81,10 @@ export default async function FrameworkGithubStatsPage() {
           { name: title, path },
         ]}
       />
-      <ArticleTemplate
+      <ReportLayout
         category="Report"
         title={title}
+        thesis="Nineteen open-source agent repositories, copied from GitHub on November 5, 2026. Nothing on this page is estimated."
         description={description}
         published={retrievedDay}
         updated={retrievedDay}
@@ -329,7 +330,7 @@ export default async function FrameworkGithubStatsPage() {
         <div className="mt-14">
           <NewsletterSignup id="report-framework-github" />
         </div>
-      </ArticleTemplate>
+      </ReportLayout>
     </>
   );
 }
