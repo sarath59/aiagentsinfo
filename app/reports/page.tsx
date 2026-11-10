@@ -42,6 +42,7 @@ export default async function ReportsPage() {
     "/directory/stats": stats.updated,
     "/agent-cost-calculator": PRICE_READ_ON,
     "/agent-prompt-checker": "2026-11-06",
+    "/tools/agents-md-generator": "2026-11-10",
   };
   const kickerByHref: Record<string, string> = {
     "/reports/browser-and-computer-use-agents-next-6-months": "Report",
@@ -55,6 +56,7 @@ export default async function ReportsPage() {
     "/directory/stats": "Data",
     "/agent-cost-calculator": "Data",
     "/agent-prompt-checker": "Data",
+    "/tools/agents-md-generator": "Tool",
   };
 
   return (

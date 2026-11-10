@@ -120,8 +120,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   );
 }
 
-function toolsForPost(slug: string, category: string) {
-  const tools: ("calculator" | "checker" | "picker" | "checklist")[] = [];
+function toolsForPost(
+  slug: string,
+  category: string,
+): ("calculator" | "checker" | "picker" | "checklist" | "generator")[] {
+  if (slug === "how-to-write-an-agents-md-coding-agents-follow") {
+    return ["generator", "checklist", "checker", "picker"];
+  }
+  const tools: ("calculator" | "checker" | "picker" | "checklist" | "generator")[] = [];
   if (/eval|harness|shopping/.test(slug)) tools.push("checklist");
   if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2|muse-ember/.test(slug)) {
     tools.push("calculator");
@@ -134,6 +140,37 @@ function toolsForPost(slug: string, category: string) {
 }
 
 function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "how-to-write-an-agents-md-coding-agents-follow") {
+    return {
+      reads: [
+        {
+          href: "/tools/agents-md-generator",
+          title: "AGENTS.md generator",
+          note: "The same rules, as a form. Copy or download. Nothing is stored.",
+        },
+        {
+          href: "/trackers/agents-md",
+          title: "AGENTS.md adoption tracker",
+          note: "Live filename counts, next to the October 2026 census.",
+        },
+        {
+          href: "/research/how-many-repos-use-agents-md",
+          title: "How many repos use AGENTS.md?",
+          note: "6,006 of 22,854 popular repositories on October 16, 2026.",
+        },
+        {
+          href: "/blog/what-is-an-ai-agent-harness",
+          title: "What is an AI agent harness?",
+          note: "The loop that can read a file like this before it edits a repo.",
+        },
+      ],
+      tool: {
+        href: "/tools/agents-md-generator",
+        title: "AGENTS.md generator",
+        note: "writes the file in the browser from your commands",
+      },
+    };
+  }
   if (slug === "how-do-you-evaluate-an-ai-agent-harness") {
     return {
       reads: [

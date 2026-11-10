@@ -168,6 +168,11 @@ export const mcpInstructions =
 
 const SITE_FREE_TOOLS = [
   {
+    name: "AGENTS.md generator",
+    summary: "Drafts an AGENTS.md from your stack and commands. The form stays in the browser and is not stored.",
+    path: "/tools/agents-md-generator",
+  },
+  {
     name: "AI agent cost calculator",
     summary: "Free 30-day model bill from official per-token prices. No login.",
     path: "/agent-cost-calculator",

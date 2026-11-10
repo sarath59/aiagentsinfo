@@ -132,6 +132,7 @@ export const nav = [
   { href: "/submit", label: "Submit" },
   { href: "/reports", label: "Reports" },
   { href: "/trackers", label: "Trackers" },
+  { href: "/tools", label: "Tools" },
   { href: "/best", label: "Best AI agents" },
   { href: "/verified-revenue", label: "Revenue" },
   { href: "/research", label: "Research" },
@@ -230,6 +231,12 @@ export const dataAssets = [
       "Counts from this site's own directory: category, pricing, indie or startup or YC origin, additions, and community submissions. Generated when the site is built.",
   },
   {
+    href: "/tools/agents-md-generator",
+    title: "AGENTS.md generator",
+    summary:
+      "Free AGENTS.md draft from your stack and commands, for Codex, Cursor, and the Copilot coding agent. Copy or download. Nothing you type is stored.",
+  },
+  {
     href: "/agent-cost-calculator",
     title: "AI agent cost calculator",
     summary:
@@ -306,6 +313,8 @@ export const footerNav = [
   {
     title: "Site",
     links: [
+      { href: "/tools", label: "Free tools" },
+      { href: "/tools/agents-md-generator", label: "AGENTS.md generator" },
       { href: "/submit", label: "Submit your tool" },
       { href: "/about", label: "About" },
       { href: "/editorial-policy", label: "Editorial policy" },

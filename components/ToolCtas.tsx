@@ -25,6 +25,12 @@ const cards = {
     title: "Mark the harness checks you can defend",
     body: "Twelve yes-or-no checks from public posts and boards. Nothing is saved. The count is not a leaderboard score.",
   },
+  generator: {
+    href: "/tools/agents-md-generator",
+    kicker: "Generator",
+    title: "Draft an AGENTS.md",
+    body: "Stack, commands, and rules in. A Markdown file out. The form stays in the browser.",
+  },
 } as const;
 
 export function ToolCtas({ tools }: { tools: (keyof typeof cards)[] }) {

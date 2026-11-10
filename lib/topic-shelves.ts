@@ -68,6 +68,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "Live GitHub search for the filename, kept next to the October 2026 census.",
       },
       {
+        href: "/tools/agents-md-generator",
+        anchor: "AGENTS.md generator",
+        note: "A free in-browser draft from your stack and commands. Nothing you type is stored.",
+      },
+      {
         href: "/reports/agent-harness-benchmark-november-2026",
         anchor: "Agent harness benchmark, November 2026",
         note: "Public SWE-bench and Terminal-Bench scores, each with the date on the source.",
@@ -250,6 +255,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/trackers/agents-md",
         anchor: "AGENTS.md adoption tracker",
         note: "How many public files are named AGENTS.md, next to the October 2026 census.",
+      },
+      {
+        href: "/tools/agents-md-generator",
+        anchor: "AGENTS.md generator",
+        note: "Write the file from your commands. The form stays in the browser.",
       },
       {
         href: "/topics/harnesses",

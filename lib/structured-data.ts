@@ -251,6 +251,8 @@ export function softwareApplicationJsonLd(input: {
   description?: string;
   applicationCategory?: string;
   operatingSystem?: string;
+  offers?: { price: string | number; priceCurrency: string };
+  isAccessibleForFree?: boolean;
   nested?: boolean;
 }) {
   const url = input.url.startsWith("https://") ? input.url : absoluteUrl(input.url);
@@ -268,6 +270,16 @@ export function softwareApplicationJsonLd(input: {
     ...(input.description ? { description: input.description } : {}),
     ...(input.applicationCategory ? { applicationCategory: input.applicationCategory } : {}),
     ...(input.operatingSystem ? { operatingSystem: input.operatingSystem } : {}),
+    ...(input.isAccessibleForFree ? { isAccessibleForFree: true } : {}),
+    ...(input.offers
+      ? {
+          offers: {
+            "@type": "Offer",
+            price: input.offers.price,
+            priceCurrency: input.offers.priceCurrency,
+          },
+        }
+      : {}),
   };
 }
 

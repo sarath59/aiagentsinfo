@@ -114,7 +114,7 @@ The page fetched November 9 opens with “A simple, open format for guiding codi
 
 The spec repository `agentsmd/agents.md` returned 25,408 stars, 1,949 forks, the SPDX id MIT, and `pushed_at` 2026-09-10T18:46:16Z. The HTTP Date on that response was 13:39:04Z on November 9, 2026. Stars on the spec repository are not the adoption count. The paper cites the homepage as accessed on the census day, October 16.
 
-A [harness](/glossary/harness) is the software around the model: the loop, the tools, the permissions, the stop rules. An instruction file is one input to that loop. [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness) describes a short AGENTS.md used as a map. Thoughtworks’ write-up of the same pattern is [harness engineering at scale](/blog/what-is-harness-engineering-at-scale-thoughtworks-radar).
+A [harness](/glossary/harness) is the software around the model: the loop, the tools, the permissions, the stop rules. An instruction file is one input to that loop. [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness) describes a short AGENTS.md used as a map. Thoughtworks’ write-up of the same pattern is [harness engineering at scale](/blog/what-is-harness-engineering-at-scale-thoughtworks-radar). To draft a file from your own commands, use the [AGENTS.md generator](/tools/agents-md-generator). The short guide is [AGENTS.md: How to Write One Coding Agents Actually Follow](/blog/how-to-write-an-agents-md-coding-agents-follow).
 
 ## How many popular repositories had a root file on October 16?
 

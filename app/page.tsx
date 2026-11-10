@@ -39,6 +39,7 @@ export const metadata = {
 
 const spotlightSlugs = ["cursor", "devin", "crewai"] as const;
 const freeToolHrefs = [
+  "/tools/agents-md-generator",
   "/agent-cost-calculator",
   "/agent-prompt-checker",
   "/verified-revenue",

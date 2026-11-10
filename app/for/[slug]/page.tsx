@@ -96,6 +96,14 @@ export default async function AudiencePage({ params }: { params: Promise<{ slug:
               <Link href="/agent-prompt-checker">Prompt and tool checker</Link>
             </li>
             <li>
+              <Link href="/tools/agents-md-generator">AGENTS.md generator</Link>
+            </li>
+            <li>
+              <Link href="/blog/how-to-write-an-agents-md-coding-agents-follow">
+                AGENTS.md: How to Write One Coding Agents Actually Follow
+              </Link>
+            </li>
+            <li>
               <Link href="/directory/stats">Directory stats</Link>
             </li>
           </ul>

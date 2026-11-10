@@ -2,6 +2,11 @@ import Link from "next/link";
 
 const links = [
   {
+    href: "/tools/agents-md-generator",
+    title: "AGENTS.md generator",
+    body: "Draft an AGENTS.md from your stack and commands. Copy or download. Nothing you type is stored.",
+  },
+  {
     href: "/agent-cost-calculator",
     title: "AI agent cost calculator",
     body: "30-day token bill for the models with an official price on this site.",
@@ -49,6 +54,11 @@ export function ToolHub() {
           </li>
         ))}
       </ul>
+      <p className="mt-4 text-sm">
+        <Link className="text-[var(--link)] underline" href="/tools">
+          All free tools
+        </Link>
+      </p>
     </section>
   );
 }

@@ -218,6 +218,12 @@ export async function buildLlmsTxt() {
       item("Benchmark leaderboard", "/trackers/benchmarks", "Public agent benchmarks, published only with a source, a date, and the harness. The November 2026 scores live on the harness benchmark."),
     ]),
     section("Free tools", [
+      item("Free tools", "/tools", "AGENTS.md generator, agent picker, cost calculators, prompt checker, and harness checklist. No login."),
+      item(
+        "AGENTS.md generator",
+        "/tools/agents-md-generator",
+        "Free in-browser AGENTS.md draft from your stack and commands. Copy or download. Nothing you type is stored.",
+      ),
       item(
         "AI agent cost calculator",
         "/agent-cost-calculator",

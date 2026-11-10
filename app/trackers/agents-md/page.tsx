@@ -169,6 +169,7 @@ export default async function AgentsMdTrackerPage() {
           { id: "census", text: "How many popular repositories used AGENTS.md in October 2026?", level: 2 },
           { id: "compare", text: "Why don't these counts match?", level: 2 },
           { id: "methodology", text: "Where do the live numbers come from?", level: 2 },
+          { id: "draft", text: "How do you write an AGENTS.md?", level: 2 },
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite this data", level: 2 },
         ]}
@@ -291,6 +292,23 @@ export default async function AgentsMdTrackerPage() {
               This pass: {report.failures.join(" ")}
             </p>
           ) : null}
+        </section>
+
+        <section className="mt-12">
+          <h2 id="draft" className="text-2xl font-semibold tracking-tight">
+            How do you write an AGENTS.md?
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            A file with this name is not proof an agent followed it. To draft one from your stack and commands, use the{" "}
+            <Link className="text-[var(--link)] underline" href="/tools/agents-md-generator">
+              AGENTS.md generator
+            </Link>
+            . It runs in the browser and does not change the counts on this page. The short guide is{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/how-to-write-an-agents-md-coding-agents-follow">
+              AGENTS.md: How to Write One Coding Agents Actually Follow
+            </Link>
+            .
+          </p>
         </section>
 
         <FaqList items={faq.map((item) => ({ question: item.question, answer: item.answer }))} />

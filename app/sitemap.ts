@@ -110,6 +110,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/submit", trustUpdated, 0.6),
     entry("/verified-revenue", new Date(`${verifiedRevenueChecked}T00:00:00.000Z`), 0.6),
     entry(frameworkGithubPath, new Date(`${frameworkGithubDay}T00:00:00.000Z`), 0.7),
+    entry("/tools", new Date("2026-11-10T00:00:00.000Z"), 0.7),
+    entry("/tools/agents-md-generator", new Date("2026-11-10T00:00:00.000Z"), 0.8),
     entry("/tools/agent-picker", new Date("2026-11-09T00:00:00.000Z"), 0.7),
     entry("/tools/ai-agent-harness-evaluation-checklist", new Date("2026-11-10T00:00:00.000Z"), 0.8),
     entry("/tools/cursor-vs-claude-code-vs-codex-pricing", new Date("2026-11-09T00:00:00.000Z"), 0.7),

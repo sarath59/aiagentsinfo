@@ -47,6 +47,13 @@ export default function PrivacyPage() {
           sends the pasted prompt and tool JSON to this site so the server can count tokens and check the schema. That text is not written to a file, a database, or a log.
         </p>
         <p className="mt-4">
+          The{" "}
+          <Link href="/tools/agents-md-generator" className="text-[var(--link)] underline">
+            AGENTS.md generator
+          </Link>{" "}
+          builds the file in your browser. The form is not sent to this site. If you use Polish on this device, that step stays in the browser&apos;s built-in language model and is not sent here either.
+        </p>
+        <p className="mt-4">
           Page views are measured with{" "}
           <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
             <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />
