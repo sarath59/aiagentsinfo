@@ -121,6 +121,10 @@ export default function PromptCheckerPage() {
               agent tool JSON cost
             </Link>
             {" · "}
+            <Link className="text-[var(--link)] underline" href="/blog/live-mcp-tool-json-token-counts">
+              live MCP tool-list tokens
+            </Link>
+            {" · "}
             <Link className="text-[var(--link)] underline" href="/blog/what-is-an-ai-agent-harness">
               what is an agent harness
             </Link>

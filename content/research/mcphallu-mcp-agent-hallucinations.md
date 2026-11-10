@@ -2,7 +2,7 @@
 title: "Paper breakdown: MCPHallu — why MCP agents fail on unreachable goals"
 description: "Average score 0.642 across 14 agents and 5,012 trajectories. Unreachable Goal scores 0.458, and 23.2% of those runs pass. Claude Opus 4.6 leads overall at 0.728. No model in the paper scores above that."
 date: "2026-11-08"
-updated: "2026-11-08"
+updated: "2026-11-10"
 type: paper-breakdown
 topics:
   - research
@@ -272,6 +272,8 @@ The README displays a NeurIPS 2026 E&D Track badge that links to neurips.cc. The
 Anyone reproducing the tables should pin the paper, not the README’s summary statistics. The tasks and the scoring code may still be in the repository. The license badge, the anonymity notice, the tool count, and the push date are older than the preprint this page is about.
 
 ## How to read it next to the other notes on this site
+
+On November 10, 2026 a separate measurement counted live `tools/list` payloads from five public MCP servers: [Context7's two tools: 1,131 tokens. DeepWiki's three: 395.](/blog/live-mcp-tool-json-token-counts). The tables above were not remeasured. That page prices the tool text a host sends before a call.
 
 MCPHallu holds the agent loop still and changes the task, so the failure mode is the thing that varies. [HarnessFlow](/research/harnessflow-mcts-harness-optimization) searches for a different harness program. [Evolver](/research/evolver-agent-exploration-evolving-capabilities) keeps Claude Code and Codex and injects a strategy asset from an earlier trace. Neither paper’s table is a row in Table 5, and Table 5 is not a score for those systems.
 

@@ -127,6 +127,7 @@ function toolsForPost(
   if (slug === "how-to-write-an-agents-md-coding-agents-follow") {
     return ["generator", "checklist", "checker", "picker"];
   }
+  if (slug === "live-mcp-tool-json-token-counts") return ["checker", "calculator"];
   const tools: ("calculator" | "checker" | "picker" | "checklist" | "generator")[] = [];
   if (/eval|harness|shopping/.test(slug)) tools.push("checklist");
   if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2|muse-ember/.test(slug)) {
@@ -140,6 +141,32 @@ function toolsForPost(
 }
 
 function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "live-mcp-tool-json-token-counts") {
+    return {
+      reads: [
+        {
+          href: "/agent-prompt-checker",
+          title: "Prompt and tool checker",
+          note: "Paste a tools/list array. The server counts tokens and checks the shape. Nothing is stored.",
+        },
+        {
+          href: "/research/mcphallu-mcp-agent-hallucinations",
+          title: "MCPHallu: why MCP agents fail on unreachable goals",
+          note: "Correct tool only, 84.7% pass. Correct tool plus a confusion tool, 32.3%.",
+        },
+        {
+          href: "/mcp",
+          title: "This site's MCP server",
+          note: "Seven read-only tools. 973 tokens in the November 10 tools/list count.",
+        },
+      ],
+      tool: {
+        href: "/agent-prompt-checker",
+        title: "prompt and tool checker",
+        note: "schema and token check for a prompt and its tools",
+      },
+    };
+  }
   if (slug === "how-to-write-an-agents-md-coding-agents-follow") {
     return {
       reads: [
