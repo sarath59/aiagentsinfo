@@ -4,10 +4,10 @@
     "Google Trends via pytrends (venv /workspace/ptv) interest_over_time + related_queries rising; US and worldwide; now 7-d and now 1-d; 4 batches (head, coding, agent types, vendor incl. Fable 5.2) x 4 runs = 16/16 OK; run 2026-11-10 ~06:33-06:38 IST; raw /workspace/aiagentsinfo/research/pytrends_2026-11-10.json; script research/pt_daily.py",
     "X (2026-11-10 ~06:32 IST): get_trends_by_woeid WW and US (only AI term: 'Fable 5.2', rest NFL/news); search_news 'AI agents' and coding agents (36h); get_posts_counts_recent for Fable 5.2, harness, software factory, computer use, chief-of-staff agent, Siri agent",
     "WebSearch 2026-11-10: Anthropic 'Introducing Claude Fable 5.2 and Claude Mythos 5.2' (Nov 9 2026), platform.claude.com model docs, CNBC and The Verge coverage",
-    "Live sitemap https://www.aiagentsinfo.com/sitemap.xml fetched 2026-11-10 (245 URLs; research/sitemap-2026-11-10.xml). New since Nov 9 incl. /blog/claude-code-dont-ask-again, /blog/what-does-ultracode-do-in-claude-code, /research/garry-tan-harness-evals-november-2026, /blog/what-is-multi-agent-orchestration, /mcp, /trackers, /tools/agent-picker. Still no page for Fable 5.2, Claude Duet, software factory, Siri agent, AI receptionist brands.",
+    "Live sitemap https://www.aiagentsinfo.com/sitemap.xml fetched 2026-11-10 (245 URLs; research/sitemap-2026-11-10.xml). New since Nov 9 incl. /blog/claude-code-dont-ask-again, /blog/what-does-ultracode-do-in-claude-code, /research/garry-tan-harness-evals-november-2026, /blog/what-is-multi-agent-orchestration, /mcp, /trackers, /tools/agent-picker. Fable 5.2 page added 2026-11-10 at /blog/what-is-claude-fable-5-2. Still no page for Claude Duet, software factory, Siri agent, AI receptionist brands.",
     "Prior keywords.json from /cursor/stores/user/aiagentsinfo/keywords.json (updated 2026-11-09T06:46:58+05:30)."
   ],
-  "notes": "Google Trends values are relative 0-100 within each batch; rising values are Google's related_queries rising % (shopping/travel/recipe/sports noise filtered: walmart near me, cheapest flights to tokyo, how to make sushi, etc.). Agents-only list. Top rising today: Claude Code GitHub secret leaks (+488k-502k 1-d, follow-on to 'don't ask again'), Claude Fable 5.2 (+131k 1-d, X worldwide trend, launched Nov 9 for long-horizon agentic work), agentic AI vs generative AI (+71k US 1-d), MCP server meaning (+251k WW 1-d), what is ultracode in Claude Code (+17k WW 1-d). Fable 5.2 needs an honest new page (news/explainer on what it means for agents; cite Anthropic). Content routines must weave top keywords into titles/H2/intros/meta/FAQs naturally - never stuff, never compromise accuracy. Audience: normal adults. Dropped 15 non-agent carried keywords on 2026-11-10 (general chatbot/model/news terms like gemini spark, claude personal finance, perplexity vs chatgpt, microsoft staff response, bare chatgpt/claude/gemini/grok).",
+  "notes": "Google Trends values are relative 0-100 within each batch; rising values are Google's related_queries rising % (shopping/travel/recipe/sports noise filtered: walmart near me, cheapest flights to tokyo, how to make sushi, etc.). Agents-only list. Top rising today: Claude Code GitHub secret leaks (+488k-502k 1-d, follow-on to 'don't ask again'), Claude Fable 5.2 (+131k 1-d, X worldwide trend, launched Nov 9 for long-horizon agentic work), agentic AI vs generative AI (+71k US 1-d), MCP server meaning (+251k WW 1-d), what is ultracode in Claude Code (+17k WW 1-d). Fable 5.2 page is /blog/what-is-claude-fable-5-2 (published 2026-11-10; harness write-up plus API breaks, cited to Anthropic). Content routines must weave top keywords into titles/H2/intros/meta/FAQs naturally - never stuff, never compromise accuracy. Audience: normal adults. Dropped 15 non-agent carried keywords on 2026-11-10 (general chatbot/model/news terms like gemini spark, claude personal finance, perplexity vs chatgpt, microsoft staff response, bare chatgpt/claude/gemini/grok).",
   "top5_rising": [
     "claude code github secret leaks",
     "claude fable 5.2",
@@ -20,7 +20,8 @@
     "/glossary/model-context-protocol",
     "/glossary/agent",
     "/blog/what-does-ultracode-do-in-claude-code",
-    "/directory/claude"
+    "/directory/claude",
+    "/blog/what-is-claude-fable-5-2"
   ],
   "keywords": [
     {
@@ -47,8 +48,8 @@
       "type": "head",
       "trend_signal": "pytrends 1-d rising under 'Claude Code': 'fable 5.2' +131,050 US / +131,750 WW; 'Fable 5.2' interest 0 -> 54.6 (last 6h, 1-d batch); X trend worldwide + US; X posts \"Fable 5.2\" 11,455 on Nov 9 UTC (5/day before). Verified: Anthropic released Claude Fable 5.2 and Mythos 5.2 on Nov 9 2026, built for long-horizon agentic work, $8/$40 per MTok, 1M context, model id claude-fable-5-2 (anthropic.com, platform.claude.com docs, CNBC, The Verge)",
       "intent": "informational/news",
-      "target_url": "new page",
-      "status": "new",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-claude-fable-5-2",
+      "status": "targeted",
       "rank": 2,
       "first_seen": "2026-11-10",
       "history": [
@@ -56,6 +57,11 @@
           "date": "2026-11-10",
           "rank": 2,
           "status": "new"
+        },
+        {
+          "date": "2026-11-10",
+          "rank": 2,
+          "status": "targeted"
         }
       ]
     },
