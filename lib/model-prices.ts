@@ -210,6 +210,16 @@ export const modelPrices: ModelPrice[] = [
     ],
   },
   {
+    id: "claude-fable-5-2",
+    provider: "Anthropic",
+    label: "Claude Fable 5.2",
+    sourceUrl: ANTHROPIC_PRICING_URL,
+    bands: [{ inputPerMillion: 8, outputPerMillion: 40, label: "Standard" }],
+    notes: [
+      "Anthropic's pricing page, read November 10, 2026, lists Claude Fable 5.2 at $8 per million input tokens and $40 per million output tokens. The same page bills the full 1 million token context window at that rate. Cache writes, cache hits, batch, and fast mode are not used.",
+    ],
+  },
+  {
     id: "claude-fable-5-1",
     provider: "Anthropic",
     label: "Claude Fable 5.1",

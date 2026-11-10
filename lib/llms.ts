@@ -147,7 +147,8 @@ function dataPageSummaries() {
 }
 
 export async function buildLlmsTxt() {
-  const [research, glossary, listings] = await Promise.all([
+  const [posts, research, glossary, listings] = await Promise.all([
+    getBlogPosts(),
     getResearchDocs(),
     getGlossaryTerms(),
     getDirectoryListings(),
@@ -229,8 +230,11 @@ export async function buildLlmsTxt() {
     section("Glossary", [
       item("Glossary", "/glossary", `${counted(glossary.length, "short definition")} used across the site.`),
     ]),
-    section("Optional", [
+    section("Blog", [
       item("Blog", "/blog", "Explainers, news, and guides."),
+      ...posts.map((post) => item(post.title, `/blog/${post.slug}`, `${post.date}. ${post.description}`)),
+    ]),
+    section("Optional", [
       item("Best AI agents", "/best", "Sourced comparisons. Last verified November 2026."),
       ...comparisonPages.map((page) => item(page.title, page.path, page.summary)),
       item("Topics", "/topics", "Coverage areas such as news, tools, shopping, and harnesses."),

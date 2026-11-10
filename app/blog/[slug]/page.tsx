@@ -100,6 +100,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       >
         {nextRead ? <NextRead reads={nextRead.reads} tool={nextRead.tool} /> : null}
         <MarkdownBody
+          sortable={post.slug === "claude-fable-5-2-vs-gpt-6-astra"}
           html={withTableDownloads(post.html, `/blog/${post.slug}/tables`, {
             title: post.title,
             updated: post.updated ?? post.date,
@@ -119,7 +120,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 function toolsForPost(slug: string, category: string) {
   const tools: ("calculator" | "checker" | "picker")[] = [];
-  if (/pric|cost|token|harness|eval|chatgpt|recommended/.test(slug)) tools.push("calculator");
+  if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2/.test(slug)) tools.push("calculator");
   if (/prompt|tool-json|harness|eval|chatgpt|recommended/.test(slug)) tools.push("checker");
   if (category === "guide" || /agent|employee|shopping|computer|chatgpt|recommended/.test(slug)) {
     tools.push("picker");
@@ -249,6 +250,99 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
         href: "/tools/agent-picker",
         title: "agent picker",
         note: "four questions, then three directory listings",
+      },
+    };
+  }
+  if (slug === "what-is-claude-fable-5-2") {
+    return {
+      reads: [
+        {
+          href: "/blog/claude-fable-5-2-vs-gpt-6-astra",
+          title: "Claude Fable 5.2 vs GPT-6 Astra for coding agents",
+          note: "Dated scores, prices, and context windows, with a verdict per job.",
+        },
+        {
+          href: "/blog/how-to-use-claude-fable-5-2-in-an-agent-harness",
+          title: "How to use Claude Fable 5.2 in an agent harness",
+          note: "Claude Code, the Agent SDK, MCP, and a worked token bill.",
+        },
+        {
+          href: "/directory/claude",
+          title: "Claude in the directory",
+          note: "The product page, separate from the model API rates.",
+        },
+        {
+          href: "/best/ai-agent-harnesses",
+          title: "Best AI agent harness",
+          note: "Licence, list price, and platform from official pages.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "cost calculator",
+        note: "standard per-token rates, including Claude Fable 5.2",
+      },
+    };
+  }
+  if (slug === "claude-fable-5-2-vs-gpt-6-astra") {
+    return {
+      reads: [
+        {
+          href: "/blog/how-to-use-claude-fable-5-2-in-an-agent-harness",
+          title: "How to use Claude Fable 5.2 in an agent harness",
+          note: "The model id, effort defaults, and the $1.00 example turn.",
+        },
+        {
+          href: "/blog/what-is-claude-fable-5-2",
+          title: "What is Claude Fable 5.2?",
+          note: "The 1,000-agent harness and the four API breaks.",
+        },
+        {
+          href: "/blog/claude-code-vs-codex-pricing",
+          title: "Claude Code vs Codex pricing",
+          note: "Plan prices, separate from the API token rates.",
+        },
+        {
+          href: "/best/ai-agent-harnesses",
+          title: "Best AI agent harness",
+          note: "The software around the model.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "cost calculator",
+        note: "multiply your own token counts by the standard rates",
+      },
+    };
+  }
+  if (slug === "how-to-use-claude-fable-5-2-in-an-agent-harness") {
+    return {
+      reads: [
+        {
+          href: "/blog/claude-fable-5-2-vs-gpt-6-astra",
+          title: "Claude Fable 5.2 vs GPT-6 Astra for coding agents",
+          note: "Which job the published scores actually pick.",
+        },
+        {
+          href: "/blog/what-is-claude-fable-5-2",
+          title: "What is Claude Fable 5.2?",
+          note: "The release, the price table, and the 1,000-agent run.",
+        },
+        {
+          href: "/blog/what-is-an-ai-agent-harness",
+          title: "What is an AI agent harness?",
+          note: "The loop, tools, memory, and stop rules around a model.",
+        },
+        {
+          href: "/directory/claude-agent-sdk",
+          title: "Claude Agent SDK",
+          note: "The directory listing for the SDK this guide configures.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "cost calculator",
+        note: "standard rates for the token counts you measured",
       },
     };
   }
