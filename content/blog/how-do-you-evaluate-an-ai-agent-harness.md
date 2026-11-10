@@ -41,6 +41,8 @@ sources:
     url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
   - title: "Hong et al., HarnessFlow (arXiv:2611.06254, November 4, 2026)"
     url: "https://arxiv.org/abs/2611.06254"
+  - title: "Wu et al., Harness Matters (arXiv:2611.11971, submitted November 9, 2026; read November 10, 2026)"
+    url: "https://arxiv.org/abs/2611.11971"
   - title: "Agent Skills specification (agentskills.io, read November 6, 2026)"
     url: "https://agentskills.io/specification"
   - title: "Model Context Protocol, specification revision 2026-07-28 (read November 8, 2026)"
@@ -136,6 +138,8 @@ A behavioral eval checks one action. An agent harness benchmark scores whether t
 [LangChain’s March 10, 2026 anatomy post](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) is the public reminder that the destination score still moves when only the harness changes. The company wrote that a harness-only change took one of its coding agents from the top 30 to the top 5 on Terminal-Bench 2.0. That is LangChain’s account of a leaderboard on that date. It is also why a single headline number is a poor debugging tool: the score moved, and a behavioral suite is how you would ask which new behavior carried it. LangChain’s account names Terminal-Bench 2.0. A separate note on [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs) is on this site, and the dated public boards are the [November 2026 agent harness benchmark](/reports/agent-harness-benchmark-november-2026).
 
 A research search sits on the benchmark side. [HarnessFlow](/research/harnessflow-mcts-harness-optimization), arXiv:2611.06254, posted November 4, 2026, keeps the model fixed and searches for a better executable harness. This site’s breakdown, checked the same day as this guide, reports the authors’ average of 69.48 percent across six benchmarks after 15 refinement attempts each, 10.89 points above the starting harness and 3.95 points above the Meta-Harness rerun in that paper. Those are automatic grades of whole runs. They answer a different question from “did the agent call search before it answered.”
+
+A security measurement is a third question. [Harness Matters](/research/harness-matters-web-agent-security), arXiv:2611.11971, submitted November 9, 2026, scores six open-source web-agent harnesses on whether an unsafe action was carried out. After capability failures are set aside, the overall attack success rate is 32.55 percent. That figure is not a task-success leaderboard, and it is not a check of one tool call.
 
 The same-model lesson, with the measurement and its limits, is in [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Hold the harness still when you compare models, or say that you did not.
 
@@ -247,7 +251,7 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 
 - This guide’s terms: [behavioral evaluation](/glossary/behavioral-evaluation), [agent skill](/glossary/agent-skill), [Model Context Protocol](/glossary/model-context-protocol)
 - Harness hub: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do AI agents work?](/blog/how-do-ai-agents-work), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [agent loop](/glossary/agent-loop), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [tool use](/glossary/tool-use)
-- Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs)
+- Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Harness Matters](/research/harness-matters-web-agent-security), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs)
 - Nearby guides: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents)
 - Topics: [agent harnesses hub](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research)
 - Comparisons: [Best AI agent harness](/best/ai-agent-harnesses), [Best AI agent frameworks](/best/ai-agent-frameworks), [Harness comparison tracker](/trackers/harnesses)
