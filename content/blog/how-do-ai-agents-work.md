@@ -291,7 +291,7 @@ No source read for this guide names a month in which agents will work without a 
 - Report: [AI agents, the next 12 months](/reports/ai-agents-next-12-months)
 - Directory: [Claude Agent SDK](/directory/claude-agent-sdk), [OpenAI Agents SDK](/directory/openai-agents-sdk), [Microsoft Agent Framework](/directory/microsoft-agent-framework), [Google ADK](/directory/google-adk)
 - Comparisons: [Best AI agents](/best), [Best AI agent harness](/best/ai-agent-harnesses), [Best AI agent frameworks](/best/ai-agent-frameworks), [Best AI coding agents](/best/ai-coding-agents), [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools)
-- Cost: [AI agent cost calculator](/agent-cost-calculator)
+- Cost: [AI agent cost calculator](/agent-cost-calculator), and the November 10 list-price reading of [Agentforce at $0.10 per action and Copilot Studio’s 141-credit example](/blog/agentforce-vs-copilot-studio-pricing-november-2026)
 - Topics: [how agents work](/topics/how-agents-work), [harnesses](/topics/harnesses), [research](/topics/research)
 
 ## Frequently asked questions

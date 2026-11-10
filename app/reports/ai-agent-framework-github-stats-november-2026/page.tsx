@@ -137,6 +137,13 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/research/livekit-agents-vs-pipecat-installs-november-2026",
+            title: "LiveKit Agents had 4,583,195 downloads. Pipecat had 2,007 more stars.",
+            description: "Voice frameworks were outside this snapshot. October 10 through November 8, 2026, PyPI without mirrors.",
+            kicker: "Research",
+            date: "2026-11-10",
+          },
+          {
             href: "/trackers/downloads",
             title: "AI agent framework downloads tracker (updated daily)",
             description: "PyPI and npm file requests for these libraries, refreshed from public APIs.",

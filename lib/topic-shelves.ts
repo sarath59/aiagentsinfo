@@ -182,6 +182,16 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
       "The control-loop guide is the start. The glossary, the ReAct paper, and the cost calculator answer the questions that follow.",
     links: [
       {
+        href: "/blog/agentforce-vs-copilot-studio-pricing-november-2026",
+        anchor: "Agentforce is $0.10 per action. Copilot Studio’s example is 141 credits.",
+        note: "November 10, 2026 list prices. A Help Agent Resolution is $2.00. The $0.04 action is one meter.",
+      },
+      {
+        href: "/research/livekit-agents-vs-pipecat-installs-november-2026",
+        anchor: "LiveKit Agents had 4,583,195 downloads. Pipecat had 2,007 more stars.",
+        note: "October 10 through November 8, 2026, PyPI without mirrors. Stars read 07:38 UTC on November 10.",
+      },
+      {
         href: "/blog/what-is-elevenagents-campaign-manager",
         anchor: "What is ElevenAgents Campaign Manager?",
         note: "ElevenLabs, November 9, 2026. Outbound until a named outcome, default cap of 6 attempts.",
