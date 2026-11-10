@@ -19,10 +19,10 @@ export function ReportReadTracker() {
     let done = false;
 
     function depth() {
-      const root = document.documentElement;
-      const height = Math.max(root.scrollHeight, document.body?.scrollHeight ?? 0);
-      if (height <= 0) return 0;
-      return (window.scrollY + window.innerHeight) / height;
+      const el = document.scrollingElement ?? document.documentElement;
+      const max = el.scrollHeight - el.clientHeight;
+      if (max <= 1) return 1;
+      return Math.min(1, el.scrollTop / max);
     }
 
     function check() {
