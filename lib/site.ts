@@ -127,21 +127,6 @@ export const topics = [
   },
 ] as const;
 
-export const nav = [
-  { href: "/directory", label: "Directory" },
-  { href: "/submit", label: "Submit" },
-  { href: "/reports", label: "Reports" },
-  { href: "/trackers", label: "Trackers" },
-  { href: "/tools", label: "Tools" },
-  { href: "/best", label: "Best AI agents" },
-  { href: "/verified-revenue", label: "Revenue" },
-  { href: "/research", label: "Research" },
-  { href: "/blog", label: "Blog" },
-  { href: "/glossary", label: "Glossary" },
-  { href: "/topics", label: "Topics" },
-  { href: "/mcp", label: "MCP" },
-] as const;
-
 export const comparisons = [
   {
     href: "/best/ai-agent-harnesses",
