@@ -2,7 +2,6 @@ import { AgentPicker } from "@/components/AgentPicker";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { UpdatedLine } from "@/components/UpdatedLine";
-import { WeeklySignup } from "@/components/WeeklySignup";
 import { toPickerListings } from "@/lib/agent-picker";
 import { getDirectoryListings } from "@/lib/directory";
 import { JsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
@@ -67,7 +66,6 @@ export default async function AgentPickerPage() {
             </div>
           ))}
         </section>
-        <WeeklySignup />
       </div>
     </>
   );

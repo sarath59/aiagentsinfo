@@ -4,7 +4,6 @@ import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
 import { HomeReveal } from "@/components/home/HomeReveal";
 import { SectionSignal } from "@/components/home/SectionSignal";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { categoryTitle, getBlogPosts, type BlogPost } from "@/lib/blog";
 import { companyForName } from "@/lib/companies";
 import { categoryTitle as directoryCategoryTitle, getDirectoryListings, type DirectoryListing } from "@/lib/directory";
@@ -348,14 +347,6 @@ export default async function HomePage() {
             <EmptyState title="Guides publishing soon" body="Explainers will appear here as they are written." href="/blog" cta="Visit the blog" />
           )}
         </section>
-      </HomeReveal>
-
-      <SectionSignal delay="-0.2s" />
-
-      <HomeReveal>
-        <div className="mx-auto max-w-3xl px-4" id="newsletter">
-          <NewsletterSignup id="home" />
-        </div>
       </HomeReveal>
     </div>
   );

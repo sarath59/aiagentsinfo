@@ -1,3 +1,4 @@
+/** Article chrome. Do not add a newsletter signup, a digest CTA, or an email form. */
 import type { ReactNode } from "react";
 import { BylineLink } from "@/components/BylineLink";
 import { CompanyMarks, InlineCompanyText } from "@/components/CompanyMarks";

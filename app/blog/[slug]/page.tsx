@@ -5,7 +5,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SourceList } from "@/components/CompanyMarks";
 import { ListYourAgent } from "@/components/ListYourAgent";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { NextRead, type NextReadItem } from "@/components/NextRead";
 import { ToolCtas } from "@/components/ToolCtas";
 import { categoryTitle, getBlogPost, getBlogPosts, relatedBlogPosts } from "@/lib/blog";
@@ -112,9 +111,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         />
         <ToolCtas tools={toolsForPost(post.slug, post.category)} />
         {nextRead ? <ListYourAgent /> : null}
-        <div className="mt-14">
-          <NewsletterSignup id="article" />
-        </div>
       </ArticleTemplate>
     </>
   );

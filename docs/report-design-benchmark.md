@@ -105,7 +105,7 @@ Research practice. Third annual wave. n = 2,360 executives, 16 markets, nine ind
 
 ## On-page reading
 
-Reports on aiagentsinfo.com are read on the site. There is no download, no PDF, no CSV, and no form, on current reports or on ones added later. The weekly newsletter stays on the rest of the site. It is not on `/reports` or on a report page. `ReportLayout` sets `shell="report"` on the shared article template. That template renders the title, the reading time, the key numbers, and a table of contents with section anchors. On a wide screen the contents list stays in view beside the chapters. On a narrow screen it sits above the chapters. A new report that uses `ReportLayout` gets that chrome and does not get a file link or a form.
+Reports on aiagentsinfo.com are read on the site. There is no download, no PDF, no CSV, and no form, on current reports or on ones added later. The site does not run an email newsletter, on `/reports` or anywhere else. Do not add a signup, a popup, or a digest CTA to a new page. `ReportLayout` sets `shell="report"` on the shared article template. That template renders the title, the reading time, the key numbers, and a table of contents with section anchors. On a wide screen the contents list stays in view beside the chapters. On a narrow screen it sits above the chapters. A new report that uses `ReportLayout` gets that chrome and does not get a file link, a form, or a newsletter.
 
 The page is the full report. Charts are inline SVG, and each chart has its table and its source line in the HTML. Sources and the citation snippet stay on the page. Dataset JSON-LD describes the page. It does not include `distribution` or `downloadUrl`.
 
@@ -114,6 +114,7 @@ An old `/reports/<slug>/pdf` or `/reports/<slug>/csv` URL, including one with a 
 ## What we refused
 
 - A download, a PDF, a CSV, or a lead form. The report is the page.
+- An email newsletter, a signup form, or a digest CTA. RSS at `/rss.xml` is the feed.
 - Dark slide decks. The site is light mode only.
 - A second body font. Inter stays the text face.
 - A chart with no table. The SVG is the picture. The table is the number.

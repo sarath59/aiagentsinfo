@@ -3,7 +3,6 @@ import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { FaqList } from "@/components/FaqList";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SortableTable } from "@/components/SortableTable";
 import { TrackerNav } from "@/components/trackers/TrackerNav";
 import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
@@ -215,9 +214,6 @@ export default async function StarsTrackerPage() {
         </section>
 
         <FaqList items={faq.map((item) => ({ question: item.question, answer: item.answer }))} />
-        <div className="mt-14">
-          <NewsletterSignup id="tracker-stars" />
-        </div>
       </ArticleTemplate>
     </>
   );

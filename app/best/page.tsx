@@ -3,7 +3,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ListYourAgent } from "@/components/ListYourAgent";
 import { PageHeader } from "@/components/PageHeader";
 import { ToolHub } from "@/components/ToolHub";
-import { WeeklySignup } from "@/components/WeeklySignup";
 import {
   COMPARISON_HUB,
   COMPARISON_VERIFIED_ON,
@@ -64,7 +63,6 @@ export default function BestIndexPage() {
       />
       <div className="mx-auto max-w-6xl px-4">
         <ToolHub />
-        <WeeklySignup />
       </div>
       <HubGroup
         heading="For builders"

@@ -7,7 +7,6 @@ import { ListYourAgent } from "@/components/ListYourAgent";
 import { SubmitToolButton } from "@/components/SubmitToolButton";
 import { ToolHub } from "@/components/ToolHub";
 import { UpdatedLine } from "@/components/UpdatedLine";
-import { WeeklySignup } from "@/components/WeeklySignup";
 import {
   allTags,
   allUseCases,
@@ -96,7 +95,6 @@ export default async function DirectoryPage({
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <BestOfLinks intro="Directory listings that appear in a sourced comparison keep the same product name and official site." />
         <ToolHub />
-        <WeeklySignup />
 
         <div className="flex flex-wrap gap-2">
           <Link href="/directory/new" className="chip">

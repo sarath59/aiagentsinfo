@@ -1,4 +1,6 @@
-/** DataFast goals. The site script is https://datafa.st/js/script.js in app/layout.tsx. */
+/** DataFast goals. The site script is https://datafa.st/js/script.js in app/layout.tsx.
+ *  This site has no newsletter. Do not add a newsletter_signup goal.
+ */
 
 const GOAL_NAME = /^[a-z0-9_:-]{1,64}$/;
 /** The browser script rejects a custom property name longer than 32 characters. */

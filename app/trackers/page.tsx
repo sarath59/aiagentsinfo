@@ -65,7 +65,7 @@ export default function TrackersIndexPage() {
       <PageHeader
         kicker="Live data"
         title={title}
-        summary="Counts that journalists and newsletters can cite, pulled from public registries. A download is a file request. A star is a bookmark. AGENTS.md presence is not proof an agent followed the file."
+        summary="Counts that a newsroom can cite, pulled from public registries. A download is a file request. A star is a bookmark. AGENTS.md presence is not proof an agent followed the file."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <TrackerNav current={path} />

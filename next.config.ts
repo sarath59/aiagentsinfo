@@ -24,6 +24,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/newsletter",
+        destination: "/",
+        statusCode: 308,
+      },
+      {
+        source: "/newsletter/:path*",
+        destination: "/",
+        statusCode: 308,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "aiagentsinfo.com" }],
         destination: "https://www.aiagentsinfo.com/:path*",

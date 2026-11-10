@@ -5,6 +5,7 @@ import { after } from "next/server";
  * POST https://datafa.st/api/v1/goals with the visitor's datafast_visitor_id cookie.
  * If DATAFAST_API_KEY is unset, this is a silent no-op.
  * Metadata is slugs only. Do not pass an email or any other personal data.
+ * This site has no newsletter. Do not add a newsletter_signup goal.
  */
 
 const ENDPOINT = "https://datafa.st/api/v1/goals";

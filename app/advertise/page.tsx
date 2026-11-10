@@ -6,16 +6,11 @@ import { site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Advertise",
-  "How sponsorship would be labeled on AI Agents Info. No audience numbers or prices are published.",
+  "How sponsorship would be labeled on AI Agents Info. No audience numbers or prices are published. There is no newsletter placement.",
   "/advertise",
 );
 
 const inventory = [
-  {
-    name: "Homepage newsletter sponsor",
-    where: "Landing page digest block",
-    note: "One labeled slot next to signup, if a sponsor is booked. Audience size is not part of the offer.",
-  },
   {
     name: "Directory featured listing",
     where: "/directory and listing pages",
@@ -40,7 +35,7 @@ export default function AdvertisePage() {
       <PageHeader
         kicker="Media kit"
         title="Sponsor the desk, not the ranking"
-        summary="No rate card, traffic figure, open rate, or price is published. If a placement is sold, it is labeled. Editorial pages are not for sale."
+        summary="No rate card, traffic figure, or price is published. There is no email list to sponsor. If a placement is sold, it is labeled. Editorial pages are not for sale."
       />
       <div className="mx-auto max-w-3xl px-4 pb-20">
         <p className="text-[var(--muted)]">

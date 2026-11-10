@@ -30,7 +30,7 @@ See `.env.example`. **Do not commit API keys.** This repository is public.
 | `GITHUB_SUBMISSIONS_TOKEN` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
 | `GITHUB_SUBMISSIONS_REPO` | Optional `owner/name` of a **private** repository. When set to a repo other than `sarath59/aiagentsinfo`, the submitter email is stored only in a GitHub issue there. When unset, the email is dropped. |
 
-Newsletter (`POST /api/newsletter`) is still a stub: it validates and logs, and does not store addresses. Tool submissions are documented below.
+This site does not run a newsletter, an email signup, a popup, or a subscribe CTA. Do not add one, and do not add a DataFast goal that exists only for newsletter signup. Old `/newsletter` URLs redirect to `/` with status 308. RSS at `/rss.xml` is the feed. Tool submissions are documented below.
 
 ## Brand assets
 
@@ -67,6 +67,8 @@ Research types: `paper-breakdown`, `original-report`, `benchmark`.
 Directory categories, pricing, tags, and collection flags (`newThisWeek`, `trending`, `editorsPick`, `sponsored`) live in each listing's front matter. Set a flag only when it is true.
 
 Byline is always **AI Agents Info Editorial** or **AI Agents Info Research**. Do not add fake authors, bios, testimonials, ratings, user counts, or invented citations.
+
+Do not add a newsletter form, popup, footer signup, header link, `/newsletter` page, subscribe API, or copy that promises a digest ("subscribe", "weekly digest in your inbox", "join N readers"). RSS stays. A shared layout change must not put a signup back on blog, research, report, directory, or tool pages.
 
 ## Submit your tool
 
@@ -155,7 +157,7 @@ npm run indexnow -- --urls https://www.aiagentsinfo.com/blog
 
 ## What ships in v1
 
-- Landing page with directory search, adult reading paths, news strip, research, glossary teaser, newsletter form
+- Landing page with directory search, adult reading paths, news strip, research, glossary teaser
 - Audience pages: Plain English (large-text toggle), Builders, Research
 - Topic/coverage pages
 - Blog index (categories + pagination) and post template
@@ -165,7 +167,7 @@ npm run indexnow -- --urls https://www.aiagentsinfo.com/blog
 - Tracker stubs: breakthroughs, harnesses, benchmarks
 - About, Contact, Privacy, Terms, Advertise/media kit
 - Dark/light mode, sitemap, robots, RSS
-- Labeled sponsor slots (newsletter, directory featured, blog in-feed, research desk)
+- Labeled sponsor slots (directory featured, blog in-feed, research desk). No newsletter placement.
 - Env-based analytics hook (off unless configured)
 
 Do not commit placeholder articles, invented scores, fake sponsors, or unverified listings.

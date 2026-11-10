@@ -7,7 +7,6 @@ import { InlineCompanyText, SourceList } from "@/components/CompanyMarks";
 import { CopyBibtex } from "@/components/CopyBibtex";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { MarkdownBody } from "@/components/MarkdownBody";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { NextRead, type NextReadItem } from "@/components/NextRead";
 import { ToolCtas } from "@/components/ToolCtas";
 import { companyForUrl } from "@/lib/companies";
@@ -221,9 +220,6 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           </section>
         ) : null}
         <ToolCtas tools={nextRead ? ["checklist", "picker", "calculator"] : ["picker", "calculator"]} />
-        <div className="mt-14">
-          <NewsletterSignup id="research" />
-        </div>
       </ArticleTemplate>
     </>
   );

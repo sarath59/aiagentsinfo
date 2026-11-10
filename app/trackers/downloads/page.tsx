@@ -3,7 +3,6 @@ import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { FaqList } from "@/components/FaqList";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SortableTable } from "@/components/SortableTable";
 import { HistoryChart } from "@/components/trackers/HistoryChart";
 import { TrackerNav } from "@/components/trackers/TrackerNav";
@@ -291,9 +290,6 @@ export default async function DownloadsTrackerPage() {
         </section>
 
         <FaqList items={faq.map((item) => ({ question: item.question, answer: item.answer }))} />
-        <div className="mt-14">
-          <NewsletterSignup id="tracker-downloads" />
-        </div>
       </ArticleTemplate>
     </>
   );

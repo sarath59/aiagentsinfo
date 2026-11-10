@@ -59,7 +59,8 @@ export default function EditorialPolicyPage() {
             {site.name} is clear, plain-English AI news and research for adult readers. It does not publish a
             children&apos;s section, an elders&apos; edition, or an age-tiered box inside an article. Education coverage
             is news and product reporting for adults. Jargon is linked to the glossary instead of being rewritten for a
-            younger reader.
+            younger reader. The site does not run an email newsletter and does not collect an address for a digest.
+            New pages are on the site. The RSS feed at <Link href="/rss.xml">/rss.xml</Link> lists them.
           </p>
         </section>
 

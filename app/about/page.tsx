@@ -30,6 +30,10 @@ export default function AboutPage() {
           The writing is for adult readers: news, tools and SaaS, research, shopping, task performance, harnesses, education, and how agents work, in clear plain English. The directory is meant to become a serious catalog over time — listings are files, not a mystery CMS.
         </p>
         <p className="mt-4">
+          There is no email newsletter. New pages are published on the site, and the{" "}
+          <Link href="/rss.xml">RSS feed</Link> lists them.
+        </p>
+        <p className="mt-4">
           We will not invent people, credentials, testimonials, user counts, or citations. A page is published when its sources check out. The{" "}
           <Link href="/editorial-policy">editorial policy</Link> says how dates, sources, and directory submissions are handled.
         </p>

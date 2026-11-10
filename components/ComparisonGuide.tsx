@@ -6,7 +6,6 @@ import { CompanyLogo } from "@/components/CompanyLogo";
 import { SourceList } from "@/components/CompanyMarks";
 import { FaqList } from "@/components/FaqList";
 import { ListYourAgent } from "@/components/ListYourAgent";
-import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { SortableTable } from "@/components/SortableTable";
 import { ToolCtas } from "@/components/ToolCtas";
 import {
@@ -172,9 +171,6 @@ export async function ComparisonGuide({
         />
         <ToolCtas tools={["calculator", "checker", "picker"]} />
         <ListYourAgent />
-        <div className="mt-14">
-          <NewsletterSignup id={`comparison-${page.slug}`} />
-        </div>
       </ArticleTemplate>
     </>
   );
