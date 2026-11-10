@@ -18,6 +18,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "394,222 at 07:41 UTC on November 9, 2026, beside ten other repositories from the same pull.",
       },
       {
+        href: "/research/how-many-github-stars-does-deepseek-harness-have",
+        anchor: "277,506 GitHub stars on DeepSeek Harness",
+        note: "03:35 UTC on November 10, 2026. First of 7 repositories with harness in the name and more than 10,000 stars.",
+      },
+      {
         href: "/blog/what-is-an-ai-agent-harness",
         anchor: "What an AI agent harness is",
         note: "The loop, tools, memory, permissions, and stop rules around a model, including DeepSeek Harness.",
@@ -170,6 +175,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/blog/how-do-ai-agents-work",
         anchor: "How do AI agents work?",
         note: "The control loop from a goal to an action, checked against current product docs.",
+      },
+      {
+        href: "/blog/mcp-server-meaning-42072-github-repos",
+        anchor: "MCP server meaning: 42,072 repos carry the tag",
+        note: "GitHub topic total at 03:35 UTC on November 10, 2026, set next to the November 8 registry count of 59,506.",
       },
       {
         href: "/blog/how-to-build-an-eval-harness-for-ai-agents",

@@ -6,7 +6,7 @@ takeaways:
   - "Two workshops can hand the same program a job and get different results. The program did not change. The workshop did."
   - "On this site, a harness is the runtime around a model: the loop, the tools, the memory, the permissions, and the stop conditions."
 date: "2026-11-03"
-updated: "2026-11-08"
+updated: "2026-11-10"
 category: guide
 topics:
   - harnesses
@@ -292,7 +292,7 @@ Read a row as a pointer, then open the vendor page before you depend on a detail
 
 DeepSeek Harness is an agent harness from DeepSeek, published as source. The general name for that surrounding software is an [agent harness](/glossary/harness). Designing one on purpose is [harness engineering](/glossary/harness-engineering). GitHub records the public repository [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) as created on August 13, 2026. The repository description is “DeepSeek Harness: Everything is a Plugin.” The [README](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.md) calls it an open-source agent harness, `dsh`, developed by DeepSeek, built on an everything-is-a-plugin architecture. The same README says the project is in developer preview and that compatibility-breaking changes are expected. GitHub lists the license as MIT, and the README points at the same MIT license file.
 
-On November 5, 2026, GitHub’s latest-release endpoint, which returns the newest release that is not a pre-release, responded 404. The newest item on the releases list was a pre-release: tag `dsh-v0.2.2-rc.1`, name v0.2.2-rc.1, published November 4, 2026.
+On November 5, 2026, GitHub’s latest-release endpoint, which returns the newest release that is not a pre-release, responded 404. The newest item on the releases list was a pre-release: tag `dsh-v0.2.2-rc.1`, name v0.2.2-rc.1, published November 4, 2026. The star field on November 10, 2026 is [277,506 GitHub stars on DeepSeek Harness](/research/how-many-github-stars-does-deepseek-harness-have), read at 03:35 UTC, with the same pre-release still first on the releases list.
 
 ## What does “DeepSeek Harness desktop” refer to here?
 
