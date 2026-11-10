@@ -6,12 +6,68 @@
     "height": 128,
     "bytes": 1588
   },
+  "avie": {
+    "source": "https://avie.me/static/brand/header-lockup-clean.svg?v=20260927-logo-v3",
+    "file": "/logos/makers/avie.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1236
+  },
+  "damon-salvatore-church-edit-ai-video-generator": {
+    "source": "https://damonsalvatoreaivideo.app/og/cover-1200x630.jpg",
+    "file": "/logos/makers/damon-salvatore-church-edit-ai-video-generator.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 2336
+  },
+  "disconfirmai": {
+    "source": "https://disconfirmai.com/brand/icon-64.png",
+    "file": "/logos/makers/disconfirmai.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1874
+  },
+  "dog-bartender-ai-video-generator": {
+    "source": "https://dogbartender.com/og/dog-bartender-sample-1200x630.jpg",
+    "file": "/logos/makers/dog-bartender-ai-video-generator.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 958
+  },
   "enhancewizard": {
     "source": "https://enhancewizard.com/icon.svg",
     "file": "/logos/makers/enhancewizard.svg",
     "width": 128,
     "height": 128,
     "bytes": 192
+  },
+  "everygen-ai": {
+    "source": "https://everygenai.video/brand/mark.svg",
+    "file": "/logos/makers/everygen-ai.svg",
+    "width": 128,
+    "height": 128,
+    "bytes": 224
+  },
+  "grok-bot-kit": {
+    "source": "https://grokbotkit.com/images/og-default.png",
+    "file": "/logos/makers/grok-bot-kit.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 584
+  },
+  "html2mp4": {
+    "source": "https://html2mp4.com/assets/icon-192.png",
+    "file": "/logos/makers/html2mp4.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1428
+  },
+  "neverapply": {
+    "source": "https://neverapply.co/apple-touch-icon.png",
+    "file": "/logos/makers/neverapply.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1718
   },
   "nextname": {
     "source": "https://nextname.app/apple-touch-icon.png",
@@ -27,6 +83,13 @@
     "height": 128,
     "bytes": 1768
   },
+  "rezloom": {
+    "source": "https://rezloom.com/favicon.png",
+    "file": "/logos/makers/rezloom.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 5114
+  },
   "ringzel": {
     "source": "https://ringzel.com/brand/ringzel-icon-512.png",
     "file": "/logos/makers/ringzel.webp",
@@ -39,7 +102,7 @@
     "file": "/logos/makers/smew-ai.webp",
     "width": 128,
     "height": 128,
-    "bytes": 1928
+    "bytes": 1608
   },
   "tecadrise-bot": {
     "source": "https://tecadrise.ai/logo512.png",
@@ -47,5 +110,12 @@
     "width": 128,
     "height": 128,
     "bytes": 1144
+  },
+  "window-peeper-ai-video": {
+    "source": "https://windowpeeperaivideo.com/images/theme-video/window-peeper-scene.jpg",
+    "file": "/logos/makers/window-peeper-ai-video.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1634
   }
 }
