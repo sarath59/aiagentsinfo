@@ -29,6 +29,9 @@ const ORIGIN = `https://${HOST}`;
 const ENDPOINTS = [
   "https://api.indexnow.org/indexnow",
   "https://www.bing.com/indexnow",
+  "https://yandex.com/indexnow",
+  "https://search.seznam.cz/indexnow",
+  "https://searchadvisor.naver.com/indexnow",
 ];
 const MAX_URLS_PER_REQUEST = 10_000;
 const KEY_FILE_RE = /^[A-Za-z0-9-]{8,128}\.txt$/;

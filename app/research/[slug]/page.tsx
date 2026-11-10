@@ -8,6 +8,7 @@ import { CopyBibtex } from "@/components/CopyBibtex";
 import { DataSourceLine } from "@/components/DataSourceLine";
 import { MarkdownBody } from "@/components/MarkdownBody";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { NextRead, type NextReadItem } from "@/components/NextRead";
 import { ToolCtas } from "@/components/ToolCtas";
 import { companyForUrl } from "@/lib/companies";
 import { withTableDownloads } from "@/lib/html-tables";
@@ -53,6 +54,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
   const paper = doc.paperUrl ? companyForUrl(doc.paperUrl) : undefined;
   const code = doc.codeUrl ? companyForUrl(doc.codeUrl) : undefined;
   const related = relatedResearchDocs(doc, all);
+  const nextRead = nextReadForDoc(doc.slug);
   const hasTable = /<table\b/i.test(doc.html);
   const source = {
     title: doc.title,
@@ -174,6 +176,7 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
           readingMinutes: item.readingMinutes,
         }))}
       >
+        {nextRead ? <NextRead reads={nextRead.reads} tool={nextRead.tool} /> : null}
         {doc.ledeQuestion && doc.ledeAnswer ? (
           <section id="answer">
             <h2>{doc.ledeQuestion}</h2>
@@ -217,11 +220,57 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
             ))}
           </section>
         ) : null}
-        <ToolCtas tools={["picker", "calculator"]} />
+        <ToolCtas tools={nextRead ? ["checklist", "picker", "calculator"] : ["picker", "calculator"]} />
         <div className="mt-14">
           <NewsletterSignup id="research" />
         </div>
       </ArticleTemplate>
     </>
   );
+}
+
+function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (
+    slug !== "evolver-agent-exploration-evolving-capabilities" &&
+    slug !== "harnessflow-mcts-harness-optimization"
+  ) {
+    return null;
+  }
+  const other =
+    slug === "harnessflow-mcts-harness-optimization"
+      ? {
+          href: "/research/evolver-agent-exploration-evolving-capabilities",
+          title: "Evolver",
+          note: "Reuses experience inside Claude Code and Codex. A different question from rewriting the harness.",
+        }
+      : {
+          href: "/research/harnessflow-mcts-harness-optimization",
+          title: "HarnessFlow",
+          note: "Searches for a better harness program. A different question from reusing a trace.",
+        };
+  return {
+    reads: [
+      other,
+      {
+        href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+        title: "How to evaluate an AI agent harness",
+        note: "One observable action, then whether the job still finishes.",
+      },
+      {
+        href: "/reports/agent-harness-benchmark-november-2026",
+        title: "November 2026 harness benchmark",
+        note: "Official board rows. These papers are not a row on that board.",
+      },
+      {
+        href: "/papers",
+        title: "AI agent papers",
+        note: "The shelf of citable breakdowns.",
+      },
+    ],
+    tool: {
+      href: "/tools/ai-agent-harness-evaluation-checklist",
+      title: "harness evaluation checklist",
+      note: "twelve sourced checks, counted in the browser",
+    },
+  };
 }

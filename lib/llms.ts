@@ -31,6 +31,12 @@ import {
   title as codingTitle,
 } from "@/lib/coding-agents-30-day";
 import { description as benchmarkDescription, path as benchmarkPath, title as benchmarkTitle } from "@/lib/benchmark-report";
+import {
+  description as checklistDescription,
+  path as checklistPath,
+  readOn as checklistReadOn,
+  title as checklistTitle,
+} from "@/lib/harness-checklist";
 import { BENCHMARK_READ_ON, swebenchBenchmark, terminalBench } from "@/lib/harness-benchmark";
 import { paperSentence } from "@/lib/trackers/agents-md";
 import { integer } from "@/lib/trackers/http";
@@ -143,6 +149,11 @@ function dataPageSummaries() {
     articleBlock(yearTitle, [`URL: ${absoluteUrl(yearPath)}`, `Read: ${yearReadOn}`, yearDescription], yearDescription),
     articleBlock(outlookTitle, [`URL: ${absoluteUrl(outlookPath)}`, `Read: ${outlookReadOn}`, outlookDescription], outlookDescription),
     articleBlock(shoppingTitle, [`URL: ${absoluteUrl(shoppingPath)}`, `Checked: ${shoppingReadOn}`, shoppingDescription], shoppingDescription),
+    articleBlock(checklistTitle, [
+      `URL: ${absoluteUrl(checklistPath)}`,
+      `Sources read: ${checklistReadOn}`,
+      checklistDescription,
+    ], "Twelve yes-or-no checks. The count is a worksheet in the browser. It is not a SWE-bench or Terminal-Bench score. Nothing is saved."),
   ].join("\n\n");
 }
 
@@ -223,6 +234,7 @@ export async function buildLlmsTxt() {
         "/tools/cursor-vs-claude-code-vs-codex-pricing",
         "Free comparison of list prices from the vendors' pages.",
       ),
+      item(checklistTitle, checklistPath, checklistDescription),
     ]),
     section("Directory", [
       item("Directory", "/directory", `${counted(listings.length, "listing")} of AI tools, apps, SaaS, and agents, each with a source site.`),

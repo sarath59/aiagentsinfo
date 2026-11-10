@@ -7,7 +7,7 @@ takeaways:
   - "On the pages checked for this guide, Google can take Google Pay or hand items to the store, and ChatGPT sends the purchase to the store's website or app."
   - "The short version: the assistant is allowed to act. The store still sells the item."
 date: "2026-11-04"
-updated: "2026-11-07"
+updated: "2026-11-10"
 category: guide
 topics:
   - shopping
@@ -83,7 +83,7 @@ faq:
     answer: "The pages checked here describe U.S. rollout for Google's Universal Cart, ChatGPT shopping, Alexa for Shopping, Copilot Checkout, and Perplexity Instant Buy. Google's November 4, 2026 post adds direct checkout for eligible Canadian retailers. Shopify's help page also lists Australia among the customer countries for its Google direct-checkout channel. A feature on one country's page is not a promise that the same button exists everywhere."
 ---
 
-Updated November 7, 2026.
+Updated November 10, 2026.
 
 ## Can an AI shopping agent check out for you?
 
@@ -91,7 +91,7 @@ Sometimes. A [shopping agent](/glossary/shopping-agent) can research and compare
 
 On the pages re-read for this update, that rule is not the same in every app. Google's Universal Cart can take Google Pay at participating stores, or hand the items to the store's own cart. ChatGPT's merchant page, re-read November 7, 2026, sends the purchase to the store's website or app. Amazon's Alexa for Shopping can buy inside Amazon when a price you set is reached, and it can place an eligible order on another store through Buy for Me. Microsoft Copilot Checkout can finish a purchase inside the assistant for participating merchants. Perplexity Instant Buy is included from the help article retrieved November 4. That page did not load on November 7.
 
-The short version: the assistant is allowed to act. The store still sells the item. Licence, list price, and checkout path for four products are in [Best AI agent for shopping](/best/ai-agents-for-shopping).
+The short version: the assistant is allowed to act. The store still sells the item. Licence, list price, and checkout path for four products are in [Best AI agent for shopping](/best/ai-agents-for-shopping). What a merchant publishes so the agent can quote a real row is [How to make your store readable by AI shopping agents](/blog/how-to-make-your-store-readable-by-ai-shopping-agents).
 
 ## What is a shopping agent?
 

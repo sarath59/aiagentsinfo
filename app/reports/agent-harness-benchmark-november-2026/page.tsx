@@ -230,7 +230,12 @@ export default async function HarnessBenchmarkPage() {
             website is not filled in when the official board does not list it. The product table is{" "}
             <Link href="/best/ai-agent-harnesses">Best AI agent harness</Link>. How to test one action, rather than a
             whole score, is{" "}
-            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>. How
+            <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>. The
+            worksheet for those checks is the{" "}
+            <Link href="/tools/ai-agent-harness-evaluation-checklist">
+              AI agent harness evaluation checklist
+            </Link>
+            . How
             to stand up tasks, isolated trials, and graders is{" "}
             <Link href="/blog/how-to-build-an-eval-harness-for-ai-agents">How to build an eval harness for AI agents</Link>
             . The shelf for the guides, the research notes, and this benchmark is the{" "}
@@ -264,9 +269,9 @@ export default async function HarnessBenchmarkPage() {
             },
           ]}
           tool={{
-            href: "/agent-cost-calculator",
-            title: "agent cost calculator",
-            note: "a 30-day token bill from official prices",
+            href: "/tools/ai-agent-harness-evaluation-checklist",
+            title: "harness evaluation checklist",
+            note: "twelve sourced checks, counted in the browser",
           }}
         />
         <section className="glass mt-10 rounded-3xl p-6 sm:p-8">

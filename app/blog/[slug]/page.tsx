@@ -121,7 +121,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 }
 
 function toolsForPost(slug: string, category: string) {
-  const tools: ("calculator" | "checker" | "picker")[] = [];
+  const tools: ("calculator" | "checker" | "picker" | "checklist")[] = [];
+  if (/eval|harness|shopping/.test(slug)) tools.push("checklist");
   if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2|muse-ember/.test(slug)) {
     tools.push("calculator");
   }
@@ -158,9 +159,9 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
         },
       ],
       tool: {
-        href: "/agent-prompt-checker",
-        title: "prompt checker",
-        note: "counts tokens and checks tool JSON in the browser",
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        title: "harness evaluation checklist",
+        note: "twelve sourced checks, counted in the browser",
       },
     };
   }
@@ -189,9 +190,9 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
         },
       ],
       tool: {
-        href: "/agent-prompt-checker",
-        title: "prompt checker",
-        note: "tool JSON is part of the harness you are testing",
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        title: "harness evaluation checklist",
+        note: "twelve sourced checks, counted in the browser",
       },
     };
   }
@@ -378,6 +379,99 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
         href: "/tools/agent-picker",
         title: "agent picker",
         note: "four questions, then three directory listings",
+      },
+    };
+  }
+  if (slug === "which-ai-agent-framework-do-people-install") {
+    return {
+      reads: [
+        {
+          href: "/trackers/downloads",
+          title: "Framework downloads tracker",
+          note: "The live PyPI and npm counts. A download is a file request.",
+        },
+        {
+          href: "/reports/agent-harness-benchmark-november-2026",
+          title: "November 2026 harness benchmark",
+          note: "Public scores, which answer a different question from an install count.",
+        },
+        {
+          href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+          title: "How to evaluate an AI agent harness",
+          note: "One observable action, then whether the job still finishes.",
+        },
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents, the next 6 months",
+          note: "What six companies have dated for shopping agents.",
+        },
+      ],
+      tool: {
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        title: "harness evaluation checklist",
+        note: "twelve sourced checks, counted in the browser",
+      },
+    };
+  }
+  if (slug === "can-an-ai-shopping-agent-check-out-for-you") {
+    return {
+      reads: [
+        {
+          href: "/blog/how-to-make-your-store-readable-by-ai-shopping-agents",
+          title: "How to make your store readable by AI shopping agents",
+          note: "The feed fields and checkout flags a merchant publishes.",
+        },
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents, the next 6 months",
+          note: "What six companies have dated through May 2027.",
+        },
+        {
+          href: "/best/ai-agents-for-shopping",
+          title: "Best AI agent for shopping",
+          note: "Licence, list price, and checkout path from official pages.",
+        },
+        {
+          href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+          title: "How to evaluate an AI agent harness",
+          note: "The same shape of test, pointed at a feed lookup.",
+        },
+      ],
+      tool: {
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        title: "harness evaluation checklist",
+        note: "twelve sourced checks, counted in the browser",
+      },
+    };
+  }
+  if (slug === "how-to-make-your-store-readable-by-ai-shopping-agents") {
+    return {
+      reads: [
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents, the next 6 months",
+          note: "The dated record for six companies, through May 2027.",
+        },
+        {
+          href: "/blog/can-an-ai-shopping-agent-check-out-for-you",
+          title: "Can an AI shopping agent check out for you?",
+          note: "Who can pay today, and who still sends you to the store.",
+        },
+        {
+          href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+          title: "How to evaluate an AI agent harness",
+          note: "How to test the software that calls the feed.",
+        },
+        {
+          href: "/reports/agent-harness-benchmark-november-2026",
+          title: "November 2026 harness benchmark",
+          note: "Public coding scores, a different job from a product feed.",
+        },
+      ],
+      tool: {
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        title: "harness evaluation checklist",
+        note: "twelve sourced checks, counted in the browser",
       },
     };
   }

@@ -193,6 +193,16 @@ export default async function VerifiedRevenuePage() {
               title: "How to build an eval harness for AI agents",
               note: "Tasks, isolated trials, and graders — not a revenue table.",
             },
+            {
+              href: "/tools/ai-agent-harness-evaluation-checklist",
+              title: "AI agent harness evaluation checklist",
+              note: "Twelve sourced checks. The count is a worksheet, not a revenue figure.",
+            },
+            {
+              href: "/blog/how-to-make-your-store-readable-by-ai-shopping-agents",
+              title: "How to make your store readable by AI shopping agents",
+              note: "A product feed, which is a different file from a revenue screenshot.",
+            },
           ]}
           tool={{
             href: "/agent-cost-calculator",

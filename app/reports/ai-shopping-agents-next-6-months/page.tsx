@@ -4,6 +4,7 @@ import { DataSourceLine } from "@/components/DataSourceLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CiteOrEmbed } from "@/components/CiteOrEmbed";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { NextRead } from "@/components/NextRead";
 import { ToolCtas } from "@/components/ToolCtas";
 import { FaqList } from "@/components/FaqList";
 import { categoryTitle, getBlogPost } from "@/lib/blog";
@@ -17,8 +18,9 @@ import { formatDate } from "@/lib/utils";
 export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 
 export default async function ShoppingAgentsReportPage() {
-  const [guide, harness, shoppingAgent, checkout, feed] = await Promise.all([
+  const [guide, readable, harness, shoppingAgent, checkout, feed] = await Promise.all([
     getBlogPost("can-an-ai-shopping-agent-check-out-for-you"),
+    getBlogPost("how-to-make-your-store-readable-by-ai-shopping-agents"),
     getBlogPost("what-is-an-ai-agent-harness"),
     getGlossaryTerm("shopping-agent"),
     getGlossaryTerm("agentic-checkout"),
@@ -49,6 +51,16 @@ export default async function ShoppingAgentsReportPage() {
           kicker: categoryTitle(guide.category),
           date: guide.date,
           readingMinutes: guide.readingMinutes,
+        }
+      : undefined,
+    readable
+      ? {
+          href: `/blog/${readable.slug}`,
+          title: readable.title,
+          description: readable.description,
+          kicker: categoryTitle(readable.category),
+          date: readable.date,
+          readingMinutes: readable.readingMinutes,
         }
       : undefined,
     harness
@@ -200,9 +212,42 @@ export default async function ShoppingAgentsReportPage() {
             <Link href="/directory/amazon-rufus#what-are-the-latest-amazon-rufus-features-and-expansion-in-november-2026">
               Amazon Rufus latest features and expansion in November 2026
             </Link>
+            . What a merchant publishes so an agent can quote a real row is{" "}
+            <Link href="/blog/how-to-make-your-store-readable-by-ai-shopping-agents">
+              how to make your store readable by AI shopping agents
+            </Link>
             .
           </p>
         </div>
+        <NextRead
+          reads={[
+            {
+              href: "/blog/how-to-make-your-store-readable-by-ai-shopping-agents",
+              title: "How to make your store readable by AI shopping agents",
+              note: "Nine OpenAI feed fields, Google’s checkout flag, and Shopify’s catalog sync.",
+            },
+            {
+              href: "/blog/can-an-ai-shopping-agent-check-out-for-you",
+              title: "Can an AI shopping agent check out for you?",
+              note: "Who can pay today, and who still sends the shopper to the store.",
+            },
+            {
+              href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+              title: "How to evaluate an AI agent harness",
+              note: "The checks for the software that calls a catalog.",
+            },
+            {
+              href: "/reports/agent-harness-benchmark-november-2026",
+              title: "November 2026 harness benchmark",
+              note: "Public coding scores, a different job from a product feed.",
+            },
+          ]}
+          tool={{
+            href: "/tools/ai-agent-harness-evaluation-checklist",
+            title: "harness evaluation checklist",
+            note: "twelve sourced checks, counted in the browser",
+          }}
+        />
         <section className="glass article-callout mt-10 rounded-3xl p-6 sm:p-8">
           <h2 id="how-a-claim-is-sorted" className="text-2xl font-semibold tracking-tight">How a claim is sorted</h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">

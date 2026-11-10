@@ -6,7 +6,7 @@ takeaways:
   - "crewai had 2,629,769 downloads in that window. LangGraph’s count was 20.95 times CrewAI’s. On a GitHub pass at 13:38–13:39 UTC on November 9, crewAIInc/crewAI had 60,684 stars and langchain-ai/langgraph had 44,689."
   - "The same dates on npm: the package ai had 140,196,706 downloads, and @mastra/core had 9,988,333. Those registries are separate counts. A download is a file request, including CI and dependency installs."
 date: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-10"
 category: explainer
 topics:
   - tools-saas
@@ -165,7 +165,7 @@ A download count is the right tool for “what did pip and npm fetch,” and a w
 
 CI, a dependency, and a person trying a tutorial all increment the same field. `langchain` 1.4.9 pulling `langgraph`, and `pydantic-ai` pulling `pydantic-ai-slim`, are the cases checked above. Other dependencies inside these graphs were not fully expanded. Quality, licence, and whether the README still promises fixes are separate questions. AutoGen’s install name in its own README is `autogen-agentchat`, and that distribution’s 401,015 downloads sit next to a repository whose maintenance statement is already written up.
 
-The [agent picker](/tools/agent-picker) is the directory’s filter for a job. [How do AI agents work?](/blog/how-do-ai-agents-work) is the loop those libraries wrap. A star census of agent products, rather than of these libraries, is [How many GitHub stars does OpenClaw have?](/research/how-many-github-stars-does-openclaw-have). How many popular repositories write instructions for the coding agents these SDKs drive is [How many repos use AGENTS.md?](/research/how-many-repos-use-agents-md). The live filename search next to that census is the [AGENTS.md adoption tracker](/trackers/agents-md).
+The [agent picker](/tools/agent-picker) is the directory’s filter for a job. [How do AI agents work?](/blog/how-do-ai-agents-work) is the loop those libraries wrap. The [AI agent harness evaluation checklist](/tools/ai-agent-harness-evaluation-checklist) is the worksheet for testing the software around a model. Public scores are the [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026). Shopping agents, a different job from an install count, are [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months). A star census of agent products, rather than of these libraries, is [How many GitHub stars does OpenClaw have?](/research/how-many-github-stars-does-openclaw-have). How many popular repositories write instructions for the coding agents these SDKs drive is [How many repos use AGENTS.md?](/research/how-many-repos-use-agents-md). The live filename search next to that census is the [AGENTS.md adoption tracker](/trackers/agents-md).
 
 ## FAQ
 

@@ -26,6 +26,11 @@ const links = [
     title: "Which AI agent fits me?",
     body: "Four questions and three directory links. No login.",
   },
+  {
+    href: "/tools/ai-agent-harness-evaluation-checklist",
+    title: "AI agent harness evaluation checklist",
+    body: "Twelve yes-or-no checks from public posts. The count stays in the browser.",
+  },
 ];
 
 export function ToolHub() {

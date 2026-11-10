@@ -19,6 +19,12 @@ const cards = {
     title: "Which AI agent fits me?",
     body: "Four questions, then three directory listings that match. No login.",
   },
+  checklist: {
+    href: "/tools/ai-agent-harness-evaluation-checklist",
+    kicker: "Checklist",
+    title: "Mark the harness checks you can defend",
+    body: "Twelve yes-or-no checks from public posts and boards. Nothing is saved. The count is not a leaderboard score.",
+  },
 } as const;
 
 export function ToolCtas({ tools }: { tools: (keyof typeof cards)[] }) {

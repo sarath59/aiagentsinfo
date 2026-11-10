@@ -6,7 +6,7 @@ takeaways:
   - "An end-to-end benchmark still answers whether the job finished. Google’s September 9, 2026 post says the benchmark is the destination and the behavioral eval is the check you use while you iterate."
   - "NVIDIA’s November 4, 2026 NeMo post turns a stored failure into a test, changes one part of the harness, and scores that change on tasks the editor was not shown."
 date: "2026-11-06"
-updated: "2026-11-09"
+updated: "2026-11-10"
 category: guide
 topics:
   - harnesses
@@ -64,7 +64,7 @@ faq:
     answer: "Write tasks with checkable outcomes, isolate every trial, grade the environment or a tool call, and keep a held-out set. Harbor, Inspect, and a local pytest suite are three runners. The guide is How to build an eval harness for AI agents."
 ---
 
-Updated November 9, 2026.
+Updated November 10, 2026.
 
 ## How do you evaluate an AI agent harness?
 
@@ -72,7 +72,7 @@ How to evaluate an AI agent harness: check the actions you expect, then check wh
 
 A [behavioral evaluation](/glossary/behavioral-evaluation) watches one step you can point at in the trace: a tool call, a file edit, a clarifying question, a test command. An end-to-end [benchmark](/glossary/benchmark) scores a frozen set of tasks and tells you whether the bundle of model plus [harness](/glossary/harness) succeeded. [Google’s September 9, 2026 post](https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/) says a composite score can move a few points and still leave you unsure which step changed. The behavioral check is how you name that step.
 
-The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). How to build the infrastructure that runs the checks — tasks, isolated trials, graders — is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents). The cycle inside that workshop is [How do AI agents work?](/blog/how-do-ai-agents-work). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses). Dated public boards are the [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026). Live install counts sit on the [trackers](/trackers) and the [downloads tracker](/trackers/downloads).
+The workshop those checks sit on is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). How to build the infrastructure that runs the checks — tasks, isolated trials, graders — is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents). The cycle inside that workshop is [How do AI agents work?](/blog/how-do-ai-agents-work). Designing it on purpose is [harness engineering](/glossary/harness-engineering). The shelf for both is the [harnesses](/topics/harnesses) topic. Tools that run those checks, with licences and list prices from official pages, are [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools). The runtimes they wrap are [Best AI agent harness](/best/ai-agent-harnesses). Dated public boards are the [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026). A twelve-item worksheet for the checks on this page is the [AI agent harness evaluation checklist](/tools/ai-agent-harness-evaluation-checklist). Live install counts sit on the [trackers](/trackers) and the [downloads tracker](/trackers/downloads). A store an agent has to read, which is a different job from a coding score, is [how to make your store readable by AI shopping agents](/blog/how-to-make-your-store-readable-by-ai-shopping-agents).
 
 ## What is a behavioral evaluation?
 

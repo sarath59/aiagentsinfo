@@ -2,6 +2,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ContentCard } from "@/components/ContentCard";
 import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { EmptyState } from "@/components/EmptyState";
+import { NextRead } from "@/components/NextRead";
 import { PageHeader } from "@/components/PageHeader";
 import { getResearchDocs, researchTypeTitle } from "@/lib/research";
 import { UpdatedLine } from "@/components/UpdatedLine";
@@ -39,6 +40,37 @@ export default async function PapersPage() {
         </p>
       </div>
       <div className="mx-auto max-w-6xl px-4 pb-20">
+        <div className="mb-8">
+          <NextRead
+            reads={[
+              {
+                href: "/research/harnessflow-mcts-harness-optimization",
+                title: "HarnessFlow",
+                note: "A paper that searches for a better complete harness.",
+              },
+              {
+                href: "/research/evolver-agent-exploration-evolving-capabilities",
+                title: "Evolver",
+                note: "A paper that reuses experience inside two coding harnesses.",
+              },
+              {
+                href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
+                title: "How to evaluate an AI agent harness",
+                note: "One observable action, then whether the job still finishes.",
+              },
+              {
+                href: "/reports/ai-shopping-agents-next-6-months",
+                title: "AI shopping agents, the next 6 months",
+                note: "What six companies have dated for shopping agents.",
+              },
+            ]}
+            tool={{
+              href: "/tools/ai-agent-harness-evaluation-checklist",
+              title: "harness evaluation checklist",
+              note: "twelve sourced checks, counted in the browser",
+            }}
+          />
+        </div>
         <ContentDeskNav current="/papers" />
         <div className="content-grid">
           {docs.length ? (
