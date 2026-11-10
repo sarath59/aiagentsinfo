@@ -1,5 +1,5 @@
 ---
-title: "Agent tool JSON cost: $2.4672 to $17.136 for one list (Nov 9, 2026)"
+title: "MCP Tool JSON Cost Across Models: Counts vs Estimates"
 description: "On November 9, 2026 the prompt checker priced one three-tool support list at 200 output tokens and 40 turns a day. gpt-5, a tiktoken count, was $3.042 over 30 days. The same paste was $2.4672 on grok-4.7 and $17.136 on gpt-6-astra, both estimates."
 takeaways:
   - "The same three strict tools and a 51-token prompt were 428 input tokens. At 200 output tokens and 40 turns a day, gpt-5 was $0.002535 a turn and $3.042 over 30 days. That row is a tiktoken o200k_base count."

@@ -1,5 +1,5 @@
 ---
-title: "Multi-Agent Orchestration: Removing the Interaction Term Costs 7.2 to 17.3 Points on Code (2026)"
+title: "Multi-Agent Orchestration: Definition, Patterns and Trade-offs"
 description: "What is multi-agent orchestration? An orchestrator chooses the next worker and what that worker may read. In Liu and Xiong, arXiv November 5, 2026, dropping the interaction term costs 7.2 points on their long-input HumanEval and 17.3 points on MBPP."
 takeaways:
   - "Multi-agent orchestration is the rule for which worker runs next and which earlier results that worker is allowed to see. The orchestrator is the part that makes that choice. The workers stay fixed."

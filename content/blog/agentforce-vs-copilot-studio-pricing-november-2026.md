@@ -1,5 +1,5 @@
 ---
-title: "Agentforce Is $0.10 per Action. Copilot Studio’s Own Example Is 141 Credits."
+title: "Salesforce Agentforce vs Microsoft Copilot Studio Pricing: November 2026"
 description: "A Salesforce standard action is 20 Flex Credits, $0.10, on the page read November 10, 2026. A Help Agent Resolution is 400 credits, $2.00. Copilot Studio’s agent action is 5 credits, $0.04 in a $200 pack. Microsoft’s illustrative reasoning-model message is 141 credits, $1.128, before the feature meter."
 takeaways:
   - "Salesforce lists Flex Credits at $500 per 100,000, which is $0.005 each. The pricing page says an Agentforce action is 20 credits, $0.10. The November 3, 2026 rate card prices a Help Agent Resolution and an IT or HR Employee Agent Resolution at 400 credits, $2.00."

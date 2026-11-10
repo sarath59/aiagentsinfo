@@ -1,5 +1,5 @@
 ---
-title: "Can an AI agent use your computer? Yes (checked Nov 7, 2026)"
+title: "Can AI Agents Use Your Computer Safely? Permissions and Risks"
 description: "Yes, when the product has computer use. On November 7, 2026, Claude and ChatGPT desktop apps and the Claude, OpenAI, and Gemini APIs can click, type, and scroll."
 absoluteTitle: true
 takeaways:

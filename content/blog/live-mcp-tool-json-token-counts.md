@@ -1,5 +1,5 @@
 ---
-title: "Context7's two tools: 1,131 tokens. DeepWiki's three: 395."
+title: "Context7 and DeepWiki MCP Tool Definitions: Measured Token Counts"
 description: "On November 10, 2026 the prompt checker counted live tools/list JSON from five public MCP servers. Context7 4.5.0 was 1,131 tool tokens. DeepWiki 4.0.2 was 395. On gpt-5, at 200 output tokens and 40 turns a day, the 30-day figures were $4.143 and $3.039."
 takeaways:
   - "Context7's two tools were 1,131 tokens. DeepWiki's three were 395. This site's seven tools were 973. All three figures are tiktoken o200k_base counts of the compact tools array from tools/list on November 10, 2026."
