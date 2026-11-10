@@ -174,6 +174,12 @@ export const dataAssets = [
       "A labeled forecast. Coding agents stay, computer use stays on runbooks, and a cheaper token is not a cheaper successful run. Checked November 10, 2026.",
   },
   {
+    href: "/reports/mcp-next-6-months",
+    title: "MCP, Nov 2026 to May 2027: the breaking change already shipped",
+    summary:
+      "Revision 2026-07-28 is still current. The official registry, client transports, SDK downloads, and the security advisories, through May 2027. Checked November 10, 2026.",
+  },
+  {
     href: "/reports/browser-and-computer-use-agents-next-6-months",
     title: "Browser and computer-use agents, Nov 2026 to May 2027",
     summary:
@@ -296,6 +302,7 @@ export const footerNav = [
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
       { href: "/reports/ai-agents-in-production-2026", label: "AI agents in production, 2026" },
       { href: "/reports/ai-agents-in-2027", label: "AI agents in 2027" },
+      { href: "/reports/mcp-next-6-months", label: "MCP, Nov 2026 to May 2027" },
       { href: "/reports/browser-and-computer-use-agents-next-6-months", label: "Browser and computer-use agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-coding-agents-next-30-days", label: "AI coding agents, 8 Nov to 8 Dec 2026" },
       { href: "/reports/ai-agents-next-12-months", label: "AI agents, Nov 2026 to Nov 2027" },

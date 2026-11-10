@@ -267,6 +267,10 @@ export default function McpPage() {
         <section className="mt-10 text-sm">
           <p>
             Related:{" "}
+            <Link className="text-[var(--link)] underline" href="/reports/mcp-next-6-months">
+              MCP, Nov 2026 to May 2027
+            </Link>
+            {" · "}
             <Link className="text-[var(--link)] underline" href="/glossary/model-context-protocol">
               Model Context Protocol
             </Link>

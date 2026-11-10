@@ -31,6 +31,7 @@ import {
   title as codingTitle,
 } from "@/lib/coding-agents-30-day";
 import { description as forecastDescription, path as forecastPath, title as forecastTitle } from "@/lib/agents-2027";
+import { description as mcpDescription, path as mcpPath, title as mcpTitle } from "@/lib/mcp-outlook";
 import {
   description as productionDescription,
   path as productionPath,
@@ -142,6 +143,11 @@ function dataPageSummaries() {
       "Published: 2026-11-10",
       forecastDescription,
     ], "Labeled forecast. Coding agents remain the default production deployment, computer use stays on runbooks, and task cost does not fall at Epoch's question-price rate. Falsifiers are on the page."),
+    articleBlock(mcpTitle, [
+      `URL: ${absoluteUrl(mcpPath)}`,
+      "Published: 2026-11-10",
+      mcpDescription,
+    ], "Six-month outlook for the Model Context Protocol. Revision 2026-07-28 is still current. The official registry walk, client transports, SDK file requests, and three security advisories are dated November 10, 2026. July 28, 2027 removal eligibility is on the 12-month outlook."),
     articleBlock(benchmarkTitle, [
       `URL: ${absoluteUrl(benchmarkPath)}`,
       `Read: ${BENCHMARK_READ_ON}`,
@@ -220,6 +226,7 @@ export async function buildLlmsTxt() {
       item("Reports", "/reports", "Dated pages with a source and a citation."),
       item(productionTitle, productionPath, productionDescription),
       item(forecastTitle, forecastPath, forecastDescription),
+      item(mcpTitle, mcpPath, mcpDescription),
       item(browserTitle, browserPath, browserDescription),
       item(codingTitle, codingPath, codingDescription),
       item(yearTitle, yearPath, yearDescription),

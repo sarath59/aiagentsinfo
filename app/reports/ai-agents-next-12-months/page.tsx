@@ -48,6 +48,14 @@ export default async function AgentsTwelveMonthOutlookPage() {
       date: "2026-11-10",
     },
     {
+      href: "/reports/mcp-next-6-months",
+      title: "MCP, Nov 2026 to May 2027",
+      description:
+        "The protocol brief for the same stretch. Revision 2026-07-28 is still current. July 28, 2027, the removal-eligibility day, falls after it.",
+      kicker: "Report",
+      date: "2026-11-10",
+    },
+    {
       href: "/reports/ai-agents-next-6-months",
       title: "AI agents, Nov 2026 to May 2027",
       description:
@@ -640,7 +648,9 @@ export default async function AgentsTwelveMonthOutlookPage() {
               MCP removal is not scheduled for July 28, 2027. That is the first day a later revision may remove
               Roots, Sampling, Logging, and Dynamic Client Registration. The policy’s expedited path can shorten the
               floor to 90 days for an active security risk, with maintainer approval. No such shortening was on the
-              registry. HTTP+SSE still has no calendar day.
+              registry. HTTP+SSE still has no calendar day. The{" "}
+              <Link href="/reports/mcp-next-6-months">six-month MCP brief</Link> covers the revision that is current
+              now, the registry walk, and the client pages, and it stops before this July date.
             </p>
             <p>
               The EU dates after this window are December 2, 2027, and August 2, 2028. A claim that Annex III
