@@ -5,10 +5,10 @@ export const frameworkComparison: ComparisonPage = {
   slug: "ai-agent-frameworks",
   path: "/best/ai-agent-frameworks",
   title: "AI agent framework comparison table",
-  heading: "AI agent framework comparison table: 19 frameworks",
-  metaTitle: "AI agent framework comparison table: 19, Nov 9 2026",
+  heading: "AI agent framework comparison table: open-source, Nov 2026",
+  metaTitle: "AI agent framework comparison table: open-source, Nov 2026",
   metaDescription:
-    "AI agent framework comparison table of 19 free and open-source frameworks. Sort by stars, licence, or use. GitHub releases read November 9, 2026.",
+    "Compare 19 open-source AI agent frameworks. Release tags were read November 9, 2026. LangGraph shows 44,482 GitHub stars from the November 5 snapshot.",
   description:
     "There is no single best AI agent framework. This page compares 19 free and open-source frameworks and SDKs. The licence and the latest GitHub release were read on November 9, 2026. The code is free to use under the licence named here. Calls to a hosted model are billed by that provider, not by the framework.",
   summary:

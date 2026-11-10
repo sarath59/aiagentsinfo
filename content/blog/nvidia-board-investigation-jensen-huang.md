@@ -1,6 +1,7 @@
 ---
-title: "Nvidia board investigation: Jensen Huang stays CEO while directors review the reports"
-description: "On November 8, 2026, Nvidia’s board opened an independent investigation into reporting that Jensen Huang was the target of a foreign intelligence effort. The company says he remains CEO."
+title: "Nvidia board investigation: Huang stays CEO (Nov 8, 2026)"
+description: "On November 8, 2026, Nvidia’s board opened an investigation. The company says Huang stays CEO. His email says he was unfaithful to his wife."
+absoluteTitle: true
 takeaways:
   - "On November 8, 2026, NVIDIA’s board said it is opening an independent investigation into reporting that Jensen Huang was the target of a foreign intelligence effort."
   - "Huang’s email, published by NVIDIA the same day, says he was unfaithful to his wife, supports the review, and is fully committed to the company. The email names no other person."

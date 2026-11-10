@@ -10,24 +10,31 @@ import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonL
 import { absoluteUrl, site } from "@/lib/site";
 import { TRACKER_PATHS } from "@/lib/trackers/catalog";
 import { integer, shortDate } from "@/lib/trackers/http";
-import { getStarsReport, starColumns, starRows, starsFaq, starsTakeaways, topStarred } from "@/lib/trackers/stars";
+import {
+  getStarsReport,
+  starColumns,
+  starRows,
+  starsClickDescription,
+  starsClickTitle,
+  starsFaq,
+  starsTakeaways,
+  topStarred,
+} from "@/lib/trackers/stars";
 
 export const revalidate = 86400;
 
 const path = TRACKER_PATHS.stars;
-const title = "AI agent framework GitHub stars tracker (updated daily)";
+const datasetTitle = "AI agent framework GitHub stars tracker (updated daily)";
 
 export async function generateMetadata() {
   const report = await getStarsReport();
-  const top = topStarred(report.rows);
-  const description = top
-    ? `${top.repo} leads this set with ${integer(top.stars)} GitHub stars. Counts are stargazers_count from the repository API, updated daily.`
-    : "Live GitHub star counts for major AI agent frameworks. Stars are a bookmark, not a download count. Updated daily.";
-  return defaultMetadata(title, description, path, { absoluteTitle: true });
+  return defaultMetadata(starsClickTitle(report), starsClickDescription(report), path, { absoluteTitle: true });
 }
 
 export default async function StarsTrackerPage() {
   const report = await getStarsReport();
+  const title = starsClickTitle(report);
+  const metaDescription = starsClickDescription(report);
   const faq = starsFaq(report);
   const top = topStarred(report.rows);
   const pageUrl = absoluteUrl(path);
@@ -44,7 +51,7 @@ export default async function StarsTrackerPage() {
       <JsonLd
         data={webPageJsonLd({
           title,
-          description: "Live GitHub star counts for major AI agent frameworks, revalidated about once a day.",
+          description: metaDescription,
           path,
           datePublished: "2026-11-09",
           dateModified: report.retrievedDay,
@@ -52,7 +59,7 @@ export default async function StarsTrackerPage() {
       />
       <JsonLd
         data={datasetJsonLd({
-          title,
+          title: datasetTitle,
           description: "stargazers_count, forks, and open_issues_count for named AI agent framework repositories.",
           path,
           datePublished: "2026-11-09",

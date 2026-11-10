@@ -1,6 +1,6 @@
 ---
-title: "Evolver agent exploration: 320 runs, 83.13% to 87.50%"
-description: "Evolver agent exploration, arXiv November 5, 2026: 320 paired diagnostic runs inside Claude Code and Codex. Success rose from 83.13% to 87.50%. Recorded task-execution tokens fell 24.24%. This page has the tables."
+title: "Evolver raised task success to 87.50% (Nov 5, 2026)"
+description: "Evolver raised task success from 83.13% to 87.50% on 320 paired runs. Task-execution tokens fell 24.24%. Claude Code and Codex. arXiv, November 5, 2026."
 date: "2026-11-07"
 updated: "2026-11-09"
 absoluteTitle: true

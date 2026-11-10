@@ -177,6 +177,60 @@ export function starsFaq(report: StarsReport) {
   ];
 }
 
+const STAR_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function retrievedMonthYear(iso: string) {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "2026";
+  return `${STAR_MONTHS[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
+}
+
+function inClickRange(text: string) {
+  return text.length >= 140 && text.length <= 155;
+}
+
+export function starsClickTitle(report: StarsReport) {
+  const langgraph = report.rows.find((row) => row.repo === "langchain-ai/langgraph");
+  const langchain = report.rows.find((row) => row.repo === "langchain-ai/langchain");
+  const when = retrievedMonthYear(report.retrievedAt);
+  const fallback = "AI agent framework GitHub stars tracker (updated daily)";
+  if (langgraph && langchain) {
+    const both = `GitHub stars ${when}: LangGraph ${integer(langgraph.stars)}, LangChain ${integer(langchain.stars)}`;
+    if (both.length <= 60) return both;
+  }
+  if (langgraph) {
+    const one = `LangGraph GitHub stars: ${integer(langgraph.stars)} (${when} tracker)`;
+    if (one.length <= 60) return one;
+  }
+  return fallback;
+}
+
+export function starsClickDescription(report: StarsReport) {
+  const langgraph = report.rows.find((row) => row.repo === "langchain-ai/langgraph");
+  const langchain = report.rows.find((row) => row.repo === "langchain-ai/langchain");
+  const fallback =
+    "Live GitHub star counts for AI agent frameworks, refreshed daily. Each figure is stargazers_count. A star is a bookmark, not a download count.";
+  if (!langgraph || !langchain) return fallback;
+  const heads = [
+    `LangGraph shows ${integer(langgraph.stars)} GitHub stars in this set. LangChain leads at ${integer(langchain.stars)}.`,
+    `LangGraph shows ${integer(langgraph.stars)} GitHub stars. LangChain leads at ${integer(langchain.stars)}.`,
+  ];
+  const tails = [
+    " Counts are stargazers_count from the GitHub API, refreshed daily.",
+    " Both counts are stargazers_count from GitHub, refreshed daily.",
+    " Figures are stargazers_count from GitHub, refreshed daily.",
+    " Stars are stargazers_count, refreshed daily from GitHub.",
+    " The counts are stargazers_count, refreshed daily.",
+  ];
+  for (const head of heads) {
+    for (const tail of tails) {
+      const text = head + tail;
+      if (inClickRange(text)) return text;
+    }
+  }
+  return fallback;
+}
+
 export function starsTakeaways(report: StarsReport) {
   const top = topStarred(report.rows);
   const lines: string[] = [];
