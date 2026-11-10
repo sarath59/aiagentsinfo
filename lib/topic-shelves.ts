@@ -8,6 +8,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
       "Start with the definition, then the evaluation guide, how to build an eval harness, the comparison tables, the November benchmark, and the research notes.",
     links: [
       {
+        href: "/blog/what-is-muse-ember",
+        anchor: "What is Muse Ember?",
+        note: "Meta’s November 9, 2026 worker model. $0.10 and $0.50 per million tokens, scored against Haiku 5.5 and GPT-6 Luna.",
+      },
+      {
         href: "/blog/is-autogen-deprecated",
         anchor: "Is AutoGen deprecated?",
         note: "61,753 stars on November 9, 2026. The README says archived. GitHub’s archive flag was false.",
@@ -171,6 +176,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
     answer:
       "The control-loop guide is the start. The glossary, the ReAct paper, and the cost calculator answer the questions that follow.",
     links: [
+      {
+        href: "/blog/what-is-elevenagents-campaign-manager",
+        anchor: "What is ElevenAgents Campaign Manager?",
+        note: "ElevenLabs, November 9, 2026. Outbound until a named outcome, default cap of 6 attempts.",
+      },
       {
         href: "/blog/how-do-ai-agents-work",
         anchor: "How do AI agents work?",

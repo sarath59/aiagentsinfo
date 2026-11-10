@@ -164,6 +164,10 @@ export async function buildLlmsTxt() {
       ),
     ];
   });
+  const listedInIndex = ["muse-ember", "elevenlabs"].flatMap((slug) => {
+    const listing = listings.find((entry) => entry.slug === slug);
+    return listing ? [item(listing.name, `/directory/${listing.slug}`, listing.summary)] : [];
+  });
 
   const parts = [
     `# ${site.name}`,
@@ -223,6 +227,7 @@ export async function buildLlmsTxt() {
     section("Directory", [
       item("Directory", "/directory", `${counted(listings.length, "listing")} of AI tools, apps, SaaS, and agents, each with a source site.`),
       ...categoryLines,
+      ...listedInIndex,
     ]),
     section("Submit", [
       item("Submit a tool", "/submit", "Public form. A valid submission is published to the directory."),

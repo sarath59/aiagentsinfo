@@ -100,7 +100,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       >
         {nextRead ? <NextRead reads={nextRead.reads} tool={nextRead.tool} /> : null}
         <MarkdownBody
-          sortable={post.slug === "claude-fable-5-2-vs-gpt-6-astra"}
+          sortable={
+            post.slug === "claude-fable-5-2-vs-gpt-6-astra" || post.slug === "what-is-muse-ember"
+          }
           html={withTableDownloads(post.html, `/blog/${post.slug}/tables`, {
             title: post.title,
             updated: post.updated ?? post.date,
@@ -120,7 +122,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 function toolsForPost(slug: string, category: string) {
   const tools: ("calculator" | "checker" | "picker")[] = [];
-  if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2/.test(slug)) tools.push("calculator");
+  if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2|muse-ember/.test(slug)) {
+    tools.push("calculator");
+  }
   if (/prompt|tool-json|harness|eval|chatgpt|recommended/.test(slug)) tools.push("checker");
   if (category === "guide" || /agent|employee|shopping|computer|chatgpt|recommended/.test(slug)) {
     tools.push("picker");
@@ -312,6 +316,68 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
         href: "/agent-cost-calculator",
         title: "cost calculator",
         note: "multiply your own token counts by the standard rates",
+      },
+    };
+  }
+  if (slug === "what-is-muse-ember") {
+    return {
+      reads: [
+        {
+          href: "/directory/muse-ember",
+          title: "Muse Ember in the directory",
+          note: "Model id, token rates, and the API page.",
+        },
+        {
+          href: "/blog/what-is-claude-fable-5-2",
+          title: "What is Claude Fable 5.2?",
+          note: "The other November 9 model, for long sessions at $8 and $40.",
+        },
+        {
+          href: "/blog/what-is-an-ai-agent-harness",
+          title: "What is an AI agent harness?",
+          note: "The loop that would call Ember as the worker.",
+        },
+        {
+          href: "/best/ai-agent-harnesses",
+          title: "Best AI agent harness",
+          note: "Licence, list price, and platform from official pages.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "cost calculator",
+        note: "Haiku 5.5 and GPT-6 Luna rates, next to Ember’s table",
+      },
+    };
+  }
+  if (slug === "what-is-elevenagents-campaign-manager") {
+    return {
+      reads: [
+        {
+          href: "/directory/elevenlabs",
+          title: "ElevenLabs in the directory",
+          note: "Plan prices last checked November 3, plus the November 9 campaign runner.",
+        },
+        {
+          href: "/blog/how-do-ai-agents-work",
+          title: "How do AI agents work?",
+          note: "The loop a voice agent still has to run.",
+        },
+        {
+          href: "/directory/category/voice",
+          title: "Voice agents in the directory",
+          note: "The audio listings, with each vendor’s own page.",
+        },
+        {
+          href: "/glossary/guardrail",
+          title: "What a guardrail is",
+          note: "A check that allows, blocks, rewrites, or pauses one action.",
+        },
+      ],
+      tool: {
+        href: "/tools/agent-picker",
+        title: "agent picker",
+        note: "four questions, then three directory listings",
       },
     };
   }

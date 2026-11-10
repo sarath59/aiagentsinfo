@@ -114,7 +114,7 @@ export const companies: Company[] = [
     website: "https://about.meta.com",
     tile: "light",
     aliases: ["Meta"],
-    hosts: ["meta.com", "about.fb.com"],
+    hosts: ["meta.com", "about.fb.com", "meta.ai"],
   },
   {
     slug: "github",
