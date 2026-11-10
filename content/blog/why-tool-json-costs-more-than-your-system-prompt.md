@@ -6,7 +6,7 @@ takeaways:
   - "At the checker's gpt-5 standard prices, those 94 tokens add $0.0705 over 30 days at 20 turns a day. The 200 output tokens entered for the example are most of the $1.28775."
   - "Claude Sonnet 5.5 has a published tool-use system prompt of 286 tokens for tool_choice auto or none. On the checker's estimate, that published count is larger than the prompt and the schema combined."
 date: "2026-11-07"
-updated: "2026-11-07"
+updated: "2026-11-10"
 category: guide
 topics:
   - how-agents-work
@@ -278,3 +278,7 @@ The 30-day numbers are the checker's multiplication. They leave out the items th
 - The Claude counts of the pasted prompt and schema are tiktoken estimates. The 286 is the published tool-use system prompt for auto or none.
 - Output tokens are the number entered. This check did not call gpt-5 or Claude and did not count a reply.
 - The prompt and the tool JSON are not stored.
+
+## How do you reduce this overhead?
+
+On-demand tool discovery loads a schema only when the agent needs it, rather than sending every definition at the start. [Reduce MCP tool definition token overhead](/blog/reduce-mcp-tool-definition-token-overhead) covers the pattern, cites Atlassian's mcp-compressor implementation, and explains how to measure tokens without losing tool access.

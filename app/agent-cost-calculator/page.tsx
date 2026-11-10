@@ -20,6 +20,7 @@ const path = "/agent-cost-calculator";
 const title = "AI agent cost calculator: free 30-day bill";
 const description =
   "Free AI agent and chatbot cost calculator for 21 official models. Enter tokens per task and tasks per day for a 30-day bill. No login. Prices read November 9, 2026.";
+const pageUpdated = "2026-11-10";
 
 export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 
@@ -84,7 +85,7 @@ export default function CostCalculatorPage() {
             description,
             path,
             datePublished: PRICE_READ_ON,
-            dateModified: PRICE_READ_ON,
+            dateModified: pageUpdated,
           }),
           faqPageJsonLd(faqs),
         ]}
@@ -117,11 +118,106 @@ export default function CostCalculatorPage() {
           .
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">
-          Updated <time dateTime={PRICE_READ_ON}>{updatedLabel}</time>. Prices were read that day.
+          Updated <time dateTime={pageUpdated}>{formatDate(pageUpdated)}</time>. Prices were read {updatedLabel}.
         </p>
       </header>
       <div className="mx-auto max-w-6xl px-4 pb-20">
+        <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm">
+          <strong>Tokens only, not total cost.</strong> This calculator estimates monthly model-token charges, not the
+          total cost of running an AI agent. Add search and tool fees, hosting, storage, subscriptions, and human
+          review separately when they apply.
+        </div>
+
         <CostCalculator />
+
+        <section className="mt-10">
+          <h2 className="text-2xl font-semibold tracking-tight">What is the formula?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            30 × tasks per day × [(input tokens × input price per million + output tokens × output price per million) /
+            1,000,000]. The result is a 30-day token bill, not a calendar month.
+          </p>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="text-2xl font-semibold tracking-tight">What is included and what is not?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            This calculator prices model tokens. Other costs are not included.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[600px] border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-[var(--stroke)]">
+                  <th className="py-2 pr-4 text-left font-semibold">Cost item</th>
+                  <th className="py-2 pr-4 text-left font-semibold">Included here?</th>
+                  <th className="py-2 pr-4 text-left font-semibold">How to estimate</th>
+                  <th className="py-2 text-left font-semibold">Primary source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Model input tokens</td>
+                  <td className="py-2 pr-4 text-green-700">Yes</td>
+                  <td className="py-2 pr-4">Enter in the calculator</td>
+                  <td className="py-2">Provider pricing page</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Model output tokens</td>
+                  <td className="py-2 pr-4 text-green-700">Yes</td>
+                  <td className="py-2 pr-4">Enter in the calculator</td>
+                  <td className="py-2">Provider pricing page</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Cached input tokens</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Use the provider&apos;s cached rate</td>
+                  <td className="py-2">Provider pricing page</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Tool-call fees</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Check if your provider charges per call</td>
+                  <td className="py-2">Provider docs</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Search grounding</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Google charges per search</td>
+                  <td className="py-2">Gemini API pricing</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Seat licenses (Cursor, Copilot, etc.)</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Add the monthly subscription</td>
+                  <td className="py-2">Vendor pricing page</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Hosting and infrastructure</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Cloud provider bills</td>
+                  <td className="py-2">Cloud provider</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Vector database / storage</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Database provider pricing</td>
+                  <td className="py-2">Database provider</td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Human review / oversight</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Labour cost per review</td>
+                  <td className="py-2">Internal estimate</td>
+                </tr>
+                <tr>
+                  <td className="py-2 pr-4">Tax</td>
+                  <td className="py-2 pr-4 text-red-700">Not included</td>
+                  <td className="py-2 pr-4">Varies by jurisdiction</td>
+                  <td className="py-2">Invoice or tax authority</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
         <section className="mt-10">
           <h2 className="text-2xl font-semibold tracking-tight">Which models does the AI agent cost calculator include?</h2>

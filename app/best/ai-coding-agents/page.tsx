@@ -14,6 +14,7 @@ export const metadata = defaultMetadata(
 
 const toc = [
   { id: "direct-answer", text: codingAgentsComparison.question, level: 2 as const },
+  { id: "job-capabilities", text: "What can each AI coding agent do?", level: 2 as const },
   { id: "comparison-table", text: codingAgentsComparison.tableHeading, level: 2 as const },
   { id: "best-for", text: codingAgentsComparison.bestForHeading, level: 2 as const },
   { id: "free", text: "Which AI coding agents are free?", level: 2 as const },
@@ -49,6 +50,81 @@ export default function BestAiCodingAgentsPage() {
             products sit beside are <Link href="/best/ai-agent-frameworks">Best AI agent frameworks</Link>. The loop
             around the model is <Link href="/topics/harnesses">Agent harnesses</Link>.
           </p>
+        </section>
+        <section id="job-capabilities" className="mt-12">
+          <h2 className="text-2xl font-semibold tracking-tight">What can each AI coding agent do?</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Documented capabilities from vendor pages, not scores. Limitations are also from vendor docs.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[800px] border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-[var(--stroke)]">
+                  <th className="py-2 pr-4 text-left font-semibold">Job</th>
+                  <th className="py-2 pr-4 text-left font-semibold">Product</th>
+                  <th className="py-2 pr-4 text-left font-semibold">Documented capability</th>
+                  <th className="py-2 pr-4 text-left font-semibold">Limitation</th>
+                  <th className="py-2 text-left font-semibold">Primary source (date)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Multi-file editing inside an IDE</td>
+                  <td className="py-2 pr-4">Cursor</td>
+                  <td className="py-2 pr-4">Composer multi-file edits in VS Code fork</td>
+                  <td className="py-2 pr-4">Third-party models require paid plan</td>
+                  <td className="py-2">
+                    <a href="https://cursor.com/features" className="text-[var(--link)] underline">cursor.com/features</a> (Nov 9, 2026)
+                  </td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Multi-file editing inside an IDE</td>
+                  <td className="py-2 pr-4">GitHub Copilot</td>
+                  <td className="py-2 pr-4">Agent mode in VS Code, JetBrains, Xcode, Neovim</td>
+                  <td className="py-2 pr-4">Credit-based after allowance</td>
+                  <td className="py-2">
+                    <a href="https://github.com/features/copilot" className="text-[var(--link)] underline">github.com/features/copilot</a> (Nov 9, 2026)
+                  </td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Terminal coding with tests</td>
+                  <td className="py-2 pr-4">Claude Code</td>
+                  <td className="py-2 pr-4">Terminal agent: edit, run tests, open PRs</td>
+                  <td className="py-2 pr-4">Usage shared with Claude chat</td>
+                  <td className="py-2">
+                    <a href="https://claude.com/product/claude-code" className="text-[var(--link)] underline">claude.com/product/claude-code</a> (Nov 9, 2026)
+                  </td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Terminal coding with tests</td>
+                  <td className="py-2 pr-4">Codex</td>
+                  <td className="py-2 pr-4">CLI, IDE, cloud tasks with code review</td>
+                  <td className="py-2 pr-4">Cloud tasks not on Free or Go</td>
+                  <td className="py-2">
+                    <a href="https://chatgpt.com/codex/pricing/" className="text-[var(--link)] underline">chatgpt.com/codex/pricing</a> (Nov 9, 2026)
+                  </td>
+                </tr>
+                <tr className="border-b border-[var(--stroke)]">
+                  <td className="py-2 pr-4">Code review on pull requests</td>
+                  <td className="py-2 pr-4">GitHub Copilot</td>
+                  <td className="py-2 pr-4">Code reviews on PRs</td>
+                  <td className="py-2 pr-4">Review credits count against allowance</td>
+                  <td className="py-2">
+                    <a href="https://docs.github.com/en/copilot" className="text-[var(--link)] underline">docs.github.com/en/copilot</a> (Nov 9, 2026)
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2 pr-4">Code review on pull requests</td>
+                  <td className="py-2 pr-4">Codex</td>
+                  <td className="py-2 pr-4">Automatic code review via Codex Cloud</td>
+                  <td className="py-2 pr-4">Cloud features require Plus or higher</td>
+                  <td className="py-2">
+                    <a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" className="text-[var(--link)] underline">help.openai.com</a> (Nov 9, 2026)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
         <section id="free" className="mt-12">
           <h2 className="text-2xl font-semibold tracking-tight">Which AI coding agents are free?</h2>

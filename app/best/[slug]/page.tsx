@@ -9,7 +9,9 @@ import { defaultMetadata } from "@/lib/seo";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return consumerComparisons.map((page) => ({ slug: page.slug }));
+  return consumerComparisons
+    .filter((page) => page.slug !== "ai-agents-for-small-business")
+    .map((page) => ({ slug: page.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

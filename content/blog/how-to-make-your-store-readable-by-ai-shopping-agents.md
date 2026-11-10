@@ -52,13 +52,13 @@ faq:
     answer: "OpenAI’s merchant page, read November 10, 2026, says shopping is live for ChatGPT users in the United States. Purchases are completed on the merchant’s website or app. Shopify and Etsy catalogs are already integrated."
 ---
 
-Updated November 10, 2026.
+Make your store readable by AI shopping agents by publishing a product feed with a stable item ID, title, description, product URL, brand, seller name, image URL, availability, and price. Checkout is a separate integration: a readable catalog does not, by itself, authorise an agent to pay.
 
 ## How do you make a store readable by an AI shopping agent?
 
-Publish a product row the agent can quote: a stable id, a title, a plain-text description, a public product URL, a brand, a seller name, an image URL, an availability value, and a price.
+Publish a product row the agent can quote. That row is a [product feed](/glossary/product-feed). A homepage sentence that says "AI ready" does not give the agent a price, a stock state, or a page it can open.
 
-That row is a [product feed](/glossary/product-feed). A homepage sentence that says “AI ready” does not give the agent a price, a stock state, or a page it can open. [OpenAI’s feed spec](https://developers.openai.com/commerce/specs/file-upload/products), read November 10, 2026, names those nine fields as the discovery minimum. Search eligibility defaults to on. Checkout defaults to off.
+[OpenAI's feed spec](https://developers.openai.com/commerce/specs/file-upload/products), read November 10, 2026, names those nine fields as the discovery minimum. Search eligibility defaults to on. Checkout defaults to off.
 
 Who can pay today, product by product, is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). The six-company calendar from November 2026 through May 2027 is [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months). The software that calls the feed is an [agent harness](/glossary/harness). The payment step, when a product allows it, is [agentic checkout](/glossary/agentic-checkout).
 

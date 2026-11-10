@@ -13,6 +13,7 @@ const title = "Cursor vs Claude Code vs Codex pricing calculator";
 const description =
   "Cursor, Claude Code, and Codex seat prices read November 9, 2026, plus a token calculator for official API prices read November 5, 2026. The calculator is not a seat-price quote.";
 const verifiedOn = codingAgentsComparison.verifiedOn ?? "2026-11-09";
+const pageUpdated = "2026-11-10";
 
 const ids = new Set(["cursor", "claude-code", "codex"]);
 const rows = codingAgentsComparison.rows.filter((row) => ids.has(row.id));
@@ -52,7 +53,7 @@ export default function PricingCalculatorPage() {
             description,
             path,
             datePublished: verifiedOn,
-            dateModified: verifiedOn,
+            dateModified: pageUpdated,
           }),
           faqPageJsonLd(faqs),
         ]}
@@ -65,12 +66,44 @@ export default function PricingCalculatorPage() {
       />
       <PageHeader kicker="Pricing" title={title} summary={description} />
       <div className="mx-auto max-w-3xl px-4 pb-20">
-        <UpdatedLine date={verifiedOn} />
+        <UpdatedLine date={pageUpdated} />
         <p className="mt-4 text-sm leading-relaxed">
           Seat prices below were read {formatDate(verifiedOn)}. The token calculator uses prices read{" "}
           {formatDate(PRICE_READ_ON)}. A plan price is not a count of how much code the agent will write.
         </p>
-        <h2 className="mt-10 text-2xl font-semibold tracking-tight">What do the three seat prices say?</h2>
+
+        <h2 className="mt-10 text-2xl font-semibold tracking-tight">Cursor pricing plans</h2>
+        <p className="mt-2 text-sm leading-relaxed">
+          On November 9, 2026,{" "}
+          <a href="https://cursor.com/pricing" className="text-[var(--link)] underline">
+            cursor.com/pricing
+          </a>{" "}
+          listed Cursor Plus at $8 a month; third-party models were extra, and prices excluded tax. Free is $0,
+          Premium is $30, Super is $100, and Ultra is $200. Annual billing: $80, $300, $1,000, $2,000.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-semibold tracking-tight">Claude Code pricing: Anthropic plans and limits</h2>
+        <p className="mt-2 text-sm leading-relaxed">
+          On November 9, 2026,{" "}
+          <a href="https://claude.com/pricing" className="text-[var(--link)] underline">
+            claude.com/pricing
+          </a>{" "}
+          did not list Claude Code on the Free card ($0). Pro is $20 a month, or $17 a month when $200 is paid up
+          front. Max is $100 a month with 5× Pro usage. Claude Code on Pro shares one usage pool with the rest of
+          Claude.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-semibold tracking-tight">OpenAI Codex pricing: cost and included access</h2>
+        <p className="mt-2 text-sm leading-relaxed">
+          On November 9, 2026, the{" "}
+          <a href="https://chatgpt.com/codex/pricing/" className="text-[var(--link)] underline">
+            Codex pricing page
+          </a>{" "}
+          said Codex is included on ChatGPT Free, Go, Plus, Pro, Business, or Enterprise. A feature note named $100
+          and $200 Pro plans. Dollar amounts for Free, Go, and Plus were not on the cards that fetch read.
+        </p>
+
+        <h2 className="mt-12 text-2xl font-semibold tracking-tight">What do the three seat prices say?</h2>
         <ul className="mt-4 grid gap-4">
           {rows.map((row) => (
             <li key={row.id} className="rounded-3xl border border-[var(--stroke)] bg-white p-5">
@@ -98,6 +131,7 @@ export default function PricingCalculatorPage() {
           </Link>
           .
         </p>
+
         <h2 className="mt-12 text-2xl font-semibold tracking-tight">What does the token calculator cover?</h2>
         <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
           Official per-token prices for the models in the dropdown, read {formatDate(PRICE_READ_ON)}. Enter your own

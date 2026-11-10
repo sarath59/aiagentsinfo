@@ -1,12 +1,12 @@
 ---
-title: "How Many Official MCP Servers Are There? 59,506 Latest Records on November 8, 2026"
-description: "59,506 latest records in the official MCP registry, counted from 13:43 to 13:45 UTC on November 8, 2026. 58,565 were marked active. One namespace held 2,366 of them."
+title: "How Many Official MCP Servers Are There? 7 Reference Servers and 59,506 Registry Records"
+description: "The project-maintained MCP reference-server list contains 7 implementations (checked November 10, 2026). The public MCP Registry had 59,506 latest-version records on November 8, 2026. Those are different counts."
 takeaways:
-  - "From 13:43 to 13:45 UTC on November 8, 2026, the official registry's latest-version list had 59,506 records. 58,565 were active and 941 were deprecated. A second pass, ending at 13:47 UTC, counted 59,508."
-  - "Active is a lifecycle flag. The registry's about page, read the same hour, says the metadata is deliberately unopinionated and that marketplaces are supposed to curate it."
+  - "The project-maintained reference-server list at github.com/modelcontextprotocol/servers contains 7 implementations: Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking, and Time. Checked November 10, 2026."
+  - "The public MCP Registry at registry.modelcontextprotocol.io had 59,506 latest-version records between 13:43 and 13:45 UTC on November 8, 2026. That is a registry count, not a reference-server count."
   - "33,307 of 36,737 namespaces had exactly one server. Twenty-one namespaces with 100 or more servers held 11,211 records. io.github.sadri-dridi alone had 2,366."
 date: "2026-11-08"
-updated: "2026-11-08"
+updated: "2026-11-10"
 category: explainer
 topics:
   - tools-saas
@@ -40,9 +40,11 @@ sources:
     url: "https://registry.modelcontextprotocol.io/v0.1/servers?version=latest&search=io.github.github"
   - title: "Model Context Protocol glossary on this site"
     url: "https://www.aiagentsinfo.com/glossary/model-context-protocol"
+  - title: "MCP reference servers README (checked November 10, 2026)"
+    url: "https://github.com/modelcontextprotocol/servers"
 faq:
   - question: "How many official MCP servers are there?"
-    answer: "The official registry's latest-version list had 59,506 records between 13:43 and 13:45 UTC on November 8, 2026. 58,565 were marked active and 941 were marked deprecated. A second full pass, from 13:45 to 13:47 UTC, counted 59,508. The list is metadata in a preview registry, and it changes while you count it."
+    answer: "The project-maintained reference-server list at github.com/modelcontextprotocol/servers contains 7 implementations: Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking, and Time. Checked November 10, 2026. The public MCP Registry, a different list, had 59,506 latest-version records on November 8, 2026."
   - question: "Does active mean the server is good?"
     answer: "No. Active, deprecated, and deleted are lifecycle statuses in the registry API. The about page says the metadata is deliberately unopinionated and that downstream marketplaces are the place for curation and ratings. A record can be active and still be one of thousands published under a single namespace."
   - question: "Why is one namespace so large?"
@@ -53,13 +55,27 @@ faq:
     answer: "The about page says host applications should not consume the official registry directly. They should use a downstream marketplace. The 59,506 figure is the size of the metadata list, not a recommendation of 59,506 tools to connect."
 ---
 
-The official MCP registry listed **59,506** latest server records between 13:43:33 and 13:45:25 UTC on November 8, 2026. Of those, **58,565** were marked active and **941** were marked deprecated. A second pass through the same API, from 13:45:47 to 13:47:43 UTC, counted **59,508**. Two records appeared while the first count was being written up. That is the size of the list. It is not a count of servers worth connecting.
+The project-maintained [MCP reference-server list](https://github.com/modelcontextprotocol/servers) contains **7** implementations: Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking, and Time. Checked November 10, 2026. That is different from the public MCP Registry: our November 8 snapshot counted **59,506** latest-version records, not 59,506 project-maintained reference servers.
 
-[MCP](/glossary/model-context-protocol) is the protocol a host uses to reach tools and data. The registry is the public metadata catalog for servers that speak it. This page counted that catalog. It did not rank the servers, and it did not copy a star list from anywhere else.
+[MCP](/glossary/model-context-protocol) is the protocol a host uses to reach tools and data. The reference servers demonstrate core features and SDK usage. The registry is the public metadata catalog for servers that speak the protocol. This page covers both counts.
 
-## How many official MCP servers are there?
+## How many official MCP reference servers are there?
 
-59,506, if you ask the official API for the latest version of each server and you finish the walk that started at 13:43 UTC. 59,508, if you start again two minutes later.
+Seven. The README at [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers), checked November 10, 2026, lists these reference implementations maintained by the MCP steering group:
+
+1. **Everything** — Reference and test server with prompts, resources, and tools.
+2. **Fetch** — Web content fetching and conversion for efficient LLM usage.
+3. **Filesystem** — Secure file operations with configurable access controls.
+4. **Git** — Tools to read, search, and manipulate Git repositories.
+5. **Memory** — Knowledge graph-based persistent memory system.
+6. **Sequential Thinking** — Dynamic and reflective problem-solving through thought sequences.
+7. **Time** — Time and timezone conversion capabilities.
+
+The README says these servers are reference implementations, not production-ready solutions. Developers should evaluate their own security requirements.
+
+## How many servers are listed in the MCP Registry?
+
+59,506 latest-version records between 13:43 and 13:45 UTC on November 8, 2026. A second pass, from 13:45 to 13:47 UTC, counted 59,508.
 
 Both numbers come from `GET https://registry.modelcontextprotocol.io/v0.1/servers` with `version=latest` and `limit=100`, following `metadata.nextCursor` until the cursor was gone. The OpenAPI text for that parameter says `version=latest` returns only the latest version of each matching server. Without it, the same endpoint returns older versions as separate rows. This count used the filter. Each pass took 596 pages.
 

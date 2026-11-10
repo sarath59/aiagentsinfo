@@ -6,7 +6,7 @@ takeaways:
   - "The monthly stickers then match: $20 for Claude Pro or ChatGPT Plus, $100 for Claude Max or Codex Pro, and $200 for Claude Ultra or Codex Pro. Claude Pro is $17 a month if you pay $200 up front. Codex Pro also has a $500 tier."
   - "Equal stickers are not equal coding time. Claude Code shares one usage pool with the rest of Claude. Codex shares its allowance with ChatGPT Work. Read the limit on the vendor page before you treat a price as a budget."
 date: "2026-11-06"
-updated: "2026-11-09"
+updated: "2026-11-10"
 category: guide
 topics:
   - tools-saas
@@ -75,6 +75,19 @@ After that, the individual monthly prices line up. Claude Pro and ChatGPT Plus a
 [Claude Code](https://claude.com/product/claude-code) is Anthropic’s coding agent. Codex is OpenAI’s. Each one is an [agent](/glossary/agent): a model plus the [harness](/glossary/harness) that runs tools, keeps a record, and stops. The longer account of that surrounding software is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The sourced harness table is [Best AI agent harness](/best/ai-agent-harnesses). [Claude](/directory/claude) is the chat product on the same Anthropic plans. [ChatGPT](/directory/chatgpt) is the plan Codex rides on.
 
 Prices below exclude tax where the vendor says so. Anthropic says its prices can change. OpenAI’s pages describe the current cards and send you to a usage dashboard for the live limit. Use the vendor page for a number you intend to pay.
+
+
+## Claude Code vs OpenAI Codex pricing comparison: subscription versus completed-task cost
+
+A lower subscription entry price does not establish a lower cost per completed coding task. This page compares published plan prices and limits; it does not report a matched-workload cost benchmark.
+
+| Comparison | What this page covers | What it does not cover |
+| --- | --- | --- |
+| Entry subscription price | Codex on ChatGPT Free ($0), Go ($8), vs Claude Code on Pro ($20) | Which one finishes a given task for less money |
+| Higher-tier match | Claude Max $100 = Codex Pro $100; Claude Ultra $200 = Codex Pro $200 | Per-task efficiency at those tiers |
+| Cost per completed coding task | **Not measured** | A matched-workload benchmark with identical tasks, model settings, retries, and verified success criteria |
+
+Until a matched-workload experiment is published, the field for cost per completed task is **not measured**. Do not treat a subscription-price comparison as a cost-per-task comparison.
 
 ## What does each $20 plan buy?
 
