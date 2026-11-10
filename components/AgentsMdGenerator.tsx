@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { trackGoal } from "@/lib/analytics";
 import { commandLabels, defaultCommands, defaultPackageManager, packageManagersFor } from "@/lib/agents-md/defaults";
 import { workedExamples } from "@/lib/agents-md/examples";
 import { generateAgentsMd } from "@/lib/agents-md/generate";
@@ -58,9 +59,22 @@ function downloadMarkdown(value: string) {
   URL.revokeObjectURL(url);
 }
 
+const TOOL_SLUG = "agents-md-generator";
+
 export function AgentsMdGenerator() {
   const [input, setInput] = useState<AgentsMdInput>(workedExamples[0].input);
   const [seed, setSeed] = useState(1);
+  const ran = useRef(false);
+
+  function markRun() {
+    if (ran.current) return;
+    ran.current = true;
+    trackGoal("tool_run", { tool_slug: TOOL_SLUG });
+  }
+
+  function markOutput(action: "copy" | "download" | "regenerate") {
+    trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action });
+  }
   const [copied, setCopied] = useState(false);
   const [polished, setPolished] = useState<string | null>(null);
   const [polishNote, setPolishNote] = useState("");
@@ -89,18 +103,21 @@ export function AgentsMdGenerator() {
   }, []);
 
   function update(patch: Partial<AgentsMdInput>) {
+    markRun();
     setPolished(null);
     setPolishNote("");
     setInput((current) => ({ ...current, ...patch }));
   }
 
   function updateCommand(key: CommandKey, value: string) {
+    markRun();
     setPolished(null);
     setPolishNote("");
     setInput((current) => ({ ...current, commands: { ...current.commands, [key]: value } }));
   }
 
   function changeStack(stack: StackId) {
+    markRun();
     setPolished(null);
     setPolishNote("");
     setInput((current) => {
@@ -122,6 +139,7 @@ export function AgentsMdGenerator() {
   }
 
   function changeManager(packageManager: PackageManagerId) {
+    markRun();
     setPolished(null);
     setPolishNote("");
     setInput((current) => ({
@@ -136,6 +154,7 @@ export function AgentsMdGenerator() {
   }
 
   function toggleAgent(id: AgentId) {
+    markRun();
     setPolished(null);
     setPolishNote("");
     setInput((current) => {
@@ -148,6 +167,7 @@ export function AgentsMdGenerator() {
   }
 
   function loadExample(exampleInput: AgentsMdInput) {
+    markRun();
     setPolished(null);
     setPolishNote("");
     setSeed(1);
@@ -391,6 +411,7 @@ export function AgentsMdGenerator() {
                 type="button"
                 className="btn-primary px-4 py-2 text-sm"
                 onClick={() => {
+                  markOutput("copy");
                   void copyText(shown).then(() => {
                     setCopied(true);
                     window.setTimeout(() => setCopied(false), 2000);
@@ -399,7 +420,14 @@ export function AgentsMdGenerator() {
               >
                 {copied ? "Copied" : "Copy"}
               </button>
-              <button type="button" className="btn-ghost px-4 py-2 text-sm" onClick={() => downloadMarkdown(shown)}>
+              <button
+                type="button"
+                className="btn-ghost px-4 py-2 text-sm"
+                onClick={() => {
+                  downloadMarkdown(shown);
+                  markOutput("download");
+                }}
+              >
                 Download .md
               </button>
               <button
@@ -409,6 +437,8 @@ export function AgentsMdGenerator() {
                   setPolished(null);
                   setPolishNote("");
                   setSeed((current) => current + 1);
+                  markRun();
+                  markOutput("regenerate");
                 }}
               >
                 Regenerate

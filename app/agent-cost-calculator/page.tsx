@@ -128,7 +128,7 @@ export default function CostCalculatorPage() {
           review separately when they apply.
         </div>
 
-        <CostCalculator />
+        <CostCalculator toolSlug="agent-cost-calculator" />
 
         <section className="mt-10">
           <h2 className="text-2xl font-semibold tracking-tight">What is the formula?</h2>

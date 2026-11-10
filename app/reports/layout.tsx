@@ -1,5 +1,6 @@
 import { Source_Serif_4 } from "next/font/google";
 import type { ReactNode } from "react";
+import { ReportReadTracker } from "@/components/ReportReadTracker";
 
 const reportDisplay = Source_Serif_4({
   subsets: ["latin"],
@@ -10,5 +11,10 @@ const reportDisplay = Source_Serif_4({
 });
 
 export default function ReportsLayout({ children }: { children: ReactNode }) {
-  return <div className={reportDisplay.variable}>{children}</div>;
+  return (
+    <div className={reportDisplay.variable}>
+      <ReportReadTracker />
+      {children}
+    </div>
+  );
 }

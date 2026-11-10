@@ -1,6 +1,6 @@
 "use client";
 
-import { cloneElement, useState, type FormEvent, type ReactElement } from "react";
+import { cloneElement, useRef, useState, type FormEvent, type ReactElement } from "react";
 import { trackGoal } from "@/lib/analytics";
 import { billingPeriods, directoryCategories, pricingModels } from "@/lib/directory-meta";
 import { SubmissionShareKit, type ShareListing } from "@/components/SubmissionShareKit";
@@ -73,6 +73,13 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
   const [share, setShare] = useState<ShareListing | null>(null);
   const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
   const [rank, setRank] = useState<ListingRankView | null>(null);
+  const formStarted = useRef(false);
+
+  function markFormStarted() {
+    if (formStarted.current) return;
+    formStarted.current = true;
+    trackGoal("form_started");
+  }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -202,6 +209,8 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
       aria-label="Submit your tool"
       noValidate
       onSubmit={onSubmit}
+      onFocus={markFormStarted}
+      onInput={markFormStarted}
       onChange={(event) => {
         const target = event.target;
         if (

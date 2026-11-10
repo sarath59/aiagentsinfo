@@ -1,12 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { trackGoal } from "@/lib/analytics";
 import { checklistGroups, checklistItems } from "@/lib/harness-checklist";
 
 type Answer = "yes" | "not-yet";
 
 export function HarnessChecklist() {
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
+  const ran = useRef(false);
 
   const counts = useMemo(() => {
     let yes = 0;
@@ -62,7 +64,12 @@ export function HarnessChecklist() {
                           name={item.id}
                           value={value}
                           checked={answers[item.id] === value}
-                          onChange={() => setAnswers((current) => ({ ...current, [item.id]: value }))}
+                          onChange={() => {
+                            setAnswers((current) => ({ ...current, [item.id]: value }));
+                            if (ran.current) return;
+                            ran.current = true;
+                            trackGoal("tool_run", { tool_slug: "ai-agent-harness-evaluation-checklist" });
+                          }}
                         />
                         {label}
                       </label>

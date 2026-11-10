@@ -104,6 +104,7 @@ export function PromptChecker() {
         return;
       }
       setResult(payload);
+      trackGoal("tool_run", { tool_slug: "agent-prompt-checker" });
       if (!used.current) {
         used.current = true;
         trackGoal("prompt_checker_use");

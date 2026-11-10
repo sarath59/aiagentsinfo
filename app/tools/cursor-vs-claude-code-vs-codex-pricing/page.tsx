@@ -138,7 +138,7 @@ export default function PricingCalculatorPage() {
           tokens and tasks. The starting numbers are an example, not a measured workload.
         </p>
         <div className="mt-5">
-          <CostCalculator />
+          <CostCalculator toolSlug="cursor-vs-claude-code-vs-codex-pricing" />
         </div>
         <section className="mt-12">
           <h2 className="text-2xl font-semibold tracking-tight">What else do people ask?</h2>

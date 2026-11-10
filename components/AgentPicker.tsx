@@ -24,6 +24,7 @@ export function AgentPicker({ listings, compact = false }: { listings: PickerLis
     event.preventDefault();
     const next = recommendAgents(listings, { useCase, budget, openSource, build });
     setResult(next);
+    trackGoal("tool_run", { tool_slug: "agent-picker" });
     if (!tracked.current && next.matches.length) {
       tracked.current = true;
       trackGoal("picker_complete");

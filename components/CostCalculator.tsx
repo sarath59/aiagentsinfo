@@ -23,7 +23,7 @@ function readNumber(value: string) {
   return parsed;
 }
 
-export function CostCalculator() {
+export function CostCalculator({ toolSlug }: { toolSlug: string }) {
   const [modelId, setModelId] = useState("gpt-5");
   const [inputTokens, setInputTokens] = useState("4000");
   const [outputTokens, setOutputTokens] = useState("800");
@@ -34,6 +34,7 @@ export function CostCalculator() {
     if (used.current) return;
     used.current = true;
     trackGoal("calculator_use");
+    trackGoal("tool_run", { tool_slug: toolSlug });
   }
 
   const model = modelById(modelId);

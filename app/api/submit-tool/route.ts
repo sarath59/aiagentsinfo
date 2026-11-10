@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { trackServerGoal } from "@/lib/datafast-server";
 import { publishSubmission, submissionsToken } from "@/lib/github-submissions";
 import { takeRateLimit } from "@/lib/rate-limit";
 import { collectTakenSlugs, localListingDomains } from "@/lib/submission-files";
@@ -91,6 +92,14 @@ export async function POST(request: Request) {
   try {
     const filed = await publishSubmission(validated.value);
     if (filed.ok) {
+      // Saved and accepted. The only publisher in this repo is this visitor form.
+      // MCP is read-only, so there is no internal path to mark listing_source "agent".
+      if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(filed.slug)) {
+        trackServerGoal(request, "listing_submitted", {
+          listing_slug: filed.slug,
+          listing_source: "user",
+        });
+      }
       return json(
         {
           ok: true,

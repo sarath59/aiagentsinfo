@@ -9,6 +9,16 @@ export type FreeTool = {
   category: ToolCategory;
 };
 
+/** Last path segment for a free tool page, or null when the path is not one. */
+export function toolSlugForPath(pathname: string): string | null {
+  const path = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  const tool = freeTools.find((item) => item.href === path);
+  if (!tool) return null;
+  const slug = tool.href.split("/").filter(Boolean).pop();
+  if (!slug || !/^[a-z0-9_-]{1,64}$/.test(slug)) return null;
+  return slug;
+}
+
 export const freeTools: FreeTool[] = [
   {
     href: "/tools/agents-md-generator",

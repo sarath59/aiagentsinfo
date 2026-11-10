@@ -5,6 +5,7 @@ import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { NewsletterPopup } from "@/components/newsletter/NewsletterPopup";
+import { ToolViewTracker } from "@/components/ToolViewTracker";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "@/components/newsletter/newsletter.css";
@@ -73,6 +74,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main">{children}</main>
         <Footer />
         <NewsletterPopup />
+        <ToolViewTracker />
+        <Script id="datafast-queue" strategy="beforeInteractive">
+          {`window.datafast=window.datafast||function(){window.datafast.q=window.datafast.q||[];window.datafast.q.push(arguments);};`}
+        </Script>
         <Script
           src="https://datafa.st/js/script.js"
           data-website-id="dfid_0z04dGwxdEtL6cLScbJkR"

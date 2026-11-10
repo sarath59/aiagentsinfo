@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { BylineLink } from "@/components/BylineLink";
 import { CompanyMarks, InlineCompanyText } from "@/components/CompanyMarks";
 import { ContentCard } from "@/components/ContentCard";
+import { RelatedReading } from "@/components/RelatedReading";
 import { TableOfContents } from "@/components/TableOfContents";
 import type { TocItem } from "@/lib/markdown";
 import { formatDate } from "@/lib/utils";
@@ -223,7 +224,7 @@ export function ArticleTemplate({
         </div>
 
         {related?.length ? (
-          <section className="article-related" aria-labelledby="related-heading">
+          <RelatedReading>
             <h2 id="related-heading" className="display text-3xl">
               Related reading
             </h2>
@@ -240,7 +241,7 @@ export function ArticleTemplate({
                 />
               ))}
             </div>
-          </section>
+          </RelatedReading>
         ) : null}
       </div>
     </article>

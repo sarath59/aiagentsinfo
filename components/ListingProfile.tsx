@@ -111,7 +111,13 @@ export async function ListingProfile({
         </p>
         <UpdatedLine date={listing.lastVerified} />
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <a className="btn-primary focus-ring px-4 py-2 text-sm" href={listing.website} rel="noreferrer">
+          <a
+            className="btn-primary focus-ring px-4 py-2 text-sm"
+            href={listing.website}
+            rel="noreferrer"
+            data-fast-goal="outbound_tool_click"
+            data-fast-goal-listing-slug={listing.slug}
+          >
             {cta}
           </a>
           {domain ? <span className="text-sm text-[var(--muted)]">{domain}</span> : null}
