@@ -346,6 +346,12 @@ export const frameworkComparison: ComparisonPage = {
   ],
   related: [
     {
+      href: "/blog/langgraph-vs-crewai-vs-openai-agents-sdk",
+      title: "LangGraph vs CrewAI vs the OpenAI Agents SDK",
+      description: "Versions, MCP, evals, and the separate bills. Checked November 10, 2026.",
+      kicker: "Guide",
+    },
+    {
       href: "/trackers/downloads",
       title: "AI agent framework downloads tracker (updated daily)",
       description: "PyPI and npm file requests for these libraries. A download is not a user.",

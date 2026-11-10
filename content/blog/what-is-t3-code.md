@@ -1,12 +1,12 @@
 ---
-title: "What Is T3 Code? 51,402 GitHub Stars on an Open-Source Control Plane (2026)"
-description: "51,402 GitHub stars at 03:46 UTC on November 8, 2026. T3 Code is a free MIT control surface for coding agents you already subscribe to, and release v0.1.7 shipped on November 4."
+title: "What Is T3 Code? 54,963 GitHub Stars on an Open-Source Control Plane (2026)"
+description: "54,963 GitHub stars at 11:48 UTC on November 10, 2026. T3 Code is a free MIT control surface for coding agents you already subscribe to. Release v0.1.8 shipped November 9 and adds Claude Fable 5.2."
 takeaways:
-  - "On November 8, 2026 at 03:46:26 UTC, the GitHub API reported 51,402 stars, 9,893 forks, and 5,806 open issues and pull requests for pingdotgg/t3code. The license field was MIT. The latest release was v0.1.7, published November 4, 2026."
+  - "On November 10, 2026 at 11:48:27 UTC, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests for pingdotgg/t3code. The license field was MIT. The latest release was v0.1.8, published November 9, 2026. The November 8 reading was 51,402 stars and v0.1.7."
   - "The README calls T3 Code an agent-harness control surface. The homepage calls it an open-source control plane. The FAQ, read the same morning, says it is not a harness and does not work without one you already have installed."
   - "The pages do not agree on the agent list. The homepage names six. The install guide names ten, including Kiro, Pi, Muse Code, and fx. This page keeps each list with the page that printed it."
 date: "2026-11-08"
-updated: "2026-11-08"
+updated: "2026-11-10"
 category: guide
 topics:
   - harnesses
@@ -23,8 +23,8 @@ companies:
 byline: "AI Agents Info Editorial"
 contentLicense: true
 dataset:
-  title: "T3 Code GitHub snapshot, November 8, 2026"
-  description: "Stars, forks, open issues and pull requests, MIT licence, and latest release for pingdotgg/t3code, read from the GitHub REST API at 2026-11-08T03:46:26Z."
+  title: "T3 Code GitHub snapshots, November 8 and November 10, 2026"
+  description: "Two readings of pingdotgg/t3code. At 2026-11-08T03:46:26Z: 51,402 stars, 9,893 forks, 5,806 open issues and pull requests, MIT, latest release v0.1.7 published 2026-11-04. At 2026-11-10T11:48:27Z: 54,963 stars, 10,263 forks, 5,789 open issues and pull requests, MIT, archived false, latest release v0.1.8 published 2026-11-09T22:46:42Z. The v0.1.8 notes contain 546 pull-request links, including Claude Fable 5.2."
   isBasedOn: "https://api.github.com/repos/pingdotgg/t3code"
 sources:
   - title: "T3 Code homepage, t3.codes (read November 8, 2026)"
@@ -47,6 +47,10 @@ sources:
     url: "https://api.github.com/repos/pingdotgg/t3code/releases/latest"
   - title: "T3 Code v0.1.7 release notes"
     url: "https://github.com/pingdotgg/t3code/releases/tag/v0.1.7"
+  - title: "GitHub REST API, repos/pingdotgg/t3code (GET at 2026-11-10T11:48:27Z)"
+    url: "https://api.github.com/repos/pingdotgg/t3code"
+  - title: "T3 Code v0.1.8 release notes (published 2026-11-09T22:46:42Z)"
+    url: "https://github.com/pingdotgg/t3code/releases/tag/v0.1.8"
   - title: "MIT license file on main"
     url: "https://github.com/pingdotgg/t3code/blob/main/LICENSE"
 faq:
@@ -64,9 +68,11 @@ faq:
     answer: "The permission-modes page lists four: Supervised, Auto-accept edits, Auto, and Full access. The initial default for new threads is Full access. Several providers do not offer every mode. Muse Code and Kiro offer only Supervised and Full access. fx has no Auto-accept edits and no Full access."
 ---
 
-At 03:46:26 UTC on November 8, 2026, the GitHub API reported 51,402 stars for [pingdotgg/t3code](https://github.com/pingdotgg/t3code). The same response reported 9,893 forks, an MIT license, and an empty description field. The latest release was v0.1.7, published November 4. [T3 Code](https://t3.codes/) is the project’s open-source control plane for coding agents you already run. The README’s own phrase is narrower: an “agent harness control surface.”
+At 11:48:27 UTC on November 10, 2026, the GitHub API reported **54,963** stars for [pingdotgg/t3code](https://github.com/pingdotgg/t3code). The same response reported 10,263 forks, 5,789 open issues and pull requests, an MIT license, `archived: false`, and `pushed_at` 2026-11-10T11:47:46Z. The latest release was v0.1.8, published 2026-11-09T22:46:42Z. Two days earlier, at 03:46:26 UTC on November 8, the same endpoint reported 51,402 stars, 9,893 forks, and v0.1.7.
 
-This page was published November 8, 2026. The homepage, the README, the FAQ, the install guide, the permission and remote docs, the ACP provider page, the license file, and both GitHub API calls were read that morning. Where those pages name different agents, the table below keeps them apart.
+[T3 Code](https://t3.codes/) is the project’s open-source control plane for coding agents you already run. The README’s own phrase is narrower: an “agent harness control surface.”
+
+This page was published November 8, 2026. The homepage, the README, the FAQ, the install guide, the permission and remote docs, the ACP provider page, and the license file were read that morning and were not re-read on November 10. The November 10 pass re-read the repository API and the latest release. Where the November 8 pages name different agents, the table below keeps them apart.
 
 ## What is T3 Code?
 
@@ -74,7 +80,7 @@ T3 Code is a desktop, web, and mobile control surface for coding agents already 
 
 It is not a new coding model. The FAQ’s cost answer says you bring your own subscription and still pay your provider. The homepage says T3 Code does not resell tokens. You plug in credentials you already have, and the app orchestrates those agents.
 
-The repository was created February 8, 2026. The API’s `pushed_at` on the snapshot below was November 8, 2026 at 03:41:34 UTC, a few minutes before the star count was read. The default branch is `main`. The primary language field was TypeScript.
+The repository was created February 8, 2026. On the November 8 snapshot, `pushed_at` was 03:41:34 UTC, a few minutes before that morning’s star count. On the November 10 snapshot it was 2026-11-10T11:47:46Z. The default branch is `main`. The primary language field was TypeScript on both reads.
 
 ## Is T3 Code a harness?
 
@@ -160,9 +166,19 @@ The cost difference is the license. Claude Code and Codex are paid through their
 
 ## What do today's GitHub numbers say?
 
-This table is the original snapshot. It is the response from `GET https://api.github.com/repos/pingdotgg/t3code` and `GET https://api.github.com/repos/pingdotgg/t3code/releases/latest` at 2026-11-08T03:46:26Z. GitHub’s `open_issues_count` counts open issues and open pull requests together. The homepage the same morning printed “51k+” next to the download button, and a separate line, “Tolerated by over 500,000 devs.” The star count and that dev line are different claims. Only the star count is in the API response.
+The current snapshot is the response from `GET https://api.github.com/repos/pingdotgg/t3code` at 2026-11-10T11:48:27Z, plus `releases/latest` in the same minute. GitHub’s `open_issues_count` counts open issues and open pull requests together. The November 8 homepage printed “51k+” next to the download button, and a separate line, “Tolerated by over 500,000 devs.” That homepage was not re-read on November 10. The star count and that dev line are different claims. Only the star count is in the API response.
 
-The numbers in the table are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit AI Agents Info if you reuse them. They are a reading of a public API at one minute, not a forecast. The [November framework snapshot](/reports/ai-agent-framework-github-stats-november-2026) is the same kind of dated GitHub reading, for a different set of repositories.
+The numbers in both tables are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit AI Agents Info if you reuse them. They are readings of a public API at two minutes, not a forecast. The [November framework snapshot](/reports/ai-agent-framework-github-stats-november-2026) is the same kind of dated GitHub reading, for a different set of repositories.
+
+| Field | Value at 2026-11-10T11:48:27Z |
+| --- | --- |
+| Stars | 54,963 |
+| Forks | 10,263 |
+| Open issues and pull requests | 5,789 |
+| Licence | MIT |
+| Archived field | false |
+| Latest release | v0.1.8, published 2026-11-09T22:46:42Z |
+| Last push | 2026-11-10T11:47:46Z |
 
 | Field | Value at 2026-11-08T03:46:26Z |
 | --- | --- |
@@ -173,9 +189,9 @@ The numbers in the table are licensed [CC BY 4.0](https://creativecommons.org/li
 | Latest release | v0.1.7, published 2026-11-04T06:39:38Z |
 | Snapshot | 2026-11-08T03:46:26Z |
 
-v0.1.7 is not a draft and not a prerelease. The release name is “T3 Code v0.1.7.” The notes open with 659 changes from 160 contributors, then Kiro as an Early Access provider, managed policies, one-time schedules, child approvals, shareable thread links, usage filters, and model-switch history. The repository’s `created_at` is 2026-02-08T23:46:22Z. The description field in the API was null.
+The gap between the two readings is 3,561 stars and 370 forks. Open issues and pull requests fell by 17. v0.1.8 is not a draft and not a prerelease. The release name is “T3 Code v0.1.8.” The notes contain 546 links to pull requests in this repository. Lines in those notes include `feat(models): add Claude Fable 5.2`, `feat(claude): expose Ultracode on Claude Sonnet 5.5 and Haiku 5.5`, and `feat(web,server): use T3 Code in another app (MCP)`. The notes do not mention a local-model provider. v0.1.7, the previous latest release, was also not a draft. Its notes opened with 659 changes from 160 contributors. The repository’s `created_at` is 2026-02-08T23:46:22Z.
 
-Stars on a fast-moving repository move after a snapshot. A count you see on GitHub later on November 8 can differ from 51,402. The row above is the count at the timestamp in the last row.
+Stars on this repository move after a snapshot. A count you see on GitHub after 11:48 UTC on November 10 can differ from 54,963. The first table is the count at that timestamp.
 
 This guide is filed under [harnesses](/topics/harnesses), [tools and SaaS](/topics/tools-saas), and [how agents work](/topics/how-agents-work).
 

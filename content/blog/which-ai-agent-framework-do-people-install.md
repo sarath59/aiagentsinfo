@@ -161,7 +161,7 @@ The PyPI package `letta` and the repository in the November 5 star table are dif
 
 ## What is a download count for?
 
-A download count is the right tool for “what did pip and npm fetch,” and a weak tool for “what should I install.”
+A download count is the right tool for “what did pip and npm fetch,” and a weak tool for “what should I install.” Which of LangGraph, CrewAI, and the OpenAI Agents SDK to ship, once the download question is settled, is [LangGraph vs CrewAI vs OpenAI Agents SDK](/blog/langgraph-vs-crewai-vs-openai-agents-sdk), with versions and bills checked November 10, 2026.
 
 CI, a dependency, and a person trying a tutorial all increment the same field. `langchain` 1.4.9 pulling `langgraph`, and `pydantic-ai` pulling `pydantic-ai-slim`, are the cases checked above. Other dependencies inside these graphs were not fully expanded. Quality, licence, and whether the README still promises fixes are separate questions. AutoGen’s install name in its own README is `autogen-agentchat`, and that distribution’s 401,015 downloads sit next to a repository whose maintenance statement is already written up.
 

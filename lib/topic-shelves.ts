@@ -8,6 +8,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
       "Start with the definition, then the evaluation guide, how to build an eval harness, the comparison tables, the November benchmark, and the research notes.",
     links: [
       {
+        href: "/blog/langgraph-vs-crewai-vs-openai-agents-sdk",
+        anchor: "LangGraph vs CrewAI vs the OpenAI Agents SDK",
+        note: "Three MIT libraries. langgraph 1.2.20, crewai 1.15.39, and openai-agents 0.24.0 on November 10, 2026. The bills are LangSmith, AMP, and the model API.",
+      },
+      {
         href: "/blog/what-is-muse-ember",
         anchor: "What is Muse Ember?",
         note: "Meta’s November 9, 2026 worker model. $0.10 and $0.50 per million tokens, scored against Haiku 5.5 and GPT-6 Luna.",

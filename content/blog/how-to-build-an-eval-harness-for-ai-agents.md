@@ -6,6 +6,7 @@ takeaways:
   - "Anthropic’s January 9, 2026 evals post says each trial should start from a clean environment. Shared git history from earlier trials can inflate a score."
   - "Google’s September 9, 2026 post and NVIDIA’s September 21, 2026 post treat step checks and end-to-end outcome checks as a pair. Gate a release on the environment state, and keep the step trace to name the failure."
 date: "2026-11-09"
+updated: "2026-11-10"
 category: guide
 topics:
   - harnesses
@@ -30,8 +31,12 @@ sources:
     url: "https://developers.googleblog.com/en/the-anatomy-of-harness-engineering-how-to-evaluate-iterate-and-guard-ai-coding-agents/"
   - title: "Sophia Abbassi, Chris Alexiuk, Davide Onofrio, and Gomathy Venkata Krishnan, NVIDIA Technical Blog, How to Evaluate AI Agents From Tool Calls to Task Completion (September 21, 2026)"
     url: "https://developer.nvidia.com/blog/how-to-evaluate-ai-agents-from-tool-calls-to-task-completion/"
-  - title: "Patrick Moorhead, Sean Lopp, and Moon Chung, NVIDIA Technical Blog, Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes (November 4, 2026)"
+  - title: "Patrick Moorhead, Sean Lopp, and Moon Chung, NVIDIA Technical Blog, Use NVIDIA NeMo to Turn Agent Failures into Tests and Harness Fixes (dated November 4, 2026; re-read November 10, 2026)"
     url: "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/"
+  - title: "PyPI JSON for harbor 0.25.0 (read November 10, 2026)"
+    url: "https://pypi.org/pypi/harbor/json"
+  - title: "GitHub REST API, harbor-framework/harbor releases/latest (read November 10, 2026)"
+    url: "https://api.github.com/repos/harbor-framework/harbor/releases/latest"
   - title: "Harbor Framework README (read November 9, 2026)"
     url: "https://github.com/harbor-framework/harbor"
   - title: "Harbor docs, Task overview (read November 9, 2026)"
@@ -65,7 +70,7 @@ faq:
     answer: "Keep cases the editor did not see. NVIDIA’s November 4 post hid two of four Harbor tasks from the coding agents that proposed a harness edit, and says to accept a change when both the development tasks and the held-out tasks improve. Google says a behavioral check still does not replace an end-to-end destination score."
 ---
 
-Updated November 9, 2026.
+Updated November 10, 2026. NVIDIA’s November 4 post still names Harbor 0.22.0 and OpenShell 0.1.2 in its prerequisites. PyPI’s `harbor` package the same day was 0.25.0, uploaded October 25, 2026.
 
 ## What is an eval harness for AI agents?
 
@@ -81,7 +86,7 @@ The agent harness runs the job. The eval harness scores whether that job, or one
 
 Anthropic’s January 9 post puts the split in one list. An **agent harness** (it also says scaffold) processes inputs, orchestrates tool calls, and returns results. When you evaluate “an agent,” you are evaluating the harness and the model together. Claude Code is named there as a flexible agent harness. An **evaluation harness** is the other layer: instructions, tools, concurrency, recording, grading, and aggregation.
 
-This site uses the same split. [LangChain’s March 10, 2026 anatomy post](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) and [Databricks’ June 17, 2026 explainer](https://www.databricks.com/blog/ai-harness) describe the agent as model plus harness. [OpenAI’s February 11, 2026 harness-engineering post](https://openai.com/index/harness-engineering/) is about designing that surrounding system so agents can implement. The eval harness is how you find out whether a change to that system helped. Designing the agent side is [harness engineering](/glossary/harness-engineering). Scoring one visible action is a [behavioral evaluation](/glossary/behavioral-evaluation). Scoring a frozen task set is a [benchmark](/glossary/benchmark).
+This site uses the same split. [LangChain’s March 10, 2026 anatomy post](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness) and [Databricks’ June 17, 2026 explainer](https://www.databricks.com/blog/ai-harness) describe the agent as model plus harness. Choosing among three of those libraries, with versions and bills checked November 10, 2026, is [LangGraph vs CrewAI vs OpenAI Agents SDK](/blog/langgraph-vs-crewai-vs-openai-agents-sdk). [OpenAI’s February 11, 2026 harness-engineering post](https://openai.com/index/harness-engineering/) is about designing that surrounding system so agents can implement. The eval harness is how you find out whether a change to that system helped. Designing the agent side is [harness engineering](/glossary/harness-engineering). Scoring one visible action is a [behavioral evaluation](/glossary/behavioral-evaluation). Scoring a frozen task set is a [benchmark](/glossary/benchmark).
 
 If you mix the two words, a SWE-bench row looks like a product ranking. The [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026) copies official boards and keeps the harness name on the row for that reason.
 
@@ -159,7 +164,7 @@ Anthropic’s January 9 post says each trial should be isolated by starting from
 
 Inspect’s sandbox docs describe the same habit in code. The built-in Docker environment “runs each sample within a Docker container.” Lifecycle methods split expensive setup (`task_init`, such as pulling an image) from per-sample work (`sample_init` at the beginning of each sample, `sample_cleanup` at the end). Harbor’s task overview calls tasks independent, isolated, and reproducible, and it starts an environment, lets the agent act, stops the environment, then runs the verifier.
 
-NVIDIA’s November 4 post recommends a Linux machine with Docker for its NemoClaw walkthrough, and it names OpenShell 0.1.2 and Harbor 0.22.0 as of the November 8, 2026 reading on this site’s evaluation guide. This page does not re-run that blueprint. The isolation rule does not depend on those pins: a new container or workspace per trial, and the solution and hidden tests kept out of the agent’s reach. Harbor’s verifier docs say that, without a dedicated verifier image, Harbor starts a fresh copy of the agent environment and uploads `tests/` to `/tests/`, and that the agent’s filesystem changes are not inherited.
+NVIDIA’s November 4 post recommends a Linux machine with Docker for its NemoClaw walkthrough. Re-read on November 10, 2026, that post still names OpenShell 0.1.2 and Harbor 0.22.0 in the prerequisites. The same day, the PyPI project `harbor` was at 0.25.0, uploaded 2026-10-25T20:27:25Z, and GitHub’s latest release for `harbor-framework/harbor` was `v0.25.0`, published at the same minute. The post’s pin and the registry’s latest release are different numbers. This page does not re-run the blueprint. The isolation rule does not depend on either pin: a new container or workspace per trial, and the solution and hidden tests kept out of the agent’s reach. Harbor’s verifier docs say that, without a dedicated verifier image, Harbor starts a fresh copy of the agent environment and uploads `tests/` to `/tests/`, and that the agent’s filesystem changes are not inherited.
 
 Record the settings with the report: model id, agent version, CPU, memory, timeout. NVIDIA’s September 21 post lists cost per success and steps per success beside the pass rate. Two runs that used different limits are not the same experiment.
 

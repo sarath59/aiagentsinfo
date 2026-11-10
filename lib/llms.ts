@@ -277,6 +277,10 @@ export async function buildLlmsTxt() {
     ]),
     section("Glossary", [
       item("Glossary", "/glossary", `${counted(glossary.length, "short definition")} used across the site.`),
+      item("Checkpoint", "/glossary/checkpoint", "A saved snapshot of an agent run's state, so the harness can resume."),
+      item("Agent session", "/glossary/agent-session", "Stored conversation state the harness sends back on the next turn."),
+      item("Agent trace", "/glossary/agent-trace", "The record of one agent run: model calls, tool calls, handoffs, and timing."),
+      item("Harness", "/glossary/harness", "The runtime around a model: loop, tools, memory, permissions, and stop conditions."),
     ]),
     section("Blog", [
       item("Blog", "/blog", "Explainers, news, and guides."),
