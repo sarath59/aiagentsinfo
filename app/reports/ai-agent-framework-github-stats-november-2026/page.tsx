@@ -11,7 +11,6 @@ import { categorySummaries } from "@/lib/directory-meta";
 import { getDirectoryStats } from "@/lib/directory-stats";
 import {
   citation,
-  csvPath,
   description,
   directoryMatches,
   embedHtml,
@@ -22,7 +21,6 @@ import {
   methodologyFacts,
   packageReleaseNote,
   path,
-  pdfPath,
   quietReleaseSentence,
   recentReleaseSentence,
   recencyColumns,
@@ -67,7 +65,6 @@ export default async function FrameworkGithubStatsPage() {
           path,
           datePublished: retrievedDay,
           dateModified: retrievedDay,
-          distributionPath: `${path}/csv`,
           isBasedOn: source,
         })}
       />
@@ -119,16 +116,6 @@ export default async function FrameworkGithubStatsPage() {
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
-        actions={
-          <>
-            <a className="btn-primary px-4 py-2 text-sm" href={pdfPath}>
-              Download PDF
-            </a>
-            <a className="btn-ghost px-4 py-2 text-sm" href={csvPath}>
-              Download CSV
-            </a>
-          </>
-        }
         citation={
           <CiteOrEmbed
             citation={citation}
@@ -235,7 +222,6 @@ export default async function FrameworkGithubStatsPage() {
               columns={frameworkColumns}
               rows={frameworkRows()}
               defaultSort="stars"
-              downloadHref={csvPath}
               filters={["stars", "free", "openSource"]}
               source={{ title, updated: retrievedDay, path }}
             />

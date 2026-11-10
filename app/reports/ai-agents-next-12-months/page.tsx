@@ -194,16 +194,6 @@ export default async function AgentsTwelveMonthOutlookPage() {
           { id: "sources", text: "Sources", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
-        actions={
-          <>
-            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
-              Download PDF
-            </a>
-            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv`}>
-              Download CSV
-            </a>
-          </>
-        }
         sources={<SourceList sources={sources} />}
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={related}
@@ -698,10 +688,8 @@ export default async function AgentsTwelveMonthOutlookPage() {
             ))}
           </div>
           <DataSourceLine title={title} updated={readOn} path={path} />
-          <p className="mt-4 text-sm">
-            <a className="text-[var(--link)] underline" href={`${path}/csv`}>
-              Download the month table as CSV
-            </a>
+          <p className="mt-4 text-sm text-[var(--muted)]">
+            The month table is included in the CSV from the download form on this page.
           </p>
         </section>
 

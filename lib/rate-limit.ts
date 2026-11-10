@@ -3,9 +3,12 @@ type Bucket = { timestamps: number[] };
 const submitBuckets = new Map<string, Bucket>();
 const promptBuckets = new Map<string, Bucket>();
 const mcpBuckets = new Map<string, Bucket>();
+const reportLeadBuckets = new Map<string, Bucket>();
 
 const SUBMIT_WINDOW_MS = 15 * 60 * 1000;
 const SUBMIT_MAX_HITS = 5;
+const REPORT_LEAD_WINDOW_MS = 15 * 60 * 1000;
+const REPORT_LEAD_MAX_HITS = 8;
 const PROMPT_WINDOW_MS = 10 * 60 * 1000;
 const PROMPT_MAX_HITS = 30;
 const MCP_WINDOW_MS = 5 * 60 * 1000;
@@ -43,8 +46,14 @@ export function takeMcpLimit(key: string, now = Date.now()) {
   return takeBucket(mcpBuckets, key, now, MCP_WINDOW_MS, MCP_MAX_HITS);
 }
 
+/** Report download forms. In-memory, so it applies per server instance. */
+export function takeReportLeadLimit(key: string, now = Date.now()) {
+  return takeBucket(reportLeadBuckets, key, now, REPORT_LEAD_WINDOW_MS, REPORT_LEAD_MAX_HITS);
+}
+
 export function clearRateLimits() {
   submitBuckets.clear();
   promptBuckets.clear();
   mcpBuckets.clear();
+  reportLeadBuckets.clear();
 }

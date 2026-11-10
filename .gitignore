@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# report leads are personal data and must never be committed
+/data/report-leads/
+
 # vercel
 .vercel
 

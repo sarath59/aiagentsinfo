@@ -115,7 +115,6 @@ export default async function CodingAgents30DayPage() {
           path,
           datePublished: readOn,
           dateModified: readOn,
-          distributionPath: `${path}/csv`,
         })}
       />
       <Breadcrumbs
@@ -173,16 +172,6 @@ export default async function CodingAgents30DayPage() {
           { id: "sources", text: "Sources", level: 2 },
           { id: "citation", text: "How to cite this", level: 2 },
         ]}
-        actions={
-          <>
-            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
-              Download PDF
-            </a>
-            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv`}>
-              Download CSV
-            </a>
-          </>
-        }
         sources={<SourceList sources={sources} />}
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={related}
@@ -238,7 +227,6 @@ export default async function CodingAgents30DayPage() {
               rows={dateTableRows()}
               defaultSort="date"
               defaultDirection="asc"
-              downloadHref={`${path}/csv?table=dates`}
               source={{ title, updated: readOn, path }}
             />
           </div>
@@ -327,7 +315,6 @@ export default async function CodingAgents30DayPage() {
               rows={priceTableRows()}
               defaultSort="price"
               defaultDirection="asc"
-              downloadHref={`${path}/csv`}
               source={{ title, updated: readOn, path }}
             />
           </div>
@@ -409,7 +396,6 @@ export default async function CodingAgents30DayPage() {
               rows={repoTableRows()}
               defaultSort="stars"
               defaultDirection="desc"
-              downloadHref={`${path}/csv?table=repos`}
               source={{ title, updated: readOn, path }}
             />
           </div>

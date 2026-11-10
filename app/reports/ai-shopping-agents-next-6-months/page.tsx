@@ -174,16 +174,6 @@ export default async function ShoppingAgentsReportPage() {
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
-        actions={
-          <>
-            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
-              Download PDF
-            </a>
-            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv`}>
-              Download CSV
-            </a>
-          </>
-        }
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={related}
       >

@@ -458,6 +458,41 @@ export function reportPdf(slug: string) {
   return pdfModels[slug as ReportSlug]();
 }
 
+const csvMenu: Record<ReportSlug, { table: string | null; label: string }[]> = {
+  "ai-agents-in-production-2026": [{ table: null, label: "Download CSV" }],
+  "ai-agents-in-2027": [{ table: null, label: "Download CSV" }],
+  "mcp-next-6-months": [{ table: null, label: "Download CSV" }],
+  "ai-coding-agents-next-30-days": [
+    { table: null, label: "Download prices CSV" },
+    { table: "dates", label: "Download dates CSV" },
+    { table: "repos", label: "Download repositories CSV" },
+  ],
+  "ai-agents-next-12-months": [{ table: null, label: "Download CSV" }],
+  "ai-agents-next-6-months": [{ table: null, label: "Download CSV" }],
+  "ai-shopping-agents-next-6-months": [{ table: null, label: "Download CSV" }],
+  "browser-and-computer-use-agents-next-6-months": [
+    { table: null, label: "Download products CSV" },
+    { table: "osworld", label: "Download OSWorld CSV" },
+    { table: "months", label: "Download month table CSV" },
+  ],
+  "agent-harness-benchmark-november-2026": [
+    { table: "swe-bash", label: "Download SWE-bench bash-only CSV" },
+    { table: "swe-checked", label: "Download SWE-bench team-checked CSV" },
+    { table: "swe-multilingual", label: "Download SWE-bench Multilingual CSV" },
+    { table: "terminal-bench", label: "Download Terminal-Bench CSV" },
+  ],
+  "ai-agent-framework-github-stats-november-2026": [{ table: "frameworks", label: "Download CSV" }],
+};
+
+export function reportCsvMenu(slug: string) {
+  if (!(slug in csvMenu)) return [];
+  return csvMenu[slug as ReportSlug];
+}
+
+export function isDownloadableReport(slug: string) {
+  return slug in pdfModels;
+}
+
 export function reportAttribution(slug: string): PageSource | undefined {
   const pages: Record<string, PageSource> = {
     "ai-agents-in-production-2026": { title: productionTitle, updated: productionReadOn, path: productionPath },

@@ -187,16 +187,6 @@ export default async function BrowserComputerUseReportPage() {
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
-        actions={
-          <>
-            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
-              Download PDF
-            </a>
-            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv`}>
-              Download CSV
-            </a>
-          </>
-        }
         sources={<SourceList sources={sources} />}
         citation={
           <CiteOrEmbed
@@ -274,7 +264,6 @@ export default async function BrowserComputerUseReportPage() {
               defaultSort="vendor"
               defaultDirection="asc"
               caption="Ten browser and computer-use agents, read November 9, 2026"
-              downloadHref={`${path}/csv`}
               source={{ title, updated: readOn, path }}
             />
           </div>
@@ -407,7 +396,6 @@ export default async function BrowserComputerUseReportPage() {
               defaultSort="model"
               defaultDirection="asc"
               caption="Scores printed in the text of OSWorld 2.0, read November 9, 2026"
-              downloadHref={`${path}/csv?table=osworld`}
               source={{ title, updated: readOn, path }}
             />
           </div>
@@ -529,10 +517,8 @@ export default async function BrowserComputerUseReportPage() {
             An empty announcement means no linked source named that month. It is not a prediction that the month will
             be quiet.
           </p>
-          <p className="mt-3 text-sm">
-            <a className="text-[var(--link)] underline" href={`${path}/csv?table=months`}>
-              Download the month table as CSV
-            </a>
+          <p className="mt-3 text-sm text-[var(--muted)]">
+            The month table is included in the CSV from the download form on this page.
           </p>
           <div className="mt-5 grid gap-4">
             {months.map((item) => (

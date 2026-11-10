@@ -99,9 +99,17 @@ Research practice. Third annual wave. n = 2,360 executives, 16 markets, nine ind
 | Callouts and pull quotes | Exhibit callouts, deck quotations, finding boxes | A callout, a sourced pull quote, and a "what this means" box at the end of each chapter |
 | Methodology | McKinsey "About the research," Deloitte methodology, Menlo method note, Epoch caveats | A methodology section that states what was counted and what was not |
 | Citations | Footnotes, figure credits, "how to cite" | Numbered sources, inline, linking to the primary page |
-| Print | The PDFs are the product for Index, Deloitte, McKinsey | Print CSS: drop navigation, keep charts and tables, append external URLs |
+| Print | The PDFs are the product for Index, Deloitte, McKinsey | The PDF is issued after the download form. A normal browser print of the HTML hides the report body and shows where to request the file. |
 | Type | Serif or display headlines, grotesque body, ~60–75 character measure on the article reports. The Air Street deck is the exception. | Source Serif 4, self-hosted with `next/font`, on report headings only. Body stays Inter. Measure stays `70ch`. |
 | Forecast hygiene | Air Street scores last year's predictions. McKinsey separates expected workforce cuts from reported ones. | Forecasts are labeled, and the 2027 report lists what would falsify them |
+
+## Gated download
+
+Every report uses one gated download. `ReportLayout` sets `shell="report"` on the shared article template, and that template renders the "Download this report" form. A new report that uses `ReportLayout` gets the form without a separate embed. The reports index does not offer a direct file.
+
+The HTML report stays on the page, readable and crawlable. PDF and CSV URLs answer only when they carry a short-lived token issued after a valid form submission. There is no open download link. Browser printing of the HTML report hides the body and prints: "Download the full report at <url>".
+
+The form asks for name, work email, company, role, company size, industry, country, intended use, and how the reader heard about the site, plus optional phone, LinkedIn, and an unchecked opt-in for later reports. A honeypot and a per-network rate limit sit in front of the save. Lead rows are not written into this git repository. Storage is a private Redis/KV database (`KV_REST_API_URL` + `KV_REST_API_TOKEN`, or `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`) or an HTTPS webhook (`LEADS_WEBHOOK_URL`). `REPORT_DOWNLOAD_SECRET` signs the download link. `ADMIN_TOKEN` protects `GET /api/admin/report-leads`, which returns CSV when the store can list rows. A webhook can receive leads and cannot list them from this site.
 
 ## What we refused
 

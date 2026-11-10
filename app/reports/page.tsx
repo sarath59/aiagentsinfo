@@ -18,19 +18,6 @@ export const metadata = defaultMetadata(
   "/reports",
 );
 
-const pdfByHref: Record<string, string> = {
-  "/reports/ai-agents-in-production-2026": "/reports/ai-agents-in-production-2026/pdf",
-  "/reports/ai-agents-in-2027": "/reports/ai-agents-in-2027/pdf",
-  "/reports/mcp-next-6-months": "/reports/mcp-next-6-months/pdf",
-  "/reports/browser-and-computer-use-agents-next-6-months": "/reports/browser-and-computer-use-agents-next-6-months/pdf",
-  "/reports/ai-coding-agents-next-30-days": "/reports/ai-coding-agents-next-30-days/pdf",
-  "/reports/ai-agents-next-12-months": "/reports/ai-agents-next-12-months/pdf",
-  "/reports/ai-agents-next-6-months": "/reports/ai-agents-next-6-months/pdf",
-  "/reports/ai-shopping-agents-next-6-months": "/reports/ai-shopping-agents-next-6-months/pdf",
-  "/reports/agent-harness-benchmark-november-2026": "/reports/agent-harness-benchmark-november-2026/pdf",
-  [frameworkGithubPath]: `${frameworkGithubPath}/pdf`,
-};
-
 export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
@@ -89,7 +76,6 @@ export default async function ReportsPage() {
               title={item.title}
               description={item.summary}
               date={dateByHref[item.href]}
-              downloadHref={pdfByHref[item.href]}
             />
           ))}
         </div>

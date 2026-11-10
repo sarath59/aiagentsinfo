@@ -43,7 +43,6 @@ export default function McpOutlookPage() {
           path,
           datePublished: readOn,
           dateModified: readOn,
-          distributionPath: `${path}/csv`,
           isBasedOn: "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
         })}
       />
@@ -72,16 +71,6 @@ export default function McpOutlookPage() {
         }
         takeaways={[...findings]}
         toc={chapters.map((chapter) => ({ id: chapter.id, text: chapter.title, level: 2 as const }))}
-        actions={
-          <>
-            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
-              Download PDF
-            </a>
-            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv`}>
-              Download CSV
-            </a>
-          </>
-        }
         sources={<SourceList sources={[...sources]} />}
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={[

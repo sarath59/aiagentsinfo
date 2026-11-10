@@ -216,16 +216,6 @@ export default async function HarnessBenchmarkPage() {
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
         ]}
-        actions={
-          <>
-            <a className="btn-primary px-4 py-2 text-sm" href={`${path}/pdf`}>
-              Download PDF
-            </a>
-            <a className="btn-ghost px-4 py-2 text-sm" href={`${path}/csv?table=swe-bash`}>
-              Download CSV
-            </a>
-          </>
-        }
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={related}
       >
@@ -324,7 +314,6 @@ export default async function HarnessBenchmarkPage() {
               columns={sweColumns}
               rows={sweRows(swebenchBenchmark.bashOnly)}
               defaultSort="resolved"
-              downloadHref={`${path}/csv?table=swe-bash`}
               source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
@@ -344,7 +333,6 @@ export default async function HarnessBenchmarkPage() {
               columns={sweColumns}
               rows={sweRows(swebenchBenchmark.teamCheckedOther)}
               defaultSort="resolved"
-              downloadHref={`${path}/csv?table=swe-checked`}
               source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
@@ -363,7 +351,6 @@ export default async function HarnessBenchmarkPage() {
               columns={sweColumns}
               rows={sweRows(swebenchBenchmark.multilingual)}
               defaultSort="resolved"
-              downloadHref={`${path}/csv?table=swe-multilingual`}
               source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
@@ -391,7 +378,6 @@ export default async function HarnessBenchmarkPage() {
               rows={terminalRows()}
               defaultSort="rank"
               defaultDirection="asc"
-              downloadHref={`${path}/csv?table=terminal-bench`}
               source={{ title, updated: BENCHMARK_READ_ON, path }}
             />
           </div>
