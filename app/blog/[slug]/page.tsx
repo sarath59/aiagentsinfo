@@ -448,6 +448,11 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
     return {
       reads: [
         {
+          href: "/reports/voice-agents-next-6-months",
+          title: "Voice agents, Nov 2026 to May 2027",
+          note: "The shutdown dates, and the minute rates that have no date.",
+        },
+        {
           href: "/blog/what-is-elevenagents-campaign-manager",
           title: "What is ElevenAgents Campaign Manager?",
           note: "The outbound runner. The docs page does not add a separate fee.",
@@ -478,6 +483,11 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
   if (slug === "what-is-elevenagents-campaign-manager") {
     return {
       reads: [
+        {
+          href: "/reports/voice-agents-next-6-months",
+          title: "Voice agents, Nov 2026 to May 2027",
+          note: "November 17 and January 20 are the dates. The $0.08 minute is not.",
+        },
         {
           href: "/blog/voice-ai-agent-cost-per-call-november-2026",
           title: "What a voice AI agent costs per call",

@@ -16,6 +16,7 @@ import { readingMinutes as codingMinutes } from "@/lib/coding-agents-30-day";
 import { path as frameworkGithubPath, readingMinutes as frameworkMinutes, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
 import { readingMinutes as mcpMinutes } from "@/lib/mcp-outlook";
 import { readingMinutes as shoppingMinutes } from "@/lib/shopping-report";
+import { readingMinutes as voiceMinutes } from "@/lib/voice-agents-outlook";
 import { PRICE_READ_ON } from "@/lib/model-prices";
 import { defaultMetadata } from "@/lib/seo";
 import { dataAssets } from "@/lib/site";
@@ -23,7 +24,7 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: a daily brief on measured answer-engine fetches, the 2026 production report, the 2027 agents forecast, an MCP six-month brief, a browser and computer-use brief, a 30-day coding-agents brief, the 12-month outlook, six-month outlooks, harness benchmarks, and framework GitHub stats.",
+  "Dated pages with a source and a citation: a daily brief on measured answer-engine fetches, a voice-agent six-month outlook, the 2026 production report, the 2027 agents forecast, an MCP six-month brief, a browser and computer-use brief, a 30-day coding-agents brief, the 12-month outlook, six-month outlooks, harness benchmarks, and framework GitHub stats.",
   "/reports",
 );
 
@@ -31,6 +32,7 @@ export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
     "/reports/ai-answer-crawlers-november-2026": "2026-11-11",
+    "/reports/voice-agents-next-6-months": "2026-11-11",
     "/reports/ai-agents-in-production-2026": "2026-11-10",
     "/reports/ai-agents-in-2027": "2026-11-10",
     "/reports/mcp-next-6-months": "2026-11-10",
@@ -50,6 +52,7 @@ export default async function ReportsPage() {
   };
   const minutesByHref: Record<string, number> = {
     "/reports/ai-answer-crawlers-november-2026": crawlerMinutes,
+    "/reports/voice-agents-next-6-months": voiceMinutes,
     "/reports/ai-agents-in-production-2026": productionMinutes,
     "/reports/ai-agents-in-2027": forecastMinutes,
     "/reports/mcp-next-6-months": mcpMinutes,
@@ -63,6 +66,7 @@ export default async function ReportsPage() {
   };
   const kickerByHref: Record<string, string> = {
     "/reports/ai-answer-crawlers-november-2026": "Daily brief",
+    "/reports/voice-agents-next-6-months": "Report",
     "/reports/ai-agents-in-production-2026": "Report",
     "/reports/ai-agents-in-2027": "Report",
     "/reports/mcp-next-6-months": "Report",

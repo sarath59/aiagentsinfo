@@ -32,6 +32,7 @@ import {
 } from "@/lib/coding-agents-30-day";
 import { description as forecastDescription, path as forecastPath, title as forecastTitle } from "@/lib/agents-2027";
 import { description as mcpDescription, path as mcpPath, title as mcpTitle } from "@/lib/mcp-outlook";
+import { description as voiceDescription, path as voicePath, readOn as voiceReadOn, title as voiceTitle } from "@/lib/voice-agents-outlook";
 import {
   description as productionDescription,
   path as productionPath,
@@ -181,6 +182,11 @@ function dataPageSummaries() {
     articleBlock(yearTitle, [`URL: ${absoluteUrl(yearPath)}`, `Read: ${yearReadOn}`, yearDescription], yearDescription),
     articleBlock(outlookTitle, [`URL: ${absoluteUrl(outlookPath)}`, `Read: ${outlookReadOn}`, outlookDescription], outlookDescription),
     articleBlock(shoppingTitle, [`URL: ${absoluteUrl(shoppingPath)}`, `Checked: ${shoppingReadOn}`, shoppingDescription], shoppingDescription),
+    articleBlock(
+      voiceTitle,
+      [`URL: ${absoluteUrl(voicePath)}`, `Checked: ${voiceReadOn}`, voiceDescription],
+      "Six-month outlook for voice agents. Google lists November 17, 2026 as the earliest shutdown for two Live API previews. OpenAI removes gpt-realtime on January 20, 2027. Hosted per-minute rates on the pages checked November 11 have no change date. Pipecat had 17,194 GitHub stars and LiveKit Agents 15,174.",
+    ),
     articleBlock(checklistTitle, [
       `URL: ${absoluteUrl(checklistPath)}`,
       `Sources read: ${checklistReadOn}`,
@@ -235,6 +241,7 @@ export async function buildLlmsTxt() {
     section("Reports", [
       item("Reports", "/reports", "Dated pages with a source and a citation."),
       item(crawlerTitle, crawlerPath, crawlerDescription),
+      item(voiceTitle, voicePath, voiceDescription),
       item(productionTitle, productionPath, productionDescription),
       item(forecastTitle, forecastPath, forecastDescription),
       item(mcpTitle, mcpPath, mcpDescription),

@@ -117,6 +117,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/tools/ai-agent-harness-evaluation-checklist", new Date("2026-11-10T00:00:00.000Z"), 0.8),
     entry("/tools/cursor-vs-claude-code-vs-codex-pricing", new Date("2026-11-09T00:00:00.000Z"), 0.7),
     entry("/reports/ai-answer-crawlers-november-2026", new Date("2026-11-11T00:00:00.000Z"), 0.7),
+    entry("/reports/voice-agents-next-6-months", new Date("2026-11-11T00:00:00.000Z"), 0.8),
     entry("/reports/ai-agents-in-production-2026", new Date("2026-11-10T00:00:00.000Z"), 0.8),
     entry("/reports/ai-agents-in-2027", new Date("2026-11-10T00:00:00.000Z"), 0.8),
     entry("/reports/mcp-next-6-months", new Date("2026-11-10T00:00:00.000Z"), 0.8),

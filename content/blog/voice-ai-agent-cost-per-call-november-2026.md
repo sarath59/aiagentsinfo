@@ -160,4 +160,4 @@ For a flat thousand three-minute calls, with calls inside the concurrency cap an
 
 The carrier is the line nobody’s headline includes, except Vapi and Retell, who print it. Add it from their table. Do not borrow a Twilio rate from one vendor and stick it on ElevenLabs or Bland. ElevenLabs already said the carrier bills you directly. Bland already said pass-through.
 
-A token bill for a model you call yourself, outside these voice platforms, is still the [cost calculator](/agent-cost-calculator). ElevenLabs’ missing model line is not a row in that calculator. The directory page for the product under the $0.08 minute is [ElevenLabs](/directory/elevenlabs).
+A token bill for a model you call yourself, outside these voice platforms, is still the [cost calculator](/agent-cost-calculator). ElevenLabs’ missing model line is not a row in that calculator. The directory page for the product under the $0.08 minute is [ElevenLabs](/directory/elevenlabs). The shutdown dates through May 2027, and the minutes that have no date, are [Voice agents, Nov 2026 to May 2027](/reports/voice-agents-next-6-months).

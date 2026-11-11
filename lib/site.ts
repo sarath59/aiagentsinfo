@@ -168,6 +168,13 @@ export const dataAssets = [
       "Which answer engines fetched this site from 4 to 10 November 2026, and how that compares with the people they sent. Checked November 11, 2026.",
   },
   {
+    href: "/reports/voice-agents-next-6-months",
+    title:
+      "Voice agents, Nov 2026 to May 2027: November 17 can retire two Gemini Live previews. January 20 retires gpt-realtime.",
+    summary:
+      "Per-minute prices, speech-to-speech versus a cascade, LiveKit and Pipecat, and the model ids with a shutdown date. Checked November 11, 2026.",
+  },
+  {
     href: "/reports/ai-agents-in-production-2026",
     title: "AI agents in production, 2026: the grader decides who is shipping",
     summary:
@@ -321,6 +328,7 @@ export const footerNav = [
       { href: "/reports/ai-agents-next-12-months", label: "AI agents, Nov 2026 to Nov 2027" },
       { href: "/reports/ai-agents-next-6-months", label: "AI agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
+      { href: "/reports/voice-agents-next-6-months", label: "Voice agents, Nov 2026 to May 2027" },
       { href: "/reports/agent-harness-benchmark-november-2026", label: "Agent harness benchmark, November 2026" },
       { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework releases, November 2026" },
       { href: "/verified-revenue", label: "Verified revenue" },
