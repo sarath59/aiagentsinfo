@@ -33,6 +33,22 @@ export default async function AgentsTwelveMonthOutlookPage() {
   ]);
   const related = [
     {
+      href: "/blog/gemini-4-carbon-for-agent-harnesses",
+      title: "Gemini 4 Carbon for agent harnesses: the model id, the price after November 30, and the 400",
+      description:
+        "Google opened gemini-4-carbon on November 10, 2026 at $2 and $10 per million tokens through November 30, then $4 and $20. thinking_budget returns HTTP 400.",
+      kicker: "News",
+      date: "2026-11-11",
+    },
+    {
+      href: "/blog/ai-agent-framework-release-november-2026",
+      title: "AI agent framework release November 2026: browser-use 1.0.2 will not install next to Pydantic AI 2.67",
+      description:
+        "The November 9–11 framework pins. browser-use 1.0.2 and Pydantic AI 2.67.0 require different exact versions of pydantic-ai-slim.",
+      kicker: "News",
+      date: "2026-11-11",
+    },
+    {
       href: "/reports/ai-answer-crawlers-november-2026",
       title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
       description:

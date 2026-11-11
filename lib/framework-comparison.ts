@@ -346,6 +346,12 @@ export const frameworkComparison: ComparisonPage = {
   ],
   related: [
     {
+      href: "/blog/ai-agent-framework-release-november-2026",
+      title: "AI agent framework release November 2026: browser-use 1.0.2 will not install next to Pydantic AI 2.67",
+      description: "Pins and behavior for the November 9–11 releases, including browser-use 1.0 and AG2 1.3.1.",
+      kicker: "News",
+    },
+    {
       href: "/research/ai-agent-framework-release-cadence-october-november-2026",
       title: "3,165 GitHub releases in 30 days, or 407 days of silence",
       description: "Release counts for 24 frameworks in the 30 and 60 days before November 11, 2026. AutoGen published none.",

@@ -127,6 +127,14 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/blog/ai-agent-framework-release-november-2026",
+            title: "AI agent framework release November 2026: browser-use 1.0.2 will not install next to Pydantic AI 2.67",
+            description:
+              "What the November 9–11 releases change in a harness. browser-use 1.0.2 pins pydantic-ai-slim 2.66.0. pydantic-ai 2.67.0 requires 2.67.0.",
+            kicker: "News",
+            date: "2026-11-11",
+          },
+          {
             href: "/reports/ai-answer-crawlers-november-2026",
             title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
             description:

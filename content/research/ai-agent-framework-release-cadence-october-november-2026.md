@@ -194,4 +194,6 @@ If you are choosing between the AutoGen repository and AG2, the releases API alr
 If you are about to upgrade Google ADK Python to `v2.14.0` or Microsoft Agent Framework to `python-1.25.0`, both published November 7, read the enum-member change and the Python 3.10 drop before you treat the bump as a patch. Those are the two notes in this set that will fail a call or an install, rather than only adding a tag.
 
 Do not treat smolagents’ 166 days, or LlamaIndex’s single September release, as a quality score. Treat them as a maintenance fact, and go to the download table if the question is who installs the library. The November 5 page remains the star, fork, and licence table. This page is the count that table’s latest-release cell cannot make.
+
+The install pins and behavior notes for browser-use 1.0.2, Pydantic AI 2.67.0, AG2 1.3.1, and FastMCP 4.1.8, read the morning of November 11, are [AI agent framework release November 2026](/blog/ai-agent-framework-release-november-2026). browser-use is not one of the 24 repositories in this count.
 ---
