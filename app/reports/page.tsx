@@ -5,6 +5,7 @@ import { ContentDeskNav } from "@/components/ContentDeskNav";
 import { PageHeader } from "@/components/PageHeader";
 import { ToolHub } from "@/components/ToolHub";
 import { getDirectoryStats } from "@/lib/directory-stats";
+import { readingMinutes as crawlerMinutes } from "@/lib/ai-answer-crawlers-november-2026";
 import { readingMinutes as yearMinutes } from "@/lib/agents-12-month-outlook";
 import { readingMinutes as forecastMinutes } from "@/lib/agents-2027";
 import { readingMinutes as productionMinutes } from "@/lib/agents-in-production-2026";
@@ -22,13 +23,14 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: the 2026 production report, the 2027 agents forecast, an MCP six-month brief, a browser and computer-use brief, a 30-day coding-agents brief, the 12-month outlook, six-month outlooks, harness benchmarks, and framework GitHub stats.",
+  "Dated pages with a source and a citation: a daily brief on measured answer-engine fetches, the 2026 production report, the 2027 agents forecast, an MCP six-month brief, a browser and computer-use brief, a 30-day coding-agents brief, the 12-month outlook, six-month outlooks, harness benchmarks, and framework GitHub stats.",
   "/reports",
 );
 
 export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
+    "/reports/ai-answer-crawlers-november-2026": "2026-11-11",
     "/reports/ai-agents-in-production-2026": "2026-11-10",
     "/reports/ai-agents-in-2027": "2026-11-10",
     "/reports/mcp-next-6-months": "2026-11-10",
@@ -46,6 +48,7 @@ export default async function ReportsPage() {
     "/tools/agents-md-generator": "2026-11-10",
   };
   const minutesByHref: Record<string, number> = {
+    "/reports/ai-answer-crawlers-november-2026": crawlerMinutes,
     "/reports/ai-agents-in-production-2026": productionMinutes,
     "/reports/ai-agents-in-2027": forecastMinutes,
     "/reports/mcp-next-6-months": mcpMinutes,
@@ -58,6 +61,7 @@ export default async function ReportsPage() {
     [frameworkGithubPath]: frameworkMinutes,
   };
   const kickerByHref: Record<string, string> = {
+    "/reports/ai-answer-crawlers-november-2026": "Daily brief",
     "/reports/ai-agents-in-production-2026": "Report",
     "/reports/ai-agents-in-2027": "Report",
     "/reports/mcp-next-6-months": "Report",

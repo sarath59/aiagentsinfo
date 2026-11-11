@@ -127,6 +127,14 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/reports/ai-answer-crawlers-november-2026",
+            title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
+            description:
+              "Which answer engines fetched this site from 4 to 10 November 2026. GoogleAgent put 14 of 16 answer fetches on this page.",
+            kicker: "Daily brief",
+            date: "2026-11-11",
+          },
+          {
             href: "/research/livekit-agents-vs-pipecat-installs-november-2026",
             title: "LiveKit Agents had 4,583,195 downloads. Pipecat had 2,007 more stars.",
             description: "Voice frameworks were outside this snapshot. October 10 through November 8, 2026, PyPI without mirrors.",

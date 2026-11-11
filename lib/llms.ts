@@ -39,6 +39,11 @@ import {
 } from "@/lib/agents-in-production-2026";
 import { description as benchmarkDescription, path as benchmarkPath, title as benchmarkTitle } from "@/lib/benchmark-report";
 import {
+  description as crawlerDescription,
+  path as crawlerPath,
+  title as crawlerTitle,
+} from "@/lib/ai-answer-crawlers-november-2026";
+import {
   description as checklistDescription,
   path as checklistPath,
   readOn as checklistReadOn,
@@ -133,6 +138,11 @@ function dataPageSummaries() {
         ? `${starTop.name} (${starTop.repo}) had ${integer(starTop.stars)} stars in that snapshot. The live page reads stargazers_count from the GitHub repository API.`
         : "The snapshot had no rows.",
     ),
+    articleBlock(crawlerTitle, [
+      `URL: ${absoluteUrl(crawlerPath)}`,
+      "Checked: 2026-11-11",
+      crawlerDescription,
+    ], "Daily brief. 196 IP-verified answer fetches from 4 to 10 November 2026, Asia/Calcutta, 160 of them by ChatGPT-User. Counts are copied from this site's DataFast export. Shares are computed."),
     articleBlock(productionTitle, [
       `URL: ${absoluteUrl(productionPath)}`,
       "Published: 2026-11-10",
@@ -224,6 +234,7 @@ export async function buildLlmsTxt() {
     ]),
     section("Reports", [
       item("Reports", "/reports", "Dated pages with a source and a citation."),
+      item(crawlerTitle, crawlerPath, crawlerDescription),
       item(productionTitle, productionPath, productionDescription),
       item(forecastTitle, forecastPath, forecastDescription),
       item(mcpTitle, mcpPath, mcpDescription),

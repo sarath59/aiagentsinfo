@@ -33,6 +33,14 @@ export default async function AgentsTwelveMonthOutlookPage() {
   ]);
   const related = [
     {
+      href: "/reports/ai-answer-crawlers-november-2026",
+      title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
+      description:
+        "Which answer engines fetched this site from 4 to 10 November 2026, and how that compares with the people they sent.",
+      kicker: "Daily brief",
+      date: "2026-11-11",
+    },
+    {
       href: "/reports/ai-agents-in-production-2026",
       title: "AI agents in production, 2026",
       description: "Where agents are actually running: graded coding work, survey 'scaling,' and the computer-use gap.",

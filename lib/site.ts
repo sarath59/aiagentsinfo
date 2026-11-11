@@ -162,6 +162,12 @@ export const comparisons = [
 
 export const dataAssets = [
   {
+    href: "/reports/ai-answer-crawlers-november-2026",
+    title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
+    summary:
+      "Which answer engines fetched this site from 4 to 10 November 2026, and how that compares with the people they sent. Checked November 11, 2026.",
+  },
+  {
     href: "/reports/ai-agents-in-production-2026",
     title: "AI agents in production, 2026: the grader decides who is shipping",
     summary:
@@ -300,6 +306,7 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/reports/ai-answer-crawlers-november-2026", label: "AI answer crawlers, November 2026" },
       { href: "/reports/ai-agents-in-production-2026", label: "AI agents in production, 2026" },
       { href: "/reports/ai-agents-in-2027", label: "AI agents in 2027" },
       { href: "/reports/mcp-next-6-months", label: "MCP, Nov 2026 to May 2027" },
