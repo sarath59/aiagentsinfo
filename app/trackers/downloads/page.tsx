@@ -141,6 +141,14 @@ export default async function DownloadsTrackerPage() {
         }
         related={[
           {
+            href: "/research/agentic-commerce-protocol-adoption-november-2026",
+            title: "ACP, UCP, AP2, and x402: stars against downloads",
+            description:
+              "Official packages only, October 11 through November 9, 2026. @x402/core had 1,940,555 npm downloads. ACP and AP2 publish no package.",
+            kicker: "Research",
+            date: "2026-11-11",
+          },
+          {
             href: "/research/claude-code-vs-codex-downloads-november-2026",
             title: "Claude Code vs Codex downloads",
             description:

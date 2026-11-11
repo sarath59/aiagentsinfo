@@ -129,3 +129,5 @@ If the channel is Google AI Mode in Canada, the protocol Google named is UCP, an
 If the channel is ChatGPT, match the document OpenAI will certify you against. On November 10 that published checkout page still showed API version `2025-09-12` and still described an embedded checkout, with the merchant charging on the merchant’s own systems. The GitHub snapshot a protocol engineer will open is `2026-04-17`, and it is 217 days newer than the example. Write down which one your integration uses. An agent that sends `API-Version: 2026-04-17` to a server built from the OpenAI example, or the reverse, is a broken [agentic checkout](/glossary/agentic-checkout), not a second protocol.
 
 Stars do not break the tie. UCP had 3,489. ACP had 1,600. Neither number is a merchant count, and neither number is the version string in the header.
+
+Installs are a different count, read the next day. [@x402/core had 1,940,555 npm downloads from October 11 through November 9, and ACP and AP2 still publish no official package](/research/agentic-commerce-protocol-adoption-november-2026). That note does not change the version strings above.

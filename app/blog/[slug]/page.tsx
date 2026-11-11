@@ -443,9 +443,45 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
       },
     };
   }
+  if (slug === "voice-ai-agent-cost-per-call-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/blog/what-is-elevenagents-campaign-manager",
+          title: "What is ElevenAgents Campaign Manager?",
+          note: "The outbound runner. The docs page does not add a separate fee.",
+        },
+        {
+          href: "/directory/elevenlabs",
+          title: "ElevenLabs in the directory",
+          note: "The product under the $0.08 minute.",
+        },
+        {
+          href: "/agent-cost-calculator",
+          title: "AI agent cost calculator",
+          note: "Token prices. Not a voice-minute invoice.",
+        },
+        {
+          href: "/glossary/harness",
+          title: "What a harness is",
+          note: "The loop around the model a voice minute does not include.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "cost calculator",
+        note: "a 30-day token bill, with no voice-minute rate",
+      },
+    };
+  }
   if (slug === "what-is-elevenagents-campaign-manager") {
     return {
       reads: [
+        {
+          href: "/blog/voice-ai-agent-cost-per-call-november-2026",
+          title: "What a voice AI agent costs per call",
+          note: "1,000 three-minute calls, with the model in or out of the sticker.",
+        },
         {
           href: "/directory/elevenlabs",
           title: "ElevenLabs in the directory",
@@ -509,6 +545,11 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
     return {
       reads: [
         {
+          href: "/research/agentic-commerce-protocol-adoption-november-2026",
+          title: "Which commerce protocol developers install",
+          note: "@x402/core had 1,940,555 npm downloads. ACP and AP2 publish no package.",
+        },
+        {
           href: "/blog/how-to-make-your-store-readable-by-ai-shopping-agents",
           title: "How to make your store readable by AI shopping agents",
           note: "The feed fields and checkout flags a merchant publishes.",
@@ -523,10 +564,36 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
           title: "Best AI agent for shopping",
           note: "Licence, list price, and checkout path from official pages.",
         },
+      ],
+      tool: {
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        title: "harness evaluation checklist",
+        note: "twelve sourced checks, counted in the browser",
+      },
+    };
+  }
+  if (slug === "ucp-vs-acp-spec-versions-november-2026") {
+    return {
+      reads: [
         {
-          href: "/blog/how-do-you-evaluate-an-ai-agent-harness",
-          title: "How to evaluate an AI agent harness",
-          note: "The same shape of test, pointed at a feed lookup.",
+          href: "/research/agentic-commerce-protocol-adoption-november-2026",
+          title: "Which commerce protocol developers install",
+          note: "Stars, commits, and registry downloads, read November 11.",
+        },
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents, the next 6 months",
+          note: "What six companies have dated through May 2027.",
+        },
+        {
+          href: "/blog/can-an-ai-shopping-agent-check-out-for-you",
+          title: "Can an AI shopping agent check out for you?",
+          note: "Who can pay today, and who still sends you to the store.",
+        },
+        {
+          href: "/glossary/agentic-checkout",
+          title: "Agentic checkout",
+          note: "The checkout path a spec version still has to implement.",
         },
       ],
       tool: {

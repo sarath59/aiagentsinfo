@@ -50,7 +50,7 @@ faq:
 
 ElevenAgents Campaign Manager is ElevenLabs’ outbound runner for voice [agents](/glossary/agent), published on November 9, 2026. The [announcement](https://elevenlabs.io/blog/elevenagents-campaign-manager) says you give it contacts and an outcome, such as a qualified lead or a confirmed appointment, and it follows up until that outcome, carrying context from one touch to the next. The [docs](https://elevenlabs.io/docs/eleven-agents/phone-numbers/campaigns), read November 10, say this replaces batch calling.
 
-The control that makes it a procurement question, not only a dialer, is the cap. `max_total_calls` includes the first call. The default is 6. The maximum is 30. Calling windows, a per-campaign do-not-call flag, and a policy that freezes when the campaign is created sit next to that cap. The docs do not list a separate fee for the feature.
+The control that makes it a procurement question, not only a dialer, is the cap. `max_total_calls` includes the first call. The default is 6. The maximum is 30. Calling windows, a per-campaign do-not-call flag, and a policy that freezes when the campaign is created sit next to that cap. The docs do not list a separate fee for the feature. What the Agents pricing page charges for the minute underneath it, read November 11, is [what a voice AI agent costs per call](/blog/voice-ai-agent-cost-per-call-november-2026).
 
 AI Agents Info read the announcement and the Campaigns docs on November 10, 2026. This page did not place a call. The product listing is [ElevenLabs](/directory/elevenlabs). What an agent is, beyond a voice model, is [How do AI agents work?](/blog/how-do-ai-agents-work).
 

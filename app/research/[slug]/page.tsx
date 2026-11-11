@@ -226,6 +226,37 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
 }
 
 function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "agentic-commerce-protocol-adoption-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents in the next 6 months",
+          note: "What six companies have dated. This page counts installs, not checkouts.",
+        },
+        {
+          href: "/blog/ucp-vs-acp-spec-versions-november-2026",
+          title: "UCP and ACP spec versions",
+          note: "Which snapshot to pin. Read November 10, 2026.",
+        },
+        {
+          href: "/blog/can-an-ai-shopping-agent-check-out-for-you",
+          title: "Can an AI shopping agent check out for you?",
+          note: "The channel still decides who can take payment.",
+        },
+        {
+          href: "/trackers/downloads",
+          title: "Framework downloads tracker",
+          note: "A different package set, refreshed from the registries.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "agent cost calculator",
+        note: "a token bill. These download counts are not a price",
+      },
+    };
+  }
   if (slug === "ai-agents-next-12-months-scorecard-november-2026") {
     return {
       reads: [

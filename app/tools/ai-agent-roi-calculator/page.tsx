@@ -346,6 +346,15 @@ export default function AiAgentRoiCalculatorPage() {
               <span className="text-[var(--muted)]"> walks the first example, then the input that flips it.</span>
             </li>
             <li>
+              <Link className="text-[var(--link)] underline" href="/blog/voice-ai-agent-cost-per-call-november-2026">
+                What a voice AI agent costs per call
+              </Link>
+              <span className="text-[var(--muted)]">
+                {" "}
+                prices 1,000 and 10,000 three-minute calls from the vendors&apos; pages, read November 11, 2026.
+              </span>
+            </li>
+            <li>
               <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
                 AI agent cost calculator
               </Link>

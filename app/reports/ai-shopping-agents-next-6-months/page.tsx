@@ -27,6 +27,14 @@ export default async function ShoppingAgentsReportPage() {
   ]);
   const related = [
     {
+      href: "/research/agentic-commerce-protocol-adoption-november-2026",
+      title: "AP2 has 3,270 stars and no package. @x402/core had 1,940,555 downloads",
+      description:
+        "GitHub, npm, and PyPI for ACP, UCP, AP2, and x402, read November 11, 2026. Checkout behavior stays on this page.",
+      kicker: "Research",
+      date: "2026-11-11",
+    },
+    {
       href: "/research/ai-agents-next-12-months-scorecard-november-2026",
       title: "AI agents next 12 months: the $69.8 billion line is now $70.7 billion",
       description:

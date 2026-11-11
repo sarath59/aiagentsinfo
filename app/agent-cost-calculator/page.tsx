@@ -299,7 +299,9 @@ export default function CostCalculatorPage() {
 
         <section className="mt-10 text-sm">
           <p>
-            Related: <Link className="text-[var(--link)] underline" href="/tools/ai-agent-roi-calculator">AI agent ROI calculator</Link>
+            Related: <Link className="text-[var(--link)] underline" href="/blog/voice-ai-agent-cost-per-call-november-2026">what a voice AI agent costs per call</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/tools/ai-agent-roi-calculator">AI agent ROI calculator</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">prompt and tool checker</Link>
             {" · "}

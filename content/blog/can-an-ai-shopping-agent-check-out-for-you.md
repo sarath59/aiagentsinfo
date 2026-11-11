@@ -255,6 +255,7 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 - Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [What is an AI employee?](/blog/what-is-an-ai-employee), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
 - Directory: [Amazon Rufus latest features, November 2026](/directory/amazon-rufus#what-are-the-latest-amazon-rufus-features-and-expansion-in-november-2026), [ChatGPT](/directory/chatgpt), [Gemini](/directory/gemini), [Perplexity](/directory/perplexity), [shopping agents](/directory/category/shopping-agents)
 - Report: [AI shopping agents next 6 months: 6 companies](/reports/ai-shopping-agents-next-6-months)
+- Research: [AP2 has 3,270 stars and no package. @x402/core had 1,940,555 downloads](/research/agentic-commerce-protocol-adoption-november-2026)
 - Topics: [Agents in shopping](/topics/shopping), [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work)
 
 ## Frequently asked questions
