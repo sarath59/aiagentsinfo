@@ -204,9 +204,9 @@ export const webSearchComparison: ComparisonPage = {
   heading: "Best AI agent for web search in 2026",
   metaTitle: "Best AI agent for web search: 4 in 2026",
   metaDescription:
-    "There is no single best AI agent for web search. We compared 4 products on plans, citations, and list price from official pages (Nov 2026).",
+    "For Claude and OpenAI agents: Claude web search cites sources on every plan, and ChatGPT search is on every plan, including unsigned-in use (Nov 2026).",
   description:
-    "There is no single best AI agent for web search. ChatGPT search is on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. Claude web search is on every Claude plan globally, with citations, and usage counts toward plan limits. Gemini and Google AI Mode sit in Search. Perplexity is an answer engine that cites retrieved pages.",
+    "There is no single best AI agent for web search. For Claude and OpenAI agents, the tools on this page are Claude web search and ChatGPT search. ChatGPT search is on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. Claude web search is on every Claude plan globally, with citations, and usage counts toward plan limits. Gemini and Google AI Mode sit in Search. Perplexity is an answer engine that cites retrieved pages.",
   summary:
     "Sourced comparison of web-search agents on plans, citations, and list price. Last verified November 2026.",
   question: "Which AI agent is best for web search in 2026?",
@@ -221,7 +221,7 @@ export const webSearchComparison: ComparisonPage = {
   methodLead:
     "Every cell comes from an official product page, a help article, or a listing on this site that already cites that official page.",
   faqHeading: "What else do people ask about AI web search?",
-  faqLead: "These short answers cover Free plans, citations, and why this page has no star ratings.",
+  faqLead: "These short answers cover Claude and OpenAI web search, Free plans, citations, and why this page has no star ratings.",
   applicationCategory: "ReferenceApplication",
   kind: "consumer",
   columns: consumerColumns,
@@ -315,6 +315,11 @@ export const webSearchComparison: ComparisonPage = {
   ],
   faq: [
     {
+      question: "Which web search tools work with Claude and OpenAI agents?",
+      answer:
+        "On this page, Claude web search is the Claude tool: it is on every Claude plan globally, every response includes citations, and search counts toward usage limits. ChatGPT search is the OpenAI tool: web search with citations on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. Gemini and Perplexity are the other two listings. They are not Claude or OpenAI products.",
+    },
+    {
       question: "Is ChatGPT search free?",
       answer:
         "Yes, on the Free plan, and OpenAI’s help article also says people who are not signed in can use web search. Searches are subject to plan usage limits.",
@@ -346,7 +351,7 @@ export const webSearchComparison: ComparisonPage = {
       id: "direct-answer",
       heading: "Which AI agent is best for web search in 2026?",
       paragraphs: [
-        "There is no single best AI agent for web search. [ChatGPT](/directory/chatgpt) search is on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. [Claude](/directory/claude) web search is on every Claude plan globally, with citations, and usage counts toward plan limits. [Gemini](/directory/gemini) and Google AI Mode sit in Search. [Perplexity](/directory/perplexity) is an answer engine that cites retrieved pages.",
+        "There is no single best AI agent for web search. For Claude and OpenAI agents, the tools on this page are [Claude](/directory/claude) web search and [ChatGPT](/directory/chatgpt) search. ChatGPT search is on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. Claude web search is on every Claude plan globally, with citations, and usage counts toward plan limits. [Gemini](/directory/gemini) and Google AI Mode sit in Search. [Perplexity](/directory/perplexity) is an answer engine that cites retrieved pages.",
         "Search is [tool use](/glossary/tool-use), not a mind. The shelf for this table is [Best AI agents](/best).",
       ],
     },

@@ -1,12 +1,12 @@
 ---
 title: "What Is T3 Code? 54,963 GitHub Stars on an Open-Source Control Plane (2026)"
-description: "54,963 GitHub stars at 11:48 UTC on November 10, 2026. T3 Code is a free MIT control surface for coding agents you already subscribe to. Release v0.1.8 shipped November 9 and adds Claude Fable 5.2."
+description: "T3 Code on GitHub is pingdotgg/t3code: 54,963 stars at 11:48 UTC on November 10, 2026. Free and MIT-licensed. v0.1.8 shipped November 9 and adds Claude Fable 5.2."
 takeaways:
   - "On November 10, 2026 at 11:48:27 UTC, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests for pingdotgg/t3code. The license field was MIT. The latest release was v0.1.8, published November 9, 2026. The November 8 reading was 51,402 stars and v0.1.7."
   - "The README calls T3 Code an agent-harness control surface. The homepage calls it an open-source control plane. The FAQ, read the same morning, says it is not a harness and does not work without one you already have installed."
   - "The pages do not agree on the agent list. The homepage names six. The install guide names ten, including Kiro, Pi, Muse Code, and fx. This page keeps each list with the page that printed it."
 date: "2026-11-08"
-updated: "2026-11-10"
+updated: "2026-11-11"
 category: guide
 topics:
   - harnesses
@@ -54,6 +54,8 @@ sources:
   - title: "MIT license file on main"
     url: "https://github.com/pingdotgg/t3code/blob/main/LICENSE"
 faq:
+  - question: "Where is T3 Code on GitHub?"
+    answer: "The repository is pingdotgg/t3code, at https://github.com/pingdotgg/t3code. At 11:48:27 UTC on November 10, 2026, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests. The license field was MIT. The latest release was v0.1.8, published 2026-11-09T22:46:42Z. A count you see on GitHub after that timestamp can differ from 54,963."
   - question: "What is T3 Code?"
     answer: "T3 Code is an open-source app from the pingdotgg GitHub organization, copyright T3 Tools Inc. in the MIT license file. The README calls it an agent-harness control surface. The homepage calls it an open-source control plane for coding agents. It drives coding agents already installed on your machine and does not sell a model of its own."
   - question: "Is T3 Code a harness?"
@@ -73,6 +75,12 @@ At 11:48:27 UTC on November 10, 2026, the GitHub API reported **54,963** stars f
 [T3 Code](https://t3.codes/) is the project’s open-source control plane for coding agents you already run. The README’s own phrase is narrower: an “agent harness control surface.”
 
 This page was published November 8, 2026. The homepage, the README, the FAQ, the install guide, the permission and remote docs, the ACP provider page, and the license file were read that morning and were not re-read on November 10. The November 10 pass re-read the repository API and the latest release. Where the November 8 pages name different agents, the table below keeps them apart.
+
+## Where is T3 Code on GitHub?
+
+T3 Code’s repository is [pingdotgg/t3code](https://github.com/pingdotgg/t3code). At 11:48:27 UTC on November 10, 2026, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests for that repository. The license field was MIT, `archived` was false, and the latest release was v0.1.8, published 2026-11-09T22:46:42Z. The default branch is `main`. Stars on this repository move after a snapshot, so a count you see on GitHub after 11:48 UTC on November 10 can differ from 54,963.
+
+The app drives coding agents you already run, including [Claude Code](/directory/claude-code). Seat prices for Cursor, Claude Code, and Codex are on the [Cursor vs Claude Code vs Codex pricing calculator](/tools/cursor-vs-claude-code-vs-codex-pricing). This page does not restate those prices.
 
 ## What is T3 Code?
 
@@ -196,6 +204,10 @@ Stars on this repository move after a snapshot. A count you see on GitHub after 
 This guide is filed under [harnesses](/topics/harnesses), [tools and SaaS](/topics/tools-saas), and [how agents work](/topics/how-agents-work).
 
 ## Frequently asked questions
+
+### Where is T3 Code on GitHub?
+
+The repository is [pingdotgg/t3code](https://github.com/pingdotgg/t3code). At 11:48:27 UTC on November 10, 2026, the API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests. The license field was MIT. The latest release was v0.1.8, published November 9, 2026. A later count on GitHub can differ from 54,963.
 
 ### What is T3 Code?
 

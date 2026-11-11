@@ -67,14 +67,32 @@ export const citationDate = shortDate(retrievedAt);
 /** Citation URL requested for this report. The site canonical host redirects this apex host. */
 export const citationUrl = `https://aiagentsinfo.com${path}`;
 
-export const description = `AI agent framework release November 2026: a sortable table of the latest GitHub releases for ${integer(repos.length)} open-source frameworks and SDKs, pulled ${retrievedLabel}. ${integer(recentRepos().length)} of ${integer(repos.length)} were within ${integer(RECENT_RELEASE_DAYS)} days. Stars, forks, licences, and release dates are on this page.`;
+function novemberRepos() {
+  return repos
+    .filter((repo) => repo.latest_release_at.startsWith("2026-11"))
+    .sort((a, b) => a.repo.localeCompare(b.repo));
+}
+
+export function novemberUpdateAnswer() {
+  const november = novemberRepos();
+  const list = joinList(
+    november.map((repo) => `${repo.repo} (${repo.latest_release}, ${formatDate(repo.latest_release_at)})`),
+  );
+  return {
+    lead: `${integer(november.length)} of the ${integer(repos.length)} repositories in this snapshot have a latest GitHub release dated in November 2026.`,
+    detail: `The snapshot was pulled on ${retrievedLabel}, so it cannot speak for the rest of the month. Those latest releases are ${list}. A latest release still dated in October means GitHub had not published a newer release by the pull.`,
+  };
+}
+
+export const description = `Which AI agent frameworks released updates in November 2026? As of the ${retrievedLabel} GitHub pull, ${integer(novemberRepos().length)} of ${integer(repos.length)} had a latest release that month: ${joinList(novemberRepos().map((repo) => repo.repo))}. Later days in November are not in this snapshot.`;
 
 export const citation = `AI Agents Info, "${title}", ${citationDate}, ${citationUrl}`;
 
 export const embedHtml = `<a href="${citationUrl}">AI agent framework release, November 2026 - AI Agents Info</a>`;
 
 export function leadParagraph() {
-  return `Data pulled from GitHub on ${retrievedLabel}. This page lists public GitHub figures for ${integer(repos.length)} open-source agent frameworks and SDKs, including each repository's latest release. Stars, forks, open issues, the detected licence, the primary language, the creation date, and the latest release are copied from that snapshot. Nothing on this page is estimated.`;
+  const november = novemberRepos().length;
+  return `Data pulled from GitHub on ${retrievedLabel}. This page lists public GitHub figures for ${integer(repos.length)} open-source agent frameworks and SDKs, including each repository's latest release. ${integer(november)} of those ${integer(repos.length)} had a latest GitHub release dated in November 2026. Stars, forks, open issues, the detected licence, the primary language, the creation date, and the latest release are copied from that snapshot. Nothing on this page is estimated.`;
 }
 
 export type FrameworkFaqItem = {
@@ -85,17 +103,12 @@ export type FrameworkFaqItem = {
 };
 
 export function frameworkFaq(): FrameworkFaqItem[] {
-  const november = repos
-    .filter((repo) => repo.latest_release_at.startsWith("2026-11"))
-    .sort((a, b) => a.repo.localeCompare(b.repo));
+  const november = novemberUpdateAnswer();
   const recent = recentRepos().length;
   const quiet = [...quietRepos()].sort(
     (a, b) => b.daysSinceRelease - a.daysSinceRelease || a.repo.localeCompare(b.repo),
   );
   const top = mostStarred();
-  const novemberList = joinList(
-    november.map((repo) => `${repo.repo} (${repo.latest_release}, ${formatDate(repo.latest_release_at)})`),
-  );
   const quietList = joinList(
     quiet.map(
       (repo) =>
@@ -104,9 +117,9 @@ export function frameworkFaq(): FrameworkFaqItem[] {
   );
   return [
     {
-      question: "Which AI agent frameworks had a GitHub release in November 2026?",
-      lead: `${integer(november.length)} of the ${integer(repos.length)} repositories in this snapshot have a latest GitHub release dated in November 2026.`,
-      detail: `The snapshot was pulled on ${retrievedLabel}, so it cannot speak for the rest of the month. Those latest releases are ${novemberList}. A latest release still dated in October means GitHub had not published a newer release by the pull.`,
+      question: "Which AI agent frameworks released updates in November 2026?",
+      lead: november.lead,
+      detail: november.detail,
     },
     {
       question: "How many AI agent frameworks does the November 2026 report compare?",

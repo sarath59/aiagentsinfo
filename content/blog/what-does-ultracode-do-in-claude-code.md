@@ -1,13 +1,13 @@
 ---
 title: "What Is Ultracode in Claude Code?"
 absoluteTitle: true
-description: "Ultracode is a Claude Code setting. It plans a dynamic workflow for each substantive task at any effort level, and it is not a model or a separate plan."
+description: "Ultracode is a Claude Code setting, not a Fable 5.2 feature. It plans a dynamic workflow for each substantive task, and it is not a model or a separate plan."
 takeaways:
   - "On the workflows page read November 9, 2026, ultracode is a Claude Code setting. With it on, Claude plans a dynamic workflow for each substantive task instead of waiting to be asked."
   - "The changelog for v2.1.284, dated September 28, 2026, says the /effort toggle no longer forces xhigh. claude --effort ultracode still turns ultracode on and sets the level to xhigh."
   - "The same workflows page says each request uses more tokens and takes longer, and those tokens draw on the plan's usage limits. It does not print a separate ultracode price."
 date: "2026-11-09"
-updated: "2026-11-10"
+updated: "2026-11-11"
 category: guide
 topics:
   - harnesses
@@ -50,9 +50,11 @@ faq:
     answer: "The workflows page does not print a dollar price for ultracode. It says each request uses more tokens and takes longer than the same request without a workflow, and that on a subscription those tokens draw on usage limits, so a session reaches a session or weekly limit sooner. A single workflow run can use meaningfully more tokens than the same task in conversation, and runs count toward the plan's usage and rate limits."
   - question: "How do you turn ultracode off?"
     answer: "The workflows page says /effort ultracode off. That form requires Claude Code v2.1.284 or later. Before that version, the same page says /effort ultracode off failed with Invalid argument. Turning dynamic workflows off, in /config or with \"disableWorkflows\": true, also removes the Ultracode toggle."
+  - question: "Can you use ultracode with Claude Fable 5.2?"
+    answer: "Ultracode is a Claude Code setting, not a Fable 5.2 feature, and this site did not retest it on that model. The model-configuration page read November 10, 2026, quoted on the Fable 5.2 harness guide, says claude --effort ultracode turns ultracode on and also sets the effort level to xhigh. That page lists xhigh among Fable 5.2's levels (low, medium, high, xhigh, and max). Claude Code's default effort for Fable 5.2 is medium until you set it, and the model needs Claude Code v2.1.321 or later."
 ---
 
-Ultracode is a Claude Code setting. It plans a dynamic workflow for each substantive task, at the effort level the session is already using. On the [workflows page](https://code.claude.com/docs/en/workflows) read November 9, 2026, `/effort ultracode` is the command that turns that setting on for the current session, and the [changelog](https://code.claude.com/docs/en/changelog) dates the split from a forced `xhigh` effort at Claude Code v2.1.284, September 28, 2026.
+Ultracode is a Claude Code setting. It plans a dynamic workflow for each substantive task, at the effort level the session is already using. It is not a Claude Fable 5.2 feature, and this page did not retest the setting on that model. On the [workflows page](https://code.claude.com/docs/en/workflows) read November 9, 2026, `/effort ultracode` is the command that turns that setting on for the current session, and the [changelog](https://code.claude.com/docs/en/changelog) dates the split from a forced `xhigh` effort at Claude Code v2.1.284, September 28, 2026.
 
 The pages read for this note are that workflows guide, the [model-config page](https://code.claude.com/docs/en/model-config), the [settings reference](https://code.claude.com/docs/en/settings-reference), and the changelog entries for v2.1.284 and v2.1.160. A [Hacker News thread](https://news.ycombinator.com/item?id=48314397) asks the short form, “What is ultracode mode?” A [Reddit thread](https://www.reddit.com/r/ClaudeCode/comments/1u5d69n/any_reason_not_to_use_ultracode/) asks whether there is a reason to leave it off. The answers below are the docs, not the comment threads.
 
@@ -114,7 +116,9 @@ Type `/effort ultracode` for this session, press Tab on the Ultracode toggle in 
 
 The word in a prompt is a one-task opt-in. The workflows page says Claude Code highlights the keyword, and Claude writes a workflow for that task. Asking “use a workflow” or “run a workflow” is the same opt-in. The keyword works in a prompt you type at the interactive prompt, in an IDE extension panel, in a Remote Control client, or in an Agent SDK application that stamps the input as human. It does not start a workflow from `claude -p`, from an SDK prompt that is not stamped as human, from a scheduled task, or from a webhook or pull-request comment. Option+W on macOS, or Alt+W on Windows and Linux, dismisses the highlight for that prompt. The settings key `workflowKeywordTriggerEnabled` defaults to true. Set it to false to type the word without starting a run. In `/config` that key is labeled Ultracode keyword trigger.
 
-Ultracode is unavailable in two cases the model-config page names: workflows are turned off, or the model does not support `xhigh` effort. In those cases `--effort ultracode` starts the session with ultracode off, at the highest effort level the model and any cap allow, up to `xhigh`. The effort table on that page lists `xhigh` for Fable 5.1, Fable 5, Opus 5.5, Sonnet 5.5, Haiku 5.5, Opus 5, Sonnet 5, Opus 4.8, and Opus 4.7. The Opus 4.6 and Sonnet 4.6 row lists `low`, `medium`, `high`, and `max`.
+Ultracode is unavailable in two cases the model-config page names: workflows are turned off, or the model does not support `xhigh` effort. In those cases `--effort ultracode` starts the session with ultracode off, at the highest effort level the model and any cap allow, up to `xhigh`. The effort table on that page lists `xhigh` for Fable 5.1, Fable 5, Opus 5.5, Sonnet 5.5, Haiku 5.5, Opus 5, Sonnet 5, Opus 4.8, and Opus 4.7. The Opus 4.6 and Sonnet 4.6 row lists `low`, `medium`, `high`, and `max`. That table was read November 9, 2026, and it does not name Claude Fable 5.2.
+
+[What is Claude Fable 5.2?](/blog/what-is-claude-fable-5-2) says ultracode is Claude Code’s own switch for planning a workflow, not a Fable 5.2 feature, and that this site did not retest the setting on the new model. The November 10 reading of Claude Code’s model configuration, in [How to use Claude Fable 5.2 in an agent harness](/blog/how-to-use-claude-fable-5-2-in-an-agent-harness), says `claude --effort ultracode` turns ultracode on and also sets the effort level to `xhigh`. That page lists `xhigh` among Fable 5.2’s levels (`low`, `medium`, `high`, `xhigh`, and `max`). Claude Code’s default effort for Fable 5.2 is `medium` until you set it, and the model needs Claude Code v2.1.321 or later.
 
 ## Which Claude plans include ultracode?
 
@@ -175,3 +179,7 @@ The workflows page prints no separate price. It says each request uses more toke
 ### How do you turn ultracode off?
 
 `/effort ultracode off` on Claude Code v2.1.284 or later. Turning dynamic workflows off removes the toggle as well.
+
+### Can you use ultracode with Claude Fable 5.2?
+
+Ultracode is a Claude Code setting, not a Fable 5.2 feature, and this site did not retest it on that model. The model-configuration page read November 10, 2026, quoted in [How to use Claude Fable 5.2 in an agent harness](/blog/how-to-use-claude-fable-5-2-in-an-agent-harness), says `claude --effort ultracode` turns ultracode on and also sets the effort level to `xhigh`. That page lists `xhigh` among Fable 5.2’s levels. Claude Code’s default effort for Fable 5.2 is `medium` until you set it, and the model needs Claude Code v2.1.321 or later. What the model is, separate from this setting, is [What is Claude Fable 5.2?](/blog/what-is-claude-fable-5-2).

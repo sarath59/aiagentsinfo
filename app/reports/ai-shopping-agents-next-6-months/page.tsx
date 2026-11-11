@@ -166,8 +166,8 @@ export default async function ShoppingAgentsReportPage() {
           { id: "likely", text: "Likely", level: 2 },
           { id: "watch-for", text: "Watch for", level: 2 },
           { id: "month-by-month", text: "Month by month", level: 2 },
-          { id: "what-a-shopping-agent-is", text: "What a shopping agent is", level: 2 },
-          { id: "how-to-use-one-today", text: "How to use one today", level: 2 },
+          { id: "what-a-shopping-agent-is", text: "What is an AI shopping agent?", level: 2 },
+          { id: "how-to-use-one-today", text: "How do you use an AI shopping agent today?", level: 2 },
           { id: "where-the-harness-draws-the-line", text: "Where the harness draws the line", level: 2 },
           { id: "left-out", text: "Left out", level: 2 },
           { id: "faq", text: "FAQ", level: 2 },
@@ -178,12 +178,12 @@ export default async function ShoppingAgentsReportPage() {
       >
         <div className="article-prose">
           <p>
-            From November 2026 through May 2027, the public record is a short list of rollouts already underway and a
-            handful of phrases with no day attached. Google has direct checkout running for named Canadian retailers as
-            of November 4, and a U.S. cart that launched October 15. OpenAI&apos;s merchant page, read November 5, still
-            sends the ChatGPT purchase to the store&apos;s own site or app. Amazon&apos;s October 29 earnings release
-            counts users of Alexa for Shopping and does not name the next launch. Microsoft&apos;s Copilot Checkout page
-            says it cannot give a timeline for other countries.
+            Google has direct checkout running for named Canadian retailers as of November 4, 2026, and a U.S. cart
+            that launched October 15. OpenAI&apos;s merchant page, read November 5, still sends the ChatGPT purchase to
+            the store&apos;s own site or app. From November 2026 through May 2027, the public record is that short list
+            of rollouts already underway and a handful of phrases with no day attached. Amazon&apos;s October 29
+            earnings release counts users of Alexa for Shopping and does not name the next launch. Microsoft&apos;s
+            Copilot Checkout page says it cannot give a timeline for other countries.
           </p>
           <p>
             The dated work inside the window is Google&apos;s: simplified Universal Commerce Protocol tools in Merchant
@@ -497,7 +497,7 @@ export default async function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 id="what-a-shopping-agent-is" className="text-2xl font-semibold tracking-tight">What a shopping agent is</h2>
+          <h2 id="what-a-shopping-agent-is" className="text-2xl font-semibold tracking-tight">What is an AI shopping agent?</h2>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
             <p>
               <Link className="text-[var(--link)] underline" href="/glossary/agent">
@@ -538,7 +538,7 @@ export default async function ShoppingAgentsReportPage() {
         </section>
 
         <section className="mt-12">
-          <h2 id="how-to-use-one-today" className="text-2xl font-semibold tracking-tight">How to use one today</h2>
+          <h2 id="how-to-use-one-today" className="text-2xl font-semibold tracking-tight">How do you use an AI shopping agent today?</h2>
           <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
             <p>
               How to use AI agents, for a purchase, is the permission on the screen in front of you. On Google, a U.S.

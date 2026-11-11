@@ -3,7 +3,7 @@ export type ShoppingMonth = { month: string; announced: string; likely: string; 
 export const path = "/reports/ai-shopping-agents-next-6-months";
 export const title = "AI shopping agents next 6 months: 6 companies (Nov 2026–May 2027)";
 export const description =
-  "AI shopping agents for the next 6 months: what Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated from November 2026 through May 2027. The month-by-month table is on this page. Checked November 5, 2026.";
+  "Google direct checkout is running for named Canadian retailers (Nov 4, 2026). ChatGPT still sends the purchase to the store. Undated months stay empty.";
 export const readOn = "2026-11-05";
 
 export const months: ShoppingMonth[] = [

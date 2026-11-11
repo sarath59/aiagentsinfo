@@ -18,6 +18,7 @@ import {
   leadParagraph,
   licenceSentence,
   methodologyFacts,
+  novemberUpdateAnswer,
   packageReleaseNote,
   path,
   quietReleaseSentence,
@@ -112,7 +113,7 @@ export default async function FrameworkGithubStatsPage() {
           { id: "key-figures", text: "Which figures does this snapshot report?", level: 2 },
           { id: "repositories", text: "Which frameworks are in the table?", level: 2 },
           { id: "licences", text: "What licences does GitHub report?", level: 2 },
-          { id: "release-recency", text: "Which frameworks released recently?", level: 2 },
+          { id: "release-recency", text: "Which AI agent frameworks released updates in November 2026?", level: 2 },
           { id: "methodology", text: "Where do the numbers come from?", level: 2 },
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
@@ -238,9 +239,22 @@ export default async function FrameworkGithubStatsPage() {
 
         <section className="mt-12">
           <h2 id="release-recency" className="text-2xl font-semibold tracking-tight">
-            Which AI agent frameworks released recently?
+            Which AI agent frameworks released updates in November 2026?
           </h2>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{recentReleaseSentence()}</p>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{novemberUpdateAnswer().lead}</p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{novemberUpdateAnswer().detail}</p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            The sourced comparison is{" "}
+            <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
+              Best AI agent frameworks
+            </Link>
+            . Live star counts for these repositories are on the{" "}
+            <Link className="text-[var(--link)] underline" href="/trackers/stars">
+              GitHub stars tracker
+            </Link>
+            .
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{recentReleaseSentence()}</p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{quietReleaseSentence()}</p>
           <div className="mt-5">
             <SortableTable
@@ -285,6 +299,10 @@ export default async function FrameworkGithubStatsPage() {
             ,{" "}
             <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
               AI agent framework comparison table
+            </Link>
+            ,{" "}
+            <Link className="text-[var(--link)] underline" href="/trackers/stars">
+              GitHub stars tracker
             </Link>
             ,{" "}
             <Link className="text-[var(--link)] underline" href="/directory/category/agent-frameworks">

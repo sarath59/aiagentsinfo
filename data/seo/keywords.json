@@ -1,174 +1,295 @@
 {
-  "updated": "2026-11-10T06:36:48+05:30",
+  "updated": "2026-11-11T06:50:46+05:30",
   "sources": [
-    "Google Trends via pytrends (venv /workspace/ptv) interest_over_time + related_queries rising; US and worldwide; now 7-d and now 1-d; 4 batches (head, coding, agent types, vendor incl. Fable 5.2) x 4 runs = 16/16 OK; run 2026-11-10 ~06:33-06:38 IST; raw /workspace/aiagentsinfo/research/pytrends_2026-11-10.json; script research/pt_daily.py",
-    "X (2026-11-10 ~06:32 IST): get_trends_by_woeid WW and US (only AI term: 'Fable 5.2', rest NFL/news); search_news 'AI agents' and coding agents (36h); get_posts_counts_recent for Fable 5.2, harness, software factory, computer use, chief-of-staff agent, Siri agent",
-    "WebSearch 2026-11-10: Anthropic 'Introducing Claude Fable 5.2 and Claude Mythos 5.2' (Nov 9 2026), platform.claude.com model docs, CNBC and The Verge coverage",
-    "Live sitemap https://www.aiagentsinfo.com/sitemap.xml fetched 2026-11-10 (245 URLs; research/sitemap-2026-11-10.xml). New since Nov 9 incl. /blog/claude-code-dont-ask-again, /blog/what-does-ultracode-do-in-claude-code, /research/garry-tan-harness-evals-november-2026, /blog/what-is-multi-agent-orchestration, /mcp, /trackers, /tools/agent-picker. Fable 5.2 page added 2026-11-10 at /blog/what-is-claude-fable-5-2. Still no page for Claude Duet, software factory, Siri agent, AI receptionist brands.",
-    "Prior keywords.json from /cursor/stores/user/aiagentsinfo/keywords.json (updated 2026-11-09T06:46:58+05:30)."
+    "data-brief.sh run 2026-11-11 06:46 IST (DataFast 2026-11-04..11 IST, AI answer fetches 7d, GSC through 2026-11-10 with dataState all); /workspace/aiagentsinfo/data-brief/latest.md",
+    "Google Trends via pytrends (venv /workspace/ptv), US+WW, now 7-d and now 1-d, 4 batches; 15/16 OK (WW 1-d vendor 429); raw research/pytrends_2026-11-11.json",
+    "X (2026-11-11 ~06:47 IST): trends WW+US (no AI terms), search_news AI agents + coding agents (30h), post counts for Fable 5.2, T3 Code, MCP Apps/interactive connectors, Claude Whiteboards/Sheets/Data, agent swarms",
+    "WebSearch: claude.com interactive connectors/MCP Apps + Sheets/Whiteboards/Data announcement (Nov 10 2026), The Verge Nov 10 2026",
+    "Live sitemap 2026-11-11 (289 URLs; research/sitemap-2026-11-11.xml)",
+    "Prior keywords.json (updated 2026-11-10T06:36:48+05:30)"
   ],
-  "notes": "Google Trends values are relative 0-100 within each batch; rising values are Google's related_queries rising % (shopping/travel/recipe/sports noise filtered: walmart near me, cheapest flights to tokyo, how to make sushi, etc.). Agents-only list. Top rising today: Claude Code GitHub secret leaks (+488k-502k 1-d, follow-on to 'don't ask again'), Claude Fable 5.2 (+131k 1-d, X worldwide trend, launched Nov 9 for long-horizon agentic work), agentic AI vs generative AI (+71k US 1-d), MCP server meaning (+251k WW 1-d), what is ultracode in Claude Code (+17k WW 1-d). Fable 5.2 page is /blog/what-is-claude-fable-5-2 (published 2026-11-10; harness write-up plus API breaks, cited to Anthropic). Content routines must weave top keywords into titles/H2/intros/meta/FAQs naturally - never stuff, never compromise accuracy. Audience: normal adults. Dropped 15 non-agent carried keywords on 2026-11-10 (general chatbot/model/news terms like gemini spark, claude personal finance, perplexity vs chatgpt, microsoft staff response, bare chatgpt/claude/gemini/grok).",
+  "notes": "Ranking rule: GSC queries with impressions at positions 4-20 and new-this-week queries rank above trend-only guesses. Google November 2026 core update rolling out Nov 10-~24: do not rewrite titles/H1s or prune pages because of GSC swings; today's edits target existing GSC queries (meta, H2/FAQ, intros, internal links). AEO-freeze pages (until Dec 8) are never edited. New pages wanted: Fable 5.2 vs Opus 5.5 (cite Anthropic benchmarks only), Claude interactive connectors / MCP Apps explainer, how the Claude Code team does code review, Claude Cowork, Claude Duet. Weave keywords naturally; never stuff, never compromise accuracy. Audience: normal adults. Agents only.",
   "top5_rising": [
-    "claude code github secret leaks",
-    "claude fable 5.2",
-    "what is agentic ai vs generative ai",
-    "mcp server meaning",
-    "what is ultracode in claude code"
+    "ai agent framework release november 2026",
+    "anthropic claude code settings vulnerability",
+    "fable 5.2 vs opus 5.5",
+    "claude interactive connectors mcp apps",
+    "t3 code github"
   ],
   "optimize_pages": [
-    "/blog/claude-code-dont-ask-again",
-    "/glossary/model-context-protocol",
-    "/glossary/agent",
-    "/blog/what-does-ultracode-do-in-claude-code",
-    "/directory/claude",
-    "/blog/what-is-claude-fable-5-2"
+    "/reports/ai-agent-framework-github-stats-november-2026",
+    "/reports/ai-shopping-agents-next-6-months",
+    "/blog/what-is-t3-code",
+    "/best/ai-agents-for-web-search",
+    "/blog/what-does-ultracode-do-in-claude-code"
   ],
   "keywords": [
     {
-      "date": "2026-11-10",
-      "keyword": "claude code github secret leaks",
+      "date": "2026-11-11",
+      "keyword": "ai agent framework release november 2026",
       "type": "long-tail",
-      "trend_signal": "pytrends 1-d rising under 'Claude Code': +488,550 US / +502,250 WW (Breakout, #1 rising); 7-d +78,500 US / +79,700 WW; X News 'Claude Code's Approval Button Leaks Secrets to Public GitHub Repos' updated 2026-11-09T10:07Z (Apiiro: 1,122 public copies, 1,379 secrets)",
+      "trend_signal": "GSC new query this week: 27 impr, pos 7.3, 2 clicks (26 impr on the framework report); DataFast GoogleAgent answer-fetched the report 15x in 7d; related GSC: 'ai agent framework news november 2026' 2 impr pos 3.5, 'ai agent framework 2026' pos 5",
+      "gsc_impressions": 27,
+      "gsc_position": 7.3,
+      "intent": "informational/news",
+      "target_url": "https://www.aiagentsinfo.com/reports/ai-agent-framework-github-stats-november-2026",
+      "status": "optimizing",
+      "rank": 1,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 1,
+          "status": "optimizing"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "anthropic claude code settings vulnerability",
+      "type": "long-tail",
+      "trend_signal": "pytrends 1-d rising under 'Claude Code': +111,300 US / +114,250 WW (#1); 7-d 'claude code github secret leaks' +131,600 US / +131,300 WW, 'claude code dont ask again risk' +40,400 US; X News Apiiro found 1,379 secrets in 1,122 public repos (deeper scan 2,539 in 1,994), Anthropic adding secret scanning",
+      "gsc_impressions": null,
+      "gsc_position": null,
       "intent": "informational/security",
       "target_url": "https://www.aiagentsinfo.com/blog/claude-code-dont-ask-again",
       "status": "targeted",
-      "rank": 1,
-      "first_seen": "2026-11-10",
-      "history": [
-        {
-          "date": "2026-11-10",
-          "rank": 1,
-          "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-10",
-      "keyword": "claude fable 5.2",
-      "type": "head",
-      "trend_signal": "pytrends 1-d rising under 'Claude Code': 'fable 5.2' +131,050 US / +131,750 WW; 'Fable 5.2' interest 0 -> 54.6 (last 6h, 1-d batch); X trend worldwide + US; X posts \"Fable 5.2\" 11,455 on Nov 9 UTC (5/day before). Verified: Anthropic released Claude Fable 5.2 and Mythos 5.2 on Nov 9 2026, built for long-horizon agentic work, $8/$40 per MTok, 1M context, model id claude-fable-5-2 (anthropic.com, platform.claude.com docs, CNBC, The Verge)",
-      "intent": "informational/news",
-      "target_url": "https://www.aiagentsinfo.com/blog/what-is-claude-fable-5-2",
-      "status": "targeted",
       "rank": 2,
-      "first_seen": "2026-11-10",
+      "first_seen": "2026-11-11",
       "history": [
         {
-          "date": "2026-11-10",
-          "rank": 2,
-          "status": "new"
-        },
-        {
-          "date": "2026-11-10",
+          "date": "2026-11-11",
           "rank": 2,
           "status": "targeted"
         }
       ]
     },
     {
-      "date": "2026-11-10",
-      "keyword": "what is agentic ai vs generative ai",
+      "date": "2026-11-11",
+      "keyword": "fable 5.2 vs opus 5.5",
       "type": "long-tail",
-      "trend_signal": "pytrends US 1-d rising under 'agentic AI': +71,450; WW 1-d 'agentic ai vs generative ai' +80, 'agentic vs generative ai' +60, 'define agentic ai' +40; 'agentic AI' 7-d batch mean 30.56 (highest in agent-types batch)",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/glossary/agent",
-      "status": "targeted",
+      "trend_signal": "pytrends US 7-d rising under 'Claude Fable': +250,900; 'anthropic fable 5.2' +313,700 US / +316,450 WW; 'claude fable 5.2 and mythos 5.2' +940,250 WW; 'fable 5.2 benchmark' +41,800 US; X posts \"Fable 5.2\" 27,993 on Nov 10 UTC (11,340 Nov 9, ~4/day before); GSC 'fable 5.2 ultracode' 4 impr pos 7.2",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "comparison",
+      "target_url": "new page",
+      "status": "new",
       "rank": 3,
-      "first_seen": "2026-11-10",
+      "first_seen": "2026-11-11",
       "history": [
         {
-          "date": "2026-11-10",
+          "date": "2026-11-11",
           "rank": 3,
-          "status": "targeted"
+          "status": "new"
         }
       ]
     },
     {
-      "date": "2026-11-10",
-      "keyword": "mcp server meaning",
+      "date": "2026-11-11",
+      "keyword": "t3 code github",
       "type": "long-tail",
-      "trend_signal": "pytrends WW 1-d rising under 'MCP server': 'mcp server meaning' +251,000; US 1-d +160, 'what is an mcp server in ai' +140",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/glossary/model-context-protocol",
-      "status": "targeted",
+      "trend_signal": "GSC: 4 impr pos 7.0 (+ 'github t3 code' pos 6, 't3 github' pos 7) on /blog/what-is-t3-code (page 24 impr, pos 9.5, 2 clicks); X posts \"T3 Code\" ~600/day (603 Nov 10); X News 'Developers Switch to T3 Code for Unified AI Agent Control' 2026-11-10T23:52Z; pytrends WW 7-d 't3 code' +50 under Claude Code",
+      "gsc_impressions": 4,
+      "gsc_position": 7.0,
+      "intent": "navigational/informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-t3-code",
+      "status": "optimizing",
       "rank": 4,
-      "first_seen": "2026-11-10",
+      "first_seen": "2026-11-11",
       "history": [
         {
-          "date": "2026-11-10",
+          "date": "2026-11-11",
           "rank": 4,
-          "status": "targeted"
+          "status": "optimizing"
         }
       ]
     },
     {
-      "date": "2026-11-10",
-      "keyword": "what is ultracode in claude code",
+      "date": "2026-11-11",
+      "keyword": "claude interactive connectors mcp apps",
       "type": "long-tail",
-      "trend_signal": "pytrends WW 1-d rising under 'Claude Code': +17,300 (Nov 9: +10,150 US 'what does ultracode do'); US 1-d +250",
+      "trend_signal": "Anthropic launched upgraded interactive connectors built on MCP Apps (open MCP extension) plus Claude Sheets/Whiteboards/Data on Nov 10 2026 (claude.com, The Verge); X posts MCP Apps/interactive connectors 210 on Nov 10 UTC vs 18-28/day before; X posts Claude Whiteboards/Sheets/Data 1,253 Nov 10 vs 4-8/day",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "informational/news",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 5,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 5,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "fable 5.2 ultracode",
+      "type": "long-tail",
+      "trend_signal": "GSC: 4 impr pos 7.2 on /blog/what-does-ultracode-do-in-claude-code (page 7 impr pos 6.6 in 7d); Fable 5.2 X 27,993 posts Nov 10",
+      "gsc_impressions": 4,
+      "gsc_position": 7.2,
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-does-ultracode-do-in-claude-code",
-      "status": "targeted",
-      "rank": 5,
-      "first_seen": "2026-11-10",
-      "history": [
-        {
-          "date": "2026-11-10",
-          "rank": 5,
-          "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-10",
-      "keyword": "jira mcp server",
-      "type": "long-tail",
-      "trend_signal": "pytrends WW 1-d rising under 'MCP server': +89,850; also 'splunk mcp server' +70,700 US, 'servicenow mcp server' +250, 'aws mcp server' +80, 'kicad mcp server' +150 7-d, 'sentry mcp server' +110 7-d",
-      "intent": "commercial/navigational",
-      "target_url": "https://www.aiagentsinfo.com/mcp",
-      "status": "targeted",
+      "status": "optimizing",
       "rank": 6,
-      "first_seen": "2026-11-10",
+      "first_seen": "2026-11-11",
       "history": [
         {
-          "date": "2026-11-10",
+          "date": "2026-11-11",
           "rank": 6,
-          "status": "targeted"
+          "status": "optimizing"
         }
       ]
     },
     {
-      "date": "2026-11-10",
-      "keyword": "garry tan harness evals",
+      "date": "2026-11-11",
+      "keyword": "best web search tool for ai agents",
       "type": "long-tail",
-      "trend_signal": "pytrends 7-d rising under 'AI agents': 'y combinator garry tan ai agents' +39,400 US (holding); X News 'Garry Tan Shares AI Coding Harness Evaluation Results'; page /research/garry-tan-harness-evals-november-2026 now live",
-      "intent": "informational/comparison",
-      "target_url": "https://www.aiagentsinfo.com/research/garry-tan-harness-evals-november-2026",
-      "status": "targeted",
+      "trend_signal": "GSC: 'best web search tool for claude / openai agents' 3 impr pos 8.7; 'ai web search' 5 impr pos 45.4 (new this week); page /best/ai-agents-for-web-search 29 impr pos 36.7",
+      "gsc_impressions": 3,
+      "gsc_position": 8.7,
+      "intent": "commercial",
+      "target_url": "https://www.aiagentsinfo.com/best/ai-agents-for-web-search",
+      "status": "optimizing",
       "rank": 7,
-      "first_seen": "2026-11-09",
+      "first_seen": "2026-11-11",
       "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 7,
+          "status": "optimizing"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "ai shopping agents",
+      "type": "head",
+      "trend_signal": "GSC: /reports/ai-shopping-agents-next-6-months 245 impr pos 5.3 but 0 clicks (CTR gap); 'openai web search product launch announcement' 2 impr pos 6.5, 'shopping agent' 4 impr pos 60; DataFast 10 human visitors (top report), Claude-User 5 answer fetches",
+      "gsc_impressions": 4,
+      "gsc_position": 60.0,
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/reports/ai-shopping-agents-next-6-months",
+      "status": "optimizing",
+      "rank": 8,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 8,
+          "status": "optimizing"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "how the claude code team does code review",
+      "type": "long-tail",
+      "trend_signal": "pytrends 1-d rising under 'Claude Code': +11,850 WW / +8,450 US; 'how anthropic teams use claude code' +6,950 WW / +4,750 US",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "informational/how-to",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 9,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 9,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "hugging face ai agents course",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 1-d rising under 'AI agents': +23,900 (only big agent riser in that batch); relates to 'ai agents for beginners' carried from Nov 10",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "informational/learning",
+      "target_url": "https://www.aiagentsinfo.com/blog/how-do-ai-agents-work",
+      "status": "new section",
+      "rank": 10,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 36,
+          "status": "new"
+        },
         {
           "date": "2026-11-09",
-          "rank": 2,
+          "rank": 56,
           "status": "new"
         },
         {
           "date": "2026-11-10",
-          "rank": 7,
-          "status": "targeted"
+          "rank": 61,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 10,
+          "status": "new section"
         }
       ]
     },
     {
-      "date": "2026-11-10",
-      "keyword": "claude duet",
+      "date": "2026-11-11",
+      "keyword": "claude cowork",
       "type": "head",
-      "trend_signal": "pytrends WW 1-d rising under 'Codex': 'claude duet' +10,700, under 'Claude Code' +90; US 1-d +70; still no dedicated page (verify what it is before covering)",
+      "trend_signal": "pytrends WW 7-d rising under 'Gemini agent': +79,850; US 7-d +140; Anthropic says the new Claude experience brings chat and Cowork together (Nov 10)",
+      "gsc_impressions": null,
+      "gsc_position": null,
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 8,
+      "rank": 11,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 11,
+          "status": "new"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "what is an agent harness",
+      "type": "long-tail",
+      "trend_signal": "pytrends 1-d rising under 'agent harness': +90 WW / +50 US; 'agent harness a survey' +44,350 WW 7-d; GSC 'what is agent harness' 3 impr pos 91 (page is AEO-freeze until Dec 8: do not edit)",
+      "gsc_impressions": 3,
+      "gsc_position": 91.0,
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
+      "status": "aeo-freeze",
+      "rank": 12,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 12,
+          "status": "aeo-freeze"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "claude duet",
+      "type": "head",
+      "trend_signal": "pytrends WW 1-d rising under 'AI agents': +50; X News 'Anthropic Seeks User Input on Claude Duet AI Agent' 2026-11-10T18:38Z (research preview, launched late Oct 2026)",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "informational",
+      "target_url": "new page",
+      "status": "new",
+      "rank": 13,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -190,8 +311,328 @@
           "date": "2026-11-10",
           "rank": 8,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 13,
+          "status": "new"
         }
       ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "kicad mcp server",
+      "type": "long-tail",
+      "trend_signal": "pytrends 'MCP server' rising: +350 US 7-d, +300 WW 1-d; also 'blender mcp server' +70 US 1-d, 'tradingview mcp server' +50 WW 7-d, 'mcp server meaning' +50 US 1-d",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "navigational",
+      "target_url": "https://www.aiagentsinfo.com/mcp",
+      "status": "targeted",
+      "rank": 14,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 14,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "ai agent swarms",
+      "type": "long-tail",
+      "trend_signal": "X posts swarm riders/agent swarm(s) 294 on Nov 10 UTC vs ~150-215/day; X News 'Swarm Riders Emerge as Key AI Skill' (Matt Huang) 2026-11-10T22:24Z; WorkflowArena benchmark: Opus 5.5 completed 36.95% of multi-agent workflow tasks",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-multi-agent-orchestration",
+      "status": "aeo-freeze",
+      "rank": 15,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 15,
+          "status": "aeo-freeze"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "how to install claude code on windows",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 1-d rising under 'Claude Code': +350; 'how to update claude code' +80 US / +80 WW",
+      "gsc_impressions": null,
+      "gsc_position": null,
+      "intent": "how-to",
+      "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
+      "status": "targeted",
+      "rank": 16,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 16,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "ai employee",
+      "type": "head",
+      "trend_signal": "GSC new this week: 'what is an ai employee' 5 impr pos 97, 'ai employees' 3 pos 93.3, 'ai employee for small business' 3 pos 93, 'ai staff' 2 pos 98; page /blog/what-is-an-ai-employee 14 impr pos 84.5 (rollout: do not rewrite title/H1 on GSC swings)",
+      "gsc_impressions": 5,
+      "gsc_position": 97.0,
+      "intent": "informational/commercial",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-employee",
+      "status": "targeted",
+      "rank": 17,
+      "first_seen": "2026-11-08",
+      "history": [
+        {
+          "date": "2026-11-08",
+          "rank": 51,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-09",
+          "rank": 71,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-10",
+          "rank": 72,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 17,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "elevenlabs agents",
+      "type": "head",
+      "trend_signal": "GSC new this week: 5 impr pos 90.6; /directory/elevenlabs 8 impr pos 66.1; voice agent 7-d mean 5.47 US",
+      "gsc_impressions": 5,
+      "gsc_position": 90.6,
+      "intent": "navigational",
+      "target_url": "https://www.aiagentsinfo.com/directory/elevenlabs",
+      "status": "targeted",
+      "rank": 18,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 18,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "keyword": "cursor ai",
+      "type": "head",
+      "trend_signal": "GSC new this week: 'cursor ai' 4 impr pos 44, 'cursor agent' 2 pos 91, 'cursor info' 1 pos 4; pytrends US 1-d 'what is cursor ai used for' +130",
+      "gsc_impressions": 4,
+      "gsc_position": 44.0,
+      "intent": "navigational/informational",
+      "target_url": "https://www.aiagentsinfo.com/directory/cursor",
+      "status": "targeted",
+      "rank": 19,
+      "first_seen": "2026-11-11",
+      "history": [
+        {
+          "date": "2026-11-11",
+          "rank": 19,
+          "status": "targeted"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "keyword": "claude code github secret leaks",
+      "type": "long-tail",
+      "trend_signal": "pytrends 1-d rising under 'Claude Code': +488,550 US / +502,250 WW (Breakout, #1 rising); 7-d +78,500 US / +79,700 WW; X News 'Claude Code's Approval Button Leaks Secrets to Public GitHub Repos' updated 2026-11-09T10:07Z (Apiiro: 1,122 public copies, 1,379 secrets)",
+      "intent": "informational/security",
+      "target_url": "https://www.aiagentsinfo.com/blog/claude-code-dont-ask-again",
+      "status": "targeted",
+      "rank": 20,
+      "first_seen": "2026-11-10",
+      "history": [
+        {
+          "date": "2026-11-10",
+          "rank": 1,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 20,
+          "status": "targeted"
+        }
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
+    },
+    {
+      "date": "2026-11-10",
+      "keyword": "claude fable 5.2",
+      "type": "head",
+      "trend_signal": "pytrends 1-d rising under 'Claude Code': 'fable 5.2' +131,050 US / +131,750 WW; 'Fable 5.2' interest 0 -> 54.6 (last 6h, 1-d batch); X trend worldwide + US; X posts \"Fable 5.2\" 11,455 on Nov 9 UTC (5/day before). Verified: Anthropic released Claude Fable 5.2 and Mythos 5.2 on Nov 9 2026, built for long-horizon agentic work, $8/$40 per MTok, 1M context, model id claude-fable-5-2 (anthropic.com, platform.claude.com docs, CNBC, The Verge)",
+      "intent": "informational/news",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-is-claude-fable-5-2",
+      "status": "targeted",
+      "rank": 21,
+      "first_seen": "2026-11-10",
+      "history": [
+        {
+          "date": "2026-11-10",
+          "rank": 2,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 21,
+          "status": "targeted"
+        }
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
+    },
+    {
+      "date": "2026-11-10",
+      "keyword": "what is agentic ai vs generative ai",
+      "type": "long-tail",
+      "trend_signal": "pytrends US 1-d rising under 'agentic AI': +71,450; WW 1-d 'agentic ai vs generative ai' +80, 'agentic vs generative ai' +60, 'define agentic ai' +40; 'agentic AI' 7-d batch mean 30.56 (highest in agent-types batch)",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/glossary/agent",
+      "status": "targeted",
+      "rank": 22,
+      "first_seen": "2026-11-10",
+      "history": [
+        {
+          "date": "2026-11-10",
+          "rank": 3,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 22,
+          "status": "targeted"
+        }
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
+    },
+    {
+      "date": "2026-11-10",
+      "keyword": "mcp server meaning",
+      "type": "long-tail",
+      "trend_signal": "pytrends WW 1-d rising under 'MCP server': 'mcp server meaning' +251,000; US 1-d +160, 'what is an mcp server in ai' +140",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/mcp-server-meaning-42072-github-repos",
+      "status": "targeted",
+      "rank": 23,
+      "first_seen": "2026-11-10",
+      "history": [
+        {
+          "date": "2026-11-10",
+          "rank": 4,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 23,
+          "status": "targeted"
+        }
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
+    },
+    {
+      "date": "2026-11-10",
+      "keyword": "what is ultracode in claude code",
+      "type": "long-tail",
+      "trend_signal": "pytrends WW 1-d rising under 'Claude Code': +17,300 (Nov 9: +10,150 US 'what does ultracode do'); US 1-d +250",
+      "intent": "informational",
+      "target_url": "https://www.aiagentsinfo.com/blog/what-does-ultracode-do-in-claude-code",
+      "status": "targeted",
+      "rank": 24,
+      "first_seen": "2026-11-10",
+      "history": [
+        {
+          "date": "2026-11-10",
+          "rank": 5,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 24,
+          "status": "targeted"
+        }
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
+    },
+    {
+      "date": "2026-11-10",
+      "keyword": "jira mcp server",
+      "type": "long-tail",
+      "trend_signal": "pytrends WW 1-d rising under 'MCP server': +89,850; also 'splunk mcp server' +70,700 US, 'servicenow mcp server' +250, 'aws mcp server' +80, 'kicad mcp server' +150 7-d, 'sentry mcp server' +110 7-d",
+      "intent": "commercial/navigational",
+      "target_url": "https://www.aiagentsinfo.com/mcp",
+      "status": "targeted",
+      "rank": 25,
+      "first_seen": "2026-11-10",
+      "history": [
+        {
+          "date": "2026-11-10",
+          "rank": 6,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 25,
+          "status": "targeted"
+        }
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
+    },
+    {
+      "date": "2026-11-10",
+      "keyword": "garry tan harness evals",
+      "type": "long-tail",
+      "trend_signal": "pytrends 7-d rising under 'AI agents': 'y combinator garry tan ai agents' +39,400 US (holding); X News 'Garry Tan Shares AI Coding Harness Evaluation Results'; page /research/garry-tan-harness-evals-november-2026 now live",
+      "intent": "informational/comparison",
+      "target_url": "https://www.aiagentsinfo.com/research/garry-tan-harness-evals-november-2026",
+      "status": "targeted",
+      "rank": 26,
+      "first_seen": "2026-11-09",
+      "history": [
+        {
+          "date": "2026-11-09",
+          "rank": 2,
+          "status": "new"
+        },
+        {
+          "date": "2026-11-10",
+          "rank": 7,
+          "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 26,
+          "status": "targeted"
+        }
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -201,15 +642,22 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
       "status": "targeted",
-      "rank": 9,
+      "rank": 27,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 9,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 27,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -219,15 +667,22 @@
       "intent": "comparison",
       "target_url": "https://www.aiagentsinfo.com/best/computer-use-agents",
       "status": "targeted",
-      "rank": 10,
+      "rank": 28,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 10,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 28,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -237,15 +692,22 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/how-do-ai-agents-work",
       "status": "targeted",
-      "rank": 11,
+      "rank": 29,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 11,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 29,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -255,15 +717,22 @@
       "intent": "news",
       "target_url": "new page",
       "status": "watch",
-      "rank": 12,
+      "rank": 30,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 12,
           "status": "watch"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 30,
+          "status": "watch"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -273,15 +742,22 @@
       "intent": "commercial",
       "target_url": "new page",
       "status": "new",
-      "rank": 13,
+      "rank": 31,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 13,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 31,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -291,15 +767,22 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-multi-agent-orchestration",
       "status": "targeted",
-      "rank": 14,
+      "rank": 32,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 14,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 32,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -309,15 +792,22 @@
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 15,
+      "rank": 33,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 15,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 33,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -327,7 +817,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 16,
+      "rank": 34,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -359,8 +849,15 @@
           "date": "2026-11-10",
           "rank": 16,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 34,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-10",
@@ -370,15 +867,22 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/agent-loop",
       "status": "targeted",
-      "rank": 17,
+      "rank": 35,
       "first_seen": "2026-11-10",
       "history": [
         {
           "date": "2026-11-10",
           "rank": 17,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 35,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -388,7 +892,7 @@
       "intent": "informational/security",
       "target_url": "https://www.aiagentsinfo.com/blog/claude-code-dont-ask-again",
       "status": "targeted",
-      "rank": 18,
+      "rank": 36,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -400,8 +904,15 @@
           "date": "2026-11-10",
           "rank": 18,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 36,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -411,7 +922,7 @@
       "intent": "informational/navigational",
       "target_url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 19,
+      "rank": 37,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -423,8 +934,15 @@
           "date": "2026-11-10",
           "rank": 19,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 37,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -434,7 +952,7 @@
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 20,
+      "rank": 38,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -446,8 +964,15 @@
           "date": "2026-11-10",
           "rank": 20,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 38,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -457,7 +982,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/codex",
       "status": "targeted",
-      "rank": 21,
+      "rank": 39,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -469,8 +994,15 @@
           "date": "2026-11-10",
           "rank": 21,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 39,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -480,7 +1012,7 @@
       "intent": "commercial/comparison",
       "target_url": "https://www.aiagentsinfo.com/best/ai-agent-harnesses",
       "status": "targeted",
-      "rank": 22,
+      "rank": 40,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -492,8 +1024,15 @@
           "date": "2026-11-10",
           "rank": 22,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 40,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -503,7 +1042,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-does-ultracode-do-in-claude-code",
       "status": "targeted",
-      "rank": 23,
+      "rank": 41,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -515,8 +1054,15 @@
           "date": "2026-11-10",
           "rank": 23,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 41,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -526,7 +1072,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 24,
+      "rank": 42,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -538,8 +1084,15 @@
           "date": "2026-11-10",
           "rank": 24,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 42,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -549,7 +1102,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/how-do-ai-agents-work",
       "status": "targeted",
-      "rank": 25,
+      "rank": 43,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -561,8 +1114,15 @@
           "date": "2026-11-10",
           "rank": 25,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 43,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -572,7 +1132,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/reports/agent-harness-benchmark-november-2026",
       "status": "targeted",
-      "rank": 26,
+      "rank": 44,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -584,8 +1144,15 @@
           "date": "2026-11-10",
           "rank": 26,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 44,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -595,7 +1162,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/research/terminal-bench-2-1-benchmark-repairs",
       "status": "targeted",
-      "rank": 27,
+      "rank": 45,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -607,8 +1174,15 @@
           "date": "2026-11-10",
           "rank": 27,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 45,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -618,7 +1192,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-t3-code",
       "status": "targeted",
-      "rank": 28,
+      "rank": 46,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -635,8 +1209,15 @@
           "date": "2026-11-10",
           "rank": 28,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 46,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -646,7 +1227,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 29,
+      "rank": 47,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -673,8 +1254,15 @@
           "date": "2026-11-10",
           "rank": 29,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 47,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -684,7 +1272,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
       "status": "targeted",
-      "rank": 30,
+      "rank": 48,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -711,8 +1299,15 @@
           "date": "2026-11-10",
           "rank": 30,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 48,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -722,7 +1317,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
       "status": "targeted",
-      "rank": 31,
+      "rank": 49,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -739,8 +1334,15 @@
           "date": "2026-11-10",
           "rank": 31,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 49,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -750,7 +1352,7 @@
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 32,
+      "rank": 50,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -772,8 +1374,15 @@
           "date": "2026-11-10",
           "rank": 32,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 50,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -783,7 +1392,7 @@
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 33,
+      "rank": 51,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -805,8 +1414,15 @@
           "date": "2026-11-10",
           "rank": 33,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 51,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -816,7 +1432,7 @@
       "intent": "commercial",
       "target_url": "new page",
       "status": "new",
-      "rank": 34,
+      "rank": 52,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -833,8 +1449,15 @@
           "date": "2026-11-10",
           "rank": 34,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 52,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-09",
@@ -844,7 +1467,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 35,
+      "rank": 53,
       "first_seen": "2026-11-09",
       "history": [
         {
@@ -856,8 +1479,15 @@
           "date": "2026-11-10",
           "rank": 35,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 53,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -867,7 +1497,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-employee",
       "status": "targeted",
-      "rank": 36,
+      "rank": 54,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -884,8 +1514,15 @@
           "date": "2026-11-10",
           "rank": 36,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 54,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -895,7 +1532,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
       "status": "targeted",
-      "rank": 37,
+      "rank": 55,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -922,8 +1559,15 @@
           "date": "2026-11-10",
           "rank": 37,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 55,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -933,7 +1577,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
       "status": "targeted",
-      "rank": 38,
+      "rank": 56,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -955,8 +1599,15 @@
           "date": "2026-11-10",
           "rank": 38,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 56,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -966,7 +1617,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/directory/perplexity",
       "status": "targeted",
-      "rank": 39,
+      "rank": 57,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -988,8 +1639,15 @@
           "date": "2026-11-10",
           "rank": 39,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 57,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -999,7 +1657,7 @@
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 40,
+      "rank": 58,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -1021,8 +1679,15 @@
           "date": "2026-11-10",
           "rank": 40,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 58,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1032,7 +1697,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/computer-use",
       "status": "targeted",
-      "rank": 41,
+      "rank": 59,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -1049,8 +1714,15 @@
           "date": "2026-11-10",
           "rank": 41,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 59,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1060,7 +1732,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 42,
+      "rank": 60,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -1077,8 +1749,15 @@
           "date": "2026-11-10",
           "rank": 42,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 60,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1088,7 +1767,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 43,
+      "rank": 61,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1120,8 +1799,15 @@
           "date": "2026-11-10",
           "rank": 43,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 61,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1131,7 +1817,7 @@
       "intent": "informational",
       "target_url": "new page",
       "status": "new",
-      "rank": 44,
+      "rank": 62,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -1148,8 +1834,15 @@
           "date": "2026-11-10",
           "rank": 44,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 62,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1159,7 +1852,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-harness-engineering-at-scale-thoughtworks-radar",
       "status": "targeted",
-      "rank": 45,
+      "rank": 63,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -1176,8 +1869,15 @@
           "date": "2026-11-10",
           "rank": 45,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 63,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1187,7 +1887,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-agent-use-your-computer",
       "status": "targeted",
-      "rank": 46,
+      "rank": 64,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -1214,8 +1914,15 @@
           "date": "2026-11-10",
           "rank": 46,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 64,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1225,7 +1932,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 47,
+      "rank": 65,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -1242,8 +1949,15 @@
           "date": "2026-11-10",
           "rank": 47,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 65,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1253,7 +1967,7 @@
       "intent": "commercial",
       "target_url": "new page",
       "status": "new",
-      "rank": 48,
+      "rank": 66,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -1275,8 +1989,15 @@
           "date": "2026-11-10",
           "rank": 48,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 66,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1286,7 +2007,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
       "status": "targeted",
-      "rank": 49,
+      "rank": 67,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1318,8 +2039,15 @@
           "date": "2026-11-10",
           "rank": 49,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 67,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1329,7 +2057,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
       "status": "targeted",
-      "rank": 50,
+      "rank": 68,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1361,8 +2089,15 @@
           "date": "2026-11-10",
           "rank": 50,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 68,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1372,7 +2107,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
       "status": "targeted",
-      "rank": 51,
+      "rank": 69,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -1399,8 +2134,15 @@
           "date": "2026-11-10",
           "rank": 51,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 69,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1410,7 +2152,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
       "status": "targeted",
-      "rank": 52,
+      "rank": 70,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -1437,8 +2179,15 @@
           "date": "2026-11-10",
           "rank": 52,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 70,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1448,7 +2197,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 53,
+      "rank": 71,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1480,8 +2229,15 @@
           "date": "2026-11-10",
           "rank": 53,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 71,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1491,7 +2247,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 54,
+      "rank": 72,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1523,8 +2279,15 @@
           "date": "2026-11-10",
           "rank": 54,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 72,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1534,7 +2297,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/computer-use",
       "status": "targeted",
-      "rank": 55,
+      "rank": 73,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -1561,8 +2324,15 @@
           "date": "2026-11-10",
           "rank": 55,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 73,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1572,7 +2342,7 @@
       "intent": "comparison",
       "target_url": "https://www.aiagentsinfo.com/blog/claude-code-vs-codex-pricing",
       "status": "targeted",
-      "rank": 56,
+      "rank": 74,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1604,8 +2374,15 @@
           "date": "2026-11-10",
           "rank": 56,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 74,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1615,7 +2392,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
       "status": "targeted",
-      "rank": 57,
+      "rank": 75,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -1642,8 +2419,15 @@
           "date": "2026-11-10",
           "rank": 57,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 75,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1653,7 +2437,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-shopping-agent-check-out-for-you",
       "status": "targeted",
-      "rank": 58,
+      "rank": 76,
       "first_seen": "2026-11-06",
       "history": [
         {
@@ -1680,8 +2464,15 @@
           "date": "2026-11-10",
           "rank": 58,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 76,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1691,7 +2482,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-employee",
       "status": "targeted",
-      "rank": 59,
+      "rank": 77,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -1713,8 +2504,15 @@
           "date": "2026-11-10",
           "rank": 59,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 77,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1724,7 +2522,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/how-do-you-evaluate-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 60,
+      "rank": 78,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -1746,36 +2544,15 @@
           "date": "2026-11-10",
           "rank": 60,
           "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-08",
-      "keyword": "hugging face ai agents course",
-      "type": "long-tail",
-      "trend_signal": "pytrends US 7-d rising under AI agents: 'hugging face ai agents course' +130; educational intent, no matching page",
-      "intent": "informational",
-      "target_url": "new page",
-      "status": "new",
-      "rank": 61,
-      "first_seen": "2026-11-08",
-      "history": [
-        {
-          "date": "2026-11-08",
-          "rank": 36,
-          "status": "new"
         },
         {
-          "date": "2026-11-09",
-          "rank": 56,
-          "status": "new"
-        },
-        {
-          "date": "2026-11-10",
-          "rank": 61,
-          "status": "new"
+          "date": "2026-11-11",
+          "rank": 78,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1785,7 +2562,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/category/ai-agents",
       "status": "watch",
-      "rank": 62,
+      "rank": 79,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -1802,8 +2579,15 @@
           "date": "2026-11-10",
           "rank": 62,
           "status": "watch"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 79,
+          "status": "watch"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1813,7 +2597,7 @@
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory/claude-code",
       "status": "targeted",
-      "rank": 63,
+      "rank": 80,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1845,8 +2629,15 @@
           "date": "2026-11-10",
           "rank": 63,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 80,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1856,7 +2647,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/category/ai-agents",
       "status": "watch",
-      "rank": 64,
+      "rank": 81,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1888,8 +2679,15 @@
           "date": "2026-11-10",
           "rank": 64,
           "status": "watch"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 81,
+          "status": "watch"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1899,7 +2697,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/directory/category/ai-agents",
       "status": "watch",
-      "rank": 65,
+      "rank": 82,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -1921,8 +2719,15 @@
           "date": "2026-11-10",
           "rank": 65,
           "status": "watch"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 82,
+          "status": "watch"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1932,7 +2737,7 @@
       "intent": "navigational",
       "target_url": "https://www.aiagentsinfo.com/directory/codex",
       "status": "targeted",
-      "rank": 66,
+      "rank": 83,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -1964,8 +2769,15 @@
           "date": "2026-11-10",
           "rank": 66,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 83,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -1975,7 +2787,7 @@
       "intent": "comparison",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 67,
+      "rank": 84,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -2007,8 +2819,15 @@
           "date": "2026-11-10",
           "rank": 67,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 84,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2018,7 +2837,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
       "status": "targeted",
-      "rank": 68,
+      "rank": 85,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -2050,8 +2869,15 @@
           "date": "2026-11-10",
           "rank": 68,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 85,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2061,7 +2887,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/glossary/harness-engineering",
       "status": "targeted",
-      "rank": 69,
+      "rank": 86,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -2083,8 +2909,15 @@
           "date": "2026-11-10",
           "rank": 69,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 86,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2094,7 +2927,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/can-an-ai-agent-use-your-computer",
       "status": "targeted",
-      "rank": 70,
+      "rank": 87,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -2116,8 +2949,15 @@
           "date": "2026-11-10",
           "rank": 70,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 87,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2127,7 +2967,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-t3-code",
       "status": "targeted",
-      "rank": 71,
+      "rank": 88,
       "first_seen": "2026-11-08",
       "history": [
         {
@@ -2144,36 +2984,15 @@
           "date": "2026-11-10",
           "rank": 71,
           "status": "targeted"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-08",
-      "keyword": "ai employee",
-      "type": "head",
-      "trend_signal": "Head form of today's top long-tail; pytrends longtail-batch mean 18.12; target the new explainer | 2026-11-09: pytrends 'what is an AI employee' 7-d mean 0.69 US (cooling); X News Coinbase CEO agent hierarchy updated 2026-11-08T23:23Z",
-      "intent": "informational",
-      "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-employee",
-      "status": "targeted",
-      "rank": 72,
-      "first_seen": "2026-11-08",
-      "history": [
-        {
-          "date": "2026-11-08",
-          "rank": 51,
-          "status": "targeted"
         },
         {
-          "date": "2026-11-09",
-          "rank": 71,
-          "status": "targeted"
-        },
-        {
-          "date": "2026-11-10",
-          "rank": 72,
+          "date": "2026-11-11",
+          "rank": 88,
           "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2183,7 +3002,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/research/harnessflow-mcts-harness-optimization",
       "status": "targeted",
-      "rank": 73,
+      "rank": 89,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -2215,8 +3034,15 @@
           "date": "2026-11-10",
           "rank": 73,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 89,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2226,7 +3052,7 @@
       "intent": "comparison",
       "target_url": "https://www.aiagentsinfo.com/reports/agent-harness-benchmark-november-2026",
       "status": "targeted",
-      "rank": 74,
+      "rank": 90,
       "first_seen": "2026-11-05",
       "history": [
         {
@@ -2258,8 +3084,15 @@
           "date": "2026-11-10",
           "rank": 74,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 90,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2269,7 +3102,7 @@
       "intent": "commercial",
       "target_url": "https://www.aiagentsinfo.com/directory/category/coding-agents",
       "status": "targeted",
-      "rank": 75,
+      "rank": 91,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -2291,8 +3124,15 @@
           "date": "2026-11-10",
           "rank": 75,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 91,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2302,7 +3142,7 @@
       "intent": "commercial",
       "target_url": "new page",
       "status": "new",
-      "rank": 76,
+      "rank": 92,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -2324,8 +3164,15 @@
           "date": "2026-11-10",
           "rank": 76,
           "status": "new"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 92,
+          "status": "new"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     },
     {
       "date": "2026-11-08",
@@ -2335,7 +3182,7 @@
       "intent": "informational",
       "target_url": "https://www.aiagentsinfo.com/blog/what-is-an-ai-agent-harness",
       "status": "targeted",
-      "rank": 77,
+      "rank": 93,
       "first_seen": "2026-11-07",
       "history": [
         {
@@ -2357,8 +3204,15 @@
           "date": "2026-11-10",
           "rank": 77,
           "status": "targeted"
+        },
+        {
+          "date": "2026-11-11",
+          "rank": 93,
+          "status": "targeted"
         }
-      ]
+      ],
+      "gsc_impressions": null,
+      "gsc_position": null
     }
   ]
 }
