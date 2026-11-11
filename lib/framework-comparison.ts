@@ -346,6 +346,12 @@ export const frameworkComparison: ComparisonPage = {
   ],
   related: [
     {
+      href: "/research/ai-agent-framework-release-cadence-october-november-2026",
+      title: "3,165 GitHub releases in 30 days, or 407 days of silence",
+      description: "Release counts for 24 frameworks in the 30 and 60 days before November 11, 2026. AutoGen published none.",
+      kicker: "Research",
+    },
+    {
       href: "/blog/langgraph-vs-crewai-vs-openai-agents-sdk",
       title: "LangGraph vs CrewAI vs the OpenAI Agents SDK",
       description: "Versions, MCP, evals, and the separate bills. Checked November 10, 2026.",

@@ -135,6 +135,14 @@ export default async function FrameworkGithubStatsPage() {
             date: "2026-11-11",
           },
           {
+            href: "/research/ai-agent-framework-release-cadence-october-november-2026",
+            title: "3,165 GitHub releases in 30 days, or 407 days of silence",
+            description:
+              "How many GitHub releases each framework published in the 30 and 60 days before November 11, 2026. This page’s latest-tag column is a different count.",
+            kicker: "Research",
+            date: "2026-11-11",
+          },
+          {
             href: "/research/livekit-agents-vs-pipecat-installs-november-2026",
             title: "LiveKit Agents had 4,583,195 downloads. Pipecat had 2,007 more stars.",
             description: "Voice frameworks were outside this snapshot. October 10 through November 8, 2026, PyPI without mirrors.",
