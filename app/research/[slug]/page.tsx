@@ -226,6 +226,37 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
 }
 
 function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "ai-agents-next-12-months-scorecard-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/reports/ai-agents-next-12-months",
+          title: "AI agents in the next 12 months",
+          note: "The November 7 calendar this note scores. Its sentences are unchanged.",
+        },
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents in the next 6 months",
+          note: "Checkout stays there. This scorecard does not move it.",
+        },
+        {
+          href: "/trackers/downloads",
+          title: "Framework downloads tracker",
+          note: "What registries fetched, which a prospectus commitment is not.",
+        },
+        {
+          href: "/trackers/stars",
+          title: "Framework stars tracker",
+          note: "Bookmarks. A different count from a filing.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "agent cost calculator",
+        note: "a 30-day token bill from published prices, with no seat fee",
+      },
+    };
+  }
   if (slug === "claude-code-vs-codex-downloads-november-2026") {
     return {
       reads: [

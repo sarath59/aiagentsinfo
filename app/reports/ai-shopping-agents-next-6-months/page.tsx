@@ -27,6 +27,14 @@ export default async function ShoppingAgentsReportPage() {
   ]);
   const related = [
     {
+      href: "/research/ai-agents-next-12-months-scorecard-november-2026",
+      title: "AI agents next 12 months: the $69.8 billion line is now $70.7 billion",
+      description:
+        "A November 11 re-read of the 12-month calendar. Checkout stays on this page.",
+      kicker: "Research",
+      date: "2026-11-11",
+    },
+    {
       href: "/reports/ai-agents-next-12-months",
       title: "AI agents, Nov 2026 to Nov 2027",
       description:

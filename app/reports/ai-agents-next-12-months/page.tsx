@@ -33,6 +33,14 @@ export default async function AgentsTwelveMonthOutlookPage() {
   ]);
   const related = [
     {
+      href: "/research/ai-agents-next-12-months-scorecard-november-2026",
+      title: "AI agents next 12 months: the $69.8 billion line is now $70.7 billion",
+      description:
+        "A November 11 re-read. Anthropic’s November 10 amendment replaced the commitment figures. The dates on this page did not move.",
+      kicker: "Research",
+      date: "2026-11-11",
+    },
+    {
       href: "/blog/gemini-4-carbon-for-agent-harnesses",
       title: "Gemini 4 Carbon for agent harnesses: the model id, the price after November 30, and the 400",
       description:
@@ -213,6 +221,7 @@ export default async function AgentsTwelveMonthOutlookPage() {
           { id: "types-of-ai-agents", text: "Types of AI agents in this window", level: 2 },
           { id: "how-to-use-ai-agents", text: "How to use an AI agent", level: 2 },
           { id: "left-out", text: "Left out", level: 2 },
+          { id: "next", text: "What should you open next?", level: 2 },
           { id: "faq", text: "FAQ", level: 2 },
           { id: "sources", text: "Sources", level: 2 },
           { id: "citation", text: "Cite or embed", level: 2 },
@@ -244,6 +253,14 @@ export default async function AgentsTwelveMonthOutlookPage() {
             boards are in the{" "}
             <Link href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>. A month
             with no dated launch is left empty on purpose.
+          </p>
+          <p>
+            A November 11, 2026 note re-reads these claims against later primary pages and does not rewrite the
+            sentences below. It is{" "}
+            <Link href="/research/ai-agents-next-12-months-scorecard-november-2026">
+              AI agents next 12 months: the $69.8 billion line is now $70.7 billion
+            </Link>
+            .
           </p>
         </div>
 
@@ -812,6 +829,42 @@ export default async function AgentsTwelveMonthOutlookPage() {
               listed above so they are not pulled forward.
             </li>
           </ul>
+        </section>
+
+        <section className="mt-12">
+          <h2 id="next" className="text-2xl font-semibold tracking-tight">
+            What should you open next?
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            The re-read of this calendar is{" "}
+            <Link className="text-[var(--link)] underline" href="/research/ai-agents-next-12-months-scorecard-november-2026">
+              the November 11 scorecard
+            </Link>
+            . Checkout, which this page leaves out, is{" "}
+            <Link className="text-[var(--link)] underline" href="/reports/ai-shopping-agents-next-6-months">
+              AI shopping agents in the next 6 months
+            </Link>
+            .
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            A commitment in a prospectus is not a token bill. The{" "}
+            <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
+              agent cost calculator
+            </Link>{" "}
+            prices a 30-day run from published rates and does not add a seat fee. What registries fetched is the{" "}
+            <Link className="text-[var(--link)] underline" href="/trackers/downloads">
+              downloads tracker
+            </Link>
+            . Bookmarks are the{" "}
+            <Link className="text-[var(--link)] underline" href="/trackers/stars">
+              stars tracker
+            </Link>
+            . To add a tool the directory does not list,{" "}
+            <Link className="text-[var(--link)] underline" href="/submit">
+              submit a listing
+            </Link>
+            . No login.
+          </p>
         </section>
 
         <FaqList
