@@ -176,8 +176,8 @@ export default function PromptCheckerPage() {
                 <p>
                   The price table does not publish a single per-call fee for these models, so none is added. Anthropic
                   does publish a tool-use system prompt length for several Claude models, and that length is added when
-                  the row exists. Computer use, code execution, and search grounding stay out when the copied pages do
-                  not give a rate.
+                  the row exists. Gemini&apos;s notes quote Google Search grounding at $14 per 1,000 requests after
+                  5,000 free. That fee is not in the total. Computer use and code execution stay out.
                 </p>
               ),
             },

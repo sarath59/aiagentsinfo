@@ -1,4 +1,4 @@
-export const PRICE_READ_ON = "2026-11-09";
+export const PRICE_READ_ON = "2026-11-11";
 
 export const OPENAI_PRICING_URL = "https://developers.openai.com/api/docs/pricing";
 export const ANTHROPIC_PRICING_URL = "https://platform.claude.com/docs/en/about-claude/pricing";
@@ -23,10 +23,10 @@ export type ModelPrice = {
 };
 
 const openaiLong =
-  "OpenAI's pricing page, read November 9, 2026, defines short context as 272,000 input tokens or fewer and long context as more than that. This calculator switches at that line. It does not add the 10% regional or FedRAMP uplift, and it does not use cached, batch, flex, fast, or ultrafast prices.";
+  "OpenAI's pricing page, read November 11, 2026, defines short context as 272,000 input tokens or fewer and long context as more than that. This calculator switches at that line. It does not add the 10% regional or FedRAMP uplift, and it does not use cached, batch, flex, fast, or ultrafast prices.";
 
 const xaiLong =
-  "xAI's models page, read November 9, 2026, bills the higher rate for every token in a request once the prompt reaches 200,000 tokens. This calculator switches at that line. Cached-input prices are not used.";
+  "xAI's models page, read November 11, 2026, bills the higher rate for every token in a request once the prompt reaches 200,000 tokens. This calculator switches at that line. Cached-input prices are not used.";
 
 const openaiSingle =
   "This model has one standard input price and one standard output price on the OpenAI page. A separate long-context price is not listed on that row. Cached, batch, flex, and fast prices are not used.";
@@ -98,7 +98,7 @@ export const modelPrices: ModelPrice[] = [
     ],
     notes: [
       openaiLong,
-      "The same page says GPT-5.6 Sol’s promotional pricing is available until November 30, 2026. It does not print the price that applies after that date. The numbers here are the standard prices listed on November 9, 2026.",
+      "The same page says GPT-5.6 Sol’s promotional pricing is available until November 30, 2026. It does not print the price that applies after that date. The numbers here are the standard prices listed on November 11, 2026.",
     ],
   },
   {
@@ -120,6 +120,28 @@ export const modelPrices: ModelPrice[] = [
     bands: [
       { maxInputTokens: 272_000, inputPerMillion: 0.2, outputPerMillion: 1.2, label: "Short context" },
       { inputPerMillion: 0.4, outputPerMillion: 1.8, label: "Long context" },
+    ],
+    notes: [openaiLong],
+  },
+  {
+    id: "gpt-5.5",
+    provider: "OpenAI",
+    label: "gpt-5.5",
+    sourceUrl: OPENAI_PRICING_URL,
+    bands: [
+      { maxInputTokens: 272_000, inputPerMillion: 5, outputPerMillion: 30, label: "Short context" },
+      { inputPerMillion: 10, outputPerMillion: 45, label: "Long context" },
+    ],
+    notes: [openaiLong],
+  },
+  {
+    id: "gpt-5.4",
+    provider: "OpenAI",
+    label: "gpt-5.4",
+    sourceUrl: OPENAI_PRICING_URL,
+    bands: [
+      { maxInputTokens: 272_000, inputPerMillion: 2.5, outputPerMillion: 15, label: "Short context" },
+      { inputPerMillion: 5, outputPerMillion: 22.5, label: "Long context" },
     ],
     notes: [openaiLong],
   },
@@ -216,7 +238,7 @@ export const modelPrices: ModelPrice[] = [
     sourceUrl: ANTHROPIC_PRICING_URL,
     bands: [{ inputPerMillion: 8, outputPerMillion: 40, label: "Standard" }],
     notes: [
-      "Anthropic's pricing page, read November 10, 2026, lists Claude Fable 5.2 at $8 per million input tokens and $40 per million output tokens. The same page bills the full 1 million token context window at that rate. Cache writes, cache hits, batch, and fast mode are not used.",
+      "Anthropic's pricing page, read November 11, 2026, lists Claude Fable 5.2 at $8 per million input tokens and $40 per million output tokens. The same page bills the full 1 million token context window at that rate. Cache writes, cache hits, batch, and fast mode are not used.",
     ],
   },
   {
@@ -230,14 +252,25 @@ export const modelPrices: ModelPrice[] = [
     ],
   },
   {
+    id: "gemini-4-carbon",
+    provider: "Google",
+    label: "Gemini 4 Carbon",
+    sourceUrl: GOOGLE_PRICING_URL,
+    bands: [{ inputPerMillion: 2, outputPerMillion: 10, label: "Paid standard, through November 30, 2026" }],
+    notes: [
+      "Google's Gemini API pricing page, read November 11, 2026, lists Gemini 4 Carbon (gemini-4-carbon) paid standard input at $2 per million tokens through November 30, 2026, and $4 starting December 1, 2026. Output, including thinking tokens, is $10 through November 30, 2026, and $20 starting December 1, 2026. This calculator uses the November 11 price and does not change itself on December 1. On that read the same standard token price is listed for Gemini 4 Argon.",
+      "The output price includes thinking tokens. If you want those counted, put them in the output box. Grounding with Google Search is 5,000 free requests a month, shared across Gemini 3 and newer models, then $14 per 1,000 requests, with a daily cap of 1,500. This calculator does not add that fee.",
+    ],
+  },
+  {
     id: "gemini-4-argon",
     provider: "Google",
     label: "Gemini 4 Argon",
     sourceUrl: GOOGLE_PRICING_URL,
     bands: [{ inputPerMillion: 2, outputPerMillion: 10, label: "Paid standard, through November 30, 2026" }],
     notes: [
-      "Google's Gemini API pricing page lists Gemini 4 Argon paid standard input at $2 per million tokens through November 30, 2026, and $4 starting December 1, 2026. Output, including thinking tokens, is $10 through November 30, 2026, and $20 starting December 1, 2026. This calculator uses the November 9 price and does not change itself on December 1. The page that served these prices is aistudio.google.com/docs/pricing. The older developer URL redirects there.",
-      "The output price includes thinking tokens. If you want those counted, put them in the output box. Search grounding is a separate per-query fee and is not included.",
+      "Google's Gemini API pricing page lists Gemini 4 Argon paid standard input at $2 per million tokens through November 30, 2026, and $4 starting December 1, 2026. Output, including thinking tokens, is $10 through November 30, 2026, and $20 starting December 1, 2026. This calculator uses the November 11 price and does not change itself on December 1. The page that served these prices is aistudio.google.com/docs/pricing. The older developer URL redirects there.",
+      "The output price includes thinking tokens. If you want those counted, put them in the output box. Grounding with Google Search is 5,000 free requests a month, shared across Gemini 3 and newer models, then $14 per 1,000 requests, with a daily cap of 1,500. This calculator does not add that fee.",
     ],
   },
   {
@@ -247,9 +280,9 @@ export const modelPrices: ModelPrice[] = [
     sourceUrl: GOOGLE_PRICING_URL,
     bands: [{ inputPerMillion: 0.75, outputPerMillion: 3.75, label: "Paid standard, through December 31, 2026" }],
     notes: [
-      "Google's Gemini API pricing page lists Gemini 3.8 Flash paid standard input at $0.75 per million tokens through December 31, 2026, and $1.50 starting January 1, 2027. Output, including thinking tokens, is $3.75 through December 31, 2026, and $7.50 starting January 1, 2027. This calculator uses the November 9 price.",
-      "The output price includes thinking tokens. Search grounding is not included.",
-      "The page that served these prices on November 9, 2026 is aistudio.google.com/docs/pricing. The older developer URL redirects there.",
+      "Google's Gemini API pricing page lists Gemini 3.8 Flash paid standard input at $0.75 per million tokens through December 31, 2026, and $1.50 starting January 1, 2027. Output, including thinking tokens, is $3.75 through December 31, 2026, and $7.50 starting January 1, 2027. This calculator uses the November 11 price.",
+      "The output price includes thinking tokens. Grounding with Google Search is 5,000 free requests a month, shared across Gemini 3 and newer models, then $14 per 1,000 requests, with a daily cap of 1,500. This calculator does not add that fee.",
+      "The page that served these prices on November 11, 2026 is aistudio.google.com/docs/pricing. The older developer URL redirects there.",
     ],
   },
   {

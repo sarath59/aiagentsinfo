@@ -61,6 +61,57 @@ function readWhole(value: string) {
   return parsed;
 }
 
+async function copyText(value: string) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+  const area = document.createElement("textarea");
+  area.value = value;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.left = "-9999px";
+  document.body.appendChild(area);
+  area.select();
+  document.execCommand("copy");
+  area.remove();
+}
+
+function resultSummary(result: PromptCheckResult) {
+  const lines = [
+    "Agent prompt and tool checker",
+    `Model: ${result.cost?.modelLabel ?? "not priced"}`,
+    `Prompt tokens: ${tokens(result.tokens.prompt)}`,
+    `Tool tokens: ${tokens(result.tokens.tools)}`,
+    `Tool tokens in the cost: ${result.tokens.toolsInCost ? "yes" : "no"}`,
+  ];
+  if (result.tokens.anthropicToolPrompt != null) {
+    lines.push(`Anthropic tool-use prompt tokens: ${tokens(result.tokens.anthropicToolPrompt)}`);
+  }
+  if (result.cost) {
+    lines.push(`Input tokens priced: ${tokens(result.cost.inputTokens)}`);
+    lines.push(`Output tokens entered: ${tokens(result.cost.outputTokens)}`);
+    lines.push(`Turns per day: ${String(result.cost.tasksPerDay)}`);
+    lines.push(`Per turn: ${usd(result.cost.perTurn)}`);
+    lines.push(`30-day cost: ${usd(result.cost.thirtyDay)}`);
+    lines.push(
+      `Price: ${result.cost.bandLabel}, $${result.cost.inputPerMillion} in / $${result.cost.outputPerMillion} out per million tokens`,
+    );
+    lines.push(`Source: ${result.cost.sourceUrl}`);
+  } else {
+    lines.push("30-day cost: not priced. The token totals are outside the range this price table will multiply.");
+  }
+  if (result.issues.length) {
+    lines.push("Validation:");
+    for (const item of result.issues) {
+      lines.push(`${item.severity === "error" ? "Problem" : "Note"} · ${item.path}: ${item.message}`);
+    }
+  } else {
+    lines.push("Validation: no schema errors or notes.");
+  }
+  return lines.join("\n");
+}
+
 export function PromptChecker() {
   const [prompt, setPrompt] = useState("");
   const [tools, setTools] = useState("");
@@ -241,7 +292,23 @@ export function PromptChecker() {
 }
 
 function CheckResult({ result }: { result: PromptCheckResult }) {
+  const [copied, setCopied] = useState(false);
+  const [copyNote, setCopyNote] = useState("");
   const heading = result.toolCount === 0 && result.ok ? "Prompt only" : result.ok ? "No schema errors" : "Schema problems";
+
+  async function copyResult() {
+    try {
+      await copyText(resultSummary(result));
+      trackGoal("tool_output_used", { tool_slug: "agent-prompt-checker", action: "copy_result" });
+      setCopyNote("");
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+      setCopyNote("The browser did not copy that.");
+    }
+  }
+
   return (
     <div className="grid gap-4">
       <section className="rounded-2xl border border-[var(--stroke)] bg-white/80 p-5">
@@ -325,6 +392,14 @@ function CheckResult({ result }: { result: PromptCheckResult }) {
         ) : (
           <p className="mt-2 text-sm leading-relaxed">The token totals are outside the range this price table will multiply.</p>
         )}
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <button type="button" className="btn-primary focus-ring min-h-11 px-4 text-sm" onClick={() => void copyResult()}>
+            {copied ? "Copied" : "Copy result"}
+          </button>
+        </div>
+        <p className="mt-2 text-sm text-[var(--muted)]" aria-live="polite">
+          {copyNote || "Copy result stays in this browser. It does not include the prompt or the tool JSON."}
+        </p>
         <h3 className="mt-5 text-base font-semibold">Left out of the price</h3>
         <ul className="mt-2 grid gap-2 text-sm leading-relaxed text-[var(--muted)]">
           {result.omitted.map((item) => (

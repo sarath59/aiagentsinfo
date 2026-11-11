@@ -40,7 +40,7 @@ export type PromptCheckResult = {
 export const omittedFees = [
   "No per-call tool fee is added. The OpenAI, Anthropic, Google, and xAI rows in the price table do not publish one.",
   "No computer-use fee is added. Where a provider prices that separately, the rate is not in this price table.",
-  "No search-grounding fee is added. The Gemini notes say grounding is a separate fee, and they do not include the rate.",
+  "No search-grounding fee is added. The Gemini notes quote the published Google Search grounding rate, and this total does not include it.",
   "No code-execution fee is added. Anthropic's tool-use overview says some server tools charge on top of tokens, and those rates are not in this price table.",
 ];
 

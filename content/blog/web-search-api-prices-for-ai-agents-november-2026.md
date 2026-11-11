@@ -180,6 +180,8 @@ An [MCP](/glossary/model-context-protocol) server lets a harness call the tool w
 
 Serper has third-party MCP servers. They are not on Serper’s pricing page, and this page does not recommend one. The Exa MCP repository says the hosted server works anonymously inside a rate limit, and that an API key or OAuth is how you get a higher limit and Exa Agent. Tavily’s free plan is 100 requests a minute, shared by every key in the account, and a search counts as one request whatever the depth.
 
+The fee in the table is the call. The tool definition is a separate bill on every turn, before the agent searches. Measured on November 11, 2026: [Brave's MCP tool list is 25,495 tokens. Web search alone is 1,400.](/blog/web-search-tool-definition-tokens).
+
 ## What this means when you wire the harness
 
 Put the native tool on the path where the product is a cited answer and you do not want a second vendor in the loop. Budget $10 per 1,000 searches, then budget the tokens. On OpenAI, confirm the request says `web_search`. A leftover `web_search_preview` on a non-reasoning model is the $25 row. On `gpt-4o-mini` and `gpt-4.1-mini`, add the fixed 8,000 input tokens, which are $0.0012 at the published mini rate, on top of the $0.01 call.

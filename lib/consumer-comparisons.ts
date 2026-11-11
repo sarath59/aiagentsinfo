@@ -348,6 +348,13 @@ export const webSearchComparison: ComparisonPage = {
       kicker: "Guide",
       date: "2026-11-11",
     },
+    {
+      href: "/blog/web-search-tool-definition-tokens",
+      title: "Brave's MCP tool list is 25,495 tokens. Web search alone is 1,400.",
+      description: "Measured tool-definition tokens for Tavily, Exa, Brave, Firecrawl, and the OpenAI and Claude web search declarations.",
+      kicker: "Guide",
+      date: "2026-11-11",
+    },
     { href: "/glossary/tool-use", title: "Tool use", description: "How a model calls search as a tool.", kicker: "Glossary" },
     { href: "/best/ai-agents-for-research", title: "Best AI agent for research", description: "Deep research reports and notebooks.", kicker: "Comparison" },
     { href: "/directory/perplexity", title: "Perplexity", description: "Answer engine with citations.", kicker: "Directory" },
@@ -359,7 +366,7 @@ export const webSearchComparison: ComparisonPage = {
       heading: "Which AI agent is best for web search in 2026?",
       paragraphs: [
         "There is no single best AI agent for web search. For Claude and OpenAI agents, the tools on this page are [Claude](/directory/claude) web search and [ChatGPT](/directory/chatgpt) search. ChatGPT search is on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. Claude web search is on every Claude plan globally, with citations, and usage counts toward plan limits. [Gemini](/directory/gemini) and Google AI Mode sit in Search. [Perplexity](/directory/perplexity) is an answer engine that cites retrieved pages.",
-        "Search is [tool use](/glossary/tool-use), not a mind. The shelf for this table is [Best AI agents](/best). What the search APIs charge per 1,000 calls, checked November 11, 2026, is [Claude and OpenAI web search both cost $10 per 1,000. Serper’s entry pack is $1.](/blog/web-search-api-prices-for-ai-agents-november-2026).",
+        "Search is [tool use](/glossary/tool-use), not a mind. The shelf for this table is [Best AI agents](/best). What the search APIs charge per 1,000 calls, checked November 11, 2026, is [Claude and OpenAI web search both cost $10 per 1,000. Serper’s entry pack is $1.](/blog/web-search-api-prices-for-ai-agents-november-2026). The measured tool-definition cost, the tokens a search tool adds before it searches, is [Brave's MCP tool list is 25,495 tokens. Web search alone is 1,400.](/blog/web-search-tool-definition-tokens).",
       ],
     },
     {
