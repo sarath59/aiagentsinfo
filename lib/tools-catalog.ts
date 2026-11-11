@@ -40,6 +40,12 @@ export const freeTools: FreeTool[] = [
     category: "Cost & Pricing",
   },
   {
+    href: "/tools/ai-agent-roi-calculator",
+    title: "AI agent ROI calculator",
+    description: "Payback months, annual ROI, and break-even task volume from numbers you type. Nothing is stored.",
+    category: "Cost & Pricing",
+  },
+  {
     href: "/tools/cursor-vs-claude-code-vs-codex-pricing",
     title: "Cursor vs Claude Code vs Codex pricing",
     description: "Seat prices read from the vendors' pages, plus the same token calculator.",

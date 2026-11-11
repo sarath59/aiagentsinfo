@@ -40,6 +40,7 @@ const spotlightSlugs = ["cursor", "devin", "crewai"] as const;
 const freeToolHrefs = [
   "/tools/agents-md-generator",
   "/agent-cost-calculator",
+  "/tools/ai-agent-roi-calculator",
   "/agent-prompt-checker",
   "/verified-revenue",
   "/directory/stats",

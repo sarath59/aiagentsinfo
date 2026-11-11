@@ -87,7 +87,7 @@ A lower subscription entry price does not establish a lower cost per completed c
 | Higher-tier match | Claude Max $100 = Codex Pro $100; Claude Ultra $200 = Codex Pro $200 | Per-task efficiency at those tiers |
 | Cost per completed coding task | **Not measured** | A matched-workload benchmark with identical tasks, model settings, retries, and verified success criteria |
 
-Until a matched-workload experiment is published, the field for cost per completed task is **not measured**. Do not treat a subscription-price comparison as a cost-per-task comparison.
+Until a matched-workload experiment is published, the field for cost per completed task is **not measured**. Do not treat a subscription-price comparison as a cost-per-task comparison. If you already have tasks per month, minutes per task, and a dollar cost per task, the [AI agent ROI calculator](/tools/ai-agent-roi-calculator) turns those assumptions into payback months. It does not compare Claude Code with Codex.
 
 ## What does each $20 plan buy?
 

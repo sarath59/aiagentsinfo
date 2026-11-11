@@ -252,6 +252,12 @@ export const dataAssets = [
       "Free AI agent and chatbot cost calculator. Estimate a 30-day model bill from official per-token prices. No login is required.",
   },
   {
+    href: "/tools/ai-agent-roi-calculator",
+    title: "AI agent ROI calculator",
+    summary:
+      "Payback months, annual ROI, and break-even task volume from tasks, a loaded wage, and an agent bill you type. Nothing is stored.",
+  },
+  {
     href: "/agent-prompt-checker",
     title: "Prompt and tool checker",
     summary:
@@ -328,6 +334,7 @@ export const footerNav = [
     links: [
       { href: "/tools", label: "Free tools" },
       { href: "/tools/agents-md-generator", label: "AGENTS.md generator" },
+      { href: "/tools/ai-agent-roi-calculator", label: "AI agent ROI calculator" },
       { href: "/submit", label: "Submit your tool" },
       { href: "/about", label: "About" },
       { href: "/editorial-policy", label: "Editorial policy" },

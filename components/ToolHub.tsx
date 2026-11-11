@@ -12,6 +12,11 @@ const links = [
     body: "30-day token bill for the models with an official price on this site.",
   },
   {
+    href: "/tools/ai-agent-roi-calculator",
+    title: "AI agent ROI calculator",
+    body: "Payback months and break-even volume from numbers you type. Nothing is stored.",
+  },
+  {
     href: "/tools/cursor-vs-claude-code-vs-codex-pricing",
     title: "Cursor vs Claude Code vs Codex pricing calculator",
     body: "Seat prices read November 9, 2026, plus the same token calculator.",

@@ -178,6 +178,11 @@ const SITE_FREE_TOOLS = [
     path: "/agent-cost-calculator",
   },
   {
+    name: "AI agent ROI calculator",
+    summary: "Payback months, annual ROI, and break-even task volume from numbers you type. Nothing is stored.",
+    path: "/tools/ai-agent-roi-calculator",
+  },
+  {
     name: "Prompt and tool checker",
     summary: "Checks pasted prompts and OpenAI, Anthropic, or MCP tool JSON. The prompt is not stored.",
     path: "/agent-prompt-checker",

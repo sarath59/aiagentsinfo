@@ -119,12 +119,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 function toolsForPost(
   slug: string,
   category: string,
-): ("calculator" | "checker" | "picker" | "checklist" | "generator")[] {
+): ("calculator" | "roi" | "checker" | "picker" | "checklist" | "generator")[] {
+  if (slug === "does-a-support-triage-agent-pay-back") return ["roi", "calculator"];
   if (slug === "how-to-write-an-agents-md-coding-agents-follow") {
     return ["generator", "checklist", "checker", "picker"];
   }
   if (slug === "live-mcp-tool-json-token-counts") return ["checker", "calculator"];
-  const tools: ("calculator" | "checker" | "picker" | "checklist" | "generator")[] = [];
+  const tools: ("calculator" | "roi" | "checker" | "picker" | "checklist" | "generator")[] = [];
   if (/eval|harness|shopping/.test(slug)) tools.push("checklist");
   if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2|muse-ember/.test(slug)) {
     tools.push("calculator");
@@ -137,6 +138,37 @@ function toolsForPost(
 }
 
 function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "does-a-support-triage-agent-pay-back") {
+    return {
+      reads: [
+        {
+          href: "/agent-cost-calculator",
+          title: "AI agent cost calculator",
+          note: "A 30-day token bill from official prices, read November 9, 2026.",
+        },
+        {
+          href: "/blog/claude-code-vs-codex-pricing",
+          title: "Claude Code vs Codex pricing",
+          note: "Seat prices. They are not a payback period.",
+        },
+        {
+          href: "/glossary/human-in-the-loop",
+          title: "Human in the loop",
+          note: "The review minutes are a person still on the task.",
+        },
+        {
+          href: "/reports/ai-agents-next-12-months",
+          title: "AI agents, the next 12 months",
+          note: "Dated filings and deadlines. Not a cost model.",
+        },
+      ],
+      tool: {
+        href: "/tools/ai-agent-roi-calculator?tasks=2000&minutes=8&rate=45&agent=0.04&success=80&review=2&rework=8&setup=2000&platform=150",
+        title: "AI agent ROI calculator",
+        note: "the support-triage example already filled in",
+      },
+    };
+  }
   if (slug === "live-mcp-tool-json-token-counts") {
     return {
       reads: [

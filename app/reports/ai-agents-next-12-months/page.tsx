@@ -851,7 +851,12 @@ export default async function AgentsTwelveMonthOutlookPage() {
             <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
               agent cost calculator
             </Link>{" "}
-            prices a 30-day run from published rates and does not add a seat fee. What registries fetched is the{" "}
+            prices a 30-day run from published rates and does not add a seat fee. Payback against a person&apos;s hours,
+            from numbers you type, is the{" "}
+            <Link className="text-[var(--link)] underline" href="/tools/ai-agent-roi-calculator">
+              AI agent ROI calculator
+            </Link>
+            . What registries fetched is the{" "}
             <Link className="text-[var(--link)] underline" href="/trackers/downloads">
               downloads tracker
             </Link>

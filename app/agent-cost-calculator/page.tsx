@@ -125,7 +125,11 @@ export default function CostCalculatorPage() {
         <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm">
           <strong>Tokens only, not total cost.</strong> This calculator estimates monthly model-token charges, not the
           total cost of running an AI agent. Add search and tool fees, hosting, storage, subscriptions, and human
-          review separately when they apply.
+          review separately when they apply. Payback against a person&apos;s hours, from numbers you type, is the{" "}
+          <Link className="text-[var(--link)] underline" href="/tools/ai-agent-roi-calculator">
+            AI agent ROI calculator
+          </Link>
+          .
         </div>
 
         <CostCalculator toolSlug="agent-cost-calculator" />
@@ -284,7 +288,9 @@ export default function CostCalculatorPage() {
 
         <section className="mt-10 text-sm">
           <p>
-            Related: <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">prompt and tool checker</Link>
+            Related: <Link className="text-[var(--link)] underline" href="/tools/ai-agent-roi-calculator">AI agent ROI calculator</Link>
+            {" · "}
+            <Link className="text-[var(--link)] underline" href="/agent-prompt-checker">prompt and tool checker</Link>
             {" · "}
             <Link className="text-[var(--link)] underline" href="/reports/ai-agents-next-12-months">AI agents, Nov 2026 to Nov 2027</Link>
             {" · "}

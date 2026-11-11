@@ -7,6 +7,12 @@ const cards = {
     title: "Estimate what this agent costs you",
     body: "A 30-day token bill from official per-token prices. It does not add a seat fee.",
   },
+  roi: {
+    href: "/tools/ai-agent-roi-calculator",
+    kicker: "ROI",
+    title: "See if the agent pays back",
+    body: "Monthly net, annual ROI, and payback months from numbers you type. Nothing is stored.",
+  },
   checker: {
     href: "/agent-prompt-checker",
     kicker: "Prompt checker",
