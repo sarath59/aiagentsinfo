@@ -14,6 +14,11 @@ import { getResearchDocs } from "@/lib/research";
 import { COMPARISON_VERIFIED_ON, comparisonPages } from "@/lib/comparisons";
 import { absoluteUrl, audiences, topics } from "@/lib/site";
 import { verifiedRevenueChecked } from "@/lib/verified-revenue";
+import { downloadPagePath, releasePagePath, starPagePath } from "@/lib/trackers/entities";
+import { indexableDownloadPackages } from "@/lib/trackers/download-pages";
+import { releasesSnapshotDay, releaseStaticParams } from "@/lib/trackers/releases";
+import { storedStarPoints } from "@/lib/trackers/star-history";
+import { indexableStarPages } from "@/lib/trackers/star-pages";
 
 function maxDate(values: (string | undefined)[]) {
   let max = Number.NEGATIVE_INFINITY;
@@ -90,6 +95,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...audiences.map((item) => ({ path: item.href, priority: 0.6 })),
   ];
   const comparisonUpdated = new Date(`${COMPARISON_VERIFIED_ON}T00:00:00.000Z`);
+  const releaseUpdated = new Date(`${releasesSnapshotDay}T00:00:00.000Z`);
+  const starDays = indexableStarPages().flatMap((item) => storedStarPoints(item.id).map((point) => point.date));
+  const starUpdated = starDays.length ? new Date(`${starDays.sort().at(-1)}T00:00:00.000Z`) : releaseUpdated;
+  const downloadUpdated = releaseUpdated;
 
   return [
     entry("/", maxDate(contentDates), 1),
@@ -154,5 +163,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...indexableListings.map((listing) =>
       entry(`/directory/${listing.slug}`, new Date(listing.lastVerified), 0.7),
     ),
+    ...indexableStarPages().map((item) => entry(starPagePath(item.id), starUpdated, 0.6, "daily")),
+    ...indexableDownloadPackages().map((item) => entry(downloadPagePath(item.id), downloadUpdated, 0.6, "daily")),
+    ...releaseStaticParams().map((item) => entry(releasePagePath(item.slug, item.month), releaseUpdated, 0.5, "weekly")),
   ];
 }

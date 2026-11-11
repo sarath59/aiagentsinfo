@@ -1,0 +1,1227 @@
+{
+  "retrievedAt": "2026-11-11T11:07:31.643911Z",
+  "retrievedDay": "2026-11-11",
+  "packages": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "package": "@anthropic-ai/claude-code",
+      "registry": "npm",
+      "repo": "anthropics/claude-code",
+      "directory": "claude-code",
+      "windowStart": "2026-10-12",
+      "windowEnd": "2026-11-10",
+      "windowDownloads": 52014399,
+      "lastDay": 3490266,
+      "lastWeek": 16429494,
+      "lastMonth": 52014399,
+      "daily": [
+        {
+          "date": "2026-08-13",
+          "downloads": 4370058
+        },
+        {
+          "date": "2026-08-14",
+          "downloads": 3448968
+        },
+        {
+          "date": "2026-08-15",
+          "downloads": 1473578
+        },
+        {
+          "date": "2026-08-16",
+          "downloads": 1270044
+        },
+        {
+          "date": "2026-08-17",
+          "downloads": 3166716
+        },
+        {
+          "date": "2026-08-18",
+          "downloads": 4018254
+        },
+        {
+          "date": "2026-08-19",
+          "downloads": 3960446
+        },
+        {
+          "date": "2026-08-20",
+          "downloads": 4282172
+        },
+        {
+          "date": "2026-08-21",
+          "downloads": 3543012
+        },
+        {
+          "date": "2026-08-22",
+          "downloads": 1953226
+        },
+        {
+          "date": "2026-08-23",
+          "downloads": 1690347
+        },
+        {
+          "date": "2026-08-24",
+          "downloads": 3390789
+        },
+        {
+          "date": "2026-08-25",
+          "downloads": 4520235
+        },
+        {
+          "date": "2026-08-26",
+          "downloads": 3319486
+        },
+        {
+          "date": "2026-08-27",
+          "downloads": 3882506
+        },
+        {
+          "date": "2026-08-28",
+          "downloads": 3495975
+        },
+        {
+          "date": "2026-08-29",
+          "downloads": 1151485
+        },
+        {
+          "date": "2026-08-30",
+          "downloads": 890225
+        },
+        {
+          "date": "2026-08-31",
+          "downloads": 2772312
+        },
+        {
+          "date": "2026-09-01",
+          "downloads": 3457480
+        },
+        {
+          "date": "2026-09-02",
+          "downloads": 3170785
+        },
+        {
+          "date": "2026-09-03",
+          "downloads": 2993521
+        },
+        {
+          "date": "2026-09-04",
+          "downloads": 2761005
+        },
+        {
+          "date": "2026-09-05",
+          "downloads": 1150452
+        },
+        {
+          "date": "2026-09-06",
+          "downloads": 1513781
+        },
+        {
+          "date": "2026-09-07",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-08",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-09",
+          "downloads": 3128909
+        },
+        {
+          "date": "2026-09-10",
+          "downloads": 2846684
+        },
+        {
+          "date": "2026-09-11",
+          "downloads": 2354840
+        },
+        {
+          "date": "2026-09-12",
+          "downloads": 1432181
+        },
+        {
+          "date": "2026-09-13",
+          "downloads": 1103373
+        },
+        {
+          "date": "2026-09-14",
+          "downloads": 2264221
+        },
+        {
+          "date": "2026-09-15",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-16",
+          "downloads": 2273952
+        },
+        {
+          "date": "2026-09-17",
+          "downloads": 2586085
+        },
+        {
+          "date": "2026-09-18",
+          "downloads": 2510136
+        },
+        {
+          "date": "2026-09-19",
+          "downloads": 1283984
+        },
+        {
+          "date": "2026-09-20",
+          "downloads": 879379
+        },
+        {
+          "date": "2026-09-21",
+          "downloads": 1722214
+        },
+        {
+          "date": "2026-09-22",
+          "downloads": 2095303
+        },
+        {
+          "date": "2026-09-23",
+          "downloads": 2746406
+        },
+        {
+          "date": "2026-09-24",
+          "downloads": 2794453
+        },
+        {
+          "date": "2026-09-25",
+          "downloads": 2038432
+        },
+        {
+          "date": "2026-09-26",
+          "downloads": 983293
+        },
+        {
+          "date": "2026-09-27",
+          "downloads": 870171
+        },
+        {
+          "date": "2026-09-28",
+          "downloads": 2448001
+        },
+        {
+          "date": "2026-09-29",
+          "downloads": 2614740
+        },
+        {
+          "date": "2026-09-30",
+          "downloads": 2899977
+        },
+        {
+          "date": "2026-10-01",
+          "downloads": 2616857
+        },
+        {
+          "date": "2026-10-02",
+          "downloads": 2005486
+        },
+        {
+          "date": "2026-10-03",
+          "downloads": 1297117
+        },
+        {
+          "date": "2026-10-04",
+          "downloads": 904105
+        },
+        {
+          "date": "2026-10-05",
+          "downloads": 2246081
+        },
+        {
+          "date": "2026-10-06",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-07",
+          "downloads": 2605831
+        },
+        {
+          "date": "2026-10-08",
+          "downloads": 3178059
+        },
+        {
+          "date": "2026-10-09",
+          "downloads": 2478390
+        },
+        {
+          "date": "2026-10-10",
+          "downloads": 1070100
+        },
+        {
+          "date": "2026-10-11",
+          "downloads": 924251
+        },
+        {
+          "date": "2026-10-12",
+          "downloads": 1656789
+        },
+        {
+          "date": "2026-10-13",
+          "downloads": 2279949
+        },
+        {
+          "date": "2026-10-14",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-15",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-16",
+          "downloads": 2431925
+        },
+        {
+          "date": "2026-10-17",
+          "downloads": 1078950
+        },
+        {
+          "date": "2026-10-18",
+          "downloads": 1252223
+        },
+        {
+          "date": "2026-10-19",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-20",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-21",
+          "downloads": 3294272
+        },
+        {
+          "date": "2026-10-22",
+          "downloads": 2471039
+        },
+        {
+          "date": "2026-10-23",
+          "downloads": 1923346
+        },
+        {
+          "date": "2026-10-24",
+          "downloads": 1223410
+        },
+        {
+          "date": "2026-10-25",
+          "downloads": 951863
+        },
+        {
+          "date": "2026-10-26",
+          "downloads": 2071814
+        },
+        {
+          "date": "2026-10-27",
+          "downloads": 2258892
+        },
+        {
+          "date": "2026-10-28",
+          "downloads": 1936698
+        },
+        {
+          "date": "2026-10-29",
+          "downloads": 1717346
+        },
+        {
+          "date": "2026-10-30",
+          "downloads": 2196734
+        },
+        {
+          "date": "2026-10-31",
+          "downloads": 1533309
+        },
+        {
+          "date": "2026-11-01",
+          "downloads": 1171241
+        },
+        {
+          "date": "2026-11-02",
+          "downloads": 1736845
+        },
+        {
+          "date": "2026-11-03",
+          "downloads": 2398260
+        },
+        {
+          "date": "2026-11-04",
+          "downloads": 2555126
+        },
+        {
+          "date": "2026-11-05",
+          "downloads": 2020879
+        },
+        {
+          "date": "2026-11-06",
+          "downloads": 2858578
+        },
+        {
+          "date": "2026-11-07",
+          "downloads": 1350531
+        },
+        {
+          "date": "2026-11-08",
+          "downloads": 1273327
+        },
+        {
+          "date": "2026-11-09",
+          "downloads": 2880787
+        },
+        {
+          "date": "2026-11-10",
+          "downloads": 3490266
+        }
+      ],
+      "monthly": [
+        {
+          "month": "2026-05",
+          "downloads": 19616032
+        },
+        {
+          "month": "2026-06",
+          "downloads": 45442697
+        },
+        {
+          "month": "2026-07",
+          "downloads": 49735569
+        },
+        {
+          "month": "2026-08",
+          "downloads": 85648010
+        },
+        {
+          "month": "2026-09",
+          "downloads": 58923758
+        },
+        {
+          "month": "2026-10",
+          "downloads": 49604836
+        },
+        {
+          "month": "2026-11",
+          "downloads": 21735840
+        }
+      ],
+      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-15:2026-11-11/@anthropic-ai/claude-code"
+    },
+    {
+      "id": "codex",
+      "name": "Codex CLI",
+      "package": "@openai/codex",
+      "registry": "npm",
+      "repo": "openai/codex",
+      "directory": "codex",
+      "windowStart": "2026-10-12",
+      "windowEnd": "2026-11-10",
+      "windowDownloads": 96848771,
+      "lastDay": 4085822,
+      "lastWeek": 26025512,
+      "lastMonth": 96848771,
+      "daily": [
+        {
+          "date": "2026-08-13",
+          "downloads": 2476365
+        },
+        {
+          "date": "2026-08-14",
+          "downloads": 2669677
+        },
+        {
+          "date": "2026-08-15",
+          "downloads": 1868337
+        },
+        {
+          "date": "2026-08-16",
+          "downloads": 1769405
+        },
+        {
+          "date": "2026-08-17",
+          "downloads": 2387636
+        },
+        {
+          "date": "2026-08-18",
+          "downloads": 2452504
+        },
+        {
+          "date": "2026-08-19",
+          "downloads": 2576159
+        },
+        {
+          "date": "2026-08-20",
+          "downloads": 2616255
+        },
+        {
+          "date": "2026-08-21",
+          "downloads": 2664114
+        },
+        {
+          "date": "2026-08-22",
+          "downloads": 1731839
+        },
+        {
+          "date": "2026-08-23",
+          "downloads": 1681764
+        },
+        {
+          "date": "2026-08-24",
+          "downloads": 2720138
+        },
+        {
+          "date": "2026-08-25",
+          "downloads": 3235808
+        },
+        {
+          "date": "2026-08-26",
+          "downloads": 3149613
+        },
+        {
+          "date": "2026-08-27",
+          "downloads": 3425211
+        },
+        {
+          "date": "2026-08-28",
+          "downloads": 3487522
+        },
+        {
+          "date": "2026-08-29",
+          "downloads": 2668317
+        },
+        {
+          "date": "2026-08-30",
+          "downloads": 2604434
+        },
+        {
+          "date": "2026-08-31",
+          "downloads": 3316991
+        },
+        {
+          "date": "2026-09-01",
+          "downloads": 4142148
+        },
+        {
+          "date": "2026-09-02",
+          "downloads": 4081783
+        },
+        {
+          "date": "2026-09-03",
+          "downloads": 3695372
+        },
+        {
+          "date": "2026-09-04",
+          "downloads": 3762861
+        },
+        {
+          "date": "2026-09-05",
+          "downloads": 2996223
+        },
+        {
+          "date": "2026-09-06",
+          "downloads": 2792830
+        },
+        {
+          "date": "2026-09-07",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-08",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-09",
+          "downloads": 3604346
+        },
+        {
+          "date": "2026-09-10",
+          "downloads": 4204002
+        },
+        {
+          "date": "2026-09-11",
+          "downloads": 3551831
+        },
+        {
+          "date": "2026-09-12",
+          "downloads": 2897282
+        },
+        {
+          "date": "2026-09-13",
+          "downloads": 2793097
+        },
+        {
+          "date": "2026-09-14",
+          "downloads": 3414997
+        },
+        {
+          "date": "2026-09-15",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-16",
+          "downloads": 3623929
+        },
+        {
+          "date": "2026-09-17",
+          "downloads": 3400084
+        },
+        {
+          "date": "2026-09-18",
+          "downloads": 3336399
+        },
+        {
+          "date": "2026-09-19",
+          "downloads": 2404616
+        },
+        {
+          "date": "2026-09-20",
+          "downloads": 2277893
+        },
+        {
+          "date": "2026-09-21",
+          "downloads": 3050154
+        },
+        {
+          "date": "2026-09-22",
+          "downloads": 3536851
+        },
+        {
+          "date": "2026-09-23",
+          "downloads": 4161459
+        },
+        {
+          "date": "2026-09-24",
+          "downloads": 3718926
+        },
+        {
+          "date": "2026-09-25",
+          "downloads": 4255303
+        },
+        {
+          "date": "2026-09-26",
+          "downloads": 2962479
+        },
+        {
+          "date": "2026-09-27",
+          "downloads": 2548229
+        },
+        {
+          "date": "2026-09-28",
+          "downloads": 3941106
+        },
+        {
+          "date": "2026-09-29",
+          "downloads": 4065914
+        },
+        {
+          "date": "2026-09-30",
+          "downloads": 4139818
+        },
+        {
+          "date": "2026-10-01",
+          "downloads": 4288249
+        },
+        {
+          "date": "2026-10-02",
+          "downloads": 3865489
+        },
+        {
+          "date": "2026-10-03",
+          "downloads": 2672889
+        },
+        {
+          "date": "2026-10-04",
+          "downloads": 2639856
+        },
+        {
+          "date": "2026-10-05",
+          "downloads": 3594216
+        },
+        {
+          "date": "2026-10-06",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-07",
+          "downloads": 4130690
+        },
+        {
+          "date": "2026-10-08",
+          "downloads": 4483448
+        },
+        {
+          "date": "2026-10-09",
+          "downloads": 4504319
+        },
+        {
+          "date": "2026-10-10",
+          "downloads": 3788018
+        },
+        {
+          "date": "2026-10-11",
+          "downloads": 3361876
+        },
+        {
+          "date": "2026-10-12",
+          "downloads": 4117201
+        },
+        {
+          "date": "2026-10-13",
+          "downloads": 4228199
+        },
+        {
+          "date": "2026-10-14",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-15",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-16",
+          "downloads": 3771772
+        },
+        {
+          "date": "2026-10-17",
+          "downloads": 2639108
+        },
+        {
+          "date": "2026-10-18",
+          "downloads": 2625480
+        },
+        {
+          "date": "2026-10-19",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-20",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-21",
+          "downloads": 3977780
+        },
+        {
+          "date": "2026-10-22",
+          "downloads": 4039232
+        },
+        {
+          "date": "2026-10-23",
+          "downloads": 4032459
+        },
+        {
+          "date": "2026-10-24",
+          "downloads": 2867921
+        },
+        {
+          "date": "2026-10-25",
+          "downloads": 2839863
+        },
+        {
+          "date": "2026-10-26",
+          "downloads": 4348460
+        },
+        {
+          "date": "2026-10-27",
+          "downloads": 4675074
+        },
+        {
+          "date": "2026-10-28",
+          "downloads": 4226713
+        },
+        {
+          "date": "2026-10-29",
+          "downloads": 4747646
+        },
+        {
+          "date": "2026-10-30",
+          "downloads": 4027381
+        },
+        {
+          "date": "2026-10-31",
+          "downloads": 3102084
+        },
+        {
+          "date": "2026-11-01",
+          "downloads": 2711710
+        },
+        {
+          "date": "2026-11-02",
+          "downloads": 3689538
+        },
+        {
+          "date": "2026-11-03",
+          "downloads": 4155638
+        },
+        {
+          "date": "2026-11-04",
+          "downloads": 4085571
+        },
+        {
+          "date": "2026-11-05",
+          "downloads": 4238635
+        },
+        {
+          "date": "2026-11-06",
+          "downloads": 4287103
+        },
+        {
+          "date": "2026-11-07",
+          "downloads": 2853270
+        },
+        {
+          "date": "2026-11-08",
+          "downloads": 2598345
+        },
+        {
+          "date": "2026-11-09",
+          "downloads": 3876766
+        },
+        {
+          "date": "2026-11-10",
+          "downloads": 4085822
+        }
+      ],
+      "monthly": [
+        {
+          "month": "2026-05",
+          "downloads": 25304978
+        },
+        {
+          "month": "2026-06",
+          "downloads": 48111986
+        },
+        {
+          "month": "2026-07",
+          "downloads": 63516823
+        },
+        {
+          "month": "2026-08",
+          "downloads": 76946177
+        },
+        {
+          "month": "2026-09",
+          "downloads": 93359932
+        },
+        {
+          "month": "2026-10",
+          "downloads": 97595423
+        },
+        {
+          "month": "2026-11",
+          "downloads": 36582398
+        }
+      ],
+      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-15:2026-11-11/@openai/codex"
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "package": "@google/gemini-cli",
+      "registry": "npm",
+      "repo": "google-gemini/gemini-cli",
+      "directory": "gemini",
+      "windowStart": "2026-10-12",
+      "windowEnd": "2026-11-10",
+      "windowDownloads": 1674243,
+      "lastDay": 67707,
+      "lastWeek": 423779,
+      "lastMonth": 1674243,
+      "daily": [
+        {
+          "date": "2026-08-13",
+          "downloads": 65991
+        },
+        {
+          "date": "2026-08-14",
+          "downloads": 51726
+        },
+        {
+          "date": "2026-08-15",
+          "downloads": 33269
+        },
+        {
+          "date": "2026-08-16",
+          "downloads": 34140
+        },
+        {
+          "date": "2026-08-17",
+          "downloads": 51139
+        },
+        {
+          "date": "2026-08-18",
+          "downloads": 54775
+        },
+        {
+          "date": "2026-08-19",
+          "downloads": 61117
+        },
+        {
+          "date": "2026-08-20",
+          "downloads": 76655
+        },
+        {
+          "date": "2026-08-21",
+          "downloads": 67702
+        },
+        {
+          "date": "2026-08-22",
+          "downloads": 37085
+        },
+        {
+          "date": "2026-08-23",
+          "downloads": 34676
+        },
+        {
+          "date": "2026-08-24",
+          "downloads": 61442
+        },
+        {
+          "date": "2026-08-25",
+          "downloads": 67255
+        },
+        {
+          "date": "2026-08-26",
+          "downloads": 77265
+        },
+        {
+          "date": "2026-08-27",
+          "downloads": 64628
+        },
+        {
+          "date": "2026-08-28",
+          "downloads": 54148
+        },
+        {
+          "date": "2026-08-29",
+          "downloads": 35315
+        },
+        {
+          "date": "2026-08-30",
+          "downloads": 34447
+        },
+        {
+          "date": "2026-08-31",
+          "downloads": 57537
+        },
+        {
+          "date": "2026-09-01",
+          "downloads": 67312
+        },
+        {
+          "date": "2026-09-02",
+          "downloads": 90049
+        },
+        {
+          "date": "2026-09-03",
+          "downloads": 72166
+        },
+        {
+          "date": "2026-09-04",
+          "downloads": 65317
+        },
+        {
+          "date": "2026-09-05",
+          "downloads": 39814
+        },
+        {
+          "date": "2026-09-06",
+          "downloads": 41280
+        },
+        {
+          "date": "2026-09-07",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-08",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-09",
+          "downloads": 91122
+        },
+        {
+          "date": "2026-09-10",
+          "downloads": 74764
+        },
+        {
+          "date": "2026-09-11",
+          "downloads": 61040
+        },
+        {
+          "date": "2026-09-12",
+          "downloads": 39550
+        },
+        {
+          "date": "2026-09-13",
+          "downloads": 38542
+        },
+        {
+          "date": "2026-09-14",
+          "downloads": 63644
+        },
+        {
+          "date": "2026-09-15",
+          "downloads": 0
+        },
+        {
+          "date": "2026-09-16",
+          "downloads": 78050
+        },
+        {
+          "date": "2026-09-17",
+          "downloads": 69593
+        },
+        {
+          "date": "2026-09-18",
+          "downloads": 64505
+        },
+        {
+          "date": "2026-09-19",
+          "downloads": 42788
+        },
+        {
+          "date": "2026-09-20",
+          "downloads": 39811
+        },
+        {
+          "date": "2026-09-21",
+          "downloads": 64576
+        },
+        {
+          "date": "2026-09-22",
+          "downloads": 62847
+        },
+        {
+          "date": "2026-09-23",
+          "downloads": 65782
+        },
+        {
+          "date": "2026-09-24",
+          "downloads": 86747
+        },
+        {
+          "date": "2026-09-25",
+          "downloads": 64372
+        },
+        {
+          "date": "2026-09-26",
+          "downloads": 42003
+        },
+        {
+          "date": "2026-09-27",
+          "downloads": 46496
+        },
+        {
+          "date": "2026-09-28",
+          "downloads": 69547
+        },
+        {
+          "date": "2026-09-29",
+          "downloads": 75427
+        },
+        {
+          "date": "2026-09-30",
+          "downloads": 84211
+        },
+        {
+          "date": "2026-10-01",
+          "downloads": 72372
+        },
+        {
+          "date": "2026-10-02",
+          "downloads": 66002
+        },
+        {
+          "date": "2026-10-03",
+          "downloads": 45016
+        },
+        {
+          "date": "2026-10-04",
+          "downloads": 40640
+        },
+        {
+          "date": "2026-10-05",
+          "downloads": 64825
+        },
+        {
+          "date": "2026-10-06",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-07",
+          "downloads": 89578
+        },
+        {
+          "date": "2026-10-08",
+          "downloads": 78720
+        },
+        {
+          "date": "2026-10-09",
+          "downloads": 75129
+        },
+        {
+          "date": "2026-10-10",
+          "downloads": 50451
+        },
+        {
+          "date": "2026-10-11",
+          "downloads": 48436
+        },
+        {
+          "date": "2026-10-12",
+          "downloads": 69672
+        },
+        {
+          "date": "2026-10-13",
+          "downloads": 79346
+        },
+        {
+          "date": "2026-10-14",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-15",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-16",
+          "downloads": 67902
+        },
+        {
+          "date": "2026-10-17",
+          "downloads": 45444
+        },
+        {
+          "date": "2026-10-18",
+          "downloads": 44196
+        },
+        {
+          "date": "2026-10-19",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-20",
+          "downloads": 0
+        },
+        {
+          "date": "2026-10-21",
+          "downloads": 85883
+        },
+        {
+          "date": "2026-10-22",
+          "downloads": 73774
+        },
+        {
+          "date": "2026-10-23",
+          "downloads": 64810
+        },
+        {
+          "date": "2026-10-24",
+          "downloads": 46293
+        },
+        {
+          "date": "2026-10-25",
+          "downloads": 42744
+        },
+        {
+          "date": "2026-10-26",
+          "downloads": 61347
+        },
+        {
+          "date": "2026-10-27",
+          "downloads": 75722
+        },
+        {
+          "date": "2026-10-28",
+          "downloads": 85220
+        },
+        {
+          "date": "2026-10-29",
+          "downloads": 69747
+        },
+        {
+          "date": "2026-10-30",
+          "downloads": 61783
+        },
+        {
+          "date": "2026-10-31",
+          "downloads": 46218
+        },
+        {
+          "date": "2026-11-01",
+          "downloads": 45232
+        },
+        {
+          "date": "2026-11-02",
+          "downloads": 90888
+        },
+        {
+          "date": "2026-11-03",
+          "downloads": 94243
+        },
+        {
+          "date": "2026-11-04",
+          "downloads": 69764
+        },
+        {
+          "date": "2026-11-05",
+          "downloads": 79771
+        },
+        {
+          "date": "2026-11-06",
+          "downloads": 61098
+        },
+        {
+          "date": "2026-11-07",
+          "downloads": 41844
+        },
+        {
+          "date": "2026-11-08",
+          "downloads": 39096
+        },
+        {
+          "date": "2026-11-09",
+          "downloads": 64499
+        },
+        {
+          "date": "2026-11-10",
+          "downloads": 67707
+        }
+      ],
+      "monthly": [
+        {
+          "month": "2026-05",
+          "downloads": 1591534
+        },
+        {
+          "month": "2026-06",
+          "downloads": 2651187
+        },
+        {
+          "month": "2026-07",
+          "downloads": 2077435
+        },
+        {
+          "month": "2026-08",
+          "downloads": 1688011
+        },
+        {
+          "month": "2026-09",
+          "downloads": 1701355
+        },
+        {
+          "month": "2026-10",
+          "downloads": 1651270
+        },
+        {
+          "month": "2026-11",
+          "downloads": 654142
+        }
+      ],
+      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-15:2026-11-11/@google/gemini-cli"
+    }
+  ]
+}

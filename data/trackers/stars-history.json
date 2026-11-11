@@ -1,0 +1,313 @@
+{
+  "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo} field stargazers_count",
+  "series": [
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "repo": "langchain-ai/langchain",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 149267,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 149345,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "autogen",
+      "name": "AutoGen",
+      "repo": "microsoft/autogen",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 61760,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 61783,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "crewai",
+      "name": "CrewAI",
+      "repo": "crewAIInc/crewAI",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 60690,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 60760,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "llama-index",
+      "name": "LlamaIndex",
+      "repo": "run-llama/llama_index",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 52859,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 52872,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "repo": "langchain-ai/langgraph",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 44700,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 44788,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "openai-agents",
+      "name": "OpenAI Agents SDK",
+      "repo": "openai/openai-agents-python",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 30578,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 30611,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "smolagents",
+      "name": "smolagents",
+      "repo": "huggingface/smolagents",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 30279,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 30312,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "mastra",
+      "name": "Mastra",
+      "repo": "mastra-ai/mastra",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 29432,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 29470,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "ai-sdk",
+      "name": "Vercel AI SDK",
+      "repo": "vercel/ai",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 27832,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 27866,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "google-adk",
+      "name": "Google ADK",
+      "repo": "google/adk-python",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 22161,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 22178,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "pydantic-ai",
+      "name": "Pydantic AI",
+      "repo": "pydantic/pydantic-ai",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 21103,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 21136,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "strands",
+      "name": "Strands Agents",
+      "repo": "strands-agents/harness-sdk",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 9087,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 9165,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "claude-agent-sdk",
+      "name": "Claude Agent SDK",
+      "repo": "anthropics/claude-agent-sdk-python",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 8503,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 8523,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "ag2",
+      "name": "AG2",
+      "repo": "ag2ai/ag2",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 5053,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 5056,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "openai-agents-js",
+      "name": "OpenAI Agents JS",
+      "repo": "openai/openai-agents-js",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 3996,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 4005,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "google-adk-js",
+      "name": "Google ADK JS",
+      "repo": "google/adk-js",
+      "points": [
+        {
+          "date": "2026-11-09",
+          "stars": 1471,
+          "retrievedAt": "2026-11-09T16:53:33.369612Z"
+        },
+        {
+          "date": "2026-11-11",
+          "stars": 1475,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "repo": "anthropics/claude-code",
+      "points": [
+        {
+          "date": "2026-11-11",
+          "stars": 155253,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "name": "Codex CLI",
+      "repo": "openai/codex",
+      "points": [
+        {
+          "date": "2026-11-11",
+          "stars": 134855,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "repo": "google-gemini/gemini-cli",
+      "points": [
+        {
+          "date": "2026-11-11",
+          "stars": 108772,
+          "retrievedAt": "2026-11-11T11:07:03.954892Z"
+        }
+      ]
+    }
+  ]
+}

@@ -66,6 +66,9 @@ const DYNAMIC_PREFIXES = [
   [/^app\/directory\/tag\/\[slug\]\/page\.tsx$/, "/directory/tag/"],
   [/^app\/for\/\[slug\]\/page\.tsx$/, "/for/"],
   [/^app\/topics\/\[slug\]\/page\.tsx$/, "/topics/"],
+  [/^app\/trackers\/stars\/\[slug\]\/page\.tsx$/, "/trackers/stars/"],
+  [/^app\/trackers\/downloads\/\[slug\]\/page\.tsx$/, "/trackers/downloads/"],
+  [/^app\/trackers\/releases\/\[slug\]\/\[month\]\/page\.tsx$/, "/trackers/releases/"],
 ];
 
 const CONTENT_PATHS = [

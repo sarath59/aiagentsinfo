@@ -1,7 +1,8 @@
+import { cache } from "react";
 import snapshot from "@/data/trackers/stars-snapshot.json";
 
 export const starsSnapshotDay = snapshot.retrievedDay;
-import { STAR_REPOS, githubRepoApiUrl } from "@/lib/trackers/catalog";
+import { STAR_REPOS, githubRepoApiUrl, type TrackedRepo } from "@/lib/trackers/catalog";
 import { fetchJson, githubAuthHeaders, integer, isoDay } from "@/lib/trackers/http";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
 
@@ -50,36 +51,44 @@ function snapshotAsReport(): StarsReport {
   };
 }
 
-export async function getStarsReport(): Promise<StarsReport> {
+export async function fetchStarRow(
+  item: TrackedRepo,
+): Promise<{ row: StarRow; retrievedAt: string } | { error: string }> {
+  const url = githubRepoApiUrl(item.repo);
+  const response = await fetchJson<GithubRepo>(url, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      ...githubAuthHeaders(),
+    },
+    timeoutMs: 8_000,
+  });
+  if (!response.ok) return { error: response.error };
+  const stars = response.data.stargazers_count;
+  if (typeof stars !== "number") return { error: "missing stargazers_count" };
+  const row: StarRow = {
+    id: item.id,
+    name: item.name,
+    repo: item.repo,
+    directory: item.directory,
+    note: item.note,
+    stars,
+    forks: typeof response.data.forks_count === "number" ? response.data.forks_count : null,
+    openIssues: typeof response.data.open_issues_count === "number" ? response.data.open_issues_count : null,
+    pushedAt: response.data.pushed_at ?? null,
+    archived: typeof response.data.archived === "boolean" ? response.data.archived : null,
+    sourceUrl: url,
+  };
+  return { row, retrievedAt: response.retrievedAt };
+}
+
+async function loadStarsReport(): Promise<StarsReport> {
   const fallback = snapshotAsReport();
   try {
     const results = await Promise.all(
       STAR_REPOS.map(async (item) => {
-        const url = githubRepoApiUrl(item.repo);
-        const response = await fetchJson<GithubRepo>(url, {
-          headers: {
-            Accept: "application/vnd.github+json",
-            ...githubAuthHeaders(),
-          },
-          timeoutMs: 8_000,
-        });
-        if (!response.ok) return { item, error: response.error };
-        const stars = response.data.stargazers_count;
-        if (typeof stars !== "number") return { item, error: "missing stargazers_count" };
-        const row: StarRow = {
-          id: item.id,
-          name: item.name,
-          repo: item.repo,
-          directory: item.directory,
-          note: item.note,
-          stars,
-          forks: typeof response.data.forks_count === "number" ? response.data.forks_count : null,
-          openIssues: typeof response.data.open_issues_count === "number" ? response.data.open_issues_count : null,
-          pushedAt: response.data.pushed_at ?? null,
-          archived: typeof response.data.archived === "boolean" ? response.data.archived : null,
-          sourceUrl: url,
-        };
-        return { item, row, retrievedAt: response.retrievedAt };
+        const fetched = await fetchStarRow(item);
+        if ("row" in fetched) return { item, row: fetched.row, retrievedAt: fetched.retrievedAt };
+        return { item, error: fetched.error };
       }),
     );
 
@@ -108,6 +117,8 @@ export async function getStarsReport(): Promise<StarsReport> {
     return fallback;
   }
 }
+
+export const getStarsReport = cache(loadStarsReport);
 
 export function starColumns(): SortableColumn[] {
   return [

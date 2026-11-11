@@ -223,3 +223,11 @@ export function githubRepoApiUrl(repo: string) {
 export function githubRepoHtmlUrl(repo: string) {
   return `https://github.com/${repo}`;
 }
+
+export function githubReleasesApiUrl(repo: string) {
+  return `https://api.github.com/repos/${repo}/releases?per_page=100&page=1`;
+}
+
+export function githubReleasesHtmlUrl(repo: string) {
+  return `https://github.com/${repo}/releases`;
+}

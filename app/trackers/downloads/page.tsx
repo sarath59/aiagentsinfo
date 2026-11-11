@@ -20,6 +20,8 @@ import {
 } from "@/lib/trackers/downloads";
 import { integer, shortDate } from "@/lib/trackers/http";
 import { TRACKER_PATHS } from "@/lib/trackers/catalog";
+import { indexableDownloadPackages } from "@/lib/trackers/download-pages";
+import { downloadPagePath, isCliPackage } from "@/lib/trackers/entities";
 
 export const revalidate = 86400;
 
@@ -206,6 +208,20 @@ export default async function DownloadsTrackerPage() {
           ) : (
             <p className="mt-4 text-sm text-[var(--muted)]">No PyPI rows on this pass.</p>
           )}
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Package pages:{" "}
+            {indexableDownloadPackages()
+              .filter((item) => item.registry === "pypi")
+              .map((item, index) => (
+                <span key={item.id}>
+                  {index > 0 ? ", " : null}
+                  <Link className="text-[var(--link)] underline" href={downloadPagePath(item.id)}>
+                    {item.package}
+                  </Link>
+                </span>
+              ))}
+            .
+          </p>
           {report.pypi.some((row) => row.note) ? (
             <ul className="mt-4 max-w-3xl list-disc pl-5 text-sm leading-relaxed text-[var(--muted)]">
               {report.pypi
@@ -237,6 +253,20 @@ export default async function DownloadsTrackerPage() {
           ) : (
             <p className="mt-4 text-sm text-[var(--muted)]">No npm rows on this pass.</p>
           )}
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Package pages:{" "}
+            {indexableDownloadPackages()
+              .filter((item) => item.registry === "npm" && !isCliPackage(item.id))
+              .map((item, index) => (
+                <span key={item.id}>
+                  {index > 0 ? ", " : null}
+                  <Link className="text-[var(--link)] underline" href={downloadPagePath(item.id)}>
+                    {item.package}
+                  </Link>
+                </span>
+              ))}
+            .
+          </p>
           {report.npm.some((row) => row.note) ? (
             <ul className="mt-4 max-w-3xl list-disc pl-5 text-sm leading-relaxed text-[var(--muted)]">
               {report.npm
@@ -314,10 +344,21 @@ export default async function DownloadsTrackerPage() {
             This table is framework packages. Coding-agent CLIs are a separate census. From October 11 through
             November 9, 2026, <code>@openai/codex</code> had 96,124,825 npm downloads and{" "}
             <code>@anthropic-ai/claude-code</code> had 49,448,384, and those two counters do not count the same kind
-            of file. The write-up is{" "}
+            of file.             The write-up is{" "}
             <Link className="text-[var(--link)] underline" href="/research/claude-code-vs-codex-downloads-november-2026">
               Claude Code vs Codex downloads
             </Link>
+            . Weekly pages:{" "}
+            {indexableDownloadPackages()
+              .filter((item) => isCliPackage(item.id))
+              .map((item, index, list) => (
+                <span key={item.id}>
+                  {index > 0 ? (index === list.length - 1 ? ", and " : ", ") : null}
+                  <Link className="text-[var(--link)] underline" href={downloadPagePath(item.id)}>
+                    <code>{item.package}</code>
+                  </Link>
+                </span>
+              ))}
             .
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">

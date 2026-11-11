@@ -52,7 +52,12 @@ import {
 } from "@/lib/harness-checklist";
 import { BENCHMARK_READ_ON, swebenchBenchmark, terminalBench } from "@/lib/harness-benchmark";
 import { paperSentence } from "@/lib/trackers/agents-md";
+import { indexableDownloadPackages } from "@/lib/trackers/download-pages";
+import { downloadPagePath, releasePagePath, starPagePath } from "@/lib/trackers/entities";
 import { integer } from "@/lib/trackers/http";
+import { releaseMonths } from "@/lib/trackers/releases";
+import { storedStarPoints } from "@/lib/trackers/star-history";
+import { indexableStarPages } from "@/lib/trackers/star-pages";
 import downloadsSnapshot from "@/data/trackers/downloads-snapshot.json";
 import starsSnapshot from "@/data/trackers/stars-snapshot.json";
 import agentsMdSnapshot from "@/data/trackers/agents-md-snapshot.json";
@@ -232,6 +237,31 @@ export async function buildLlmsTxt() {
       item("AI agent framework downloads tracker", "/trackers/downloads", `PyPI and npm file-request counts. Snapshot in this build: ${downloadsSnapshot.retrievedDay}. A download is not a user.`),
       item("AGENTS.md adoption tracker", "/trackers/agents-md", paperSentence()),
       item("AI agent framework GitHub stars tracker", "/trackers/stars", `Live stargazers_count. Snapshot in this build: ${starsSnapshot.retrievedDay}.`),
+      ...indexableStarPages().map((entry) => {
+        const latest = storedStarPoints(entry.id).at(-1);
+        const note = latest
+          ? `${integer(latest.stars)} stars on ${latest.date}. stargazers_count for ${entry.repo}.`
+          : `stargazers_count for ${entry.repo}.`;
+        return item(`${entry.name} GitHub stars`, starPagePath(entry.id), note);
+      }),
+      ...indexableDownloadPackages().map((entry) =>
+        item(
+          `${entry.package} weekly downloads`,
+          downloadPagePath(entry.id),
+          `${entry.registry === "npm" ? "npm" : "PyPI"} file requests. The page sums seven daily rows. A download is a file request.`,
+        ),
+      ),
+      ...indexableStarPages().flatMap((entry) =>
+        releaseMonths(entry.id).includes("2026-11")
+          ? [
+              item(
+                `${entry.name} releases in November 2026`,
+                releasePagePath(entry.id, "2026-11"),
+                `GitHub releases with published_at in November 2026 for ${entry.repo}.`,
+              ),
+            ]
+          : [],
+      ),
       item("Breakthroughs timeline", "/trackers/breakthroughs", "Public agent moments, added only with a date and a source. No rows are published yet."),
       item("Harness comparison", "/trackers/harnesses", "Pointer to the sourced harness comparison. Cells are published only with a source."),
       item("Verified revenue", "/verified-revenue", `Payment-processor-verified revenue. Checked ${verifiedRevenueChecked}.`),

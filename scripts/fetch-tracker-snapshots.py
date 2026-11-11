@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Pull public tracker snapshots. Never invent counts; skip a row if the source fails."""
+"""Pull public tracker snapshots. Never invent counts; skip a row if the source fails.
+
+Daily star observations, GitHub release rows, and the coding-CLI npm fallback
+are written by scripts/record-star-history.py. This script does not fill missing days.
+"""
 
 from __future__ import annotations
 

@@ -1,3 +1,4 @@
+import { cache } from "react";
 import snapshot from "@/data/trackers/downloads-snapshot.json";
 
 export const downloadsSnapshotDay = snapshot.retrievedDay;
@@ -198,7 +199,33 @@ function snapshotAsReport(): DownloadsReport {
   };
 }
 
-export async function getDownloadsReport(): Promise<DownloadsReport> {
+export function weeklyBlocks(daily: { date: string; downloads: number }[]) {
+  const rows = [...daily]
+    .filter((row) => row.date && Number.isFinite(row.downloads) && row.downloads >= 0)
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const byDate = new Map<string, number>();
+  for (const row of rows) byDate.set(row.date, row.downloads);
+  const dates = [...byDate.keys()].sort();
+  while (dates.length && byDate.get(dates[dates.length - 1]) === 0) dates.pop();
+  const complete = dates.map((date) => ({ date, downloads: byDate.get(date) ?? 0 }));
+  const blocks: { start: string; end: string; downloads: number }[] = [];
+  for (let end = complete.length; end >= 7; end -= 7) {
+    const slice = complete.slice(end - 7, end);
+    blocks.push({
+      start: slice[0].date,
+      end: slice[slice.length - 1].date,
+      downloads: slice.reduce((sum, row) => sum + row.downloads, 0),
+    });
+  }
+  blocks.reverse();
+  return blocks;
+}
+
+export function fetchTrackedPackage(item: TrackedPackage) {
+  return item.registry === "pypi" ? loadPypi(item) : loadNpm(item);
+}
+
+async function loadDownloadsReport(): Promise<DownloadsReport> {
   const fallback = snapshotAsReport();
   try {
     const [pypiResults, npmResults] = await Promise.all([
@@ -248,6 +275,8 @@ export async function getDownloadsReport(): Promise<DownloadsReport> {
     return fallback;
   }
 }
+
+export const getDownloadsReport = cache(loadDownloadsReport);
 
 export function downloadsColumns(): SortableColumn[] {
   return [

@@ -8,6 +8,8 @@ import { TrackerNav } from "@/components/trackers/TrackerNav";
 import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { TRACKER_PATHS } from "@/lib/trackers/catalog";
+import { starPagePath } from "@/lib/trackers/entities";
+import { indexableStarPages } from "@/lib/trackers/star-pages";
 import { integer, shortDate } from "@/lib/trackers/http";
 import {
   getStarsReport,
@@ -168,6 +170,18 @@ export default async function StarsTrackerPage() {
           ) : (
             <p className="mt-4 text-sm text-[var(--muted)]">No star rows on this pass.</p>
           )}
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Repository pages:{" "}
+            {indexableStarPages().map((item, index) => (
+              <span key={item.id}>
+                {index > 0 ? ", " : null}
+                <Link className="text-[var(--link)] underline" href={starPagePath(item.id)}>
+                  {item.name}
+                </Link>
+              </span>
+            ))}
+            .
+          </p>
           {report.rows.some((row) => row.note) ? (
             <ul className="mt-4 max-w-3xl list-disc pl-5 text-sm leading-relaxed text-[var(--muted)]">
               {report.rows

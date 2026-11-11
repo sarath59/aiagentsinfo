@@ -1,0 +1,44 @@
+name: Record star history
+
+on:
+  schedule:
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: star-history
+  cancel-in-progress: false
+
+jobs:
+  record:
+    name: Store star counts and releases
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Append today's reads
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/record-star-history.py
+
+      - name: Commit stored reads
+        run: |
+          git add data/trackers/stars-history.json data/trackers/releases-snapshot.json data/trackers/cli-downloads-snapshot.json
+          if git diff --cached --quiet; then
+            echo "No new star, release, or CLI download rows."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Record daily GitHub star counts and release snapshots."
+          git push
