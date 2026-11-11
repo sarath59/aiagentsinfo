@@ -2,7 +2,7 @@
 title: "Harness Matters: 32.55% web-agent attack success"
 description: "Harness Matters, arXiv November 9, 2026: six open-source web-agent harnesses had a 32.55% attack success rate after capability failures were set aside. The harness and the model both changed the outcome."
 date: "2026-11-10"
-updated: "2026-11-10"
+updated: "2026-11-11"
 absoluteTitle: true
 ledeQuestion: "What attack success rate did Harness Matters report?"
 ledeAnswer: "On six open-source web-agent harnesses, the overall attack success rate was 32.55%, after capability failures were excluded."
@@ -251,6 +251,8 @@ The case study is one Skyvern 1.0 trace on a job-application form that asks for 
 The paper’s open-source rows are configurations, not the November 10 default branch. [Browser Use](https://github.com/browser-use/browser-use) showed 120,474 stars on the GitHub API that day, with a push at 02:34:17 UTC, and the repository description names both the Python library and Browser Use Cloud. [Skyvern](https://github.com/Skyvern-AI/skyvern) showed 23,376 stars and a push at 05:01:12 UTC. The paper does not name the commit it ran. A star count is not a security score. It is evidence that the projects in the table are still the public projects, and that their trees have moved since a paper that does not pin a revision.
 
 The commercial pins are older than the docs loaded the same day. [Google’s computer-use guide](https://aistudio.google.com/docs/computer-use) lists four models: gemini-4-argon, gemini-3.8-flash as the recommended model, gemini-3.5-flash-lite, and gemini-3-flash-preview. gemini-3.7-flash is not one of those four names. The page also describes opt-in screenshot scanning for prompt injection, and configurable safety policies. [Anthropic’s computer-use tool page](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) shows an example with claude-opus-5-5 and the toolset `computer_toolset_20260801`. The paper’s Claude row is claude-haiku-4-5-20251001. A lower attack rate on those pins is not a measurement of the November 10 APIs. This site’s [computer-use guide](/blog/can-an-ai-agent-use-your-computer) is about whether a product can drive a screen. It is not a security table, and it should not be read as one.
+
+The coding-harness counterpart, posted November 10, is [ActiveSecHarness](/research/activesec-coding-harness-security). On its own fixtures a local 4B judge blocked every attack row and refused 118 of 120 benign software-engineering fixtures. Ring 0, that paper’s reference monitor, blocked every attack row and refused none of those 120. That page is the coding note. The rates in this note stay with web agents.
 
 Task-score harness work answers a different question. [HarnessFlow](/research/harnessflow-mcts-harness-optimization) searches for an executable harness with a higher score on six benchmarks, with the model held fixed. WebTrap Farm does not search. It scores named harnesses on whether an unsafe action happened. A harness that wins a task benchmark can still be the one that finishes the unsafe click. Skyvern 2.0’s 85.25% task-completion rate next to a 58.01% defense success rate is the paper’s own illustration.
 
