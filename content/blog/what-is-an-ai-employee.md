@@ -7,7 +7,7 @@ takeaways:
   - "On November 7, 2026, Claude Cowork and ChatGPT Work are the two large workplace products that start from a goal and hand back finished work. Chat stays a conversation. Fixed workflow automation still follows rules written in advance."
   - "University rollouts checked the same day, including UNSW, the University of Sydney, and La Trobe, are adult ChatGPT Edu access with staged availability. They are workplace learning, and they are a different subject from school-account policy."
 date: "2026-11-07"
-updated: "2026-11-08"
+updated: "2026-11-11"
 category: guide
 topics:
   - how-agents-work
@@ -75,7 +75,7 @@ faq:
     answer: "They are adult access to ChatGPT for students and staff, staged by each university, plus training and assessment rules. UNSW, the University of Sydney, and La Trobe describe ChatGPT Edu access aimed at study, research, and later work. That is workplace learning. It is not a job title, and it is separate from Google’s K-12 account policy."
 ---
 
-Updated November 8, 2026.
+Updated November 11, 2026, to add the cost guide. The workplace product pages below were read November 7, 2026.
 
 ## What is an AI employee?
 
@@ -85,7 +85,7 @@ People also say “digital worker,” “AI teammate,” and “employee agent.�
 
 The software is not a legal employee. It has no duties of its own, and a mistake is still the organization’s to own. [Deloitte’s September 10, 2026 essay](https://www.deloitte.com/global/en/insights/topics/technology-management/ai-agents-human-workplace.html) treats “agents as labor” and “agents as infrastructure” as two choices a company might make, and it tells leaders to watch for moments when agents are treated as the responsible party in a review. That is a warning about accountability, not a feature list.
 
-This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in). Sourced tables for the same jobs are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks) and [Best AI agent for small business](/best/ai-agents-for-small-business).
+This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in). Sourced tables for the same jobs are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks) and [Best AI agent for small business](/best/ai-agents-for-small-business). What those products charge, seat against credit against resolution, is [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost).
 
 ## What is a digital worker?
 
@@ -268,7 +268,7 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 
 - This guide’s terms: [digital worker](/glossary/digital-worker), [human in the loop](/glossary/human-in-the-loop), [approval gate](/glossary/approval-gate)
 - Nearby terms: [agent](/glossary/agent), [harness](/glossary/harness), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [tool use](/glossary/tool-use), [computer use](/glossary/computer-use), [agent skill](/glossary/agent-skill), [language model](/glossary/llm)
-- Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
+- Guides: [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
 - Campus policy that is out of scope here: [Google will turn off Gemini and Search for K-12 students unless schools opt in](/blog/google-k12-gemini-and-search-off-until-schools-opt-in)
 - Directory: [Claude](/directory/claude), [ChatGPT](/directory/chatgpt)
 - Topics: [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [education](/topics/education), [tools and SaaS](/topics/tools-saas), [harnesses](/topics/harnesses)

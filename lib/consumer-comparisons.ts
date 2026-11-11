@@ -1602,6 +1602,7 @@ export const smallBusinessComparison: ComparisonPage = {
     { href: "/best/ai-agents-for-personal-assistant-tasks", title: "Best AI agent for personal assistant tasks", description: "Cowork and ChatGPT Work for recurring jobs.", kicker: "Comparison" },
     { href: "/best/ai-agents-for-email", title: "Best AI agent for email", description: "Inbox drafts for a small team.", kicker: "Comparison" },
     { href: "/directory/replycurrent", title: "ReplyCurrent", description: "Cited website assistant.", kicker: "Directory" },
+    { href: "/blog/how-much-does-an-ai-employee-cost", title: "How much does an AI employee cost for a small business?", description: "Seat, credit, hour, and resolution prices read November 11, 2026.", kicker: "Guide" },
     { href: "/glossary/digital-worker", title: "Digital worker", description: "Workplace software given a recurring job.", kicker: "Glossary" },
   ],
   sections: [
@@ -1610,7 +1611,7 @@ export const smallBusinessComparison: ComparisonPage = {
       heading: "Which AI agent is best for small business in 2026?",
       paragraphs: [
         "There is no single best AI agent for small business. [ChatGPT](/directory/chatgpt) Business Standard seats are $20 per user per month billed annually, or $25 monthly, usually with a two-seat minimum. [Claude](/directory/claude) Team standard seats are $20 per member per month billed annually. Microsoft 365 Business Standard with Copilot is $23.50 per user per month paid yearly. [ReplyCurrent](/directory/replycurrent) Growth is $29 a month for a website assistant that cites the page it used.",
-        "A workplace agent is a [digital worker](/glossary/digital-worker). The longer guide is [What is an AI employee?](/blog/what-is-an-ai-employee). The shelf is [Best AI agents](/best).",
+        "A workplace agent is a [digital worker](/glossary/digital-worker). The longer guide is [What is an AI employee?](/blog/what-is-an-ai-employee). List prices for products sold as named AI employees, per seat, per metered hour, and per resolution, are [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost). The shelf is [Best AI agents](/best).",
       ],
     },
     {

@@ -138,7 +138,7 @@ export const comparisons = [
     href: "/best/ai-agent-frameworks",
     title: "Best AI agent frameworks",
     summary:
-      "19 free and open-source frameworks and SDKs. Licence and latest GitHub release read November 9, 2026.",
+      "19 free and open-source frameworks and SDKs. Latest GitHub release read November 11, 2026. AutoGen’s tag is still September 30, 2025.",
   },
   {
     href: "/best/ai-coding-agents",

@@ -121,6 +121,7 @@ function toolsForPost(
   category: string,
 ): ("calculator" | "roi" | "checker" | "picker" | "checklist" | "generator")[] {
   if (slug === "does-a-support-triage-agent-pay-back") return ["roi", "calculator"];
+  if (slug === "how-much-does-an-ai-employee-cost") return ["roi", "calculator"];
   if (slug === "how-to-write-an-agents-md-coding-agents-follow") {
     return ["generator", "checklist", "checker", "picker"];
   }

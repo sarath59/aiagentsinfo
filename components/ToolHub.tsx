@@ -28,8 +28,8 @@ const links = [
   },
   {
     href: "/best/ai-agent-frameworks",
-    title: "AI agent framework comparison table",
-    body: "19 free and open-source frameworks. Sortable. Releases read November 9, 2026.",
+    title: "AI agent frameworks",
+    body: "19 free and open-source frameworks. Latest GitHub tags read November 11, 2026.",
   },
   {
     href: "/tools/agent-picker",

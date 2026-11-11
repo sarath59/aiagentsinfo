@@ -346,6 +346,16 @@ export default function AiAgentRoiCalculatorPage() {
               <span className="text-[var(--muted)]"> walks the first example, then the input that flips it.</span>
             </li>
             <li>
+              <Link className="text-[var(--link)] underline" href="/blog/how-much-does-an-ai-employee-cost">
+                How much does an AI employee cost for a small business?
+              </Link>
+              <span className="text-[var(--muted)]">
+                {" "}
+                prices named AI employees from vendor pages read November 11, 2026, then runs a 400-email inbox at the
+                BLS median wage.
+              </span>
+            </li>
+            <li>
               <Link className="text-[var(--link)] underline" href="/blog/voice-ai-agent-cost-per-call-november-2026">
                 What a voice AI agent costs per call
               </Link>

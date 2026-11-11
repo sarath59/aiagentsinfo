@@ -1,6 +1,21 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-11",
+  "refreshes": [
+    {
+      "path": "/best/ai-agent-frameworks",
+      "refreshed": "2026-11-11",
+      "notes": "GSC Oct 14–Nov 10, 2026: 34 impressions, average position 16.3, 0 clicks. Queries include ai agent framework (position 30.5), ai agent frameworks comparison, and ai agent framework 2026. Title now leads with AI agent frameworks and names AutoGen’s September 30, 2025 tag. Release tags re-read November 11, 2026."
+    }
+  ],
   "pages": [
+    {
+      "question": "how much does an ai employee cost for a small business",
+      "slug": "how-much-does-an-ai-employee-cost",
+      "url": "https://www.aiagentsinfo.com/blog/how-much-does-an-ai-employee-cost",
+      "published": "2026-11-11",
+      "status": "published",
+      "notes": "GSC Oct 14–Nov 10, 2026: AI-employee and small-business queries had impressions and no cost page. what is an ai employee 5 impressions at position 97; ai employee for small business 3 at 93; ai employees 3 at 93; best ai agents for small business 3 at 91; ai agents for small business 2; ai office assistant 2; ai staff 2; ai employee 2. Existing /blog/what-is-an-ai-employee was 14 impressions at position 84.5 and /best/ai-agents-for-small-business was 17 impressions at 66.9. Both are definitional or listicle and do not answer cost."
+    },
     {
       "question": "what does ultracode do in claude code",
       "slug": "what-does-ultracode-do-in-claude-code",

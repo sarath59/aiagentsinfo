@@ -36,7 +36,8 @@ export default function BestAiAgentFrameworksPage() {
           <h2>{frameworkComparison.question}</h2>
           <p>
             There is no single best AI agent framework. This page compares 19 free and open-source frameworks and
-            SDKs. The licence and the latest GitHub release were read on November 9, 2026.
+            SDKs. The latest GitHub release tag was read on November 11, 2026. AutoGen’s tag is still python-v0.7.5,
+            published September 30, 2025.
           </p>
           <p>
             The code is free to use under the licence in the table. A hosted model the framework calls is a separate
@@ -57,10 +58,19 @@ export default function BestAiAgentFrameworksPage() {
             <code>ee/</code> tree that the licence file licenses separately.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-            Open source here means the repository’s code licence, not a free hosted agent. The November 5 snapshot of
-            the same repositories is the{" "}
-            <Link href="/reports/ai-agent-framework-github-stats-november-2026">framework release report</Link>. This
-            page re-read the tags on November 9 and does not copy that day’s star counts.
+            Open source here means the repository’s code licence, not a free hosted agent. Star counts in the table
+            are the November 5, 2026 snapshot, the same pull as the{" "}
+            <Link href="/reports/ai-agent-framework-github-stats-november-2026">framework release report</Link>.
+            LangGraph is 44,482 stars on that pull. This page re-read release tags on November 11 and did not replace
+            those star counts. The <Link href="/trackers/stars">stars tracker</Link> is a later file and a different
+            list of repositories.
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            AutoGen’s README on main, re-read November 11, 2026, says the project is archived and that Microsoft is
+            not providing bug fixes, security fixes, new features, or support. GitHub’s archived field on the
+            repository endpoint was still false. The successor named in that README is Microsoft Agent Framework. The
+            maintenance reading from November 9 is{" "}
+            <Link href="/blog/is-autogen-deprecated">Is AutoGen deprecated?</Link>
           </p>
         </section>
       </ComparisonGuide>

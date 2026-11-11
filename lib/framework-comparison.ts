@@ -1,38 +1,38 @@
 import type { ComparisonPage } from "@/lib/comparisons";
 
-/** GitHub REST reads on November 9, 2026. Tags are /releases/latest, which can be one package in a monorepo. */
+/** GitHub REST reads on November 11, 2026. Tags are /releases/latest, which can be one package in a monorepo. */
 export const frameworkComparison: ComparisonPage = {
   slug: "ai-agent-frameworks",
   path: "/best/ai-agent-frameworks",
-  title: "AI agent framework comparison table",
-  heading: "AI agent framework comparison table: open-source, Nov 2026",
-  metaTitle: "AI agent framework comparison table: open-source, Nov 2026",
+  title: "AI agent frameworks",
+  heading: "AI agent frameworks: AutoGen last shipped Sept 30, 2025",
+  metaTitle: "AI agent frameworks: AutoGen last shipped Sept 30, 2025",
   metaDescription:
-    "Compare 19 open-source AI agent frameworks. Release tags were read November 9, 2026. LangGraph shows 44,482 GitHub stars from the November 5 snapshot.",
+    "Compare 19 open-source AI agent frameworks. GitHub tags were read November 11, 2026. AutoGen’s last release is still python-v0.7.5 from September 30, 2025.",
   description:
-    "There is no single best AI agent framework. This page compares 19 free and open-source frameworks and SDKs. The licence and the latest GitHub release were read on November 9, 2026. The code is free to use under the licence named here. Calls to a hosted model are billed by that provider, not by the framework.",
+    "There is no single best AI agent framework. This page compares 19 free and open-source frameworks and SDKs. Latest-release tags were read on November 11, 2026. AutoGen’s tag is still python-v0.7.5, published September 30, 2025, and its README still says the project is archived. The code is free under the licence named here. Calls to a hosted model are billed by that provider, not by the framework.",
   summary:
-    "Nineteen open-source agent frameworks and SDKs. Licence and latest GitHub release read November 9, 2026. Not a quality ranking.",
+    "Nineteen open-source agent frameworks and SDKs. Latest GitHub release read November 11, 2026. AutoGen’s tag is still September 30, 2025. Not a quality ranking.",
   question: "What are the best AI agent frameworks in November 2026?",
   tableHeading: "How do these AI agent frameworks compare on licence and release?",
   tableLead:
-    "Nineteen repositories. The release column is the tag GitHub’s latest-release endpoint returned on November 9, 2026. In a monorepo that tag can be one package.",
-  tableCaption: "Best AI agent frameworks — licence and latest GitHub release, read November 9, 2026",
+    "Nineteen repositories. The release column is the tag GitHub’s latest-release endpoint returned on November 11, 2026. In a monorepo that tag can be one package.",
+  tableCaption: "AI agent frameworks — licence and latest GitHub release, read November 11, 2026",
   bestForHeading: "Which AI agent framework fits which job?",
   bestForLead:
     "These are job-fit notes from the repository description and the release tag. They are not scores.",
   methodHeading: "How were these AI agent framework releases checked?",
   methodLead:
-    "On November 9, 2026, each row was read from the public GitHub repository endpoint and /releases/latest. Nothing in the table is estimated.",
+    "On November 11, 2026, each row was read from the public GitHub repository endpoint and /releases/latest. Nothing in the table is estimated.",
   methodNote:
-    "A latest-release tag in a monorepo can name one package, such as a Vue package or an SDK package, rather than every package in the repository. Licences are the SPDX id GitHub returned, except Mastra and the Vercel AI SDK, where GitHub returned no SPDX id and the licence file on the default branch was read the same day. This page does not invent ratings or a composite score.",
+    "A latest-release tag in a monorepo can name one package, such as a Vue package or an SDK package, rather than every package in the repository. SPDX ids were re-read from the repository endpoint on November 11, 2026. Mastra and the Vercel AI SDK still returned no SPDX id. Their licence files were read on November 9 and were not re-opened on November 11. Star counts in the table are the November 5, 2026 snapshot, not this release pass. This page does not invent ratings or a composite score.",
   faqHeading: "What else do people ask about AI agent frameworks?",
   faqLead: "Short answers on count, price, and how this list relates to the November 5 snapshot.",
   applicationCategory: "DeveloperApplication",
   kind: "builder",
-  verifiedOn: "2026-11-09",
+  verifiedOn: "2026-11-11",
   cellsNote:
-    "Cells are the licence and the latest GitHub release read on November 9, 2026. This is not a quality ranking.",
+    "Cells are the licence and the latest GitHub release read on November 11, 2026. Star counts are the November 5 snapshot. This is not a quality ranking.",
   columns: [
     { key: "name", label: "Framework" },
     { key: "vendor", label: "Repository" },
@@ -47,7 +47,7 @@ export const frameworkComparison: ComparisonPage = {
   takeaways: [
     "There is no single best AI agent framework. This page compares 19 repositories, not a scored ranking.",
     "The code is free and open source under the licence in the table. A hosted model the framework calls is a separate bill.",
-    "Release tags were read from GitHub on November 9, 2026. CrewAI 1.15.39 and the Vercel AI SDK tag @ai-sdk/vue@3.0.326 were published that day.",
+    "Release tags were read from GitHub on November 11, 2026. The Vercel AI SDK tag @ai-sdk/vue@3.0.330 was published that day. AutoGen’s latest tag is still python-v0.7.5 from September 30, 2025.",
   ],
   picks: [
     {
@@ -57,12 +57,12 @@ export const frameworkComparison: ComparisonPage = {
     },
     {
       title: "Best for a graph of steps",
-      body: "LangGraph’s repository description is “Build resilient agents.” The latest tag on November 9, 2026 was langgraph-sdk 0.4.14, published November 6.",
+      body: "LangGraph’s repository description is “Build resilient agents.” The latest tag on November 11, 2026 was still langgraph-sdk 0.4.14, published November 6.",
       href: "/directory/langchain",
     },
     {
       title: "Best for role-based multi-agent code",
-      body: "CrewAI’s repository describes a framework for role-playing agents. The latest release that day was 1.15.39, published November 9, 2026.",
+      body: "CrewAI’s repository describes a framework for role-playing agents. The latest release on November 11, 2026 was still 1.15.39, published November 9.",
       href: "/directory/crewai",
     },
     {
@@ -78,7 +78,7 @@ export const frameworkComparison: ComparisonPage = {
       listingSlug: "langchain",
       website: "https://github.com/langchain-ai/langchain",
       license: "MIT",
-      pricing: "langchain-core==1.7.6 on November 5, 2026",
+      pricing: "langchain-core==1.7.7 on November 10, 2026",
       platform: "Python",
       bestFor: "Agent engineering libraries",
       job: "GitHub describes the repository as the agent engineering platform.",
@@ -117,8 +117,8 @@ export const frameworkComparison: ComparisonPage = {
       license: "CC-BY-4.0",
       pricing: "python-v0.7.5 on September 30, 2025",
       platform: "Python",
-      bestFor: "An older Microsoft agent framework",
-      job: "GitHub describes a programming framework for agentic AI. The latest release is older than the other Microsoft row.",
+      bestFor: "Historical reference, not a current framework",
+      job: "The README on main, re-read November 11, 2026, says the project is archived and that Microsoft is not providing fixes or support. It points new users to Microsoft Agent Framework. GitHub’s archived field was still false. The latest release tag is unchanged.",
       sourceIds: [1],
     },
     {
@@ -179,7 +179,7 @@ export const frameworkComparison: ComparisonPage = {
       listingSlug: "claude-agent-sdk",
       website: "https://github.com/anthropics/claude-agent-sdk-python",
       license: "MIT",
-      pricing: "v0.2.179 on November 6, 2026",
+      pricing: "v0.2.180 on November 9, 2026",
       platform: "Python",
       bestFor: "Claude Code’s loop as a library",
       job: "The Python package of the Claude Agent SDK. GitHub did not return a repository description that day.",
@@ -217,7 +217,7 @@ export const frameworkComparison: ComparisonPage = {
       listingSlug: "pydantic-ai",
       website: "https://github.com/pydantic/pydantic-ai",
       license: "MIT",
-      pricing: "v2.66.0 on November 4, 2026",
+      pricing: "v2.67.0 on November 10, 2026",
       platform: "Python",
       bestFor: "Typed Python agents",
       job: "GitHub describes agents, voice, images, and embeddings with typed interfaces.",
@@ -253,7 +253,7 @@ export const frameworkComparison: ComparisonPage = {
       vendor: "stanfordnlp/dspy",
       website: "https://github.com/stanfordnlp/dspy",
       license: "MIT",
-      pricing: "3.4.1 on October 12, 2026",
+      pricing: "3.5.0 on November 10, 2026",
       platform: "Python",
       bestFor: "Programming a model instead of only prompting",
       job: "GitHub describes DSPy as a framework for programming, not prompting, language models.",
@@ -289,7 +289,7 @@ export const frameworkComparison: ComparisonPage = {
       vendor: "deepset-ai/haystack",
       website: "https://github.com/deepset-ai/haystack",
       license: "Apache-2.0",
-      pricing: "v3.4.1 on October 21, 2026",
+      pricing: "v3.5.0 on November 10, 2026",
       platform: "Python",
       bestFor: "Pipelines and agent workflows",
       job: "GitHub describes an orchestration framework for LLM applications, pipelines, and agent workflows.",
@@ -301,16 +301,16 @@ export const frameworkComparison: ComparisonPage = {
       vendor: "vercel/ai",
       website: "https://github.com/vercel/ai",
       license: "Apache-2.0 (from the LICENSE file)",
-      pricing: "@ai-sdk/vue@3.0.326 on November 9, 2026",
+      pricing: "@ai-sdk/vue@3.0.330 on November 11, 2026",
       platform: "TypeScript",
       bestFor: "TypeScript apps that call models and agents",
-      job: "GitHub describes a free open-source TypeScript toolkit for AI applications and agents. The latest tag that day was a Vue package.",
+      job: "GitHub describes a free open-source TypeScript toolkit for AI applications and agents. The latest tag on November 11, 2026 was a Vue package.",
       sourceIds: [1, 3],
     },
   ],
   sources: [
     {
-      title: "GitHub REST API, repository and releases/latest (read November 9, 2026)",
+      title: "GitHub REST API, repository and releases/latest (read November 11, 2026)",
       url: "https://docs.github.com/en/rest",
     },
     {
@@ -326,7 +326,7 @@ export const frameworkComparison: ComparisonPage = {
     {
       question: "How many AI agent frameworks does this page compare?",
       answer:
-        "It compares 19 open-source frameworks and SDKs. The set matches the repositories in this site’s November framework snapshot, with licences and release tags re-read from GitHub on November 9, 2026.",
+        "It compares 19 open-source frameworks and SDKs. The set matches the repositories in this site’s November framework snapshot. Release tags and SPDX ids were re-read from GitHub on November 11, 2026. Star counts in the table stay on the November 5 snapshot.",
     },
     {
       question: "Are these AI agent frameworks free and open source?",
@@ -334,9 +334,9 @@ export const frameworkComparison: ComparisonPage = {
         "The code is free under the licence in the table. MIT, Apache-2.0, and CC-BY-4.0 are the SPDX ids GitHub returned, with two licence files read by hand where GitHub returned no SPDX id. A model API the framework calls is not free just because the library is.",
     },
     {
-      question: "Which AI agent framework had a GitHub release on November 9, 2026?",
+      question: "Which AI agent framework had a GitHub release on November 11, 2026?",
       answer:
-        "CrewAI 1.15.39 and the Vercel AI SDK tag @ai-sdk/vue@3.0.326 were published on November 9, 2026. The other rows’ latest tags are older.",
+        "The Vercel AI SDK tag @ai-sdk/vue@3.0.330 was published on November 11, 2026. On that read, LangChain’s latest tag was langchain-core==1.7.7, Pydantic AI was v2.67.0, DSPy was 3.5.0, and Haystack was v3.5.0, all published November 10. AutoGen’s latest tag was still python-v0.7.5, published September 30, 2025.",
     },
     {
       question: "Is the latest GitHub tag the version of the whole framework?",
@@ -384,8 +384,20 @@ export const frameworkComparison: ComparisonPage = {
     {
       href: "/reports/ai-agent-framework-github-stats-november-2026",
       title: "Framework releases, November 5 snapshot",
-      description: "The earlier GitHub pull for these repositories, dated November 5, 2026.",
+      description: "The earlier GitHub pull for these repositories, dated November 5, 2026. The star column on this page uses that pull.",
       kicker: "Report",
+    },
+    {
+      href: "/trackers/stars",
+      title: "GitHub stars tracker",
+      description: "A later star file for a different set of repositories. Not a recount of this table.",
+      kicker: "Tracker",
+    },
+    {
+      href: "/blog/is-autogen-deprecated",
+      title: "Is AutoGen deprecated?",
+      description: "The README says archived. GitHub’s archived field, re-read November 11, 2026, was still false.",
+      kicker: "Guide",
     },
     {
       href: "/directory/category/agent-frameworks",

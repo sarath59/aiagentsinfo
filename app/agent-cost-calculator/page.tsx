@@ -112,9 +112,13 @@ export default function CostCalculatorPage() {
           <Link className="text-[var(--link)] underline" href="/best/ai-coding-agents">
             Best AI coding agents
           </Link>
-          . The framework table is the{" "}
+          . The framework table is{" "}
           <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
-            AI agent framework comparison table
+            AI agent frameworks
+          </Link>
+          . Seat, credit, and per-resolution prices for products sold as AI employees are{" "}
+          <Link className="text-[var(--link)] underline" href="/blog/how-much-does-an-ai-employee-cost">
+            How much does an AI employee cost for a small business?
           </Link>
           .
         </p>
