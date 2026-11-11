@@ -1,4 +1,11 @@
 {
+  "agentos": {
+    "source": "https://tryagentos.net/site/assets/img/logo.png",
+    "file": "/logos/makers/agentos.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1476
+  },
   "aimake-videos": {
     "source": "https://aimakevideos.com/og.png",
     "file": "/logos/makers/aimake-videos.webp",
@@ -48,6 +55,20 @@
     "height": 128,
     "bytes": 224
   },
+  "ezairapvideo": {
+    "source": "https://ezairapvideo.com/favicon.svg",
+    "file": "/logos/makers/ezairapvideo.svg",
+    "width": 128,
+    "height": 128,
+    "bytes": 275
+  },
+  "ezimageai": {
+    "source": "https://ezimageai.com/icon.png",
+    "file": "/logos/makers/ezimageai.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 3118
+  },
   "grok-bot-kit": {
     "source": "https://grokbotkit.com/images/og-default.png",
     "file": "/logos/makers/grok-bot-kit.webp",
@@ -61,6 +82,27 @@
     "width": 128,
     "height": 128,
     "bytes": 1428
+  },
+  "jevapi": {
+    "source": "https://jevapi.io/og-image.png",
+    "file": "/logos/makers/jevapi.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1098
+  },
+  "linktotext": {
+    "source": "https://linktotext.co/social-share-poster.webp",
+    "file": "/logos/makers/linktotext.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1604
+  },
+  "mindify-map": {
+    "source": "https://mindifymap.com/mindifymap-512-512.png",
+    "file": "/logos/makers/mindify-map.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1070
   },
   "neverapply": {
     "source": "https://neverapply.co/apple-touch-icon.png",
