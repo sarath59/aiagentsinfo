@@ -127,6 +127,14 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/research/ai-agent-framework-issue-health-november-2026",
+            title: "59 LangChain issues closed in under a minute. The bug-labeled median was 3.3 days.",
+            description:
+              "Open issues, open pull requests, and median time-to-close for these 19 repositories, pulled 13:46 UTC on November 11, 2026.",
+            kicker: "Research",
+            date: "2026-11-11",
+          },
+          {
             href: "/blog/ai-agent-framework-release-november-2026",
             title: "AI agent framework release November 2026: browser-use 1.0.2 will not install next to Pydantic AI 2.67",
             description:
@@ -317,6 +325,10 @@ export default async function FrameworkGithubStatsPage() {
           ) : null}
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             Related pages:{" "}
+            <Link className="text-[var(--link)] underline" href="/research/ai-agent-framework-issue-health-november-2026">
+              59 LangChain issues closed in under a minute
+            </Link>
+            ,{" "}
             <Link className="text-[var(--link)] underline" href={benchmarkPath}>
               {benchmarkTitle}
             </Link>

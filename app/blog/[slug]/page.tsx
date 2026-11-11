@@ -552,6 +552,37 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
       },
     };
   }
+  if (slug === "ai-shopping-agents-compared-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/blog/can-an-ai-shopping-agent-check-out-for-you",
+          title: "Can an AI shopping agent check out for you?",
+          note: "The longer checkout narrative, re-checked through November 10.",
+        },
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents, the next 6 months",
+          note: "What six companies have dated through May 2027.",
+        },
+        {
+          href: "/blog/ucp-vs-acp-spec-versions-november-2026",
+          title: "UCP and ACP spec versions",
+          note: "Which snapshot to pin. Read November 10, 2026.",
+        },
+        {
+          href: "/research/agentic-commerce-protocol-adoption-november-2026",
+          title: "Which commerce protocol developers install",
+          note: "Stars and registry downloads. Checkout behavior stays on this page.",
+        },
+      ],
+      tool: {
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        title: "harness evaluation checklist",
+        note: "twelve sourced checks, counted in the browser",
+      },
+    };
+  }
   if (slug === "can-an-ai-shopping-agent-check-out-for-you") {
     return {
       reads: [

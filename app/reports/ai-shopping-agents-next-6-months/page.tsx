@@ -27,6 +27,14 @@ export default async function ShoppingAgentsReportPage() {
   ]);
   const related = [
     {
+      href: "/blog/ai-shopping-agents-compared-november-2026",
+      title: "4 of 5 shopping agents can finish checkout. ChatGPT’s page says the store does.",
+      description:
+        "Who can complete a purchase on November 11, 2026, which protocol the page names, and which merchant fee is published.",
+      kicker: "Guide",
+      date: "2026-11-11",
+    },
+    {
       href: "/research/agentic-commerce-protocol-adoption-november-2026",
       title: "AP2 has 3,270 stars and no package. @x402/core had 1,940,555 downloads",
       description:
@@ -221,6 +229,11 @@ export default async function ShoppingAgentsReportPage() {
             . What a merchant publishes so an agent can quote a real row is{" "}
             <Link href="/blog/how-to-make-your-store-readable-by-ai-shopping-agents">
               how to make your store readable by AI shopping agents
+            </Link>
+            . The November 11 comparison of who can complete checkout, which protocol the page names,
+            and which merchant fee is published is{" "}
+            <Link href="/blog/ai-shopping-agents-compared-november-2026">
+              4 of 5 shopping agents can finish checkout. ChatGPT’s page says the store does.
             </Link>
             .
           </p>

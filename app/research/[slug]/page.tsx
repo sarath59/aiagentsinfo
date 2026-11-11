@@ -226,6 +226,37 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
 }
 
 function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "ai-agent-framework-issue-health-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/reports/ai-agent-framework-github-stats-november-2026",
+          title: "AI agent framework GitHub stats, November 2026",
+          note: "The November 5 snapshot these 19 repositories come from. Its open column adds issues and pull requests.",
+        },
+        {
+          href: "/research/ai-agent-framework-release-cadence-october-november-2026",
+          title: "3,165 GitHub releases in 30 days, or 407 days of silence",
+          note: "Tag frequency the same day, anchored at 03:42 UTC. A different count from issue closes.",
+        },
+        {
+          href: "/blog/ai-agent-framework-release-november-2026",
+          title: "AI agent framework release, November 2026",
+          note: "What the November 9–11 tags change in a harness.",
+        },
+        {
+          href: "/trackers/stars",
+          title: "Framework stars tracker",
+          note: "Bookmarks. This page times issue closes.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "agent cost calculator",
+        note: "a token bill. Issue age is not a price",
+      },
+    };
+  }
   if (slug === "agentic-commerce-protocol-adoption-november-2026") {
     return {
       reads: [

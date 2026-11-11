@@ -1,0 +1,65 @@
+{
+  "pull_utc": "2026-11-11T13:46:26Z",
+  "github_date_header": "Wed, 11 Nov 2026 13:46:26 GMT",
+  "window_start_utc": "2026-10-12T13:46:26Z",
+  "stale_before_utc": "2026-08-13T13:46:26Z",
+  "source": "GitHub REST repository endpoint for open_issues_count, then GitHub search/issues. Median from created_at and closed_at on every issue the closed search returned.",
+  "queries": {
+    "open_issues": "repo:{owner}/{repo} is:issue is:open",
+    "open_prs": "repo:{owner}/{repo} is:pr is:open",
+    "opened_30d": "repo:{owner}/{repo} is:issue created:>=2026-10-12T13:46:26Z",
+    "closed_30d": "repo:{owner}/{repo} is:issue closed:>=2026-10-12T13:46:26Z",
+    "stale_open": "repo:{owner}/{repo} is:issue is:open updated:<2026-08-13T13:46:26Z"
+  },
+  "median_rule": "Sort (closed_at - created_at) ascending for issues whose closed_at is on or after the window start. Odd count: the middle value. Even count: the arithmetic mean of the two middle values. Seconds.",
+  "totals": {
+    "open_issues": 8053,
+    "open_prs": 8069,
+    "opened_30d": 4105,
+    "closed_30d": 3316,
+    "stale_open": 2592
+  },
+  "langchain_split": {
+    "closed": 95,
+    "median_seconds": 14,
+    "under_60_seconds": 59,
+    "under_60_closed_by_langchain_oss_automated_triage_bot": 58,
+    "under_60_closed_by_author_anh_nguyenn": 1,
+    "bot_state_reason": "NOT_PLANNED",
+    "no_bug_label": 58,
+    "no_bug_label_median_seconds": 12,
+    "bug_label": 37,
+    "bug_label_median_seconds": 286447,
+    "fast_and_bug": 2,
+    "fast_and_no_bug": 57,
+    "slow_and_bug": 35,
+    "slow_and_no_bug": 1
+  },
+  "letta_closes": {
+    "closed_by": "github-actions[bot]",
+    "state_reason": "completed",
+    "issues": [3453, 3455, 3456, 3457, 3458],
+    "median_seconds": 12
+  },
+  "repos": {
+    "langchain-ai/langchain": {"open_issues": 595, "open_prs": 141, "rest_open_issues_count": 736, "opened_30d": 164, "closed_30d": 95, "stale_open": 202, "median_seconds": 14, "median_n": 95},
+    "langchain-ai/langgraph": {"open_issues": 342, "open_prs": 135, "rest_open_issues_count": 477, "opened_30d": 106, "closed_30d": 342, "stale_open": 60, "median_seconds": 14451593, "median_n": 342},
+    "crewAIInc/crewAI": {"open_issues": 496, "open_prs": 751, "rest_open_issues_count": 1247, "opened_30d": 451, "closed_30d": 205, "stale_open": 0, "median_seconds": 3124219, "median_n": 205},
+    "microsoft/autogen": {"open_issues": 574, "open_prs": 600, "rest_open_issues_count": 1174, "opened_30d": 18, "closed_30d": 5, "stale_open": 453, "median_seconds": 4991, "median_n": 5},
+    "microsoft/agent-framework": {"open_issues": 670, "open_prs": 220, "rest_open_issues_count": 890, "opened_30d": 332, "closed_30d": 230, "stale_open": 204, "median_seconds": 645293, "median_n": 230},
+    "microsoft/semantic-kernel": {"open_issues": 95, "open_prs": 248, "rest_open_issues_count": 343, "opened_30d": 38, "closed_30d": 74, "stale_open": 2, "median_seconds": 14039684.5, "median_n": 74},
+    "openai/openai-agents-python": {"open_issues": 24, "open_prs": 35, "rest_open_issues_count": 59, "opened_30d": 66, "closed_30d": 61, "stale_open": 0, "median_seconds": 397339, "median_n": 61},
+    "google/adk-python": {"open_issues": 201, "open_prs": 220, "rest_open_issues_count": 421, "opened_30d": 216, "closed_30d": 227, "stale_open": 27, "median_seconds": 1280015, "median_n": 227},
+    "anthropics/claude-agent-sdk-python": {"open_issues": 242, "open_prs": 379, "rest_open_issues_count": 621, "opened_30d": 25, "closed_30d": 0, "stale_open": 154, "median_seconds": null, "median_n": 0},
+    "huggingface/smolagents": {"open_issues": 425, "open_prs": 646, "rest_open_issues_count": 1073, "opened_30d": 51, "closed_30d": 2, "stale_open": 226, "median_seconds": 4701480.5, "median_n": 2},
+    "run-llama/llama_index": {"open_issues": 395, "open_prs": 966, "rest_open_issues_count": 1361, "opened_30d": 135, "closed_30d": 12, "stale_open": 117, "median_seconds": 77409, "median_n": 12},
+    "pydantic/pydantic-ai": {"open_issues": 1380, "open_prs": 593, "rest_open_issues_count": 1973, "opened_30d": 1088, "closed_30d": 713, "stale_open": 14, "median_seconds": 401068, "median_n": 713},
+    "mastra-ai/mastra": {"open_issues": 439, "open_prs": 325, "rest_open_issues_count": 764, "opened_30d": 788, "closed_30d": 627, "stale_open": 0, "median_seconds": 121754, "median_n": 627},
+    "agno-agi/agno": {"open_issues": 948, "open_prs": 923, "rest_open_issues_count": 1871, "opened_30d": 177, "closed_30d": 121, "stale_open": 401, "median_seconds": 8214256, "median_n": 121},
+    "stanfordnlp/dspy": {"open_issues": 343, "open_prs": 433, "rest_open_issues_count": 776, "opened_30d": 28, "closed_30d": 50, "stale_open": 242, "median_seconds": 22913320, "median_n": 50},
+    "camel-ai/camel": {"open_issues": 308, "open_prs": 328, "rest_open_issues_count": 637, "opened_30d": 46, "closed_30d": 0, "stale_open": 197, "median_seconds": null, "median_n": 0},
+    "letta-ai/letta": {"open_issues": 0, "open_prs": 0, "rest_open_issues_count": 0, "opened_30d": 5, "closed_30d": 5, "stale_open": 0, "median_seconds": 12, "median_n": 5},
+    "deepset-ai/haystack": {"open_issues": 88, "open_prs": 55, "rest_open_issues_count": 143, "opened_30d": 81, "closed_30d": 94, "stale_open": 27, "median_seconds": 629589.5, "median_n": 94},
+    "vercel/ai": {"open_issues": 488, "open_prs": 1071, "rest_open_issues_count": 1559, "opened_30d": 290, "closed_30d": 453, "stale_open": 266, "median_seconds": 223190, "median_n": 453}
+  }
+}

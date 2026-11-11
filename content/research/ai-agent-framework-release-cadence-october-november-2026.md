@@ -196,4 +196,6 @@ If you are about to upgrade Google ADK Python to `v2.14.0` or Microsoft Agent Fr
 Do not treat smolagents’ 166 days, or LlamaIndex’s single September release, as a quality score. Treat them as a maintenance fact, and go to the download table if the question is who installs the library. The November 5 page remains the star, fork, and licence table. This page is the count that table’s latest-release cell cannot make.
 
 The install pins and behavior notes for browser-use 1.0.2, Pydantic AI 2.67.0, AG2 1.3.1, and FastMCP 4.1.8, read the morning of November 11, are [AI agent framework release November 2026](/blog/ai-agent-framework-release-november-2026). browser-use is not one of the 24 repositories in this count.
+
+Issue-tracker health for 19 of these repositories, pulled at 13:46 UTC the same day, is [59 LangChain issues closed in under a minute. The bug-labeled median was 3.3 days.](/research/ai-agent-framework-issue-health-november-2026). That note splits open issues from open pull requests and times the issues that closed. It does not recount tags.
 ---
