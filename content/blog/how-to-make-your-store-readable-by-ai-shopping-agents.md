@@ -7,7 +7,7 @@ takeaways:
   - "Google’s Universal Commerce Protocol guide, last updated 2026-10-29 UTC, says a product is eligible for agent checkout only when native_commerce checkout eligibility is true. Missing or false means it is not eligible."
   - "Shopify’s Google AI Mode help page, read November 10, 2026, says products reach those surfaces through Merchant Center. Direct checkout can be turned off, and discovery can remain."
 date: "2026-11-10"
-updated: "2026-11-10"
+updated: "2026-11-11"
 category: guide
 topics:
   - shopping
@@ -149,6 +149,7 @@ The shopping calendar, the checkout guide, the harness checks, and a public list
 
 - [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months) is the dated record for Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe. Microsoft’s feed requirement for Copilot Checkout is recorded there from a page read November 5, 2026. This guide did not re-open that Microsoft page on November 10.
 - [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you) is who can pay today.
+- [ChatGPT Business Agents: a mention counts the website](/blog/chatgpt-business-agents) is the November 11, 2026 reading of OpenAI’s November 10 Business Agents launch. The setup guide says the agent explains and links. It cannot complete the purchase. For an online business, a mention counts when ChatGPT cites the website, not when the answer only says the brand name.
 - [Best AI agent for shopping](/best/ai-agents-for-shopping) is the sourced product table. The shelf is [Agents in shopping](/topics/shopping).
 - [Which AI agent framework do people install?](/blog/which-ai-agent-framework-do-people-install) is a download count, which is a file request, not a shopper.
 - [Verified revenue](/verified-revenue) is a payment-processor figure for listed tools. It is not a feed-quality score.
