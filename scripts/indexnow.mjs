@@ -18,6 +18,13 @@
  *           Layout, component, or library edits submit the full sitemap.
  * --wait    Poll the key file until it returns the key (use right after deploy).
  * --dry-run Print the URL list and do not POST.
+ *
+ * Each endpoint is posted separately. A network error or HTTP 5xx is retried
+ * twice with a short backoff. HTTP 429 and a not-yet-verified key keep the
+ * longer retry. The process exits 0 when api.indexnow.org or at least one
+ * engine returns 200 or 202. Any other endpoint failure is a workflow
+ * warning. The process still exits 1 when every endpoint fails, or when
+ * --wait times out before the key file is live.
  */
 
 import { execFileSync } from "node:child_process";
@@ -37,6 +44,15 @@ const MAX_URLS_PER_REQUEST = 10_000;
 const KEY_FILE_RE = /^[A-Za-z0-9-]{8,128}\.txt$/;
 const WAIT_MS = Number(process.env.INDEXNOW_WAIT_MS || 12 * 60 * 1000);
 const WAIT_INTERVAL_MS = 10_000;
+const TRANSIENT_RETRIES = 2;
+
+function readDelay(name, fallback) {
+  const value = Number(process.env[name]);
+  return Number.isFinite(value) && value >= 0 ? value : fallback;
+}
+
+const TRANSIENT_BACKOFF_MS = readDelay("INDEXNOW_RETRY_BACKOFF_MS", 2_000);
+const VERIFY_BACKOFF_MS = readDelay("INDEXNOW_VERIFY_BACKOFF_MS", 15_000);
 
 const SITEWIDE_FILES = new Set([
   "app/layout.tsx",
@@ -300,6 +316,69 @@ function shouldRetry(result) {
   );
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function workflowWarning(message) {
+  const safe = String(message)
+    .replaceAll("%", "%25")
+    .replaceAll("\r", "%0D")
+    .replaceAll("\n", "%0A");
+  console.log(`::warning::${safe}`);
+}
+
+function isServerError(status) {
+  return status >= 500 && status <= 599;
+}
+
+async function submitEndpoint(endpoint, payload) {
+  let transientRetries = 0;
+  let verifyAttempt = 0;
+
+  for (;;) {
+    let result;
+    try {
+      result = await submit(endpoint, payload);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      if (transientRetries < TRANSIENT_RETRIES) {
+        transientRetries += 1;
+        console.log(
+          `${endpoint} ERROR ${message} (retry ${transientRetries}/${TRANSIENT_RETRIES})`,
+        );
+        await sleep(TRANSIENT_BACKOFF_MS * transientRetries);
+        continue;
+      }
+      console.error(`${endpoint} ERROR ${message}`);
+      return { ok: false, reason: message };
+    }
+
+    const detail = result.body ? ` ${result.body}` : "";
+    if (isServerError(result.status) && transientRetries < TRANSIENT_RETRIES) {
+      transientRetries += 1;
+      console.log(
+        `${endpoint} ${result.status}${detail} (retry ${transientRetries}/${TRANSIENT_RETRIES})`,
+      );
+      await sleep(TRANSIENT_BACKOFF_MS * transientRetries);
+      continue;
+    }
+
+    verifyAttempt += 1;
+    const retry = shouldRetry(result) && verifyAttempt < 4;
+    console.log(
+      `${endpoint} ${result.status}${detail}${retry ? ` (retry ${verifyAttempt}/3)` : ""}`,
+    );
+    if (retry) {
+      await sleep(VERIFY_BACKOFF_MS * verifyAttempt);
+      continue;
+    }
+
+    if (result.status === 200 || result.status === 202) return { ok: true };
+    return { ok: false, reason: `HTTP ${result.status}` };
+  }
+}
+
 function parseArgs(argv) {
   const args = { all: false, changed: false, wait: false, dryRun: false, urls: [] };
   for (let index = 0; index < argv.length; index += 1) {
@@ -390,32 +469,23 @@ async function main() {
   console.log(`host: ${HOST}`);
   console.log(`keyLocation: ${keyLocation}`);
 
-  let failed = false;
+  let acceptedAny = false;
   for (const urlList of chunks(urls, MAX_URLS_PER_REQUEST)) {
     const payload = { host: HOST, key, keyLocation, urlList };
     for (const endpoint of ENDPOINTS) {
-      try {
-        let result;
-        for (let attempt = 1; attempt <= 4; attempt += 1) {
-          result = await submit(endpoint, payload);
-          const detail = result.body ? ` ${result.body}` : "";
-          const retry = shouldRetry(result) && attempt < 4;
-          console.log(
-            `${endpoint} ${result.status}${detail}${retry ? ` (retry ${attempt}/3)` : ""}`,
-          );
-          if (!retry) break;
-          await new Promise((resolve) => setTimeout(resolve, 15000 * attempt));
-        }
-        if (result.status !== 200 && result.status !== 202) failed = true;
-      } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.error(`${endpoint} ERROR ${message}`);
-        failed = true;
+      const result = await submitEndpoint(endpoint, payload);
+      if (result.ok) {
+        acceptedAny = true;
+        continue;
       }
+      workflowWarning(`IndexNow ${endpoint} failed (${result.reason}).`);
     }
   }
 
-  if (failed) process.exit(1);
+  if (!acceptedAny) {
+    console.error("IndexNow: every endpoint failed.");
+    process.exit(1);
+  }
 }
 
 main().catch((error) => {

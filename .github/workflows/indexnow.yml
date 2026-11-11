@@ -31,4 +31,7 @@ jobs:
       - name: Ping IndexNow
         env:
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        # The script exits 0 when api.indexnow.org or any engine returns
+        # 200/202. One endpoint failing is logged as a warning. Every
+        # endpoint failing, or a key file that never goes live, still fails.
         run: node scripts/indexnow.mjs --changed --wait
