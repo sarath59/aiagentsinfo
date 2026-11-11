@@ -4,8 +4,9 @@ shortDefinition: Fetching documents or traces at run time and placing them into 
 related:
   - context-window
   - llm
+  - search-grounding
 topics:
   - how-agents-work
 ---
 
-**Retrieval-augmented generation** looks up text (docs, tickets, prior traces) and adds it to the [context window](/glossary/context-window) before the model answers. It is a memory tactic, not a mind. Agents often mix RAG with tool use; they are not the same thing. Sourced research products are compared in [Best AI agent for research](/best/ai-agents-for-research).
+**Retrieval-augmented generation** looks up text (docs, tickets, prior traces) and adds it to the [context window](/glossary/context-window) before the model answers. It is a memory tactic, not a mind. Agents often mix RAG with tool use; they are not the same thing. A search the model runs inside the vendor’s request is [search grounding](/glossary/search-grounding), not this lookup. Sourced research products are compared in [Best AI agent for research](/best/ai-agents-for-research).

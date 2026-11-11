@@ -196,5 +196,5 @@ Do not put SerpAPI Starter on an agent because the logo says search. Twenty-five
 
 Brave is the high-throughput middle: $5 per 1,000, 50 a second, and the monthly $5 credit needs a card. Firecrawl is the wrong row if you only wanted snippets, and the right row if the agent’s next tool needs the page in markdown and you are willing to pay the scrape credits on top of the 2-credit search.
 
-The app products that already search for a person sitting in a chat are still [Best AI agent for web search](/best/ai-agents-for-web-search). They are not this rate card.
+The app products that already search for a person sitting in a chat are still [Best AI agent for web search](/best/ai-agents-for-web-search). They are not this rate card. Which of these calls belongs in the loop, including Gemini grounding at $14 per 1,000 searches and a 1,500-request daily cap, is [What is the best web search tool for an AI agent harness?](/blog/best-web-search-tool-for-ai-agents).
 ---

@@ -38,6 +38,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "The loop, tools, memory, permissions, and stop rules around a model, including DeepSeek Harness.",
       },
       {
+        href: "/blog/best-web-search-tool-for-ai-agents",
+        anchor: "What is the best web search tool for an AI agent harness?",
+        note: "No single winner. Gemini grounding is $14 per 1,000 searches and 1,500 a day. Claude and OpenAI list $10. Read November 11, 2026.",
+      },
+      {
         href: "/blog/what-is-multi-agent-orchestration",
         anchor: "What is multi-agent orchestration?",
         note: "November 5, 2026 paper: dropping the interaction term costs 7.2 and 17.3 points on the authors’ code tasks.",

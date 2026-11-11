@@ -334,6 +334,9 @@ export async function buildLlmsTxt() {
       item("Agent session", "/glossary/agent-session", "Stored conversation state the harness sends back on the next turn."),
       item("Agent trace", "/glossary/agent-trace", "The record of one agent run: model calls, tool calls, handoffs, and timing."),
       item("Harness", "/glossary/harness", "The runtime around a model: loop, tools, memory, permissions, and stop conditions."),
+      item("Search grounding", "/glossary/search-grounding", "A hosted web search the model runs inside one vendor request, then answers from, with citations."),
+      item("Tool-call budget", "/glossary/tool-call-budget", "A limit on how many tool calls one agent task, turn, or day is allowed to make."),
+      item("Indirect prompt injection", "/glossary/indirect-prompt-injection", "Instructions hidden in a page, file, or tool result that change what the agent does."),
     ]),
     section("Blog", [
       item("Blog", "/blog", "Explainers, news, and guides."),

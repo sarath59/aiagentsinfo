@@ -283,7 +283,7 @@ export const webSearchComparison: ComparisonPage = {
       listingSlug: "gemini",
       website: "https://gemini.google.com",
       license: "Proprietary product",
-      pricing: "Gemini app free; Google AI Plus $4.99/mo, Pro $19.99/mo (listing, 3 Nov 2026)",
+      pricing: "Gemini app free; Plus $4.99/mo, Pro $19.99/mo, Ultra 5x $99.99/mo, Ultra 20x $199.99/mo (listing, 11 Nov 2026)",
       platform: "Google Search AI Mode and Gemini app",
       bestFor: "Search that stays in Google",
       job: "Gemini and AI Mode in Google Search. Consumer AI plan prices are on this site’s Gemini listing.",
@@ -310,7 +310,7 @@ export const webSearchComparison: ComparisonPage = {
     { title: "Anthropic, Plans & pricing (web search on Free through Ultra)", url: "https://claude.com/pricing" },
     { title: "AI Agents Info, Codex listing (ChatGPT plan dollars, checked November 6, 2026)", url: "https://www.aiagentsinfo.com/directory/codex" },
     { title: "AI Agents Info, Claude listing (checked November 3, 2026)", url: "https://www.aiagentsinfo.com/directory/claude" },
-    { title: "AI Agents Info, Gemini listing (checked November 3, 2026)", url: "https://www.aiagentsinfo.com/directory/gemini" },
+    { title: "AI Agents Info, Gemini listing (checked November 11, 2026)", url: "https://www.aiagentsinfo.com/directory/gemini" },
     { title: "AI Agents Info, Perplexity listing (checked November 7, 2026)", url: "https://www.aiagentsinfo.com/directory/perplexity" },
   ],
   faq: [
@@ -339,8 +339,18 @@ export const webSearchComparison: ComparisonPage = {
       answer: "This page copies licence, list price, and platform from official pages. It does not invent a quality score.",
     },
   ],
+  verifiedOn: "2026-11-11",
+  methodNote:
+    "On November 11, 2026 the Gemini plan dollars were updated from this site’s Gemini listing, last verified that day: Plus $4.99, Pro $19.99, Ultra 5x $99.99, and Ultra 20x $199.99 a month. The ChatGPT, Claude, and Perplexity cells were not re-fetched from those vendors that day. They keep the source dates already in the table and in the source list.",
   related: [
     hubCard(),
+    {
+      href: "/blog/best-web-search-tool-for-ai-agents",
+      title: "What is the best web search tool for an AI agent harness?",
+      description: "Gemini grounding is $14 per 1,000 searches and 1,500 a day. Claude and OpenAI list $10. A snippet API is the one a harness can cap. Read November 11, 2026.",
+      kicker: "Guide",
+      date: "2026-11-11",
+    },
     {
       href: "/blog/web-search-api-prices-for-ai-agents-november-2026",
       title: "Claude and OpenAI web search both cost $10 per 1,000. Serper’s entry pack is $1.",
@@ -366,7 +376,7 @@ export const webSearchComparison: ComparisonPage = {
       heading: "Which AI agent is best for web search in 2026?",
       paragraphs: [
         "There is no single best AI agent for web search. For Claude and OpenAI agents, the tools on this page are [Claude](/directory/claude) web search and [ChatGPT](/directory/chatgpt) search. ChatGPT search is on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. Claude web search is on every Claude plan globally, with citations, and usage counts toward plan limits. [Gemini](/directory/gemini) and Google AI Mode sit in Search. [Perplexity](/directory/perplexity) is an answer engine that cites retrieved pages.",
-        "Search is [tool use](/glossary/tool-use), not a mind. The shelf for this table is [Best AI agents](/best). What the search APIs charge per 1,000 calls, checked November 11, 2026, is [Claude and OpenAI web search both cost $10 per 1,000. Serper’s entry pack is $1.](/blog/web-search-api-prices-for-ai-agents-november-2026). The measured tool-definition cost, the tokens a search tool adds before it searches, is [Brave's MCP tool list is 25,495 tokens. Web search alone is 1,400.](/blog/web-search-tool-definition-tokens).",
+        "Search is [tool use](/glossary/tool-use), not a mind. The shelf for this table is [Best AI agents](/best). What the search APIs charge per 1,000 calls, checked November 11, 2026, is [Claude and OpenAI web search both cost $10 per 1,000. Serper’s entry pack is $1.](/blog/web-search-api-prices-for-ai-agents-november-2026). How to wire one of those tools into a harness, including Gemini grounding at $14 per 1,000 and a 1,500-request daily cap, is [What is the best web search tool for an AI agent harness?](/blog/best-web-search-tool-for-ai-agents). The measured tool-definition cost, the tokens a search tool adds before it searches, is [Brave's MCP tool list is 25,495 tokens. Web search alone is 1,400.](/blog/web-search-tool-definition-tokens).",
       ],
     },
     {

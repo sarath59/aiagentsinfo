@@ -7,6 +7,8 @@ related:
   - product-feed
   - agentic-checkout
   - model-context-protocol
+  - search-grounding
+  - tool-call-budget
 topics:
   - harnesses
   - task-performance
@@ -14,4 +16,4 @@ topics:
 
 **Tool use** (also called function calling) is how a model steps outside the text box. The [harness](/glossary/harness) decides which tools exist, how arguments are validated, and what the model is allowed to see of the result.
 
-Without tools, you have dialogue. With tools and a loop, you have an [agent](/glossary/agent). One open way to connect those tools is the [Model Context Protocol](/glossary/model-context-protocol). A catalog lookup or a payment call is the same pattern in a store: see [product feed](/glossary/product-feed) and [agentic checkout](/glossary/agentic-checkout). Web search and inbox tools are compared in [Best AI agent for web search](/best/ai-agents-for-web-search) and [Best AI agent for email](/best/ai-agents-for-email).
+Without tools, you have dialogue. With tools and a loop, you have an [agent](/glossary/agent). One open way to connect those tools is the [Model Context Protocol](/glossary/model-context-protocol). A catalog lookup or a payment call is the same pattern in a store: see [product feed](/glossary/product-feed) and [agentic checkout](/glossary/agentic-checkout). A search the vendor runs inside one request is [search grounding](/glossary/search-grounding). The limit on how many calls a task may make is a [tool-call budget](/glossary/tool-call-budget). Web search and inbox tools are compared in [Best AI agent for web search](/best/ai-agents-for-web-search) and [Best AI agent for email](/best/ai-agents-for-email). How to wire a search tool into a harness is [What is the best web search tool for an AI agent harness?](/blog/best-web-search-tool-for-ai-agents).
