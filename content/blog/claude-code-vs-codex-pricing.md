@@ -284,6 +284,8 @@ Two billing paths sit beside the stickers. A Claude Console account, and extra u
 
 The software that spends those tokens is the harness. A $20 plan with a tight loop and a $20 plan with a long cloud task are different bills even when the sticker matches. [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness) is the page for that split. The directory rows for [Claude Code](/directory/claude-code) and [Codex](/directory/codex) keep the short product notes.
 
+How often npm fetched each CLI package is a different question from the sticker. From October 11 through November 9, 2026, `@openai/codex` had 96,124,825 downloads and `@anthropic-ai/claude-code` had 49,448,384, and Codex’s counter includes native builds that Claude Code’s manifest leaves out. That census is [Claude Code vs Codex downloads](/research/claude-code-vs-codex-downloads-november-2026). The prices on this page were not re-read for it. The [downloads tracker](/trackers/downloads) is the framework table, not the CLI table. The [stars tracker](/trackers/stars) is bookmarks. The dated product calendar is [AI coding agents in the next 30 days](/reports/ai-coding-agents-next-30-days).
+
 ## What are the Anthropic Claude Code limits?
 
 Anthropic Claude Code limits, on the pages checked November 6, 2026, are the plan’s limits. Claude Code is not a separate meter.

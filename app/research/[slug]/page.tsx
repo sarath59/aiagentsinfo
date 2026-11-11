@@ -226,6 +226,37 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
 }
 
 function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "claude-code-vs-codex-downloads-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/blog/claude-code-vs-codex-pricing",
+          title: "Claude Code vs Codex pricing",
+          note: "Seat prices. The download counters on this page are not a bill.",
+        },
+        {
+          href: "/reports/ai-coding-agents-next-30-days",
+          title: "AI coding agents in the next 30 days",
+          note: "The dated product calendar. It does not count npm files.",
+        },
+        {
+          href: "/trackers/downloads",
+          title: "Framework downloads tracker",
+          note: "LangChain and the other SDKs, refreshed daily. CLIs are not in that table.",
+        },
+        {
+          href: "/trackers/stars",
+          title: "Framework stars tracker",
+          note: "Bookmarks, not file requests. Gemini CLI is the case where those diverge.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "agent cost calculator",
+        note: "a 30-day token bill from published prices, with no seat fee",
+      },
+    };
+  }
   if (
     slug !== "evolver-agent-exploration-evolving-capabilities" &&
     slug !== "harnessflow-mcts-harness-optimization"

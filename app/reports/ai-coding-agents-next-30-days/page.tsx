@@ -53,6 +53,14 @@ export default async function CodingAgents30DayPage() {
 <footer><a href="${pageUrl}">${title}</a>, AI Agents Info, last updated ${updatedLabel}.</footer>
 </blockquote>`;
   const related = [
+    {
+      href: "/research/claude-code-vs-codex-downloads-november-2026",
+      title: "Claude Code vs Codex downloads",
+      description:
+        "npm file requests for the CLIs from October 11 through November 9, 2026. This calendar does not count those files, and that census does not reprice these plans.",
+      kicker: "Research",
+      date: "2026-11-11",
+    },
     pricingPost
       ? {
           href: `/blog/${pricingPost.slug}`,

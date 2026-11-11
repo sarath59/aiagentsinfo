@@ -127,6 +127,7 @@ export default async function DownloadsTrackerPage() {
           { id: "npm", text: "What do the npm packages show?", level: 2 },
           { id: "history", text: "How have downloads changed over time?", level: 2 },
           { id: "methodology", text: "Where do these numbers come from?", level: 2 },
+          { id: "next", text: "What should you open next?", level: 2 },
           { id: "faq", text: "FAQ", level: 2 },
           { id: "citation", text: "Cite this data", level: 2 },
         ]}
@@ -139,6 +140,14 @@ export default async function DownloadsTrackerPage() {
           />
         }
         related={[
+          {
+            href: "/research/claude-code-vs-codex-downloads-november-2026",
+            title: "Claude Code vs Codex downloads",
+            description:
+              "npm file requests for coding-agent CLIs from October 11 through November 9, 2026. Codex’s counter includes native builds. Claude Code’s manifest does not.",
+            kicker: "Research",
+            date: "2026-11-11",
+          },
           {
             href: "/blog/which-ai-agent-framework-do-people-install",
             title: "Which AI agent framework do people install?",
@@ -287,6 +296,45 @@ export default async function DownloadsTrackerPage() {
               {report.failures.map((item) => `${item.package} (${item.registry}: ${item.error})`).join("; ")}.
             </p>
           ) : null}
+        </section>
+
+        <section className="mt-12">
+          <h2 id="next" className="text-2xl font-semibold tracking-tight">
+            What should you open next?
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            This table is framework packages. Coding-agent CLIs are a separate census. From October 11 through
+            November 9, 2026, <code>@openai/codex</code> had 96,124,825 npm downloads and{" "}
+            <code>@anthropic-ai/claude-code</code> had 49,448,384, and those two counters do not count the same kind
+            of file. The write-up is{" "}
+            <Link className="text-[var(--link)] underline" href="/research/claude-code-vs-codex-downloads-november-2026">
+              Claude Code vs Codex downloads
+            </Link>
+            .
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Bookmarks for the framework repositories are the{" "}
+            <Link className="text-[var(--link)] underline" href={TRACKER_PATHS.stars}>
+              stars tracker
+            </Link>
+            . Seat prices are{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/claude-code-vs-codex-pricing">
+              Claude Code vs Codex pricing
+            </Link>
+            . The dated product calendar is{" "}
+            <Link className="text-[var(--link)] underline" href="/reports/ai-coding-agents-next-30-days">
+              AI coding agents in the next 30 days
+            </Link>
+            . A token bill from published rates, with no seat fee, is the{" "}
+            <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
+              agent cost calculator
+            </Link>
+            . To add a tool this directory does not list,{" "}
+            <Link className="text-[var(--link)] underline" href="/submit">
+              submit a listing
+            </Link>
+            . No login.
+          </p>
         </section>
 
         <FaqList items={faq.map((item) => ({ question: item.question, answer: item.answer }))} />

@@ -119,6 +119,14 @@ export default async function StarsTrackerPage() {
         }
         related={[
           {
+            href: "/research/claude-code-vs-codex-downloads-november-2026",
+            title: "Claude Code vs Codex downloads",
+            description:
+              "A November 11, 2026 npm and PyPI census of coding-agent CLIs. Stars and file requests disagree, and two npm counters are not the same kind of file.",
+            kicker: "Research",
+            date: "2026-11-11",
+          },
+          {
             href: TRACKER_PATHS.downloads,
             title: "AI agent framework downloads tracker (updated daily)",
             description: "PyPI and npm file requests for the same frameworks.",
@@ -182,7 +190,20 @@ export default async function StarsTrackerPage() {
             <Link className="text-[var(--link)] underline" href={TRACKER_PATHS.downloads}>
               downloads tracker
             </Link>{" "}
-            for pip and npm, and this table for GitHub bookmarks.
+            for pip and npm, and this table for GitHub bookmarks. The same split on coding-agent CLIs, read November
+            11, 2026, is{" "}
+            <Link className="text-[var(--link)] underline" href="/research/claude-code-vs-codex-downloads-november-2026">
+              Claude Code vs Codex downloads
+            </Link>
+            . Seat prices are{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/claude-code-vs-codex-pricing">
+              Claude Code vs Codex pricing
+            </Link>
+            . A token bill is the{" "}
+            <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
+              agent cost calculator
+            </Link>
+            .
           </p>
         </section>
 
