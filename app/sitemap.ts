@@ -127,6 +127,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/tools/shopping-agent-readiness-checker", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/tools/cursor-vs-claude-code-vs-codex-pricing", new Date("2026-11-09T00:00:00.000Z"), 0.7),
     entry("/reports/ai-agents-next-12-months", new Date("2026-11-12T00:00:00.000Z"), 0.8),
+    entry("/reports/enterprise-agent-platforms-next-6-months", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/reports/ai-shopping-agents-next-30-days", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/reports/ai-agent-frameworks-next-6-months", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/reports/web-search-tools-for-ai-agents-november-2026", new Date("2026-11-12T00:00:00.000Z"), 0.7),

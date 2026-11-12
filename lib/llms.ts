@@ -21,6 +21,12 @@ import { verifiedRevenueChecked, verifiedRevenueEntries } from "@/lib/verified-r
 import { description as yearDescription, path as yearPath, updatedOn as yearUpdatedOn, title as yearTitle } from "@/lib/agents-12-month-outlook";
 import { description as shop30Description, path as shop30Path, readOn as shop30ReadOn, title as shop30Title } from "@/lib/shopping-agents-30-day";
 import { description as frameworksDescription, path as frameworksPath, readOn as frameworksReadOn, title as frameworksTitle } from "@/lib/frameworks-6-month";
+import {
+  description as enterpriseDescription,
+  path as enterprisePath,
+  readOn as enterpriseReadOn,
+  title as enterpriseTitle,
+} from "@/lib/enterprise-platforms-6-month";
 import { description as outlookDescription, path as outlookPath, readOn as outlookReadOn, title as outlookTitle } from "@/lib/agents-outlook";
 import { description as shoppingDescription, path as shoppingPath, readOn as shoppingReadOn, title as shoppingTitle } from "@/lib/shopping-report";
 import { description as browserDescription, path as browserPath, readOn as browserReadOn, title as browserTitle } from "@/lib/browser-computer-report";
@@ -205,6 +211,11 @@ function dataPageSummaries() {
     articleBlock(yearTitle, [`URL: ${absoluteUrl(yearPath)}`, `Updated: ${yearUpdatedOn}`, yearDescription], yearDescription),
     articleBlock(shop30Title, [`URL: ${absoluteUrl(shop30Path)}`, `Checked: ${shop30ReadOn}`, shop30Description], shop30Description),
     articleBlock(frameworksTitle, [`URL: ${absoluteUrl(frameworksPath)}`, `Checked: ${frameworksReadOn}`, frameworksDescription], frameworksDescription),
+    articleBlock(
+      enterpriseTitle,
+      [`URL: ${absoluteUrl(enterprisePath)}`, `Checked: ${enterpriseReadOn}`, enterpriseDescription],
+      "Six-month outlook for the platforms companies buy to run agents. Salesforce standard action $0.10. Copilot Studio agent action $0.04 in a pack. OpenAI Agent Builder and Evals leave the platform on November 30, 2026. Salesforce reports Q3 fiscal 2027 on December 2. ServiceNow and Workday print no dollar per assist or credit. Read November 12, 2026.",
+    ),
     articleBlock(outlookTitle, [`URL: ${absoluteUrl(outlookPath)}`, `Read: ${outlookReadOn}`, outlookDescription], outlookDescription),
     articleBlock(shoppingTitle, [`URL: ${absoluteUrl(shoppingPath)}`, `Checked: ${shoppingReadOn}`, shoppingDescription], shoppingDescription),
     articleBlock(
@@ -298,6 +309,7 @@ export async function buildLlmsTxt() {
       item(yearTitle, yearPath, yearDescription),
       item(shop30Title, shop30Path, shop30Description),
       item(frameworksTitle, frameworksPath, frameworksDescription),
+      item(enterpriseTitle, enterprisePath, enterpriseDescription),
       item(searchToolsTitle, searchToolsPath, searchToolsDescription),
       item(crawlerTitle, crawlerPath, crawlerDescription),
       item(voiceTitle, voicePath, voiceDescription),

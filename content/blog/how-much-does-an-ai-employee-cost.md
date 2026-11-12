@@ -68,7 +68,7 @@ faq:
     answer: "On Intercom’s page, an outcome includes a Procedure that ends in a handoff, and Fin charges once per conversation. On Zendesk’s page, an automated resolution is a request the AI agent resolved without escalation to a human agent. A handoff is a billed outcome on one product and the thing that avoids the resolution charge on the other."
 ---
 
-Updated November 12, 2026. On that morning, 11x’s pricing page prints Growth at $36,000 a year and does not print the $3,750 monthly card in the table below. The fifteen-product census is [12 of 15 AI employee products print a price](/research/ai-employee-pricing-small-business-november-2026). Which jobs those prices buy is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026). The figures under the next heading were read November 11 and are kept as that day’s record.
+Updated November 12, 2026. On that morning, 11x’s pricing page prints Growth at $36,000 a year and does not print the $3,750 monthly card in the table below. The fifteen-product census is [12 of 15 AI employee products print a price](/research/ai-employee-pricing-small-business-november-2026). Which jobs those prices buy is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026). The enterprise meters, a different invoice from these cards, are in [Enterprise agent platforms, Nov 2026 to May 2027](/reports/enterprise-agent-platforms-next-6-months). The figures under the next heading were read November 11 and are kept as that day’s record.
 
 ## How much does an AI employee cost for a small business?
 

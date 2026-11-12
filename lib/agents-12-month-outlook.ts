@@ -43,7 +43,7 @@ export const findings = [
 export const executiveSummary = [
   "One number in the next twelve months is large enough to misread. Anthropic’s S-1/A filed November 10, 2026, and re-read November 12, says approximately $70.7 billion of purchase commitments are due in the 12 months following September 30, 2026. The same paragraph’s aggregate is approximately $900.9 billion, and approximately $451.6 billion of that aggregate is expected before December 31, 2030. The 12-month line is inside the aggregate. Adding the three figures triple-counts the year. About $4.2 billion of the $70.7 billion sits on arrangements that can still be terminated or that have not met their conditions. The filing expects short-term compute to keep rising “in the near term,” and it still names no month. [[1]]",
   "The other dates are smaller and sharper. Google’s API pricing page, read November 12, doubles the paid standard rate for Gemini 4 Carbon and Gemini 4 Argon on December 1, 2026, and doubles Gemini 3.8 Flash on January 1, 2027. OpenAI’s pricing page, the same morning, still ends a GPT-5.6 Sol promotion on November 30 and does not print the price after it. Voice model retirements, read November 11, put an earliest Gemini Live cutoff on November 17, 2026 and remove gpt-realtime on January 20, 2027. Those are model ids. They are not a statement that agents got cheaper. [[2]][[3]][[4]]",
-  "Everything else a buyer asks about, coding agents, computer use, shopping checkout, enterprise spend, is either already running or not dated. The specialist briefs hold those records: [production](/reports/ai-agents-in-production-2026), the [2027 forecast](/reports/ai-agents-in-2027), [frameworks through May](/reports/ai-agent-frameworks-next-6-months), [shopping for the next 30 days](/reports/ai-shopping-agents-next-30-days), [voice](/reports/voice-agents-next-6-months), and [MCP](/reports/mcp-next-6-months). This flagship is the year those briefs sit inside, and the months they correctly leave blank.",
+  "Everything else a buyer asks about, coding agents, computer use, and shopping checkout, is either already running or not dated. Enterprise platforms have their own brief. The specialist briefs hold those records: [enterprise platforms through May](/reports/enterprise-agent-platforms-next-6-months), [production](/reports/ai-agents-in-production-2026), the [2027 forecast](/reports/ai-agents-in-2027), [frameworks through May](/reports/ai-agent-frameworks-next-6-months), [shopping for the next 30 days](/reports/ai-shopping-agents-next-30-days), [voice](/reports/voice-agents-next-6-months), and [MCP](/reports/mcp-next-6-months). This flagship is the year those briefs sit inside, and the months they correctly leave blank.",
 ];
 
 export const reportCharts: ChartSpec[] = [
@@ -172,10 +172,10 @@ export const chapters: ReportChapter[] = [
             "[Browser and computer-use](/reports/browser-and-computer-use-agents-next-6-months)",
           ],
           [
-            "Enterprise adoption",
-            "Survey splits and spend estimates are a cross-section, not a 2027 launch calendar. They stay on the production report.",
-            "Not a forecast",
-            "[Agents in production](/reports/ai-agents-in-production-2026)",
+            "Enterprise platforms",
+            "Survey splits stay on the production report. List prices, the November 30 Agent Builder date, and the December 2 earnings date are on the platforms brief.",
+            "Announced meters",
+            "[Production](/reports/ai-agents-in-production-2026). [Enterprise platforms](/reports/enterprise-agent-platforms-next-6-months).",
           ],
           [
             "Shopping and payments",

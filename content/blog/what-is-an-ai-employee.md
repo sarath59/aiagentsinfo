@@ -75,7 +75,7 @@ faq:
     answer: "They are adult access to ChatGPT for students and staff, staged by each university, plus training and assessment rules. UNSW, the University of Sydney, and La Trobe describe ChatGPT Edu access aimed at study, research, and later work. That is workplace learning. It is not a job title, and it is separate from Google’s K-12 account policy."
 ---
 
-Updated November 11, 2026, to add the cost guide. The workplace product pages below were read November 7, 2026.
+Updated November 12, 2026. The enterprise platforms that sell this label, and the meters they publish, are in [Enterprise agent platforms, Nov 2026 to May 2027](/reports/enterprise-agent-platforms-next-6-months). The workplace product pages below were read November 7, 2026.
 
 ## What is an AI employee?
 

@@ -168,6 +168,13 @@ export const dataAssets = [
       "Flagship calendar. Anthropic’s November 10 filing, the December 1 and January 1 token-price steps, and the regulation clocks through November 2027. Updated November 12, 2026.",
   },
   {
+    href: "/reports/enterprise-agent-platforms-next-6-months",
+    title:
+      "Enterprise agent platforms, Nov 2026 to May 2027: Agent Builder ends November 30. A standard action is still $0.10.",
+    summary:
+      "Salesforce, Microsoft, Google, AWS, ServiceNow, OpenAI, and Workday meters, read November 12, 2026. Agent Builder ends November 30. Salesforce reports December 2.",
+  },
+  {
     href: "/reports/ai-shopping-agents-next-30-days",
     title: "AI shopping agents, 12 Nov to 12 Dec 2026: Black Friday is dated. A new checkout day is not.",
     summary:
@@ -355,6 +362,7 @@ export const footerNav = [
       { href: "/reports/ai-agents-next-12-months", label: "AI agents, next 12 months" },
       { href: "/reports/ai-shopping-agents-next-30-days", label: "Shopping agents, next 30 days" },
       { href: "/reports/ai-agent-frameworks-next-6-months", label: "Frameworks, Nov 2026 to May 2027" },
+      { href: "/reports/enterprise-agent-platforms-next-6-months", label: "Enterprise platforms, Nov 2026 to May 2027" },
       { href: "/reports/ai-agents-next-6-months", label: "AI agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
       { href: "/reports/voice-agents-next-6-months", label: "Voice agents, Nov 2026 to May 2027" },
