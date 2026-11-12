@@ -471,6 +471,14 @@ export const companies: Company[] = [
     hosts: ["tencent.com", "tencent.ai"],
   },
   {
+    slug: "alibaba",
+    name: "Alibaba",
+    website: "https://www.alibabacloud.com",
+    tile: "light",
+    aliases: ["Alibaba", "Alibaba Cloud"],
+    hosts: ["alibabacloud.com", "qwencloud.com", "aliyun.com"],
+  },
+  {
     slug: "openrouter",
     name: "OpenRouter",
     website: "https://openrouter.ai",

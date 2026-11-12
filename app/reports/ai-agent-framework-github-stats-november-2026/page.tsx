@@ -127,6 +127,14 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/blog/a2ui-1-0-agent-framework-release-november-2026",
+            title: "A2UI 1.0 agent framework release November 2026: Gemini still renders 0.9.1",
+            description:
+              "Google’s stable generative UI protocol, announced November 11, 2026. a2ui-project/a2ui is outside this snapshot.",
+            kicker: "News",
+            date: "2026-11-12",
+          },
+          {
             href: "/research/ai-agent-framework-issue-health-november-2026",
             title: "59 LangChain issues closed in under a minute. The bug-labeled median was 3.3 days.",
             description:
@@ -284,6 +292,13 @@ export default async function FrameworkGithubStatsPage() {
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{novemberUpdateAnswer().lead}</p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{novemberUpdateAnswer().detail}</p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Google&apos;s A2UI 1.0, announced November 11, 2026 as the first stable version of its generative UI protocol, is outside this snapshot.{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/a2ui-1-0-agent-framework-release-november-2026">
+              A2UI 1.0 agent framework release November 2026
+            </Link>{" "}
+            records the package clocks and the hosts that still render 0.9.1.
+          </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             The sourced comparison is{" "}
             <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">

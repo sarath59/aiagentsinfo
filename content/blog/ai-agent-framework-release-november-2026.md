@@ -7,7 +7,7 @@ takeaways:
   - "GitHub published browser-use 1.0.0 at 2026-11-10T02:04:48Z. The agent writes Python in one persistent REPL on Chrome DevTools Protocol. Browser() now starts a Browser Use Cloud browser. The 1.0.0 notes claim up to 33 points on the same models. The only score table on that page compares 1.0 with Browser Use Pi, and the quality gap there is not significant once provider errors are removed."
   - "AG2 1.3.1 was uploaded to PyPI at 2026-11-10T21:03:53Z. A2UI v1.0 messages now carry version 1.0, not v1.0. FastMCP 4.1.8, uploaded at 2026-11-10T20:44:54Z, makes OAuth proxy token revocation work for the client that owns the token."
 date: "2026-11-11"
-updated: "2026-11-11"
+updated: "2026-11-12"
 category: news
 topics:
   - news
@@ -183,7 +183,7 @@ The PyPI package `ag2` 1.3.1 uploaded at 2026-11-10T21:03:53Z. The GitHub tag is
 
 The notes add sandbox backends for `SandboxShellTool` and `SandboxCodeTool`: `E2BEnvironment` in `ag2.extensions.e2b`, and `ag2.extensions.boxd` for boxd Linux microVMs. MCP Apps work with browser-based hosts: `/mcp` no longer redirects `POST` or the CORS preflight. MCP-UI is documented as legacy. `ag2.mcp_ui` is not deprecated.
 
-The upgrade note that will break a client: A2UI v1.0 now speaks the stable upstream spec. 1.3.0 targeted a release candidate. v1.0 messages carry `"version": "1.0"` instead of `"v1.0"`. The basic catalog requires `TextField.value`. Custom v1.0 catalogs with a `$ref` the spec does not allow are rejected at load. `protocol_version="v1.0"` and the `v0.9` default are unchanged.
+The upgrade note that will break a client: A2UI v1.0 now speaks the stable upstream spec. 1.3.0 targeted a release candidate. v1.0 messages carry `"version": "1.0"` instead of `"v1.0"`. The basic catalog requires `TextField.value`. Custom v1.0 catalogs with a `$ref` the spec does not allow are rejected at load. `protocol_version="v1.0"` and the `v0.9` default are unchanged. The protocol those messages implement, the hosts that still render 0.9.1, and the package clocks are [A2UI 1.0 agent framework release November 2026](/blog/a2ui-1-0-agent-framework-release-november-2026).
 
 `Usage.cache_creation_extended_input_tokens` counts OpenAI 12-hour and Anthropic 1-hour cache writes, which are priced differently, and the field flows through telemetry and eval traces. A [context window](/glossary/context-window) bill that ignored extended cache writes was undercounting that line.
 
