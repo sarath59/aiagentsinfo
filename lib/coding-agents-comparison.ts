@@ -164,6 +164,13 @@ export const codingAgentsComparison: ComparisonPage = {
   ],
   related: [
     {
+      href: "/research/t3-code-github-stats-november-2026",
+      title: "T3 Code on GitHub: 57,212 stars on November 12, 2026",
+      description:
+        "A control surface in front of several of these agents. Stars, the open-issue split, and the release count, read November 12, 2026.",
+      kicker: "Research",
+    },
+    {
       href: "/blog/claude-code-vs-codex-pricing",
       title: "Claude Code vs Codex pricing",
       description: "Plan ladders checked November 6, 2026, including stickers this November 9 fetch did not reprint.",

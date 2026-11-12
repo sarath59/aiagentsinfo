@@ -431,8 +431,12 @@ export default async function HarnessBenchmarkPage() {
               answer: (
                 <p>
                   They were not on the official file when it was read on {updatedLabel}. A score that exists only on
-                  a recap site is left out. The newest SWE-bench Verified date in that file is{" "}
-                  {swebenchBenchmark.newestResultDate}.
+                  a recap site is left out. Vendor model-card rows for Gemini 4 Carbon and Claude Fable 5.2, which are
+                  not these boards, are on{" "}
+                  <Link href="/blog/gemini-4-carbon-vs-claude-fable-5-2-for-agents">
+                    Gemini 4 Carbon vs Claude Fable 5.2 for agents
+                  </Link>
+                  . The newest SWE-bench Verified date in that file is {swebenchBenchmark.newestResultDate}.
                 </p>
               ),
             },

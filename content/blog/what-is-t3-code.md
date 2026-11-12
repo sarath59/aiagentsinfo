@@ -174,7 +174,7 @@ The cost difference is the license. Claude Code and Codex are paid through their
 
 ## What do today's GitHub numbers say?
 
-The current snapshot is the response from `GET https://api.github.com/repos/pingdotgg/t3code` at 2026-11-10T11:48:27Z, plus `releases/latest` in the same minute. GitHub’s `open_issues_count` counts open issues and open pull requests together. The November 8 homepage printed “51k+” next to the download button, and a separate line, “Tolerated by over 500,000 devs.” That homepage was not re-read on November 10. The star count and that dev line are different claims. Only the star count is in the API response.
+The current snapshot on this page is the response from `GET https://api.github.com/repos/pingdotgg/t3code` at 2026-11-10T11:48:27Z, plus `releases/latest` in the same minute. The November 12 census, with the issue split, the release count, and the star change since this reading, is [T3 Code on GitHub: 57,212 stars on November 12, 2026](/research/t3-code-github-stats-november-2026). GitHub’s `open_issues_count` counts open issues and open pull requests together. The November 8 homepage printed “51k+” next to the download button, and a separate line, “Tolerated by over 500,000 devs.” That homepage was not re-read on November 10. The star count and that dev line are different claims. Only the star count is in the API response.
 
 The numbers in both tables are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit AI Agents Info if you reuse them. They are readings of a public API at two minutes, not a forecast. The [November framework snapshot](/reports/ai-agent-framework-github-stats-november-2026) is the same kind of dated GitHub reading, for a different set of repositories.
 
