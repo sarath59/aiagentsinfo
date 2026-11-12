@@ -162,6 +162,13 @@ export const comparisons = [
 
 export const dataAssets = [
   {
+    href: "/reports/web-search-tools-for-ai-agents-november-2026",
+    title:
+      "Best web search tool for Claude and OpenAI agents, November 2026: prices and limits of 13 APIs checked",
+    summary:
+      "List prices, free tiers, rate limits, and official MCP servers for 13 web search APIs. Checked November 12, 2026. Nothing here is estimated.",
+  },
+  {
     href: "/reports/ai-answer-crawlers-november-2026",
     title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
     summary:
@@ -319,6 +326,7 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/reports/web-search-tools-for-ai-agents-november-2026", label: "Web search APIs, November 2026" },
       { href: "/reports/ai-answer-crawlers-november-2026", label: "AI answer crawlers, November 2026" },
       { href: "/reports/ai-agents-in-production-2026", label: "AI agents in production, 2026" },
       { href: "/reports/ai-agents-in-2027", label: "AI agents in 2027" },

@@ -57,6 +57,14 @@ export default async function AgentsTwelveMonthOutlookPage() {
       date: "2026-11-11",
     },
     {
+      href: "/reports/web-search-tools-for-ai-agents-november-2026",
+      title: "Best web search tool for Claude and OpenAI agents, November 2026: prices and limits of 13 APIs checked",
+      description:
+        "List prices, free tiers, rate limits, and official MCP servers for 13 search APIs. Checked November 12, 2026.",
+      kicker: "Daily brief",
+      date: "2026-11-12",
+    },
+    {
       href: "/reports/ai-answer-crawlers-november-2026",
       title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
       description:

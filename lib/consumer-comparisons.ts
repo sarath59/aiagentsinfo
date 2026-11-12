@@ -359,6 +359,13 @@ export const webSearchComparison: ComparisonPage = {
       date: "2026-11-11",
     },
     {
+      href: "/reports/web-search-tools-for-ai-agents-november-2026",
+      title: "Best web search tool for Claude and OpenAI agents, November 2026: prices and limits of 13 APIs checked",
+      description: "The November 12 price and limit dataset: 13 APIs, free tiers, rate limits, and official MCP servers. Nothing on that page is estimated.",
+      kicker: "Daily brief",
+      date: "2026-11-12",
+    },
+    {
       href: "/blog/web-search-tool-definition-tokens",
       title: "Brave's MCP tool list is 25,495 tokens. Web search alone is 1,400.",
       description: "Measured tool-definition tokens for Tavily, Exa, Brave, Firecrawl, and the OpenAI and Claude web search declarations.",

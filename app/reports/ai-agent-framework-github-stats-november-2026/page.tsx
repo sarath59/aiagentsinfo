@@ -143,6 +143,15 @@ export default async function FrameworkGithubStatsPage() {
             date: "2026-11-11",
           },
           {
+            href: "/reports/web-search-tools-for-ai-agents-november-2026",
+            title:
+              "Best web search tool for Claude and OpenAI agents, November 2026: prices and limits of 13 APIs checked",
+            description:
+              "A separate GitHub read: stars and newest commit on 10 official search MCP servers, plus list prices. Checked November 12, 2026.",
+            kicker: "Daily brief",
+            date: "2026-11-12",
+          },
+          {
             href: "/reports/ai-answer-crawlers-november-2026",
             title: "AI answer crawlers, November 2026: 196 fetches in 7 days, 160 from ChatGPT-User",
             description:

@@ -45,6 +45,11 @@ import {
   title as crawlerTitle,
 } from "@/lib/ai-answer-crawlers-november-2026";
 import {
+  description as searchToolsDescription,
+  path as searchToolsPath,
+  title as searchToolsTitle,
+} from "@/lib/web-search-tools-november-2026";
+import {
   description as checklistDescription,
   path as checklistPath,
   readOn as checklistReadOn,
@@ -144,6 +149,11 @@ function dataPageSummaries() {
         ? `${starTop.name} (${starTop.repo}) had ${integer(starTop.stars)} stars in that snapshot. The live page reads stargazers_count from the GitHub repository API.`
         : "The snapshot had no rows.",
     ),
+    articleBlock(searchToolsTitle, [
+      `URL: ${absoluteUrl(searchToolsPath)}`,
+      "Checked: 2026-11-12",
+      searchToolsDescription,
+    ], "Daily brief. List prices, free tiers, rate limits, result format, and official MCP stars for 13 web search APIs, read from vendor pages and the GitHub API on 12 November 2026. Nothing here is estimated. Computed per-1,000 figures are labeled."),
     articleBlock(crawlerTitle, [
       `URL: ${absoluteUrl(crawlerPath)}`,
       "Checked: 2026-11-11",
@@ -270,6 +280,7 @@ export async function buildLlmsTxt() {
     ]),
     section("Reports", [
       item("Reports", "/reports", "Dated pages with a source and a citation."),
+      item(searchToolsTitle, searchToolsPath, searchToolsDescription),
       item(crawlerTitle, crawlerPath, crawlerDescription),
       item(voiceTitle, voicePath, voiceDescription),
       item(productionTitle, productionPath, productionDescription),
