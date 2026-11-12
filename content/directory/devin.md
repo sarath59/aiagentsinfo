@@ -23,8 +23,8 @@ features:
   - Free plan includes a light agent quota, limited model choice, unlimited inline edits, and unlimited Tab completions
   - Paid plans add higher quotas. Extra usage past the included allowance is charged at API pricing
   - On 9 November 2026, windsurf.com returned HTTP 308 to https://devin.ai/desktop
-pricingSummary: "On devin.ai/pricing: Free is $0. Pro is $20 per month. Max is $200 per month. Teams is $80 per month plus $40 per month for each full developer seat, for up to 200 users. Enterprise is custom. Each paid plan includes a usage allowance that refreshes daily and weekly."
-lastVerified: "2026-11-03"
+pricingSummary: "On devin.ai/pricing, re-read November 12, 2026: Free is $0. Pro is $20 per month. Max is $200 per month. Teams is $80 per month plus $40 per month for each full developer seat, for up to 100 users. Enterprise is custom. Each paid plan includes a usage allowance that refreshes daily and weekly. Extra usage is API pricing. The page does not print a dollar per ACU."
+lastVerified: "2026-11-12"
 newThisWeek: true
 ---
 
@@ -37,3 +37,5 @@ Cognition's [introducing Devin](https://docs.devin.ai/get-started/devin-intro) p
 [Devin Desktop](https://docs.devin.ai/desktop/getting-started) is a different surface. That page calls it a next-generation AI IDE for Mac, Windows, and Linux. The [Desktop FAQ](https://docs.devin.ai/desktop/devin-desktop-faq) says Devin Desktop is the new name for Windsurf: the same IDE and the same editor, under the Devin brand, with the change dated June 2, 2026. A [VS Code troubleshooting page](https://docs.devin.ai/desktop/troubleshooting/plugins-enterprise/vscode) says the VS Code plugin is in maintenance mode and recommends the native Devin Desktop editor or the JetBrains local plugin. That page does not name a Devin IDE extension.
 
 Devin is a coding [agent](/glossary/agent). Plan prices on this listing were last checked November 3, 2026. Check [devin.ai](https://devin.ai) before you quote a current price.
+
+On November 12, 2026, the pricing page still lists Free at $0, Pro at $20, Max at $200, and Teams at $80 a month plus $40 per full seat, and it says Teams is up to 100 users. The billing docs bill Enterprise in Agent Compute Units and do not print a dollar per ACU. Self-serve extra usage is API pricing, not ACUs. That census is [A Devin ACU has no public price (Nov 12, 2026)](/research/coding-agent-billing-units-november-2026).

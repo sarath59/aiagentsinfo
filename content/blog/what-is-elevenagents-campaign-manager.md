@@ -108,7 +108,7 @@ Four product limits matter before a contract:
 - Zero Retention Mode is incompatible. The docs reject campaigns from zero-retention workspaces and submissions for zero-retention agents, because the next call depends on stored state and analysis.
 - A running campaign’s policy is fixed. Stopping it and creating a new one is the documented way to change the rules.
 - Do-not-call state is per campaign. The same person in two campaigns can be contacted twice unless you deduplicate first.
-- There is no separate price on the docs page. Calls consume concurrency, at the lower of half the workspace or 70 percent of the agent unless you set a tighter cap. Seat and credit prices on the [directory listing](/directory/elevenlabs) were last checked November 3, 2026: Free is $0, and the paid monthly plans on that page run from Starter through Business at $990.
+- There is no separate price on the docs page. Calls consume concurrency, at the lower of half the workspace or 70 percent of the agent unless you set a tighter cap. Seat and credit prices on the [directory listing](/directory/elevenlabs) were last checked November 3, 2026: Free is $0, and the paid monthly plans on that page run from Starter through Business at $990. The call minute those attempts draw on, $0.080 on the Agents pricing page and a 95 percent silence discount on a different help page, is [ElevenLabs Agents: 95% off silence longer than 10 seconds](/blog/elevenlabs-agents-pricing-november-2026).
 
 The API can create, manage, and read analytics. The docs point at the API reference for the paths and do not print them on the Campaigns page, so this article does not invent endpoint names. Enrollment is the same shape as a batch call.
 
