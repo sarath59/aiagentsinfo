@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
@@ -50,6 +51,19 @@ export default async function DirectoryCategoryPage({
         <p className="kicker">Category</p>
         <h1 className="display mt-3 text-5xl">{categoryPageTitle(slug)}</h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">{categorySummaries[category.slug]}</p>
+        {slug === "video" ? (
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed">
+            Building an agent that makes video? A listing here is a product page until the vendor publishes an API.{" "}
+            <Link className="text-[var(--link)] underline" href="/research/ai-video-generators-agents-can-call-november-2026">
+              Which generators an agent can call in November 2026
+            </Link>{" "}
+            prices the ones with a public rate, including a 10-second clip.{" "}
+            <Link className="text-[var(--link)] underline" href="/directory/freegenvideo">
+              FreeGenVideo
+            </Link>{" "}
+            is a browser generator, not a tool call.
+          </p>
+        ) : null}
         {comparisonsForCategory(slug).length ? (
           <BestOfLinks
             pages={comparisonsForCategory(slug)}

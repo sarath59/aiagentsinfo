@@ -257,6 +257,7 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 - Report: [AI shopping agents next 6 months: 6 companies](/reports/ai-shopping-agents-next-6-months)
 - Comparison, November 11, 2026: [4 of 5 shopping agents can finish checkout. ChatGPT’s page says the store does.](/blog/ai-shopping-agents-compared-november-2026)
 - Research: [AP2 has 3,270 stars and no package. @x402/core had 1,940,555 downloads](/research/agentic-commerce-protocol-adoption-november-2026)
+- Tool: [Is your store ready for AI shopping agents? 18 checks for find, read, and checkout](/tools/shopping-agent-readiness-checker)
 - Topics: [Agents in shopping](/topics/shopping), [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work)
 
 ## Frequently asked questions

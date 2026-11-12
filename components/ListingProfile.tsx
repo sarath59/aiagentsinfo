@@ -188,6 +188,24 @@ export async function ListingProfile({
         </div>
       </header>
 
+      {listing.slug === "freegenvideo" ? (
+        <section className="glass mt-8 rounded-3xl p-5 sm:p-6">
+          <h2 className="text-2xl font-semibold tracking-tight">Building an agent that makes video?</h2>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+            FreeGenVideo is a browser generator, one free video a day. It is not a tool call.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed">
+            The November 12, 2026 note on which generators an agent can call, with the price per finished 10-second
+            clip, is{" "}
+            <Link href="/research/ai-video-generators-agents-can-call-november-2026">
+              which AI video generators an agent can call
+            </Link>
+            . The rest of the shelf is the <Link href="/directory/category/video">video category</Link>.{" "}
+            <Link href="/directory/runway">Runway</Link> is the listing in that note with an official MCP server.
+          </p>
+        </section>
+      ) : null}
+
       {jumpSections.length ? (
         <nav className="listing-jump" aria-label="On this page">
           {jumpSections.map((section) => (

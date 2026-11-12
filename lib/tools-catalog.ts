@@ -64,4 +64,10 @@ export const freeTools: FreeTool[] = [
     description: "Twelve yes-or-no checks from public posts. The count stays in the browser.",
     category: "Evaluate & Secure",
   },
+  {
+    href: "/tools/shopping-agent-readiness-checker",
+    title: "Shopping agent readiness checker",
+    description: "18 checks for whether an agent can find a product, read the price, and check out. The score stays in the browser.",
+    category: "Evaluate & Secure",
+  },
 ];

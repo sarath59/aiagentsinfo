@@ -148,6 +148,7 @@ The same shape of test used on a coding harness applies here, with a shopping ac
 The shopping calendar, the checkout guide, the harness checks, and a public listing are the next pages.
 
 - [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months) is the dated record for Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe. Microsoft’s feed requirement for Copilot Checkout is recorded there from a page read November 5, 2026. This guide did not re-open that Microsoft page on November 10.
+- [Is your store ready for AI shopping agents?](/tools/shopping-agent-readiness-checker) scores 18 checks in the browser and lists the gaps by points. Nothing is stored.
 - [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you) is who can pay today.
 - [ChatGPT Business Agents: a mention counts the website](/blog/chatgpt-business-agents) is the November 11, 2026 reading of OpenAI’s November 10 Business Agents launch. The setup guide says the agent explains and links. It cannot complete the purchase. For an online business, a mention counts when ChatGPT cites the website, not when the answer only says the brand name.
 - [Best AI agent for shopping](/best/ai-agents-for-shopping) is the sourced product table. The shelf is [Agents in shopping](/topics/shopping).

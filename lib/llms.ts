@@ -55,6 +55,12 @@ import {
   readOn as checklistReadOn,
   title as checklistTitle,
 } from "@/lib/harness-checklist";
+import {
+  description as readinessDescription,
+  path as readinessPath,
+  readOn as readinessReadOn,
+  title as readinessTitle,
+} from "@/lib/shopping-readiness";
 import { BENCHMARK_READ_ON, swebenchBenchmark, terminalBench } from "@/lib/harness-benchmark";
 import { paperSentence } from "@/lib/trackers/agents-md";
 import { indexableDownloadPackages } from "@/lib/trackers/download-pages";
@@ -207,6 +213,11 @@ function dataPageSummaries() {
       `Sources read: ${checklistReadOn}`,
       checklistDescription,
     ], "Twelve yes-or-no checks. The count is a worksheet in the browser. It is not a SWE-bench or Terminal-Bench score. Nothing is saved."),
+    articleBlock(readinessTitle, [
+      `URL: ${absoluteUrl(readinessPath)}`,
+      `Sources read: ${readinessReadOn}`,
+      readinessDescription,
+    ], "Eighteen weighted checks for whether an AI shopping agent can find a product, read the price and stock, and check out. The score and the gap list stay in the browser. Nothing is saved."),
   ].join("\n\n");
 }
 
@@ -302,7 +313,7 @@ export async function buildLlmsTxt() {
       item("Benchmark leaderboard", "/trackers/benchmarks", "Public agent benchmarks, published only with a source, a date, and the harness. The November 2026 scores live on the harness benchmark."),
     ]),
     section("Free tools", [
-      item("Free tools", "/tools", "AGENTS.md generator, agent picker, cost and ROI calculators, prompt checker, and harness checklist. No login."),
+      item("Free tools", "/tools", "AGENTS.md generator, agent picker, cost and ROI calculators, prompt checker, harness checklist, and shopping-agent readiness checker. No login."),
       item(
         "AGENTS.md generator",
         "/tools/agents-md-generator",
@@ -330,6 +341,7 @@ export async function buildLlmsTxt() {
         "Free comparison of list prices from the vendors' pages.",
       ),
       item(checklistTitle, checklistPath, checklistDescription),
+      item(readinessTitle, readinessPath, readinessDescription),
     ]),
     section("Directory", [
       item("Directory", "/directory", `${counted(listings.length, "listing")} of AI tools, apps, SaaS, and agents, each with a source site.`),

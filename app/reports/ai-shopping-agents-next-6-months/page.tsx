@@ -237,6 +237,11 @@ export default async function ShoppingAgentsReportPage() {
             </Link>
             .
           </p>
+          <p>
+            A store can score the same job in the browser. The{" "}
+            <Link href="/tools/shopping-agent-readiness-checker">shopping agent readiness checker</Link> is 18 weighted
+            checks for find, read, and checkout. The score and the gap list stay on the page.
+          </p>
         </div>
         <NextRead
           reads={[
@@ -259,6 +264,11 @@ export default async function ShoppingAgentsReportPage() {
               href: "/reports/agent-harness-benchmark-november-2026",
               title: "November 2026 harness benchmark",
               note: "Public coding scores, a different job from a product feed.",
+            },
+            {
+              href: "/tools/shopping-agent-readiness-checker",
+              title: "Shopping agent readiness checker",
+              note: "18 checks for find, read, and checkout. The score stays in the browser.",
             },
           ]}
           tool={{

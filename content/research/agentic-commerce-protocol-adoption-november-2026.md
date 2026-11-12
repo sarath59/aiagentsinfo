@@ -130,7 +130,7 @@ faq:
 
 `@ucp-js/sdk`, the package the Universal Commerce Protocol’s JavaScript README tells you to install, had **65,082** downloads in the same window. Dividing those two counters gives 29.8. ACP and AP2 are not in the division. Their official repositories do not name a registry package. AP2 had **3,270** stars at 07:48 GMT on November 11 anyway.
 
-The [November 10 version note](/blog/ucp-vs-acp-spec-versions-november-2026) says which snapshot to pin. This page says which repository a package manager actually fetched. Checkout behavior, which neither number is, stays on [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you) and the [shopping-agents report](/reports/ai-shopping-agents-next-6-months). Daily refresh of a different package set is the [downloads tracker](/trackers/downloads). Bookmarks for agent frameworks, not these four repos, are the [stars tracker](/trackers/stars).
+The [November 10 version note](/blog/ucp-vs-acp-spec-versions-november-2026) says which snapshot to pin. This page says which repository a package manager actually fetched. Checkout behavior, which neither number is, stays on [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you) and the [shopping-agents report](/reports/ai-shopping-agents-next-6-months). A merchant can score the same protocols in the browser with the [shopping agent readiness checker](/tools/shopping-agent-readiness-checker). Daily refresh of a different package set is the [downloads tracker](/trackers/downloads). Bookmarks for agent frameworks, not these four repos, are the [stars tracker](/trackers/stars).
 
 ## Which repository is the protocol, and which package does its README name?
 

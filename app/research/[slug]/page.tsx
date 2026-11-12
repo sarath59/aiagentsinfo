@@ -257,6 +257,37 @@ function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadIt
       },
     };
   }
+  if (slug === "ai-video-generators-agents-can-call-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/directory/freegenvideo",
+          title: "FreeGenVideo",
+          note: "The browser generator. One free video a day. No API on the homepage fetched November 12, 2026.",
+        },
+        {
+          href: "/directory/category/video",
+          title: "Video category",
+          note: "Listings. A listing is not a tool call until the vendor publishes an API.",
+        },
+        {
+          href: "/directory/runway",
+          title: "Runway",
+          note: "The vendor in this set with an official MCP server, on a different credit meter from the Dev API.",
+        },
+        {
+          href: "/glossary/model-context-protocol",
+          title: "Model Context Protocol",
+          note: "The wire. Runway’s video server is one implementation.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "agent cost calculator",
+        note: "a token bill. These per-second video rates are a separate meter",
+      },
+    };
+  }
   if (slug === "agentic-commerce-protocol-adoption-november-2026") {
     return {
       reads: [
