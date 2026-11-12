@@ -104,6 +104,11 @@ export default function ShoppingReadinessPage() {
         <NextRead
           reads={[
             {
+              href: "/tools/ai-crawler-robots-txt-checker",
+              title: "robots.txt checker for AI crawlers",
+              note: "The worksheet asks whether OAI-SearchBot is allowed. This fetches the file and names the group.",
+            },
+            {
               href: "/reports/ai-shopping-agents-next-6-months",
               title: "AI shopping agents, the next 6 months",
               note: "What six companies have dated. This worksheet does not move that calendar.",

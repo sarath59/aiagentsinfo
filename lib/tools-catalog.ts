@@ -70,4 +70,11 @@ export const freeTools: FreeTool[] = [
     description: "18 checks for whether an agent can find a product, read the price, and check out. The score stays in the browser.",
     category: "Evaluate & Secure",
   },
+  {
+    href: "/tools/ai-crawler-robots-txt-checker",
+    title: "robots.txt checker for AI crawlers",
+    description:
+      "See which documented AI bots may fetch a path, then download a robots.txt for the policy you pick. Nothing you enter is stored.",
+    category: "Evaluate & Secure",
+  },
 ];

@@ -6,7 +6,7 @@ import { freeTools, toolCategories } from "@/lib/tools-catalog";
 const path = "/tools";
 const title = "Free AI agent tools";
 const description =
-  "Free tools for an AGENTS.md, an agent pick, a token bill, an ROI check, a prompt or harness check, and a store readiness score. No login.";
+  "Free tools for an AGENTS.md, an agent pick, a token bill, an ROI check, a prompt or harness check, a store readiness score, and a robots.txt check for AI crawlers. No login.";
 
 export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 

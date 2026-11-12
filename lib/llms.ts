@@ -319,7 +319,16 @@ export async function buildLlmsTxt() {
       item("Benchmark leaderboard", "/trackers/benchmarks", "Public agent benchmarks, published only with a source, a date, and the harness. The November 2026 scores live on the harness benchmark."),
     ]),
     section("Free tools", [
-      item("Free tools", "/tools", "AGENTS.md generator, agent picker, cost and ROI calculators, prompt checker, harness checklist, and shopping-agent readiness checker. No login."),
+      item(
+        "Free tools",
+        "/tools",
+        "AGENTS.md generator, agent picker, cost and ROI calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
+      ),
+      item(
+        "robots.txt checker for AI crawlers",
+        "/tools/ai-crawler-robots-txt-checker",
+        "Fetches /robots.txt, reports documented AI tokens under RFC 9309, and writes a file for the policy you pick. Nothing you enter is stored.",
+      ),
       item(
         "AGENTS.md generator",
         "/tools/agents-md-generator",

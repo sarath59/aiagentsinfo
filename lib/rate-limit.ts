@@ -3,6 +3,7 @@ type Bucket = { timestamps: number[] };
 const submitBuckets = new Map<string, Bucket>();
 const promptBuckets = new Map<string, Bucket>();
 const mcpBuckets = new Map<string, Bucket>();
+const robotsBuckets = new Map<string, Bucket>();
 
 const SUBMIT_WINDOW_MS = 15 * 60 * 1000;
 const SUBMIT_MAX_HITS = 5;
@@ -43,8 +44,13 @@ export function takeMcpLimit(key: string, now = Date.now()) {
   return takeBucket(mcpBuckets, key, now, MCP_WINDOW_MS, MCP_MAX_HITS);
 }
 
+export function takeRobotsCheckLimit(key: string, now = Date.now()) {
+  return takeBucket(robotsBuckets, key, now, PROMPT_WINDOW_MS, PROMPT_MAX_HITS);
+}
+
 export function clearRateLimits() {
   submitBuckets.clear();
   promptBuckets.clear();
   mcpBuckets.clear();
+  robotsBuckets.clear();
 }

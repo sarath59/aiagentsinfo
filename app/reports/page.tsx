@@ -55,6 +55,7 @@ export default async function ReportsPage() {
     "/tools/ai-agent-roi-calculator": "2026-11-11",
     "/agent-prompt-checker": "2026-11-06",
     "/tools/agents-md-generator": "2026-11-10",
+    "/tools/ai-crawler-robots-txt-checker": "2026-11-12",
   };
   const minutesByHref: Record<string, number> = {
     "/reports/ai-agents-next-12-months": yearMinutes,
@@ -95,6 +96,7 @@ export default async function ReportsPage() {
     "/tools/ai-agent-roi-calculator": "Tool",
     "/agent-prompt-checker": "Data",
     "/tools/agents-md-generator": "Tool",
+    "/tools/ai-crawler-robots-txt-checker": "Tool",
   };
 
   return (

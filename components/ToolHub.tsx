@@ -2,6 +2,11 @@ import Link from "next/link";
 
 const links = [
   {
+    href: "/tools/ai-crawler-robots-txt-checker",
+    title: "robots.txt checker for AI crawlers",
+    body: "See which documented AI bots may fetch a path, then download a robots.txt. Nothing you enter is stored.",
+  },
+  {
     href: "/tools/agents-md-generator",
     title: "AGENTS.md generator",
     body: "Draft an AGENTS.md from your stack and commands. Copy or download. Nothing you type is stored.",

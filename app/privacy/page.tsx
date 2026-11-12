@@ -54,6 +54,13 @@ export default function PrivacyPage() {
           builds the file in your browser. The form is not sent to this site. If you use Polish on this device, that step stays in the browser&apos;s built-in language model and is not sent here either.
         </p>
         <p className="mt-4">
+          The{" "}
+          <Link href="/tools/ai-crawler-robots-txt-checker" className="text-[var(--link)] underline">
+            robots.txt checker for AI crawlers
+          </Link>{" "}
+          sends the host you type so this site can fetch that host&apos;s /robots.txt and /llms.txt. The host, the file, and a pasted robots.txt are not written to a file, a database, or a log. Paste mode stays in the browser.
+        </p>
+        <p className="mt-4">
           Page views are measured with{" "}
           <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
             <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />

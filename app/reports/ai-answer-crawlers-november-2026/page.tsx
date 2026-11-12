@@ -106,6 +106,13 @@ export default function AiAnswerCrawlersPage() {
         }
         related={[
           {
+            href: "/tools/ai-crawler-robots-txt-checker",
+            title: "robots.txt checker for AI crawlers: who can fetch /",
+            description: "The same tokens, checked against a live robots.txt. Nothing you enter is stored.",
+            kicker: "Tool",
+            date: "2026-11-12",
+          },
+          {
             href: "/reports/ai-agents-next-12-months",
             title: "AI agents, Nov 2026 to Nov 2027",
             description: "The 12-month outlook. ChatGPT-User fetched it twice in this week.",

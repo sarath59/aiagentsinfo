@@ -267,6 +267,12 @@ export const dataAssets = [
       "Counts from this site's own directory: category, pricing, indie or startup or YC origin, additions, and community submissions. Generated when the site is built.",
   },
   {
+    href: "/tools/ai-crawler-robots-txt-checker",
+    title: "robots.txt checker for AI crawlers",
+    summary:
+      "See which documented AI bots may fetch a path, then download a robots.txt that allows search and blocks training. Nothing you enter is stored.",
+  },
+  {
     href: "/tools/agents-md-generator",
     title: "AGENTS.md generator",
     summary:
@@ -364,6 +370,7 @@ export const footerNav = [
     title: "Site",
     links: [
       { href: "/tools", label: "Free tools" },
+      { href: "/tools/ai-crawler-robots-txt-checker", label: "robots.txt checker for AI crawlers" },
       { href: "/tools/agents-md-generator", label: "AGENTS.md generator" },
       { href: "/tools/ai-agent-roi-calculator", label: "AI agent ROI calculator" },
       { href: "/submit", label: "Submit your tool" },

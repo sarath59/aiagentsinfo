@@ -7,7 +7,7 @@ takeaways:
   - "Google’s Universal Commerce Protocol guide, last updated 2026-10-29 UTC, says a product is eligible for agent checkout only when native_commerce checkout eligibility is true. Missing or false means it is not eligible."
   - "Shopify’s Google AI Mode help page, read November 10, 2026, says products reach those surfaces through Merchant Center. Direct checkout can be turned off, and discovery can remain."
 date: "2026-11-10"
-updated: "2026-11-11"
+updated: "2026-11-12"
 category: guide
 topics:
   - shopping
@@ -154,6 +154,7 @@ The shopping calendar, the checkout guide, the harness checks, and a public list
 - [Best AI agent for shopping](/best/ai-agents-for-shopping) is the sourced product table. The shelf is [Agents in shopping](/topics/shopping).
 - [Which AI agent framework do people install?](/blog/which-ai-agent-framework-do-people-install) is a download count, which is a file request, not a shopper.
 - [Verified revenue](/verified-revenue) is a payment-processor figure for listed tools. It is not a feed-quality score.
+- A product feed does not override robots.txt. If OAI-SearchBot is disallowed, OpenAI’s crawler page says the site is not shown in ChatGPT search answers. The [robots.txt checker for AI crawlers](/tools/ai-crawler-robots-txt-checker) reads the file and names the group that matched.
 - Live counts sit on the [trackers](/trackers).
 - To put an agent product on this site, [submit a listing](/submit) or open a page in the [directory](/directory) and claim it. There is no login, and payment does not buy a rank.
 

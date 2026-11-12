@@ -7,7 +7,7 @@ takeaways:
   - "Google also says you do not need a special AI text file or extra schema.org markup for those Search AI features. An /llms.txt file is a separate proposal for agents. This site publishes one; it is not a ChatGPT ranking lever."
   - "A listing on AI Agents Info is a public URL. Community descriptions that are only a slogan, or that repeat the tagline, stay out of this site’s sitemap. There is no login, and payment does not buy a recommendation."
 date: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-12"
 category: guide
 topics:
   - tools-saas
@@ -63,7 +63,7 @@ faq:
   - question: "How do I update the listing after I submit, without a login?"
     answer: "There is no account. Open the listing, use Claim / update this listing, and email the desk. The same form is at /submit?claim= followed by your slug. Name the missing screenshots, demo video, pricing, use cases, or links."
   - question: "What free checks can I run before I spend on ads?"
-    answer: "This site’s agent picker, cost calculator, and prompt checker run without a login. The checker does not store the prompt. None of those tools is a ChatGPT or Google ranking report."
+    answer: "This site’s agent picker, cost calculator, prompt checker, and robots.txt checker for AI crawlers run without a login. The prompt checker does not store the prompt. The robots.txt checker does not store the URL. None of those tools is a ChatGPT or Google ranking report."
 ---
 
 Updated November 9, 2026.
@@ -156,7 +156,7 @@ If you add `/llms.txt` on your own product site, keep it true. A file that claim
 
 ## What should I publish on my own site so an assistant has something to cite?
 
-A public page that states, in ordinary sentences, what the product does, what it costs, and who it is for. Google’s May 21, 2025 post says to write unique pages, keep the main facts in text, and support them with images or video when that helps a person. OpenAI’s search crawler needs a URL it is allowed to fetch.
+A public page that states, in ordinary sentences, what the product does, what it costs, and who it is for. Google’s May 21, 2025 post says to write unique pages, keep the main facts in text, and support them with images or video when that helps a person. OpenAI’s search crawler needs a URL it is allowed to fetch. The [robots.txt checker for AI crawlers](/tools/ai-crawler-robots-txt-checker) fetches `/robots.txt`, matches each documented token under RFC 9309, and can write a file that allows OAI-SearchBot while blocking GPTBot. The URL is not stored. Allowing the crawler is still not a promise that ChatGPT will name the product.
 
 Concrete pages that usually help a person, and therefore give a crawler something to quote:
 

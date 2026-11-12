@@ -243,6 +243,15 @@ export default function AgentsMdGeneratorPage() {
               <span className="text-[var(--muted)]"> collects the harness, eval, and cost pages.</span>
             </li>
             <li>
+              <Link className="text-[var(--link)] underline" href="/tools/ai-crawler-robots-txt-checker">
+                robots.txt checker for AI crawlers
+              </Link>
+              <span className="text-[var(--muted)]">
+                {" "}
+                for which documented bots may fetch /, and a file that allows search while blocking training.
+              </span>
+            </li>
+            <li>
               <Link className="text-[var(--link)] underline" href="/tools">
                 All free tools
               </Link>
