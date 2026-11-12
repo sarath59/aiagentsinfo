@@ -1,13 +1,13 @@
 ---
 title: "Can an AI shopping agent check out for you? (Nov 7, 2026)"
-description: "A shopping agent can pay only with a checkout path, a saved card, and an approval rule. The store remains the seller. Pages re-checked November 7, 2026."
+description: "A shopping agent can pay only with a checkout path, a saved card, and an approval rule. The store remains the seller. Payment path re-checked November 12, 2026."
 absoluteTitle: true
 takeaways:
   - "A shopping agent can research and compare on its own. It can pay only when the product has a checkout path, a saved payment method, and a rule for who must agree."
   - "On the pages checked for this guide, Google can take Google Pay or hand items to the store, and ChatGPT sends the purchase to the store's website or app."
   - "The short version: the assistant is allowed to act. The store still sells the item."
 date: "2026-11-04"
-updated: "2026-11-10"
+updated: "2026-11-12"
 category: guide
 topics:
   - shopping
@@ -40,13 +40,13 @@ sources:
     url: "https://www.shopify.com/news/ai-commerce-at-scale"
   - title: "OpenAI, Powering product discovery in ChatGPT (March 24, 2026)"
     url: "https://openai.com/index/powering-product-discovery-in-chatgpt/"
-  - title: "OpenAI, Power product discovery in ChatGPT (merchant page, re-read November 7, 2026)"
+  - title: "OpenAI, Power product discovery in ChatGPT (merchant page, re-read November 12, 2026)"
     url: "https://openai.com/chatgpt/search-product-discovery/"
   - title: "OpenAI, Buy it in ChatGPT (September 29, 2025)"
     url: "https://openai.com/index/buy-it-in-chatgpt/"
   - title: "OpenAI, Product feed specification"
     url: "https://developers.openai.com/commerce/specs/file-upload/products"
-  - title: "Rajiv Mehta, Amazon, How to use Alexa for Shopping (updated October 29, 2026; page re-read November 7, 2026)"
+  - title: "Rajiv Mehta, Amazon, How to use Alexa for Shopping (updated October 29, 2026; page re-read November 12, 2026)"
     url: "https://www.aboutamazon.com/news/retail/how-to-use-amazon-shopping-ai-assistant"
   - title: "Amazon Customer Service, About Alexa for Shopping (re-read November 7, 2026)"
     url: "https://www.amazon.com/gp/help/customer/display.html?nodeId=Tvh55TTsQ5XQSFc7Pr"
@@ -58,7 +58,7 @@ sources:
     url: "https://news.microsoft.com/source/2026/01/08/microsoft-propels-retail-forward-with-agentic-ai-capabilities-that-power-intelligent-automation-for-every-retail-function/"
   - title: "PayPal newsroom, PayPal and Perplexity launch Instant Buy (November 25, 2025)"
     url: "https://newsroom.paypal-corp.com/2025-11-PayPal-and-Perplexity-Launch-Instant-Buy"
-  - title: "Perplexity Help Center, What is Instant Buy? (retrieved November 4, 2026; the page did not load on November 7)"
+  - title: "Perplexity Help Center, What is Instant Buy? (retrieved November 4, 2026; HTTP 403 on November 7 and November 12)"
     url: "https://www.perplexity.ai/help-center/en/articles/10352906-what-is-instant-buy"
   - title: "Anthropic, Computer use tool (re-read November 7, 2026)"
     url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool"
@@ -68,7 +68,7 @@ sources:
     url: "https://aistudio.google.com/docs/computer-use"
 faq:
   - question: "Can ChatGPT buy things for me?"
-    answer: "No. On the merchant page re-read November 7, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026."
+    answer: "No. On the merchant page re-read November 12, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026."
   - question: "Can an AI shopping agent check out for you?"
     answer: "Sometimes, and only inside a product that has a payment path. On November 4, 2026, Google is rolling out direct checkout for eligible Canadian retailers in AI Mode and the Gemini app, after launching Universal Cart in the U.S. on October 15, 2026. ChatGPT's merchant page says people discover products in the chat and complete purchases on the merchant's website or app. Amazon's Alexa for Shopping can auto-buy at a price you set, or use Buy for Me on eligible products from other stores."
   - question: "Who is the seller when an assistant pays?"
@@ -76,22 +76,22 @@ faq:
   - question: "What is the difference between a product feed and checkout?"
     answer: "A product feed is the catalog file: identity, title, price, availability, image, and the product page. OpenAI's feed spec says checkout is a separate integration. A flag on a row does not by itself turn on in-chat payment."
   - question: "Does ChatGPT still have Instant Checkout?"
-    answer: "OpenAI launched Instant Checkout on September 29, 2025. On March 24, 2026, OpenAI wrote that the first version did not offer the flexibility it wanted, and that it was letting merchants use their own checkout while it focused on product discovery. The merchant page, re-read November 7, 2026, says purchases are completed on merchant-owned websites or apps."
+    answer: "OpenAI launched Instant Checkout on September 29, 2025. On March 24, 2026, OpenAI wrote that the first version did not offer the flexibility it wanted, and that it was letting merchants use their own checkout while it focused on product discovery. The merchant page, re-read November 12, 2026, says purchases are completed on merchant-owned websites or apps."
   - question: "Is Alexa for Shopping the same product as Rufus?"
     answer: "Amazon's help page says Amazon is bringing Rufus and Alexa together into one assistant. In the Amazon store, that assistant appears as Alexa for Shopping, on the Amazon Shopping app and on Amazon.com."
   - question: "Which countries are these checkout features offered in?"
     answer: "The pages checked here describe U.S. rollout for Google's Universal Cart, ChatGPT shopping, Alexa for Shopping, Copilot Checkout, and Perplexity Instant Buy. Google's November 4, 2026 post adds direct checkout for eligible Canadian retailers. Shopify's help page also lists Australia among the customer countries for its Google direct-checkout channel. A feature on one country's page is not a promise that the same button exists everywhere."
 ---
 
-Updated November 10, 2026.
+Updated November 12, 2026.
 
 ## Can an AI shopping agent check out for you?
 
 Sometimes. A [shopping agent](/glossary/shopping-agent) can research and compare on its own. It can pay only when the product has a checkout path, a saved payment method, and a rule for who must agree.
 
-On the pages re-read for this update, that rule is not the same in every app. Google's Universal Cart can take Google Pay at participating stores, or hand the items to the store's own cart. ChatGPT's merchant page, re-read November 7, 2026, sends the purchase to the store's website or app. Amazon's Alexa for Shopping can buy inside Amazon when a price you set is reached, and it can place an eligible order on another store through Buy for Me. Microsoft Copilot Checkout can finish a purchase inside the assistant for participating merchants. Perplexity Instant Buy is included from the help article retrieved November 4. That page did not load on November 7.
+On the pages re-read for this update, that rule is not the same in every app. Google's Universal Cart can take Google Pay at participating stores, or hand the items to the store's own cart. ChatGPT's merchant page, re-read November 12, 2026, sends the purchase to the store's website or app. Amazon's Alexa for Shopping can buy inside Amazon when a price you set is reached, and it can place an eligible order on another store through Buy for Me. Microsoft Copilot Checkout can finish a purchase inside the assistant for participating merchants. Perplexity Instant Buy is included from the help article retrieved November 4. That page returned HTTP 403 on November 7 and again on November 12.
 
-The short version: the assistant is allowed to act. The store still sells the item. Licence, list price, and checkout path for four products are in [Best AI agent for shopping](/best/ai-agents-for-shopping). What a merchant publishes so the agent can quote a real row is [How to make your store readable by AI shopping agents](/blog/how-to-make-your-store-readable-by-ai-shopping-agents).
+The short version: the assistant is allowed to act. The store still sells the item. Which credential moves, and what a merchant has to turn on, is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay). Licence, list price, and checkout path for four products are in [Best AI agent for shopping](/best/ai-agents-for-shopping). What a merchant publishes so the agent can quote a real row is [How to make your store readable by AI shopping agents](/blog/how-to-make-your-store-readable-by-ai-shopping-agents). The six-month calendar is [AI shopping agents next 6 months](/reports/ai-shopping-agents-next-6-months).
 
 ## What is a shopping agent?
 
@@ -152,7 +152,7 @@ The rows are what each company's own page says. A store named in a launch post i
 <td><a href="/directory/chatgpt">ChatGPT</a></td>
 <td>People compare products in the chat. Purchases finish on the merchant's website or app. OpenAI says it is moving away from a standalone Instant Checkout.</td>
 <td>The merchant</td>
-<td>Merchant page re-read November 7, 2026: shopping is live for ChatGPT users in the U.S. The course change is the March 24, 2026 post.</td>
+<td>Merchant page re-read November 12, 2026: shopping is live for ChatGPT users in the U.S. The course change is the March 24, 2026 post.</td>
 </tr>
 <tr>
 <td><a href="/directory/amazon-rufus">Alexa for Shopping</a></td>
@@ -170,7 +170,7 @@ The rows are what each company's own page says. A store named in a launch post i
 <td><a href="/directory/perplexity">Perplexity</a></td>
 <td>Instant Buy sends the order and the payment to a compatible merchant. PayPal's launch announcement powered that checkout.</td>
 <td>The merchant</td>
-<td>Help article retrieved November 4, 2026. It did not load on November 7, so this cell was not re-checked. Users in the United States, except Enterprise Pro and Enterprise Max. Launch announcement: November 25, 2025.</td>
+<td>Help article retrieved November 4, 2026. It returned HTTP 403 on November 7 and again on November 12, so this cell was not re-read. Users in the United States, except Enterprise Pro and Enterprise Max. Launch announcement: November 25, 2025.</td>
 </tr>
 </tbody>
 </table>
@@ -192,13 +192,13 @@ Google Pay in Google's cart posts and a card payment in Shopify's help page are 
 
 ## Can ChatGPT buy things for me?
 
-No. On the merchant page re-read November 7, 2026, people discover and compare products in [ChatGPT](/directory/chatgpt), and the purchase finishes on the merchant’s website or app. The dates below are how that changed.
+No. On the merchant page re-read November 12, 2026, people discover and compare products in [ChatGPT](/directory/chatgpt), and the purchase finishes on the merchant’s website or app. The dates below are how that changed.
 
 On September 29, 2025, OpenAI launched Instant Checkout for U.S. ChatGPT Plus, Pro, and Free users buying from U.S. Etsy sellers, with Shopify merchants described as coming soon. The post said a person taps Buy, confirms the order, and pays without leaving the chat. It also said merchants pay a small fee on completed purchases, and that the fee does not change the price or the ranking. Users confirm each step before an action is taken. Payment tokens are authorized for a specific amount and a specific merchant.
 
 On March 24, 2026, OpenAI changed the emphasis. The post says: "We've found that the initial version of Instant Checkout did not offer the level of flexibility that we aspire to provide, so we're allowing merchants to use their own checkout experiences while we focus our efforts on product discovery." The same post says richer visual shopping, including side-by-side comparisons, was rolling out that week to Free, Go, Plus, and Pro. It names Target, Sephora, Nordstrom, Lowe's, Best Buy, The Home Depot, and Wayfair as retailers already integrated into ACP for discovery. It also says Walmart was introducing an in-ChatGPT app with account linking, loyalty, and Walmart payments, available in web browsers, with iOS and Android to follow. This guide does not have a later OpenAI page that confirms those mobile apps shipped.
 
-The merchant page re-read November 7, 2026 is the current statement. Shopping is live for ChatGPT users in the United States. Shoppers discover and evaluate products in ChatGPT. Purchases are completed on merchant-owned websites or apps. There are no fees on purchases that start in ChatGPT. Shopify and Etsy catalogs are already integrated. Other merchants apply. Apps inside ChatGPT are optional and aimed at larger merchants who want more control. The September 2025 merchant fee belongs to that earlier Instant Checkout description, not to the fee sentence on the current merchant page. The page also says OpenAI is building a self-serve merchant platform later this year and plans to expand to more merchants and regions over time.
+The merchant page re-read November 12, 2026 is the current statement. Shopping is live for ChatGPT users in the United States. Shoppers discover and evaluate products in ChatGPT. Purchases are completed on merchant-owned websites or apps. There are no fees on purchases that start in ChatGPT. Shopify and Etsy catalogs are already integrated. Other merchants apply. Apps inside ChatGPT are optional and aimed at larger merchants who want more control. The September 2025 merchant fee belongs to that earlier Instant Checkout description, not to the fee sentence on the current merchant page. The page also says OpenAI is building a self-serve merchant platform later this year and plans to expand to more merchants and regions over time. The Delegated Payment Spec was still published on November 12, with Last-Modified 11:17 GMT that morning. What that token allows, and what a feed does not turn on, is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay).
 
 ## What can Alexa for Shopping buy?
 
@@ -217,7 +217,7 @@ Auto-buy is the high-autonomy case. The permission is given earlier, as a price 
 
 Microsoft's January 8, 2026 Source post says Copilot Checkout was available in the U.S. on Copilot.com, with PayPal, Shopify, and Stripe, and names Urban Outfitters, Anthropologie, Ashley Furniture, and Etsy among launch sellers. The Agentic Commerce page re-read November 7, 2026 is the current description, and its page metadata records a modification on November 3, 2026. Copilot Checkout is on Copilot.com and the Copilot mobile app. Eligible merchants are English-language merchants who sell to U.S. buyers, in U.S. dollars. The merchant stays the merchant of record. A product feed is required. Shopify merchants are described as automatically enrolled, with controls in Shopify admin. The page has a Stripe tab for Stripe’s Agentic Commerce Suite. It does not mention PayPal, and it does not state a commission. Microsoft's own FAQ still draws the harness line: a feed gets products into answers, and UCP is what lets checkout happen inside the assistant.
 
-PayPal's November 25, 2025 announcement says U.S. users could check out inside Perplexity with PayPal, and that the retailer remained the merchant of record. Launch examples included Abercrombie & Fitch, Ashley Furniture, Fabletics, Adorama, and Newegg. That list is the launch list. Perplexity's Instant Buy help article, retrieved November 4, 2026, says U.S. users can buy from merchants compatible with the checkout, that the order and payment go to the merchant, and that Enterprise Pro and Enterprise Max plans are excluded. It does not publish a fixed store list. A request for that help article on November 7 did not load, so those sentences stay the November 4 reading.
+PayPal's November 25, 2025 announcement says U.S. users could check out inside Perplexity with PayPal, and that the retailer remained the merchant of record. Launch examples included Abercrombie & Fitch, Ashley Furniture, Fabletics, Adorama, and Newegg. That list is the launch list. Perplexity's Instant Buy help article, retrieved November 4, 2026, says U.S. users can buy from merchants compatible with the checkout, that the order and payment go to the merchant, and that Enterprise Pro and Enterprise Max plans are excluded. It does not publish a fixed store list. A request for that help article returned HTTP 403 on November 7 and again on November 12, so those sentences stay the November 4 reading.
 
 ## What is a product feed, and why does checkout depend on it?
 
@@ -251,7 +251,8 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 
 ## Where can you read more on this site?
 
-- Glossary: [shopping agent](/glossary/shopping-agent), [agentic checkout](/glossary/agentic-checkout), [product feed](/glossary/product-feed), [harness](/glossary/harness), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [tool use](/glossary/tool-use), [orchestration](/glossary/orchestration)
+- Payment rails, read November 12, 2026: [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay)
+- Glossary: [shopping agent](/glossary/shopping-agent), [agentic checkout](/glossary/agentic-checkout), [agentic commerce](/glossary/agentic-commerce), [delegated payment token](/glossary/delegated-payment-token), [Know Your Agent](/glossary/know-your-agent), [product feed](/glossary/product-feed), [harness](/glossary/harness), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [tool use](/glossary/tool-use), [orchestration](/glossary/orchestration)
 - Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [What is an AI employee?](/blog/what-is-an-ai-employee), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
 - Directory: [Amazon Rufus latest features, November 2026](/directory/amazon-rufus#what-are-the-latest-amazon-rufus-features-and-expansion-in-november-2026), [ChatGPT](/directory/chatgpt), [Gemini](/directory/gemini), [Perplexity](/directory/perplexity), [shopping agents](/directory/category/shopping-agents)
 - Report: [AI shopping agents next 6 months: 6 companies](/reports/ai-shopping-agents-next-6-months)
@@ -264,7 +265,7 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 
 ### Can ChatGPT buy things for me?
 
-No. On the merchant page re-read November 7, 2026, people discover and compare products in [ChatGPT](/directory/chatgpt), and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026.
+No. On the merchant page re-read November 12, 2026, people discover and compare products in [ChatGPT](/directory/chatgpt), and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026.
 
 ### Can an AI shopping agent check out for you?
 
@@ -280,7 +281,7 @@ The feed is the catalog the assistant is allowed to quote: an id, a title, a des
 
 ### Does ChatGPT still have Instant Checkout?
 
-OpenAI launched it on September 29, 2025. On March 24, 2026, OpenAI said the first version was not flexible enough, and that merchants would use their own checkout while ChatGPT focused on discovery. The merchant page re-read November 7, 2026 says purchases are completed on merchant-owned websites or apps.
+OpenAI launched it on September 29, 2025. On March 24, 2026, OpenAI said the first version was not flexible enough, and that merchants would use their own checkout while ChatGPT focused on discovery. The merchant page re-read November 12, 2026 says purchases are completed on merchant-owned websites or apps.
 
 ### Is Alexa for Shopping the same product as Rufus?
 

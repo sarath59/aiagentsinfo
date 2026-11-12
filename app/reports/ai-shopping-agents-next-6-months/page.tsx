@@ -27,6 +27,14 @@ export default async function ShoppingAgentsReportPage() {
   ]);
   const related = [
     {
+      href: "/blog/how-do-ai-shopping-agents-pay",
+      title: "How do AI shopping agents pay?",
+      description:
+        "Delegated tokens, AP2 mandates, Visa, Mastercard, Shop Pay, and Amazon Buy for Me. Read November 12, 2026.",
+      kicker: "Guide",
+      date: "2026-11-12",
+    },
+    {
       href: "/blog/ai-shopping-agents-compared-november-2026",
       title: "4 of 5 shopping agents can finish checkout. ChatGPT’s page says the store does.",
       description:
@@ -221,6 +229,8 @@ export default async function ShoppingAgentsReportPage() {
             <Link href="/blog/can-an-ai-shopping-agent-check-out-for-you">
               Can an AI shopping agent check out for you?
             </Link>
+            . Which credential moves is{" "}
+            <Link href="/blog/how-do-ai-shopping-agents-pay">How do AI shopping agents pay?</Link>
             . Amazon Rufus, now shown in the store as Alexa for Shopping, added text shopping for some U.S. customers
             on November 6, 2026. That note is{" "}
             <Link href="/directory/amazon-rufus#what-are-the-latest-amazon-rufus-features-and-expansion-in-november-2026">
@@ -249,6 +259,11 @@ export default async function ShoppingAgentsReportPage() {
               href: "/blog/how-to-make-your-store-readable-by-ai-shopping-agents",
               title: "How to make your store readable by AI shopping agents",
               note: "Nine OpenAI feed fields, Google’s checkout flag, and Shopify’s catalog sync.",
+            },
+            {
+              href: "/blog/how-do-ai-shopping-agents-pay",
+              title: "How do AI shopping agents pay?",
+              note: "The token, the mandate, or Amazon’s encrypted card handoff.",
             },
             {
               href: "/blog/can-an-ai-shopping-agent-check-out-for-you",

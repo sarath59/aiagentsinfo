@@ -152,8 +152,13 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
   shopping: {
     heading: "Which shopping-agent pages answer the buying questions?",
     answer:
-      "The six-company timeline, the checkout guide, and the Amazon Rufus note are the three pages that say who can pay.",
+      "The payment guide says which credential moves. The checkout guide says which assistant can finish. The six-month timeline says what is dated.",
     links: [
+      {
+        href: "/blog/how-do-ai-shopping-agents-pay",
+        anchor: "How do AI shopping agents pay?",
+        note: "Delegated tokens, AP2 mandates, Visa, Mastercard, Shop Pay, and Amazon Buy for Me. Read November 12, 2026.",
+      },
       {
         href: "/blog/ucp-vs-acp-spec-versions-november-2026",
         anchor: "OpenAI’s checkout example is still API version 2025-09-12",

@@ -583,13 +583,44 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
       },
     };
   }
+  if (slug === "how-do-ai-shopping-agents-pay") {
+    return {
+      reads: [
+        {
+          href: "/blog/can-an-ai-shopping-agent-check-out-for-you",
+          title: "Can an AI shopping agent check out for you?",
+          note: "Which assistant can finish, and which one still sends you to the store.",
+        },
+        {
+          href: "/best/ai-agents-for-shopping",
+          title: "Best AI agent for shopping",
+          note: "Licence, list price, and checkout path from official pages.",
+        },
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents, the next 6 months",
+          note: "What six companies have dated through May 2027.",
+        },
+        {
+          href: "/glossary/delegated-payment-token",
+          title: "Delegated payment token",
+          note: "The single-use credential in OpenAI’s payment spec.",
+        },
+      ],
+      tool: {
+        href: "/tools/shopping-agent-readiness-checker",
+        title: "shopping agent readiness checker",
+        note: "eighteen checks for find, read, and checkout",
+      },
+    };
+  }
   if (slug === "can-an-ai-shopping-agent-check-out-for-you") {
     return {
       reads: [
         {
-          href: "/research/agentic-commerce-protocol-adoption-november-2026",
-          title: "Which commerce protocol developers install",
-          note: "@x402/core had 1,940,555 npm downloads. ACP and AP2 publish no package.",
+          href: "/blog/how-do-ai-shopping-agents-pay",
+          title: "How do AI shopping agents pay?",
+          note: "The token, the mandate, or Amazon’s encrypted card handoff.",
         },
         {
           href: "/blog/how-to-make-your-store-readable-by-ai-shopping-agents",

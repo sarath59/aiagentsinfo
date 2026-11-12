@@ -4,6 +4,8 @@ shortDefinition: A model plus the tools to search, compare, and sometimes buy a 
 related:
   - agent
   - agentic-checkout
+  - agentic-commerce
+  - delegated-payment-token
   - product-feed
   - harness
   - autonomy
@@ -16,4 +18,4 @@ A **shopping agent** is an [agent](/glossary/agent) pointed at a purchase. The m
 
 Comparing three items in a chat is advice. Adding a live price from a [product feed](/glossary/product-feed), or paying under a rule the person already set, is the agent. How far it may go without a new confirmation is [autonomy](/glossary/autonomy). The payment step itself is [agentic checkout](/glossary/agentic-checkout).
 
-The sourced table is [Best AI agent for shopping](/best/ai-agents-for-shopping). The longer guide is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). The workshop around any of these products is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness).
+The sourced table is [Best AI agent for shopping](/best/ai-agents-for-shopping). Which assistant can finish a purchase is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). How the charge moves is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay). The category is [agentic commerce](/glossary/agentic-commerce). The workshop around any of these products is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). The six-month calendar is [AI shopping agents next 6 months](/reports/ai-shopping-agents-next-6-months).

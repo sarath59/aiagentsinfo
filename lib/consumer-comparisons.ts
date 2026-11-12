@@ -31,7 +31,7 @@ export const shoppingComparison: ComparisonPage = {
   metaDescription:
     "There is no single best AI agent for shopping. We compared 4 products on checkout, who is the seller, and list price (Nov 2026). No invented scores.",
   description:
-    "There is no single best AI agent for shopping. Alexa for Shopping can auto-buy on Amazon or use Buy for Me on eligible other-store items. Google AI Mode and Gemini can hold a Universal Cart in the US and, for eligible Canadian retailers, check out with Google Pay. ChatGPT helps you compare products and sends the purchase to the merchant’s site. Perplexity Instant Buy, launched with PayPal on November 25, 2025, is a separate in-chat pay path whose help article did not load on November 7, 2026.",
+    "There is no single best AI agent for shopping. Alexa for Shopping can auto-buy on Amazon or use Buy for Me on eligible other-store items. Google AI Mode and Gemini can hold a Universal Cart in the US and, for eligible Canadian retailers, check out with Google Pay. ChatGPT helps you compare products and sends the purchase to the merchant’s site. Perplexity Instant Buy, launched with PayPal on November 25, 2025, is a separate in-chat pay path whose help article returned HTTP 403 on November 12, 2026.",
   summary:
     "Sourced comparison of shopping agents on checkout, seller, and list price. Last verified November 2026. No invented scores.",
   question: "Which AI agent is best for shopping in 2026?",
@@ -70,12 +70,12 @@ export const shoppingComparison: ComparisonPage = {
     },
     {
       title: "Best for comparing before you leave chat",
-      body: "OpenAI’s March 24, 2026 product-discovery post, and the merchant page re-read November 7, 2026, say people find products in ChatGPT and complete the purchase on the merchant’s website or app.",
+      body: "OpenAI’s March 24, 2026 product-discovery post, and the merchant page re-read November 12, 2026, say people find products in ChatGPT and complete the purchase on the merchant’s website or app.",
       href: "/directory/chatgpt",
     },
     {
       title: "Best for PayPal Instant Buy (when the page loads)",
-      body: "PayPal and Perplexity announced Instant Buy on November 25, 2025. Perplexity’s Instant Buy help article retrieved November 4, 2026 did not load on November 7, 2026. This row does not invent a current checkout rule.",
+      body: "PayPal and Perplexity announced Instant Buy on November 25, 2025. Perplexity’s Instant Buy help article retrieved November 4, 2026 returned HTTP 403 on November 12, 2026. This row does not invent a current checkout rule.",
       href: "/directory/perplexity",
     },
   ],
@@ -129,7 +129,7 @@ export const shoppingComparison: ComparisonPage = {
       pricing: "Free $0; $17/mo and $167/mo billed annually (listing, 7 Nov 2026)",
       platform: "Perplexity; Instant Buy announced with PayPal on 25 Nov 2025",
       bestFor: "Cited answers with a PayPal buy path",
-      job: "Answer engine with Instant Buy announced with PayPal. The Instant Buy help article did not load on November 7, 2026.",
+      job: "Answer engine with Instant Buy announced with PayPal. The Instant Buy help article returned HTTP 403 on November 12, 2026.",
       sourceIds: [8, 9, 12],
     },
   ],
@@ -142,7 +142,7 @@ export const shoppingComparison: ComparisonPage = {
     { title: "OpenAI, Powering product discovery in ChatGPT (March 24, 2026)", url: "https://openai.com/index/powering-product-discovery-in-chatgpt/" },
     { title: "OpenAI, Power product discovery in ChatGPT (merchant page)", url: "https://openai.com/chatgpt/search-product-discovery/" },
     { title: "PayPal newsroom, PayPal and Perplexity launch Instant Buy (November 25, 2025)", url: "https://newsroom.paypal-corp.com/2025-11-PayPal-and-Perplexity-Launch-Instant-Buy" },
-    { title: "Perplexity Help Center, What is Instant Buy? (retrieved November 4, 2026; did not load November 7)", url: "https://www.perplexity.ai/help-center/en/articles/10352906-what-is-instant-buy" },
+    { title: "Perplexity Help Center, What is Instant Buy? (retrieved November 4, 2026; HTTP 403 on November 12, 2026)", url: "https://www.perplexity.ai/help-center/en/articles/10352906-what-is-instant-buy" },
     { title: "AI Agents Info, Codex listing (ChatGPT plan dollars, checked November 6, 2026)", url: "https://www.aiagentsinfo.com/directory/codex" },
     { title: "AI Agents Info, Gemini listing (Google AI plan dollars, checked November 3, 2026)", url: "https://www.aiagentsinfo.com/directory/gemini" },
     { title: "AI Agents Info, Perplexity listing (checked November 7, 2026)", url: "https://www.aiagentsinfo.com/directory/perplexity" },
@@ -151,7 +151,7 @@ export const shoppingComparison: ComparisonPage = {
     {
       question: "Can ChatGPT buy things for me?",
       answer:
-        "No. On the merchant page re-read November 7, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026.",
+        "No. On the merchant page re-read November 12, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026.",
     },
     {
       question: "Can an AI shopping agent check out for you?",
@@ -169,9 +169,13 @@ export const shoppingComparison: ComparisonPage = {
         "This page copies licence, list price, and platform from official pages. It does not invent a quality score or a ranking.",
     },
   ],
+  verifiedOn: "2026-11-12",
+  methodNote:
+    "On November 12, 2026 the ChatGPT merchant page was re-read and still sends the purchase to the store. Amazon’s October 29 shopping guide was re-read and still describes auto-buy on the default payment method and Buy For Me with Amazon payment and shipping details. Perplexity’s Instant Buy help article returned HTTP 403. Google, Copilot, and the plan prices were not re-fetched that day.",
   related: [
     hubCard(),
     { href: "/glossary/shopping-agent", title: "Shopping agent", description: "A model plus the tools to search, compare, and sometimes buy.", kicker: "Glossary" },
+    { href: "/blog/how-do-ai-shopping-agents-pay", title: "How do AI shopping agents pay?", description: "Delegated tokens, AP2 mandates, Visa, Mastercard, Shop Pay, and Amazon Buy for Me.", kicker: "Guide", date: "2026-11-12" },
     { href: "/blog/can-an-ai-shopping-agent-check-out-for-you", title: "Can an AI shopping agent check out for you?", description: "The longer checkout guide this table is built from.", kicker: "Guide", date: "2026-11-04" },
     { href: "/tools/shopping-agent-readiness-checker", title: "Shopping agent readiness checker", description: "18 checks for find, read, and checkout. The score stays in the browser.", kicker: "Tool" },
     { href: "/blog/ucp-vs-acp-spec-versions-november-2026", title: "OpenAI’s checkout example is still API version 2025-09-12", description: "ACP’s GitHub snapshot is 2026-04-17. UCP’s latest release tag is v2026-08-25.", kicker: "Guide", date: "2026-11-10" },
@@ -183,8 +187,8 @@ export const shoppingComparison: ComparisonPage = {
       id: "direct-answer",
       heading: "Which AI agent is best for shopping in 2026?",
       paragraphs: [
-        "There is no single best AI agent for shopping. [Alexa for Shopping](/directory/amazon-rufus) can auto-buy on Amazon or use Buy for Me on eligible other-store items. [Gemini](/directory/gemini) and Google AI Mode can hold a Universal Cart in the US and, for eligible Canadian retailers, check out with Google Pay. [ChatGPT](/directory/chatgpt) helps you compare products and sends the purchase to the merchant’s site. [Perplexity](/directory/perplexity) Instant Buy, launched with PayPal on November 25, 2025, is a separate in-chat pay path whose help article did not load on November 7, 2026.",
-        "The longer checkout guide is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). The word this table uses is [shopping agent](/glossary/shopping-agent). The shelf for this table is [Best AI agents](/best).",
+        "There is no single best AI agent for shopping. [Alexa for Shopping](/directory/amazon-rufus) can auto-buy on Amazon or use Buy for Me on eligible other-store items. [Gemini](/directory/gemini) and Google AI Mode can hold a Universal Cart in the US and, for eligible Canadian retailers, check out with Google Pay. [ChatGPT](/directory/chatgpt) helps you compare products and sends the purchase to the merchant’s site. [Perplexity](/directory/perplexity) Instant Buy, launched with PayPal on November 25, 2025, is a separate in-chat pay path whose help article returned HTTP 403 on November 12, 2026.",
+        "The longer checkout guide is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). How the charge moves is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay). The word this table uses is [shopping agent](/glossary/shopping-agent). The shelf for this table is [Best AI agents](/best).",
       ],
     },
     {

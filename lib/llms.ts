@@ -387,6 +387,9 @@ export async function buildLlmsTxt() {
       item("Search grounding", "/glossary/search-grounding", "A hosted web search the model runs inside one vendor request, then answers from, with citations."),
       item("Tool-call budget", "/glossary/tool-call-budget", "A limit on how many tool calls one agent task, turn, or day is allowed to make."),
       item("Indirect prompt injection", "/glossary/indirect-prompt-injection", "Instructions hidden in a page, file, or tool result that change what the agent does."),
+      item("Agentic commerce", "/glossary/agentic-commerce", "Shopping in which an agent can discover, compare, and sometimes pay. The store remains the seller."),
+      item("Delegated payment token", "/glossary/delegated-payment-token", "A single-use payment token capped by amount, merchant, and expiry."),
+      item("Know Your Agent", "/glossary/know-your-agent", "Mastercard’s rule that an agent must be registered before it can pay with an Agent Pay token."),
     ]),
     section("Blog", [
       item("Blog", "/blog", "Explainers, news, and guides."),
