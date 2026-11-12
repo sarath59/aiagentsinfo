@@ -1,15 +1,39 @@
 {
-  "retrievedAt": "2026-11-11T11:07:10.616563Z",
-  "retrievedDay": "2026-11-11",
+  "retrievedAt": "2026-11-12T15:14:57.327040Z",
+  "retrievedDay": "2026-11-12",
   "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo}/releases?per_page=100&page=1",
   "repos": [
     {
       "id": "langchain",
       "name": "LangChain",
       "repo": "langchain-ai/langchain",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "langchain==1.5.0",
+          "name": "langchain==1.5.0",
+          "body": "**`langchain` 1.5.0 drops support for Python 3.10**, which has reached end-of-life. The minimum supported version is now Python 3.11, and the minimum `langchain-core` version is now 1.8.0. Users on Python 3.10 will continue to resolve `langchain` 1.4.x.\n\nChanges since langchain==1.4.10\n\nrelease(langchain): 1.5.0 (#41798)\nfix(langchain): mark `ModelRouterMiddleware` as beta (#41797)\nfeat(langchain): Remove EOL'd Python 3.10 from langchain_v1 (#41301)\nfeat(langchain): add model router and auto mode middleware (#41766)\ndocs(langchain): explain Baseten minimum version (#41777)",
+          "publishedAt": "2026-11-11T15:47:22Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.5.0",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-typesafe==0.1.0",
+          "name": "langchain-typesafe==0.1.0",
+          "body": "**`langchain-typesafe` 0.1.0 drops support for Python 3.10**, which has reached end-of-life. The minimum supported version is now Python 3.11, and the minimum `langchain-core` version is now 1.8.0 (`langchain` 1.5.0 for the `experimental` extra). Users on Python 3.10 will continue to resolve `langchain-typesafe` 0.0.x.\n\nChanges since langchain-typesafe==0.0.2\n\nrelease(typesafe): 0.1.0 (#41800)\nrefactor(typesafe): deprecate experimental middleware (#41768)\nfeat(typesafe): implement TypeSafeClassifier as a decision model (#41767)",
+          "publishedAt": "2026-11-11T16:14:24Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-typesafe%3D%3D0.1.0",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-core==1.8.0",
+          "name": "langchain-core==1.8.0",
+          "body": "**`langchain-core` 1.8.0 drops support for Python 3.10**, which has reached end-of-life. The minimum supported version is now Python 3.11. Users on Python 3.10 will continue to resolve `langchain-core` 1.7.x.\n\nChanges since langchain-core==1.7.7\n\nrelease(core): 1.8.0 (#41796)\nfeat(core): Remove EOL Python 3.10 support (#41267)\nfeat(core): add decision models (#41765)",
+          "publishedAt": "2026-11-11T15:22:07Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.8.0",
+          "prerelease": false
+        },
         {
           "tag": "langchain==1.4.10",
           "name": "langchain==1.4.10",
@@ -785,30 +809,6 @@
           "publishedAt": "2026-08-10T13:23:34Z",
           "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.4.3",
           "prerelease": false
-        },
-        {
-          "tag": "langchain-openai==1.4.2",
-          "name": "langchain-openai==1.4.2",
-          "body": "Changes since langchain-openai==1.4.1\n\nrelease(openai): 1.4.2 (#39322)\nfix(openai): handle `ContextWindowExceededError` (#39300)\nchore: bump the minor-and-patch group across 3 directories with 7 updates (#39187)\nfix(openai): filter langchain-generated content block IDs (#39209)\nfix(openai): preserve Responses `text` options (#39204)\nfix(openai): redact MCP `authorization` (#39155)\nchore(model-profiles): refresh model profile data (#39050)",
-          "publishedAt": "2026-08-07T13:58:15Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.4.2",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-anthropic==1.5.4",
-          "name": "langchain-anthropic==1.5.4",
-          "body": "Changes since langchain-anthropic==1.5.3\n\nrelease(anthropic): 1.5.4 (#39277)\nfix(anthropic): handle tool schemas with unsupported top-level composition (#39273)\nchore: bump the minor-and-patch group across 3 directories with 7 updates (#39187)\nfix(anthropic): preserve caller `tool_choice` (#39206)\nfeat(anthropic): add `user_profile_id` convenience attribute (#39148)",
-          "publishedAt": "2026-08-05T19:03:33Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.5.4",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-core==1.5.3",
-          "name": "langchain-core==1.5.3",
-          "body": "Changes since langchain-core==1.5.2\n\nrelease(core): 1.5.3 (#39145)\nfix(core): fall back to `LANGSMITH_API_KEY` for gateway (#39115)",
-          "publishedAt": "2026-07-30T14:56:10Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.5.3",
-          "prerelease": false
         }
       ]
     },
@@ -816,7 +816,7 @@
       "id": "autogen",
       "name": "AutoGen",
       "repo": "microsoft/autogen",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": false,
       "releases": [
         {
@@ -870,7 +870,7 @@
         {
           "tag": "python-v0.6.2",
           "name": "python-v0.6.2",
-          "body": "## What's New\n\n### Streaming Tools\n\nThis release introduces streaming tools and updates `AgentTool` and `TeamTool` to support `run_json_stream`. The new interface exposes the inner events of tools when calling `run_stream` of agents and teams. `AssistantAgent` is also updated to use `run_json_stream` when the tool supports streaming. So, when using `AgentTool` or `TeamTool` with `AssistantAgent`, you can receive the inner agent's or\n\nTo create new streaming tools, subclass `autogen_core.tools.BaseStreamTool` and implement `run_stream`. To create new streaming workbench, subclass `autogen_core.tools.StreamWorkbench` and implement `call_tool_stream`.\n\n* Introduce streaming tool and support streaming for `AgentTool` and `TeamTool`. by @ekzhu in https://github.com/microsoft/autogen/pull/6712\n\n### `tool_choice` parameter for `ChatCompletionClient` and subclasses",
+          "body": "## What's New\n\n### Streaming Tools\n\nThis release introduces streaming tools and updates `AgentTool` and `TeamTool` to support `run_json_stream`. The new interface exposes the inner events of tools when calling `run_stream` of agents and teams. `AssistantAgent` is also updated to use `run_json_stream` when the tool supports streaming. So, when using `AgentTool` or `TeamTool` with `AssistantAgent`, you can receive the inner agent's o\u2026\n\nTo create new streaming tools, subclass `autogen_core.tools.BaseStreamTool` and implement `run_stream`. To create new streaming workbench, subclass `autogen_core.tools.StreamWorkbench` and implement `call_tool_stream`.\n\n* Introduce streaming tool and support streaming for `AgentTool` and `TeamTool`. by @ekzhu in https://github.com/microsoft/autogen/pull/6712\n\n### `tool_choice` parameter for `ChatCompletionClient` and subclasses",
           "publishedAt": "2025-07-01T00:09:01Z",
           "htmlUrl": "https://github.com/microsoft/autogen/releases/tag/python-v0.6.2",
           "prerelease": false
@@ -966,7 +966,7 @@
         {
           "tag": "python-v0.4.9.2",
           "name": "python-v0.4.9.2",
-          "body": "## Patch Fixes\n\n- Fix logging error in `SKChatCompletionAdapter` https://github.com/microsoft/autogen/pull/5893\n- Fix missing system message in the model client call during reflect step when `reflect_on_tool_use=True` https://github.com/microsoft/autogen/pull/5926 (Bug introduced in v0.4.8)\n- Fixing listing directory error in FileSurfer https://github.com/microsoft/autogen/pull/5938\n\n## Security Fixes\n\n- Use `SecretStr` type for model clients' API key. This will ensure the secret is not exported when calling `model_client.dump_component().model_dump_json()`. #5939 and #5947. This will affect `OpenAIChatCompletionClient` and `AzureOpenAIChatCompletionClient`, and `AnthropicChatCompletionClient` -- **the API keys will no longer be exported when you serialize the model clients**.  It is recommended\n\n**Full Changelog**: https://github.com/microsoft/autogen/compare/python-v0.4.9...python-v0.4.9.2",
+          "body": "## Patch Fixes\n\n- Fix logging error in `SKChatCompletionAdapter` https://github.com/microsoft/autogen/pull/5893\n- Fix missing system message in the model client call during reflect step when `reflect_on_tool_use=True` https://github.com/microsoft/autogen/pull/5926 (Bug introduced in v0.4.8)\n- Fixing listing directory error in FileSurfer https://github.com/microsoft/autogen/pull/5938\n\n## Security Fixes\n\n- Use `SecretStr` type for model clients' API key. This will ensure the secret is not exported when calling `model_client.dump_component().model_dump_json()`. #5939 and #5947. This will affect `OpenAIChatCompletionClient` and `AzureOpenAIChatCompletionClient`, and `AnthropicChatCompletionClient` -- **the API keys will no longer be exported when you serialize the model clients**.  It is recommende\u2026\n\n**Full Changelog**: https://github.com/microsoft/autogen/compare/python-v0.4.9...python-v0.4.9.2",
           "publishedAt": "2025-03-14T19:40:58Z",
           "htmlUrl": "https://github.com/microsoft/autogen/releases/tag/python-v0.4.9.2",
           "prerelease": false
@@ -1022,7 +1022,7 @@
         {
           "tag": "autogenstudio-v0.4.1",
           "name": "autogenstudio-v0.4.1",
-          "body": "## Whats New\n\n\n### AutoGen Studio  Declarative Configuration\n- in #5172, you can now build your agents in python and export to a json format that works in autogen studio\n\nAutoGen studio now used the same [declarative configuration](https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/framework/component-config.html) interface as the rest of the AutoGen library. This means you can create your agent teams in python and then `dump_component()` it into a JSON spec that can be directly used in AutoGen Studio! This eliminates compatibility (or feature incon\n\n> See a video tutorial on AutoGen Studio v0.4 (02/25) - [https://youtu.be/oum6EI7wohM](https://youtu.be/oum6EI7wohM)\n\n[![A Friendly Introduction to AutoGen Studio v0.4](https://img.youtube.com/vi/oum6EI7wohM/maxresdefault.jpg)](https://www.youtube.com/watch?v=oum6EI7wohM)",
+          "body": "## Whats New\n\n\n### AutoGen Studio  Declarative Configuration\n- in #5172, you can now build your agents in python and export to a json format that works in autogen studio\n\nAutoGen studio now used the same [declarative configuration](https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/framework/component-config.html) interface as the rest of the AutoGen library. This means you can create your agent teams in python and then `dump_component()` it into a JSON spec that can be directly used in AutoGen Studio! This eliminates compatibility (or feature inco\u2026\n\n> See a video tutorial on AutoGen Studio v0.4 (02/25) - [https://youtu.be/oum6EI7wohM](https://youtu.be/oum6EI7wohM)\n\n[![A Friendly Introduction to AutoGen Studio v0.4](https://img.youtube.com/vi/oum6EI7wohM/maxresdefault.jpg)](https://www.youtube.com/watch?v=oum6EI7wohM)",
           "publishedAt": "2025-02-08T00:22:21Z",
           "htmlUrl": "https://github.com/microsoft/autogen/releases/tag/autogenstudio-v0.4.1",
           "prerelease": true
@@ -1046,7 +1046,7 @@
         {
           "tag": "v0.4.3",
           "name": "python-v0.4.3",
-          "body": "## What's new\n\nThis is the first release since 0.4.0 with significant new features! We look forward to hearing feedback and suggestions from the community.\n\n### Chat completion model cache\n\nOne of the big missing features from 0.2 was the ability to seamlessly cache model client completions. This release adds [`ChatCompletionCache`](https://microsoft.github.io/autogen/stable/reference/python/autogen_ext.models.cache.html#autogen_ext.models.cache.ChatCompletionCache) which can wrap **any** other [`ChatCompletionClient`](https://microsoft.github.io/autogen/stable/reference/python/autog\n\nThere is a [`CacheStore`](https://microsoft.github.io/autogen/stable/reference/python/autogen_core.html#autogen_core.CacheStore) interface to allow for easy implementation of new caching backends. The currently available implementations are:\n\n- [`DiskCacheStore`](https://microsoft.github.io/autogen/stable/reference/python/autogen_ext.cache_store.diskcache.html#autogen_ext.cache_store.diskcache.DiskCacheStore)\n- [`RedisStore`](https://microsoft.github.io/autogen/stable/reference/python/autogen_ext.cache_store.redis.html#autogen_ext.cache_store.redis.RedisStore)",
+          "body": "## What's new\n\nThis is the first release since 0.4.0 with significant new features! We look forward to hearing feedback and suggestions from the community.\n\n### Chat completion model cache\n\nOne of the big missing features from 0.2 was the ability to seamlessly cache model client completions. This release adds [`ChatCompletionCache`](https://microsoft.github.io/autogen/stable/reference/python/autogen_ext.models.cache.html#autogen_ext.models.cache.ChatCompletionCache) which can wrap **any** other [`ChatCompletionClient`](https://microsoft.github.io/autogen/stable/reference/python/auto\u2026\n\nThere is a [`CacheStore`](https://microsoft.github.io/autogen/stable/reference/python/autogen_core.html#autogen_core.CacheStore) interface to allow for easy implementation of new caching backends. The currently available implementations are:\n\n- [`DiskCacheStore`](https://microsoft.github.io/autogen/stable/reference/python/autogen_ext.cache_store.diskcache.html#autogen_ext.cache_store.diskcache.DiskCacheStore)\n- [`RedisStore`](https://microsoft.github.io/autogen/stable/reference/python/autogen_ext.cache_store.redis.html#autogen_ext.cache_store.redis.RedisStore)",
           "publishedAt": "2025-01-22T16:14:43Z",
           "htmlUrl": "https://github.com/microsoft/autogen/releases/tag/v0.4.3",
           "prerelease": false
@@ -1102,7 +1102,7 @@
         {
           "tag": "v0.4.0.dev11",
           "name": "v0.4.0.dev11",
-          "body": "## Important Changes:\n\n1. `autogen_agentchat.agents.AssistantAgent` behavior has been updated in dev10. It will not perform multiple rounds of tool calls -- only 1 round of tool call, followed by an optional reflection step to provide a natural language response. Please see the [API doc for `AssistantAgent`](https://microsoft.github.io/autogen/dev/reference/python/autogen_agentchat.agents.html#autogen_agentchat.agents.A\n2. Module renamings:\n  - `autogen_core.base` --> `autogen_core` \n  - `autogen_core.application.SingleThreadedAgentRuntime` --> `autogen_core.SingleThreadedAgentRuntime`.\n  - `autogen_core.application.logging` --> `autogen_core.logging`.\n  - `autogen_core.components.*` --> `autogen_core.*`, for `models`, `model_context`, `tools`, `tool_agent` and `code_executor`.\n  - `autogen_core.components.code_executor.LocalCommandLineCodeExecutor` --> `autogen_ext.code_executors.local.LocalCommandLineCodeExecutor`\n  - `autogen_agentchat.task.Console` --> `autogen_agentchat.ui.Console`.\n  - `autogen_agentchat.task.<termination conditions>` --> `autogen_agentchat.conditions.<termination_conditions>`.\n  - `autogen_ext.models` gets divided into `autogen_ext.models.openai`, `autogen_ext.models.replay`.",
+          "body": "## Important Changes:\n\n1. `autogen_agentchat.agents.AssistantAgent` behavior has been updated in dev10. It will not perform multiple rounds of tool calls -- only 1 round of tool call, followed by an optional reflection step to provide a natural language response. Please see the [API doc for `AssistantAgent`](https://microsoft.github.io/autogen/dev/reference/python/autogen_agentchat.agents.html#autogen_agentchat.agents.\u2026\n2. Module renamings:\n  - `autogen_core.base` --> `autogen_core` \n  - `autogen_core.application.SingleThreadedAgentRuntime` --> `autogen_core.SingleThreadedAgentRuntime`.\n  - `autogen_core.application.logging` --> `autogen_core.logging`.\n  - `autogen_core.components.*` --> `autogen_core.*`, for `models`, `model_context`, `tools`, `tool_agent` and `code_executor`.\n  - `autogen_core.components.code_executor.LocalCommandLineCodeExecutor` --> `autogen_ext.code_executors.local.LocalCommandLineCodeExecutor`\n  - `autogen_agentchat.task.Console` --> `autogen_agentchat.ui.Console`.\n  - `autogen_agentchat.task.<termination conditions>` --> `autogen_agentchat.conditions.<termination_conditions>`.\n  - `autogen_ext.models` gets divided into `autogen_ext.models.openai`, `autogen_ext.models.replay`.",
           "publishedAt": "2024-12-12T06:21:09Z",
           "htmlUrl": "https://github.com/microsoft/autogen/releases/tag/v0.4.0.dev11",
           "prerelease": true
@@ -1486,7 +1486,7 @@
         {
           "tag": "v0.1.13",
           "name": "v0.1.13",
-          "body": "## Highlights\n\nA preliminary `TeachableAgent` is added to allow users to teach their assistant facts, preferences, and tasks unrelated to code generation. Example notebook: https://github.com/microsoft/autogen/blob/main/notebook/agentchat_teachability.ipynb\n\nConversational assistants based on LLMs can remember the current chat with the user, and can even demonstrate in-context learning of things that the user teaches the assistant during the chat. But these memories and learnings are lost once the chat is over, or when a single chat grows too long. In subsequent chats, the user is forced to repeat any necessary instructions over and over.\n\n`TeachableAgent` addresses these limitations by persisting user teachings across chat boundaries in long-term memory (a vector database). Memory is saved to disk at the end of each chat, then loaded from disk at the start of the next. Instead of copying all of memory into the context window, which would eat up valuable space, individual memories (called memos) are retrieved into context as needed.\n\nThis release also contains an update about openai models and pricing, and restricts the openai package dependency version. In v0.2 we will switch to openai>=1. \n\nThanks to @rickyloynd-microsoft @kevin666aa and all the other contributors!",
+          "body": "## Highlights\n\nA preliminary `TeachableAgent` is added to allow users to teach their assistant facts, preferences, and tasks unrelated to code generation. Example notebook: https://github.com/microsoft/autogen/blob/main/notebook/agentchat_teachability.ipynb\n\nConversational assistants based on LLMs can remember the current chat with the user, and can even demonstrate in-context learning of things that the user teaches the assistant during the chat. But these memories and learnings are lost once the chat is over, or when a single chat grows too long. In subsequent chats, the user is forced to repeat any necessary instructions over and over.\n\n`TeachableAgent` addresses these limitations by persisting user teachings across chat boundaries in long-term memory (a vector database). Memory is saved to disk at the end of each chat, then loaded from disk at the start of the next. Instead of copying all of memory into the context window, which would eat up valuable space, individual memories (called memos) are retrieved into context as needed\u2026\n\nThis release also contains an update about openai models and pricing, and restricts the openai package dependency version. In v0.2 we will switch to openai>=1. \n\nThanks to @rickyloynd-microsoft @kevin666aa and all the other contributors!",
           "publishedAt": "2023-10-21T16:59:56Z",
           "htmlUrl": "https://github.com/microsoft/autogen/releases/tag/v0.1.13",
           "prerelease": false
@@ -1494,7 +1494,7 @@
         {
           "tag": "v0.1.12",
           "name": "v0.1.12",
-          "body": "This release contains a significant improvement to function call in group chat. It decreases the chance of failures for group chat involving function calls. It also contains improvements to RAG agents, including added support for custom text splitter, example [notebook](https://github.com/microsoft/autogen/blob/main/notebook/agentchat_groupchat_RAG.ipynb) for RAG agent in group chat, and a [blogpo\n\n## What's Changed\n* Add support to custom text spliter by @thinkall in https://github.com/microsoft/autogen/pull/270\n* Update FAQ.md, elaborate on how to customise docker image and pick 'python:3' to solve typical errors by @maxim-saplin in https://github.com/microsoft/autogen/pull/269\n* Add group chat and retrieve agent example by @thinkall in https://github.com/microsoft/autogen/pull/227\n* docs: added virtual environment setup process by @Ayushpanditmoto in https://github.com/microsoft/autogen/pull/249\n* Fixing `code execution` broken link at `Getting Started` page by @maxim-saplin in https://github.com/microsoft/autogen/pull/275\n* Bump @babel/traverse from 7.20.1 to 7.23.2 in /website by @dependabot in https://github.com/microsoft/autogen/pull/283\n* Add a blog for RAG agents by @thinkall in https://github.com/microsoft/autogen/pull/284\n* function call filter in group chat by @sonichi in https://github.com/microsoft/autogen/pull/294\n* fix typo in website/blog/2023-05-18-GPT-adaptive-humaneval/index.mdx by @suravkshrestha in https://github.com/microsoft/autogen/pull/299",
+          "body": "This release contains a significant improvement to function call in group chat. It decreases the chance of failures for group chat involving function calls. It also contains improvements to RAG agents, including added support for custom text splitter, example [notebook](https://github.com/microsoft/autogen/blob/main/notebook/agentchat_groupchat_RAG.ipynb) for RAG agent in group chat, and a [blogp\u2026\n\n## What's Changed\n* Add support to custom text spliter by @thinkall in https://github.com/microsoft/autogen/pull/270\n* Update FAQ.md, elaborate on how to customise docker image and pick 'python:3' to solve typical errors by @maxim-saplin in https://github.com/microsoft/autogen/pull/269\n* Add group chat and retrieve agent example by @thinkall in https://github.com/microsoft/autogen/pull/227\n* docs: added virtual environment setup process by @Ayushpanditmoto in https://github.com/microsoft/autogen/pull/249\n* Fixing `code execution` broken link at `Getting Started` page by @maxim-saplin in https://github.com/microsoft/autogen/pull/275\n* Bump @babel/traverse from 7.20.1 to 7.23.2 in /website by @dependabot in https://github.com/microsoft/autogen/pull/283\n* Add a blog for RAG agents by @thinkall in https://github.com/microsoft/autogen/pull/284\n* function call filter in group chat by @sonichi in https://github.com/microsoft/autogen/pull/294\n* fix typo in website/blog/2023-05-18-GPT-adaptive-humaneval/index.mdx by @suravkshrestha in https://github.com/microsoft/autogen/pull/299",
           "publishedAt": "2023-10-19T23:57:56Z",
           "htmlUrl": "https://github.com/microsoft/autogen/releases/tag/v0.1.12",
           "prerelease": false
@@ -1609,9 +1609,17 @@
       "id": "crewai",
       "name": "CrewAI",
       "repo": "crewAIInc/crewAI",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "1.15.40",
+          "name": "1.15.40",
+          "body": "## What's Changed\n\n### Features\n- Remove chromadb from the embedding function layer.\n- Add exact historical state lookup by row id.\n- Wire jsonl into rag data type discovery.\n- Scaffold standalone agents as JSON by default.\n- Add backend record lifecycle and pagination tests.\n\n### Bug Fixes\n- Run after_llm_call hooks on async calls.\n- Stop an agent whose apps CrewAI AMP cannot resolve.",
+          "publishedAt": "2026-11-11T22:19:53Z",
+          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.40",
+          "prerelease": false
+        },
         {
           "tag": "1.15.39",
           "name": "1.15.39",
@@ -2403,14 +2411,6 @@
           "publishedAt": "2026-03-26T19:07:38Z",
           "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.13.0a1",
           "prerelease": true
-        },
-        {
-          "tag": "1.12.2",
-          "name": "1.12.2",
-          "body": "## What's Changed\n\n### Features\n- Add enterprise release phase to devtools release\n\n### Bug Fixes\n- Preserve method return value as flow output for @human_feedback with emit\n\n### Documentation\n- Update changelog and version for v1.12.1\n- Revise security policy and reporting instructions",
-          "publishedAt": "2026-03-26T06:54:43Z",
-          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.12.2",
-          "prerelease": false
         }
       ]
     },
@@ -2418,7 +2418,7 @@
       "id": "llama-index",
       "name": "LlamaIndex",
       "repo": "run-llama/llama_index",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
         {
@@ -3227,7 +3227,7 @@
       "id": "langgraph",
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
         {
@@ -4036,13 +4036,13 @@
       "id": "openai-agents",
       "name": "OpenAI Agents SDK",
       "repo": "openai/openai-agents-python",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
         {
           "tag": "v0.24.0-alpha.7",
           "name": "Agents SDK v0.24.0-alpha.7",
-          "body": "# Agents SDK v0.24.0-alpha.7\n\n## Highlights\n\n- **Use Classic workflows alongside native execution.** Import the retained v0 runtime through `agents.classic`. This alpha also changes executor write defaults; review the upgrade actions before opening existing environments.\n- **Keep conversations in your own storage.** Add durable root Sessions with `CustomStorage`, and reconcile uncertain tool effects before resuming work.\n- **Add voice and hosted tools to native agents.** Connect speech workflows to a Session, or use `FileSearch`, `CodeInterpreter`, and `ImageGeneration` through compatible Responses providers.\n- **Control context, completion, and usage.** Transform model input, retain selected context during compaction, review proposed answers, and limit observed root usage.\n\n## Upgrading from 0.24.0-alpha.6\n\n- **Review Environment write policies.** New Environments default to `write_policy=\"strict\"`, which requires a compatible Linux or macOS executor. The working directory remains writable; use `writable_roots` for additional directories. To retain the previous remote policy, including on Windows executors, set `write_policy=\"legacy\"` and leave `writable_roots=None`. Local execution requires strict m",
+          "body": "# Agents SDK v0.24.0-alpha.7\n\n## Highlights\n\n- **Use Classic workflows alongside native execution.** Import the retained v0 runtime through `agents.classic`. This alpha also changes executor write defaults; review the upgrade actions before opening existing environments.\n- **Keep conversations in your own storage.** Add durable root Sessions with `CustomStorage`, and reconcile uncertain tool effects before resuming work.\n- **Add voice and hosted tools to native agents.** Connect speech workflows to a Session, or use `FileSearch`, `CodeInterpreter`, and `ImageGeneration` through compatible Responses providers.\n- **Control context, completion, and usage.** Transform model input, retain selected context during compaction, review proposed answers, and limit observed root usage.\n\n## Upgrading from 0.24.0-alpha.6\n\n- **Review Environment write policies.** New Environments default to `write_policy=\"strict\"`, which requires a compatible Linux or macOS executor. The working directory remains writable; use `writable_roots` for additional directories. To retain the previous remote policy, including on Windows executors, set `write_policy=\"legacy\"` and leave `writable_roots=None`. Local execution requires strict\u2026",
           "publishedAt": "2026-11-08T07:05:11Z",
           "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7",
           "prerelease": true
@@ -4170,7 +4170,7 @@
         {
           "tag": "v0.19.0",
           "name": "v0.19.0",
-          "body": "## Key Changes\n\nThis minor release does **not** introduce a breaking change. The minor version bump reflects a significant new OpenAI Responses feature area: Programmatic Tool Calling.\n\n### Highlights:\n\n-   Added `agents.tool.ProgrammaticToolCallingTool`, which lets supported OpenAI Responses models generate JavaScript to coordinate eligible tools. It supports per-tool `allowed_callers`, structured function-tool outputs, and integration with Runner streaming, guardrails, approvals, sessions, and `RunState`. See [Programmatic Tool Calling](https://developers.openai.com/api/docs/guides/tools-progra\n-   Added the public `agents.decorators` module and the shorter `@tool` alias alongside the existing function and guardrail decorators. Function tools now also support async callable objects.\n-   SDK configuration now consistently accepts either typed settings objects or dictionaries across agents, runs, models, sessions, sandboxes, and voice pipelines, with validation for unknown settings.\n-   Hardened error and diagnostic logging across models, tools, MCP, Realtime, sessions, sandboxes, and tracing to avoid exposing raw sensitive payloads while preserving useful debugging context.\n-   Improved AnyLLM, LiteLLM, and Chat Completions compatibility, preserved session history across model retries, and added retries for WebSocket overloads that occur before a response starts.\n-   Added `VercelCloudBucketMountStrategy`. Mounted sessions exclude bucket contents from workspace persistence and intentionally do not support dynamic mount changes or session resume.",
+          "body": "## Key Changes\n\nThis minor release does **not** introduce a breaking change. The minor version bump reflects a significant new OpenAI Responses feature area: Programmatic Tool Calling.\n\n### Highlights:\n\n-   Added `agents.tool.ProgrammaticToolCallingTool`, which lets supported OpenAI Responses models generate JavaScript to coordinate eligible tools. It supports per-tool `allowed_callers`, structured function-tool outputs, and integration with Runner streaming, guardrails, approvals, sessions, and `RunState`. See [Programmatic Tool Calling](https://developers.openai.com/api/docs/guides/tools-progr\u2026\n-   Added the public `agents.decorators` module and the shorter `@tool` alias alongside the existing function and guardrail decorators. Function tools now also support async callable objects.\n-   SDK configuration now consistently accepts either typed settings objects or dictionaries across agents, runs, models, sessions, sandboxes, and voice pipelines, with validation for unknown settings.\n-   Hardened error and diagnostic logging across models, tools, MCP, Realtime, sessions, sandboxes, and tracing to avoid exposing raw sensitive payloads while preserving useful debugging context.\n-   Improved AnyLLM, LiteLLM, and Chat Completions compatibility, preserved session history across model retries, and added retries for WebSocket overloads that occur before a response starts.\n-   Added `VercelCloudBucketMountStrategy`. Mounted sessions exclude bucket contents from workspace persistence and intentionally do not support dynamic mount changes or session resume.",
           "publishedAt": "2026-07-27T04:10:05Z",
           "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/v0.19.0",
           "prerelease": false
@@ -4274,7 +4274,7 @@
         {
           "tag": "v0.17.0",
           "name": "v0.17.0",
-          "body": "## Key Changes\n\n### RealtimeAgent's default is now gpt-realtime-2\n\nSince this version, the default model for RealtimeAgents is gpt-realtime-2: https://developers.openai.com/api/docs/models/gpt-realtime-2\n\n### Sandbox local source materialization change\n\nIn this version, sandbox local source materialization keeps `LocalFile.src` and `LocalDir.src` within the materialization `base_dir` unless the source path is covered by `Manifest.extra_path_grants`. The `base_dir` is the SDK process current working directory when the manifest is applied; relative local sources are resolved from that directory, while absolute local sources must already be inside i\n\nTo migrate, grant trusted host roots at the manifest level with `SandboxPathGrant`, preferably as read-only when the sandbox only needs to read those files:",
+          "body": "## Key Changes\n\n### RealtimeAgent's default is now gpt-realtime-2\n\nSince this version, the default model for RealtimeAgents is gpt-realtime-2: https://developers.openai.com/api/docs/models/gpt-realtime-2\n\n### Sandbox local source materialization change\n\nIn this version, sandbox local source materialization keeps `LocalFile.src` and `LocalDir.src` within the materialization `base_dir` unless the source path is covered by `Manifest.extra_path_grants`. The `base_dir` is the SDK process current working directory when the manifest is applied; relative local sources are resolved from that directory, while absolute local sources must already be inside\u2026\n\nTo migrate, grant trusted host roots at the manifest level with `SandboxPathGrant`, preferably as read-only when the sandbox only needs to read those files:",
           "publishedAt": "2026-05-08T08:09:48Z",
           "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/v0.17.0",
           "prerelease": false
@@ -4845,7 +4845,7 @@
       "id": "smolagents",
       "name": "smolagents",
       "repo": "huggingface/smolagents",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": false,
       "releases": [
         {
@@ -5142,13 +5142,13 @@
       "id": "mastra",
       "name": "Mastra",
       "repo": "mastra-ai/mastra",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
         {
           "tag": "@mastra/core@1.82.0",
           "name": "November 4, 2026",
-          "body": "## Highlights\n\n### Knowledge v2: page-tree model, richer tools, and server-side sync APIs\nKnowledge is now a first-class page tree (pages/notes/pins) with major tool upgrades: `knowledge_list`, line/section/grep-style reads in `knowledge_read`, list pinning (`kind: 'list'`), and a link index for counting/listing `[[links]]`. Apps can also sync external content via server APIs like `knowledge.upsertPage()`/`removePage()` and note upserts, with optional vector/hybrid search and chunked e\n\n### Knowledge Explorer + read-only Knowledge HTTP/JS client APIs (and SSE change stream)\nMastra Server now offers opt-in read-only Knowledge routes (tree/page/graph/search/activity) plus an SSE events stream, with matching `listKnowledge()` / `getKnowledge()` APIs in `@mastra/client-js`. These routes are scope-gated (and FGA-aware) and enable building Knowledge browsing UIs outside Studio, including link-count/link-edge endpoints when the store supports the link index.\n\n### Durable agent continuity across API restarts (fencing + shared storage requirement)\nEvented durable agents no longer stop when the API process shuts down: workers continue running, clean up, and free threads correctly, with improved run ownership isolation and safer cancellation semantics. To get true cross-process continuity you now need fencing-capable shared storage (e.g. `PostgresStore` from `@mastra/pg`) plus shared pubsub/lease infrastructure.\n\n### Background tasks + MCP: resumable \u201cinput required\u201d flows that survive reloads",
+          "body": "## Highlights\n\n### Knowledge v2: page-tree model, richer tools, and server-side sync APIs\nKnowledge is now a first-class page tree (pages/notes/pins) with major tool upgrades: `knowledge_list`, line/section/grep-style reads in `knowledge_read`, list pinning (`kind: 'list'`), and a link index for counting/listing `[[links]]`. Apps can also sync external content via server APIs like `knowledge.upsertPage()`/`removePage()` and note upserts, with optional vector/hybrid search and chunked\u2026\n\n### Knowledge Explorer + read-only Knowledge HTTP/JS client APIs (and SSE change stream)\nMastra Server now offers opt-in read-only Knowledge routes (tree/page/graph/search/activity) plus an SSE events stream, with matching `listKnowledge()` / `getKnowledge()` APIs in `@mastra/client-js`. These routes are scope-gated (and FGA-aware) and enable building Knowledge browsing UIs outside Studio, including link-count/link-edge endpoints when the store supports the link index.\n\n### Durable agent continuity across API restarts (fencing + shared storage requirement)\nEvented durable agents no longer stop when the API process shuts down: workers continue running, clean up, and free threads correctly, with improved run ownership isolation and safer cancellation semantics. To get true cross-process continuity you now need fencing-capable shared storage (e.g. `PostgresStore` from `@mastra/pg`) plus shared pubsub/lease infrastructure.\n\n### Background tasks + MCP: resumable \u201cinput required\u201d flows that survive reloads",
           "publishedAt": "2026-11-04T10:59:56Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.82.0",
           "prerelease": false
@@ -5172,7 +5172,7 @@
         {
           "tag": "@mastra/core@1.79.0",
           "name": "October 21, 2026",
-          "body": "## Highlights\n\n### MCP Events (poll/stream/webhooks + Studio inspection)\nExperimental MCP Events (SEP-3415 draft) let MCP servers publish event streams that clients can poll, keep a stream open for, or receive via signed webhooks. Core/server/client add inspection APIs so Studio can list event types, stream occurrences, and test-emit events under `mastra dev`.\n\n### Observability Upgrades: Span Aggregation + \u201cTime to First Chunk\u201d + Richer Trace/Span Querying\nNew `aggregateSpans()` storage contract enables per-span analytics (e.g., p95 latency per tool, token/cost per agent) via the `span-aggregate` feature. Observability queries gain `timeToFirstChunkMs` fields, filtering, and sorting, plus expanded trace-scope fields (root `entityId`, root `name`, root `spanType`) and richer `querySpans()` context/parent/root-entity filters (with updated store capabi\n\n### Agent Controller Sessions Move to Session IDs (Multi-session per resource)\nSessions are now addressed by `sessionId` (not `resourceId + scope`) across core, server, and client-js, enabling many sessions per resource while keeping `resourceId` as the memory/thread owner key. New APIs include `controller.getSession(sessionId)`, updated `createSession()`/`deleteSession()` signatures, and server routes under `/agent-controller/:controllerId/sessions/:sessionId/...`.\n\n### Sandboxes Get a Native Filesystem API (Faster workspace operations)",
+          "body": "## Highlights\n\n### MCP Events (poll/stream/webhooks + Studio inspection)\nExperimental MCP Events (SEP-3415 draft) let MCP servers publish event streams that clients can poll, keep a stream open for, or receive via signed webhooks. Core/server/client add inspection APIs so Studio can list event types, stream occurrences, and test-emit events under `mastra dev`.\n\n### Observability Upgrades: Span Aggregation + \u201cTime to First Chunk\u201d + Richer Trace/Span Querying\nNew `aggregateSpans()` storage contract enables per-span analytics (e.g., p95 latency per tool, token/cost per agent) via the `span-aggregate` feature. Observability queries gain `timeToFirstChunkMs` fields, filtering, and sorting, plus expanded trace-scope fields (root `entityId`, root `name`, root `spanType`) and richer `querySpans()` context/parent/root-entity filters (with updated store capab\u2026\n\n### Agent Controller Sessions Move to Session IDs (Multi-session per resource)\nSessions are now addressed by `sessionId` (not `resourceId + scope`) across core, server, and client-js, enabling many sessions per resource while keeping `resourceId` as the memory/thread owner key. New APIs include `controller.getSession(sessionId)`, updated `createSession()`/`deleteSession()` signatures, and server routes under `/agent-controller/:controllerId/sessions/:sessionId/...`.\n\n### Sandboxes Get a Native Filesystem API (Faster workspace operations)",
           "publishedAt": "2026-10-21T12:28:33Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.79.0",
           "prerelease": false
@@ -5180,7 +5180,7 @@
         {
           "tag": "@mastra/core@1.78.0",
           "name": "October 15, 2026",
-          "body": "## Highlights\n\n### Agent Scopes (multi-tenant identity + safer memory/thread routing)\nAgents now support `scopes` (`<type>:<value>`) passed per call, configured on the agent, or injected by trusted middleware via `MASTRA_SCOPES_KEY`; Mastra merges all three. Memory can derive `resource` and `thread` from `resource:`/`thread:` scopes (with conflicts now returning HTTP 400), nested calls can choose their own thread, and resumed runs preserve their original scopes (no adding new ones)\n\n### Trace Aggregation API (server + client + React)\nMastra adds trace aggregation end-to-end: `POST /observability/traces/aggregate` is discoverable via `GET /observability/capabilities` (`traceAggregate`), clients get `mastraClient.aggregateTraces()`, and React adds `useTraceAggregateAvailable()`. Field discovery now returns an `aggregate` schema describing valid group-by dimensions and measures.\n\n### Typed Signal Queueing for Agents (`queueSignal`)\nYou can now queue a typed signal behind the active run\u2014without degrading it into a plain user message\u2014via `Agent.queueSignal()` / session support and the new server route `POST /agents/:agentId/queue-signal`. Runs triggered by a signal also record signal metadata on the `AGENT_RUN` span for better traceability.\n\n### Faster, more usable trace lists with stored input/output/error previews",
+          "body": "## Highlights\n\n### Agent Scopes (multi-tenant identity + safer memory/thread routing)\nAgents now support `scopes` (`<type>:<value>`) passed per call, configured on the agent, or injected by trusted middleware via `MASTRA_SCOPES_KEY`; Mastra merges all three. Memory can derive `resource` and `thread` from `resource:`/`thread:` scopes (with conflicts now returning HTTP 400), nested calls can choose their own thread, and resumed runs preserve their original scopes (no adding new ones\u2026\n\n### Trace Aggregation API (server + client + React)\nMastra adds trace aggregation end-to-end: `POST /observability/traces/aggregate` is discoverable via `GET /observability/capabilities` (`traceAggregate`), clients get `mastraClient.aggregateTraces()`, and React adds `useTraceAggregateAvailable()`. Field discovery now returns an `aggregate` schema describing valid group-by dimensions and measures.\n\n### Typed Signal Queueing for Agents (`queueSignal`)\nYou can now queue a typed signal behind the active run\u2014without degrading it into a plain user message\u2014via `Agent.queueSignal()` / session support and the new server route `POST /agents/:agentId/queue-signal`. Runs triggered by a signal also record signal metadata on the `AGENT_RUN` span for better traceability.\n\n### Faster, more usable trace lists with stored input/output/error previews",
           "publishedAt": "2026-10-16T08:13:10Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.78.0",
           "prerelease": false
@@ -5252,7 +5252,7 @@
         {
           "tag": "@mastra/core@1.69.0",
           "name": "September 23, 2026",
-          "body": "## Highlights\n\n### Classifiers as a First-Class Primitive (Core + Workflows)\nMastra now supports registering classifiers on `new Mastra({ classifiers })`, with a full management API (`getClassifier*`, `listClassifiers`, `addClassifier`, `removeClassifier`) and automatic root tracing for classifier evaluations. Those configured classifiers can also be used as typed workflow steps (including fluent + dynamic graphs) to power typed branching/conditional control flow with toke\n\n### Policy Enforcement with `ClassifierProcessor` (Input/Output/Streaming)\nNew `ClassifierProcessor` lets you apply typed classifier policies to agent input, output, and streaming content, enabling safety/routing gates with explicit abort behavior. It now **fails closed by default** (abort on classifier failure), with an opt-in `errorStrategy: 'warn'` to preserve prior fail-open behavior.\n\n### Native Background Tool Execution with `context.background.adopt()`\nTools can now acknowledge immediately while handing a long-running native background operation to Mastra via `context.background.adopt({ completion, cancel })`, so execution can track completion/cancellation without keeping `execute()` pending. This enables cleaner async/background tool patterns (with the caveat that adopted handles are in-memory and don\u2019t resume after restart).\n\n### Connected SaaS Tools at Scale via `@mastra/connect` (New Generated Providers)",
+          "body": "## Highlights\n\n### Classifiers as a First-Class Primitive (Core + Workflows)\nMastra now supports registering classifiers on `new Mastra({ classifiers })`, with a full management API (`getClassifier*`, `listClassifiers`, `addClassifier`, `removeClassifier`) and automatic root tracing for classifier evaluations. Those configured classifiers can also be used as typed workflow steps (including fluent + dynamic graphs) to power typed branching/conditional control flow with tok\u2026\n\n### Policy Enforcement with `ClassifierProcessor` (Input/Output/Streaming)\nNew `ClassifierProcessor` lets you apply typed classifier policies to agent input, output, and streaming content, enabling safety/routing gates with explicit abort behavior. It now **fails closed by default** (abort on classifier failure), with an opt-in `errorStrategy: 'warn'` to preserve prior fail-open behavior.\n\n### Native Background Tool Execution with `context.background.adopt()`\nTools can now acknowledge immediately while handing a long-running native background operation to Mastra via `context.background.adopt({ completion, cancel })`, so execution can track completion/cancellation without keeping `execute()` pending. This enables cleaner async/background tool patterns (with the caveat that adopted handles are in-memory and don\u2019t resume after restart).\n\n### Connected SaaS Tools at Scale via `@mastra/connect` (New Generated Providers)",
           "publishedAt": "2026-09-24T06:58:56Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.69.0",
           "prerelease": false
@@ -5396,7 +5396,7 @@
         {
           "tag": "@mastra/core@1.51.0",
           "name": "July 15, 2026",
-          "body": "## Highlights\n\n### Durable Agent Crash Recovery (server + client + boot-time)\nDurable agents can now discover and recover orphaned **RUNNING** runs after a restart via `DurableAgent.listActiveRuns()`, `recover()`, and `recoverActiveRuns()`, plus `Mastra.recoverAllDurableAgents()` and an opt-in `MastraConfig.recovery: { durableAgents: 'auto' }` for boot-time recovery. There\u2019s also a standard HTTP/client surface (`POST /agents/:agentId/recover` + `client-js` `agent.recover({ \n\n### Scoped AgentController Sessions (parallel sessions per resource)\n`AgentController` sessions now support a `scope`/`sessionScope`, allowing multiple independent sessions to run in parallel over the same `resourceId` (e.g., one per git worktree) without sharing run loops, threads, or state. The scope is also exposed in request context for integrations, and controller APIs now report run activity (`running` + per-thread `state`) for better UIs.\n\n### New Workspace + Sandbox Providers for Mastra Platform\nA new package, `@mastra/platform-workspace@0.1.0`, adds `PlatformFilesystem` and `PlatformSandbox` providers that connect agents to Mastra Platform sandboxes and bucket-backed filesystems via the workspace-proxy API. This enables running workspace-dependent tooling against Platform-managed infrastructure with env-var or config-based setup.\n\n### Mastra Code SDK Now Public + More Extensible Integrations",
+          "body": "## Highlights\n\n### Durable Agent Crash Recovery (server + client + boot-time)\nDurable agents can now discover and recover orphaned **RUNNING** runs after a restart via `DurableAgent.listActiveRuns()`, `recover()`, and `recoverActiveRuns()`, plus `Mastra.recoverAllDurableAgents()` and an opt-in `MastraConfig.recovery: { durableAgents: 'auto' }` for boot-time recovery. There\u2019s also a standard HTTP/client surface (`POST /agents/:agentId/recover` + `client-js` `agent.recover({\u2026\n\n### Scoped AgentController Sessions (parallel sessions per resource)\n`AgentController` sessions now support a `scope`/`sessionScope`, allowing multiple independent sessions to run in parallel over the same `resourceId` (e.g., one per git worktree) without sharing run loops, threads, or state. The scope is also exposed in request context for integrations, and controller APIs now report run activity (`running` + per-thread `state`) for better UIs.\n\n### New Workspace + Sandbox Providers for Mastra Platform\nA new package, `@mastra/platform-workspace@0.1.0`, adds `PlatformFilesystem` and `PlatformSandbox` providers that connect agents to Mastra Platform sandboxes and bucket-backed filesystems via the workspace-proxy API. This enables running workspace-dependent tooling against Platform-managed infrastructure with env-var or config-based setup.\n\n### Mastra Code SDK Now Public + More Extensible Integrations",
           "publishedAt": "2026-07-15T13:33:44Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.51.0",
           "prerelease": false
@@ -5412,7 +5412,7 @@
         {
           "tag": "@mastra/core@1.49.0",
           "name": "July 3, 2026",
-          "body": "## Highlights\n\n### Opt-in Storage Retention + `storage.prune()` (Core + Postgres/libSQL/MongoDB)\nMastra now supports per-domain/per-table retention policies (`retention: { ...maxAge }`) and a safe, batched, resumable `storage.prune()` to delete aged data across major \u201cgrowth\u201d tables (memory, observability spans, workflow snapshots, background tasks, experiments, schedules, etc.). Postgres/libSQL/MongoDB adapters add first-class pruning implementations (including partition/chunk drops for v-ne\n\n### Multi-tenant Isolation for Datasets, Experiments, Scores, and Scorers\nEnd-to-end optional `organizationId`/`projectId` scoping was added across dataset and experiment reads/deletes (including storage-layer predicates to prevent cross-tenant access), plus tenancy metadata for persisted scores and stored scorer definitions with scoped list APIs. Server routes and client-js methods also accept tenancy parameters so HTTP and SDK usage can enforce the same isolation.\n\n### Persisted Trace Scoring APIs (`scoreTrace`, `scoreTraceBatch`) + Score Provenance\nNew `scoreTrace()` and `scoreTraceBatch()` let you score already-stored traces without re-running agents, using an existing scorer instance and bounded concurrency for batches. Persisted scores now optionally include `batchId`, `datasetId`, and `datasetItemId` so baseline scoring passes can be grouped and joined back to dataset items across supported stores.\n\n### Agent Authoring & Runtime Improvements (Nested Subagents, Durable Parity, Model Router Safety)",
+          "body": "## Highlights\n\n### Opt-in Storage Retention + `storage.prune()` (Core + Postgres/libSQL/MongoDB)\nMastra now supports per-domain/per-table retention policies (`retention: { ...maxAge }`) and a safe, batched, resumable `storage.prune()` to delete aged data across major \u201cgrowth\u201d tables (memory, observability spans, workflow snapshots, background tasks, experiments, schedules, etc.). Postgres/libSQL/MongoDB adapters add first-class pruning implementations (including partition/chunk drops for v-n\u2026\n\n### Multi-tenant Isolation for Datasets, Experiments, Scores, and Scorers\nEnd-to-end optional `organizationId`/`projectId` scoping was added across dataset and experiment reads/deletes (including storage-layer predicates to prevent cross-tenant access), plus tenancy metadata for persisted scores and stored scorer definitions with scoped list APIs. Server routes and client-js methods also accept tenancy parameters so HTTP and SDK usage can enforce the same isolation.\n\n### Persisted Trace Scoring APIs (`scoreTrace`, `scoreTraceBatch`) + Score Provenance\nNew `scoreTrace()` and `scoreTraceBatch()` let you score already-stored traces without re-running agents, using an existing scorer instance and bounded concurrency for batches. Persisted scores now optionally include `batchId`, `datasetId`, and `datasetItemId` so baseline scoring passes can be grouped and joined back to dataset items across supported stores.\n\n### Agent Authoring & Runtime Improvements (Nested Subagents, Durable Parity, Model Router Safety)",
           "publishedAt": "2026-07-07T07:59:25Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.49.0",
           "prerelease": false
@@ -5428,7 +5428,7 @@
         {
           "tag": "@mastra/core@1.47.0",
           "name": "June 26, 2026",
-          "body": "## Highlights\n\n### AI SDK v7 (LanguageModelV4) support + upgraded model router\nAgents can now accept AI SDK v7 provider models directly (`LanguageModelV4`), while still supporting v4/v5/v6; Mastra auto-detects model spec versions so you can mix providers across agents. The model router was upgraded to resolve V4 models natively, and `modelSettings` adds a new `reasoning` effort control for V4-capable providers.\n\n### DurableAgent API parity (stream/resume/generate) + better cancellation & tracing\n`DurableAgent` now mirrors `Agent` across stream/resume/generate, including full `AgentExecutionOptions` support (model settings, stop conditions, transforms, per-call instructions/system, tracing options, actor, etc.). New abort surfaces (`abortSignal`, `result.abort()`, `onAbort`) and forwarded abort to delegated subagents improve control, and durable runs now emit richer `AGENT_RUN` span metada\n\n### Gateway-first model discovery & auth via new `GatewayManager` (Harness hooks removed)\nHarness now sources model catalog, auth status, mode agents, observational-memory models, and subagents entirely from registered `gateways` (no fallback to `resolveModel`, `customModelCatalogProvider`, or `modelAuthChecker`, which were removed). Shared gateway operations are centralized in a new `GatewayManager` exported from `@mastra/core`, and gateways can implement `handlesModel` to claim bare \n\n### AgentController becomes the canonical \u201cHarness\u201d surface across core/server/client",
+          "body": "## Highlights\n\n### AI SDK v7 (LanguageModelV4) support + upgraded model router\nAgents can now accept AI SDK v7 provider models directly (`LanguageModelV4`), while still supporting v4/v5/v6; Mastra auto-detects model spec versions so you can mix providers across agents. The model router was upgraded to resolve V4 models natively, and `modelSettings` adds a new `reasoning` effort control for V4-capable providers.\n\n### DurableAgent API parity (stream/resume/generate) + better cancellation & tracing\n`DurableAgent` now mirrors `Agent` across stream/resume/generate, including full `AgentExecutionOptions` support (model settings, stop conditions, transforms, per-call instructions/system, tracing options, actor, etc.). New abort surfaces (`abortSignal`, `result.abort()`, `onAbort`) and forwarded abort to delegated subagents improve control, and durable runs now emit richer `AGENT_RUN` span metad\u2026\n\n### Gateway-first model discovery & auth via new `GatewayManager` (Harness hooks removed)\nHarness now sources model catalog, auth status, mode agents, observational-memory models, and subagents entirely from registered `gateways` (no fallback to `resolveModel`, `customModelCatalogProvider`, or `modelAuthChecker`, which were removed). Shared gateway operations are centralized in a new `GatewayManager` exported from `@mastra/core`, and gateways can implement `handlesModel` to claim bare\u2026\n\n### AgentController becomes the canonical \u201cHarness\u201d surface across core/server/client",
           "publishedAt": "2026-07-01T08:45:21Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.47.0",
           "prerelease": false
@@ -5436,7 +5436,7 @@
         {
           "tag": "@mastra/core@1.46.0",
           "name": "June 24, 2026",
-          "body": "## Highlights\n\n### Multi-session Harness architecture (Session-first APIs)\nHarness is now a pure factory/shared-resource owner: create isolated sessions via `harness.createSession()` (get-or-create by `resourceId`), with run control, state, event bus, model/mode switching, permissions, OM, subagent settings, and thread lifecycle all moved onto `Session` domains (e.g. `session.sendMessage()`, `session.thread.*`, `session.model.switch()`, `session.subscribe()`), enabling s\n\n### Drive Harness sessions over HTTP (and from the JS client)\nRegistered harnesses on `Mastra` can now be operated via new `harness`-scoped server routes (send/steer/abort/approve tool calls, manage threads, read state, and subscribe via SSE), and `@mastra/client-js` adds a first-class `harness` resource (`client.getHarness(id).session(resourceId)`) to control sessions remotely.\n\n### Cross-process signal delivery with distributed leasing + new `accepted` contract\nSignal/message APIs now return an `accepted` promise resolving to a discriminated routing decision (`wake`/`deliver`/`persist`/`discard`) with authoritative `runId` when applicable, and introduce a `LeaseProvider` abstraction (in-memory and Redis Streams implementations) to ensure only one process owns/wakes a thread run in multi-instance/serverless deployments.\n\n### Deterministic agent experiments with item-level tool mocks + multi-tenant datasets/experiments",
+          "body": "## Highlights\n\n### Multi-session Harness architecture (Session-first APIs)\nHarness is now a pure factory/shared-resource owner: create isolated sessions via `harness.createSession()` (get-or-create by `resourceId`), with run control, state, event bus, model/mode switching, permissions, OM, subagent settings, and thread lifecycle all moved onto `Session` domains (e.g. `session.sendMessage()`, `session.thread.*`, `session.model.switch()`, `session.subscribe()`), enabling\u2026\n\n### Drive Harness sessions over HTTP (and from the JS client)\nRegistered harnesses on `Mastra` can now be operated via new `harness`-scoped server routes (send/steer/abort/approve tool calls, manage threads, read state, and subscribe via SSE), and `@mastra/client-js` adds a first-class `harness` resource (`client.getHarness(id).session(resourceId)`) to control sessions remotely.\n\n### Cross-process signal delivery with distributed leasing + new `accepted` contract\nSignal/message APIs now return an `accepted` promise resolving to a discriminated routing decision (`wake`/`deliver`/`persist`/`discard`) with authoritative `runId` when applicable, and introduce a `LeaseProvider` abstraction (in-memory and Redis Streams implementations) to ensure only one process owns/wakes a thread run in multi-instance/serverless deployments.\n\n### Deterministic agent experiments with item-level tool mocks + multi-tenant datasets/experiments",
           "publishedAt": "2026-06-24T16:40:41Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.46.0",
           "prerelease": false
@@ -5532,7 +5532,7 @@
         {
           "tag": "@mastra/core@1.32.0",
           "name": "May 4, 2026",
-          "body": "## Highlights\n\n### Fine-Grained Authorization (FGA) across Mastra (core + server adapters + MCP)\nMastra now supports relationship-based, resource-level authorization with centralized enforcement before agent runs (`generate()`/`stream()`), tool/workflow execution, and memory thread access via new `IFGAProvider`/`IFGAManager` + `checkFGA()`/`FGADeniedError`. FGA is also enforced consistently in `@mastra/server` handlers, all built-in server adapters (Express/Fastify/Hono/Koa), and MCP tool exe\n\n### WorkOS-backed FGA provider (`@mastra/auth-workos`)\nNew `MastraFGAWorkos` implements `IFGAManager` on top of the WorkOS Authorization API, including check/require/filterAccessible, resource CRUD, role assignments, org scoping, JWT/bearer-token context handling, and permission/resource mappings for multi-tenant setups.\n\n### Scheduled Workflows (cron-native) + scheduler + full HTTP/Studio/client support\nWorkflows can now declare `schedule` in `createWorkflow()` to run on cron with automatic promotion to the evented engine, type-checked `inputData/initialState/requestContext`, and safe multi-instance claiming (CAS) via `WorkflowScheduler`. End-to-end support includes new `schedules` storage domains/adapters (PG/LibSQL/MongoDB + in-memory for tests), new `@mastra/server` routes + `@mastra/client-js\n\n### MCP Apps: interactive UI resources over MCP (SEP-1865) + resource listing/reading APIs",
+          "body": "## Highlights\n\n### Fine-Grained Authorization (FGA) across Mastra (core + server adapters + MCP)\nMastra now supports relationship-based, resource-level authorization with centralized enforcement before agent runs (`generate()`/`stream()`), tool/workflow execution, and memory thread access via new `IFGAProvider`/`IFGAManager` + `checkFGA()`/`FGADeniedError`. FGA is also enforced consistently in `@mastra/server` handlers, all built-in server adapters (Express/Fastify/Hono/Koa), and MCP tool ex\u2026\n\n### WorkOS-backed FGA provider (`@mastra/auth-workos`)\nNew `MastraFGAWorkos` implements `IFGAManager` on top of the WorkOS Authorization API, including check/require/filterAccessible, resource CRUD, role assignments, org scoping, JWT/bearer-token context handling, and permission/resource mappings for multi-tenant setups.\n\n### Scheduled Workflows (cron-native) + scheduler + full HTTP/Studio/client support\nWorkflows can now declare `schedule` in `createWorkflow()` to run on cron with automatic promotion to the evented engine, type-checked `inputData/initialState/requestContext`, and safe multi-instance claiming (CAS) via `WorkflowScheduler`. End-to-end support includes new `schedules` storage domains/adapters (PG/LibSQL/MongoDB + in-memory for tests), new `@mastra/server` routes + `@mastra/client-j\u2026\n\n### MCP Apps: interactive UI resources over MCP (SEP-1865) + resource listing/reading APIs",
           "publishedAt": "2026-05-06T11:16:14Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.32.0",
           "prerelease": false
@@ -5572,7 +5572,7 @@
         {
           "tag": "@mastra/core@1.27.0",
           "name": "April 23, 2026",
-          "body": "## Highlights\n\n### CLI-Driven Browser Automation + Screencasts\n\n`@mastra/core` and the new `@mastra/browser-viewer` package add end-to-end browser automation for CLI-based agent workflows. `BrowserViewer` launches Chrome via Playwright with remote debugging, and a new `BrowserCliHandler` automatically detects browser CLIs (`agent-browser`, `browser-use`, `browse`) and injects the CDP URL into commands \u2014 no manual wiring needed. Browser sessions are thread-isol\n\n### S3 \u201cPrefix Mounts\u201d Across Workspace Providers\n\nWorkspace packages (`@mastra/s3`, `@mastra/daytona`, `@mastra/e2b`, and `@mastra/blaxel`) now support mounting an S3 subdirectory via a `prefix` option, so sandboxes can expose only a folder within a bucket instead of the entire bucket.\n\n### More Robust Workflow Resumes for Parallel `foreach`",
+          "body": "## Highlights\n\n### CLI-Driven Browser Automation + Screencasts\n\n`@mastra/core` and the new `@mastra/browser-viewer` package add end-to-end browser automation for CLI-based agent workflows. `BrowserViewer` launches Chrome via Playwright with remote debugging, and a new `BrowserCliHandler` automatically detects browser CLIs (`agent-browser`, `browser-use`, `browse`) and injects the CDP URL into commands \u2014 no manual wiring needed. Browser sessions are thread-iso\u2026\n\n### S3 \u201cPrefix Mounts\u201d Across Workspace Providers\n\nWorkspace packages (`@mastra/s3`, `@mastra/daytona`, `@mastra/e2b`, and `@mastra/blaxel`) now support mounting an S3 subdirectory via a `prefix` option, so sandboxes can expose only a folder within a bucket instead of the entire bucket.\n\n### More Robust Workflow Resumes for Parallel `foreach`",
           "publishedAt": "2026-04-24T09:58:42Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.27.0",
           "prerelease": false
@@ -5580,7 +5580,7 @@
         {
           "tag": "@mastra/core@1.26.0",
           "name": "April 22, 2026",
-          "body": "## Highlights\n\n### Background Tasks (Async Tool Execution + APIs + Storage Support)\nAgents can now dispatch slow tool calls as background tasks while the main conversation keeps streaming, then inject results back into the loop when they finish. This comes with new `/api/background-tasks` endpoints (list/get/SSE stream), client methods (`listBackgroundTasks`, `getBackgroundTask`, `streamBackgroundTasks`), and new `BackgroundTasksStorage` domain implementations across major storag\n\n### New Redis Storage Adapter (`@mastra/redis`)\nIntroduces `@mastra/redis`, a Redis-backed Mastra storage provider (memory/workflows/scores) using the official node-redis client, with flexible connection options including connection strings or injected preconfigured clients.\n\n### Netlify Edge Deployment Target\n`NetlifyDeployer` adds a `target: 'edge'` option to deploy as Netlify Edge Functions (Deno at the edge) with CPU-time limits instead of hard wall-clock timeouts\u2014better suited for longer-running AI workflows than 60s serverless limits.\n\n### Observability: RAG Runs in Traces + Lightweight Trace/Span Fetching",
+          "body": "## Highlights\n\n### Background Tasks (Async Tool Execution + APIs + Storage Support)\nAgents can now dispatch slow tool calls as background tasks while the main conversation keeps streaming, then inject results back into the loop when they finish. This comes with new `/api/background-tasks` endpoints (list/get/SSE stream), client methods (`listBackgroundTasks`, `getBackgroundTask`, `streamBackgroundTasks`), and new `BackgroundTasksStorage` domain implementations across major stora\u2026\n\n### New Redis Storage Adapter (`@mastra/redis`)\nIntroduces `@mastra/redis`, a Redis-backed Mastra storage provider (memory/workflows/scores) using the official node-redis client, with flexible connection options including connection strings or injected preconfigured clients.\n\n### Netlify Edge Deployment Target\n`NetlifyDeployer` adds a `target: 'edge'` option to deploy as Netlify Edge Functions (Deno at the edge) with CPU-time limits instead of hard wall-clock timeouts\u2014better suited for longer-running AI workflows than 60s serverless limits.\n\n### Observability: RAG Runs in Traces + Lightweight Trace/Span Fetching",
           "publishedAt": "2026-04-28T13:18:31Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.26.0",
           "prerelease": false
@@ -5652,7 +5652,7 @@
         {
           "tag": "@mastra/core@1.9.0",
           "name": "March 4, 2026",
-          "body": "## Highlights\n\n ### Major Workspace & Sandbox upgrades (token-aware output, mounts, process control, LSP resolution)\n Workspaces get significant capabilities: workspace tool output is now token-limited, ANSI-stripped for model context, and `.gitignore`-aware to reduce token usage. Sandbox commands support `abortSignal` for cancellation, plus background process streaming callbacks (`onStdout`/`onStderr`/`onExit`), and local symlink mounts in `LocalSandbox`. Tools can be exposed under custom names via `WorkspaceTo\n\n### End-to-end Auth + RBAC across Server, Studio, and Providers\nMastra now ships a pluggable auth system (`@mastra/core/auth`) plus server-side auth routes and convention-based route permission enforcement (`@mastra/server` + all server adapters). New auth provider packages (`@mastra/auth-cloud`, `@mastra/auth-studio`, `@mastra/auth-workos`) add OAuth/SSO, session management, and RBAC\u2014Studio UI also gains permission-gated auth screens/components.\n\n### Workflow execution path tracking + concurrent-safe workflow snapshot updates\n\nWorkflow results now include `stepExecutionPath` (also available mid-execution and preserved across resume/restart), and execution logs are smaller by deduping payloads. Storage backends add atomic `updateWorkflowResults`/`updateWorkflowState` with a `supportsConcurrentUpdates()` check\u2014enabling safer concurrent workflow updates (supported in e.g. Postgres/LibSQL/MongoDB/DynamoDB/Upstash; explicitl",
+          "body": "## Highlights\n\n ### Major Workspace & Sandbox upgrades (token-aware output, mounts, process control, LSP resolution)\n Workspaces get significant capabilities: workspace tool output is now token-limited, ANSI-stripped for model context, and `.gitignore`-aware to reduce token usage. Sandbox commands support `abortSignal` for cancellation, plus background process streaming callbacks (`onStdout`/`onStderr`/`onExit`), and local symlink mounts in `LocalSandbox`. Tools can be exposed under custom names via `WorkspaceT\u2026\n\n### End-to-end Auth + RBAC across Server, Studio, and Providers\nMastra now ships a pluggable auth system (`@mastra/core/auth`) plus server-side auth routes and convention-based route permission enforcement (`@mastra/server` + all server adapters). New auth provider packages (`@mastra/auth-cloud`, `@mastra/auth-studio`, `@mastra/auth-workos`) add OAuth/SSO, session management, and RBAC\u2014Studio UI also gains permission-gated auth screens/components.\n\n### Workflow execution path tracking + concurrent-safe workflow snapshot updates\n\nWorkflow results now include `stepExecutionPath` (also available mid-execution and preserved across resume/restart), and execution logs are smaller by deduping payloads. Storage backends add atomic `updateWorkflowResults`/`updateWorkflowState` with a `supportsConcurrentUpdates()` check\u2014enabling safer concurrent workflow updates (supported in e.g. Postgres/LibSQL/MongoDB/DynamoDB/Upstash; explicit\u2026",
           "publishedAt": "2026-03-04T14:48:52Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.9.0",
           "prerelease": false
@@ -5692,7 +5692,7 @@
         {
           "tag": "@mastra/core@1.4.0",
           "name": "February 13, 2026",
-          "body": "## Highlights\n\n### Datasets & Experiments (core + server + Studio UI)\n\nMastra now has first-class evaluation primitives: versioned Datasets (with JSON Schema validation and SCD-2 item versioning) and Experiments that run agents against datasets with configurable scorers and result tracking. This ships end-to-end across `@mastra/core` APIs, new `/datasets` REST endpoints in `@mastra/server`, and a full Studio UI for managing datasets, triggering experiments, and compa\n\n### Workspace & Filesystem Lifecycle + Safer Filesystem Introspection\n\nWorkspace lifecycle interfaces were split into `FilesystemLifecycle` and `SandboxLifecycle`, and `MastraFilesystem` now supports `onInit`/`onDestroy` callbacks. Filesystem path resolution and metadata were improved (generic `FilesystemInfo<TMetadata>`, provider-specific metadata, safer instructions for uncontained filesystems) and filesystem info is now exposed via the workspaces API response.\n\n### Workflow foreach Progress Streaming",
+          "body": "## Highlights\n\n### Datasets & Experiments (core + server + Studio UI)\n\nMastra now has first-class evaluation primitives: versioned Datasets (with JSON Schema validation and SCD-2 item versioning) and Experiments that run agents against datasets with configurable scorers and result tracking. This ships end-to-end across `@mastra/core` APIs, new `/datasets` REST endpoints in `@mastra/server`, and a full Studio UI for managing datasets, triggering experiments, and comp\u2026\n\n### Workspace & Filesystem Lifecycle + Safer Filesystem Introspection\n\nWorkspace lifecycle interfaces were split into `FilesystemLifecycle` and `SandboxLifecycle`, and `MastraFilesystem` now supports `onInit`/`onDestroy` callbacks. Filesystem path resolution and metadata were improved (generic `FilesystemInfo<TMetadata>`, provider-specific metadata, safer instructions for uncontained filesystems) and filesystem info is now exposed via the workspaces API response.\n\n### Workflow foreach Progress Streaming",
           "publishedAt": "2026-02-16T16:45:52Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra/core%401.4.0",
           "prerelease": false
@@ -5708,7 +5708,7 @@
         {
           "tag": "mastra@1.2.0",
           "name": "February 4, 2026",
-          "body": "## Highlights\n\n### Observational Memory for long-running agents\n\nObservational Memory is a new Mastra Memory feature which makes small context windows behave like large ones, while retaining long-term memory. It compresses conversations into dense observations logs (5\u201340x smaller than raw messages). When observations grow too long, they're condensed into reflections. Supports thread and resource scopes. It requires the latest versions of `@mastra/core`, `@mastr\n\n### Skills.sh ecosystem integration (server + UI + CLI)\n\n`@mastra/server` adds skills.sh proxy endpoints (search/browse/preview/install/update/remove), Studio adds an \u201cAdd Skill\u201d dialog for browsing/installing skills, and the CLI wizard can optionally install Mastra skills during `create-mastra` (with non-interactive `--skills` support).\n\n### Dynamic tool discovery with `ToolSearchProcessor`",
+          "body": "## Highlights\n\n### Observational Memory for long-running agents\n\nObservational Memory is a new Mastra Memory feature which makes small context windows behave like large ones, while retaining long-term memory. It compresses conversations into dense observations logs (5\u201340x smaller than raw messages). When observations grow too long, they're condensed into reflections. Supports thread and resource scopes. It requires the latest versions of `@mastra/core`, `@mast\u2026\n\n### Skills.sh ecosystem integration (server + UI + CLI)\n\n`@mastra/server` adds skills.sh proxy endpoints (search/browse/preview/install/update/remove), Studio adds an \u201cAdd Skill\u201d dialog for browsing/installing skills, and the CLI wizard can optionally install Mastra skills during `create-mastra` (with non-interactive `--skills` support).\n\n### Dynamic tool discovery with `ToolSearchProcessor`",
           "publishedAt": "2026-02-04T23:13:20Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/mastra%401.2.0",
           "prerelease": false
@@ -5716,7 +5716,7 @@
         {
           "tag": "mastra@1.1.0",
           "name": "January 30, 2026",
-          "body": "## Highlights\n\n### Unified Workspace API (Filesystem + Sandbox Execution + Search + Skills)\n\nA new `Workspace` capability unifies agent-accessible filesystem operations, sandboxed command/code execution, keyword/semantic/hybrid search, and SKILL.md discovery with safety controls (read-only, approval flows, read-before-write guards). The Workspace is exposed end-to-end: core Workspace class (`@mastra/core/workspace`), server API endpoints (`/workspaces/...`), and new `@mastra/client-js` wo\n\n### Observability & Streaming Improvements (Trace Status, Better Spans, Tool Approval Tracing)\n\nTracing is more actionable: `listTraces` now returns a `status` (`success|error|running`), spans are cleaner (inherit entity metadata, remove internal spans, emit model chunk spans for all streaming chunks), and tool approval requests are visible in traces. Token accounting for Langfuse/PostHog is corrected (cached tokens separated) and default tracing tags are preserved across exporters.\n\n### Server Adapters: Serverless MCP Support + Explicit Route Auth Controls",
+          "body": "## Highlights\n\n### Unified Workspace API (Filesystem + Sandbox Execution + Search + Skills)\n\nA new `Workspace` capability unifies agent-accessible filesystem operations, sandboxed command/code execution, keyword/semantic/hybrid search, and SKILL.md discovery with safety controls (read-only, approval flows, read-before-write guards). The Workspace is exposed end-to-end: core Workspace class (`@mastra/core/workspace`), server API endpoints (`/workspaces/...`), and new `@mastra/client-js` w\u2026\n\n### Observability & Streaming Improvements (Trace Status, Better Spans, Tool Approval Tracing)\n\nTracing is more actionable: `listTraces` now returns a `status` (`success|error|running`), spans are cleaner (inherit entity metadata, remove internal spans, emit model chunk spans for all streaming chunks), and tool approval requests are visible in traces. Token accounting for Langfuse/PostHog is corrected (cached tokens separated) and default tracing tags are preserved across exporters.\n\n### Server Adapters: Serverless MCP Support + Explicit Route Auth Controls",
           "publishedAt": "2026-01-30T16:26:51Z",
           "htmlUrl": "https://github.com/mastra-ai/mastra/releases/tag/mastra%401.1.0",
           "prerelease": false
@@ -5951,9 +5951,17 @@
       "id": "ai-sdk",
       "name": "Vercel AI SDK",
       "repo": "vercel/ai",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "ai@7.0.170",
+          "name": "ai@7.0.170",
+          "body": "### Patch Changes\n\n- 91a67c2: Fix excessive CPU usage when streaming long arrays with `Output.array` or `streamObject`. Parse and validate completed elements incrementally instead of repeatedly processing the entire accumulated array on every text chunk.\n- 84b1cb0: Cancel pending send-now operations when a later stop or dispose occurs, preventing an abandoned chat's queued messages and history from being sent through a replacement transport.\n- Updated dependencies [eaeb37e]\n  - @ai-sdk/gateway@4.0.143",
+          "publishedAt": "2026-11-11T18:36:16Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%407.0.170",
+          "prerelease": false
+        },
         {
           "tag": "ai@6.0.330",
           "name": "ai@6.0.330",
@@ -5968,6 +5976,30 @@
           "body": "### Patch Changes\n\n- bdbf015: Fix excessive CPU usage when streaming long arrays with `streamObject` array output. Parse and validate completed elements incrementally instead of repeatedly processing the entire accumulated array on every text chunk.\n- Updated dependencies [71955f0]\n- Updated dependencies [7d50c2f]\n  - @ai-sdk/gateway@2.0.180",
           "publishedAt": "2026-11-11T06:14:35Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%405.0.289",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/workflow@2.0.102",
+          "name": "@ai-sdk/workflow@2.0.102",
+          "body": "### Patch Changes\n\n- efd2905: fix(workflow): End the final step's telemetry when streaming stops on a client-side tool, preserving the step span and its model call in the agent trace.\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:38:04Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow%402.0.102",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/workflow-harness@1.0.181",
+          "name": "@ai-sdk/workflow-harness@1.0.181",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:38:07Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow-harness%401.0.181",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/vue@4.0.170",
+          "name": "@ai-sdk/vue@4.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:38:01Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%404.0.170",
           "prerelease": false
         },
         {
@@ -5987,6 +6019,38 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/tui@1.0.171",
+          "name": "@ai-sdk/tui@1.0.171",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:58Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tui%401.0.171",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/tool-web-fetch@1.0.20",
+          "name": "@ai-sdk/tool-web-fetch@1.0.20",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:55Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-web-fetch%401.0.20",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/tool-bash@1.0.24",
+          "name": "@ai-sdk/tool-bash@1.0.24",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:52Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-bash%401.0.24",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/svelte@5.0.170",
+          "name": "@ai-sdk/svelte@5.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:49Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%405.0.170",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/svelte@4.0.330",
           "name": "@ai-sdk/svelte@4.0.330",
           "body": "### Patch Changes\n\n- Updated dependencies [1b19ee5]\n  - ai@6.0.330",
@@ -6000,6 +6064,30 @@
           "body": "### Patch Changes\n\n- Updated dependencies [bdbf015]\n  - ai@5.0.289",
           "publishedAt": "2026-11-11T06:15:08Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%403.0.289",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/sandbox-vercel@1.0.181",
+          "name": "@ai-sdk/sandbox-vercel@1.0.181",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:37:46Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-vercel%401.0.181",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/sandbox-just-bash@1.0.181",
+          "name": "@ai-sdk/sandbox-just-bash@1.0.181",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:37:43Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-just-bash%401.0.181",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/rsc@3.0.170",
+          "name": "@ai-sdk/rsc@3.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:40Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%403.0.170",
           "prerelease": false
         },
         {
@@ -6019,6 +6107,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/react@4.0.174",
+          "name": "@ai-sdk/react@4.0.174",
+          "body": "### Patch Changes\n\n- 37dfe49: Allow MCP Apps to load scripts and styles from origins declared in `resourceDomains`.\n- 6309382: Add support for `baseUriDomains` in MCP App CSP metadata.\n- Updated dependencies [91a67c2]\n- Updated dependencies [6309382]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170\n  - @ai-sdk/mcp@2.0.97",
+          "publishedAt": "2026-11-11T18:37:37Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%404.0.174",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/react@3.0.333",
           "name": "@ai-sdk/react@3.0.333",
           "body": "### Patch Changes\n\n- Updated dependencies [1b19ee5]\n  - ai@6.0.330",
@@ -6032,6 +6128,30 @@
           "body": "### Patch Changes\n\n- Updated dependencies [bdbf015]\n  - ai@5.0.289",
           "publishedAt": "2026-11-11T06:15:02Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%402.0.292",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/policy-opa@1.0.170",
+          "name": "@ai-sdk/policy-opa@1.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:34Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/policy-opa%401.0.170",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/otel@1.0.170",
+          "name": "@ai-sdk/otel@1.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:31Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/otel%401.0.170",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/openai@4.0.115",
+          "name": "@ai-sdk/openai@4.0.115",
+          "body": "### Patch Changes\n\n- 5a645e9: Support positioned Responses API format updates so changing structured output schemas can preserve earlier reasoning and prompt cache reuse. Add a stable request-level text format override and expose prompt cache comparison diagnostics for generation, streaming, and batch results.",
+          "publishedAt": "2026-11-11T18:37:28Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%404.0.115",
           "prerelease": false
         },
         {
@@ -6051,6 +6171,22 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/mcp@2.0.97",
+          "name": "@ai-sdk/mcp@2.0.97",
+          "body": "### Patch Changes\n\n- 6309382: Add support for `baseUriDomains` in MCP App CSP metadata.",
+          "publishedAt": "2026-11-11T18:37:25Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mcp%402.0.97",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/llamaindex@3.0.170",
+          "name": "@ai-sdk/llamaindex@3.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:22Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/llamaindex%403.0.170",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/llamaindex@2.0.330",
           "name": "@ai-sdk/llamaindex@2.0.330",
           "body": "### Patch Changes\n\n- Updated dependencies [1b19ee5]\n  - ai@6.0.330",
@@ -6064,6 +6200,14 @@
           "body": "### Patch Changes\n\n- Updated dependencies [bdbf015]\n  - ai@5.0.289",
           "publishedAt": "2026-11-11T06:14:56Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/llamaindex%401.0.289",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/langchain@3.0.170",
+          "name": "@ai-sdk/langchain@3.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:37:19Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/langchain%403.0.170",
           "prerelease": false
         },
         {
@@ -6083,11 +6227,123 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/harness@1.0.181",
+          "name": "@ai-sdk/harness@1.0.181",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:36:43Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness%401.0.181",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-pi@1.0.184",
+          "name": "@ai-sdk/harness-pi@1.0.184",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:37:16Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-pi%401.0.184",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-opencode@1.0.184",
+          "name": "@ai-sdk/harness-opencode@1.0.184",
+          "body": "### Patch Changes\n\n- aa4e711: fix(harness-opencode): ignore compacted tool parts in the bridge\n  - @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:37:13Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-opencode%401.0.184",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-grok-build@1.0.120",
+          "name": "@ai-sdk/harness-grok-build@1.0.120",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181\n- @ai-sdk/harness-acp@1.0.121",
+          "publishedAt": "2026-11-11T18:37:10Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-grok-build%401.0.120",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-github-copilot@1.0.78",
+          "name": "@ai-sdk/harness-github-copilot@1.0.78",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181\n- @ai-sdk/harness-acp@1.0.121",
+          "publishedAt": "2026-11-11T18:37:07Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-github-copilot%401.0.78",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-fx@1.0.97",
+          "name": "@ai-sdk/harness-fx@1.0.97",
+          "body": "### Patch Changes\n\n- Updated dependencies [6309382]\n  - @ai-sdk/mcp@2.0.97\n  - @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:37:04Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-fx%401.0.97",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-deepagents@1.0.181",
+          "name": "@ai-sdk/harness-deepagents@1.0.181",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:37:01Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-deepagents%401.0.181",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-cursor@1.0.96",
+          "name": "@ai-sdk/harness-cursor@1.0.96",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181\n- @ai-sdk/harness-acp@1.0.121",
+          "publishedAt": "2026-11-11T18:36:58Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-cursor%401.0.96",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-codex@1.0.183",
+          "name": "@ai-sdk/harness-codex@1.0.183",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:36:55Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-codex%401.0.183",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-cline@1.0.109",
+          "name": "@ai-sdk/harness-cline@1.0.109",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:36:52Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-cline%401.0.109",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-claude-code@1.0.185",
+          "name": "@ai-sdk/harness-claude-code@1.0.185",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:36:49Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-claude-code%401.0.185",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-acp@1.0.121",
+          "name": "@ai-sdk/harness-acp@1.0.121",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.181",
+          "publishedAt": "2026-11-11T18:36:46Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-acp%401.0.121",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/google@4.0.118",
+          "name": "@ai-sdk/google@4.0.118",
+          "body": "### Patch Changes\n\n- f703361: use the native gemini decisions api for google decision models\n- 540509c: Emit File Search and RAG document sources when streaming. Deduplicate by document URI or File Search store and title so distinct documents with matching titles and filenames are preserved.",
+          "publishedAt": "2026-11-11T18:36:37Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/google%404.0.118",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/google@2.0.111",
           "name": "@ai-sdk/google@2.0.111",
           "body": "### Patch Changes\n\n- 71955f0: Add support for the `gemini-4-carbon` model with the same capabilities as `gemini-4-argon`.",
           "publishedAt": "2026-11-11T06:14:47Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/google%402.0.111",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/google-vertex@5.0.138",
+          "name": "@ai-sdk/google-vertex@5.0.138",
+          "body": "### Patch Changes\n\n- Updated dependencies [f703361]\n- Updated dependencies [540509c]\n  - @ai-sdk/google@4.0.118",
+          "publishedAt": "2026-11-11T18:36:40Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/google-vertex%405.0.138",
           "prerelease": false
         },
         {
@@ -6107,11 +6363,43 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/gateway@4.0.143",
+          "name": "@ai-sdk/gateway@4.0.143",
+          "body": "### Patch Changes\n\n- eaeb37e: chore(provider/gateway): update gateway model settings files",
+          "publishedAt": "2026-11-11T18:36:34Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/gateway%404.0.143",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/gateway@2.0.180",
           "name": "@ai-sdk/gateway@2.0.180",
           "body": "### Patch Changes\n\n- 71955f0: Add support for the `gemini-4-carbon` model with the same capabilities as `gemini-4-argon`.\n- 7d50c2f: Backport: chore(provider/gateway): update gateway model settings files",
           "publishedAt": "2026-11-11T06:14:44Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/gateway%402.0.180",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/devtools@1.0.73",
+          "name": "@ai-sdk/devtools@1.0.73",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:36:31Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/devtools%401.0.73",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/code-mode@1.0.127",
+          "name": "@ai-sdk/code-mode@1.0.127",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:36:28Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/code-mode%401.0.127",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/azure@4.0.123",
+          "name": "@ai-sdk/azure@4.0.123",
+          "body": "### Patch Changes\n\n- Updated dependencies [5a645e9]\n  - @ai-sdk/openai@4.0.115",
+          "publishedAt": "2026-11-11T18:36:25Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/azure%404.0.123",
           "prerelease": false
         },
         {
@@ -6131,6 +6419,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/angular@3.0.170",
+          "name": "@ai-sdk/angular@3.0.170",
+          "body": "### Patch Changes\n\n- Updated dependencies [91a67c2]\n- Updated dependencies [84b1cb0]\n  - ai@7.0.170",
+          "publishedAt": "2026-11-11T18:36:22Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/angular%403.0.170",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/angular@2.0.331",
           "name": "@ai-sdk/angular@2.0.331",
           "body": "### Patch Changes\n\n- Updated dependencies [1b19ee5]\n  - ai@6.0.330",
@@ -6144,6 +6440,14 @@
           "body": "### Patch Changes\n\n- Updated dependencies [bdbf015]\n  - ai@5.0.289",
           "publishedAt": "2026-11-11T06:14:38Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/angular%401.0.289",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/amazon-bedrock@5.0.139",
+          "name": "@ai-sdk/amazon-bedrock@5.0.139",
+          "body": "### Patch Changes\n\n- Updated dependencies [5a645e9]\n  - @ai-sdk/openai@4.0.115",
+          "publishedAt": "2026-11-11T18:36:19Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/amazon-bedrock%405.0.139",
           "prerelease": false
         },
         {
@@ -6449,310 +6753,6 @@
           "publishedAt": "2026-11-10T17:52:38Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/topaz%403.0.25",
           "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/topaz@2.0.9",
-          "name": "@ai-sdk/topaz@2.0.9",
-          "body": "### Patch Changes\n\n- Updated dependencies [88bb257]\n  - @ai-sdk/provider-utils@4.0.66",
-          "publishedAt": "2026-11-10T17:48:09Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/topaz%402.0.9",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tool-web-fetch@1.0.19",
-          "name": "@ai-sdk/tool-web-fetch@1.0.19",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n- Updated dependencies [d9dd2b7]\n  - @ai-sdk/provider-utils@5.0.79\n  - ai@7.0.169",
-          "publishedAt": "2026-11-10T20:21:02Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-web-fetch%401.0.19",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tool-web-fetch@1.0.18",
-          "name": "@ai-sdk/tool-web-fetch@1.0.18",
-          "body": "### Patch Changes\n\n- Updated dependencies [65aa669]\n- Updated dependencies [8585d7e]\n- Updated dependencies [88b9575]\n  - ai@7.0.168\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:35Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-web-fetch%401.0.18",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tool-bash@1.0.23",
-          "name": "@ai-sdk/tool-bash@1.0.23",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [d9dd2b7]\n  - ai@7.0.169",
-          "publishedAt": "2026-11-10T20:20:59Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-bash%401.0.23",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tool-bash@1.0.22",
-          "name": "@ai-sdk/tool-bash@1.0.22",
-          "body": "### Patch Changes\n\n- Updated dependencies [65aa669]\n- Updated dependencies [8585d7e]\n  - ai@7.0.168",
-          "publishedAt": "2026-11-10T17:52:32Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-bash%401.0.22",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/togetherai@3.0.91",
-          "name": "@ai-sdk/togetherai@3.0.91",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n  - @ai-sdk/provider-utils@5.0.79\n  - @ai-sdk/openai-compatible@3.0.90",
-          "publishedAt": "2026-11-10T20:20:56Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/togetherai%403.0.91",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/togetherai@3.0.90",
-          "name": "@ai-sdk/togetherai@3.0.90",
-          "body": "### Patch Changes\n\n- Updated dependencies [88b9575]\n  - @ai-sdk/provider-utils@5.0.78\n  - @ai-sdk/openai-compatible@3.0.89",
-          "publishedAt": "2026-11-10T17:52:29Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/togetherai%403.0.90",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/togetherai@2.0.99",
-          "name": "@ai-sdk/togetherai@2.0.99",
-          "body": "### Patch Changes\n\n- Updated dependencies [88bb257]\n  - @ai-sdk/provider-utils@4.0.66\n  - @ai-sdk/openai-compatible@2.0.93",
-          "publishedAt": "2026-11-10T17:48:06Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/togetherai%402.0.99",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/togetherai@1.0.67",
-          "name": "@ai-sdk/togetherai@1.0.67",
-          "body": "### Patch Changes\n\n- Updated dependencies [c31e0a2]\n  - @ai-sdk/provider-utils@3.0.46\n  - @ai-sdk/openai-compatible@1.0.63",
-          "publishedAt": "2026-11-10T17:41:57Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/togetherai%401.0.67",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tencent@3.0.1",
-          "name": "@ai-sdk/tencent@3.0.1",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n  - @ai-sdk/provider-utils@5.0.79\n  - @ai-sdk/openai-compatible@3.0.90",
-          "publishedAt": "2026-11-10T20:20:53Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tencent%403.0.1",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tencent@3.0.0",
-          "name": "@ai-sdk/tencent@3.0.0",
-          "body": "### Major Changes\n\n- 1c7a311: feat(tencent): add Tencent Cloud provider with TokenHub language models and TokenHub Kling and VOD AIGC video models\n\n### Patch Changes\n\n- Updated dependencies [88b9575]\n  - @ai-sdk/provider-utils@5.0.78\n  - @ai-sdk/openai-compatible@3.0.89",
-          "publishedAt": "2026-11-10T17:52:26Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tencent%403.0.0",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tencent@2.0.0",
-          "name": "@ai-sdk/tencent@2.0.0",
-          "body": "### Major Changes\n\n- 09c3500: feat(tencent): add Tencent Cloud provider with TokenHub language models and TokenHub Kling and VOD AIGC video models",
-          "publishedAt": "2026-11-10T20:12:36Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tencent%402.0.0",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/svelte@5.0.169",
-          "name": "@ai-sdk/svelte@5.0.169",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n- Updated dependencies [d9dd2b7]\n  - @ai-sdk/provider-utils@5.0.79\n  - ai@7.0.169",
-          "publishedAt": "2026-11-10T20:20:50Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%405.0.169",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/svelte@5.0.168",
-          "name": "@ai-sdk/svelte@5.0.168",
-          "body": "### Patch Changes\n\n- 65aa669: add experimental_queue to useChat to queue messages sent while a response is in progress\n- Updated dependencies [65aa669]\n- Updated dependencies [8585d7e]\n- Updated dependencies [88b9575]\n  - ai@7.0.168\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:23Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%405.0.168",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/svelte@4.0.329",
-          "name": "@ai-sdk/svelte@4.0.329",
-          "body": "### Patch Changes\n\n- ai@6.0.329",
-          "publishedAt": "2026-11-10T20:12:33Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%404.0.329",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/svelte@4.0.328",
-          "name": "@ai-sdk/svelte@4.0.328",
-          "body": "### Patch Changes\n\n- Updated dependencies [6b9a53a]\n- Updated dependencies [88bb257]\n  - ai@6.0.328\n  - @ai-sdk/provider-utils@4.0.66",
-          "publishedAt": "2026-11-10T17:48:03Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%404.0.328",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/svelte@3.0.288",
-          "name": "@ai-sdk/svelte@3.0.288",
-          "body": "### Patch Changes\n\n- Updated dependencies [c31e0a2]\n  - @ai-sdk/provider-utils@3.0.46\n  - ai@5.0.288",
-          "publishedAt": "2026-11-10T17:41:54Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%403.0.288",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/sandbox-vercel@1.0.180",
-          "name": "@ai-sdk/sandbox-vercel@1.0.180",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n  - @ai-sdk/provider-utils@5.0.79\n  - @ai-sdk/harness@1.0.180",
-          "publishedAt": "2026-11-10T20:20:47Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-vercel%401.0.180",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/sandbox-vercel@1.0.179",
-          "name": "@ai-sdk/sandbox-vercel@1.0.179",
-          "body": "### Patch Changes\n\n- Updated dependencies [c849d37]\n- Updated dependencies [7f1c01e]\n- Updated dependencies [88b9575]\n  - @ai-sdk/harness@1.0.179\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:20Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-vercel%401.0.179",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/sandbox-just-bash@1.0.180",
-          "name": "@ai-sdk/sandbox-just-bash@1.0.180",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n  - @ai-sdk/provider-utils@5.0.79\n  - @ai-sdk/harness@1.0.180",
-          "publishedAt": "2026-11-10T20:20:44Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-just-bash%401.0.180",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/sandbox-just-bash@1.0.179",
-          "name": "@ai-sdk/sandbox-just-bash@1.0.179",
-          "body": "### Patch Changes\n\n- Updated dependencies [c849d37]\n- Updated dependencies [7f1c01e]\n- Updated dependencies [88b9575]\n  - @ai-sdk/harness@1.0.179\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:17Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-just-bash%401.0.179",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/rsc@3.0.169",
-          "name": "@ai-sdk/rsc@3.0.169",
-          "body": "### Patch Changes\n\n- 4311fa1: Use the shared schema types for streamUI tools to preserve Zod 3 input inference when multiple Zod versions are installed.\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n- Updated dependencies [d9dd2b7]\n  - @ai-sdk/provider-utils@5.0.79\n  - ai@7.0.169",
-          "publishedAt": "2026-11-10T20:20:41Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%403.0.169",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/rsc@3.0.168",
-          "name": "@ai-sdk/rsc@3.0.168",
-          "body": "### Patch Changes\n\n- Updated dependencies [65aa669]\n- Updated dependencies [8585d7e]\n- Updated dependencies [88b9575]\n  - ai@7.0.168\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:14Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%403.0.168",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/rsc@2.0.329",
-          "name": "@ai-sdk/rsc@2.0.329",
-          "body": "### Patch Changes\n\n- ai@6.0.329",
-          "publishedAt": "2026-11-10T20:12:30Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%402.0.329",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/rsc@2.0.328",
-          "name": "@ai-sdk/rsc@2.0.328",
-          "body": "### Patch Changes\n\n- Updated dependencies [6b9a53a]\n- Updated dependencies [88bb257]\n  - ai@6.0.328\n  - @ai-sdk/provider-utils@4.0.66",
-          "publishedAt": "2026-11-10T17:48:00Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%402.0.328",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/rsc@1.0.290",
-          "name": "@ai-sdk/rsc@1.0.290",
-          "body": "### Patch Changes\n\n- Updated dependencies [c31e0a2]\n  - @ai-sdk/provider-utils@3.0.46\n  - ai@5.0.288",
-          "publishedAt": "2026-11-10T17:41:51Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%401.0.290",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/revai@3.0.79",
-          "name": "@ai-sdk/revai@3.0.79",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n  - @ai-sdk/provider-utils@5.0.79",
-          "publishedAt": "2026-11-10T20:20:38Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/revai%403.0.79",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/revai@3.0.78",
-          "name": "@ai-sdk/revai@3.0.78",
-          "body": "### Patch Changes\n\n- Updated dependencies [88b9575]\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:11Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/revai%403.0.78",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/revai@2.0.72",
-          "name": "@ai-sdk/revai@2.0.72",
-          "body": "### Patch Changes\n\n- Updated dependencies [88bb257]\n  - @ai-sdk/provider-utils@4.0.66",
-          "publishedAt": "2026-11-10T17:47:57Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/revai%402.0.72",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/revai@1.0.48",
-          "name": "@ai-sdk/revai@1.0.48",
-          "body": "### Patch Changes\n\n- Updated dependencies [c31e0a2]\n  - @ai-sdk/provider-utils@3.0.46",
-          "publishedAt": "2026-11-10T17:41:48Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/revai%401.0.48",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/replicate@3.0.81",
-          "name": "@ai-sdk/replicate@3.0.81",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [4311fa1]\n  - @ai-sdk/provider-utils@5.0.79",
-          "publishedAt": "2026-11-10T20:20:35Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/replicate%403.0.81",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/replicate@3.0.80",
-          "name": "@ai-sdk/replicate@3.0.80",
-          "body": "### Patch Changes\n\n- Updated dependencies [88b9575]\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:08Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/replicate%403.0.80",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/replicate@2.0.72",
-          "name": "@ai-sdk/replicate@2.0.72",
-          "body": "### Patch Changes\n\n- Updated dependencies [88bb257]\n  - @ai-sdk/provider-utils@4.0.66",
-          "publishedAt": "2026-11-10T17:47:54Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/replicate%402.0.72",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/replicate@1.0.48",
-          "name": "@ai-sdk/replicate@1.0.48",
-          "body": "### Patch Changes\n\n- Updated dependencies [c31e0a2]\n  - @ai-sdk/provider-utils@3.0.46",
-          "publishedAt": "2026-11-10T17:41:45Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/replicate%401.0.48",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/react@4.0.173",
-          "name": "@ai-sdk/react@4.0.173",
-          "body": "### Patch Changes\n\n- Updated dependencies [4311fa1]\n- Updated dependencies [6141e6f]\n- Updated dependencies [4311fa1]\n- Updated dependencies [d9dd2b7]\n  - @ai-sdk/provider-utils@5.0.79\n  - @ai-sdk/mcp@2.0.96\n  - ai@7.0.169",
-          "publishedAt": "2026-11-10T20:20:32Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%404.0.173",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/react@4.0.172",
-          "name": "@ai-sdk/react@4.0.172",
-          "body": "### Patch Changes\n\n- 65aa669: add experimental_queue to useChat to queue messages sent while a response is in progress\n- Updated dependencies [65aa669]\n- Updated dependencies [8585d7e]\n- Updated dependencies [88b9575]\n  - ai@7.0.168\n  - @ai-sdk/mcp@2.0.95\n  - @ai-sdk/provider-utils@5.0.78",
-          "publishedAt": "2026-11-10T17:52:05Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%404.0.172",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/react@3.0.332",
-          "name": "@ai-sdk/react@3.0.332",
-          "body": "### Patch Changes\n\n- ai@6.0.329",
-          "publishedAt": "2026-11-10T20:12:27Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%403.0.332",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/react@3.0.331",
-          "name": "@ai-sdk/react@3.0.331",
-          "body": "### Patch Changes\n\n- Updated dependencies [6b9a53a]\n- Updated dependencies [88bb257]\n  - ai@6.0.328\n  - @ai-sdk/provider-utils@4.0.66",
-          "publishedAt": "2026-11-10T17:47:51Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%403.0.331",
-          "prerelease": false
         }
       ]
     },
@@ -6760,13 +6760,13 @@
       "id": "google-adk",
       "name": "Google ADK",
       "repo": "google/adk-python",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": false,
       "releases": [
         {
           "tag": "v2.14.0",
           "name": "v2.14.0",
-          "body": "## [2.14.0](https://github.com/google/adk-python/compare/v2.13.0...v2.14.0) (2026-11-04)\n\n\n### Highlights\n\nThis release graduates execution environments, A2A, evaluation, and core runtime modules from experimental, adds multi-run evaluation and semantic tool argument matching, adds Microsoft Teams and OpenAI Decisions integrations, and makes long multi-turn workflows faster.\n* **Execution environments and sandboxes**:\n  * `BaseEnvironment`, `LocalEnvironment`, `EnvironmentToolset`, `DaytonaEnvironment`, and `E2BEnvironment` are now stable. ([c54b253](https://github.com/google/adk-python/commit/c54b253eba3359264a5f86805051aeb6cd93034d), [799fc94](https://github.com/google/adk-python/commit/799fc9459eb9443a63db11a179d6422b7e1dc1c0))\n  * `BaseEnvironment.read_file_stream` streams files in chunks across `LocalEnvironment`, `E2BEnvironment`, and `DaytonaEnvironment` so `ReadFileTool` reads line ranges without loading the whole file into memory. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/environment/base_environment/index.md) for more details. ([fd8d8c1](https://github.com/google/adk-python/co\n  * `AgentEngineEnvironment` reads and writes large files in chunks and reports commands over 570 seconds as timed out before the service deadline. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/integrations/vmaas/agent_engine_environment/index.md) and [sample](https://github.com/google/adk-python/tree/main/contributing/samples/environment_and_skills/agent_engine_e\n  * `ContainerCodeExecutor` supports input and output files, and `RunSkillScriptTool` runs skill scripts from validated paths and arguments instead of a shell command string. ([effd641](https://github.com/google/adk-python/commit/effd64101112643cf96ce6bdef6ece26080f6d49), [ff61524](https://github.com/google/adk-python/commit/ff61524bb1378bd355d92b5b88955ea142f83be0))\n* **Evaluation**:",
+          "body": "## [2.14.0](https://github.com/google/adk-python/compare/v2.13.0...v2.14.0) (2026-11-04)\n\n\n### Highlights\n\nThis release graduates execution environments, A2A, evaluation, and core runtime modules from experimental, adds multi-run evaluation and semantic tool argument matching, adds Microsoft Teams and OpenAI Decisions integrations, and makes long multi-turn workflows faster.\n* **Execution environments and sandboxes**:\n  * `BaseEnvironment`, `LocalEnvironment`, `EnvironmentToolset`, `DaytonaEnvironment`, and `E2BEnvironment` are now stable. ([c54b253](https://github.com/google/adk-python/commit/c54b253eba3359264a5f86805051aeb6cd93034d), [799fc94](https://github.com/google/adk-python/commit/799fc9459eb9443a63db11a179d6422b7e1dc1c0))\n  * `BaseEnvironment.read_file_stream` streams files in chunks across `LocalEnvironment`, `E2BEnvironment`, and `DaytonaEnvironment` so `ReadFileTool` reads line ranges without loading the whole file into memory. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/environment/base_environment/index.md) for more details. ([fd8d8c1](https://github.com/google/adk-python/c\u2026\n  * `AgentEngineEnvironment` reads and writes large files in chunks and reports commands over 570 seconds as timed out before the service deadline. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/integrations/vmaas/agent_engine_environment/index.md) and [sample](https://github.com/google/adk-python/tree/main/contributing/samples/environment_and_skills/agent_engine_\u2026\n  * `ContainerCodeExecutor` supports input and output files, and `RunSkillScriptTool` runs skill scripts from validated paths and arguments instead of a shell command string. ([effd641](https://github.com/google/adk-python/commit/effd64101112643cf96ce6bdef6ece26080f6d49), [ff61524](https://github.com/google/adk-python/commit/ff61524bb1378bd355d92b5b88955ea142f83be0))\n* **Evaluation**:",
           "publishedAt": "2026-11-07T00:58:18Z",
           "htmlUrl": "https://github.com/google/adk-python/releases/tag/v2.14.0",
           "prerelease": false
@@ -6774,7 +6774,7 @@
         {
           "tag": "v2.13.0",
           "name": "v2.13.0",
-          "body": "## [2.13.0](https://github.com/google/adk-python/compare/v2.12.0...v2.13.0) (2026-10-22)\n\n\n### Highlights\n\nThis release stabilizes core features while introducing TypeSafe workflow classification, live audio interactions, MongoDB integrations, and execution performance improvements.\n\n* **Stability**: Access 12 mature experimental features now promoted to stable status. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/features/feature_registry/index.md) for more details. ([ea298d4](https://github.com/google/adk-python/commit/ea298d4bde4477daa6c419d45637f339eec86d58))\n* **Classifiers**: Route workflows with TypeSafe's Jev models via the new `TypesafeClassifier` and `ClassifierNode`. Jev returns calibrated probabilities in a single forward pass, much faster than an LLM. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/labs/classifiers/classifier_node/index.md) for more details. ([ddf8c55](https://github.com/google/adk-python/commit\n* **Live Audio**: Enable natural real-time voice interactions with barge-in support alongside Gemini speech-to-text and text-to-speech integration. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/live/cascade_live/index.md) for more details. ([2e7ef92](https://github.com/google/adk-python/commit/2e7ef926c953e5daab31cbc7ccb52fc77ebd9ae6))\n* **MongoDB Sessions & Memory**: Persist sessions in MongoDB and share them across runner replicas with the new `MongoDbSessionService`. Add long-term memory without an embedding model using `MongoDbMemoryService`, which recalls past turns by keyword match on any MongoDB deployment, with no vector index needed. Both are experimental. See the [session service](https://github.com/google/adk-python/b\n* **MongoDB**: Deploy MongoDbToolset to Agent Engine without packaging your connection string, and let Atlas Automated Embedding embed search queries server-side, with no Google embedding call or credentials needed. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/integrations/mongodb/mongodb_toolset/index.md) for more details. ([bc3773f](https://github.com/google/ad",
+          "body": "## [2.13.0](https://github.com/google/adk-python/compare/v2.12.0...v2.13.0) (2026-10-22)\n\n\n### Highlights\n\nThis release stabilizes core features while introducing TypeSafe workflow classification, live audio interactions, MongoDB integrations, and execution performance improvements.\n\n* **Stability**: Access 12 mature experimental features now promoted to stable status. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/features/feature_registry/index.md) for more details. ([ea298d4](https://github.com/google/adk-python/commit/ea298d4bde4477daa6c419d45637f339eec86d58))\n* **Classifiers**: Route workflows with TypeSafe's Jev models via the new `TypesafeClassifier` and `ClassifierNode`. Jev returns calibrated probabilities in a single forward pass, much faster than an LLM. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/labs/classifiers/classifier_node/index.md) for more details. ([ddf8c55](https://github.com/google/adk-python/commi\u2026\n* **Live Audio**: Enable natural real-time voice interactions with barge-in support alongside Gemini speech-to-text and text-to-speech integration. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/live/cascade_live/index.md) for more details. ([2e7ef92](https://github.com/google/adk-python/commit/2e7ef926c953e5daab31cbc7ccb52fc77ebd9ae6))\n* **MongoDB Sessions & Memory**: Persist sessions in MongoDB and share them across runner replicas with the new `MongoDbSessionService`. Add long-term memory without an embedding model using `MongoDbMemoryService`, which recalls past turns by keyword match on any MongoDB deployment, with no vector index needed. Both are experimental. See the [session service](https://github.com/google/adk-python/\u2026\n* **MongoDB**: Deploy MongoDbToolset to Agent Engine without packaging your connection string, and let Atlas Automated Embedding embed search queries server-side, with no Google embedding call or credentials needed. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/integrations/mongodb/mongodb_toolset/index.md) for more details. ([bc3773f](https://github.com/google/a\u2026",
           "publishedAt": "2026-10-23T18:08:23Z",
           "htmlUrl": "https://github.com/google/adk-python/releases/tag/v2.13.0",
           "prerelease": false
@@ -6790,7 +6790,7 @@
         {
           "tag": "v2.11.0",
           "name": "v2.11.0",
-          "body": "## [2.11.0](https://github.com/google/adk-python/compare/v2.10.0...v2.11.0) (2026-10-01)\n\n\n### Highlights\n\nThis release adds graceful cancellation and tool confirmation to workflows, a tool for consulting another model mid-task, and a built-in SQLite memory service.\n\n* **Execution cancellation**: Pass an `abort_signal` to `Runner`, `Workflow`, and nodes to stop a run gracefully; `/run_sse` now cancels the run when the client disconnects. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/runners/runner/abort.md) for more details. ([ef5bbcf](https://github.com/google/adk-python/commit/ef5bbcfe51670bd211645a043914c162e7c1cd60), [3d73\n* **Tool confirmation in workflows**: Tool nodes now pause for user approval via `RequestInput`, the same way an `LlmAgent` does, instead of passing an error downstream. ([ce132b9](https://github.com/google/adk-python/commit/ce132b92d471b8df903524593d863171b000a764))\n* **ModelConsultTool**: Let an agent consult another model mid-task, capped by per-turn and per-session budgets. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/tools/model_consult/model_consult_tool/index.md) for more details. ([84cc99a](https://github.com/google/adk-python/commit/84cc99abd53010817a85b51fdcdc5d4f48366769))\n* **SQLite memory service**: Keep agent memory in a local SQLite database, selected with a `sqlite://` memory service URI. ([9625b06](https://github.com/google/adk-python/commit/9625b06c9a1be6b9ecd85225657690ae5c0e9d3e))\n* **MCP SDK 2.x**: Connect to MCP servers over the modern protocol through a new opt-in path. ([e738c26](https://github.com/google/adk-python/commit/e738c26fe5abcecffe2fbeba31f8d837086aad8a))",
+          "body": "## [2.11.0](https://github.com/google/adk-python/compare/v2.10.0...v2.11.0) (2026-10-01)\n\n\n### Highlights\n\nThis release adds graceful cancellation and tool confirmation to workflows, a tool for consulting another model mid-task, and a built-in SQLite memory service.\n\n* **Execution cancellation**: Pass an `abort_signal` to `Runner`, `Workflow`, and nodes to stop a run gracefully; `/run_sse` now cancels the run when the client disconnects. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/runners/runner/abort.md) for more details. ([ef5bbcf](https://github.com/google/adk-python/commit/ef5bbcfe51670bd211645a043914c162e7c1cd60), [3d7\u2026\n* **Tool confirmation in workflows**: Tool nodes now pause for user approval via `RequestInput`, the same way an `LlmAgent` does, instead of passing an error downstream. ([ce132b9](https://github.com/google/adk-python/commit/ce132b92d471b8df903524593d863171b000a764))\n* **ModelConsultTool**: Let an agent consult another model mid-task, capped by per-turn and per-session budgets. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/tools/model_consult/model_consult_tool/index.md) for more details. ([84cc99a](https://github.com/google/adk-python/commit/84cc99abd53010817a85b51fdcdc5d4f48366769))\n* **SQLite memory service**: Keep agent memory in a local SQLite database, selected with a `sqlite://` memory service URI. ([9625b06](https://github.com/google/adk-python/commit/9625b06c9a1be6b9ecd85225657690ae5c0e9d3e))\n* **MCP SDK 2.x**: Connect to MCP servers over the modern protocol through a new opt-in path. ([e738c26](https://github.com/google/adk-python/commit/e738c26fe5abcecffe2fbeba31f8d837086aad8a))",
           "publishedAt": "2026-10-02T00:44:26Z",
           "htmlUrl": "https://github.com/google/adk-python/releases/tag/v2.11.0",
           "prerelease": false
@@ -6862,7 +6862,7 @@
         {
           "tag": "v2.7.0",
           "name": "v2.7.0",
-          "body": "## [2.7.0](https://github.com/google/adk-python/compare/v2.6.3...v2.7.0) (2026-08-13)\n\n### Highlights\n\nA correctness release: most of the work went into what an agent sends to the model and what it gets back, alongside a long tail of fixes across tools, sessions, evaluation and the CLI.\n\n* **Models declare their own capabilities**: an agent pairs an output schema with tools when the model actually supports it, instead of ADK inferring support from the model id. ([2aff82c](https://github.com/google/adk-python/commit/2aff82c30923e5f7df5ce4101db52bce82740329), [dc5dbfa](https://github.com/google/adk-python/commit/dc5dbfa2e475f2461177e80f7fa28c96a2bc3592))\n* **Tools can return media**: a tool's function response carries images and other media straight back to the model, on Gemini and on Anthropic, LiteLLM, Apigee and OCI alike. ([df9d6de](https://github.com/google/adk-python/commit/df9d6dec58f4cb22a1010b72e9fd8d347ce8145a), [703cf43](https://github.com/google/adk-python/commit/703cf43f6b03550ec2b02def526f3f4ba98f7abd))\n* **Conversation history keeps what Gemini needs**: thought signatures, server-side tool call parts, and every result of a parallel function call survive the round trip. ([d4ed347](https://github.com/google/adk-python/commit/d4ed3475397d16f9eb8d851f8945a6ed8121b6a8), [e908137](https://github.com/google/adk-python/commit/e908137125f9e14b3061f45f34f5379b48693313), [93dff41](https://github.com/google\n* **Jinja2 instruction templates**: pass `use_jinja2=True` to `inject_session_state` and an instruction can use conditionals and loops over session state, with artifacts loaded through a `{{ artifact(\"name\") }}` helper. Jinja2 stays an optional dependency and the regex engine remains the default. ([4a00a34](https://github.com/google/adk-python/commit/4a00a344cfa03062f74e71dac0a5580514d9cea4))\n* **Faster startup and hot paths**: `import google.adk` does less work, and the request path avoids Pydantic round-trips and quadratic streaming accumulation in the LiteLLM adapter. ([8806dc2](https://github.com/google/adk-python/commit/8806dc2bd8fb37004dee9ca50d9e774481f89afb), [9e1adde](https://github.com/google/adk-python/commit/9e1addedfff7e35e95a2ad120c8b30fe543af04c), [36fd2c8](https://githu",
+          "body": "## [2.7.0](https://github.com/google/adk-python/compare/v2.6.3...v2.7.0) (2026-08-13)\n\n### Highlights\n\nA correctness release: most of the work went into what an agent sends to the model and what it gets back, alongside a long tail of fixes across tools, sessions, evaluation and the CLI.\n\n* **Models declare their own capabilities**: an agent pairs an output schema with tools when the model actually supports it, instead of ADK inferring support from the model id. ([2aff82c](https://github.com/google/adk-python/commit/2aff82c30923e5f7df5ce4101db52bce82740329), [dc5dbfa](https://github.com/google/adk-python/commit/dc5dbfa2e475f2461177e80f7fa28c96a2bc3592))\n* **Tools can return media**: a tool's function response carries images and other media straight back to the model, on Gemini and on Anthropic, LiteLLM, Apigee and OCI alike. ([df9d6de](https://github.com/google/adk-python/commit/df9d6dec58f4cb22a1010b72e9fd8d347ce8145a), [703cf43](https://github.com/google/adk-python/commit/703cf43f6b03550ec2b02def526f3f4ba98f7abd))\n* **Conversation history keeps what Gemini needs**: thought signatures, server-side tool call parts, and every result of a parallel function call survive the round trip. ([d4ed347](https://github.com/google/adk-python/commit/d4ed3475397d16f9eb8d851f8945a6ed8121b6a8), [e908137](https://github.com/google/adk-python/commit/e908137125f9e14b3061f45f34f5379b48693313), [93dff41](https://github.com/googl\u2026\n* **Jinja2 instruction templates**: pass `use_jinja2=True` to `inject_session_state` and an instruction can use conditionals and loops over session state, with artifacts loaded through a `{{ artifact(\"name\") }}` helper. Jinja2 stays an optional dependency and the regex engine remains the default. ([4a00a34](https://github.com/google/adk-python/commit/4a00a344cfa03062f74e71dac0a5580514d9cea4))\n* **Faster startup and hot paths**: `import google.adk` does less work, and the request path avoids Pydantic round-trips and quadratic streaming accumulation in the LiteLLM adapter. ([8806dc2](https://github.com/google/adk-python/commit/8806dc2bd8fb37004dee9ca50d9e774481f89afb), [9e1adde](https://github.com/google/adk-python/commit/9e1addedfff7e35e95a2ad120c8b30fe543af04c), [36fd2c8](https://gith\u2026",
           "publishedAt": "2026-08-13T22:18:29Z",
           "htmlUrl": "https://github.com/google/adk-python/releases/tag/v2.7.0",
           "prerelease": false
@@ -6990,7 +6990,7 @@
         {
           "tag": "v2.2.0",
           "name": "v2.2.0",
-          "body": "## [2.2.0](https://github.com/google/adk-python/compare/v2.1.0...v2.2.0) (2026-06-04)\n\n\n### \u26a0 BREAKING CHANGES\n\n* **agents:** `LlmAgent` default model changed from `gemini-2.5-flash` to `gemini-3-flash-preview` (a preview model), ahead of the 2026-10-16 `gemini-2.5-flash` shutdown. Agents without an explicit `model=` now run on the new preview default; set `model=\"gemini-2.5-flash\"` to retain prior behavior. `DEFAULT_LIVE_MODEL` is unchanged. ([ad8b6c7](https://github.com/google/adk-python/commit/ad8b6c769d\n* **interactions:** GenAI SDK v2.0.0 support renames the turn-based helpers in `interactions_utils.py` (e.g. `convert_contents_to_turns` \u2192 `convert_contents_to_steps`) and moves from \"turns\" to \"steps\" terminology. Update any direct callers. ([da1d8f1](https://github.com/google/adk-python/commit/da1d8f15529bf6c741bb32a86c380d5cb3633ed1))\n\n\n### Features",
+          "body": "## [2.2.0](https://github.com/google/adk-python/compare/v2.1.0...v2.2.0) (2026-06-04)\n\n\n### \u26a0 BREAKING CHANGES\n\n* **agents:** `LlmAgent` default model changed from `gemini-2.5-flash` to `gemini-3-flash-preview` (a preview model), ahead of the 2026-10-16 `gemini-2.5-flash` shutdown. Agents without an explicit `model=` now run on the new preview default; set `model=\"gemini-2.5-flash\"` to retain prior behavior. `DEFAULT_LIVE_MODEL` is unchanged. ([ad8b6c7](https://github.com/google/adk-python/commit/ad8b6c769\u2026\n* **interactions:** GenAI SDK v2.0.0 support renames the turn-based helpers in `interactions_utils.py` (e.g. `convert_contents_to_turns` \u2192 `convert_contents_to_steps`) and moves from \"turns\" to \"steps\" terminology. Update any direct callers. ([da1d8f1](https://github.com/google/adk-python/commit/da1d8f15529bf6c741bb32a86c380d5cb3633ed1))\n\n\n### Features",
           "publishedAt": "2026-06-04T22:13:43Z",
           "htmlUrl": "https://github.com/google/adk-python/releases/tag/v2.2.0",
           "prerelease": false
@@ -7286,7 +7286,7 @@
         {
           "tag": "v1.16.0",
           "name": "Release 1.16.0",
-          "body": "## [1.16.0](https://github.com/google/adk-python/compare/v1.15.1...v1.16.0) (2025-10-08)\n\n### Features\n\n* **[Core]**\n  * Implementation of LLM context compaction ([e0dd06f](https://github.com/google/adk-python/commit/e0dd06ff04f9d3c2f022873ce145aaae2de02f45))\n  * Support pause and resume an invocation in ADK ([ce9c39f](https://github.com/google/adk-python/commit/ce9c39f5a85ed12c22009693b5e6bc65f4641633), [2f1040f](https://github.com/google/adk-python/commit/2f1040f296db365080b62d6372474d90196ce0d6), [1ee01cc](https://github.com/google/adk-python/commit/1ee01cc05add44ce460d2cfd3726dceb0c76dceb), [f005414](https://github.com/google/adk-python/commit/f005\n* **[Models]**\n  * Add `citation_metadata` to `LlmResponse` ([3f28e30](https://github.com/google/adk-python/commit/3f28e30c6da192e90a8100f270274cb9a55a5348))\n  * Add support for gemma model via gemini api ([2b5acb9](https://github.com/google/adk-python/commit/2b5acb98f577f5349e788bcf9910c8d7107e63b3))\n* **[Tools]**\n  * Add `dry_run` functionality to BigQuery `execute_sql` tool ([960eda3](https://github.com/google/adk-python/commit/960eda3d1f2f46dc93a365eb3de03dc3483fe9bb))",
+          "body": "## [1.16.0](https://github.com/google/adk-python/compare/v1.15.1...v1.16.0) (2025-10-08)\n\n### Features\n\n* **[Core]**\n  * Implementation of LLM context compaction ([e0dd06f](https://github.com/google/adk-python/commit/e0dd06ff04f9d3c2f022873ce145aaae2de02f45))\n  * Support pause and resume an invocation in ADK ([ce9c39f](https://github.com/google/adk-python/commit/ce9c39f5a85ed12c22009693b5e6bc65f4641633), [2f1040f](https://github.com/google/adk-python/commit/2f1040f296db365080b62d6372474d90196ce0d6), [1ee01cc](https://github.com/google/adk-python/commit/1ee01cc05add44ce460d2cfd3726dceb0c76dceb), [f005414](https://github.com/google/adk-python/commit/f00\u2026\n* **[Models]**\n  * Add `citation_metadata` to `LlmResponse` ([3f28e30](https://github.com/google/adk-python/commit/3f28e30c6da192e90a8100f270274cb9a55a5348))\n  * Add support for gemma model via gemini api ([2b5acb9](https://github.com/google/adk-python/commit/2b5acb98f577f5349e788bcf9910c8d7107e63b3))\n* **[Tools]**\n  * Add `dry_run` functionality to BigQuery `execute_sql` tool ([960eda3](https://github.com/google/adk-python/commit/960eda3d1f2f46dc93a365eb3de03dc3483fe9bb))",
           "publishedAt": "2025-10-09T19:00:36Z",
           "htmlUrl": "https://github.com/google/adk-python/releases/tag/v1.16.0",
           "prerelease": false
@@ -7505,7 +7505,7 @@
       "id": "claude-code",
       "name": "Claude Code",
       "repo": "anthropics/claude-code",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
         {
@@ -7911,7 +7911,7 @@
         {
           "tag": "v2.1.266",
           "name": "v2.1.266",
-          "body": "## What's changed\n\n- Fixed a 2.1.265 regression affecting LLM-gateway and proxy setups: the undocumented `CLAUDE_CODE_USE_GATEWAY` environment variable, previously ignored unless `ANTHROPIC_BASE_URL` and `ANTHROPIC_AUTH_TOKEN` were both set, began forcing Cloud-gateway sign-in on its own in 2.1.265, so configurations that set it alongside an API key, `apiKeyHelper`, or custom auth headers failed every request with \"",
+          "body": "## What's changed\n\n- Fixed a 2.1.265 regression affecting LLM-gateway and proxy setups: the undocumented `CLAUDE_CODE_USE_GATEWAY` environment variable, previously ignored unless `ANTHROPIC_BASE_URL` and `ANTHROPIC_AUTH_TOKEN` were both set, began forcing Cloud-gateway sign-in on its own in 2.1.265, so configurations that set it alongside an API key, `apiKeyHelper`, or custom auth headers failed every request with\u2026",
           "publishedAt": "2026-09-08T23:55:14Z",
           "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.266",
           "prerelease": false
@@ -9123,7 +9123,7 @@
       "id": "gemini-cli",
       "name": "Gemini CLI",
       "repo": "google-gemini/gemini-cli",
-      "retrievedAt": "2026-11-11T11:07:10.616563Z",
+      "retrievedAt": "2026-11-12T15:14:57.327040Z",
       "capped": true,
       "releases": [
         {
