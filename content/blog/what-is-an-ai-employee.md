@@ -7,7 +7,7 @@ takeaways:
   - "On November 7, 2026, Claude Cowork and ChatGPT Work are the two large workplace products that start from a goal and hand back finished work. Chat stays a conversation. Fixed workflow automation still follows rules written in advance."
   - "University rollouts checked the same day, including UNSW, the University of Sydney, and La Trobe, are adult ChatGPT Edu access with staged availability. They are workplace learning, and they are a different subject from school-account policy."
 date: "2026-11-07"
-updated: "2026-11-11"
+updated: "2026-11-12"
 category: guide
 topics:
   - how-agents-work
@@ -85,7 +85,7 @@ People also say “digital worker,” “AI teammate,” and “employee agent.�
 
 The software is not a legal employee. It has no duties of its own, and a mistake is still the organization’s to own. [Deloitte’s September 10, 2026 essay](https://www.deloitte.com/global/en/insights/topics/technology-management/ai-agents-human-workplace.html) treats “agents as labor” and “agents as infrastructure” as two choices a company might make, and it tells leaders to watch for moments when agents are treated as the responsible party in a review. That is a warning about accountability, not a feature list.
 
-This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in). Sourced tables for the same jobs are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks) and [Best AI agent for small business](/best/ai-agents-for-small-business). What those products charge, seat against credit against resolution, is [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost).
+This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in). Sourced tables for the same jobs are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks) and [Best AI agent for small business](/best/ai-agents-for-small-business). What those products charge, seat against credit against resolution, is [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost). Which of five jobs a small business can hand off, and where each one fails, is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026). The November 12 price census behind that page is [12 of 15 AI employee products print a price](/research/ai-employee-pricing-small-business-november-2026).
 
 ## What is a digital worker?
 

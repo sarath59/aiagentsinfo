@@ -7,7 +7,7 @@ takeaways:
   - "Support agents bill the outcome. Intercom Fin is $0.99, and a handoff can still count. Zendesk is $1.50 committed or $2.00 pay-as-you-go, and only when no human takes the ticket."
   - "A 400-draft inbox at the May 2025 customer-service median wage is $861.20 before benefits. The same inbox on Marblism’s published weights fits in the $24 plan and leaves about 14 hours. Ninety seconds of review puts $215.30 of wage back."
 date: "2026-11-11"
-updated: "2026-11-11"
+updated: "2026-11-12"
 category: guide
 topics:
   - tools-saas
@@ -68,7 +68,7 @@ faq:
     answer: "On Intercom’s page, an outcome includes a Procedure that ends in a handoff, and Fin charges once per conversation. On Zendesk’s page, an automated resolution is a request the AI agent resolved without escalation to a human agent. A handoff is a billed outcome on one product and the thing that avoids the resolution charge on the other."
 ---
 
-Updated November 11, 2026.
+Updated November 12, 2026. On that morning, 11x’s pricing page prints Growth at $36,000 a year and does not print the $3,750 monthly card in the table below. The fifteen-product census is [12 of 15 AI employee products print a price](/research/ai-employee-pricing-small-business-november-2026). Which jobs those prices buy is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026). The figures under the next heading were read November 11 and are kept as that day’s record.
 
 ## How much does an AI employee cost for a small business?
 

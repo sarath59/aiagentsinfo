@@ -120,6 +120,14 @@ export default function CostCalculatorPage() {
           <Link className="text-[var(--link)] underline" href="/blog/how-much-does-an-ai-employee-cost">
             How much does an AI employee cost for a small business?
           </Link>
+          . The November 12 census of fifteen role-agent prices is{" "}
+          <Link className="text-[var(--link)] underline" href="/research/ai-employee-pricing-small-business-november-2026">
+            12 of 15 AI employee products print a price
+          </Link>
+          , and the jobs those prices buy are{" "}
+          <Link className="text-[var(--link)] underline" href="/blog/ai-employee-for-small-business-november-2026">
+            AI employee for a small business: 5 jobs (Nov 2026)
+          </Link>
           .
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">

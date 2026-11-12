@@ -1149,7 +1149,7 @@ export const schedulingComparison: ComparisonPage = {
       heading: "Which AI agent is best for scheduling and calendar in 2026?",
       paragraphs: [
         "There is no single best AI agent for scheduling. Gemini Help me schedule proposes times in Gmail on eligible Workspace and Google AI Pro or Ultra plans. [Gemini](/directory/gemini) Apps can create and edit Google Calendar events when Workspace is connected. Reclaim.ai Lite is free for one user with 5 AI Agents; Starter is $10 a seat a month billed annually. [ChatGPT](/directory/chatgpt) scheduled tasks run a prompt on a cadence; they are not a fourth calendar vendor in this table.",
-        "The shelf is [Best AI agents](/best). Broader assistant jobs sit on [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks).",
+        "The shelf is [Best AI agents](/best). Broader assistant jobs sit on [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks). Named AI-employee products checked November 12, 2026 do not sell the calendar as its own meter. That limit is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026).",
       ],
     },
     {
@@ -1629,6 +1629,8 @@ export const smallBusinessComparison: ComparisonPage = {
     { href: "/best/ai-agents-for-email", title: "Best AI agent for email", description: "Inbox drafts for a small team.", kicker: "Comparison" },
     { href: "/directory/replycurrent", title: "ReplyCurrent", description: "Cited website assistant.", kicker: "Directory" },
     { href: "/blog/how-much-does-an-ai-employee-cost", title: "How much does an AI employee cost for a small business?", description: "Seat, credit, hour, and resolution prices read November 11, 2026.", kicker: "Guide" },
+    { href: "/blog/ai-employee-for-small-business-november-2026", title: "AI employee for a small business: 5 jobs (Nov 2026)", description: "Inbox, support, outbound, phone, and books, and where each one fails.", kicker: "Guide" },
+    { href: "/research/ai-employee-pricing-small-business-november-2026", title: "12 of 15 AI employee products print a price", description: "November 12, 2026 census. Median fixed card $33 a month.", kicker: "Research" },
     { href: "/glossary/digital-worker", title: "Digital worker", description: "Workplace software given a recurring job.", kicker: "Glossary" },
   ],
   sections: [
@@ -1637,7 +1639,7 @@ export const smallBusinessComparison: ComparisonPage = {
       heading: "Which AI agent is best for small business in 2026?",
       paragraphs: [
         "There is no single best AI agent for small business. [ChatGPT](/directory/chatgpt) Business Standard seats are $20 per user per month billed annually, or $25 monthly, usually with a two-seat minimum. [Claude](/directory/claude) Team standard seats are $20 per member per month billed annually. Microsoft 365 Business Standard with Copilot is $23.50 per user per month paid yearly. [ReplyCurrent](/directory/replycurrent) Growth is $29 a month for a website assistant that cites the page it used.",
-        "A workplace agent is a [digital worker](/glossary/digital-worker). The longer guide is [What is an AI employee?](/blog/what-is-an-ai-employee). List prices for products sold as named AI employees, per seat, per metered hour, and per resolution, are [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost). The shelf is [Best AI agents](/best).",
+        "A workplace agent is a [digital worker](/glossary/digital-worker). The longer guide is [What is an AI employee?](/blog/what-is-an-ai-employee). List prices for products sold as named AI employees, per seat, per metered hour, and per resolution, are [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost). Which of five jobs a shop can hand off, inbox through the books, is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026). The November 12 census, 12 of 15 pricing pages print a dollar, is [AI employee pricing for small businesses](/research/ai-employee-pricing-small-business-november-2026). The shelf is [Best AI agents](/best).",
       ],
     },
     {
