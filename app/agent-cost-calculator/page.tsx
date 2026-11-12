@@ -20,8 +20,8 @@ import { formatDate } from "@/lib/utils";
 const path = "/agent-cost-calculator";
 const title = "AI agent cost calculator: free 30-day bill";
 const description =
-  "Free AI agent and chatbot cost calculator for 25 official models. Enter tokens per task and tasks per day for a 30-day bill. No login. Prices read November 11, 2026.";
-const pageUpdated = "2026-11-11";
+  "Free AI agent and chatbot cost calculator for 25 official models. Enter tokens per task and tasks per day for a 30-day bill. No login. Prices read November 12, 2026.";
+const pageUpdated = "2026-11-12";
 
 export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 
@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "What is an AI agent cost calculator?",
     answer:
-      "It estimates a 30-day model bill. You pick one of 25 models, enter tokens per task and tasks per day, and the page multiplies by the provider’s standard per-token price. Prices were read November 11, 2026.",
+      "It estimates a 30-day model bill. You pick one of 25 models, enter tokens per task and tasks per day, and the page multiplies by the provider’s standard per-token price. Prices were read November 12, 2026. The re-read did not change a listed rate.",
   },
   {
     question: "Is this a chatbot cost calculator?",
@@ -53,7 +53,7 @@ const faqs = [
   {
     question: "Why is my provider missing?",
     answer:
-      "Only prices copied from the provider pages above are included. A model that is not in the dropdown was left out rather than guessed. On November 11, 2026 the list gained gpt-5.5, gpt-5.4, and Gemini 4 Carbon. On November 5, 2026 it gained gpt-6.1-terra, gpt-6-luna, grok-4.7, and grok-build-0.1.",
+      "Only prices copied from the provider pages above are included. A model that is not in the dropdown was left out rather than guessed. The November 12, 2026 re-read did not add or remove a model. On November 11, 2026 the list gained gpt-5.5, gpt-5.4, and Gemini 4 Carbon. On November 5, 2026 it gained gpt-6.1-terra, gpt-6-luna, grok-4.7, and grok-build-0.1.",
   },
   {
     question: "Do I need an account?",
@@ -273,7 +273,7 @@ export default function CostCalculatorPage() {
           </p>
           <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-[var(--muted)]">
             <li>
-              OpenAI models that are on the pricing page but not in the dropdown. On the November 11 read that includes
+              OpenAI models that are on the pricing page but not in the dropdown. On the November 12 re-read the dropdown rates were unchanged. Models left out, as recorded on the November 11 read, include
               gpt-5.4-mini at $0.75 and $4.50, gpt-5.4-nano at $0.20 and $1.25, gpt-5.2 at $1.75 and $14, gpt-5.1 at
               $1.25 and $10, and gpt-5-search-api at $1.25 and $10, plus gpt-4o, o3, and the pro variants. Cached, batch,
               flex, fast, and ultrafast prices are not used.

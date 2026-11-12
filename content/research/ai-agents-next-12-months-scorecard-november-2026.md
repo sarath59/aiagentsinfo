@@ -2,7 +2,7 @@
 title: "AI agents next 12 months: the $69.8 billion line is now $70.7 billion"
 description: "Anthropic’s November 10, 2026 amendment prints approximately $70.7 billion due in the 12 months after September 30, 2026, and approximately $900.9 billion in aggregate. The November 7 forecast quoted $69.8 billion and $895.4 billion from the November 2 filing. The dated marks did not move."
 date: "2026-11-11"
-updated: "2026-11-11"
+updated: "2026-11-12"
 type: original-report
 topics:
   - research
@@ -118,7 +118,7 @@ faq:
 
 **$70.7 billion.** That is the figure Anthropic’s November 10, 2026 amendment prints for commitments due in the 12 months following September 30, 2026.
 
-The [12-month forecast](/reports/ai-agents-next-12-months), checked November 7, quotes the November 2 amendment: approximately **$69.8 billion** on that line, and approximately **$895.4 billion** in aggregate. This note does not edit that page. It re-reads the claims. Four days later, one paragraph in a newer filing has new approximates. The dates the page hung on a calendar have not moved.
+Update, November 12, 2026. The [12-month page](/reports/ai-agents-next-12-months) now quotes the November 10 figures. The paragraphs below are the November 11 reading that caught the change, written while that page still quoted the November 2 amendment: approximately **$69.8 billion** on the 12-month line, and approximately **$895.4 billion** in aggregate. This note did not edit the page. The dates the page hung on a calendar have not moved.
 
 Shopping checkout was never this page’s job. It stays in [AI shopping agents in the next 6 months](/reports/ai-shopping-agents-next-6-months).
 
@@ -192,7 +192,7 @@ Singapore’s November 5 speech, HTTP 200 at 05:27:15 GMT, still says “GovTech
 
 ## What should you open next?
 
-Read the [12-month forecast](/reports/ai-agents-next-12-months) for the calendar this note scored. Do not treat the $69.8 billion on that page as the latest amendment. The latest amendment is the November 10 filing, and the figure is approximately $70.7 billion. Checkout, which that calendar leaves out, is [AI shopping agents in the next 6 months](/reports/ai-shopping-agents-next-6-months).
+Read the [12-month page](/reports/ai-agents-next-12-months). As of November 12, 2026 it quotes the November 10 filing, approximately $70.7 billion. The $69.8 billion figure in the table above is the November 2 amendment, which that page quoted until this update. Checkout for the next month is [AI shopping agents, next 30 days](/reports/ai-shopping-agents-next-30-days). The six-month shopping calendar is [AI shopping agents in the next 6 months](/reports/ai-shopping-agents-next-6-months).
 
 A commitment in a prospectus is not your token bill. The [agent cost calculator](/agent-cost-calculator) prices a 30-day run from published per-token rates and does not add a seat fee. What registries actually fetched last month is the [downloads tracker](/trackers/downloads). Bookmarks are the [stars tracker](/trackers/stars).
 

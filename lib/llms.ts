@@ -18,7 +18,9 @@ import { getResearchDocs } from "@/lib/research";
 import { comparisonPages } from "@/lib/comparisons";
 import { absoluteUrl, audiences, entityLine, site, topics } from "@/lib/site";
 import { verifiedRevenueChecked, verifiedRevenueEntries } from "@/lib/verified-revenue";
-import { description as yearDescription, path as yearPath, readOn as yearReadOn, title as yearTitle } from "@/lib/agents-12-month-outlook";
+import { description as yearDescription, path as yearPath, updatedOn as yearUpdatedOn, title as yearTitle } from "@/lib/agents-12-month-outlook";
+import { description as shop30Description, path as shop30Path, readOn as shop30ReadOn, title as shop30Title } from "@/lib/shopping-agents-30-day";
+import { description as frameworksDescription, path as frameworksPath, readOn as frameworksReadOn, title as frameworksTitle } from "@/lib/frameworks-6-month";
 import { description as outlookDescription, path as outlookPath, readOn as outlookReadOn, title as outlookTitle } from "@/lib/agents-outlook";
 import { description as shoppingDescription, path as shoppingPath, readOn as shoppingReadOn, title as shoppingTitle } from "@/lib/shopping-report";
 import { description as browserDescription, path as browserPath, readOn as browserReadOn, title as browserTitle } from "@/lib/browser-computer-report";
@@ -200,7 +202,9 @@ function dataPageSummaries() {
       `Checked: ${codingReadOn}`,
       codingDescription,
     ], `${announcedAnswer}\n\n${cheapestAnswer}`),
-    articleBlock(yearTitle, [`URL: ${absoluteUrl(yearPath)}`, `Read: ${yearReadOn}`, yearDescription], yearDescription),
+    articleBlock(yearTitle, [`URL: ${absoluteUrl(yearPath)}`, `Updated: ${yearUpdatedOn}`, yearDescription], yearDescription),
+    articleBlock(shop30Title, [`URL: ${absoluteUrl(shop30Path)}`, `Checked: ${shop30ReadOn}`, shop30Description], shop30Description),
+    articleBlock(frameworksTitle, [`URL: ${absoluteUrl(frameworksPath)}`, `Checked: ${frameworksReadOn}`, frameworksDescription], frameworksDescription),
     articleBlock(outlookTitle, [`URL: ${absoluteUrl(outlookPath)}`, `Read: ${outlookReadOn}`, outlookDescription], outlookDescription),
     articleBlock(shoppingTitle, [`URL: ${absoluteUrl(shoppingPath)}`, `Checked: ${shoppingReadOn}`, shoppingDescription], shoppingDescription),
     articleBlock(
@@ -290,7 +294,10 @@ export async function buildLlmsTxt() {
       item(frameworkGithubTitle, frameworkGithubPath, frameworkGithubDescription),
     ]),
     section("Reports", [
-      item("Reports", "/reports", "Dated pages with a source and a citation."),
+      item("Reports", "/reports", "Dated pages with a source and a citation. The 12-month outlook is the flagship."),
+      item(yearTitle, yearPath, yearDescription),
+      item(shop30Title, shop30Path, shop30Description),
+      item(frameworksTitle, frameworksPath, frameworksDescription),
       item(searchToolsTitle, searchToolsPath, searchToolsDescription),
       item(crawlerTitle, crawlerPath, crawlerDescription),
       item(voiceTitle, voicePath, voiceDescription),
@@ -299,7 +306,6 @@ export async function buildLlmsTxt() {
       item(mcpTitle, mcpPath, mcpDescription),
       item(browserTitle, browserPath, browserDescription),
       item(codingTitle, codingPath, codingDescription),
-      item(yearTitle, yearPath, yearDescription),
       item(outlookTitle, outlookPath, outlookDescription),
       item(shoppingTitle, shoppingPath, shoppingDescription),
     ]),

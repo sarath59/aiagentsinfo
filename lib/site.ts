@@ -162,6 +162,25 @@ export const comparisons = [
 
 export const dataAssets = [
   {
+    href: "/reports/ai-agents-next-12-months",
+    title: "AI agents in the next 12 months: $70.7 billion is dated (Nov 2026 to Nov 2027)",
+    summary:
+      "Flagship calendar. Anthropic’s November 10 filing, the December 1 and January 1 token-price steps, and the regulation clocks through November 2027. Updated November 12, 2026.",
+  },
+  {
+    href: "/reports/ai-shopping-agents-next-30-days",
+    title: "AI shopping agents, 12 Nov to 12 Dec 2026: Black Friday is dated. A new checkout day is not.",
+    summary:
+      "Adobe’s two Thanksgiving forecasts, Amazon’s undated text rollout, and the checkout pages that still have no day. Checked November 12, 2026.",
+  },
+  {
+    href: "/reports/ai-agent-frameworks-next-6-months",
+    title:
+      "AI agent frameworks, Nov 2026 to May 2027: Pydantic AI 2.68.0 shipped today. The Agents SDK stable tag did not.",
+    summary:
+      "Tags and a seven-day star delta for LangGraph, the Agents SDK, ADK, CrewAI, Microsoft Agent Framework, Mastra, Pydantic AI, and the Claude Agent SDK. Read November 12, 2026.",
+  },
+  {
     href: "/reports/web-search-tools-for-ai-agents-november-2026",
     title:
       "Best web search tool for Claude and OpenAI agents, November 2026: prices and limits of 13 APIs checked",
@@ -210,12 +229,6 @@ export const dataAssets = [
     title: "AI coding agents, 8 Nov to 8 Dec 2026",
     summary:
       "List prices and usage limits for 11 coding agents, checked November 8, 2026, and three dates official pages already set: November 10, November 18, and November 21.",
-  },
-  {
-    href: "/reports/ai-agents-next-12-months",
-    title: "AI agents, Nov 2026 to Nov 2027",
-    summary:
-      "What filings, company pages, and official timelines have dated for coding agents, computer use, harnesses, and regulation from November 2026 through November 2027. Checked November 7, 2026.",
   },
   {
     href: "/reports/ai-agents-next-6-months",
@@ -333,7 +346,9 @@ export const footerNav = [
       { href: "/reports/mcp-next-6-months", label: "MCP, Nov 2026 to May 2027" },
       { href: "/reports/browser-and-computer-use-agents-next-6-months", label: "Browser and computer-use agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-coding-agents-next-30-days", label: "AI coding agents, 8 Nov to 8 Dec 2026" },
-      { href: "/reports/ai-agents-next-12-months", label: "AI agents, Nov 2026 to Nov 2027" },
+      { href: "/reports/ai-agents-next-12-months", label: "AI agents, next 12 months" },
+      { href: "/reports/ai-shopping-agents-next-30-days", label: "Shopping agents, next 30 days" },
+      { href: "/reports/ai-agent-frameworks-next-6-months", label: "Frameworks, Nov 2026 to May 2027" },
       { href: "/reports/ai-agents-next-6-months", label: "AI agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
       { href: "/reports/voice-agents-next-6-months", label: "Voice agents, Nov 2026 to May 2027" },

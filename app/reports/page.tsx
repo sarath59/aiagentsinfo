@@ -7,7 +7,9 @@ import { ToolHub } from "@/components/ToolHub";
 import { getDirectoryStats } from "@/lib/directory-stats";
 import { readingMinutes as crawlerMinutes } from "@/lib/ai-answer-crawlers-november-2026";
 import { readingMinutes as searchToolsMinutes } from "@/lib/web-search-tools-november-2026";
-import { readingMinutes as yearMinutes } from "@/lib/agents-12-month-outlook";
+import { readingMinutes as yearMinutes, updatedOn as yearUpdated } from "@/lib/agents-12-month-outlook";
+import { readingMinutes as shop30Minutes } from "@/lib/shopping-agents-30-day";
+import { readingMinutes as frameworksMinutes } from "@/lib/frameworks-6-month";
 import { readingMinutes as forecastMinutes } from "@/lib/agents-2027";
 import { readingMinutes as productionMinutes } from "@/lib/agents-in-production-2026";
 import { readingMinutes as outlookMinutes } from "@/lib/agents-outlook";
@@ -25,13 +27,16 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "Dated pages with a source and a citation: a daily brief on web search API prices and limits, a daily brief on measured answer-engine fetches, a voice-agent six-month outlook, the 2026 production report, the 2027 agents forecast, an MCP six-month brief, a browser and computer-use brief, a 30-day coding-agents brief, the 12-month outlook, six-month outlooks, harness benchmarks, and framework GitHub stats.",
+  "The 12-month flagship, a 30-day shopping brief through Cyber Monday, and a six-month frameworks brief, plus dated pages on production, voice, MCP, computer use, coding agents, harness benchmarks, and framework GitHub stats.",
   "/reports",
 );
 
 export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
+    "/reports/ai-agents-next-12-months": yearUpdated,
+    "/reports/ai-shopping-agents-next-30-days": "2026-11-12",
+    "/reports/ai-agent-frameworks-next-6-months": "2026-11-12",
     "/reports/web-search-tools-for-ai-agents-november-2026": "2026-11-12",
     "/reports/ai-answer-crawlers-november-2026": "2026-11-11",
     "/reports/voice-agents-next-6-months": "2026-11-11",
@@ -40,7 +45,6 @@ export default async function ReportsPage() {
     "/reports/mcp-next-6-months": "2026-11-10",
     "/reports/browser-and-computer-use-agents-next-6-months": "2026-11-09",
     "/reports/ai-coding-agents-next-30-days": "2026-11-08",
-    "/reports/ai-agents-next-12-months": "2026-11-07",
     "/reports/ai-agents-next-6-months": "2026-11-05",
     "/reports/ai-shopping-agents-next-6-months": "2026-11-05",
     "/reports/agent-harness-benchmark-november-2026": "2026-11-05",
@@ -53,6 +57,9 @@ export default async function ReportsPage() {
     "/tools/agents-md-generator": "2026-11-10",
   };
   const minutesByHref: Record<string, number> = {
+    "/reports/ai-agents-next-12-months": yearMinutes,
+    "/reports/ai-shopping-agents-next-30-days": shop30Minutes,
+    "/reports/ai-agent-frameworks-next-6-months": frameworksMinutes,
     "/reports/web-search-tools-for-ai-agents-november-2026": searchToolsMinutes,
     "/reports/ai-answer-crawlers-november-2026": crawlerMinutes,
     "/reports/voice-agents-next-6-months": voiceMinutes,
@@ -61,13 +68,15 @@ export default async function ReportsPage() {
     "/reports/mcp-next-6-months": mcpMinutes,
     "/reports/browser-and-computer-use-agents-next-6-months": browserMinutes,
     "/reports/ai-coding-agents-next-30-days": codingMinutes,
-    "/reports/ai-agents-next-12-months": yearMinutes,
     "/reports/ai-agents-next-6-months": outlookMinutes,
     "/reports/ai-shopping-agents-next-6-months": shoppingMinutes,
     "/reports/agent-harness-benchmark-november-2026": benchmarkMinutes,
     [frameworkGithubPath]: frameworkMinutes,
   };
   const kickerByHref: Record<string, string> = {
+    "/reports/ai-agents-next-12-months": "Flagship",
+    "/reports/ai-shopping-agents-next-30-days": "Report",
+    "/reports/ai-agent-frameworks-next-6-months": "Report",
     "/reports/web-search-tools-for-ai-agents-november-2026": "Daily brief",
     "/reports/ai-answer-crawlers-november-2026": "Daily brief",
     "/reports/voice-agents-next-6-months": "Report",
@@ -76,7 +85,6 @@ export default async function ReportsPage() {
     "/reports/mcp-next-6-months": "Report",
     "/reports/browser-and-computer-use-agents-next-6-months": "Report",
     "/reports/ai-coding-agents-next-30-days": "Report",
-    "/reports/ai-agents-next-12-months": "Report",
     "/reports/ai-agents-next-6-months": "Report",
     "/reports/ai-shopping-agents-next-6-months": "Report",
     "/reports/agent-harness-benchmark-november-2026": "Report",
@@ -95,13 +103,27 @@ export default async function ReportsPage() {
       <PageHeader
         kicker="Reports"
         title="Figures with a date and a source"
-        summary="Each page says when it was updated, how to cite it, and what was left out. A number without a public source does not go up. Daily download, AGENTS.md, and star counts live on the trackers."
+        summary="The flagship is the next 12 months. New this week: shopping agents through December 12, and frameworks through May 2027. A number without a public source does not go up."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <ContentDeskNav current="/reports" />
         <ToolHub />
+        {dataAssets
+          .filter((item) => item.href === "/reports/ai-agents-next-12-months")
+          .map((item) => (
+            <div key={item.href} className="mb-4">
+              <ContentCard
+                href={item.href}
+                kicker="Flagship"
+                title={item.title}
+                description={item.summary}
+                date={dateByHref[item.href]}
+                readingMinutes={minutesByHref[item.href]}
+              />
+            </div>
+          ))}
         <div className="content-grid">
-          {dataAssets.map((item) => (
+          {dataAssets.filter((item) => item.href !== "/reports/ai-agents-next-12-months").map((item) => (
             <ContentCard
               key={item.href}
               href={item.href}

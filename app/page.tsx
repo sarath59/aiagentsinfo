@@ -169,7 +169,7 @@ export default async function HomePage() {
             <div className={"home-feature-col"}>
               {featured ? (
                 <Link href={featured.href} className={`focus-ring ${"home-card"} ${"home-feature"}`}>
-                  <p className="kicker">Report</p>
+                  <p className="kicker">{featured.href === "/reports/ai-agents-next-12-months" ? "Flagship" : "Report"}</p>
                   <h3 className={"home-feature-title"}>{featured.title}</h3>
                   <p className={"home-summary"}>{featured.summary}</p>
                   <span className={"home-more"}>

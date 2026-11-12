@@ -24,6 +24,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/reports/YWktc2hvcH",
+        destination: "/reports/ai-shopping-agents-next-6-months",
+        statusCode: 308,
+      },
+      {
         source: "/newsletter",
         destination: "/",
         statusCode: 308,
