@@ -1,6 +1,6 @@
 ---
 title: "Has Anthropic Met Its AI Acceleration Threshold? No (Nov 9, 2026)"
-description: "Has Anthropic met its AI acceleration threshold? No. On November 9, 2026, EDGAR still listed the November 2 Form S-1/A as the latest S-1, and that filing has not designated any current model past the line."
+description: "No current Claude model is designated past Anthropic’s AI acceleration threshold. The November 2, 2026 S-1 says future models may soon meet it. EDGAR, November 9."
 absoluteTitle: true
 takeaways:
   - "Anthropic told the SEC on November 2, 2026 that its estimates for future models may soon meet its rule for dramatically accelerated progress attributable to AI."
@@ -8,7 +8,7 @@ takeaways:
   - "The filing says it has not designated any current model as exceeding that threshold."
   - "It does not anticipate letting Claude fully autonomously design successor frontier models without meaningful human supervision."
 date: "2026-11-03"
-updated: "2026-11-09"
+updated: "2026-11-12"
 category: news
 topics:
   - news
@@ -111,7 +111,7 @@ That is a different claim from a product announcement that a released Claude mod
 
 An [agent](/glossary/agent), on this site, is a model plus a [harness](/glossary/harness): tools, a loop, permissions, and a stop. [Autonomy](/glossary/autonomy) is how far that loop may run before a person confirms the next step. Anthropic’s filing is about where that pattern sits inside a lab that builds the [language model](/glossary/llm) itself.
 
-The practical example Anthropic gives is Claude Code, which it calls “our agentic coding product.” It says that as models advanced, Claude’s success rate on challenging, open-ended engineering problems that lack a clear specification reached approximately 90% in September 2026, up approximately 50 percentage points in nine months, “based on our internal benchmarks.” It says the average daily volume of code contributed to its codebase per engineer in the three months ended September 30, 2026 was over 45 times the average daily volume in the year ended December 31, 2024, and that over 90% of contributions to the codebase in September 2026 were written by Claude. Those are Anthropic’s figures, from internal measurement, published in the registration statement. They are not an independent audit.
+The practical example Anthropic gives is Claude Code, which it calls “our agentic coding product.” It says that as models advanced, Claude’s success rate on challenging, open-ended engineering problems that lack a clear specification reached approximately 90% in September 2026, up approximately 50 percentage points in nine months, “based on our internal benchmarks.” It says the average daily volume of code contributed to its codebase per engineer in the three months ended September 30, 2026 was over 45 times the average daily volume in the year ended December 31, 2024, and that over 90% of contributions to the codebase in September 2026 were written by Claude. Those are Anthropic’s figures, from internal measurement, published in the registration statement. They are not an independent audit. The library form of that coding loop is the [Claude Agent SDK](/directory/claude-agent-sdk). A sourced comparison of Claude Code with other runtimes, using list prices rather than this filing’s internal benchmarks, is [Best AI agent harness](/best/ai-agent-harnesses).
 
 The filing describes the shift in how people work with that system: engineers “increasingly direct and review its work rather than write code line by line,” after Claude Code “progressed from suggesting code to writing and running it directly and working autonomously over long time horizons.” That is [tool use](/glossary/tool-use) inside a company, with a person still in the review role the filing describes.
 

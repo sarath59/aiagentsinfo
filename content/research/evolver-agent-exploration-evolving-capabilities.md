@@ -1,8 +1,8 @@
 ---
 title: "Evolver raised task success to 87.50% (Nov 5, 2026)"
-description: "Evolver raised task success from 83.13% to 87.50% on 320 paired runs. Task-execution tokens fell 24.24%. Claude Code and Codex. arXiv, November 5, 2026."
+description: "Evolver injects strategy Genes into Claude Code or Codex. On 320 diagnostic pairs, success rose from 83.13% to 87.50% and task-execution tokens fell 24.24%."
 date: "2026-11-07"
-updated: "2026-11-09"
+updated: "2026-11-12"
 absoluteTitle: true
 ledeQuestion: "Did Evolver raise agent task success?"
 ledeAnswer: "On 320 paired diagnostic runs, success rose from 83.13% to 87.50%, and recorded task-execution tokens fell 24.24%."
@@ -263,3 +263,5 @@ The November 5 paper, the repository it names, and the boards a reader might oth
 - [Codex](https://github.com/openai/codex)
 
 Related pages on this site: [agent harnesses hub](/topics/harnesses), [Best AI agent frameworks](/best/ai-agent-frameworks), [Harness comparison tracker](/trackers/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [agent skill](/glossary/agent-skill), [model context protocol](/glossary/model-context-protocol), [benchmark](/glossary/benchmark), [behavioral evaluation](/glossary/behavioral-evaluation), [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [SpecCompact](/research/speccompact-agent-context-compaction), [You don't need long context](/research/you-dont-need-long-context), [ReAct](/research/react-reasoning-and-acting), the [November harness benchmark](/reports/agent-harness-benchmark-november-2026), the [AI agent harness evaluation checklist](/tools/ai-agent-harness-evaluation-checklist), [Claude Code](/directory/claude-code), and [Codex](/directory/codex).
+
+A sourced comparison of the two harnesses this paper leaves in place, Claude Code and Codex, is [Best AI agent harness](/best/ai-agent-harnesses). The cycle those harnesses run is the [agent loop](/glossary/agent-loop).

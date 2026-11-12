@@ -41,7 +41,11 @@ export default function BestAiAgentFrameworksPage() {
           </p>
           <p>
             The code is free to use under the licence in the table. A hosted model the framework calls is a separate
-            bill. The workshop around a model, as opposed to the library, is{" "}
+            bill. Install counts are a different measurement from this comparison. PyPI and npm file requests are in{" "}
+            <Link href="/blog/which-ai-agent-framework-do-people-install">
+              Which AI agent framework do people install?
+            </Link>{" "}
+            The workshop around a model, as opposed to the library, is{" "}
             <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link> The priced coding
             products are <Link href="/best/ai-coding-agents">Best AI coding agents</Link>. The shelf for every table
             is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>. The harness guides sit on{" "}

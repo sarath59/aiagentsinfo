@@ -1,6 +1,6 @@
 ---
 title: "SpecCompact agent context compaction: 8.68× median"
-description: "SpecCompact agent context compaction, posted November 4, 2026: 2.04–5.63× on AppWorld and τ³, and an 8.68× median in a Hermes user study. The speed tables are on this page."
+description: "SpecCompact speeds agent context compaction: 8.68× median in a Hermes user study, and 2.04–5.63× versus Hermes-style summaries on AppWorld and τ³. November 4, 2026."
 absoluteTitle: true
 ledeQuestion: "What is SpecCompact agent context compaction?"
 ledeAnswer: "A November 4, 2026 method that sped a Hermes user-study compaction by 8.68× at the median."
@@ -9,7 +9,7 @@ dataset:
   description: "Speedups from An, Feng, and Yin, arXiv:2611.06876. Hermes user-study median paired speedup was 8.68×. AppWorld and τ³ speedups were 2.04–5.63×."
   isBasedOn: "https://arxiv.org/abs/2611.06876"
 date: "2026-11-05"
-updated: "2026-11-09"
+updated: "2026-11-12"
 type: paper-breakdown
 topics:
   - harnesses
@@ -265,3 +265,5 @@ The November 4 paper, and the two harnesses it builds on:
 - [OpenClaw compaction](https://docs.openclaw.ai/concepts/compaction)
 
 Related pages on this site: [Agent harnesses](/topics/harnesses), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [how agents work](/topics/how-agents-work), [You don't need long context](/research/you-dont-need-long-context), [ReAct: Synergizing Reasoning and Acting in Language Models](/research/react-reasoning-and-acting), [harness](/glossary/harness), and [agent](/glossary/agent).
+
+The step this paper speeds up is [context compaction](/glossary/context-compaction). The space that summary protects is the [context window](/glossary/context-window).

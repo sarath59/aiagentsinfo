@@ -8,13 +8,13 @@ export const frameworkComparison: ComparisonPage = {
   heading: "AI agent frameworks: AutoGen last shipped Sept 30, 2025",
   metaTitle: "AI agent frameworks: AutoGen last shipped Sept 30, 2025",
   metaDescription:
-    "Compare 19 open-source AI agent frameworks. GitHub tags were read November 11, 2026. AutoGen’s last release is still python-v0.7.5 from September 30, 2025.",
+    "Best AI agent frameworks, compared: 19 open-source libraries by licence and GitHub release, read November 11, 2026. AutoGen’s last tag is still September 30, 2025.",
   description:
     "There is no single best AI agent framework. This page compares 19 free and open-source frameworks and SDKs. Latest-release tags were read on November 11, 2026. AutoGen’s tag is still python-v0.7.5, published September 30, 2025, and its README still says the project is archived. The code is free under the licence named here. Calls to a hosted model are billed by that provider, not by the framework.",
   summary:
     "Nineteen open-source agent frameworks and SDKs. Latest GitHub release read November 11, 2026. AutoGen’s tag is still September 30, 2025. Not a quality ranking.",
   question: "What are the best AI agent frameworks in November 2026?",
-  tableHeading: "How do these AI agent frameworks compare on licence and release?",
+  tableHeading: "How do AI agent frameworks compare?",
   tableLead:
     "Nineteen repositories. The release column is the tag GitHub’s latest-release endpoint returned on November 11, 2026. In a monorepo that tag can be one package.",
   tableCaption: "AI agent frameworks — licence and latest GitHub release, read November 11, 2026",
@@ -27,7 +27,7 @@ export const frameworkComparison: ComparisonPage = {
   methodNote:
     "A latest-release tag in a monorepo can name one package, such as a Vue package or an SDK package, rather than every package in the repository. SPDX ids were re-read from the repository endpoint on November 11, 2026. Mastra and the Vercel AI SDK still returned no SPDX id. Their licence files were read on November 9 and were not re-opened on November 11. Star counts in the table are the November 5, 2026 snapshot, not this release pass. This page does not invent ratings or a composite score.",
   faqHeading: "What else do people ask about AI agent frameworks?",
-  faqLead: "Short answers on count, price, and how this list relates to the November 5 snapshot.",
+  faqLead: "Short answers on how this comparison works, what the code costs, and how the list relates to the November 5 snapshot.",
   applicationCategory: "DeveloperApplication",
   kind: "builder",
   verifiedOn: "2026-11-11",
@@ -324,6 +324,11 @@ export const frameworkComparison: ComparisonPage = {
   ],
   faq: [
     {
+      question: "How do AI agent frameworks compare?",
+      answer:
+        "This page compares 19 open-source frameworks and SDKs on licence and the latest GitHub release tag, read November 11, 2026. It is not a quality ranking. A tag in a monorepo can name one package. Install counts are a separate measurement.",
+    },
+    {
       question: "How many AI agent frameworks does this page compare?",
       answer:
         "It compares 19 open-source frameworks and SDKs. The set matches the repositories in this site’s November framework snapshot. Release tags and SPDX ids were re-read from GitHub on November 11, 2026. Star counts in the table stay on the November 5 snapshot.",
@@ -386,6 +391,12 @@ export const frameworkComparison: ComparisonPage = {
       title: "Framework releases, November 5 snapshot",
       description: "The earlier GitHub pull for these repositories, dated November 5, 2026. The star column on this page uses that pull.",
       kicker: "Report",
+    },
+    {
+      href: "/blog/which-ai-agent-framework-do-people-install",
+      title: "Which AI agent framework do people install?",
+      description: "PyPI and npm file requests. A download is not a user, and it is not this page’s release table.",
+      kicker: "Explainer",
     },
     {
       href: "/trackers/stars",
