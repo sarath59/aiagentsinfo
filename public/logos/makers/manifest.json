@@ -20,6 +20,13 @@
     "height": 128,
     "bytes": 1236
   },
+  "crealo-ai": {
+    "source": "https://crealo.ai/images/logos/footer-logo.png",
+    "file": "/logos/makers/crealo-ai.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 2454
+  },
   "damon-salvatore-church-edit-ai-video-generator": {
     "source": "https://damonsalvatoreaivideo.app/og/cover-1200x630.jpg",
     "file": "/logos/makers/damon-salvatore-church-edit-ai-video-generator.webp",
@@ -90,6 +97,13 @@
     "height": 128,
     "bytes": 1098
   },
+  "kinovi": {
+    "source": "https://kinovi.ai/icon-192.png",
+    "file": "/logos/makers/kinovi.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 8706
+  },
   "linktotext": {
     "source": "https://linktotext.co/social-share-poster.webp",
     "file": "/logos/makers/linktotext.webp",
@@ -125,6 +139,13 @@
     "height": 128,
     "bytes": 1768
   },
+  "orvlex": {
+    "source": "https://orvlex.com/logo.png",
+    "file": "/logos/makers/orvlex.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1576
+  },
   "rezloom": {
     "source": "https://rezloom.com/favicon.png",
     "file": "/logos/makers/rezloom.webp",
@@ -152,6 +173,13 @@
     "width": 128,
     "height": 128,
     "bytes": 1144
+  },
+  "tokenrip": {
+    "source": "https://tokenrip.com/apple-touch-icon.png",
+    "file": "/logos/makers/tokenrip.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 630
   },
   "window-peeper-ai-video": {
     "source": "https://windowpeeperaivideo.com/images/theme-video/window-peeper-scene.jpg",
