@@ -8,6 +8,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
       "Start with the definition, then the evaluation guide, how to build an eval harness, the comparison tables, the November benchmark, and the research notes.",
     links: [
       {
+        href: "/blog/microsoft-copilot-harness-foundry",
+        anchor: "Microsoft Copilot harness in Foundry",
+        note: "November 12, 2026. The forecast PDF on the November 10 demo, the creation-time lock, and US East hosted compute at $0.0994 per vCPU-hour.",
+      },
+      {
         href: "/blog/langgraph-vs-crewai-vs-openai-agents-sdk",
         anchor: "LangGraph vs CrewAI vs the OpenAI Agents SDK",
         note: "Three MIT libraries. langgraph 1.2.20, crewai 1.15.39, and openai-agents 0.24.0 on November 10, 2026. The bills are LangSmith, AMP, and the model API.",

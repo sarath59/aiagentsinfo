@@ -460,6 +460,13 @@ export const harnessComparison: ComparisonPage = {
   ],
   related: [
     {
+      href: "/blog/microsoft-copilot-harness-foundry",
+      title: "Microsoft Copilot harness in Foundry",
+      description: "The November 10 forecast PDF, the creation-time lock, and the US East compute rates.",
+      kicker: "News",
+      date: "2026-11-12",
+    },
+    {
       href: "/blog/what-is-an-ai-agent-harness",
       title: "What is an AI agent harness?",
       description: "The workshop around a model: loop, tools, memory, permissions, and stop rules.",
