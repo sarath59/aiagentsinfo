@@ -177,6 +177,13 @@ export default async function AgentsTwelveMonthOutlookPage() {
       kicker: "Directory",
     },
     {
+      href: "/directory/freegenvideo",
+      title: "FreeGenVideo",
+      description:
+        "Browser AI video generator. The official site says one free video a day from a text prompt or a starting image, with no app to install.",
+      kicker: "Directory",
+    },
+    {
       href: "/topics/task-performance",
       title: "Agents in task performance",
       description: topics.find((topic) => topic.slug === "task-performance")?.summary ?? "",

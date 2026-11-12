@@ -26,6 +26,7 @@ import {
   listingIsSubstantial,
   profileSections,
 } from "@/lib/listing-scan";
+import { listingSupplement } from "@/lib/listing-supplements";
 import { websiteDomain } from "@/lib/submissions";
 import { formatDate } from "@/lib/utils";
 
@@ -54,11 +55,25 @@ export async function ListingProfile({
       ? [sections[0], { id: "what-is-devin-ide", label: "What is Devin IDE?" }, ...sections.slice(1)]
       : sections;
   const devinAnswerFirst = listing.slug === "devin" && Boolean(listing.html.trim());
-  const checked = formatDate(listing.lastVerified);
+  const supplement = listingSupplement(listing.slug);
+  const verifiedOn = supplement?.checkedOn ?? listing.lastVerified;
+  const submittedLabel = formatDate(listing.lastVerified);
+  const checked = formatDate(verifiedOn);
+  const relatedTools = (supplement?.relatedSlugs ?? []).flatMap((slug) => {
+    const item = listings.find((entry) => entry.slug === slug);
+    return item ? [item] : [];
+  });
+  const jumpSections = [...pageSections];
+  if (supplement?.faq.length && !jumpSections.some((section) => section.id === "faq")) {
+    jumpSections.push({ id: "faq", label: "FAQ" });
+  }
+  if (relatedTools.length && !jumpSections.some((section) => section.id === "related-tools")) {
+    jumpSections.push({ id: "related-tools", label: "Related tools" });
+  }
   const domain = websiteDomain(listing.website);
   const cta = listing.name.length > 48 ? "Visit website" : `Visit ${listing.name}`;
   const pricingNote = conciseText(listing.pricingSummary, 280);
-  const facts = quickFacts(listing, checked);
+  const facts = quickFacts(listing, submittedLabel, checked, Boolean(supplement));
 
   return (
     <article className="mx-auto max-w-3xl px-4 pb-20 pt-10">
@@ -68,7 +83,11 @@ export async function ListingProfile({
           <span className="mr-2 inline-flex align-middle">
             <ListingStatus listing={listing} />
           </span>
-          The description is the maker&apos;s text. This desk has not written an independent review.{" "}
+          {supplement ? (
+            supplement.introNote
+          ) : (
+            <>The description is the maker&apos;s text. This desk has not written an independent review.</>
+          )}{" "}
           <Link href="/editorial-policy#directory">How listings are published</Link>.
         </p>
       ) : null}
@@ -103,13 +122,13 @@ export async function ListingProfile({
         <p className="mt-4 text-sm text-[var(--muted)]">
           {listing.communitySubmitted ? (
             <>
-              Submitted: <time dateTime={listing.lastVerified}>{checked}</time>
+              Submitted: <time dateTime={listing.lastVerified}>{submittedLabel}</time>
               {" · "}
             </>
           ) : null}
-          Last verified: <time dateTime={listing.lastVerified}>{checked}</time>
+          Last verified: <time dateTime={verifiedOn}>{checked}</time>
         </p>
-        <UpdatedLine date={listing.lastVerified} />
+        <UpdatedLine date={verifiedOn} />
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <a
             className="btn-primary focus-ring px-4 py-2 text-sm"
@@ -144,9 +163,11 @@ export async function ListingProfile({
                 <InlineCompanyText text={pricingNote} />
               </p>
               <p className="mt-2 text-xs leading-relaxed text-[var(--muted)]">
-                {listing.communitySubmitted
-                  ? `Maker-submitted pricing, filed ${checked}. This desk has not rechecked it.`
-                  : `Vendor pricing checked ${checked}.`}
+                {supplement
+                  ? supplement.pricingNote
+                  : listing.communitySubmitted
+                    ? `Maker-submitted pricing, filed ${submittedLabel}. This desk has not rechecked it.`
+                    : `Vendor pricing checked ${checked}.`}
               </p>
               {listing.pricingPageUrl ? (
                 <p className="mt-2">
@@ -167,9 +188,9 @@ export async function ListingProfile({
         </div>
       </header>
 
-      {pageSections.length ? (
+      {jumpSections.length ? (
         <nav className="listing-jump" aria-label="On this page">
-          {pageSections.map((section) => (
+          {jumpSections.map((section) => (
             <a key={section.id} className="focus-ring" href={`#${section.id}`}>
               {section.label}
             </a>
@@ -253,6 +274,49 @@ export async function ListingProfile({
         </div>
       ) : null}
 
+      {supplement?.faq.length ? (
+        <section id="faq" className="listing-section mt-10">
+          <h2 className="font-semibold tracking-tight text-2xl">FAQ</h2>
+          <div className="mt-4 grid gap-6">
+            {supplement.faq.map((item) => (
+              <div key={item.question}>
+                <h3 className="text-xl font-semibold tracking-tight">{item.question}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{item.answer}</p>
+                {item.sources.length ? (
+                  <p className="mt-2 text-sm leading-relaxed">
+                    {item.sources.map((source, index) => (
+                      <span key={source.href}>
+                        {index ? " · " : null}
+                        <a className="text-[var(--link)]" href={source.href} rel="noreferrer">
+                          {source.label}
+                        </a>
+                      </span>
+                    ))}
+                  </p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {relatedTools.length ? (
+        <section id="related-tools" className="listing-section mt-10">
+          <h2 className="font-semibold tracking-tight text-2xl">Related tools</h2>
+          <p className="mt-2 text-sm text-[var(--muted)]">
+            Other listings in this directory that generate video.
+          </p>
+          <ul className="mt-4 grid gap-3">
+            {relatedTools.map((item) => (
+              <li key={item.slug} className="rounded-2xl border border-[var(--stroke)] bg-white px-3 py-3">
+                <ListingRow listing={item} />
+                <p className="mt-1 px-1 text-sm leading-relaxed text-[var(--muted)]">{item.summary}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {listing.tags.length ? (
         <section className="mt-8">
           <h2 className="font-semibold tracking-tight text-2xl">Tags</h2>
@@ -308,7 +372,7 @@ export async function ListingProfile({
   );
 }
 
-function quickFacts(listing: DirectoryListing, checked: string) {
+function quickFacts(listing: DirectoryListing, submitted: string, checked: string, siteChecked: boolean) {
   const rows: { term: string; detail: string }[] = [
     { term: "Category", detail: categoryTitle(listing.category) },
     { term: "Pricing", detail: listing.pricing.map((item) => pricingTitle(item)).join(", ") },
@@ -318,12 +382,9 @@ function quickFacts(listing: DirectoryListing, checked: string) {
   if (listing.startingPrice) rows.push({ term: "Starting price", detail: listing.startingPrice });
   if (listing.billingPeriod) rows.push({ term: "Billing", detail: billingPeriodTitle(listing.billingPeriod) });
   if (listing.vendor) rows.push({ term: "Vendor", detail: listing.vendor });
-  if (checked) {
-    rows.push({
-      term: listing.communitySubmitted ? "Submitted" : "Last verified",
-      detail: checked,
-    });
-  }
+  if (listing.communitySubmitted && submitted) rows.push({ term: "Submitted", detail: submitted });
+  if (!listing.communitySubmitted && checked) rows.push({ term: "Last verified", detail: checked });
+  if (siteChecked && checked) rows.push({ term: "Site checked", detail: checked });
   if (listing.useCases.length) rows.push({ term: "Use", detail: listing.useCases.join(", ") });
   return rows.filter((row) => row.detail.trim());
 }

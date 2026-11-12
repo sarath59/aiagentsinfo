@@ -12,7 +12,8 @@ import {
   listingsForCollection,
 } from "@/lib/directory";
 import { communityListingIsIndexable } from "@/lib/indexing";
-import { JsonLd, defaultMetadata, softwareApplicationJsonLd, webPageJsonLd } from "@/lib/seo";
+import { listingFaqText, listingSupplement } from "@/lib/listing-supplements";
+import { JsonLd, defaultMetadata, faqPageJsonLd, softwareApplicationJsonLd, webPageJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const listings = await getDirectoryListings();
@@ -82,6 +83,8 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
 
   const listing = all.find((item) => item.slug === slug);
   if (!listing) notFound();
+  const supplement = listingSupplement(listing.slug);
+  const modified = supplement?.checkedOn ?? listing.lastVerified;
 
   return (
     <>
@@ -91,9 +94,19 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
             title: listing.title?.trim() || listing.name,
             description: listing.summary,
             path: `/directory/${listing.slug}`,
-            dateModified: listing.lastVerified,
+            dateModified: modified,
             datePublished: listing.communitySubmitted ? listing.lastVerified : undefined,
           }),
+          ...(supplement?.faq.length
+            ? [
+                faqPageJsonLd(
+                  supplement.faq.map((item) => ({
+                    question: item.question,
+                    answer: listingFaqText(item),
+                  })),
+                ),
+              ]
+            : []),
           softwareApplicationJsonLd({
             name: listing.name,
             url: `/directory/${listing.slug}`,
