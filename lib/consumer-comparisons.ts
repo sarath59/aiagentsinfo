@@ -346,6 +346,14 @@ export const webSearchComparison: ComparisonPage = {
   related: [
     hubCard(),
     {
+      href: "/blog/best-web-search-tool-for-claude-and-openai-agents",
+      title: "The best web search tool for a Claude or OpenAI agent is 8 tokens, or 17",
+      description:
+        "OpenAI's web_search was 8 tokens. Claude's web_search_20260318 was 17. Exa's resolved schema was 5,251. Measured November 12, 2026.",
+      kicker: "Guide",
+      date: "2026-11-12",
+    },
+    {
       href: "/blog/best-web-search-tool-for-ai-agents",
       title: "What is the best web search tool for an AI agent harness?",
       description: "Gemini grounding is $14 per 1,000 searches and 1,500 a day. Claude and OpenAI list $10. A snippet API is the one a harness can cap. Read November 11, 2026.",

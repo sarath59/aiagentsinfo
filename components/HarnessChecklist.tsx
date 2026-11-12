@@ -6,8 +6,28 @@ import { checklistGroups, checklistItems } from "@/lib/harness-checklist";
 
 type Answer = "yes" | "not-yet";
 
+const TOOL_SLUG = "ai-agent-harness-evaluation-checklist";
+
+async function copyText(value: string) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+  const area = document.createElement("textarea");
+  area.value = value;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.left = "-9999px";
+  document.body.appendChild(area);
+  area.select();
+  document.execCommand("copy");
+  area.remove();
+}
+
 export function HarnessChecklist() {
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
+  const [copied, setCopied] = useState(false);
+  const [copyNote, setCopyNote] = useState("");
   const ran = useRef(false);
 
   const counts = useMemo(() => {
@@ -19,6 +39,30 @@ export function HarnessChecklist() {
     }
     return { yes, open, unanswered: checklistItems.length - yes - open };
   }, [answers]);
+
+  async function copyResult() {
+    const lines = [
+      `AI agent harness evaluation checklist: ${counts.yes} of ${checklistItems.length} marked yes.`,
+      `Still open: ${counts.open}. Unanswered: ${counts.unanswered}.`,
+      "This count is a worksheet. It is not a SWE-bench score, a Terminal-Bench score, or a rank.",
+      "",
+    ];
+    for (const item of checklistItems) {
+      const answer = answers[item.id];
+      const label = answer === "yes" ? "Yes" : answer === "not-yet" ? "Not yet" : "Unanswered";
+      lines.push(`${label}. ${item.prompt}`);
+    }
+    try {
+      await copyText(lines.join("\n"));
+      trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action: "copy_result" });
+      setCopyNote("");
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+      setCopyNote("The browser did not copy that.");
+    }
+  }
 
   return (
     <form
@@ -68,7 +112,7 @@ export function HarnessChecklist() {
                             setAnswers((current) => ({ ...current, [item.id]: value }));
                             if (ran.current) return;
                             ran.current = true;
-                            trackGoal("tool_run", { tool_slug: "ai-agent-harness-evaluation-checklist" });
+                            trackGoal("tool_run", { tool_slug: TOOL_SLUG });
                           }}
                         />
                         {label}
@@ -81,14 +125,22 @@ export function HarnessChecklist() {
           </ul>
         </section>
       ))}
-      <p>
+      <p className="flex flex-wrap items-center gap-3">
+        <button type="button" className="btn-primary px-4 py-2 text-sm" onClick={() => void copyResult()}>
+          {copied ? "Copied" : "Copy result"}
+        </button>
         <button
           type="button"
           className="btn-ghost px-4 py-2 text-sm"
-          onClick={() => setAnswers({})}
+          onClick={() => {
+            setAnswers({});
+            setCopied(false);
+            setCopyNote("");
+          }}
         >
           Clear the worksheet
         </button>
+        {copyNote ? <span className="text-sm text-[var(--muted)]">{copyNote}</span> : null}
       </p>
     </form>
   );

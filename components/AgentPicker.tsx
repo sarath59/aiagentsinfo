@@ -11,6 +11,36 @@ import {
   type PickerMatch,
 } from "@/lib/agent-picker";
 
+const TOOL_SLUG = "agent-picker";
+
+async function copyText(value: string) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+  const area = document.createElement("textarea");
+  area.value = value;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.left = "-9999px";
+  document.body.appendChild(area);
+  area.select();
+  document.execCommand("copy");
+  area.remove();
+}
+
+function resultText(result: { note: string; matches: PickerMatch[] }) {
+  const lines = [result.note, ""];
+  result.matches.forEach((match, index) => {
+    lines.push(`${index + 1}. ${match.name}`);
+    lines.push(match.summary);
+    lines.push(match.why);
+    if (match.missed.length) lines.push(`Misses: ${match.missed.join(". ")}.`);
+    lines.push("");
+  });
+  return lines.join("\n").trim();
+}
+
 export function AgentPicker({ listings, compact = false }: { listings: PickerListing[]; compact?: boolean }) {
   const uses = useMemo(() => availableUses(listings), [listings]);
   const [useCase, setUseCase] = useState<PickerAnswers["useCase"]>(uses[0]?.id ?? "any");
@@ -18,16 +48,34 @@ export function AgentPicker({ listings, compact = false }: { listings: PickerLis
   const [openSource, setOpenSource] = useState<PickerAnswers["openSource"]>("either");
   const [build, setBuild] = useState<PickerAnswers["build"]>("either");
   const [result, setResult] = useState<{ note: string; matches: PickerMatch[] } | null>(null);
+  const [copied, setCopied] = useState(false);
+  const [copyNote, setCopyNote] = useState("");
   const tracked = useRef(false);
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const next = recommendAgents(listings, { useCase, budget, openSource, build });
     setResult(next);
-    trackGoal("tool_run", { tool_slug: "agent-picker" });
+    setCopied(false);
+    setCopyNote("");
+    trackGoal("tool_run", { tool_slug: TOOL_SLUG });
     if (!tracked.current && next.matches.length) {
       tracked.current = true;
       trackGoal("picker_complete");
+    }
+  }
+
+  async function copyResult() {
+    if (!result?.matches.length) return;
+    try {
+      await copyText(resultText(result));
+      trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action: "copy_result" });
+      setCopyNote("");
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+      setCopyNote("The browser did not copy that.");
     }
   }
 
@@ -75,6 +123,14 @@ export function AgentPicker({ listings, compact = false }: { listings: PickerLis
               </li>
             ))}
           </ol>
+          {result.matches.length ? (
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <button type="button" className="btn-primary px-4 py-2 text-sm" onClick={() => void copyResult()}>
+                {copied ? "Copied" : "Copy result"}
+              </button>
+              {copyNote ? <p className="text-sm text-[var(--muted)]">{copyNote}</p> : null}
+            </div>
+          ) : null}
         </div>
       ) : null}
     </form>
