@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
         statusCode: 308,
       },
       {
+        source: "/directory/stalkr-ai",
+        destination: "/directory/stalkr",
+        statusCode: 308,
+      },
+      {
         source: "/newsletter",
         destination: "/",
         statusCode: 308,
