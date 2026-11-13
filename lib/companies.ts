@@ -514,6 +514,24 @@ export const companies: Company[] = [
     aliases: ["NVIDIA", "Nvidia"],
     hosts: ["nvidia.com"],
   },
+  {
+    slug: "wirex",
+    name: "Wirex",
+    website: "https://www.wirexapp.com",
+    logo: "/logos/wirex.png",
+    tile: "light",
+    aliases: ["Wirex"],
+    hosts: ["wirexapp.com", "wirex.com"],
+  },
+  {
+    slug: "navoka",
+    name: "Navoka",
+    website: "https://navoka.com",
+    logo: "/logos/navoka.svg",
+    tile: "light",
+    aliases: ["Navoka"],
+    hosts: ["navoka.com"],
+  },
 ];
 
 const bySlug = new Map(companies.map((company) => [company.slug, company]));

@@ -27,6 +27,14 @@ export default async function ShoppingAgentsReportPage() {
   ]);
   const related = [
     {
+      href: "/blog/can-an-ai-agent-buy-things-online",
+      title: "Can an AI agent buy things online for me? Navoka gives it a separate card",
+      description:
+        "Wirex’s Navoka, launched November 12, 2026, pays from the agent’s own IBAN and debit card. Limits are checked at authorisation.",
+      kicker: "News",
+      date: "2026-11-13",
+    },
+    {
       href: "/blog/how-do-ai-shopping-agents-pay",
       title: "How do AI shopping agents pay?",
       description:

@@ -7,7 +7,7 @@ takeaways:
   - "ChatGPT’s merchant page, read November 12, 2026, still finishes the purchase on the store’s site. OpenAI’s Delegated Payment Spec, Last-Modified the same morning, still describes a single-use token. A product feed does not turn that token on."
   - "Shoppers should read the approval screen. Merchants are buyable on a channel they have enabled. Builders should pin a spec date: ACP’s payment example says API version 2025-09-29, and AP2’s spec page is v0.2 from April 28, 2026."
 date: "2026-11-12"
-updated: "2026-11-12"
+updated: "2026-11-13"
 category: guide
 topics:
   - shopping
@@ -95,7 +95,7 @@ faq:
     answer: "No. Mastercard opened it to early access on October 20, 2026 so an agent can pay for digital services such as models and APIs, inside a budget a business set, on top of x402. A product checkout and a machine paying for an API are different integrations."
 ---
 
-Updated November 12, 2026.
+Updated November 13, 2026.
 
 ## How do AI shopping agents pay?
 
@@ -104,6 +104,8 @@ With a scoped credential, a signed mandate, or, in Amazon’s case, an encrypted
 That rule is the whole subject of this page. The companion guide, [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you), says which assistant can finish a purchase. This page says what actually gets charged, who is allowed to approve it, and what a store has to turn on before an agent can buy.
 
 The short version: the assistant is allowed to act. The store still sells the item. The card number should not be sitting in the chat transcript. When it leaves Amazon’s systems for a brand site, Amazon says the payload is encrypted, and the shopper has already confirmed the order on an Amazon checkout page.
+
+A fourth pattern went live in public on November 12, 2026. Wirex’s Navoka gives the agent its own IBAN, debit card, and USDC/EURC wallet, funded separately from the shopper’s accounts, with the limits checked at card authorisation. That launch is [Can an AI agent buy things online for me? Navoka gives it a separate card](/blog/can-an-ai-agent-buy-things-online).
 
 ## What is agentic checkout?
 
@@ -356,6 +358,7 @@ Builders. Pin a date. ACP’s payment example still says API version `2025-09-29
 - Glossary: [agentic commerce](/glossary/agentic-commerce), [delegated payment token](/glossary/delegated-payment-token), [Know Your Agent](/glossary/know-your-agent), [agentic checkout](/glossary/agentic-checkout), [shopping agent](/glossary/shopping-agent), [product feed](/glossary/product-feed), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy)
 - Guides: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you), [How to make your store readable by AI shopping agents](/blog/how-to-make-your-store-readable-by-ai-shopping-agents), [OpenAI’s checkout example is still API version 2025-09-12](/blog/ucp-vs-acp-spec-versions-november-2026)
 - Comparison: [Best AI agent for shopping](/best/ai-agents-for-shopping), [4 of 5 shopping agents can finish checkout](/blog/ai-shopping-agents-compared-november-2026)
+- News, November 13, 2026: [Can an AI agent buy things online for me? Navoka gives it a separate card](/blog/can-an-ai-agent-buy-things-online)
 - Report: [AI shopping agents next 6 months](/reports/ai-shopping-agents-next-6-months)
 - Research: [AP2 has 3,270 stars and no package](/research/agentic-commerce-protocol-adoption-november-2026)
 - Tool: [Shopping agent readiness checker](/tools/shopping-agent-readiness-checker)
