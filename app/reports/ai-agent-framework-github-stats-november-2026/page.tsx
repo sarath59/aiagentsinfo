@@ -127,6 +127,22 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/research/top-mcp-server-repos-november-2026",
+            title: "5 of 44 top MCP server repos are archived",
+            description:
+              "GitHub search for mcp-server in the name, 03:44 UTC on November 13, 2026. Five archived repos still hold 9,827 stars. Six descriptions say official.",
+            kicker: "Research",
+            date: "2026-11-13",
+          },
+          {
+            href: "/blog/ai-staff-for-small-business-seat-prices-november-2026",
+            title: "AI staff for a small business: $7, $18, and $20 a seat",
+            description:
+              "Workspace Starter, Microsoft 365 Copilot Business, and Claude Team, read November 13, 2026. The seat is not the phone, the outbound sequence, or the books.",
+            kicker: "Explainer",
+            date: "2026-11-13",
+          },
+          {
             href: "/blog/a2ui-1-0-agent-framework-release-november-2026",
             title: "A2UI 1.0 agent framework release November 2026: Gemini still renders 0.9.1",
             description:
@@ -349,6 +365,14 @@ export default async function FrameworkGithubStatsPage() {
           ) : null}
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             Related pages:{" "}
+            <Link className="text-[var(--link)] underline" href="/research/top-mcp-server-repos-november-2026">
+              5 of 44 top MCP server repos are archived
+            </Link>
+            ,{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/ai-staff-for-small-business-seat-prices-november-2026">
+              AI staff for a small business: $7, $18, and $20 a seat
+            </Link>
+            ,{" "}
             <Link className="text-[var(--link)] underline" href="/research/ai-agent-framework-issue-health-november-2026">
               59 LangChain issues closed in under a minute
             </Link>
