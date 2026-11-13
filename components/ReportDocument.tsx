@@ -185,7 +185,7 @@ export function ReportChapters({ chapters, charts }: { chapters: ReportChapter[]
               return chart ? <ChartFigure key={key} chart={chart} /> : null;
             }
             return (
-              <div key={key} className="report-table-wrap">
+              <div key={key} className={block.scroll ? "report-table-wrap report-table-scroll" : "report-table-wrap"}>
                 <table>
                   <caption>{block.caption}</caption>
                   <thead>

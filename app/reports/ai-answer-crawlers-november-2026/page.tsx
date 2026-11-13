@@ -106,6 +106,15 @@ export default function AiAnswerCrawlersPage() {
         }
         related={[
           {
+            href: "/reports/ai-agent-vendor-robots-txt-november-2026",
+            title:
+              "Do AI agent companies let AI agents read their sites? robots.txt and llms.txt of 52 websites, November 2026",
+            description:
+              "Their robots.txt, not ours. 52 vendor sites fetched November 13, 2026. 45 of 47 parsed files allow / for GPTBot.",
+            kicker: "Daily brief",
+            date: "2026-11-13",
+          },
+          {
             href: "/tools/ai-crawler-robots-txt-checker",
             title: "robots.txt checker for AI crawlers: who can fetch /",
             description: "The same tokens, checked against a live robots.txt. Nothing you enter is stored.",

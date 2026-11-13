@@ -15,7 +15,7 @@ export type Block =
   | { kind: "callout"; title: string; text: string }
   | { kind: "means"; audience: "Builders" | "Buyers" | "Builders and buyers"; text: string }
   | { kind: "chart"; id: string }
-  | { kind: "table"; caption: string; headers: string[]; rows: string[][] };
+  | { kind: "table"; caption: string; headers: string[]; rows: string[][]; scroll?: boolean };
 
 export type ReportChapter = {
   id: string;

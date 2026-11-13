@@ -168,6 +168,13 @@ export const dataAssets = [
       "Flagship calendar. Anthropic’s November 10 filing, the December 1 and January 1 token-price steps, and the regulation clocks through November 2027. Updated November 12, 2026.",
   },
   {
+    href: "/reports/ai-agent-vendor-robots-txt-november-2026",
+    title:
+      "Do AI agent companies let AI agents read their sites? robots.txt and llms.txt of 52 websites, November 2026",
+    summary:
+      "52 vendor sites, fetched November 13, 2026. 45 of 47 parsed robots.txt files allow / for GPTBot. 27 returned llms.txt as text.",
+  },
+  {
     href: "/reports/enterprise-agent-platforms-next-6-months",
     title:
       "Enterprise agent platforms, Nov 2026 to May 2027: Agent Builder ends November 30. A standard action is still $0.10.",
@@ -352,6 +359,7 @@ export const footerNav = [
       { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
       { href: "/trackers/harnesses", label: "Harness comparison" },
       { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
+      { href: "/reports/ai-agent-vendor-robots-txt-november-2026", label: "Vendor robots.txt, November 2026" },
       { href: "/reports/web-search-tools-for-ai-agents-november-2026", label: "Web search APIs, November 2026" },
       { href: "/reports/ai-answer-crawlers-november-2026", label: "AI answer crawlers, November 2026" },
       { href: "/reports/ai-agents-in-production-2026", label: "AI agents in production, 2026" },

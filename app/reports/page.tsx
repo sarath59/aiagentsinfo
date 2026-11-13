@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { ToolHub } from "@/components/ToolHub";
 import { getDirectoryStats } from "@/lib/directory-stats";
 import { readingMinutes as crawlerMinutes } from "@/lib/ai-answer-crawlers-november-2026";
+import { readingMinutes as vendorRobotsMinutes } from "@/lib/vendor-robots-november-2026";
 import { readingMinutes as searchToolsMinutes } from "@/lib/web-search-tools-november-2026";
 import { readingMinutes as yearMinutes, updatedOn as yearUpdated } from "@/lib/agents-12-month-outlook";
 import { readingMinutes as shop30Minutes } from "@/lib/shopping-agents-30-day";
@@ -28,7 +29,7 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "The 12-month flagship, a six-month enterprise-platforms brief, a 30-day shopping brief through Cyber Monday, and a six-month frameworks brief, plus dated pages on production, voice, MCP, computer use, coding agents, harness benchmarks, and framework GitHub stats.",
+  "The 12-month flagship, today's vendor robots.txt brief, a six-month enterprise-platforms brief, a 30-day shopping brief through Cyber Monday, and a six-month frameworks brief, plus dated pages on production, voice, MCP, computer use, coding agents, harness benchmarks, and framework GitHub stats.",
   "/reports",
 );
 
@@ -36,6 +37,7 @@ export default async function ReportsPage() {
   const stats = await getDirectoryStats();
   const dateByHref: Record<string, string> = {
     "/reports/ai-agents-next-12-months": yearUpdated,
+    "/reports/ai-agent-vendor-robots-txt-november-2026": "2026-11-13",
     "/reports/enterprise-agent-platforms-next-6-months": "2026-11-12",
     "/reports/ai-shopping-agents-next-30-days": "2026-11-12",
     "/reports/ai-agent-frameworks-next-6-months": "2026-11-12",
@@ -61,6 +63,7 @@ export default async function ReportsPage() {
   };
   const minutesByHref: Record<string, number> = {
     "/reports/ai-agents-next-12-months": yearMinutes,
+    "/reports/ai-agent-vendor-robots-txt-november-2026": vendorRobotsMinutes,
     "/reports/enterprise-agent-platforms-next-6-months": enterpriseMinutes,
     "/reports/ai-shopping-agents-next-30-days": shop30Minutes,
     "/reports/ai-agent-frameworks-next-6-months": frameworksMinutes,
@@ -79,6 +82,7 @@ export default async function ReportsPage() {
   };
   const kickerByHref: Record<string, string> = {
     "/reports/ai-agents-next-12-months": "Flagship",
+    "/reports/ai-agent-vendor-robots-txt-november-2026": "Daily brief",
     "/reports/enterprise-agent-platforms-next-6-months": "Report",
     "/reports/ai-shopping-agents-next-30-days": "Report",
     "/reports/ai-agent-frameworks-next-6-months": "Report",
@@ -109,7 +113,7 @@ export default async function ReportsPage() {
       <PageHeader
         kicker="Reports"
         title="Figures with a date and a source"
-        summary="The flagship is the next 12 months. New: enterprise platforms through May 2027, shopping agents through December 12, and frameworks through May 2027. A number without a public source does not go up."
+        summary="The flagship is the next 12 months. New: robots.txt and llms.txt of 52 agent websites, checked November 13, 2026. A number without a public source does not go up."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <ContentDeskNav current="/reports" />

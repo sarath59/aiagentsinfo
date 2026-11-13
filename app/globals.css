@@ -1521,6 +1521,20 @@ article.grid > * {
   max-width: 100%;
 }
 
+.report-table-scroll {
+  overflow-x: auto;
+}
+
+.report-table-scroll table {
+  width: max-content;
+  min-width: 100%;
+}
+
+.report-table-scroll th,
+.report-table-scroll td {
+  white-space: nowrap;
+}
+
 .report-chart figcaption,
 .report-table-wrap caption,
 .report-chart-source {

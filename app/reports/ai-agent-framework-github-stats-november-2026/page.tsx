@@ -127,6 +127,15 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/reports/ai-agent-vendor-robots-txt-november-2026",
+            title:
+              "Do AI agent companies let AI agents read their sites? robots.txt and llms.txt of 52 websites, November 2026",
+            description:
+              "robots.txt and llms.txt for 52 agent websites, fetched November 13, 2026. 45 of 47 parsed files allow / for GPTBot.",
+            kicker: "Daily brief",
+            date: "2026-11-13",
+          },
+          {
             href: "/research/top-mcp-server-repos-november-2026",
             title: "5 of 44 top MCP server repos are archived",
             description:

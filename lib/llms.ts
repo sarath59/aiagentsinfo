@@ -53,6 +53,11 @@ import {
   title as crawlerTitle,
 } from "@/lib/ai-answer-crawlers-november-2026";
 import {
+  description as vendorRobotsDescription,
+  path as vendorRobotsPath,
+  title as vendorRobotsTitle,
+} from "@/lib/vendor-robots-november-2026";
+import {
   description as searchToolsDescription,
   path as searchToolsPath,
   title as searchToolsTitle,
@@ -163,6 +168,11 @@ function dataPageSummaries() {
         ? `${starTop.name} (${starTop.repo}) had ${integer(starTop.stars)} stars in that snapshot. The live page reads stargazers_count from the GitHub repository API.`
         : "The snapshot had no rows.",
     ),
+    articleBlock(vendorRobotsTitle, [
+      `URL: ${absoluteUrl(vendorRobotsPath)}`,
+      "Checked: 2026-11-13",
+      vendorRobotsDescription,
+    ], "Daily brief. robots.txt and llms.txt of 52 AI agent websites, fetched 13 November 2026. 45 of 47 parsed files allow / for GPTBot. 27 hosts returned llms.txt as text. Homepage statuses are one request from one cloud IP."),
     articleBlock(searchToolsTitle, [
       `URL: ${absoluteUrl(searchToolsPath)}`,
       "Checked: 2026-11-12",
@@ -310,6 +320,7 @@ export async function buildLlmsTxt() {
       item(shop30Title, shop30Path, shop30Description),
       item(frameworksTitle, frameworksPath, frameworksDescription),
       item(enterpriseTitle, enterprisePath, enterpriseDescription),
+      item(vendorRobotsTitle, vendorRobotsPath, vendorRobotsDescription),
       item(searchToolsTitle, searchToolsPath, searchToolsDescription),
       item(crawlerTitle, crawlerPath, crawlerDescription),
       item(voiceTitle, voicePath, voiceDescription),
