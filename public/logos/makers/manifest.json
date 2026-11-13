@@ -188,6 +188,13 @@
     "height": 128,
     "bytes": 630
   },
+  "tripo-stl-viewer": {
+    "source": "https://www.tripo3d.ai/images/logo/tripo-logo1.webp",
+    "file": "/logos/makers/tripo-stl-viewer.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 3258
+  },
   "weartryon": {
     "source": "https://weartryon.com/icon.png",
     "file": "/logos/makers/weartryon.webp",
