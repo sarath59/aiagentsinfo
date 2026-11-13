@@ -7,7 +7,7 @@ takeaways:
   - "On gpt-5, with a 28-token prompt, 200 output tokens, and 40 turns a day, that eight-tool list was $0.03390375 a turn and $40.6845 over 30 days. The web-search tool alone was $0.003785 and $4.542. The 200 output tokens are $2.40 of every gpt-5 row."
   - "OpenAI's published web_search declaration was 8 tokens. Anthropic's web_search_20260318 declaration was 17. Exa's live search-only list was 348. The call fee is still the larger line on those tools. On Brave's full list, the definition is larger than 1,200 searches at $5 per 1,000."
 date: "2026-11-11"
-updated: "2026-11-11"
+updated: "2026-11-13"
 category: guide
 topics:
   - tools-saas
@@ -179,6 +179,8 @@ On Tavily, the keyless process still listed crawl, map, research, and feedback. 
 On Firecrawl's keyless server, scrape and parse sit beside search. The three-tool list was 5,887 tokens. The search object was 2,455 tokens, and the same object kept to name, description, and inputSchema was 2,109. Leave `scrapeOptions` unset unless you mean to buy the scrape. The price card's Hobby and Standard figures are for a search of up to 10 results with no scrape. This schema does not set that limit for you.
 
 On OpenAI and Claude, send the short declaration and budget the $10 per 1,000, then budget the pages. Do not budget a 25,000-token schema for a hosted tool. The vendors do not publish one. Eight tokens and 17 tokens are what the request sends.
+
+The calculator that adds the call fee to these definition sizes, and to a result length you type, is [web search API cost per agent task](/tools/web-search-api-cost-per-agent-task). Brave's row there uses the 1,400-token search tool, not the 25,495-token list.
 
 Serper's $1 per 1,000 pack is still the cheap Google result page on the [price card](/blog/web-search-api-prices-for-ai-agents-november-2026), and that page found no official MCP server for it. The consumer products are [Best AI agent for web search](/best/ai-agents-for-web-search). A documentation-server count from the day before, Context7 and DeepWiki, is a different list: [Context7 and DeepWiki MCP tool definitions](/blog/live-mcp-tool-json-token-counts).
 

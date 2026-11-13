@@ -7,7 +7,7 @@ takeaways:
   - "If the harness only needs Google’s result page, Serper’s Starter pack is $50 for 50,000 credits, which the page prices at $1.00 per 1,000, at 50 queries per second. SerpAPI’s Starter plan is $25 for 1,000 searches a month, at 200 successful searches an hour."
   - "Exa Lite is $4 per 1,000 requests for up to 10 results, served from cache. Tavily basic search is 1 credit, and pay-as-you-go is $0.008 a credit, so 1,000 basic searches are $8. Brave Search is $5 per 1,000 requests at 50 queries per second."
 date: "2026-11-11"
-updated: "2026-11-11"
+updated: "2026-11-13"
 category: guide
 topics:
   - tools-saas
@@ -197,4 +197,6 @@ Do not put SerpAPI Starter on an agent because the logo says search. Twenty-five
 Brave is the high-throughput middle: $5 per 1,000, 50 a second, and the monthly $5 credit needs a card. Firecrawl is the wrong row if you only wanted snippets, and the right row if the agent’s next tool needs the page in markdown and you are willing to pay the scrape credits on top of the 2-credit search.
 
 The app products that already search for a person sitting in a chat are still [Best AI agent for web search](/best/ai-agents-for-web-search). They are not this rate card. Which of these calls belongs in the loop, including Gemini grounding at $14 per 1,000 searches and a 1,500-request daily cap, is [What is the best web search tool for an AI agent harness?](/blog/best-web-search-tool-for-ai-agents).
+
+The same searches, with the tool-definition tokens and a result length you type, are the [web search API cost per agent task](/tools/web-search-api-cost-per-agent-task) calculator. Call prices on that page were re-read November 13, 2026. Parallel, Firecrawl, Linkup, You.com, Jina, and Serper stay on this card and are not in the calculator, because those pages were not opened again that day. The November 12 dataset is [Best web search tool for Claude and OpenAI agents](/reports/web-search-tools-for-ai-agents-november-2026).
 ---

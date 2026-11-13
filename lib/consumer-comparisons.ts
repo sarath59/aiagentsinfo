@@ -350,6 +350,14 @@ export const webSearchComparison: ComparisonPage = {
   related: [
     hubCard(),
     {
+      href: "/tools/web-search-api-cost-per-agent-task",
+      title: "Web search API cost per agent task",
+      description:
+        "Call fee plus tool-definition and result tokens for Tavily, Exa, Brave, Perplexity, SerpAPI, Gemini grounding, and the OpenAI and Anthropic tools. Prices read November 13, 2026.",
+      kicker: "Tool",
+      date: "2026-11-13",
+    },
+    {
       href: "/blog/best-web-search-tool-for-claude-and-openai-agents",
       title: "The best web search tool for a Claude or OpenAI agent is 8 tokens, or 17",
       description:

@@ -226,6 +226,37 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
 }
 
 function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "ai-agent-framework-mcp-a2a-support-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/reports/ai-agent-framework-github-stats-november-2026",
+          title: "AI agent framework GitHub stats, November 2026",
+          note: "The November 5 snapshot these names come from. Stars and one tag, not the protocol cells.",
+        },
+        {
+          href: "/best/ai-agent-frameworks",
+          title: "Best AI agent frameworks",
+          note: "Licence and release tag. This note is MCP, A2A, and AG-UI.",
+        },
+        {
+          href: "/research/ai-agent-framework-release-cadence-october-november-2026",
+          title: "3,165 GitHub releases in 30 days, or 407 days of silence",
+          note: "How often tags landed. A different count from a documented protocol.",
+        },
+        {
+          href: "/trackers/downloads",
+          title: "Framework downloads tracker",
+          note: "PyPI and npm file requests. A download is not a user.",
+        },
+      ],
+      tool: {
+        href: "/tools/web-search-api-cost-per-agent-task",
+        title: "web search API cost calculator",
+        note: "the call fee plus the tokens of the results you keep",
+      },
+    };
+  }
   if (slug === "ai-agent-framework-issue-health-november-2026") {
     return {
       reads: [

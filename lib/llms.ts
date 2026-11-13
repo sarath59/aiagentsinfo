@@ -352,7 +352,7 @@ export async function buildLlmsTxt() {
       item(
         "Free tools",
         "/tools",
-        "AGENTS.md generator, agent picker, cost and ROI calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
+        "AGENTS.md generator, agent picker, cost, ROI, and web search API cost calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
       ),
       item(
         "robots.txt checker for AI crawlers",
@@ -373,6 +373,11 @@ export async function buildLlmsTxt() {
         "AI agent ROI calculator",
         "/tools/ai-agent-roi-calculator",
         "Free payback months, annual ROI, and break-even task volume. Nothing you type is stored.",
+      ),
+      item(
+        "Web search API cost per agent task",
+        "/tools/web-search-api-cost-per-agent-task",
+        "Free client-side cost of Tavily, Exa, Brave, Perplexity, SerpAPI, Gemini grounding, and the OpenAI and Anthropic web search tools, including tool-definition and result tokens. Call prices read November 13, 2026. Nothing you type is stored.",
       ),
       item(
         "Prompt and tool checker",

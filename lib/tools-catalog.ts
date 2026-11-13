@@ -46,6 +46,13 @@ export const freeTools: FreeTool[] = [
     category: "Cost & Pricing",
   },
   {
+    href: "/tools/web-search-api-cost-per-agent-task",
+    title: "Web search API cost per agent task",
+    description:
+      "Call fee plus the tokens of the tool definition and the results you keep. Prices read November 13, 2026. Nothing is stored.",
+    category: "Cost & Pricing",
+  },
+  {
     href: "/tools/cursor-vs-claude-code-vs-codex-pricing",
     title: "Cursor vs Claude Code vs Codex pricing",
     description: "Seat prices read from the vendors' pages, plus the same token calculator.",

@@ -7,7 +7,7 @@ takeaways:
   - "A snippet API is a different object. Tavily basic is 1 credit and Pay As You Go lists $0.008. Exa Lite is $4 per 1,000 and serves the index, not a live fetch. Brave Search is $5 per 1,000 at 50 queries a second. The harness sees the text and has to cite it."
   - "The failures are a page that instructs the model, a cached page that missed the update, and a loop that searches until the cap. Claude’s max_uses is a per-turn cap. Gemini’s 1,500 a day is a project cap. Four searches a task is 375 tasks before that Gemini cap."
 date: "2026-11-11"
-updated: "2026-11-11"
+updated: "2026-11-13"
 category: guide
 topics:
   - harnesses
@@ -202,7 +202,7 @@ Wire Gemini `google_search` when the agent is already a Gemini 3 or newer model,
 
 Wire Tavily, Exa Lite, Brave, or Perplexity’s Search API when the harness must read the snippet, drop the rest, and refuse a tool the page asked for. Exa Lite is the wrong call for a price that changed this hour. Tavily’s live fetch is that call, and the free plan can 434. Brave is the 50-query-a-second plan at $5 per 1,000. Perplexity’s Search API is the one that puts five queries on one $0.005 or $0.001 bill and does not charge tokens.
 
-Do not pick from Brave’s FreshQA chart, and do not pick from a latency table the vendor did not date. Pick from the object the model sees, the cap you can actually set, and a trace you graded. The shelf for the rest of the workshop is the [agent harnesses hub](/topics/harnesses).
+Do not pick from Brave’s FreshQA chart, and do not pick from a latency table the vendor did not date. Pick from the object the model sees, the cap you can actually set, and a trace you graded. Price the call and the tokens you keep on the [web search API cost per agent task](/tools/web-search-api-cost-per-agent-task) calculator. The November 12 dataset of 13 APIs is the [web search tools report](/reports/web-search-tools-for-ai-agents-november-2026). The shelf for the rest of the workshop is the [agent harnesses hub](/topics/harnesses).
 
 ## FAQ
 

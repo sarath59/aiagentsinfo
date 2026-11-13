@@ -7,7 +7,7 @@ takeaways:
   - "Tavily's short OpenAI walkthrough was 90 tokens and passed with no schema notes. The full schema Tavily publishes for the same tool was 1,329 tokens, omits strict, and its country property alone was 607 tokens. The API reference also lists fast and ultra-fast. That enum does not."
   - "Exa's resolved SearchRequest, wrapped as the documented search operation, was 5,251 tokens. At the checker's starting boxes that schema is $1.969125 of tool text on gpt-5 over 30 days. The 800 output tokens are $2.40 of every gpt-5 and Claude Sonnet 5.5 row."
 date: "2026-11-12"
-updated: "2026-11-12"
+updated: "2026-11-13"
 category: guide
 topics:
   - tools-saas
@@ -190,6 +190,6 @@ Do not paste Exa's resolved `SearchRequest` into the tools array. At 5,251 token
 
 Do not paste Perplexity's `{ "type": "web_search" }` into OpenAI or Claude and call it Sonar. The checker cannot tell the two objects apart, because they are the same object. Sonar's documented request has no tool schema to paste. Brave's web search reference has query parameters and no tools array. The MCP measurement for Brave, Tavily, and Exa servers is a different paste, on [the November 11 count](/blog/web-search-tool-definition-tokens).
 
-The rate card for the call, including vendors this page did not count as tool JSON, is [Claude and OpenAI web search both cost $10 per 1,000](/blog/web-search-api-prices-for-ai-agents-november-2026). The harness decision, including Gemini's cap, is [What is the best web search tool for an AI agent harness?](/blog/best-web-search-tool-for-ai-agents). The person choosing a chat product is still on [Best AI agent for web search](/best/ai-agents-for-web-search).
+The rate card for the call, including vendors this page did not count as tool JSON, is [Claude and OpenAI web search both cost $10 per 1,000](/blog/web-search-api-prices-for-ai-agents-november-2026). Run the same inputs, including a result length you type, on the [web search API cost per agent task](/tools/web-search-api-cost-per-agent-task) calculator. The harness decision, including Gemini's cap, is [What is the best web search tool for an AI agent harness?](/blog/best-web-search-tool-for-ai-agents). The person choosing a chat product is still on [Best AI agent for web search](/best/ai-agents-for-web-search). The November 12 price and limit dataset is the [web search tools report](/reports/web-search-tools-for-ai-agents-november-2026).
 
 The checker does not store the paste. These counts were produced from the public JSON and the Exa spec, then discarded with the process.

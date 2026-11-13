@@ -105,6 +105,14 @@ export default function WebSearchToolsNovember2026Page() {
         }
         related={[
           {
+            href: "/tools/web-search-api-cost-per-agent-task",
+            title: "Web search API cost per agent task",
+            description:
+              "The same call prices, plus the tokens of the tool definition and the results you keep. Re-read November 13, 2026. Six vendors from this brief are not in the calculator.",
+            kicker: "Tool",
+            date: "2026-11-13",
+          },
+          {
             href: "/reports/ai-agents-next-12-months",
             title: "AI agents, Nov 2026 to Nov 2027",
             description: "The 12-month outlook for agents. This brief is the search-call price card, not that calendar.",

@@ -127,6 +127,14 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/research/ai-agent-framework-mcp-a2a-support-november-2026",
+            title: "13 MCP clients, 5 MCP servers, 6 A2A",
+            description:
+              "Protocol cells for these frameworks from docs read November 13, 2026. This snapshot is stars and one tag.",
+            kicker: "Research",
+            date: "2026-11-13",
+          },
+          {
             href: "/reports/ai-agent-vendor-robots-txt-november-2026",
             title:
               "Do AI agent companies let AI agents read their sites? robots.txt and llms.txt of 52 websites, November 2026",

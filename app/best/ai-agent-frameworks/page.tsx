@@ -76,6 +76,14 @@ export default function BestAiAgentFrameworksPage() {
             maintenance reading from November 9 is{" "}
             <Link href="/blog/is-autogen-deprecated">Is AutoGen deprecated?</Link>
           </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Which of these libraries document an MCP client, an MCP server, or A2A, on the versions read November 13,
+            2026, is{" "}
+            <Link href="/research/ai-agent-framework-mcp-a2a-support-november-2026">
+              AI agent framework MCP and A2A support
+            </Link>
+            . That note is the protocol matrix. This page is the licence and the release tag.
+          </p>
         </section>
       </ComparisonGuide>
     </>

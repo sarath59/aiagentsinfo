@@ -351,6 +351,13 @@ export const frameworkComparison: ComparisonPage = {
   ],
   related: [
     {
+      href: "/research/ai-agent-framework-mcp-a2a-support-november-2026",
+      title: "AI agent frameworks: 13 MCP clients, 5 servers, 3 A2A",
+      description:
+        "Which of these libraries document an MCP client, an MCP server, A2A, AG-UI, streaming, and human-in-the-loop. Docs read November 13, 2026.",
+      kicker: "Research",
+    },
+    {
       href: "/blog/ai-agent-framework-release-november-2026",
       title: "AI agent framework release November 2026: browser-use 1.0.2 will not install next to Pydantic AI 2.67",
       description: "Pins and behavior for the November 9–11 releases, including browser-use 1.0 and AG2 1.3.1.",
