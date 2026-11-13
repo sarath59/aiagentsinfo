@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { trackGoal } from "@/lib/analytics";
+import { trackTool } from "@/lib/analytics";
 import {
   bandLabel,
   pointsFor,
@@ -30,7 +30,7 @@ export function ShoppingReadinessChecker() {
     setCopied(false);
     if (ran.current) return;
     ran.current = true;
-    trackGoal("tool_run", { tool_slug: TOOL_SLUG });
+    trackTool("tool_run", TOOL_SLUG);
   }
 
   async function copyGaps() {
@@ -57,7 +57,7 @@ export function ShoppingReadinessChecker() {
       return;
     }
     setCopied(true);
-    trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action: "copy_result" });
+    trackTool("tool_output_used", TOOL_SLUG, "copy_result");
   }
 
   return (

@@ -62,6 +62,15 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <script
+          id="datafast-queue"
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.datafast=window.datafast||function(){window.datafast.q=window.datafast.q||[];window.datafast.q.push(arguments);};",
+          }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
         <a className="skip-link" href="#main">
           Skip to content
@@ -72,14 +81,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main">{children}</main>
         <Footer />
         <ToolViewTracker />
-        <Script id="datafast-queue" strategy="beforeInteractive">
-          {`window.datafast=window.datafast||function(){window.datafast.q=window.datafast.q||[];window.datafast.q.push(arguments);};`}
-        </Script>
         <Script
           src="https://datafa.st/js/script.js"
           data-website-id="dfid_0z04dGwxdEtL6cLScbJkR"
           data-domain="aiagentsinfo.com"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Analytics />
       </body>

@@ -2,7 +2,7 @@
 
 import { Suspense, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { trackGoal } from "@/lib/analytics";
+import { trackGoal, trackTool } from "@/lib/analytics";
 import { modelById, modelPrices, thirtyDayCost, type ModelPrice } from "@/lib/model-prices";
 
 const providers = ["OpenAI", "Anthropic", "Google", "xAI"] as const;
@@ -70,7 +70,7 @@ function CostCalculatorForm({ toolSlug }: { toolSlug: string }) {
     if (used.current) return;
     used.current = true;
     trackGoal("calculator_use");
-    trackGoal("tool_run", { tool_slug: toolSlug });
+    trackTool("tool_run", toolSlug);
   }
 
   const model = modelById(modelId);
@@ -100,7 +100,7 @@ function CostCalculatorForm({ toolSlug }: { toolSlug: string }) {
     ].join("\n");
     try {
       await copyText(text);
-      trackGoal("tool_output_used", { tool_slug: toolSlug, action: "copy_result" });
+      trackTool("tool_output_used", toolSlug, "copy_result");
       setCopyNote("");
       setCopied("result");
       window.setTimeout(() => setCopied(""), 2000);
@@ -119,7 +119,7 @@ function CostCalculatorForm({ toolSlug }: { toolSlug: string }) {
     url.searchParams.set("tasks", formatParam(tasks));
     try {
       await copyText(url.toString());
-      trackGoal("tool_output_used", { tool_slug: toolSlug, action: "copy_link" });
+      trackTool("tool_output_used", toolSlug, "copy_link");
       setCopyNote("");
       setCopied("link");
       window.setTimeout(() => setCopied(""), 2000);

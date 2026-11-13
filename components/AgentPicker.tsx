@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
-import { trackGoal } from "@/lib/analytics";
+import { trackGoal, trackTool } from "@/lib/analytics";
 import {
   availableUses,
   recommendAgents,
@@ -58,7 +58,7 @@ export function AgentPicker({ listings, compact = false }: { listings: PickerLis
     setResult(next);
     setCopied(false);
     setCopyNote("");
-    trackGoal("tool_run", { tool_slug: TOOL_SLUG });
+    trackTool("tool_run", TOOL_SLUG);
     if (!tracked.current && next.matches.length) {
       tracked.current = true;
       trackGoal("picker_complete");
@@ -69,7 +69,7 @@ export function AgentPicker({ listings, compact = false }: { listings: PickerLis
     if (!result?.matches.length) return;
     try {
       await copyText(resultText(result));
-      trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action: "copy_result" });
+      trackTool("tool_output_used", TOOL_SLUG, "copy_result");
       setCopyNote("");
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);

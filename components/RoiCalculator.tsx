@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { trackGoal } from "@/lib/analytics";
+import { trackGoal, trackTool } from "@/lib/analytics";
 import { modelById, modelPrices, PRICE_READ_ON, thirtyDayCost } from "@/lib/model-prices";
 import {
   ROI_FIELDS,
@@ -136,11 +136,7 @@ export function RoiCalculator() {
     if (ran.current) return;
     ran.current = true;
     trackGoal("calculator_use");
-    trackGoal("tool_run", { tool_slug: TOOL_SLUG });
-  }
-
-  function markOutput(action: "copy" | "download_csv" | "download_md" | "share") {
-    trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action });
+    trackTool("tool_run", TOOL_SLUG);
   }
 
   useEffect(() => {
@@ -192,28 +188,28 @@ export function RoiCalculator() {
 
   async function copySummary() {
     if (!result.ok) return;
-    markOutput("copy");
     await copyText(roiMarkdown(result, shareUrl()));
+    trackTool("tool_output_used", TOOL_SLUG, "copy_result");
     setCopied("summary");
   }
 
   async function copyShare() {
     if (!result.ok) return;
-    markOutput("share");
     await copyText(shareUrl());
+    trackTool("tool_output_used", TOOL_SLUG, "copy_link");
     setCopied("link");
   }
 
   function downloadCsv() {
     if (!result.ok) return;
-    markOutput("download_csv");
     downloadFile("ai-agent-roi.csv", "text/csv;charset=utf-8", roiCsv(result));
+    trackTool("tool_output_used", TOOL_SLUG, "download");
   }
 
   function downloadMarkdown() {
     if (!result.ok) return;
-    markOutput("download_md");
     downloadFile("ai-agent-roi.md", "text/markdown;charset=utf-8", roiMarkdown(result, shareUrl()));
+    trackTool("tool_output_used", TOOL_SLUG, "download");
   }
 
   useEffect(() => {

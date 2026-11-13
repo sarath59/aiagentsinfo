@@ -96,6 +96,13 @@ export default async function FrameworkGithubStatsPage() {
               <time dateTime={retrievedAt}>{retrievedAt}</time> UTC.
             </p>
             <p className="mt-2">
+              The tool JSON behind these repositories is a separate check. On November 13, 2026, 0 of 6 official
+              examples passed a second API. The runs are in{" "}
+              <Link className="text-[var(--link)] underline" href="/blog/can-one-tool-json-serve-openai-claude-and-mcp">
+                Can one tool JSON serve OpenAI, Claude, and MCP?
+              </Link>
+            </p>
+            <p className="mt-2">
               Data licensed{" "}
               <a className="text-[var(--link)] underline" href={datasetLicenseUrl}>
                 CC BY 4.0
@@ -126,6 +133,14 @@ export default async function FrameworkGithubStatsPage() {
           />
         }
         related={[
+          {
+            href: "/blog/can-one-tool-json-serve-openai-claude-and-mcp",
+            title: "Can one tool JSON serve OpenAI, Claude, and MCP?",
+            description:
+              "Six official tool examples, posted to the prompt checker on November 13, 2026. 0 passed a second API. The Agents SDK schema the docs print also fails OpenAI strict mode.",
+            kicker: "Guide",
+            date: "2026-11-13",
+          },
           {
             href: "/research/ai-agent-framework-mcp-a2a-support-november-2026",
             title: "13 MCP clients, 5 MCP servers, 6 A2A",

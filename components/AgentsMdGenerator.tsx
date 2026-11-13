@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { trackGoal } from "@/lib/analytics";
+import { trackTool } from "@/lib/analytics";
 import { commandLabels, defaultCommands, defaultPackageManager, packageManagersFor } from "@/lib/agents-md/defaults";
 import { workedExamples } from "@/lib/agents-md/examples";
 import { generateAgentsMd } from "@/lib/agents-md/generate";
@@ -69,11 +69,7 @@ export function AgentsMdGenerator() {
   function markRun() {
     if (ran.current) return;
     ran.current = true;
-    trackGoal("tool_run", { tool_slug: TOOL_SLUG });
-  }
-
-  function markOutput(action: "copy" | "download" | "regenerate") {
-    trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action });
+    trackTool("tool_run", TOOL_SLUG);
   }
   const [copied, setCopied] = useState(false);
   const [polished, setPolished] = useState<string | null>(null);
@@ -411,8 +407,8 @@ export function AgentsMdGenerator() {
                 type="button"
                 className="btn-primary px-4 py-2 text-sm"
                 onClick={() => {
-                  markOutput("copy");
                   void copyText(shown).then(() => {
+                    trackTool("tool_output_used", TOOL_SLUG, "copy_result");
                     setCopied(true);
                     window.setTimeout(() => setCopied(false), 2000);
                   });
@@ -425,7 +421,7 @@ export function AgentsMdGenerator() {
                 className="btn-ghost px-4 py-2 text-sm"
                 onClick={() => {
                   downloadMarkdown(shown);
-                  markOutput("download");
+                  trackTool("tool_output_used", TOOL_SLUG, "download");
                 }}
               >
                 Download .md
@@ -438,7 +434,6 @@ export function AgentsMdGenerator() {
                   setPolishNote("");
                   setSeed((current) => current + 1);
                   markRun();
-                  markOutput("regenerate");
                 }}
               >
                 Regenerate

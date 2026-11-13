@@ -76,7 +76,11 @@ export default function PromptCheckerPage() {
           <Link className="text-[var(--link)] underline" href="/agent-cost-calculator">
             cost calculator
           </Link>
-          . If you already know the token counts, that calculator is the shorter tool.
+          . If you already know the token counts, that calculator is the shorter tool. Six official examples, checked
+          here on November 13, 2026, are in{" "}
+          <Link className="text-[var(--link)] underline" href="/blog/can-one-tool-json-serve-openai-claude-and-mcp">
+            Can one tool JSON serve OpenAI, Claude, and MCP?
+          </Link>
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">
           Schema notes read <time dateTime={SCHEMA_READ_ON}>{updatedLabel}</time>. Prices read{" "}
