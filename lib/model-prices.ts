@@ -252,6 +252,17 @@ export const modelPrices: ModelPrice[] = [
     ],
   },
   {
+    id: "gemini-4-hydrogen",
+    provider: "Google",
+    label: "Gemini 4 Hydrogen",
+    sourceUrl: GOOGLE_PRICING_URL,
+    bands: [{ inputPerMillion: 1.5, outputPerMillion: 7.5, label: "Paid standard" }],
+    notes: [
+      "Google's Gemini API pricing page, read November 13, 2026, lists Gemini 4 Hydrogen (gemini-4-hydrogen) paid standard input at $1.50 per million tokens and output, including thinking tokens, at $7.50. The same card has no dated step-up. This calculator uses that standard pair. It does not use the free tier, batch, flex, priority, or contributor rates.",
+      "The output price includes thinking tokens. If you want those counted, put them in the output box. The standard free tier on that card lists input and output as free of charge, and marks that tier as used to improve Google's products. Paid standard is marked no. Grounding with Google Search is 5,000 free requests a month, shared across Gemini 3 and newer models, then $14 per 1,000 requests, with a daily cap of 1,500. This calculator does not add that fee.",
+    ],
+  },
+  {
     id: "gemini-4-carbon",
     provider: "Google",
     label: "Gemini 4 Carbon",

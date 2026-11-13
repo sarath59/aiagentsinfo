@@ -264,7 +264,14 @@ export async function buildLlmsTxt() {
       ),
     ];
   });
-  const listedInIndex = ["muse-ember", "elevenlabs", "a2ui", "qwen4-max"].flatMap((slug) => {
+  const listedInIndex = [
+    "muse-ember",
+    "elevenlabs",
+    "a2ui",
+    "qwen4-max",
+    "gemini-4-hydrogen",
+    "amazon-bedrock-agentcore",
+  ].flatMap((slug) => {
     const listing = listings.find((entry) => entry.slug === slug);
     return listing ? [item(listing.name, `/directory/${listing.slug}`, listing.summary)] : [];
   });

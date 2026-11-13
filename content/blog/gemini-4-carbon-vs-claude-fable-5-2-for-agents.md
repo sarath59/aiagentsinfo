@@ -214,7 +214,7 @@ If the harness writes code or drives a computer, Fable is ahead on the rows Anth
 
 Do not import Google’s Terminal-Bench 4.0 number, 65.2%, as a win over Fable 5.2. The Claude cell beside it is Fable 5.1 at 52.0%. Do not import Google’s “more than 2 times lower cost per task” as the bill for your loop. The dollars were not printed. The dollars you can defend are the ones in the tables above, at token counts you counted.
 
-[Gemini](/directory/gemini) and [Claude](/directory/claude) are the product families. The model is not the harness. The loop, the tools, the permissions, and the stop rules still decide whether a 69.9% cell shows up in your repository. Qwen4-Max preview, opened November 11, 2026, has no score and no per-token price to add to this table, and the docs retire the id at 24:00 on November 25 (UTC+8). That third column is [Gemini 4 Carbon vs Fable 5.2: Qwen4-Max preview](/blog/gemini-4-carbon-vs-fable-5-2-qwen4-max-preview).
+The November 13 worker under Carbon is `gemini-4-hydrogen`, at $1.50 and $7.50 per million tokens on the Gemini API standard card. That routing table is [Gemini 4 Hydrogen vs Carbon vs Argon for coding agents](/blog/gemini-4-hydrogen-vs-carbon-vs-argon). [Gemini](/directory/gemini) and [Claude](/directory/claude) are the product families. The model is not the harness. The loop, the tools, the permissions, and the stop rules still decide whether a 69.9% cell shows up in your repository. Qwen4-Max preview, opened November 11, 2026, has no score and no per-token price to add to this table, and the docs retire the id at 24:00 on November 25 (UTC+8). That third column is [Gemini 4 Carbon vs Fable 5.2: Qwen4-Max preview](/blog/gemini-4-carbon-vs-fable-5-2-qwen4-max-preview).
 
 ## Frequently asked questions
 
