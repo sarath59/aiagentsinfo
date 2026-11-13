@@ -136,7 +136,7 @@ faq:
 
 Of the ten coding agents read the same morning, GitHub is the one that pins its unit to a cent. **One AI credit is $0.01.** A typical Copilot code review averages **$0.25, $1.50, or $10**, depending on the effort level GitHub names. That review is not the cloud coding agent. Codex is the one that prices a typical model task in its own unit: a GPT-5.6 Sol task **may use 2–15 credits**, and the page does not say what a credit costs in dollars.
 
-Seat prices for Claude Code and Codex, without this wider unit table, are [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). The Devin product row is [Devin](/directory/devin).
+Seat prices for Claude Code and Codex, without this wider unit table, are [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). The Devin product row is [Devin](/directory/devin). A seat is still not a runtime hour. The 720-hour clocks, including the $57.60 Claude running month and the products that print no hour, are [720 hours of Claude agent runtime is $57.60](/research/always-on-ai-agent-cost-november-2026).
 
 ## Ten agents, and the unit each one actually sells
 

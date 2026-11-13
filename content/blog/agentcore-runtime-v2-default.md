@@ -199,6 +199,8 @@ Move a runtime when the cold start is the incident, the image is over 2 GB, or t
 
 Before the update, move secrets, clocks, and single-use tokens into the handler. After the update, watch `CPUUsed-vCPUHours` and `MemoryUsed-GBHours`, which the docs name as the way to pick a baseline. If those metrics sit near 2 GB and 0.5 vCPU, the 2048 row is the committed size to test, once you know the committed rate is live. If they spike toward 8 vCPU, you are already on the 8192 conversation, and the default consumption cap will not get you there.
 
+A month of this meter is a different article. Seven hundred twenty busy hours at 1 vCPU and 2 GB on the V2 rates is $116.21 before overhead, and one microVM still ends at 8 hours. That census, including the $57.60 Claude running-hour month, is [720 hours of Claude agent runtime is $57.60](/research/always-on-ai-agent-cost-november-2026). The harness Anthropic will run on your cluster, with no public price of its own, is [Self-hosted Claude Managed Agents has no public price](/blog/self-hosted-claude-managed-agents).
+
 The [harness](/glossary/harness) around this runtime is still yours: the model, the tools, the stop rules. AgentCore prices the microVM. It does not price the model call inside it. A worker model at $1.50 and $7.50 per million tokens is a separate invoice, covered in [Gemini 4 Hydrogen vs Carbon vs Argon for coding agents](/blog/gemini-4-hydrogen-vs-carbon-vs-argon). The loop those models run in is the [harnesses topic](/topics/harnesses) and the [harness tracker](/trackers/harnesses).
 
 ## Frequently asked questions

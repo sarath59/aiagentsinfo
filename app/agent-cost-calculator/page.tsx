@@ -137,7 +137,16 @@ export default function CostCalculatorPage() {
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm">
           <strong>Tokens only, not total cost.</strong> This calculator estimates monthly model-token charges, not the
-          total cost of running an AI agent. Add search and tool fees, hosting, storage, subscriptions, and human
+          total cost of running an AI agent. A runtime hour is a separate meter. Hosted Claude Managed Agents is $0.08
+          per hour while a session is running, and 720 of those hours is $57.60 before tokens, in{" "}
+          <Link className="text-[var(--link)] underline" href="/research/always-on-ai-agent-cost-november-2026">
+            720 hours of Claude agent runtime is $57.60
+          </Link>
+          . The November 12 self-hosted private beta publishes no price for the server, in{" "}
+          <Link className="text-[var(--link)] underline" href="/blog/self-hosted-claude-managed-agents">
+            Self-hosted Claude Managed Agents has no public price
+          </Link>
+          . Add search and tool fees, hosting, storage, subscriptions, and human
           review separately when they apply. Payback against a person&apos;s hours, from numbers you type, is the{" "}
           <Link className="text-[var(--link)] underline" href="/tools/ai-agent-roi-calculator">
             AI agent ROI calculator

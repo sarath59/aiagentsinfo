@@ -139,6 +139,10 @@ export const chapters: ReportChapter[] = [
         text: "OpenAI’s pricing page, read the same morning, still says GPT-5.6 Sol’s promotional pricing is available until November 30, 2026. It does not print the price that applies on December 1. The standard short-context rates in the HTML matched the November 11 calculator: Sol at $4 and $20 per million tokens under 272,000 input tokens. A promotion without a successor rate is a watch, not a forecast. The [cost calculator](/agent-cost-calculator) multiplies the printed rates. It does not guess December 1 for Sol. [[3]]",
       },
       {
+        kind: "p",
+        text: "A runtime hour sits beside those token steps. Read November 13, 2026, hosted Claude Managed Agents is $0.08 per hour while a session is running, and 720 of those hours is $57.60 before tokens. The census is [720 hours of Claude agent runtime is $57.60](/research/always-on-ai-agent-cost-november-2026). Anthropic’s November 12 private beta for the self-hosted control plane publishes no price for that server. The product note is [Self-hosted Claude Managed Agents has no public price](/blog/self-hosted-claude-managed-agents).",
+      },
+      {
         kind: "means",
         audience: "Builders",
         text: "If a harness logged a Gemini 4 Carbon turn in November, the same token counts cost twice as much on December 1, before anyone changes the prompt. Re-price that path. Do not re-price a successful task by the same factor. Retries, tool JSON, and failed runs sit outside the token line. The [2027 forecast](/reports/ai-agents-in-2027) is the argument. This chapter is only the calendar.",

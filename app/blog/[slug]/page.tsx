@@ -128,7 +128,7 @@ function toolsForPost(
   if (slug === "live-mcp-tool-json-token-counts") return ["checker", "calculator"];
   const tools: ("calculator" | "roi" | "checker" | "picker" | "checklist" | "generator")[] = [];
   if (/eval|harness|shopping/.test(slug)) tools.push("checklist");
-  if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2|muse-ember/.test(slug)) {
+  if (/pric|cost|token|harness|eval|chatgpt|recommended|fable-5-2|muse-ember|managed-agents/.test(slug)) {
     tools.push("calculator");
   }
   if (/prompt|tool-json|harness|eval|chatgpt|recommended/.test(slug)) tools.push("checker");
