@@ -9,7 +9,7 @@ dataset:
   description: "Speedups from An, Feng, and Yin, arXiv:2611.06876. Hermes user-study median paired speedup was 8.68×. AppWorld and τ³ speedups were 2.04–5.63×."
   isBasedOn: "https://arxiv.org/abs/2611.06876"
 date: "2026-11-05"
-updated: "2026-11-12"
+updated: "2026-11-13"
 type: paper-breakdown
 topics:
   - harnesses
@@ -254,6 +254,8 @@ The limitations section says the work is aimed at the speed–accuracy trade-off
 
 Two related systems in the paper's related-work section attack the wait differently. [Slipstream](https://arxiv.org/abs/2605.08580) compacts while the agent keeps acting, and uses later steps to check the summary. [Parallel Context Compaction](https://arxiv.org/abs/2605.23296) summarizes blocks of the input at the same time. SpecCompact's parallelism is across summary slots, with a line-level accept or repair, rather than across time or across input blocks.
 
+[Folio](/research/folio-recoverable-context-folding), posted November 12, 2026, takes the other side of the same job. The runtime folds records it already wrote, and the fold makes no summary call. On the authors' chained LOCA-bench tasks that fold solves 66 of 75, at 2.38 times lower normalized token cost than a model-written compaction in the same runtime. Those tasks and that cost are not rows in the tables above.
+
 ## Read the paper
 
 The November 4 paper, and the two harnesses it builds on:
@@ -264,6 +266,6 @@ The November 4 paper, and the two harnesses it builds on:
 - [Hermes agent](https://github.com/NousResearch/hermes-agent)
 - [OpenClaw compaction](https://docs.openclaw.ai/concepts/compaction)
 
-Related pages on this site: [Agent harnesses](/topics/harnesses), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [how agents work](/topics/how-agents-work), [You don't need long context](/research/you-dont-need-long-context), [ReAct: Synergizing Reasoning and Acting in Language Models](/research/react-reasoning-and-acting), [harness](/glossary/harness), and [agent](/glossary/agent).
+Related pages on this site: [Agent harnesses](/topics/harnesses), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Folio context folding](/research/folio-recoverable-context-folding), [how agents work](/topics/how-agents-work), [You don't need long context](/research/you-dont-need-long-context), [ReAct: Synergizing Reasoning and Acting in Language Models](/research/react-reasoning-and-acting), [harness](/glossary/harness), and [agent](/glossary/agent).
 
 The step this paper speeds up is [context compaction](/glossary/context-compaction). The space that summary protects is the [context window](/glossary/context-window).

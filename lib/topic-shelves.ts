@@ -108,6 +108,11 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         note: "A faster summary inside a harness, with an 8.68× median in the paper’s Hermes study.",
       },
       {
+        href: "/research/folio-recoverable-context-folding",
+        anchor: "Folio context folding: 66 of 75, 2.4× lower cost",
+        note: "arXiv November 12, 2026. The runtime folds records it already wrote. Same-runtime summary: 54 of 75, at 2.38 times the normalized token cost.",
+      },
+      {
         href: "/research/evolver-agent-exploration-evolving-capabilities",
         anchor: "Evolver research note",
         note: "A paper on turning agent exploration into capabilities the harness can keep.",
