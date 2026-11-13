@@ -387,6 +387,14 @@ export const webSearchComparison: ComparisonPage = {
       date: "2026-11-12",
     },
     {
+      href: "/research/web-search-mcp-npm-downloads-november-2026",
+      title: "Firecrawl's search MCP had 680,952 npm downloads",
+      description:
+        "npm file requests for the official search MCP packages, October 14 through November 12, 2026. In the last 7 days Perplexity passed Exa.",
+      kicker: "Research",
+      date: "2026-11-13",
+    },
+    {
       href: "/blog/web-search-tool-definition-tokens",
       title: "Brave's MCP tool list is 25,495 tokens. Web search alone is 1,400.",
       description: "Measured tool-definition tokens for Tavily, Exa, Brave, Firecrawl, and the OpenAI and Claude web search declarations.",

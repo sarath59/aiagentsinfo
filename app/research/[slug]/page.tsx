@@ -412,6 +412,37 @@ function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadIt
       },
     };
   }
+  if (slug === "web-search-mcp-npm-downloads-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/reports/web-search-tools-for-ai-agents-november-2026",
+          title: "Web search tools for AI agents, November 2026",
+          note: "List prices, rate limits, and the star table this install count sits next to.",
+        },
+        {
+          href: "/blog/best-web-search-tool-for-claude-and-openai-agents",
+          title: "8 tokens, or 17",
+          note: "Claude's and OpenAI's built-in web_search tools. This note counts MCP packages.",
+        },
+        {
+          href: "/blog/best-web-search-tool-for-ai-agents",
+          title: "Best web search tool for an AI agent harness",
+          note: "What the model sees, and which cap you can set.",
+        },
+        {
+          href: "/trackers/downloads",
+          title: "Framework downloads tracker",
+          note: "PyPI and npm for agent frameworks. Search MCP servers are a different set.",
+        },
+      ],
+      tool: {
+        href: "/tools/web-search-api-cost-per-agent-task",
+        title: "web search API cost calculator",
+        note: "the call fee plus the tokens of the results you keep",
+      },
+    };
+  }
   if (
     slug !== "evolver-agent-exploration-evolving-capabilities" &&
     slug !== "harnessflow-mcts-harness-optimization"

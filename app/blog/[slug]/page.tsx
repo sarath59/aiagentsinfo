@@ -837,5 +837,36 @@ function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadI
       },
     };
   }
+  if (slug === "openbot-for-business-pricing-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/agent-cost-calculator",
+          title: "AI agent cost calculator",
+          note: "The token bill. OpenBot's per-user charge is a second meter.",
+        },
+        {
+          href: "/research/ai-employee-pricing-small-business-november-2026",
+          title: "12 of 15 AI employee products print a price",
+          note: "The November 12 median card is $33. OpenBot was not in that set.",
+        },
+        {
+          href: "/blog/claude-code-vs-codex-pricing",
+          title: "Claude Code vs Codex pricing",
+          note: "Seat prices for coding agents. A different product from a coworker workspace.",
+        },
+        {
+          href: "/research/always-on-ai-agent-cost-november-2026",
+          title: "720 hours of Claude agent runtime is $57.60",
+          note: "A runtime hour. OpenBot prices the person who showed up.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "cost calculator",
+        note: "standard rates for the token counts you measured",
+      },
+    };
+  }
   return null;
 }

@@ -270,6 +270,10 @@ export default function CostCalculatorPage() {
           <h2 className="text-2xl font-semibold tracking-tight">Where do the AI agent cost calculator prices come from?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             They were copied from the provider pricing pages below on {updatedLabel}. A price that was not on those pages is not in the calculator.
+            A workspace seat is a separate bill. OpenBot for Business, read November 13, 2026, prices the first 25 active users at $29 and the next 75 at $18, so 100 people are $2,075 before the model surcharge. That reading is{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/openbot-for-business-pricing-november-2026">
+              One hundred OpenBot users cost $2,075 a month
+            </Link>.
           </p>
           <ul className="mt-3 grid gap-2 text-sm">
             {sources.map((source) => (

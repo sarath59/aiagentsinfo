@@ -288,7 +288,7 @@ export const chapters: ReportChapter[] = [
       },
       {
         kind: "p",
-        text: "On 12 November 2026, GitHub search returned 0 repos for the OpenAI, Anthropic, Google, and Google APIs org queries. Those hosted tools have no official MCP repo in that search. [[26]]",
+        text: "On 12 November 2026, GitHub search returned 0 repos for the OpenAI, Anthropic, Google, and Google APIs org queries. Those hosted tools have no official MCP repo in that search. [[26]] The install count for the ten repositories in the table above is a separate note: firecrawl-mcp had 680,952 npm downloads from 14 October through 12 November 2026, and the 7-day order under Firecrawl puts Perplexity ahead of Exa. [Firecrawl's search MCP had 680,952 npm downloads](/research/web-search-mcp-npm-downloads-november-2026).",
       },
     ],
   },
