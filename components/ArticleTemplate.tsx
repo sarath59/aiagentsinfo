@@ -94,7 +94,10 @@ export function ArticleTemplate({
   if (report && sources) tail.push({ id: sourcesId, text: sourcesTitle });
 
   return (
-    <article className={report ? "article-shell report-shell" : "article-shell"}>
+    <article
+      className={report ? "article-shell report-shell" : "article-shell"}
+      {...(report ? { "data-read-track": "report" } : {})}
+    >
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 sm:pt-10">
         <header className="article-hero">
           <div className="article-hero-panel">
@@ -143,7 +146,7 @@ export function ArticleTemplate({
         ) : null}
 
         <div className={`article-layout ${wide ? "is-wide" : "is-prose"}`}>
-          <div className="article-column">
+          <div className="article-column" {...(report ? { "data-read-track": "column" } : {})}>
             {executiveSummary ? (
               <section className="report-summary" id="executive-summary" aria-labelledby="executive-summary-heading">
                 <h2 id="executive-summary-heading" className="report-unnumbered">

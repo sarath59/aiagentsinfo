@@ -34,6 +34,14 @@ export default async function HarnessBenchmarkPage() {
     getGlossaryTerm("benchmark"),
   ]);
   const related = [
+    {
+      href: "/reports/ai-coding-agents-next-6-months",
+      title: "AI coding agents, Nov 2026 to May 2027",
+      description:
+        "Terminal-Bench 4.1, re-read November 13, 2026. This page keeps the November 5 boards, including Terminal-Bench 4.0.",
+      kicker: "Report",
+      date: "2026-11-13",
+    },
     evalGuide
       ? {
           href: `/blog/${evalGuide.slug}`,

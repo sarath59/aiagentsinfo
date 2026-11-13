@@ -38,6 +38,11 @@ import {
   readOn as codingReadOn,
   title as codingTitle,
 } from "@/lib/coding-agents-30-day";
+import {
+  description as codingSixDescription,
+  path as codingSixPath,
+  title as codingSixTitle,
+} from "@/lib/coding-agents-6-month";
 import { description as forecastDescription, path as forecastPath, title as forecastTitle } from "@/lib/agents-2027";
 import { description as mcpDescription, path as mcpPath, title as mcpTitle } from "@/lib/mcp-outlook";
 import { description as voiceDescription, path as voicePath, readOn as voiceReadOn, title as voiceTitle } from "@/lib/voice-agents-outlook";
@@ -335,6 +340,7 @@ export async function buildLlmsTxt() {
       item(forecastTitle, forecastPath, forecastDescription),
       item(mcpTitle, mcpPath, mcpDescription),
       item(browserTitle, browserPath, browserDescription),
+      item(codingSixTitle, codingSixPath, codingSixDescription),
       item(codingTitle, codingPath, codingDescription),
       item(outlookTitle, outlookPath, outlookDescription),
       item(shoppingTitle, shoppingPath, shoppingDescription),

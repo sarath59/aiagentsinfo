@@ -18,6 +18,7 @@ import { readingMinutes as outlookMinutes } from "@/lib/agents-outlook";
 import { readingMinutes as benchmarkMinutes } from "@/lib/benchmark-report";
 import { readingMinutes as browserMinutes } from "@/lib/browser-computer-report";
 import { readingMinutes as codingMinutes } from "@/lib/coding-agents-30-day";
+import { readingMinutes as codingSixMinutes } from "@/lib/coding-agents-6-month";
 import { path as frameworkGithubPath, readingMinutes as frameworkMinutes, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
 import { readingMinutes as mcpMinutes } from "@/lib/mcp-outlook";
 import { readingMinutes as shoppingMinutes } from "@/lib/shopping-report";
@@ -29,7 +30,7 @@ import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
-  "The 12-month flagship, today's vendor robots.txt brief, a six-month enterprise-platforms brief, a 30-day shopping brief through Cyber Monday, and a six-month frameworks brief, plus dated pages on production, voice, MCP, computer use, coding agents, harness benchmarks, and framework GitHub stats.",
+  "The 12-month flagship, a six-month coding-agents outlook read November 13, 2026, today's vendor robots.txt brief, a six-month enterprise-platforms brief, a 30-day shopping brief through Cyber Monday, and a six-month frameworks brief, plus dated pages on production, voice, MCP, computer use, coding agents, harness benchmarks, and framework GitHub stats.",
   "/reports",
 );
 
@@ -48,6 +49,7 @@ export default async function ReportsPage() {
     "/reports/ai-agents-in-2027": "2026-11-10",
     "/reports/mcp-next-6-months": "2026-11-10",
     "/reports/browser-and-computer-use-agents-next-6-months": "2026-11-09",
+    "/reports/ai-coding-agents-next-6-months": "2026-11-13",
     "/reports/ai-coding-agents-next-30-days": "2026-11-08",
     "/reports/ai-agents-next-6-months": "2026-11-05",
     "/reports/ai-shopping-agents-next-6-months": "2026-11-05",
@@ -74,6 +76,7 @@ export default async function ReportsPage() {
     "/reports/ai-agents-in-2027": forecastMinutes,
     "/reports/mcp-next-6-months": mcpMinutes,
     "/reports/browser-and-computer-use-agents-next-6-months": browserMinutes,
+    "/reports/ai-coding-agents-next-6-months": codingSixMinutes,
     "/reports/ai-coding-agents-next-30-days": codingMinutes,
     "/reports/ai-agents-next-6-months": outlookMinutes,
     "/reports/ai-shopping-agents-next-6-months": shoppingMinutes,
@@ -93,6 +96,7 @@ export default async function ReportsPage() {
     "/reports/ai-agents-in-2027": "Report",
     "/reports/mcp-next-6-months": "Report",
     "/reports/browser-and-computer-use-agents-next-6-months": "Report",
+    "/reports/ai-coding-agents-next-6-months": "Report",
     "/reports/ai-coding-agents-next-30-days": "Report",
     "/reports/ai-agents-next-6-months": "Report",
     "/reports/ai-shopping-agents-next-6-months": "Report",
@@ -113,7 +117,7 @@ export default async function ReportsPage() {
       <PageHeader
         kicker="Reports"
         title="Figures with a date and a source"
-        summary="The flagship is the next 12 months. New: robots.txt and llms.txt of 52 agent websites, checked November 13, 2026. A number without a public source does not go up."
+        summary="The flagship is the next 12 months. New: coding agents through May 2027, with Terminal-Bench 4.1 re-read November 13, and robots.txt and llms.txt of 52 agent websites, checked the same day. A number without a public source does not go up."
       />
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <ContentDeskNav current="/reports" />

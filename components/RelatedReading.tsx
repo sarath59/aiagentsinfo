@@ -4,10 +4,15 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { trackGoal } from "@/lib/analytics";
+import {
+  pageSlug,
+  relatedClickMetadata,
+  reportSlugFromPath,
+  shouldEmitRelatedClick,
+  type ClickDedupe,
+} from "@/lib/report-reading";
 
-function pageSlug(pathname: string) {
-  return pathname.split("?")[0].split("#")[0].replace(/^\/+|\/+$/g, "");
-}
+const clickState: { current: ClickDedupe } = { current: { key: "", at: 0 } };
 
 function anchorFromClick(event: MouseEvent): HTMLAnchorElement | null {
   for (const node of event.composedPath()) {
@@ -31,21 +36,27 @@ export function RelatedReading({ children }: { children: ReactNode }) {
     if (!root || !fromSlug) return;
 
     function onClick(event: MouseEvent) {
+      // Report pages emit from ReportReadTracker, which also covers Next read links.
+      if (reportSlugFromPath(window.location.pathname)) return;
       const anchor = anchorFromClick(event);
       if (!anchor || anchor.classList.contains("content-card-download")) return;
       const href = anchor.getAttribute("href");
       if (!href || href.startsWith("#")) return;
-      let toSlug = "";
+      let toPath = "";
       try {
         const url = new URL(href, window.location.origin);
         if (url.origin !== window.location.origin) return;
         if (/\/(pdf|csv)\/?$/.test(url.pathname)) return;
-        toSlug = pageSlug(url.pathname);
+        toPath = url.pathname;
       } catch {
         return;
       }
+      const toSlug = pageSlug(toPath);
       if (!toSlug) return;
-      trackGoal("related_click", { from_slug: fromSlug, to_slug: toSlug });
+      const decision = shouldEmitRelatedClick(clickState.current, fromSlug, toSlug, Date.now());
+      clickState.current = decision.state;
+      if (!decision.emit) return;
+      trackGoal("related_click", relatedClickMetadata(window.location.pathname, toPath));
     }
 
     root.addEventListener("click", onClick, true);
@@ -53,7 +64,7 @@ export function RelatedReading({ children }: { children: ReactNode }) {
   }, [fromSlug]);
 
   return (
-    <section ref={ref} className="article-related" aria-labelledby="related-heading">
+    <section ref={ref} className="article-related" data-related-goal="related_click" aria-labelledby="related-heading">
       {children}
     </section>
   );

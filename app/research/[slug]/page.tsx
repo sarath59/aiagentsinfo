@@ -444,6 +444,11 @@ function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadIt
         note: "Official board rows. These papers are not a row on that board.",
       },
       {
+        href: "/reports/ai-coding-agents-next-6-months",
+        title: "AI coding agents, Nov 2026 to May 2027",
+        note: "Terminal-Bench 4.1 and the product harnesses, read November 13. HarnessFlow is not a row on that board.",
+      },
+      {
         href: "/papers",
         title: "AI agent papers",
         note: "The shelf of citable breakdowns.",

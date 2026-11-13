@@ -239,6 +239,13 @@ export const dataAssets = [
       "Ten live browser and computer-use agents, the one day a vendor has named through May 9, 2027, and the OSWorld 2.0 scores printed on the benchmark page. Checked November 9, 2026.",
   },
   {
+    href: "/reports/ai-coding-agents-next-6-months",
+    title:
+      "AI coding agents, Nov 2026 to May 2027: Terminal-Bench's lead costs $4,719. The intervals overlap.",
+    summary:
+      "Terminal-Bench 4.1 and SWE-bench Verified, re-read November 13, 2026. Claude Code's best row is $4,718.65. Codex's is $634.24. The 95% intervals overlap. Dated marks: November 18, November 21, and the end of 2026.",
+  },
+  {
     href: "/reports/ai-coding-agents-next-30-days",
     title: "AI coding agents, 8 Nov to 8 Dec 2026",
     summary:
@@ -372,6 +379,7 @@ export const footerNav = [
       { href: "/reports/ai-agents-in-2027", label: "AI agents in 2027" },
       { href: "/reports/mcp-next-6-months", label: "MCP, Nov 2026 to May 2027" },
       { href: "/reports/browser-and-computer-use-agents-next-6-months", label: "Browser and computer-use agents, Nov 2026 to May 2027" },
+      { href: "/reports/ai-coding-agents-next-6-months", label: "AI coding agents, Nov 2026 to May 2027" },
       { href: "/reports/ai-coding-agents-next-30-days", label: "AI coding agents, 8 Nov to 8 Dec 2026" },
       { href: "/reports/ai-agents-next-12-months", label: "AI agents, next 12 months" },
       { href: "/reports/ai-shopping-agents-next-30-days", label: "Shopping agents, next 30 days" },

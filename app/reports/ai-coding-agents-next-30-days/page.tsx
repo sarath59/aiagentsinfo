@@ -54,6 +54,14 @@ export default async function CodingAgents30DayPage() {
 </blockquote>`;
   const related = [
     {
+      href: "/reports/ai-coding-agents-next-6-months",
+      title: "AI coding agents, Nov 2026 to May 2027",
+      description:
+        "Terminal-Bench 4.1 and SWE-bench Verified, re-read November 13. This page stays the November 8 sticker sheet through December 8.",
+      kicker: "Report",
+      date: "2026-11-13",
+    },
+    {
       href: "/research/claude-code-vs-codex-downloads-november-2026",
       title: "Claude Code vs Codex downloads",
       description:
@@ -197,6 +205,8 @@ export default async function CodingAgents30DayPage() {
             harnesses, and regulation through May 2027 and November 2027. This page does not repeat that record.
             Scores stay in the{" "}
             <Link href="/reports/agent-harness-benchmark-november-2026">November harness benchmark</Link>. The
+            coding-agent window through May 13, 2027, re-read on November 13, is the{" "}
+            <Link href="/reports/ai-coding-agents-next-6-months">six-month coding-agents outlook</Link>. The
             software around a coding model is a harness. The longer guide is{" "}
             <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link>
           </p>
