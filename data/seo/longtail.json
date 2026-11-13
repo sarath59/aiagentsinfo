@@ -1,6 +1,11 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-13",
   "refreshes": [
+    {
+      "path": "/reports/ai-shopping-agents-next-6-months",
+      "refreshed": "2026-11-13",
+      "notes": "GSC Oct 16–Nov 12, 2026: 269 impressions, average position 5.3, 0 clicks. Title now leads with AI shopping agents and the Canada checkout versus ChatGPT store handoff. OpenAI merchant page, Microsoft Copilot Checkout, the Merchant Center help page, the UCP developer guide, and Adobe’s holiday forecast were re-read November 13, 2026. The developer guide’s last-updated line is 2026-11-06 UTC. The Microsoft page no longer states a commission."
+    },
     {
       "path": "/best/ai-agent-frameworks",
       "refreshed": "2026-11-11",
@@ -8,6 +13,16 @@
     }
   ],
   "pages": [
+    {
+      "question": "what is a digital worker",
+      "slug": "what-is-a-digital-worker",
+      "url": "https://www.aiagentsinfo.com/blog/what-is-a-digital-worker",
+      "date": "2026-11-13",
+      "published": "2026-11-13",
+      "status": "published",
+      "source_data_point": "GSC Oct 16–Nov 12, 2026, sc-domain:aiagentsinfo.com: digital worker 5 impressions at position 79; digital workers 2 impressions new this week. what is an ai employee already has /blog/what-is-an-ai-employee. best ai agents for small business already has /best/ai-agents-for-small-business.",
+      "notes": "Exact question What is an AI employee? is the H1 of /blog/what-is-an-ai-employee, so this page takes the next uncovered question in that cluster."
+    },
     {
       "question": "how much does an ai employee cost for a small business",
       "slug": "how-much-does-an-ai-employee-cost",

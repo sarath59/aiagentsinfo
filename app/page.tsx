@@ -74,7 +74,13 @@ export default async function HomePage() {
     getGlossaryTerms(),
   ]);
   const news = posts.filter((post) => post.category === "news").slice(0, 3);
-  const guides = posts.filter((post) => post.category === "guide").slice(0, 3);
+  const guidePosts = posts.filter((post) => post.category === "guide");
+  const digitalWorker = guidePosts.find((post) => post.slug === "what-is-a-digital-worker");
+  const guides = (
+    digitalWorker
+      ? [digitalWorker, ...guidePosts.filter((post) => post.slug !== digitalWorker.slug)]
+      : guidePosts
+  ).slice(0, 3);
   const papers = research.slice(0, 3);
   const tools = previewTools(listings);
   const reports = dataAssets.filter((asset) => asset.href.startsWith("/reports/"));

@@ -89,7 +89,7 @@ This guide is for adult work and for university study. School-account policy is 
 
 ## What is a digital worker?
 
-A digital worker is the same idea with the job in the foreground. Someone assigns a recurring task, such as a Monday readout or a first-pass contract memo. The software reads the sources it is allowed to read, does the steps, and leaves a draft.
+A digital worker is the same idea with the job in the foreground. Someone assigns a recurring task, such as a Monday readout or a first-pass contract memo. The software reads the sources it is allowed to read, does the steps, and leaves a draft. The small-business products sold under that label, and the prices on their pages on November 13, 2026, are [What is a digital worker?](/blog/what-is-a-digital-worker).
 
 [OpenAI’s business guide](https://cdn.openai.com/business-guides-and-resources/a-business-leaders-guide-to-working-with-agents.pdf), a PDF read on November 7, 2026, splits agents into a model, tools, and guardrails. The model interprets the goal and picks the next step. The tools gather information or take an action. The guardrails keep that action inside rules a person set. The PDF has no publication date on the copy read here. It still uses the product name “ChatGPT agent” for the pre-built example, and it names Operator and Deep Research as other examples. Those names are the guide’s. The current workplace page calls the product ChatGPT Work.
 

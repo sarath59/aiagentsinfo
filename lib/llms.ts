@@ -28,7 +28,7 @@ import {
   title as enterpriseTitle,
 } from "@/lib/enterprise-platforms-6-month";
 import { description as outlookDescription, path as outlookPath, readOn as outlookReadOn, title as outlookTitle } from "@/lib/agents-outlook";
-import { description as shoppingDescription, path as shoppingPath, readOn as shoppingReadOn, title as shoppingTitle } from "@/lib/shopping-report";
+import { description as shoppingDescription, path as shoppingPath, updatedOn as shoppingUpdatedOn, title as shoppingTitle } from "@/lib/shopping-report";
 import { description as browserDescription, path as browserPath, readOn as browserReadOn, title as browserTitle } from "@/lib/browser-computer-report";
 import {
   announcedAnswer,
@@ -227,7 +227,7 @@ function dataPageSummaries() {
       "Six-month outlook for the platforms companies buy to run agents. Salesforce standard action $0.10. Copilot Studio agent action $0.04 in a pack. OpenAI Agent Builder and Evals leave the platform on November 30, 2026. Salesforce reports Q3 fiscal 2027 on December 2. ServiceNow and Workday print no dollar per assist or credit. Read November 12, 2026.",
     ),
     articleBlock(outlookTitle, [`URL: ${absoluteUrl(outlookPath)}`, `Read: ${outlookReadOn}`, outlookDescription], outlookDescription),
-    articleBlock(shoppingTitle, [`URL: ${absoluteUrl(shoppingPath)}`, `Checked: ${shoppingReadOn}`, shoppingDescription], shoppingDescription),
+    articleBlock(shoppingTitle, [`URL: ${absoluteUrl(shoppingPath)}`, `Checked: ${shoppingUpdatedOn}`, shoppingDescription], shoppingDescription),
     articleBlock(
       voiceTitle,
       [`URL: ${absoluteUrl(voicePath)}`, `Checked: ${voiceReadOn}`, voiceDescription],

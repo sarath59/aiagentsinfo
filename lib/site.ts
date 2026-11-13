@@ -252,9 +252,9 @@ export const dataAssets = [
   },
   {
     href: "/reports/ai-shopping-agents-next-6-months",
-    title: "AI shopping agents next 6 months: 6 companies (Nov 2026–May 2027)",
+    title: "AI shopping agents: Google checks out in Canada. ChatGPT still sends you to the store.",
     summary:
-      "What Google, OpenAI, Amazon, Microsoft, Shopify, and Adobe have dated for shopping agents from November 2026 through May 2027. Checked November 5, 2026.",
+      "Google’s Canada checkout is live for named retailers. ChatGPT, re-read November 13, 2026, still finishes on the store’s site. Undated months through May 2027 stay empty.",
   },
   {
     href: "/reports/agent-harness-benchmark-november-2026",

@@ -9,7 +9,7 @@ import { FaqList } from "@/components/FaqList";
 import { categoryTitle, getBlogPost } from "@/lib/blog";
 import { categorySummaries } from "@/lib/directory-meta";
 import { getGlossaryTerm } from "@/lib/glossary";
-import { description, months, path, readOn, readingMinutes, shoppingFaq, title } from "@/lib/shopping-report";
+import { description, months, path, readOn, readingMinutes, shoppingFaq, title, updatedOn } from "@/lib/shopping-report";
 import { JsonLd, datasetJsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
@@ -156,7 +156,7 @@ export default async function ShoppingAgentsReportPage() {
       kicker: "Topic",
     },
   ].filter((item) => item !== undefined);
-  const updatedLabel = formatDate(readOn);
+  const updatedLabel = formatDate(updatedOn);
   const pageUrl = absoluteUrl(path);
   const citation = `AI Agents Info. "${title}." Last updated ${updatedLabel}. ${pageUrl}.`;
   const embed = `<blockquote cite="${pageUrl}">
@@ -166,14 +166,14 @@ export default async function ShoppingAgentsReportPage() {
 
   return (
     <>
-      <JsonLd data={webPageJsonLd({ title, description, path, datePublished: readOn, dateModified: readOn })} />
+      <JsonLd data={webPageJsonLd({ title, description, path, datePublished: readOn, dateModified: updatedOn })} />
       <JsonLd
         data={datasetJsonLd({
           title,
           description,
           path,
           datePublished: readOn,
-          dateModified: readOn,
+          dateModified: updatedOn,
         })}
       />
       <JsonLd data={faqPageJsonLd(shoppingFaq)} />
@@ -187,17 +187,17 @@ export default async function ShoppingAgentsReportPage() {
       <ReportLayout
         category="Report"
         title={title}
-        thesis="Six companies have dated shopping-agent steps through May 2027. Months without a date stay empty."
+        thesis="Google can check out in Canada. ChatGPT, re-read November 13, 2026, still sends the shopper to the store. A month with no date stays empty."
         description={description}
         published={readOn}
-        updated={readOn}
+        updated={updatedOn}
         readingMinutes={readingMinutes}
         byline={site.bylines.research}
         wide
         takeaways={[
           "From November 2026 through May 2027, the public record is a short list of rollouts already underway and a handful of phrases with no day attached.",
           "Google has direct checkout running for named Canadian retailers as of November 4, and a U.S. cart that launched October 15.",
-          "OpenAI's merchant page, read November 5, still sends the ChatGPT purchase to the store's own site or app.",
+          "OpenAI's merchant page, re-read November 13, 2026, still sends the ChatGPT purchase to the store's own site or app.",
           "A month with no dated launch is left empty on purpose.",
         ]}
         toc={[
@@ -219,7 +219,7 @@ export default async function ShoppingAgentsReportPage() {
         <div className="article-prose">
           <p>
             Google has direct checkout running for named Canadian retailers as of November 4, 2026, and a U.S. cart
-            that launched October 15. OpenAI&apos;s merchant page, read November 5, still sends the ChatGPT purchase to
+            that launched October 15. OpenAI&apos;s merchant page, re-read November 13, 2026, still sends the ChatGPT purchase to
             the store&apos;s own site or app. From November 2026 through May 2027, the public record is that short list
             of rollouts already underway and a handful of phrases with no day attached. Amazon&apos;s October 29
             earnings release counts users of Alexa for Shopping and does not name the next launch. Microsoft&apos;s
@@ -314,7 +314,7 @@ export default async function ShoppingAgentsReportPage() {
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
             <strong className="font-semibold text-[var(--fg)]">Watch for</strong> means a later check should confirm
             the item or drop it: the page withholds a date, two pages disagree, or a follow-up named earlier was not
-            confirmed on November 5, 2026.
+            on the pages re-read November 13, 2026.
           </p>
         </section>
 
@@ -361,7 +361,8 @@ export default async function ShoppingAgentsReportPage() {
               <a className="text-[var(--link)] underline" href="https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/google">
                 Shopify&apos;s help page
               </a>
-              , read November 5, describes its own direct checkout inside Google AI Mode and Gemini. A store has to
+              , read November 5, describes its own direct checkout inside Google AI Mode and Gemini. The same URL
+              returned HTTP 403 on November 13, so this paragraph is not a new reading. A store has to
               sell to customers in the United States, Canada, or Australia. Direct checkout is on by default for an
               eligible store, and it is rolling out gradually to customers in those three countries. The shopper pays
               with a credit or debit card in a Shopify-powered checkout. Shopify says there is no extra fee beyond
@@ -372,7 +373,7 @@ export default async function ShoppingAgentsReportPage() {
               <a className="text-[var(--link)] underline" href="https://openai.com/chatgpt/search-product-discovery/">
                 OpenAI&apos;s merchant page
               </a>
-              , read November 5, says shopping in{" "}
+              , re-read November 13, 2026, says shopping in{" "}
               <Link className="text-[var(--link)] underline" href="/directory/chatgpt">ChatGPT</Link> is live for users
               in the United States. Shoppers discover and compare in the chat. They complete the purchase on the
               merchant&apos;s website or app. The page says there are no fees on purchases that start in ChatGPT.
@@ -407,11 +408,13 @@ export default async function ShoppingAgentsReportPage() {
               <a className="text-[var(--link)] underline" href="https://about.ads.microsoft.com/en/solutions/technology/agentic-commerce">
                 Microsoft&apos;s Agentic Commerce page
               </a>
-              , read November 5, says Copilot Checkout is on Copilot.com and the Copilot mobile app. Eligible
-              merchants are English-language merchants who sell to U.S. buyers, in U.S. dollars. The merchant is the
-              merchant of record. Microsoft says it does not take a commission or affiliate fee on these transactions.
-              A product feed is required. Shopify merchants are described as automatically enrolled, with controls in
-              Shopify admin. PayPal and Stripe are opt-in.
+              , re-read November 13, 2026, says Copilot Checkout is on Copilot.com and the Copilot mobile app, with
+              plans to expand to more surfaces soon. Eligible merchants are English-language merchants who sell to U.S.
+              buyers, in U.S. dollars. The merchant stays the merchant of record. Shopify merchants are described as
+              automatically enrolled, with controls in Shopify admin. Stripe&apos;s Agentic Commerce Suite is named as
+              another path. The text retrieved that day does not state a commission or an affiliate fee, and it does
+              not mention PayPal. A single payment-service partner is supported per merchant. Microsoft says it cannot
+              give a timeline for other countries.
             </p>
             <p>
               <a className="text-[var(--link)] underline" href="https://newsroom.paypal-corp.com/2025-11-PayPal-and-Perplexity-Launch-Instant-Buy">
@@ -436,7 +439,7 @@ export default async function ShoppingAgentsReportPage() {
               <a className="text-[var(--link)] underline" href="https://business.adobe.com/resources/holiday-shopping-report.html">
                 holiday forecast page
               </a>
-              , read November 5, says AI-driven traffic grew 127 percent year over year in August 2026, and that
+              , re-read November 13, 2026, says AI-driven traffic grew 127 percent year over year in August 2026, and that
               holiday traffic is expected to grow 130 percent overall and 141 percent on Thanksgiving.
             </p>
           </div>
@@ -455,21 +458,21 @@ export default async function ShoppingAgentsReportPage() {
               <a className="text-[var(--link)] underline" href="https://developers.google.com/merchant/ucp/guides/merchant-center/integration">
                 developer guide
               </a>
-              , last updated October 19, 2026, says the UCP hub “is gradually rolling out in the United States, with
+              , last updated 2026-11-06 UTC and re-read November 13, says the UCP hub “is gradually rolling out in the United States, with
               Australia and Canada to follow early next year.” Identity linking is labeled coming soon. The
               capabilities named for a live integration are transfer to the merchant&apos;s cart and native checkout on
               Google.{" "}
               <a className="text-[var(--link)] underline" href="https://support.google.com/merchants/answer/16992327?hl=en">
                 Merchant Center help
               </a>
-              , read November 5, uses “next year” for Australia and Canada and does not add “early.” It also lists
+              , re-read November 13, uses “next year” for Australia and Canada and does not add “early.” It also lists
               identity linking among capabilities a merchant can select. The developer guide still marks that
               capability coming soon.
             </p>
             <p>
               OpenAI&apos;s merchant page says, “We&apos;re building a merchant platform for self-serve data
               integration later this year, and plan to expand to more merchants and regions over time.” A second line
-              says OpenAI aims to have a self-service merchant portal later this year. Read on November 5, “later this
+              says OpenAI aims to have a self-service merchant portal later this year. Re-read on November 13, “later this
               year” still means the rest of 2026, if the sentence is current. The page does not say November or
               December. The page, as retrieved, has no visible updated date.
             </p>
@@ -496,7 +499,8 @@ export default async function ShoppingAgentsReportPage() {
               posts describe Google Pay.
             </li>
             <li>
-              Identity linking, marked “coming soon” on the October 19 developer guide. Google&apos;s November 4 post
+              Identity linking, marked “coming soon” on the developer guide re-read November 13 (the page says it was
+              last updated 2026-11-06 UTC). Google&apos;s November 4 post
               talks about loyalty rewards in the coming months and does not say that API has shipped. Shopify&apos;s
               help page, separately, says loyalty or rewards blocks might not load in the Shopify-powered checkout
               inside Google. Those are two surfaces.
@@ -555,7 +559,7 @@ export default async function ShoppingAgentsReportPage() {
               </article>
             ))}
           </div>
-          <DataSourceLine title={title} updated={readOn} path={path} />
+          <DataSourceLine title={title} updated={updatedOn} path={path} />
         </section>
 
         <section className="mt-12">
@@ -656,6 +660,19 @@ export default async function ShoppingAgentsReportPage() {
           <h2 id="left-out" className="text-2xl font-semibold tracking-tight">Left out</h2>
           <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-[var(--muted)]">
             <li>
+              A November 5 reading of Microsoft&apos;s page said Microsoft does not take a commission or an affiliate
+              fee, and that PayPal and Stripe are opt-in. The text retrieved November 13 does not include the
+              commission sentence or PayPal. Stripe&apos;s Agentic Commerce Suite is named. This report no longer
+              states the fee claim.
+            </li>
+            <li>
+              Wirex&apos;s Navoka, launched November 12, 2026, gives an agent its own card. It is not a checkout button
+              from the six companies on this calendar. The note is{" "}
+              <Link className="text-[var(--link)] underline" href="/blog/can-an-ai-agent-buy-things-online">
+                Can an AI agent buy things online?
+              </Link>
+            </li>
+            <li>
               Third-party transcripts of Amazon&apos;s October 29 call include a line that U.S. customers using Alexa
               for Shopping spend 50 percent more per order, and a sentence that it will be the primary shopping agent
               for Amazon. Those lines are not in the earnings release. They are not used here.
@@ -685,98 +702,10 @@ export default async function ShoppingAgentsReportPage() {
 
         <ToolCtas tools={["picker"]} />
         <FaqList
-          items={[
-            {
-              question: "Can AI shopping agents buy for you between November 2026 and May 2027?",
-              answer: (
-                <p>
-                  On some products, they already can, inside rules a company has published. Google&apos;s November 4,
-                  2026 post says Canadian shoppers can buy from eligible retailers in AI Mode and the Gemini app with
-                  Google Pay, and the retailer stays the seller. OpenAI&apos;s merchant page, read November 5, says
-                  ChatGPT shoppers finish the purchase on the merchant&apos;s website or app. Amazon&apos;s guide,
-                  updated October 29, says a U.S. customer can set a target price and have Alexa for Shopping buy with
-                  the default payment method. Microsoft&apos;s page says Copilot Checkout can finish a purchase inside
-                  Copilot for eligible U.S. sales. No page in this set schedules a new country, or a new checkout
-                  button, for a named day through May 2027.
-                </p>
-              ),
-            },
-            {
-              question: "What is already announced for this six-month stretch?",
-              answer: (
-                <p>
-                  Google&apos;s Canada post says simplified protocol tools in Merchant Center start next year, and
-                  loyalty rewards are work for the coming months. The developer guide, last updated October 19, 2026,
-                  says Australia and Canada get the Merchant Center hub early next year, and identity linking is
-                  coming soon. OpenAI&apos;s merchant page says it is building a self-serve merchant platform later
-                  this year and plans to add regions over time. The U.S. cart, the Canada rollout, U.S. ChatGPT
-                  discovery, and U.S. Copilot Checkout are already in market.
-                </p>
-              ),
-            },
-            {
-              question: "What counts as likely, and what is only something to watch?",
-              answer: (
-                <p>
-                  Likely, on this page, means a linked source points at November 2026 through May 2027 and does not
-                  name a day. That covers Google&apos;s next-year Merchant Center access, Google&apos;s coming-months
-                  loyalty work, OpenAI&apos;s later-this-year portal, and Adobe&apos;s November and December traffic
-                  forecasts. Watch for means the source refused a date, two sources disagree, or a promised follow-up
-                  was not confirmed on November 5. Identity linking, PayPal on Google checkout, Walmart&apos;s phone
-                  apps inside ChatGPT, and any Copilot country besides the United States are in that second group.
-                </p>
-              ),
-            },
-            {
-              question: "Will ChatGPT check out inside the chat?",
-              answer: (
-                <p>
-                  The merchant page read on November 5, 2026 says OpenAI is moving away from a standalone Instant
-                  Checkout experience. Shoppers discover and compare in ChatGPT. Purchases are completed on
-                  merchant-owned websites or apps. The March 24, 2026 post said the first Instant Checkout was not
-                  flexible enough for what OpenAI wanted. The same post said Walmart&apos;s in-ChatGPT app was
-                  available in web browsers, with iOS and Android to follow. This report did not find a later OpenAI
-                  page confirming those phone apps.
-                </p>
-              ),
-            },
-            {
-              question: "When does Google say Canada and Australia can onboard in Merchant Center?",
-              answer: (
-                <p>
-                  The developer guide says the hub is rolling out in the United States, with Australia and Canada early
-                  next year. The Merchant Center help page says Australia and Canada follow next year, and it does not
-                  say early. The November 4 Canada post says simplified integration in Merchant Center starts next
-                  year. None of the three pages names a month.
-                </p>
-              ),
-            },
-            {
-              question: "Did Amazon schedule a new shopping-agent launch?",
-              answer: (
-                <p>
-                  The October 29, 2026 earnings release says Alexa for Shopping was used by 400 million or more
-                  customers in the last 12 months, with interactions up 570 percent year over year, and that more than
-                  100 capabilities had been added. Fourth-quarter guidance in that release is for company net sales and
-                  operating income. It does not give an Alexa for Shopping date between November 2026 and May 2027.
-                </p>
-              ),
-            },
-            {
-              question: "What did Adobe actually measure?",
-              answer: (
-                <p>
-                  In the October 29, 2026 report, September AI traffic to U.S. retail sites grew 71 percent year over
-                  year. Adobe defines that traffic as users clicking a link. The same month, that traffic converted 90
-                  percent better than other traffic, and revenue per visit was 83 percent higher. The report expects
-                  the revenue-per-visit advantage to double in the holiday season, and it gives Thanksgiving, Black
-                  Friday, and Cyber Monday growth rates of 159, 95, and 88 percent. The holiday forecast page instead
-                  says August traffic grew 127 percent, the season is projected at 130 percent, and Thanksgiving at
-                  141 percent.
-                </p>
-              ),
-            },
-          ]}
+          items={shoppingFaq.map((item) => ({
+            question: item.question,
+            answer: <p>{item.answer}</p>,
+          }))}
         />
       </ReportLayout>
     </>
