@@ -124,7 +124,7 @@ export default function McpConfigGeneratorPage() {
         <p className="kicker kicker-lead">Free tool</p>
         <h1 className="display mt-2 text-3xl sm:text-4xl">{title}</h1>
         <p className="mt-3 max-w-3xl text-lg leading-relaxed text-[var(--muted)]">
-          It writes the config file that client reads, and it checks a config you already have for the mistakes that keep a server from loading.
+          It writes the file the client loads, and it checks a config you already have for the mistakes that keep a server from loading.
         </p>
         <p className="mt-2 text-sm text-[var(--muted)]">
           Client formats checked <time dateTime={MCP_CONFIG_CHECKED_ISO}>{MCP_CONFIG_CHECKED_LABEL}</time>. No account. The failure this catches is{" "}
@@ -281,7 +281,7 @@ export default function McpConfigGeneratorPage() {
         <section className="mt-14">
           <h2 className="text-2xl font-semibold tracking-tight">Sources</h2>
           <p className="mt-2 text-sm text-[var(--muted)]">
-            Read <time dateTime={MCP_CONFIG_CHECKED_ISO}>{MCP_CONFIG_CHECKED_LABEL}</time>. A format claim that is not on one of these pages is not in the generator.
+            Last checked <time dateTime={MCP_CONFIG_CHECKED_ISO}>{MCP_CONFIG_CHECKED_LABEL}</time>. A format claim that is not on one of these pages is not in the generator.
           </p>
           <ul className="mt-3 grid gap-2 text-sm">
             {mcpConfigSources.map((source) => (
