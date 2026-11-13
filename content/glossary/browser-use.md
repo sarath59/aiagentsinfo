@@ -3,6 +3,9 @@ term: Browser use
 shortDefinition: Agent tools that read and act on a web page, without taking over a full desktop.
 related:
   - computer-use
+  - accessibility-tree
+  - action-space
+  - task-success-rate
   - tool-use
   - harness
 topics:
@@ -16,4 +19,4 @@ topics:
 
 Browser Use 1.0, published November 10, 2026, replaces the action schema with a Python REPL on Chrome DevTools Protocol. The pins and the bench table are [AI agent framework release November 2026](/blog/ai-agent-framework-release-november-2026).
 
-The longer guide is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer). Desktop, API, and Windows options are compared in [Best computer use agents](/best/computer-use-agents). The six-month product table is [Browser and computer-use agents next 6 months](/reports/browser-and-computer-use-agents-next-6-months). Which open-source library was downloaded, counted November 10, 2026, is [Browser Use had 6,423,201 PyPI downloads](/research/browser-use-vs-stagehand-installs-november-2026).
+How that loop sees a page, which products run it on November 13, 2026, and where the task success rate falls apart is [How do AI browser agents complete tasks?](/blog/how-do-ai-browser-agents-complete-tasks). The desktop case is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer). Desktop, API, and Windows options are compared in [Best computer use agents](/best/computer-use-agents). The six-month product table is [Browser and computer-use agents next 6 months](/reports/browser-and-computer-use-agents-next-6-months). Which open-source library was downloaded, counted November 10, 2026, is [Browser Use had 6,423,201 PyPI downloads](/research/browser-use-vs-stagehand-installs-november-2026).

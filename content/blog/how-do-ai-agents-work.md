@@ -8,7 +8,7 @@ takeaways:
   - "On November 8, 2026, the Claude Agent SDK and OpenAI’s Agents SDK both describe that loop, and the Model Context Protocol specification’s current version is still 2026-07-28. Agent2Agent (A2A) 1.0.0 is the separate protocol for one agent talking to another."
   - "Deloitte’s November 18, 2025 essay predicts a shift toward human-on-the-loop supervision during 2026. That is a forecast. A person who must approve a step before it counts is still human in the loop."
 date: "2026-11-08"
-updated: "2026-11-10"
+updated: "2026-11-13"
 category: guide
 topics:
   - how-agents-work
@@ -84,7 +84,7 @@ faq:
     answer: "Human on the loop means a person supervises a run from its record and can intervene. Human in the loop means a person approves, edits, or stops a step before that step counts. Deloitte’s November 18, 2025 essay names both, along with humans out of the loop, as a supervision spectrum."
 ---
 
-Updated November 8, 2026.
+Updated November 13, 2026. The account below was read November 8. This update adds the guide to how a browser agent completes a website task.
 
 ## How do AI agents work?
 
@@ -94,7 +94,7 @@ That cycle is the control loop from goal to action. [Anthropic’s Form S-1/A](h
 
 AI Agents Info uses those words the same way on the glossary and on this guide. The short definition stays at [What are AI agents and how do they work?](/glossary/agent). This page is the long explainer. A model that only replies, a retrieval step that fills the prompt, and a script that follows rules written in advance are the neighboring systems. Each one is spelled out below.
 
-The workshop around the model is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). Testing one observable action in that workshop is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). Standing up the tasks and graders is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents). The 2022 prompting pattern that interleaved a written thought with an action is [ReAct](/research/react-reasoning-and-acting). The dated public record for the coming year is [AI agents, the next 12 months](/reports/ai-agents-next-12-months). Read those for the workshop, the tests, the paper, and the forecast.
+The workshop around the model is [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness). How the same loop drives a website, from the accessibility tree to the stop at login or payment, is [How do AI browser agents complete tasks?](/blog/how-do-ai-browser-agents-complete-tasks). Testing one observable action in that workshop is [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness). Standing up the tasks and graders is [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents). The 2022 prompting pattern that interleaved a written thought with an action is [ReAct](/research/react-reasoning-and-acting). The dated public record for the coming year is [AI agents, the next 12 months](/reports/ai-agents-next-12-months). Read those for the workshop, the tests, the paper, and the forecast.
 
 ## What is agentic AI vs generative AI?
 

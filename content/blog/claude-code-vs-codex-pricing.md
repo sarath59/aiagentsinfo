@@ -1,12 +1,12 @@
 ---
 title: "Claude Code vs Codex Pricing: Which Costs Less in 2026?"
-description: "Claude Code vs Codex: Codex costs less to start, included on ChatGPT Free and on Go at $8 a month. Claude Code starts on Pro at $20 a month, or $17 a month when $200 is paid up front. The $100 and $200 prices match, and Codex Pro also lists $500. Prices re-checked November 9, 2026."
+description: "Claude Code vs Codex: Codex costs less to start, included on ChatGPT Free and on Go at $8 a month. Claude Code starts on Pro at $20 a month, or $17 a month when $200 is paid up front. The $100 and $200 prices match, and Codex Pro also lists $500. Prices re-checked November 13, 2026. Enterprise now prints a 20-seat minimum."
 takeaways:
   - "Codex is the lower cost to start. ChatGPT Free includes it at $0, and Go is $8 a month. Claude Code starts on Pro."
   - "The monthly stickers then match: $20 for Claude Pro or ChatGPT Plus, $100 for Claude Max or Codex Pro, and $200 for Claude Ultra or Codex Pro. Claude Pro is $17 a month if you pay $200 up front. Codex Pro also has a $500 tier."
   - "Equal stickers are not equal coding time. Claude Code shares one usage pool with the rest of Claude. Codex shares its allowance with ChatGPT Work. Read the limit on the vendor page before you treat a price as a budget."
 date: "2026-11-06"
-updated: "2026-11-10"
+updated: "2026-11-13"
 category: guide
 topics:
   - tools-saas
@@ -39,8 +39,10 @@ sources:
     url: "https://support.claude.com/en/articles/17728952-what-is-the-ultra-plan"
   - title: "Anthropic Help Center, Use Claude Code with your Team or Enterprise plan (checked November 6, 2026)"
     url: "https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan"
-  - title: "OpenAI, Codex pricing in ChatGPT Learn (re-read November 9, 2026)"
+  - title: "OpenAI, Codex pricing in ChatGPT Learn (re-read November 13, 2026)"
     url: "https://learn.chatgpt.com/docs/pricing"
+  - title: "Anthropic, Plans and pricing (re-read November 13, 2026; HTTP Date Fri, 13 Nov 2026 11:55:26 GMT)"
+    url: "https://claude.com/pricing"
   - title: "OpenAI, Codex pricing (checked November 6, 2026)"
     url: "https://chatgpt.com/codex/pricing/"
   - title: "OpenAI Help Center, Using Codex with your ChatGPT plan (checked November 6, 2026)"
@@ -57,14 +59,16 @@ faq:
   - question: "Do Claude Max and Codex Pro cost the same?"
     answer: "The $100 and $200 stickers match. Claude Max is $100 a month and Claude Ultra is $200 a month, both billed monthly on the web. Codex Pro is offered at $100, $200, or $500 a month. OpenAI’s docs say Pro plans have no five-hour limit, and that Ultrafast mode is on the $500 Pro plan. Anthropic says Max is 5 times Pro usage every five hours and every week, and Ultra is 10 times Pro usage every week, with no five-hour limit for verified accounts."
   - question: "How much is a team seat?"
-    answer: "The entry annual price is $20 per person on both sides, with a minimum of two people. Claude Team standard seats are $20 per member per month billed annually, or $25 billed monthly. Premium seats are $100 annually or $125 monthly. ChatGPT Business is $20 per user per month for two or more users billed annually, or $25 billed monthly. Claude’s pricing FAQ lists Enterprise at $20 per seat per month plus usage at API rates, billed annually. On OpenAI’s Codex pricing docs, re-read November 9, 2026, Enterprise and Edu plans without flexible pricing have the same per-seat usage limits as Plus for most features. Flexible-pricing workspaces scale with credits and have no fixed rate limit."
+    answer: "The entry annual price is $20 per person on both sides, with a minimum of two people. Claude Team standard seats are $20 per member per month billed annually, or $25 billed monthly. Premium seats are $100 annually or $125 monthly. ChatGPT Business is $20 per user per month for two or more users billed annually, or $25 billed monthly. Claude’s Enterprise card, re-read November 13, 2026, prints US$20 per seat per month, billed annually, with a 20-seat minimum, plus usage that scales with the model and the task. On OpenAI’s Codex pricing docs, re-read the same day, Enterprise and Edu plans without flexible pricing have the same per-seat usage limits as Plus for most features. Flexible-pricing workspaces scale with credits and have no fixed rate limit."
   - question: "Can I pay API rates instead of a subscription?"
     answer: "Yes. Anthropic says a Claude Console account bills Claude Code at standard API rates, and paid Claude plans can turn on usage credits at those rates after the included limit. OpenAI’s API-key path bills Codex at API rates in the CLI, SDK, or IDE extension, and it says that path has no cloud features such as GitHub code review and Slack."
   - question: "What are the Anthropic Claude Code limits?"
     answer: "On the pages checked November 6, 2026, they are the plan’s limits, not a separate Claude Code meter. Pro has a five-hour session limit and a weekly limit, shared with the rest of Claude. Max is 5 times Pro usage on both windows. Ultra is 10 times Pro usage every week, and verified accounts have no five-hour limit. Those pages do not print a separate price for a background subagent."
 ---
 
-Updated November 9, 2026. The list prices below were checked again that day and still match the November 6 reading, including Codex Go at $8, Claude Pro at $20 or $17 annually, and the $100, $200, and $500 Codex tiers. The local-message ranges for Plus and Standard Business are unchanged. One limit was incomplete on the earlier reading: Enterprise and Edu plans without flexible pricing have the same per-seat usage limits as Plus for most features.
+Updated November 13, 2026. The individual list prices were checked again that morning and still match the November 6 reading, including Codex Go at $8, Claude Pro at $20 or $17 annually, and the $100, $200, and $500 Codex tiers. The local-message ranges for Plus and Standard Business are unchanged. Enterprise and Edu plans without flexible pricing still have the same per-seat usage limits as Plus for most features.
+
+Two facts on the November 13 reading were not in the November 9 note. Claude’s Enterprise card now prints US$20 per seat per month, billed annually, with a 20-seat minimum, and usage that scales with the model and the task. The same pricing table marks Claude in Chrome unavailable on Free and available on Pro, Max, and Ultra. On the Codex docs, Fast mode draws included usage at 2.5 times Standard, and Ultrafast draws it at 8 times for GPT-6 Astra and GPT-6.1 Sol. The docs also say the shared allowance now includes ChatGPT for Excel on Plus and Pro, once that feature’s pricing is effective. The stickers in the tables below did not move.
 
 ## Which costs less, Claude Code or Codex?
 
@@ -218,7 +222,7 @@ The Codex pricing page’s FAQ, checked the same day, also mentions a $100 Busin
 </tr>
 <tr>
 <td>Claude Enterprise</td>
-<td>The pricing FAQ says $20 per seat per month plus usage at API rates, billed annually. The product card lists security, analytics, role-based access, spend limits, and data controls, and it does not repeat the dollar figure.</td>
+<td>The Enterprise card, re-read November 13, 2026, prints US$20 per seat per month plus usage that scales with the model and the task, billed annually, with a 20-seat minimum.</td>
 <td>Included on new and self-serve Enterprise seats. The help center says usage-based Enterprise, including self-serve, has no per-seat usage limit and is billed at API rates. Older Enterprise plans can still split seats.</td>
 </tr>
 <tr>
@@ -229,7 +233,7 @@ The Codex pricing page’s FAQ, checked the same day, also mentions a $100 Busin
 <tr>
 <td>ChatGPT Enterprise and Edu</td>
 <td>Contact sales. The docs card does not print a dollar price.</td>
-<td>Everything in Business, plus priority processing, SCIM, retention and residency controls, audit logs, and the Compliance API, as that card lists them. On the docs page re-read November 9, 2026, flexible-pricing workspaces scale with credits and have no fixed rate limit. Enterprise and Edu plans without flexible pricing have the same per-seat usage limits as Plus for most features.</td>
+<td>Everything in Business, plus priority processing, SCIM, retention and residency controls, audit logs, and the Compliance API, as that card lists them. On the docs page re-read November 13, 2026, flexible-pricing workspaces scale with credits and have no fixed rate limit. Enterprise and Edu plans without flexible pricing have the same per-seat usage limits as Plus for most features.</td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +278,7 @@ Use the row that matches the job, then open the linked page before you subscribe
 <tr>
 <td>A team, billed annually</td>
 <td>Both entry seats are $20 per person, for two or more people.</td>
-<td>Claude premium seats jump to $100 annually. A Codex FAQ line also names a $100 Business plan for fuller GPT-6 Astra access. Enterprise on both sides needs the sales or FAQ page, not this sticker.</td>
+<td>Claude premium seats jump to $100 annually. A Codex FAQ line also names a $100 Business plan for fuller GPT-6 Astra access. Claude Enterprise now prints $20 a seat and a 20-seat minimum on the pricing card. ChatGPT Enterprise still has no dollar price on the Codex docs.</td>
 </tr>
 </tbody>
 </table>
@@ -325,7 +329,7 @@ At $100 and $200, yes. Codex Pro also offers $500, which is the tier with Ultraf
 
 ### How much is a team seat?
 
-Claude Team standard and ChatGPT Business are both $20 per person per month when billed annually, and both are $25 when billed monthly, for at least two people. Claude premium seats are $100 annually or $125 monthly. Claude Enterprise, in the pricing FAQ, is $20 per seat per month plus API-rate usage, billed annually. On the Codex docs re-read November 9, 2026, Enterprise and Edu plans without flexible pricing have the same per-seat usage limits as Plus for most features. Flexible-pricing workspaces scale with credits and have no fixed rate limit.
+Claude Team standard and ChatGPT Business are both $20 per person per month when billed annually, and both are $25 when billed monthly, for at least two people. Claude premium seats are $100 annually or $125 monthly. Claude Enterprise, on the card re-read November 13, 2026, is US$20 per seat per month, billed annually, with a 20-seat minimum, plus usage that scales with the model and the task. On the Codex docs re-read the same day, Enterprise and Edu plans without flexible pricing have the same per-seat usage limits as Plus for most features. Flexible-pricing workspaces scale with credits and have no fixed rate limit.
 
 ### Can I pay API rates instead of a subscription?
 

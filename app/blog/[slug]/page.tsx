@@ -140,6 +140,37 @@ function toolsForPost(
 }
 
 function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "how-do-ai-browser-agents-complete-tasks") {
+    return {
+      reads: [
+        {
+          href: "/blog/can-an-ai-agent-use-your-computer",
+          title: "Can an AI agent use your computer?",
+          note: "The desktop loop. This page stays on the website.",
+        },
+        {
+          href: "/topics/harnesses",
+          title: "Agent harnesses",
+          note: "The software that runs the click and decides when to stop.",
+        },
+        {
+          href: "/glossary/accessibility-tree",
+          title: "Accessibility tree",
+          note: "The named controls a browser agent can click without guessing a pixel.",
+        },
+        {
+          href: "/reports/browser-and-computer-use-agents-next-6-months",
+          title: "Browser and computer-use agents, next 6 months",
+          note: "The November 9 product calendar. Prices in the new guide are the later reading.",
+        },
+      ],
+      tool: {
+        href: "/tools/ai-crawler-robots-txt-checker",
+        title: "AI crawler robots.txt checker",
+        note: "See which answer-engine fetchers your site already allows",
+      },
+    };
+  }
   if (slug === "why-an-mcp-server-loads-in-cursor-not-vs-code") {
     return {
       reads: [

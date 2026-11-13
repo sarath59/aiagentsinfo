@@ -5,8 +5,9 @@ takeaways:
   - "From October 10 through November 8, 2026, the PyPI distribution langchain was downloaded 155,918,257 times in the without_mirrors series. langgraph had 55,093,579. strands-agents, left out of this site’s November 5 star snapshot, had 37,592,185."
   - "crewai had 2,629,769 downloads in that window. LangGraph’s count was 20.95 times CrewAI’s. On a GitHub pass at 13:38–13:39 UTC on November 9, crewAIInc/crewAI had 60,684 stars and langchain-ai/langgraph had 44,689."
   - "The same dates on npm: the package ai had 140,196,706 downloads, and @mastra/core had 9,988,333. Those registries are separate counts. A download is a file request, including CI and dependency installs."
+  - "A later 30-day window, October 14 through November 12, 2026, still ranks langchain first, at 157,203,220. The top five order is unchanged. PyPI versions and GitHub stars were read again on November 13."
 date: "2026-11-09"
-updated: "2026-11-10"
+updated: "2026-11-13"
 category: explainer
 topics:
   - tools-saas
@@ -29,7 +30,7 @@ contentLicense: true
 absoluteTitle: true
 dataset:
   title: "PyPI and npm downloads for agent frameworks, October 10 to November 8, 2026"
-  description: "Sums of the pypistats overall endpoint, category without_mirrors, for 19 Python distributions, from 2026-10-10 through 2026-11-08 inclusive. The largest 30-day total is langchain at 155,918,257. GitHub stargazers_count for the paired repositories was read November 9, 2026, with HTTP Date headers from 13:38:56Z to 13:39:04Z, plus strands-agents/harness-sdk at 13:40:17Z and three JavaScript repositories at 13:42:28Z. npm point totals use the same calendar window and are a separate registry."
+  description: "Sums of the pypistats overall endpoint, category without_mirrors, for 19 Python distributions, from 2026-10-10 through 2026-11-08 inclusive. The largest 30-day total is langchain at 155,918,257. A shifted window, 2026-10-14 through 2026-11-12, still ranks langchain first, at 157,203,220. GitHub stargazers_count for the paired repositories was read November 9, 2026, and again on November 13, 2026, with HTTP Date headers from 11:55:43Z to 11:55:46Z. npm point totals use the October 10 through November 8 window and are a separate registry."
   isBasedOn: "https://pypistats.org/api/packages/langchain/overall?mirrors=false"
 sources:
   - title: "pypistats overall, mirrors=false, 19 Python distributions (daily rows through 2026-11-08)"
@@ -52,11 +53,17 @@ sources:
     url: "https://github.com/npm/registry/blob/master/docs/download-counts.md"
   - title: "AI Agents Info, framework star snapshot, November 5, 2026"
     url: "https://www.aiagentsinfo.com/reports/ai-agent-framework-github-stats-november-2026"
+  - title: "pypistats overall, mirrors=false, same 19 distributions, daily rows through 2026-11-12 (read November 13, 2026)"
+    url: "https://pypistats.org/api/packages/langchain/overall?mirrors=false"
+  - title: "PyPI JSON for langchain 1.5.0 (HTTP Date Fri, 13 Nov 2026 11:55:25 GMT)"
+    url: "https://pypi.org/pypi/langchain/json"
+  - title: "GitHub REST API, framework repositories, HTTP Date 11:55:43Z to 11:55:46Z on November 13, 2026"
+    url: "https://api.github.com/repos/langchain-ai/langchain"
 faq:
   - question: "Which AI agent framework do people install?"
-    answer: "Among the Python distributions checked here, langchain had the most file downloads: 155,918,257 from October 10 through November 8, 2026, in pypistats’ without_mirrors series. langgraph was second at 55,093,579. On npm, for the same dates, the package ai had 140,196,706 downloads. A download counts a file request, including CI runs and dependency installs."
+    answer: "Among the Python distributions checked here, langchain had the most file downloads: 155,918,257 from October 10 through November 8, 2026, in pypistats’ without_mirrors series. langgraph was second at 55,093,579. On npm, for the same dates, the package ai had 140,196,706 downloads. A shifted window, October 14 through November 12, still ranks langchain first, at 157,203,220. A download counts a file request, including CI runs and dependency installs."
   - question: "Does CrewAI have more GitHub stars than LangGraph?"
-    answer: "Yes, on the November 9, 2026 reading. crewAIInc/crewAI had 60,684 stars and langchain-ai/langgraph had 44,689, a gap of 15,995. Over the 30 download days, langgraph had 55,093,579 downloads and crewai had 2,629,769. LangGraph’s download total was 20.95 times CrewAI’s."
+    answer: "Yes. On November 9, 2026, crewAIInc/crewAI had 60,684 stars and langchain-ai/langgraph had 44,689, a gap of 15,995. Over October 10 through November 8, langgraph had 55,093,579 downloads and crewai had 2,629,769, so LangGraph’s total was 20.95 times CrewAI’s. On November 13 the star gap was 15,950, and in the October 14 through November 12 window the download ratio was 22.21."
   - question: "Why is strands-agents missing from the November 5 star table?"
     answer: "That snapshot says the GitHub API returned a redirect for the repository, so strands-agents was left out. On November 9 the PyPI package strands-agents 1.64.0 listed its homepage as github.com/strands-agents/harness-sdk. That repository had 9,084 stars at 13:40 UTC. The package had 37,592,185 downloads from October 10 through November 8."
   - question: "Do LangChain downloads include LangGraph?"
@@ -65,9 +72,45 @@ faq:
     answer: "No. The figure is a count of package-file downloads in the without_mirrors series. CI, mirrors that the filter still misses, and one project installing a dependency all land in the same number. Compare distributions on the same registry and the same dates. Do not add a PyPI total to an npm total and call it users."
 ---
 
+Updated November 13, 2026. The October 10–November 8 totals below are unchanged. A shifted 30-day window, October 14 through November 12, still ranks `langchain` first.
+
 **155,918,257.** That is how many times the PyPI distribution `langchain` was downloaded from October 10 through November 8, 2026, in the `without_mirrors` series.
 
 The [November 5 star snapshot](/reports/ai-agent-framework-github-stats-november-2026) is the page that already shows up for agent-framework stats. It ranks repositories by stars and latest release. It does not say which distribution pip actually fetched. This page sums the daily download rows for the distributions behind that set, adds the one the snapshot left out, and reads the star field again on November 9. The same method, refreshed daily from pypistats and npm, is the [AI agent framework downloads tracker](/trackers/downloads). GitHub stars for the paired repositories are the [stars tracker](/trackers/stars).
+
+## What changed through November 12?
+
+The series now includes November 12. Shifting the 30 days to October 14 through November 12 does not change the top five. `langchain` is still first, at 157,203,220. The title’s 155,918,257 is the earlier window, and that sum still matches a fresh pull of those dates.
+
+Each new total is the sum of daily `without_mirrors` rows. PyPI’s `version` field and GitHub’s `stargazers_count` were read on November 13, 2026. The PyPI responses carried HTTP Date `Fri, 13 Nov 2026 11:55:25 GMT`. The GitHub responses for this set carried HTTP Date headers from 11:55:43Z to 11:55:46Z.
+
+| Distribution | Oct 14–Nov 12 | PyPI version | Stars | Repository |
+| --- | --- | --- | --- | --- |
+| langchain | 157,203,220 | 1.5.0 | 149,443 | langchain-ai/langchain |
+| langgraph | 58,666,621 | 1.2.21 | 44,896 | langchain-ai/langgraph |
+| strands-agents | 38,410,792 | 1.64.0 | 9,195 | strands-agents/harness-sdk |
+| claude-agent-sdk | 36,213,089 | 0.2.181 | 8,537 | anthropics/claude-agent-sdk-python |
+| pydantic-ai-slim | 34,992,369 | 2.68.0 | 21,189 | pydantic/pydantic-ai |
+| openai-agents | 18,956,914 | 0.24.0 | 30,648 | openai/openai-agents-python |
+| google-adk | 10,655,246 | 2.14.1 | 22,200 | google/adk-python |
+| pydantic-ai | 6,935,752 | 2.68.0 | 21,189 | pydantic/pydantic-ai |
+| dspy | 5,646,790 | 3.5.0 | 39,028 | stanfordnlp/dspy |
+| crewai | 2,641,760 | 1.15.41 | 60,846 | crewAIInc/crewAI |
+| agno | 2,251,056 | 3.2.0 | 43,182 | agno-agi/agno |
+| llama-index | 1,975,932 | 0.14.25 | 52,888 | run-llama/llama_index |
+| agent-framework-core | 1,553,842 | 1.26.0 | 14,657 | microsoft/agent-framework |
+| smolagents | 703,352 | 1.26.0 | 30,350 | huggingface/smolagents |
+| haystack-ai | 616,481 | 3.5.0 | 27,002 | deepset-ai/haystack |
+| autogen-agentchat | 423,864 | 0.7.5 | 61,803 | microsoft/autogen |
+| semantic-kernel | 340,831 | 1.47.0 | 28,762 | microsoft/semantic-kernel |
+| agent-framework | 200,555 | 1.26.0 | 14,657 | microsoft/agent-framework |
+| camel-ai | 63,156 | 0.2.90 | 18,032 | camel-ai/camel |
+
+The 19 new totals sum to 378,451,622. That sum still double-counts a project that installs more than one of these files. It is a checksum, not a market.
+
+November 9 through November 12, four days, added 21,154,615 downloads to `langchain`. CrewAI’s repository had 60,846 stars and LangGraph’s had 44,896, a gap of 15,950. In the shifted window LangGraph’s downloads were 22.21 times CrewAI’s, 58,666,621 against 2,641,760. The October 10–November 8 ratio on the next table stays 20.95. Two smaller rows are lower in the shifted window than in the earlier one: `llama-index` at 1,975,932 and `camel-ai` at 63,156. The top five are not.
+
+`langchain` 1.4.9 in the table below is the version read on November 9. The version field on November 13 was 1.5.0. `pydantic-ai` and `pydantic-ai-slim` were 2.68.0. The historical pin discussion in that table is about 2.66.0, which is what that morning’s JSON said.
 
 ## Which AI agent framework do people install?
 
@@ -173,11 +216,11 @@ The [agent picker](/tools/agent-picker) is the directory’s filter for a job. [
 
 ### Which AI agent framework do people install?
 
-`langchain`, at 155,918,257 PyPI downloads from October 10 through November 8, 2026, without mirrors. `langgraph` had 55,093,579. On npm, over the same dates, the package `ai` had 140,196,706. The two registries are not one ranking.
+`langchain`, at 155,918,257 PyPI downloads from October 10 through November 8, 2026, without mirrors. `langgraph` had 55,093,579. On npm, over the same dates, the package `ai` had 140,196,706. From October 14 through November 12, `langchain` is still first, at 157,203,220. The two registries are not one ranking.
 
 ### Does CrewAI have more stars than installs would suggest?
 
-It has more stars than LangGraph and fewer downloads. 60,684 stars against 44,689. 2,629,769 downloads against 55,093,579. The download ratio is 20.95.
+It has more stars than LangGraph and fewer downloads. On November 9 that was 60,684 stars against 44,689, and 2,629,769 downloads against 55,093,579, a ratio of 20.95. On November 13 the star gap was 15,950, 60,846 against 44,896. In the October 14–November 12 window the download ratio is 22.21.
 
 ### Why was strands-agents left off the star snapshot?
 
