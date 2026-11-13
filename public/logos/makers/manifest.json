@@ -48,6 +48,13 @@
     "height": 128,
     "bytes": 958
   },
+  "else": {
+    "source": "https://elsedoes.com/brand/icon-512.png",
+    "file": "/logos/makers/else.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 460
+  },
   "enhancewizard": {
     "source": "https://enhancewizard.com/icon.svg",
     "file": "/logos/makers/enhancewizard.svg",
@@ -180,6 +187,13 @@
     "width": 128,
     "height": 128,
     "bytes": 630
+  },
+  "weartryon": {
+    "source": "https://weartryon.com/icon.png",
+    "file": "/logos/makers/weartryon.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 2928
   },
   "window-peeper-ai-video": {
     "source": "https://windowpeeperaivideo.com/images/theme-video/window-peeper-scene.jpg",
