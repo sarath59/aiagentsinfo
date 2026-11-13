@@ -6,7 +6,7 @@ export const title = "AI agents in the next 12 months: $70.7 billion is dated (N
 export const thesis =
   "The next year has a filing, a handful of price steps, and a regulation calendar. It does not have a product launch on most of its months.";
 export const description =
-  "What is announced, what is only likely, and what to watch for AI agents from November 2026 through November 2027: coding, computer use, enterprise, shopping, voice, protocols, evals, and the price of a task. The $70.7 billion line is Anthropic’s November 10 filing, re-read November 12, 2026.";
+  "No AI agent framework in the November 12 set has a published release day through May 2027. From November 2026 through November 2027, the dated marks are Anthropic’s $70.7 billion filing, Gemini price steps on December 1 and January 1, and regulation clocks. Re-read November 12, 2026.";
 export const readOn = "2026-11-07";
 export const updatedOn = "2026-11-12";
 
@@ -101,7 +101,7 @@ export const chapters: ReportChapter[] = [
     blocks: [
       {
         kind: "p",
-        text: "The November 2 amendment, which the first version of this page quoted, printed approximately $69.8 billion on the 12-month line and approximately $895.4 billion in aggregate. The November 10 amendment replaced those approximates with $70.7 billion and $900.9 billion, and it prints approximately $451.6 billion expected before December 31, 2030. The November 11 scorecard caught the change and did not edit this URL. This update does. [[1]]",
+        text: "The November 2 amendment, which the first version of this page quoted, printed approximately $69.8 billion on the 12-month line and approximately $895.4 billion in aggregate. The November 10 amendment replaced those approximates with $70.7 billion and $900.9 billion, and it prints approximately $451.6 billion expected before December 31, 2030. The [November 11 scorecard](/research/ai-agents-next-12-months-scorecard-november-2026) caught the change and did not edit this URL. This update does. [[1]]",
       },
       {
         kind: "chart",
@@ -163,7 +163,7 @@ export const chapters: ReportChapter[] = [
             "Coding and frameworks",
             "No framework in the November 12 set published a release day through May 2027. Microsoft’s Python 3.11 floor already shipped in python-1.25.0 on November 7.",
             "Watch",
-            "[Frameworks, next 6 months](/reports/ai-agent-frameworks-next-6-months)",
+            "[Frameworks, next 6 months](/reports/ai-agent-frameworks-next-6-months). [November GitHub releases](/reports/ai-agent-framework-github-stats-november-2026).",
           ],
           [
             "Computer use and browser",
@@ -319,7 +319,7 @@ export const chapters: ReportChapter[] = [
           [
             "A framework release day through May 2027",
             "Not announced",
-            "The November 12 tag read found none.",
+            "The November 12 tag read found none. Releases already tagged in November are the [November GitHub release table](/reports/ai-agent-framework-github-stats-november-2026). The tag read is [frameworks through May 2027](/reports/ai-agent-frameworks-next-6-months).",
           ],
           [
             "Annex III high-risk rules",
@@ -362,6 +362,11 @@ export const chapters: ReportChapter[] = [
       {
         kind: "p",
         text: "Production is a cross-section of what is already running, with survey sample sizes and benchmark scores. The 2027 forecast is a labeled set of calls. This page is the calendar of days a filing, a pricing page, or a statute has already printed, from November 2026 through November 2027.",
+      },
+      { kind: "h3", text: "Is an AI agent framework release dated through May 2027?" },
+      {
+        kind: "p",
+        text: "No. The November 12 tag read found no published release day through May 2027. Microsoft’s Python 3.11 floor already shipped in python-1.25.0 on November 7. That is a release that already happened, not a date for a later one.",
       },
     ],
   },
@@ -437,6 +442,11 @@ export const faq = [
     question: "How is this different from the production report and the 2027 forecast?",
     answer:
       "The production report is a cross-section of agents already running, with survey samples and benchmark scores. The 2027 forecast is a labeled set of calls and the evidence that would falsify them. This page is the calendar of days a filing, a price page, or a statute has printed.",
+  },
+  {
+    question: "Is an AI agent framework release dated through May 2027?",
+    answer:
+      "No. The November 12 tag read found no published release day through May 2027. Microsoft’s Python 3.11 floor already shipped in python-1.25.0 on November 7. That is a release that already happened, not a date for a later one.",
   },
 ];
 

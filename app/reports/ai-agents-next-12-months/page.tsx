@@ -128,6 +128,14 @@ export default function AgentsTwelveMonthOutlookPage() {
             date: "2026-11-12",
           },
           {
+            href: "/reports/ai-agent-framework-github-stats-november-2026",
+            title: "Framework releases, November 2026",
+            description:
+              "Which repositories had a latest GitHub release in November 2026. The page states the pull day and does not cover later days.",
+            kicker: "Report",
+            date: "2026-11-05",
+          },
+          {
             href: "/reports/enterprise-agent-platforms-next-6-months",
             title: "Enterprise platforms, next 6 months",
             description: "The meters companies buy. Agent Builder ends November 30. A standard action is $0.10.",

@@ -336,7 +336,7 @@ export function downloadsFaq(report: DownloadsReport) {
     : `Live fetch missed; this page is showing the snapshot from ${shortDate(report.retrievedAt)}.`;
   const pypiLead =
     pypiTop && window
-      ? `${pypiTop.package} has the most PyPI downloads in this set: ${integer(pypiTop.windowDownloads)} from ${window.startLabel} through ${window.endLabel}, without mirrors.`
+      ? `${pypiTop.package} is the most downloaded package in this PyPI set: ${integer(pypiTop.windowDownloads)} downloads from ${window.startLabel} through ${window.endLabel}, without mirrors.`
       : "The PyPI table is empty on this pass because the registry did not return usable rows.";
   const npmLead =
     npmTop && window
@@ -344,8 +344,8 @@ export function downloadsFaq(report: DownloadsReport) {
       : "The npm table is empty on this pass because the registry did not return usable rows.";
   return [
     {
-      question: "Which AI agent framework has the most downloads?",
-      answer: `${pypiLead} ${liveNote} A download is a file request, including CI and dependency installs.`,
+      question: "Which AI agent framework is most downloaded?",
+      answer: `${pypiLead} npm is a separate registry and is not added to that count. ${liveNote} A download is a file request, including CI and dependency installs.`,
     },
     {
       question: "What do the npm packages show?",

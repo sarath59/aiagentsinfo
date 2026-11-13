@@ -1,6 +1,6 @@
 ---
 title: "Can an AI shopping agent check out for you? (Nov 7, 2026)"
-description: "A shopping agent can pay only with a checkout path, a saved card, and an approval rule. The store remains the seller. Payment path re-checked November 12, 2026."
+description: "AI can buy things online for you only when a checkout path, a saved payment method, and an approval rule exist. The store remains the seller. Payment paths re-checked November 12, 2026."
 absoluteTitle: true
 takeaways:
   - "A shopping agent can research and compare on its own. It can pay only when the product has a checkout path, a saved payment method, and a rule for who must agree."
@@ -67,6 +67,8 @@ sources:
   - title: "Google, Computer use, Gemini API on AI Studio (read November 7, 2026)"
     url: "https://aistudio.google.com/docs/computer-use"
 faq:
+  - question: "Can AI buy things online for me?"
+    answer: "Sometimes. AI can buy things online for you only when the product has a checkout path, a saved payment method, and a rule for who must agree. On the pages checked for this guide, Google can take Google Pay or hand items to the store, ChatGPT sends the purchase to the merchant’s website or app, Alexa for Shopping can auto-buy at a price you set or use Buy for Me, Copilot Checkout can finish inside the assistant for participating merchants, and Perplexity Instant Buy can check out inside Perplexity for a compatible merchant."
   - question: "Can ChatGPT buy things for me?"
     answer: "No. On the merchant page re-read November 12, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026."
   - question: "Can an AI shopping agent check out for you?"
@@ -92,6 +94,10 @@ Sometimes. A [shopping agent](/glossary/shopping-agent) can research and compare
 On the pages re-read for this update, that rule is not the same in every app. Google's Universal Cart can take Google Pay at participating stores, or hand the items to the store's own cart. ChatGPT's merchant page, re-read November 12, 2026, sends the purchase to the store's website or app. Amazon's Alexa for Shopping can buy inside Amazon when a price you set is reached, and it can place an eligible order on another store through Buy for Me. Microsoft Copilot Checkout can finish a purchase inside the assistant for participating merchants. Perplexity Instant Buy is included from the help article retrieved November 4. That page returned HTTP 403 on November 7 and again on November 12.
 
 The short version: the assistant is allowed to act. The store still sells the item. Which credential moves, and what a merchant has to turn on, is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay). Licence, list price, and checkout path for four products are in [Best AI agent for shopping](/best/ai-agents-for-shopping). What a merchant publishes so the agent can quote a real row is [How to make your store readable by AI shopping agents](/blog/how-to-make-your-store-readable-by-ai-shopping-agents). The six-month calendar is [AI shopping agents next 6 months](/reports/ai-shopping-agents-next-6-months).
+
+## Can AI buy things online for me?
+
+Sometimes. AI can buy things online for you only when the product has a checkout path, a saved payment method, and a rule for who must agree. On the pages checked for this guide, Google can take Google Pay or hand items to the store, ChatGPT sends the purchase to the merchant’s website or app, Alexa for Shopping can auto-buy at a price you set or use Buy for Me, Copilot Checkout can finish inside the assistant for participating merchants, and Perplexity Instant Buy can check out inside Perplexity for a compatible merchant. Which credential moves is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay), and the six-month calendar is [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months).
 
 ## What is a shopping agent?
 
@@ -262,6 +268,10 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 - Topics: [Agents in shopping](/topics/shopping), [harnesses](/topics/harnesses), [how agents work](/topics/how-agents-work)
 
 ## Frequently asked questions
+
+### Can AI buy things online for me?
+
+Sometimes. AI can buy things online for you only when the product has a checkout path, a saved payment method, and a rule for who must agree. On the pages checked for this guide, Google can take Google Pay or hand items to the store, ChatGPT sends the purchase to the merchant’s website or app, Alexa for Shopping can auto-buy at a price you set or use Buy for Me, Copilot Checkout can finish inside the assistant for participating merchants, and Perplexity Instant Buy can check out inside Perplexity for a compatible merchant.
 
 ### Can ChatGPT buy things for me?
 

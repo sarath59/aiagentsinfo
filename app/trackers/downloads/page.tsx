@@ -28,15 +28,18 @@ export const revalidate = 86400;
 const path = TRACKER_PATHS.downloads;
 const title = "AI agent framework downloads tracker (updated daily)";
 
-export async function generateMetadata() {
-  const report = await getDownloadsReport();
+function trackerDescription(report: Awaited<ReturnType<typeof getDownloadsReport>>) {
   const top = topPackage(report.pypi);
   const window = windowLabel(report.pypi);
-  const description =
-    top && window
-      ? `${top.package} leads this PyPI set with ${integer(top.windowDownloads)} downloads from ${window.start} through ${window.end}, without mirrors. npm is a separate registry. Updated daily.`
-      : "Daily PyPI and npm download counts for major AI agent frameworks. A download is a file request, not a user. Updated daily from pypistats and npm.";
-  return defaultMetadata(title, description, path, { absoluteTitle: true });
+  if (top && window) {
+    return `Which AI agent framework is most downloaded? ${top.package} leads this PyPI set with ${integer(top.windowDownloads)} downloads from ${window.start} through ${window.end}, without mirrors. npm is a separate registry. Updated daily.`;
+  }
+  return "Which AI agent framework is most downloaded? Daily PyPI and npm download counts for major AI agent frameworks. A download is a file request, not a user. Updated daily from pypistats and npm.";
+}
+
+export async function generateMetadata() {
+  const report = await getDownloadsReport();
+  return defaultMetadata(title, trackerDescription(report), path, { absoluteTitle: true });
 }
 
 export default async function DownloadsTrackerPage() {
@@ -64,14 +67,14 @@ export default async function DownloadsTrackerPage() {
     window
       ? `Daily without_mirrors and npm rows from ${window.startLabel} through ${window.endLabel} are on this page. Trailing zeros are dropped so an incomplete today is not treated as a real day.`
       : "History is shown only when a registry returns daily rows.";
+  const description = trackerDescription(report);
 
   return (
     <>
       <JsonLd
         data={webPageJsonLd({
           title,
-          description:
-            "Daily PyPI and npm download counts for major AI agent frameworks, revalidated about once a day.",
+          description,
           path,
           datePublished: "2026-11-09",
           dateModified: report.retrievedDay,
@@ -99,7 +102,7 @@ export default async function DownloadsTrackerPage() {
       <ArticleTemplate
         category="Live tracker"
         title={title}
-        description="PyPI and npm file-request counts for the agent frameworks people actually install. Updated daily. A download is not a user."
+        description="Which AI agent framework is most downloaded, from daily PyPI and npm file requests. The two registries stay separate. A download is not a user."
         published="2026-11-09"
         updated={report.retrievedDay}
         byline={site.bylines.research}
@@ -125,7 +128,7 @@ export default async function DownloadsTrackerPage() {
         }
         takeaways={downloadsTakeaways(report)}
         toc={[
-          { id: "pypi", text: "Which AI agent framework has the most downloads?", level: 2 },
+          { id: "pypi", text: "Which AI agent framework is most downloaded?", level: 2 },
           { id: "npm", text: "What do the npm packages show?", level: 2 },
           { id: "history", text: "How have downloads changed over time?", level: 2 },
           { id: "methodology", text: "Where do these numbers come from?", level: 2 },
@@ -177,12 +180,20 @@ export default async function DownloadsTrackerPage() {
             description: "Licence and latest GitHub release, not an install ranking.",
             kicker: "Comparison",
           },
+          {
+            href: "/reports/ai-agent-framework-github-stats-november-2026",
+            title: "Framework releases, November 2026",
+            description:
+              "Which framework repositories had a latest GitHub release in November 2026. The page states the day of the pull and does not cover later days.",
+            kicker: "Report",
+            date: "2026-11-05",
+          },
         ]}
       >
         <TrackerNav current={path} />
         <section>
           <h2 id="pypi" className="text-2xl font-semibold tracking-tight">
-            Which AI agent framework has the most downloads?
+            Which AI agent framework is most downloaded?
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{pypiLead}</p>
           {window ? (
@@ -322,7 +333,16 @@ export default async function DownloadsTrackerPage() {
             <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
               Best AI agent frameworks
             </Link>{" "}
-            is the licence and release table. GitHub stars for the paired repositories are the{" "}
+            is the licence and release table, not this download ranking. Which of the paired repositories had a
+            latest GitHub release in November 2026 is the{" "}
+            <Link
+              className="text-[var(--link)] underline"
+              href="/reports/ai-agent-framework-github-stats-november-2026"
+            >
+              framework release table
+            </Link>
+            . That page states the day of its GitHub pull and does not cover later days in the month. GitHub stars
+            for the paired repositories are the{" "}
             <Link className="text-[var(--link)] underline" href={TRACKER_PATHS.stars}>
               stars tracker
             </Link>

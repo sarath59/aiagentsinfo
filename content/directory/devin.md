@@ -5,7 +5,7 @@ absoluteTitle: true
 vendor: Cognition
 website: https://devin.ai
 logo: /logos/devin.png
-summary: A software-engineering agent from Cognition. It writes and tests code in the cloud or on your computer, including in its own browser, and is built to keep going until a pull request is ready.
+summary: Devin is Cognition’s AI coding agent. It writes and tests code in the cloud or on your computer, including in its own browser, and is built to keep going until a pull request is ready.
 category: coding-agents
 tags:
   - coding
@@ -36,6 +36,6 @@ Cognition's [introducing Devin](https://docs.devin.ai/get-started/devin-intro) p
 
 [Devin Desktop](https://docs.devin.ai/desktop/getting-started) is a different surface. That page calls it a next-generation AI IDE for Mac, Windows, and Linux. The [Desktop FAQ](https://docs.devin.ai/desktop/devin-desktop-faq) says Devin Desktop is the new name for Windsurf: the same IDE and the same editor, under the Devin brand, with the change dated June 2, 2026. A [VS Code troubleshooting page](https://docs.devin.ai/desktop/troubleshooting/plugins-enterprise/vscode) says the VS Code plugin is in maintenance mode and recommends the native Devin Desktop editor or the JetBrains local plugin. That page does not name a Devin IDE extension.
 
-Devin is a coding [agent](/glossary/agent). Plan prices on this listing were last checked November 3, 2026. Check [devin.ai](https://devin.ai) before you quote a current price.
+Devin is Cognition’s AI coding [agent](/glossary/agent). Plan prices on this listing were last checked November 3, 2026. Check [devin.ai](https://devin.ai) before you quote a current price.
 
 On November 12, 2026, the pricing page still lists Free at $0, Pro at $20, Max at $200, and Teams at $80 a month plus $40 per full seat, and it says Teams is up to 100 users. The billing docs bill Enterprise in Agent Compute Units and do not print a dollar per ACU. Self-serve extra usage is API pricing, not ACUs. That census is [A Devin ACU has no public price (Nov 12, 2026)](/research/coding-agent-billing-units-november-2026).
