@@ -108,9 +108,9 @@ export default async function HomePage() {
         <div className={`${"home-copy"} mx-auto max-w-6xl px-4`}>
           <p className="kicker kicker-lead">News · Directory · Research</p>
           <h1 id="home-heading" className={"home-headline"}>
-            The latest news, research, tools, and guides on <span className="text-gradient">AI agents</span>.
+            Independent <span className="text-gradient">AI agent</span> directory and dated research
           </h1>
-          <p className={"home-sub"}>Sourced reporting, a directory of working tools, and notes on the papers.</p>
+          <p className={"home-sub"}>{listings.length.toLocaleString("en-US")} AI tools. Submit free, no account, live in about 2 minutes. Sourced reports and dated benchmarks.</p>
           <div className={"home-actions"}>
             <Link href="/blog" className="btn-primary focus-ring min-h-12 px-7 text-[15px]">
               Read the latest

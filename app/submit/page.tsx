@@ -16,7 +16,7 @@ import { defaultMetadata } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
-  "Submit your tool",
+  "Submit your AI tool free — no account, live in ~2 minutes",
   "Submit an AI tool, SaaS product, app, or agent to the directory. No login and no fee. A valid submission goes live in about two minutes.",
   "/submit",
 );
@@ -52,7 +52,7 @@ export default async function SubmitPage({
       <PageHeader
         kicker="Directory"
         title="Submit your tool"
-        summary="No account and no fee. A valid submission is published automatically. Payment does not buy a listing or a rank."
+        summary="Free submission to the AI Agents Info directory. No account needed. A valid listing goes live in about 2 minutes."
       />
       <div className="mx-auto grid max-w-2xl gap-12 px-4 pb-20">
         {listing ? (
