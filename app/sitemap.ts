@@ -119,6 +119,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/verified-revenue", new Date(`${verifiedRevenueChecked}T00:00:00.000Z`), 0.6),
     entry(frameworkGithubPath, new Date(`${frameworkGithubDay}T00:00:00.000Z`), 0.7),
     entry("/tools", new Date("2026-11-13T00:00:00.000Z"), 0.7),
+    entry("/tools/mcp-config-generator", new Date("2026-11-13T00:00:00.000Z"), 0.8),
     entry("/tools/ai-crawler-robots-txt-checker", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/tools/ai-agent-roi-calculator", new Date("2026-11-11T00:00:00.000Z"), 0.8),
     entry("/tools/web-search-api-cost-per-agent-task", new Date("2026-11-13T00:00:00.000Z"), 0.8),

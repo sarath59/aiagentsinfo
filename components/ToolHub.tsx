@@ -2,6 +2,11 @@ import Link from "next/link";
 
 const links = [
   {
+    href: "/tools/mcp-config-generator",
+    title: "MCP server config generator",
+    body: "Write the file Claude Desktop, Claude Code, Cursor, VS Code, or Windsurf reads. Paste a config to score it. Nothing is stored.",
+  },
+  {
     href: "/tools/ai-crawler-robots-txt-checker",
     title: "robots.txt checker for AI crawlers",
     body: "See which documented AI bots may fetch a path, then download a robots.txt. Nothing you enter is stored.",

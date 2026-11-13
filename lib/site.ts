@@ -293,6 +293,12 @@ export const dataAssets = [
       "Free AGENTS.md draft from your stack and commands, for Codex, Cursor, and the Copilot coding agent. Copy or download. Nothing you type is stored.",
   },
   {
+    href: "/tools/mcp-config-generator",
+    title: "MCP server config generator",
+    summary:
+      "Free MCP config for Claude Desktop, Claude Code, Cursor, VS Code, and Windsurf. Paste a file to score it. Formats checked 13 Nov 2026. Nothing is stored.",
+  },
+  {
     href: "/agent-cost-calculator",
     title: "AI agent cost calculator",
     summary:
@@ -386,6 +392,7 @@ export const footerNav = [
     title: "Site",
     links: [
       { href: "/tools", label: "Free tools" },
+      { href: "/tools/mcp-config-generator", label: "MCP server config generator" },
       { href: "/tools/ai-crawler-robots-txt-checker", label: "robots.txt checker for AI crawlers" },
       { href: "/tools/agents-md-generator", label: "AGENTS.md generator" },
       { href: "/tools/ai-agent-roi-calculator", label: "AI agent ROI calculator" },

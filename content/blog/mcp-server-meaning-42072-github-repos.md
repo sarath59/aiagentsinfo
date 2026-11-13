@@ -6,7 +6,7 @@ takeaways:
   - "The official registry’s latest-version list, counted on this site on November 8, held 59,506 records. That list and the GitHub topic are different objects, taken almost two days apart. 59,506 minus 42,072 is 17,434, and the gap is not a same-minute difference."
   - "A search for mcp server in the repository name returned 55,860. The first hit was punkpeye/awesome-mcp-servers, a list of servers, at 97,545 stars. GitHub’s own server, github/github-mcp-server, had 34,356 stars and was second on that name search."
 date: "2026-11-10"
-updated: "2026-11-10"
+updated: "2026-11-13"
 category: explainer
 topics:
   - tools-saas
@@ -163,4 +163,4 @@ The server the vendor documents for the system you already use. The tag is a hin
 
 GitHub’s official server is `github/github-mcp-server`. Atlassian’s published server, the one whose description names Jira, is `atlassian/atlassian-mcp-server`. Notion’s, on the name search, is `makenotion/notion-mcp-server`. Chrome DevTools publishes `ChromeDevTools/chrome-devtools-mcp`. Those four are identifiable from the publisher and the description. n8n at 209,951 stars is identifiable as a workflow product that applied the topic. A resume builder with the same topic is still a resume builder.
 
-The November 8 registry page already warned that one namespace can publish thousands of records that point at the same repository. This page adds the other direction: the repositories with the most stars under the topic are often products that speak MCP, or products that merely wear the tag, rather than the official server for a single vendor. If you are deciding what a coding agent is allowed to call, start from the vendor’s repository and the consent step in the specification, then use the [registry count](/blog/how-many-official-mcp-servers-are-there) only as the size of the metadata list.
+The November 8 registry page already warned that one namespace can publish thousands of records that point at the same repository. This page adds the other direction: the repositories with the most stars under the topic are often products that speak MCP, or products that merely wear the tag, rather than the official server for a single vendor. If you are deciding what a coding agent is allowed to call, start from the vendor’s repository and the consent step in the specification, then use the [registry count](/blog/how-many-official-mcp-servers-are-there) only as the size of the metadata list. The file that client reads is a third object. The [MCP server config generator](/tools/mcp-config-generator) writes it for the client you run. [Why an MCP server loads in Cursor and not in VS Code](/blog/why-an-mcp-server-loads-in-cursor-not-vs-code) is the key mix-up.

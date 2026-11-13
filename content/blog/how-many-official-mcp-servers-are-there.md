@@ -6,7 +6,7 @@ takeaways:
   - "The public MCP Registry at registry.modelcontextprotocol.io had 59,506 latest-version records between 13:43 and 13:45 UTC on November 8, 2026. That is a registry count, not a reference-server count."
   - "33,307 of 36,737 namespaces had exactly one server. Twenty-one namespaces with 100 or more servers held 11,211 records. io.github.sadri-dridi alone had 2,366."
 date: "2026-11-08"
-updated: "2026-11-10"
+updated: "2026-11-13"
 category: explainer
 topics:
   - tools-saas
@@ -157,3 +157,5 @@ If the question is "how large is the official catalog right now," the answer on 
 If the question is "what should an agent be allowed to call," none of those totals is the answer. The about page hands that job to a marketplace. A harness still decides which servers are connected and what the agent may do with them. The [tool JSON](/blog/why-tool-json-costs-more-than-your-system-prompt) for a server is billed on every turn whether or not the model calls it, so connecting a namespace of 2,366 counters is a cost decision, not a completeness decision. [MCPHallu](/research/mcphallu-mcp-agent-hallucinations), posted November 5 and broken down on this site on November 8, scores a different question again: when an agent does have a tool list, which failures show up. Its 36 servers were a benchmark set. They are not a sample of these 59,506 records.
 
 The registry will not stay at 59,506. It gained two records in the two minutes between these passes, and the about page says a preview catalog can still be reset. The useful habit is to store the window with the count. The number without the window is already a different list.
+
+Connecting one of the seven reference servers is a different job from counting them. The [MCP server config generator](/tools/mcp-config-generator) writes the file Claude Desktop, Claude Code, Cursor, VS Code, or Windsurf actually reads. A server that loads in Cursor and never appears in VS Code is usually the top-level key, which [this note](/blog/why-an-mcp-server-loads-in-cursor-not-vs-code) walks through.

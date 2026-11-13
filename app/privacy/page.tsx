@@ -55,6 +55,13 @@ export default function PrivacyPage() {
         </p>
         <p className="mt-4">
           The{" "}
+          <Link href="/tools/mcp-config-generator" className="text-[var(--link)] underline">
+            MCP server config generator
+          </Link>{" "}
+          sends the generator fields, and a pasted config if you use Check, so this site can run the same rules as the browser. That request is not written to a file, a database, or a log. A value that looks like a token is replaced with [redacted] in the response.
+        </p>
+        <p className="mt-4">
+          The{" "}
           <Link href="/tools/ai-crawler-robots-txt-checker" className="text-[var(--link)] underline">
             robots.txt checker for AI crawlers
           </Link>{" "}

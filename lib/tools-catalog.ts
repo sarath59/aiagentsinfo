@@ -21,6 +21,13 @@ export function toolSlugForPath(pathname: string): string | null {
 
 export const freeTools: FreeTool[] = [
   {
+    href: "/tools/mcp-config-generator",
+    title: "MCP server config generator",
+    description:
+      "Write the MCP file for Claude Desktop, Claude Code, Cursor, VS Code, or Windsurf. Or paste a config and get a score. Nothing is stored.",
+    category: "Build",
+  },
+  {
     href: "/tools/agents-md-generator",
     title: "AGENTS.md generator",
     description:

@@ -139,6 +139,37 @@ function toolsForPost(
 }
 
 function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "why-an-mcp-server-loads-in-cursor-not-vs-code") {
+    return {
+      reads: [
+        {
+          href: "/tools/mcp-config-generator",
+          title: "MCP server config generator",
+          note: "The file for the client you picked, and a check for a file you already have.",
+        },
+        {
+          href: "/blog/how-many-official-mcp-servers-are-there",
+          title: "How many official MCP servers are there?",
+          note: "Seven reference servers. The registry count is a different object.",
+        },
+        {
+          href: "/glossary/model-context-protocol",
+          title: "What is an MCP server?",
+          note: "Resources, prompts, and tools. The config file comes after that.",
+        },
+        {
+          href: "/blog/mcp-server-meaning-42072-github-repos",
+          title: "MCP server meaning",
+          note: "42,072 GitHub repos tagged mcp-server on 10 November 2026.",
+        },
+      ],
+      tool: {
+        href: "/tools/mcp-config-generator",
+        title: "MCP server config generator",
+        note: "write the file, or paste one and read the score",
+      },
+    };
+  }
   if (slug === "does-a-support-triage-agent-pay-back") {
     return {
       reads: [

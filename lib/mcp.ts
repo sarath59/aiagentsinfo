@@ -168,6 +168,12 @@ export const mcpInstructions =
 
 const SITE_FREE_TOOLS = [
   {
+    name: "MCP server config generator",
+    summary:
+      "Writes the MCP config for Claude Desktop, Claude Code, Cursor, VS Code, or Windsurf, and checks a pasted file. Nothing is stored.",
+    path: "/tools/mcp-config-generator",
+  },
+  {
     name: "robots.txt checker for AI crawlers",
     summary:
       "Fetches a host's robots.txt and reports documented AI tokens under RFC 9309. Can also write a file. Nothing the user enters is stored.",

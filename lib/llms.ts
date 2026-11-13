@@ -352,7 +352,7 @@ export async function buildLlmsTxt() {
       item(
         "Free tools",
         "/tools",
-        "AGENTS.md generator, agent picker, cost, ROI, and web search API cost calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
+        "AGENTS.md generator, MCP config generator, agent picker, cost, ROI, and web search API cost calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
       ),
       item(
         "robots.txt checker for AI crawlers",
@@ -363,6 +363,11 @@ export async function buildLlmsTxt() {
         "AGENTS.md generator",
         "/tools/agents-md-generator",
         "Free in-browser AGENTS.md draft from your stack and commands. Copy or download. Nothing you type is stored.",
+      ),
+      item(
+        "MCP server config generator",
+        "/tools/mcp-config-generator",
+        "Free MCP config for Claude Desktop, Claude Code, Cursor, VS Code, and Windsurf, plus a checker. Formats checked 13 Nov 2026. Nothing you paste is stored.",
       ),
       item(
         "AI agent cost calculator",

@@ -6,7 +6,7 @@ takeaways:
   - "Atlassian's mcp-compressor replaces full tool definitions with a small proxy interface. Their post reports 70–97% token reduction; those figures are theirs, not ours."
   - "Fewer prompt tokens are not a success if task completion falls. Measure both the baseline token count and the required-tool success rate before and after."
 date: "2026-11-10"
-updated: "2026-11-10"
+updated: "2026-11-13"
 category: guide
 topics:
   - how-agents-work
@@ -75,4 +75,5 @@ Run your own measurements before adopting a proxy pattern in production.
 - [Why tool JSON costs more than your system prompt](/blog/why-tool-json-costs-more-than-your-system-prompt) — the measurement that shows tool text can outweigh the prompt.
 - [AI agent cost calculator](/agent-cost-calculator) — multiply tokens by model price.
 - [Prompt and tool checker](/agent-prompt-checker) — count tool-JSON tokens and check schema validity.
+- [MCP server config generator](/tools/mcp-config-generator) — write the client file, then check a config you already have. The paste is not stored.
 - [Model Context Protocol glossary](/glossary/model-context-protocol) — what MCP is.
