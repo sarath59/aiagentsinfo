@@ -158,7 +158,7 @@ export default async function ShoppingAgentsReportPage() {
       href: "/directory/amazon-rufus",
       title: "Amazon Rufus latest features (Nov 2026)",
       description:
-        "Alexa for Shopping, including the November 6, 2026 text rollout for some U.S. customers.",
+        "Alexa for Shopping. The November 6 text post was updated November 13, 2026: texting is widely available to all of those customers.",
       kicker: "Directory",
     },
     {
@@ -205,7 +205,7 @@ export default async function ShoppingAgentsReportPage() {
       <ReportLayout
         category="Report"
         title={title}
-        thesis="Google can check out in Canada. ChatGPT, re-read November 13, 2026, still sends the shopper to the store. A month with no date stays empty."
+        thesis="Google can check out in Canada. ChatGPT, re-read November 14, 2026, still sends the shopper to the store. A month with no date stays empty."
         description={description}
         published={readOn}
         updated={updatedOn}
@@ -215,11 +215,14 @@ export default async function ShoppingAgentsReportPage() {
         takeaways={[
           "From November 2026 through May 2027, the public record is a short list of rollouts already underway and a handful of phrases with no day attached.",
           "Google has direct checkout running for named Canadian retailers as of November 4, and a U.S. cart that launched October 15.",
-          "OpenAI's merchant page, re-read November 13, 2026, still sends the ChatGPT purchase to the store's own site or app.",
-          "A month with no dated launch is left empty on purpose.",
+          "OpenAI’s merchant page, re-read November 14, 2026, still sends the ordinary ChatGPT purchase to the store. ChatGPT Wallet, opened November 13, pays only after a biometric approval, and only for some U.S. Pro users.",
+          "A month with no dated launch is left empty on purpose. Forrester’s October 28, 2026 prediction keeps most autonomous B2B buying inside repeatable orders.",
         ]}
         toc={[
           { id: "can-ai-buy-things-online", text: "Can AI buy things online for you?", level: 2 },
+          { id: "who-can-check-out", text: "Who can complete checkout today", level: 2 },
+          { id: "payment-rails", text: "Which rail actually moves the money", level: 2 },
+          { id: "b2b-purchasing", text: "How soon will agents handle B2B purchasing?", level: 2 },
           { id: "how-a-claim-is-sorted", text: "How a claim is sorted", level: 2 },
           { id: "announced", text: "Announced", level: 2 },
           { id: "likely", text: "Likely", level: 2 },
@@ -238,13 +241,15 @@ export default async function ShoppingAgentsReportPage() {
         <div className="article-prose">
           <h2 id="can-ai-buy-things-online">Can AI buy things online for you?</h2>
           <p>
-            Sometimes. Google can check out for named Canadian retailers with Google Pay, and the retailer stays the
-            seller, while ChatGPT, re-read November 13, 2026, still sends the shopper to the store. Amazon can buy at a
-            price a U.S. customer sets, and Copilot Checkout can finish inside Copilot for eligible U.S. sales. No
-            source in this report names a new checkout day through May 2027.
+            Google, Amazon, and Copilot can complete some purchases today.             Google Pay checks out for named Canadian
+            retailers on November 4, 2026, and the October 15 U.S. cart. Alexa for Shopping auto-buys on
+            Amazon with the default card at a U.S. customer’s price. Copilot Checkout finishes eligible U.S.
+            sales inside Copilot, on the merchant’s systems. ChatGPT’s merchant page, re-read November 14, still sends
+            you to the store. ChatGPT Wallet, opened November 13, needs a U.S. Pro user’s approval, then a network
+            token pays. No page dates a new checkout button through May 2027.
           </p>
           <p>
-            Flight booking is outside this retail calendar. On November 11, 2026,{" "}
+            Flight booking is outside that retail answer. On November 11, 2026,{" "}
             <a
               className="text-[var(--link)] underline"
               href="https://united.mediaroom.com/news-releases?item=125496"
@@ -252,58 +257,32 @@ export default async function ShoppingAgentsReportPage() {
               United Airlines said
             </a>{" "}
             it is taking steps to prohibit unauthorized third-party personal AI agents from its booking, ticketing, and
-            distribution channels.
+            distribution channels. Sharing account credentials with those assistants can lead to unintended purchases.
           </p>
           <p>
-            Who can pay today, product by product, is{" "}
-            <Link href="/blog/can-an-ai-shopping-agent-check-out-for-you">
-              Can an AI shopping agent check out for you?
-            </Link>
-            . The November 11 comparison of who can finish checkout is{" "}
-            <Link href="/blog/ai-shopping-agents-compared-november-2026">AI shopping agents compared</Link>.
+            The six-month stretch is a short list of rollouts already underway and phrases with no day. Google’s
+            November 4 post says simplified Universal Commerce Protocol tools in Merchant Center start next year, and
+            loyalty rewards are work for the coming months. The developer guide says Australia and Canada get the
+            Merchant Center hub early next year. OpenAI’s merchant page still aims at a self-serve portal later this
+            year. Adobe’s holiday figures are clicks from an AI source onto a retail site. They are not a count of
+            agents paying on their own. A month with no dated launch stays empty.
           </p>
           <p>
-            Google has direct checkout running for named Canadian retailers as of November 4, 2026, and a U.S. cart
-            that launched October 15. OpenAI&apos;s merchant page, re-read November 13, 2026, still sends the ChatGPT purchase to
-            the store&apos;s own site or app. From November 2026 through May 2027, the public record is that short list
-            of rollouts already underway and a handful of phrases with no day attached. Amazon&apos;s October 29
-            earnings release counts users of Alexa for Shopping and does not name the next launch. Microsoft&apos;s
-            Copilot Checkout page says it cannot give a timeline for other countries.
-          </p>
-          <p>
-            The dated work inside the window is Google&apos;s: simplified Universal Commerce Protocol tools in Merchant
-            Center “starting next year,” loyalty rewards “in the coming months,” and Australia and Canada “early next
-            year” on the developer guide. OpenAI aims at a self-serve merchant platform “later this year,” and more
-            regions “over time.” Adobe has published holiday traffic forecasts for November and December. Those figures
-            are clicks from an AI source onto a retail site. They are not a count of agents paying on their own.
-          </p>
-          <p>
-            A month with no dated launch is left empty on purpose. Who can pay today is covered in{" "}
+            Who can pay, product by product, is{" "}
             <Link href="/blog/can-an-ai-shopping-agent-check-out-for-you">
               Can an AI shopping agent check out for you?
             </Link>
             . Which credential moves is{" "}
             <Link href="/blog/how-do-ai-shopping-agents-pay">How do AI shopping agents pay?</Link>
-            . Amazon Rufus, now shown in the store as Alexa for Shopping, added text shopping for some U.S. customers
-            on November 6, 2026. That note is{" "}
-            <Link href="/directory/amazon-rufus#what-are-the-latest-amazon-rufus-features-and-expansion-in-november-2026">
-              Amazon Rufus latest features and expansion in November 2026
-            </Link>
-            . What a merchant publishes so an agent can quote a real row is{" "}
+            . The November 11 head-to-head on protocol, fee, and country is{" "}
+            <Link href="/blog/ai-shopping-agents-compared-november-2026">AI shopping agents compared</Link>. What a
+            merchant publishes so an agent can quote a real row is{" "}
             <Link href="/blog/how-to-make-your-store-readable-by-ai-shopping-agents">
               how to make your store readable by AI shopping agents
             </Link>
-            . The November 11 comparison of who can complete checkout, which protocol the page names,
-            and which merchant fee is published is{" "}
-            <Link href="/blog/ai-shopping-agents-compared-november-2026">
-              4 of 5 shopping agents can finish checkout. ChatGPT’s page says the store does.
-            </Link>
-            .
-          </p>
-          <p>
-            A store can score the same job in the browser. The{" "}
+            . The{" "}
             <Link href="/tools/shopping-agent-readiness-checker">shopping agent readiness checker</Link> is 18 weighted
-            checks for find, read, and checkout. The score and the gap list stay on the page.
+            checks for find, read, and checkout. The score stays in the browser.
           </p>
         </div>
         <NextRead
@@ -345,6 +324,251 @@ export default async function ShoppingAgentsReportPage() {
             note: "twelve sourced checks, counted in the browser",
           }}
         />
+        <section className="mt-12">
+          <h2 id="who-can-check-out" className="text-2xl font-semibold tracking-tight">Who can complete checkout today?</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Yes means a primary page says the product can finish a purchase. Limited means a person must approve, the
+            rollout is partial, or a help page could not be re-read. No means that page is not a shopper checkout.
+            Open the source before you depend on a button. Region, plan, and merchant change the screen.
+          </p>
+          <div className="table-scroll mt-4">
+            <table>
+              <caption className="px-4 py-3 text-left text-sm text-[var(--muted)]">
+                Who can complete checkout, re-read November 14, 2026. Payment rail, where it runs, and the page that says so.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Agent or product</th>
+                  <th scope="col">Checkout today</th>
+                  <th scope="col">Payment rail</th>
+                  <th scope="col">Merchants or regions</th>
+                  <th scope="col">Date confirmed</th>
+                  <th scope="col">Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Google AI Mode and Gemini</td>
+                  <td>Yes</td>
+                  <td>Google Pay on the Universal Commerce Protocol. The merchant stays the seller of record. PayPal was described as soon on January 11 and is not in the October or November checkout posts.</td>
+                  <td>U.S. cart: Nike, Sephora, Target, Ulta Beauty, Walmart, Wayfair, and many Shopify merchants. Canada direct checkout: lululemon, select Shopify merchants, Shoppers Drug Mart, and Simons.</td>
+                  <td>U.S. cart October 15, 2026. Canada November 4, 2026.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://blog.google/products-and-platforms/products/shopping/universal-cart-launch/">Universal Cart</a>
+                    {". "}
+                    <a className="text-[var(--link)] underline" href="https://blog.google/intl/en-ca/products/explore-get-answers/a-new-way-to-shop-introducing-a-more-intuitive-agentic-shopping-experience-for-consumers-and-retailers-in-canada/">Google Canada</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Alexa for Shopping</td>
+                  <td>Yes</td>
+                  <td>Auto-buy uses the default payment method when a price you set is reached. A text reorder is bought with your approval.</td>
+                  <td>U.S. customers on the Amazon Shopping app and Amazon.com. Texting, updated November 13, is widely available to all Alexa for Shopping customers.</td>
+                  <td>Shopping guide updated October 29, 2026. Text post published November 6 and updated November 13, 2026.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://www.aboutamazon.com/news/retail/how-to-use-amazon-shopping-ai-assistant">How to use Alexa for Shopping</a>
+                    {". "}
+                    <a className="text-[var(--link)] underline" href="https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop">Text shopping</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Amazon Buy for Me</td>
+                  <td>Limited</td>
+                  <td>You confirm address, tax, shipping, and payment on an Amazon page. Amazon then sends encrypted name, address, and payment details to the brand’s site.</td>
+                  <td>The April 3, 2025 article still says a subset of U.S. customers and a limited set of brand stores. The October 29 guide says eligible products for U.S. customers. The brand fulfills the order.</td>
+                  <td>Buy for Me article published April 3, 2025 and still live. Guide updated October 29, 2026.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://www.aboutamazon.com/news/retail/amazon-shopping-app-buy-for-me-brands">Buy for Me</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Copilot Checkout</td>
+                  <td>Yes</td>
+                  <td>The merchant’s own payments stack. Shopify merchants are automatically enrolled. Stripe’s Agentic Commerce Suite is the other named path. One payment partner per merchant.</td>
+                  <td>English-language merchants who sell to U.S. buyers in U.S. dollars. Live on Copilot.com and the Copilot mobile app. The merchant stays merchant of record.</td>
+                  <td>Microsoft page re-read November 14, 2026. No timeline for other countries.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://about.ads.microsoft.com/en/solutions/technology/agentic-commerce">Agentic Commerce</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ChatGPT product discovery</td>
+                  <td>No</td>
+                  <td>Agentic Commerce Protocol for the product feed. The purchase completes on the merchant’s website or app. No fees on purchases that start in ChatGPT, on that page.</td>
+                  <td>Shopping is live for ChatGPT users in the United States. Shopify and Etsy catalogs are already integrated.</td>
+                  <td>Merchant page re-read November 14, 2026. Instant Checkout was stepped back on March 24, 2026.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://openai.com/chatgpt/search-product-discovery/">Merchant page</a>
+                    {". "}
+                    <a className="text-[var(--link)] underline" href="https://openai.com/index/powering-product-discovery-in-chatgpt/">March 24 post</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ChatGPT Wallet</td>
+                  <td>Limited</td>
+                  <td>A network payment token from American Express, Mastercard, or Visa after you approve with Face ID or Touch ID. Debit cards are not supported. The real card details are not shared with the business or the agent.</td>
+                  <td>Rolling out gradually inside a dot for ChatGPT Pro subscribers 18 or older in the United States, on an eligible U.S.-issued credit card. Not available in Chat, Work, or a standalone Codex thread. Not every store.</td>
+                  <td>Announced November 13, 2026. Help article read November 14, 2026.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://openai.com/index/introducing-chatgpt-wallet/">Introducing ChatGPT Wallet</a>
+                    {". "}
+                    <a className="text-[var(--link)] underline" href="https://help.openai.com/en/articles/20001654-making-purchases-with-chatgpt-wallet">Help article</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Perplexity Instant Buy</td>
+                  <td>Limited</td>
+                  <td>PayPal. The retailer stays the merchant of record.</td>
+                  <td>U.S. launch examples: Abercrombie &amp; Fitch, Ashley Furniture, Fabletics, Adorama, and Newegg. The Instant Buy help article returned HTTP 403 on November 12, so today’s exclusions are not reconfirmed.</td>
+                  <td>PayPal release November 25, 2025.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://newsroom.paypal-corp.com/2025-11-PayPal-and-Perplexity-Launch-Instant-Buy">PayPal and Perplexity</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Shopify checkout inside Google</td>
+                  <td>Limited</td>
+                  <td>A credit or debit card in a Shopify-powered checkout. Shopify says there is no extra fee beyond ordinary payment processing.</td>
+                  <td>A store has to sell to customers in the United States, Canada, or Australia. Direct checkout is on by default for an eligible store and is rolling out gradually. Loyalty or rewards blocks might not load.</td>
+                  <td>Help page read November 5, 2026. The same URL returned HTTP 403 on November 13, so this row is not a new reading.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/google">Shopify help</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Stripe Shared Payment Token</td>
+                  <td>Limited</td>
+                  <td>A scoped token for an agent-initiated purchase. Stripe’s docs also describe an Agentic Commerce Suite path. Microsoft names that suite for Copilot. Stripe is not itself a shopper.</td>
+                  <td>Stripe says availability, launch stage, and supported countries vary by integration. This report does not turn that sentence into a country list.</td>
+                  <td>Stripe docs read November 14, 2026.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://docs.stripe.com/agentic-commerce">Agentic commerce</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Visa Intelligent Commerce</td>
+                  <td>No</td>
+                  <td>Tokenized credentials. The consumer sets limits, and only the consumer instructs the agent when to activate a credential. Commerce signals go to Visa.</td>
+                  <td>A partner program for AI platforms, named with Anthropic, IBM, Microsoft, Mistral AI, OpenAI, Perplexity, Samsung, Stripe, and others. Not a store a shopper can open.</td>
+                  <td>Visa press release April 30, 2025.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://corporate.visa.com/en/sites/visa-perspectives/press-releases/product-drop-intelligent-commerce.html">Visa Intelligent Commerce</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mastercard Agent Pay</td>
+                  <td>No</td>
+                  <td>Agentic tokens. Trusted agents have to be registered before they pay. The consumer is supposed to control what the agent may buy.</td>
+                  <td>Launch partners named in the release include Microsoft, IBM watsonx Orchestrate for B2B use cases, Braintree, and Checkout.com. No shopper country list.</td>
+                  <td>Mastercard newsroom April 29, 2025.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://www.mastercard.com/news/press/2025/april/mastercard-unveils-agent-pay-pioneering-agentic-payments-technology-to-power-commerce-in-the-age-of-ai">Agent Pay</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>United Airlines booking</td>
+                  <td>No</td>
+                  <td>None. Unauthorized third-party personal AI agents are being prohibited from booking, ticketing, and distribution.</td>
+                  <td>United’s own digital platforms, and indirectly travel agencies and aggregators.</td>
+                  <td>United newsroom November 11, 2026.</td>
+                  <td>
+                    <a className="text-[var(--link)] underline" href="https://united.mediaroom.com/news-releases?item=125496">United restricts third-party AI agents</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 id="payment-rails" className="text-2xl font-semibold tracking-tight">Which rail actually moves the money?</h2>
+          <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
+            <p>
+              A protocol is not a buy button.{" "}
+              <a className="text-[var(--link)] underline" href="https://openai.com/index/introducing-chatgpt-wallet/">
+                OpenAI’s November 13, 2026 announcement
+              </a>{" "}
+              says 1.2 billion people use ChatGPT each week, and that Wallet lets a dot pay without the agent holding
+              the real card. The{" "}
+              <a className="text-[var(--link)] underline" href="https://help.openai.com/en/articles/20001654-making-purchases-with-chatgpt-wallet">
+                help article read November 14
+              </a>{" "}
+              is the tighter list: Pro, 18 or older, United States, a U.S. billing address, and an eligible U.S.-issued
+              American Express, Chase, Mastercard, or Visa credit card. A Chase card has to be the primary cardholder’s.
+              Virtual cards you already hold are not supported at launch. That is separate from the virtual number
+              Wallet generates after you approve. “Ready to check out” means the approval finished. It does not mean
+              the merchant placed the order. Spending limits you set in advance are what OpenAI says comes later. The
+              on-site account is{" "}
+              <Link className="text-[var(--link)] underline" href="/blog/how-does-chatgpt-wallet-work">
+                How does ChatGPT Wallet work?
+              </Link>
+            </p>
+            <p>
+              Google’s live carts are Google Pay, not an AP2 receipt.{" "}
+              <a className="text-[var(--link)] underline" href="https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/">
+                On April 28, 2026
+              </a>
+              , Google said it was donating the Agent Payments Protocol to the FIDO Alliance and releasing AP2 v0.2,
+              including “Human Not Present” payments that an agent can execute from pre-authorized instructions.{" "}
+              <a className="text-[var(--link)] underline" href="https://blog.google/products-and-platforms/products/shopping/google-shopping-cart/">
+                On May 19, 2026
+              </a>
+              , Google said it would begin bringing AP2 to Google products in the coming months, starting with Gemini
+              Spark, and that UCP checkout would expand to Canada and Australia in the coming months and later to the
+              U.K. Canada’s shopper checkout is the November 4 post. The October 15 and November 4 posts describe
+              Google Pay. This report did not find a later Google page that puts an AP2 mandate on one of those charges.
+              The May 19 post also said the U.S. cart would reach YouTube and Gmail after Search and the Gemini app.
+              The October 15 post names Search and the Gemini app.
+            </p>
+            <p>
+              Visa and Mastercard sell the credential, not the storefront.{" "}
+              <a className="text-[var(--link)] underline" href="https://corporate.visa.com/en/sites/visa-perspectives/press-releases/product-drop-intelligent-commerce.html">
+                Visa’s April 30, 2025 release
+              </a>{" "}
+              introduces Intelligent Commerce as APIs and a partner program: tokenized credentials, spending conditions
+              the consumer sets, and commerce signals Visa can use for transaction controls.{" "}
+              <a className="text-[var(--link)] underline" href="https://www.mastercard.com/news/press/2025/april/mastercard-unveils-agent-pay-pioneering-agentic-payments-technology-to-power-commerce-in-the-age-of-ai">
+                Mastercard’s April 29, 2025 release
+              </a>{" "}
+              introduces Agent Pay and says trusted agents have to be registered. Neither page is a button a shopper
+              can press this week.{" "}
+              <a className="text-[var(--link)] underline" href="https://docs.stripe.com/agentic-commerce">
+                Stripe’s agentic commerce docs
+              </a>
+              , read November 14, 2026, describe Shared Payment Tokens as scoped credentials and say availability
+              varies by integration. The longer map of those rails is{" "}
+              <Link className="text-[var(--link)] underline" href="/blog/how-do-ai-shopping-agents-pay">
+                How do AI shopping agents pay?
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 id="b2b-purchasing" className="text-2xl font-semibold tracking-tight">How soon will AI agents handle most B2B purchasing?</h2>
+          <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[var(--muted)]">
+            <p>
+              Not by a day anyone in this source set has put on a calendar.{" "}
+              <a className="text-[var(--link)] underline" href="https://www.forrester.com/blogs/predictions-2027-ai-takes-over-business-buying-but-humans-retain-control/">
+                Forrester’s October 28, 2026 post
+              </a>{" "}
+              predicts that in 2027 agentic buying will play a role in 75 percent of B2B purchases. The work it names
+              is spend analysis, contract-renewal analysis, supplier discovery, RFI and RFP creation, and information
+              gathering. The same paragraph says fully autonomous purchasing will remain concentrated in high-volume,
+              low-risk, repeatable scenarios, and that agents will often stop short of the transaction. Influence on a
+              decision is not the same event as a purchase order leaving the building.
+            </p>
+            <p>
+              Mastercard’s April 29, 2025 Agent Pay release is the network version of that gap. It says Mastercard will
+              partner with IBM, using watsonx Orchestrate, to accelerate B2B use cases, and it says a small textile
+              enterprise will be able to use an agent to complete a cross-border purchase on a virtual corporate card
+              token. That is a sketch, not a count of purchase orders. The consumer checkout rows above are the ones
+              with a live screen. Nothing in them says a procurement agent will handle most B2B purchasing decisions
+              between now and May 2027.
+            </p>
+          </div>
+        </section>
+
         <section className="glass article-callout mt-10 rounded-3xl p-6 sm:p-8">
           <h2 id="how-a-claim-is-sorted" className="text-2xl font-semibold tracking-tight">How a claim is sorted</h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
@@ -418,7 +642,7 @@ export default async function ShoppingAgentsReportPage() {
               <a className="text-[var(--link)] underline" href="https://openai.com/chatgpt/search-product-discovery/">
                 OpenAI&apos;s merchant page
               </a>
-              , re-read November 13, 2026, says shopping in{" "}
+              , re-read November 14, 2026, says shopping in{" "}
               <Link className="text-[var(--link)] underline" href="/directory/chatgpt">ChatGPT</Link> is live for users
               in the United States. Shoppers discover and compare in the chat. They complete the purchase on the
               merchant&apos;s website or app. The page says there are no fees on purchases that start in ChatGPT.
@@ -430,7 +654,8 @@ export default async function ShoppingAgentsReportPage() {
               to provide,” so merchants would use their own checkout while OpenAI focused on discovery. That post
               names Target, Sephora, Nordstrom, Lowe&apos;s, Best Buy, The Home Depot, and Wayfair as retailers already
               on the Agentic Commerce Protocol for discovery. It also says a Walmart app inside ChatGPT was available
-              in web browsers, with iOS and Android to follow shortly.
+              in web browsers, with iOS and Android to follow shortly. That merchant path is not ChatGPT Wallet. Wallet,
+              announced November 13, is the separate dot path in the table above.
             </p>
             <p>
               <a className="text-[var(--link)] underline" href="https://press.aboutamazon.com/2026/10/amazon-com-announces-third-quarter-results">
@@ -445,7 +670,12 @@ export default async function ShoppingAgentsReportPage() {
               </a>{" "}
               says all U.S. customers can use{" "}
               <Link className="text-[var(--link)] underline" href="/directory/amazon-rufus">Alexa for Shopping</Link> on
-              the Shopping app and on Amazon.com. Fourth-quarter guidance in the release is net sales of $240.0 billion
+              the Shopping app and on Amazon.com. The{" "}
+              <a className="text-[var(--link)] underline" href="https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop">
+                text-shopping post
+              </a>
+              , published November 6 and updated November 13, 2026, says texting is now widely available to all Alexa
+              for Shopping customers, and that a reorder is bought with the customer’s approval. Fourth-quarter guidance in the release is net sales of $240.0 billion
               to $247.0 billion and operating income of $28.5 billion to $33.5 billion. Those ranges are for the
               company. They do not split out the shopping assistant.
             </p>
@@ -453,7 +683,7 @@ export default async function ShoppingAgentsReportPage() {
               <a className="text-[var(--link)] underline" href="https://about.ads.microsoft.com/en/solutions/technology/agentic-commerce">
                 Microsoft&apos;s Agentic Commerce page
               </a>
-              , re-read November 13, 2026, says Copilot Checkout is on Copilot.com and the Copilot mobile app, with
+              , re-read November 14, 2026, says Copilot Checkout is on Copilot.com and the Copilot mobile app, with
               plans to expand to more surfaces soon. Eligible merchants are English-language merchants who sell to U.S.
               buyers, in U.S. dollars. The merchant stays the merchant of record. Shopify merchants are described as
               automatically enrolled, with controls in Shopify admin. Stripe&apos;s Agentic Commerce Suite is named as
@@ -517,7 +747,7 @@ export default async function ShoppingAgentsReportPage() {
             <p>
               OpenAI&apos;s merchant page says, “We&apos;re building a merchant platform for self-serve data
               integration later this year, and plan to expand to more merchants and regions over time.” A second line
-              says OpenAI aims to have a self-service merchant portal later this year. Re-read on November 13, “later this
+              says OpenAI aims to have a self-service merchant portal later this year. Re-read on November 14, “later this
               year” still means the rest of 2026, if the sentence is current. The page does not say November or
               December. The page, as retrieved, has no visible updated date.
             </p>
@@ -565,6 +795,22 @@ export default async function ShoppingAgentsReportPage() {
             <li>
               Adobe&apos;s post-holiday recap, which should show whether the Thanksgiving figure Adobe stands behind is
               141 percent or 159 percent.
+            </li>
+            <li>
+              AP2 on a Google product. The May 19, 2026 post said it would start in the coming months with Gemini
+              Spark. The October 15 and November 4 checkout posts describe Google Pay.
+            </li>
+            <li>
+              Australia and U.K. shopper checkout. The May 19 post said Canada and Australia in the coming months, and
+              the U.K. later. The November 4 post covers Canada.
+            </li>
+            <li>
+              YouTube and Gmail for the Universal Cart. The May 19 post said they would follow Search and the Gemini
+              app. The October 15 post names those two surfaces.
+            </li>
+            <li>
+              ChatGPT Wallet past the U.S. Pro rollout, and the spending limits OpenAI describes as later work. The
+              help article read November 14 says an eligible Pro account can still be waiting.
             </li>
             <li>
               Perplexity&apos;s current Instant Buy rules. The help article did not load on November 5, so this report
@@ -660,7 +906,8 @@ export default async function ShoppingAgentsReportPage() {
             </p>
             <p>
               In ChatGPT, the merchant page says you discover and compare in the chat, then buy on the store&apos;s
-              site or app. On Amazon, the October 29 guide separates three grants. A question, a comparison, or a 30-,
+              site or app. Wallet is the other screen: inside a dot, you review the merchant, the items, the total,
+              and the card, then approve with Face ID or Touch ID. On Amazon, the October 29 guide separates three grants. A question, a comparison, or a 30-,
               90-, or 365-day price history buys nothing. A Scheduled Action can add items to the cart for you to
               review. Auto-buy at a target price uses the default payment method when the price is reached. The
               guide&apos;s examples are headphones at 30 percent off, or a shirt at $15 or less. Buy for Me, for an
@@ -741,6 +988,11 @@ export default async function ShoppingAgentsReportPage() {
             <li>
               A December 2025 EMARKETER sales-share figure and a McKinsey 2030 range were not opened from those
               publishers&apos; own reports on November 5, so they are not cited.
+            </li>
+            <li>
+              A secondary retelling of a Gartner figure, more than $15 trillion of B2B spend through agents by 2028,
+              was not opened from Gartner’s own report, so it is not cited. The B2B section uses Forrester’s own
+              October 28, 2026 post.
             </li>
           </ul>
         </section>

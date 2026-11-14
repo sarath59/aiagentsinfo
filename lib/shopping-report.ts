@@ -17,17 +17,17 @@ export const months: ShoppingMonth[] = [
   {
     month: "November 2026",
     announced:
-      "November 4: Google said direct checkout was rolling out to Canadian shoppers in AI Mode and the Gemini app, for lululemon, select Shopify merchants, Shoppers Drug Mart, and Simons.",
+      "November 4: Google said direct checkout was rolling out to Canadian shoppers in AI Mode and the Gemini app, for lululemon, select Shopify merchants, Shoppers Drug Mart, and Simons. November 11: United said it is restricting unauthorized third-party personal AI agents from booking, ticketing, and distribution. November 13: OpenAI introduced ChatGPT Wallet for some U.S. Pro users inside a dot, and Amazon updated its text-shopping post to say texting is widely available to all Alexa for Shopping customers.",
     likely:
       "Adobe’s forecasts for Thanksgiving (November 26), Black Friday (November 27), and Cyber Monday (November 30). The holiday page also labels a GenAI traffic chart November through December, with 130 percent growth for the season.",
     watch:
-      "Which Thanksgiving growth rate Adobe is standing behind: 141 percent on the holiday page, or 159 percent in the October 29 report. Whether Google names Canadian retailers beyond the November 4 list.",
+      "Which Thanksgiving growth rate Adobe is standing behind: 141 percent on the holiday page, or 159 percent in the October 29 report. Whether Google names Canadian retailers beyond the November 4 list. Whether a given ChatGPT Pro account in the United States has Wallet yet. The help article read November 14 says the rollout is gradual.",
   },
   {
     month: "December 2026",
     announced: "No company in this set named a launch day in December.",
     likely:
-      "OpenAI’s merchant page, re-read November 13, 2026, still says a self-serve portal “later this year.” If that sentence still means 2026, December is the last month it can land. Adobe’s holiday chart, re-read the same day, still runs through December.",
+      "OpenAI’s merchant page, re-read November 14, 2026, still says a self-serve portal “later this year.” If that sentence still means 2026, December is the last month it can land. Adobe’s holiday chart, re-read November 13, still runs through December.",
     watch:
       "Google’s “coming months” work on loyalty rewards, which is not pinned to December. PayPal inside Google checkout, described as soon in January and not confirmed in the October or November posts.",
   },
@@ -64,51 +64,46 @@ export const months: ShoppingMonth[] = [
     announced: "No source names May. May is the end of this report’s window.",
     likely: "Nothing in the source set is written to May.",
     watch:
-      "Whether the Australia and Canada hub, loyalty rewards, and identity linking have shipped. Whether OpenAI’s portal shipped in 2026. Whether Microsoft has named another country.",
+      "Whether the Australia and Canada hub, loyalty rewards, and identity linking have shipped. Whether OpenAI’s portal shipped in 2026. Whether Microsoft has named another country. Whether a Google product page has put AP2 on a live checkout, after the May 19, 2026 post said that would start with Gemini Spark. Whether Australia or U.K. shopper checkout has a dated post. Canada’s shopper checkout was the November 4 post.",
   },
 ];
 
-export const readingMinutes = 10;
+export const readingMinutes = 12;
 
 export const shoppingFaq = [
   {
-    question: "Can AI buy things online for you?",
+    question: "Can AI buy things online for me?",
     answer:
-      "Sometimes. Google can check out for named Canadian retailers with Google Pay, and the retailer stays the seller, while ChatGPT, re-read November 13, 2026, still sends the shopper to the store. Amazon can buy at a price a U.S. customer sets, and Copilot Checkout can finish inside Copilot for eligible U.S. sales. No source in this report names a new checkout day through May 2027.",
+      "Sometimes, on a named product. Google Pay can check out for named Canadian retailers as of November 4, 2026, and inside the U.S. Universal Cart that launched October 15. Amazon’s guide, updated October 29, 2026, says Alexa for Shopping can auto-buy with the default payment method when a U.S. customer’s price is reached. Microsoft’s Agentic Commerce page, re-read November 14, says Copilot Checkout can finish a purchase inside Copilot for English-language merchants selling to U.S. buyers in U.S. dollars. OpenAI’s merchant page, re-read the same day, still completes ordinary ChatGPT shopping on the merchant’s site. ChatGPT Wallet, announced November 13, is a separate path for some U.S. Pro users: you approve each purchase with Face ID or Touch ID, and the network issues a payment token. No source in this report names a new checkout day through May 2027.",
   },
   {
-    question: "Can AI shopping agents buy for you between November 2026 and May 2027?",
+    question: "Which AI shopping agents can check out on Amazon?",
     answer:
-      "On some products, they already can, inside rules a company has published. Google’s November 4, 2026 post says Canadian shoppers can buy from eligible retailers in AI Mode and the Gemini app with Google Pay, and the retailer stays the seller. OpenAI’s merchant page, re-read November 13, 2026, says ChatGPT shoppers finish the purchase on the merchant’s website or app. Amazon’s guide, updated October 29, says a U.S. customer can set a target price and have Alexa for Shopping buy with the default payment method. Microsoft’s page, re-read November 13, says Copilot Checkout can finish a purchase inside Copilot for eligible U.S. sales. No page in this set schedules a new country, or a new checkout button, for a named day through May 2027.",
+      "Alexa for Shopping can. Amazon’s guide, updated October 29, 2026, says a U.S. customer can set a target price and Alexa for Shopping buys with the default payment method. Buy for Me, on that same guide, uses Amazon payment and shipping details for an eligible product on another store, after you tap the button. That charge is on the brand’s site. Amazon’s text post, updated November 13, 2026, says a reorder is bought with your approval, and that texting is widely available to all Alexa for Shopping customers. This report did not find an OpenAI, Google, Microsoft, or Perplexity page that says their assistant can complete checkout on Amazon.com.",
   },
   {
-    question: "What is already announced for this six-month stretch?",
+    question: "What is agentic checkout?",
     answer:
-      "Google’s Canada post says simplified protocol tools in Merchant Center start next year, and loyalty rewards are work for the coming months. The developer guide, last updated 2026-11-06 UTC and re-read November 13, says Australia and Canada get the Merchant Center hub early next year, and identity linking is coming soon. OpenAI’s merchant page, re-read November 13, says it is building a self-serve merchant platform later this year and plans to add regions over time. The U.S. cart, the Canada rollout, U.S. ChatGPT discovery, and U.S. Copilot Checkout are already in market.",
+      "A purchase an assistant can finish. The person has chosen the item, or has already set a rule such as a target price. The assistant sends the cart and a payment instruction. On the Google, OpenAI, Microsoft, and PayPal pages cited here, the store remains the seller of record. OpenAI’s Agentic Commerce Protocol lets a merchant run checkout while the merchant’s own systems charge the payment. Google’s Universal Commerce Protocol is the checkout layer on its cart. They are not the same specification.",
   },
   {
-    question: "What counts as likely, and what is only something to watch?",
+    question: "Is it safe to let an AI agent pay?",
     answer:
-      "Likely, on this page, means a linked source points at November 2026 through May 2027 and does not name a day. That covers Google’s next-year Merchant Center access, Google’s coming-months loyalty work, OpenAI’s later-this-year portal, and Adobe’s November and December traffic forecasts. Watch for means the source refused a date, two sources disagree, or a promised follow-up was not on the pages re-read November 13, 2026. Identity linking is still marked coming soon on the developer guide. Microsoft still gives no timeline for a country besides the United States. PayPal on Google checkout, and Walmart’s phone apps inside ChatGPT, were not restated on a page re-read that day.",
+      "Only inside a gate you can see. ChatGPT Wallet’s help article, read November 14, 2026, requires you to review the merchant, the items, the total, and the card, then approve with Face ID or Touch ID. That approval does not mean the merchant has placed the order. OpenAI’s November 13 announcement says the network token is a substitute for the real card details, and that the business and the agent do not receive those details. Debit cards are not supported. A recurring plan you accept can be charged again by the merchant. Amazon’s Buy for Me article says you confirm address, tax, shipping, and payment on an Amazon page before encrypted details go to the brand. Auto-buy is a rule you set earlier: the October 29 guide says the default payment method is used when the price is reached. United Airlines, on November 11, 2026, said sharing account credentials with a third-party personal AI assistant can lead to unintended purchases, and it is restricting those agents from booking.",
+  },
+  {
+    question: "How soon will AI agents handle most B2B purchasing decisions?",
+    answer:
+      "Not on a day this report can date. Forrester’s October 28, 2026 prediction for 2027 says agentic buying will play a role in 75 percent of B2B purchases, for tasks such as spend analysis, contract-renewal analysis, supplier discovery, and RFI and RFP work. The same post says fully autonomous purchasing will stay concentrated in high-volume, low-risk, repeatable scenarios, often stopping short of the transaction. Mastercard’s April 29, 2025 Agent Pay release says it will partner with IBM’s watsonx Orchestrate to accelerate B2B use cases. That release describes a future purchase. It does not count purchase orders, and it does not say agents will handle most B2B purchasing decisions by May 2027.",
   },
   {
     question: "Will ChatGPT check out inside the chat?",
     answer:
-      "The merchant page re-read on November 13, 2026 says OpenAI is moving away from a standalone Instant Checkout experience. Shoppers discover and compare in ChatGPT. Purchases are completed on merchant-owned websites or apps. The March 24, 2026 post said the first Instant Checkout was not flexible enough for what OpenAI wanted. The same post said Walmart’s in-ChatGPT app was available in web browsers, with iOS and Android to follow. This report did not find a later OpenAI page confirming those phone apps.",
+      "On two different paths. The merchant page re-read November 14, 2026 says OpenAI is moving away from standalone Instant Checkout. Shoppers discover products in ChatGPT and complete the purchase on the merchant’s website or app. Shopping is live for users in the United States. The March 24, 2026 post said the first Instant Checkout was not flexible enough. ChatGPT Wallet, announced November 13, is not that merchant checkout. It rolls out inside a dot for ChatGPT Pro subscribers 18 or older in the United States, on an eligible U.S.-issued American Express, Chase, Mastercard, or Visa credit card. You approve every purchase. The help article says Wallet is not available in Chat, Work, or a standalone Codex thread, and that it may not complete checkout at every store. Spending limits you set in advance are later work. The page does not name November or December for that step.",
   },
   {
-    question: "When does Google say Canada and Australia can onboard in Merchant Center?",
+    question: "What is already dated between November 2026 and May 2027?",
     answer:
-      "The developer guide, last updated 2026-11-06 UTC and re-read November 13, says the hub is rolling out in the United States, with Australia and Canada early next year. The Merchant Center help page, re-read November 13, says Australia and Canada follow next year, and it does not say early. The November 4 Canada post says simplified integration in Merchant Center starts next year. None of the three pages names a month.",
-  },
-  {
-    question: "Did Amazon schedule a new shopping-agent launch?",
-    answer:
-      "The October 29, 2026 earnings release says Alexa for Shopping was used by 400 million or more customers in the last 12 months, with interactions up 570 percent year over year, and that more than 100 capabilities had been added. Fourth-quarter guidance in that release is for company net sales and operating income. It does not give an Alexa for Shopping date between November 2026 and May 2027.",
-  },
-  {
-    question: "What did Adobe actually measure?",
-    answer:
-      "In the October 29, 2026 report, September AI traffic to U.S. retail sites grew 71 percent year over year. Adobe defines that traffic as users clicking a link. The same month, that traffic converted 90 percent better than other traffic, and revenue per visit was 83 percent higher. The report expects the revenue-per-visit advantage to double in the holiday season, and it gives Thanksgiving, Black Friday, and Cyber Monday growth rates of 159, 95, and 88 percent. The holiday forecast page, re-read November 13, 2026, instead says August traffic grew 127 percent, the season is projected at 130 percent, and Thanksgiving at 141 percent.",
+      "Rollouts already underway, plus phrases with no day. Google’s November 4, 2026 Canada post says simplified protocol tools in Merchant Center start next year, and loyalty rewards are work for the coming months. The developer guide, last updated 2026-11-06 UTC, says the Merchant Center hub reaches Australia and Canada early next year. OpenAI’s merchant page still says a self-serve portal later this year. If that sentence is current, it means the rest of 2026. Microsoft says it cannot give a timeline for a country besides the United States. Google’s May 19, 2026 post said it would begin bringing the Agent Payments Protocol to Google products in the coming months, starting with Gemini Spark. The October 15 and November 4 checkout posts describe Google Pay. They do not name an AP2 mandate on the charge.",
   },
 ];

@@ -151,7 +151,7 @@ export const shoppingComparison: ComparisonPage = {
     {
       question: "Can ChatGPT buy things for me?",
       answer:
-        "No. On the merchant page re-read November 12, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026.",
+        "Not on the merchant shopping path. On the merchant page re-read November 12, 2026, people discover and compare products in ChatGPT, and the purchase finishes on the merchant’s website or app. On November 13, 2026 OpenAI opened ChatGPT Wallet for some U.S. Pro users inside a dot: you approve each purchase, and a network token pays. Instant Checkout, launched September 29, 2025, is the earlier in-chat path OpenAI stepped back from on March 24, 2026.",
     },
     {
       question: "Can an AI shopping agent check out for you?",
@@ -189,6 +189,7 @@ export const shoppingComparison: ComparisonPage = {
       paragraphs: [
         "There is no single best AI agent for shopping. [Alexa for Shopping](/directory/amazon-rufus) can auto-buy on Amazon or use Buy for Me on eligible other-store items. [Gemini](/directory/gemini) and Google AI Mode can hold a Universal Cart in the US and, for eligible Canadian retailers, check out with Google Pay. [ChatGPT](/directory/chatgpt) helps you compare products and sends the purchase to the merchant’s site. [Perplexity](/directory/perplexity) Instant Buy, launched with PayPal on November 25, 2025, is a separate in-chat pay path whose help article returned HTTP 403 on November 12, 2026.",
         "The longer checkout guide is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). How the charge moves is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay). The word this table uses is [shopping agent](/glossary/shopping-agent). The shelf for this table is [Best AI agents](/best).",
+        "On November 13, 2026 OpenAI opened ChatGPT Wallet, a separate path from the merchant page: some U.S. Pro users approve a charge inside a dot, and a network token pays. Amazon’s text-shopping post was updated the same day to say texting is widely available to all Alexa for Shopping customers. Who can check out today, on which rail, through May 2027, is [which AI shopping agents can buy through May 2027](/reports/ai-shopping-agents-next-6-months).",
       ],
     },
     {
