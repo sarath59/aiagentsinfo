@@ -89,13 +89,6 @@ export default async function HomePage() {
     const asset = dataAssets.find((item) => item.href === href);
     return asset ? [asset] : [];
   });
-  const stats = [
-    { href: "/directory", value: listings.length, label: plural(listings.length, "tool") },
-    { href: "/blog?category=news", value: news.length, label: plural(news.length, "news note") },
-    { href: "/research", value: research.length, label: plural(research.length, "paper") },
-    { href: "/blog?category=guide", value: guides.length, label: plural(guides.length, "guide") },
-    { href: "/reports", value: reports.length, label: plural(reports.length, "report") },
-  ].filter((item) => item.value > 0);
 
   return (
     <div>
@@ -110,7 +103,7 @@ export default async function HomePage() {
           <h1 id="home-heading" className={"home-headline"}>
             <span className="text-gradient">AI agent</span> directory and dated research
           </h1>
-          <p className={"home-sub"}>{listings.length.toLocaleString("en-US")} AI tools. Submit free, no account, live in about 2 minutes. Sourced reports and dated benchmarks.</p>
+          <p className={"home-sub"}>Submit your AI tool free, no account, live in about 2 minutes. Sourced reports and dated benchmarks.</p>
           <div className={"home-actions"}>
             <Link href="/blog" className="btn-primary focus-ring min-h-12 px-7 text-[15px]">
               Read the latest
@@ -119,16 +112,6 @@ export default async function HomePage() {
               Browse the directory
             </Link>
           </div>
-          {stats.length ? (
-            <div className={"home-stats"}>
-              {stats.map((item) => (
-                <Link key={item.href} href={item.href} className={`focus-ring ${"home-stat"}`}>
-                  <strong>{item.value.toLocaleString("en-US")}</strong>
-                  <span>{item.label}</span>
-                </Link>
-              ))}
-            </div>
-          ) : null}
         </div>
       </section>
 
