@@ -1,11 +1,22 @@
 /** Pure helpers for report scroll depth and related-click goals. */
 
 export const REPORT_PATH = /^\/reports\/([a-z0-9_-]+)\/?$/;
+export const RESEARCH_PATH = /^\/research\/([a-z0-9_-]+)\/?$/;
 
 export function reportSlugFromPath(pathname: string): string | null {
   const path = pathname.split("?")[0]?.split("#")[0] ?? "";
   const match = path.match(REPORT_PATH);
   return match?.[1] ?? null;
+}
+
+export function researchSlugFromPath(pathname: string): string | null {
+  const path = pathname.split("?")[0]?.split("#")[0] ?? "";
+  const match = path.match(RESEARCH_PATH);
+  return match?.[1] ?? null;
+}
+
+export function contentSlugFromPath(pathname: string): string | null {
+  return reportSlugFromPath(pathname) ?? researchSlugFromPath(pathname);
 }
 
 export function pageSlug(pathname: string) {

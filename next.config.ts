@@ -44,6 +44,46 @@ const nextConfig: NextConfig = {
         statusCode: 308,
       },
       {
+        source: "/trackers/github-stars",
+        destination: "/trackers/stars",
+        statusCode: 301,
+      },
+      {
+        source: "/trackers/framework-github-stars",
+        destination: "/trackers/stars",
+        statusCode: 301,
+      },
+      {
+        source: "/trackers/stars/agno",
+        destination: "/trackers/stars",
+        statusCode: 301,
+      },
+      {
+        source: "/trackers/stars/microsoft-agent-framework",
+        destination: "/trackers/stars/autogen",
+        statusCode: 301,
+      },
+      {
+        source: "/trackers/stars/openai-agents-sdk",
+        destination: "/trackers/stars/openai-agents",
+        statusCode: 301,
+      },
+      {
+        source: "/trackers/stars/pydantic-ai",
+        destination: "/trackers/stars",
+        statusCode: 301,
+      },
+      {
+        source: "/directory/unrust",
+        destination: "/directory",
+        statusCode: 301,
+      },
+      {
+        source: "/directory/ozil-goal-ai",
+        destination: "/directory",
+        statusCode: 301,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "aiagentsinfo.com" }],
         destination: "https://www.aiagentsinfo.com/:path*",

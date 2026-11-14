@@ -6,9 +6,11 @@ import { trackGoal } from "@/lib/analytics";
 import {
   columnReadFraction,
   columnShorterThanViewport,
+  contentSlugFromPath,
   pageSlug,
   relatedClickMetadata,
   reportSlugFromPath,
+  researchSlugFromPath,
   shouldEmitRelatedClick,
   type ClickDedupe,
 } from "@/lib/report-reading";
@@ -98,10 +100,12 @@ export function ReportReadTracker() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const match = pathname.match(/^\/reports\/([a-z0-9_-]+)\/?$/);
-    const slug = reportSlugFromPath(pathname);
-    if (!match || !slug) return;
-    const metadata = { report_slug: slug };
+    const reportMatch = pathname.match(/^\/reports\/([a-z0-9_-]+)\/?$/);
+    const researchMatch = pathname.match(/^\/research\/([a-z0-9_-]+)\/?$/);
+    const slug = contentSlugFromPath(pathname);
+    if ((!reportMatch && !researchMatch) || !slug) return;
+    const metaKey = reportMatch ? "report_slug" : "research_slug";
+    const metadata = { [metaKey]: slug };
     const visit = openVisit(pathname);
     if (visit.fresh) trackGoal("report_view", metadata);
 
