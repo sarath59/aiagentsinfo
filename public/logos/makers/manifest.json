@@ -237,6 +237,13 @@
     "height": 128,
     "bytes": 1144
   },
+  "tingkaopu": {
+    "source": "https://tingkaopu.com/assets/brand/logo-512.png",
+    "file": "/logos/makers/tingkaopu.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1302
+  },
   "tokenrip": {
     "source": "https://tokenrip.com/apple-touch-icon.png",
     "file": "/logos/makers/tokenrip.webp",
