@@ -14,9 +14,12 @@ function resolveSiteUrl() {
   return CANONICAL_ORIGIN;
 }
 
-/** One sentence, used verbatim in the footer, About page, default meta description, and Organization/WebSite JSON-LD. */
+/** One sentence, used verbatim on the About page, as the default meta description, and in Organization/WebSite JSON-LD. */
 export const entityLine =
   "aiagentsinfo.com is an independent directory and research site tracking AI agents, agent harnesses, frameworks and agent benchmarks.";
+
+/** Short line shown under the brand in the site footer. */
+export const footerLine = "AI agent directory and dated research.";
 
 export const site = {
   name: "AI Agents Info",
@@ -334,93 +337,42 @@ export const dataAssets = [
 
 export const footerNav = [
   {
+    title: "Explore",
+    links: [
+      { href: "/directory", label: "Directory" },
+      { href: "/best", label: "Best AI agents" },
+      { href: "/reports", label: "Reports" },
+      { href: "/trackers", label: "Trackers" },
+      { href: "/tools", label: "Free tools" },
+    ],
+  },
+  {
     title: "Read",
     links: [
       { href: "/blog", label: "Blog" },
       { href: "/research", label: "Research" },
       { href: "/papers", label: "Papers" },
-      { href: "/reports", label: "Reports" },
-      { href: "/best", label: "Best AI agents" },
       { href: "/glossary", label: "Glossary" },
-      { href: "/directory", label: "Directory" },
       { href: "/topics", label: "Topics" },
-    ],
-  },
-  {
-    title: "Learn",
-    links: [
-      { href: "/for/everyone", label: "Plain English" },
-      { href: "/for/builders", label: "Builders" },
-      { href: "/for/research", label: "Research audience" },
-    ],
-  },
-  {
-    title: "Trackers",
-    links: [
-      { href: "/trackers", label: "Live data trackers" },
-      { href: "/trackers/downloads", label: "Framework downloads" },
-      { href: "/trackers/agents-md", label: "AGENTS.md adoption" },
-      { href: "/trackers/stars", label: "Framework GitHub stars" },
-      { href: "/best/ai-agent-harnesses", label: "Best AI agent harness" },
-      { href: "/best/ai-agent-frameworks", label: "Best AI agent frameworks" },
-      { href: "/best/ai-coding-agents", label: "Best AI coding agents" },
-      { href: "/best/computer-use-agents", label: "Best computer use agents" },
-      { href: "/best/ai-agent-evaluation-tools", label: "Best AI agent evaluation tools" },
-      { href: "/best/ai-agents-for-shopping", label: "Best AI agent for shopping" },
-      { href: "/best/ai-agents-for-web-search", label: "Best AI agent for web search" },
-      { href: "/best/ai-agents-for-travel-booking", label: "Best AI agent for travel booking" },
-      { href: "/best/ai-agents-for-email", label: "Best AI agent for email" },
-      { href: "/best/ai-agents-for-personal-assistant-tasks", label: "Best AI agent for personal assistant tasks" },
-      { href: "/best/ai-agents-for-research", label: "Best AI agent for research" },
-      { href: "/best/ai-agents-for-scheduling", label: "Best AI agent for scheduling" },
-      { href: "/best/ai-agents-for-writing", label: "Best AI agent for writing" },
-      { href: "/best/ai-agents-for-students", label: "Best AI agent for students" },
-      { href: "/best/ai-agents-for-small-business", label: "Best AI agent for small business" },
-      { href: "/trackers/breakthroughs", label: "Breakthroughs timeline" },
-      { href: "/trackers/harnesses", label: "Harness comparison" },
-      { href: "/trackers/benchmarks", label: "Benchmark leaderboard" },
-      { href: "/reports/ai-agent-vendor-robots-txt-november-2026", label: "Vendor robots.txt, November 2026" },
-      { href: "/reports/web-search-tools-for-ai-agents-november-2026", label: "Web search APIs, November 2026" },
-      { href: "/reports/ai-answer-crawlers-november-2026", label: "AI answer crawlers, November 2026" },
-      { href: "/reports/ai-agents-in-production-2026", label: "AI agents in production, 2026" },
-      { href: "/reports/ai-agents-in-2027", label: "AI agents in 2027" },
-      { href: "/reports/mcp-next-6-months", label: "MCP, Nov 2026 to May 2027" },
-      { href: "/reports/browser-and-computer-use-agents-next-6-months", label: "Browser and computer-use agents, Nov 2026 to May 2027" },
-      { href: "/reports/ai-coding-agents-next-6-months", label: "AI coding agents, Nov 2026 to May 2027" },
-      { href: "/reports/ai-coding-agents-next-30-days", label: "AI coding agents, 8 Nov to 8 Dec 2026" },
-      { href: "/reports/ai-agents-next-12-months", label: "AI agents, next 12 months" },
-      { href: "/reports/ai-shopping-agents-next-30-days", label: "Shopping agents, next 30 days" },
-      { href: "/reports/ai-agent-frameworks-next-6-months", label: "Frameworks, Nov 2026 to May 2027" },
-      { href: "/reports/enterprise-agent-platforms-next-6-months", label: "Enterprise platforms, Nov 2026 to May 2027" },
-      { href: "/reports/ai-agents-next-6-months", label: "AI agents, Nov 2026 to May 2027" },
-      { href: "/reports/ai-shopping-agents-next-6-months", label: "Shopping agents, Nov 2026 to May 2027" },
-      { href: "/reports/voice-agents-next-6-months", label: "Voice agents, Nov 2026 to May 2027" },
-      { href: "/reports/agent-harness-benchmark-november-2026", label: "Agent harness benchmark, November 2026" },
-      { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework releases, November 2026" },
-      { href: "/verified-revenue", label: "Verified revenue" },
-      { href: "/directory/stats", label: "Directory stats" },
-      { href: "/agent-cost-calculator", label: "AI agent cost calculator" },
-      { href: "/agent-prompt-checker", label: "Prompt and tool checker" },
     ],
   },
   {
     title: "Site",
     links: [
-      { href: "/tools", label: "Free tools" },
-      { href: "/tools/mcp-config-generator", label: "MCP server config generator" },
-      { href: "/tools/ai-crawler-robots-txt-checker", label: "robots.txt checker for AI crawlers" },
-      { href: "/tools/agents-md-generator", label: "AGENTS.md generator" },
-      { href: "/tools/ai-agent-roi-calculator", label: "AI agent ROI calculator" },
       { href: "/submit", label: "Submit your tool" },
       { href: "/about", label: "About" },
       { href: "/editorial-policy", label: "Editorial policy" },
       { href: "/contact", label: "Contact" },
-      { href: "/privacy", label: "Privacy" },
-      { href: "/terms", label: "Terms" },
-      { href: "/advertise", label: "Advertise" },
-      { href: "/mcp", label: "MCP server" },
     ],
   },
+] as const;
+
+export const footerLegal = [
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/rss.xml", label: "RSS" },
+  { href: "/sitemap.xml", label: "Sitemap" },
+  { href: "/mcp", label: "MCP server" },
 ] as const;
 
 export function absoluteUrl(path = "/") {

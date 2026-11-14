@@ -1,40 +1,49 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { entityLine, footerNav, site } from "@/lib/site";
+import { footerLegal, footerLine, footerNav, site } from "@/lib/site";
+
+const columnTitle = "kicker mb-3";
+const columnLink =
+  "text-sm text-[var(--muted)] transition-colors duration-150 hover:text-[var(--fg)] focus-ring";
 
 export function Footer() {
   return (
     <footer className="relative mt-24 border-t border-[var(--stroke)]">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-cyan)] to-transparent opacity-50" />
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-5">
-        <div className="md:col-span-1">
-          <Logo />
-          <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">{entityLine}</p>
-        </div>
-        {footerNav.map((group) => (
-          <div key={group.title}>
-            <p className="kicker mb-3">{group.title}</p>
-            <ul className="grid gap-2 text-sm">
-              {group.links.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[var(--muted)] transition-colors hover:text-[var(--fg)]">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4 lg:gap-x-10">
+          <div className="col-span-2 min-w-0 lg:col-span-1">
+            <Link href="/" className="inline-flex rounded-sm focus-ring" aria-label="AI Agents Info home">
+              <Logo />
+            </Link>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--muted)]">{footerLine}</p>
           </div>
-        ))}
-      </div>
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 pb-10 text-xs text-[var(--muted)] sm:flex-row sm:justify-between">
-        <p>
-          © {new Date().getFullYear()} {site.name}. Independent publication. No fake staff bios.
-        </p>
-        <p>
-          <a href="/rss.xml">RSS</a>
-          {" · "}
-          <a href="/sitemap.xml">Sitemap</a>
-        </p>
+          {footerNav.map((group) => (
+            <nav key={group.title} aria-label={group.title} className="min-w-0">
+              <p className={columnTitle}>{group.title}</p>
+              <ul className="grid gap-2.5">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={columnLink}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-col gap-3 border-t border-[var(--stroke)] pt-5 text-xs text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {site.name}</p>
+          <ul className="flex flex-wrap gap-x-4 gap-y-2">
+            {footerLegal.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="transition-colors duration-150 hover:text-[var(--fg)] focus-ring">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </footer>
   );
