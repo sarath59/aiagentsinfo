@@ -1,13 +1,13 @@
 ---
 title: "What is an AI employee? A digital worker, not a legal employee"
 absoluteTitle: true
-description: "What is an AI employee? Workplace software, also called a digital worker, that takes a goal, uses tools, and returns work for a person to review. Always-on AI agents, on the pages checked November 7, 2026, keep a cloud task running after the laptop closes or start on a schedule. The software is not a legal employee."
+description: "What is an AI employee? Workplace software, called a digital worker, that returns work for review. A small business can use one on a paid plan. Not a legal employee."
 takeaways:
   - "An AI employee is a label for workplace software, usually an agent, that is given a job and returns a file or an action for a person to review. The software is not a legal employee and is not the party accountable for a mistake."
   - "On November 7, 2026, Claude Cowork and ChatGPT Work are the two large workplace products that start from a goal and hand back finished work. Chat stays a conversation. Fixed workflow automation still follows rules written in advance."
   - "University rollouts checked the same day, including UNSW, the University of Sydney, and La Trobe, are adult ChatGPT Edu access with staged availability. They are workplace learning, and they are a different subject from school-account policy."
 date: "2026-11-07"
-updated: "2026-11-12"
+updated: "2026-11-14"
 category: guide
 topics:
   - how-agents-work
@@ -57,6 +57,8 @@ sources:
 faq:
   - question: "What is an AI employee?"
     answer: "An AI employee, also called a digital worker, is a label for workplace software that is given a job, uses tools, and returns work for a person to review. On the product pages read November 7, 2026, Claude Cowork and ChatGPT Work are examples. The label does not make the software a legal employee or the party accountable for a mistake."
+  - question: "Can a small business use an AI employee?"
+    answer: "Yes, as software on a paid plan, not as a person you hire. On the pages read November 7, 2026, Claude Cowork is included with a paid plan, and its desktop browser and phone-assigned cloud tasks run on Team as well as Pro, Max, and Ultra. ChatGPT Work is available on Business. A mistake is still the company’s. Which of five jobs a small business can hand off is a separate guide. Shared ChatGPT or Claude seats are a different purchase."
   - question: "What do people mean by always-on AI agents?"
     answer: "On the product pages read November 7, 2026, the phrase matches a workplace job that continues after you leave the chat. Claude Cowork can keep a phone-assigned task running in the cloud after the laptop closes, on Pro, Max, Ultra, and Team, and Enterprise plans can opt in. ChatGPT Work can run a scheduled task once, on a cadence, or when an event happens. A workspace agent can start on a schedule. A person still reviews the result. The software is not a staff member who stays on duty."
   - question: "Is an AI employee the same thing as a chatbot?"
@@ -75,17 +77,21 @@ faq:
     answer: "They are adult access to ChatGPT for students and staff, staged by each university, plus training and assessment rules. UNSW, the University of Sydney, and La Trobe describe ChatGPT Edu access aimed at study, research, and later work. That is workplace learning. It is not a job title, and it is separate from Google’s K-12 account policy."
 ---
 
-Updated November 12, 2026. The enterprise platforms that sell this label, and the meters they publish, are in [Enterprise agent platforms, Nov 2026 to May 2027](/reports/enterprise-agent-platforms-next-6-months). The workplace product pages below were read November 7, 2026.
+Updated November 14, 2026, with a direct answer on small-business use. The workplace product pages below were read November 7, 2026. The enterprise platforms that sell this label, and the meters they publish, are in [Enterprise agent platforms, Nov 2026 to May 2027](/reports/enterprise-agent-platforms-next-6-months).
 
 ## What is an AI employee?
 
-An AI employee is a plain-language name for workplace software that takes a goal, uses tools, and returns work for a person to review. The more precise name on this site is a [digital worker](/glossary/digital-worker). The working system underneath is usually an [agent](/glossary/agent): a [language model](/glossary/llm) plus a [harness](/glossary/harness).
+An AI employee is workplace software, also called a [digital worker](/glossary/digital-worker), that takes a goal, uses tools, and returns work for a person to review. The working system underneath is usually an [agent](/glossary/agent): a [language model](/glossary/llm) plus a [harness](/glossary/harness).
 
 People also say “digital worker,” “AI teammate,” and “employee agent.” The words are ahead of the products. On November 7, 2026, Anthropic’s workplace product is [Claude Cowork](https://claude.com/product/cowork). OpenAI’s is [ChatGPT Work](https://openai.com/chatgpt-work/), with shared [workspace agents](https://openai.com/business/workspace-agents/) as a separate research preview. A chat reply that only explains the task is still chat. A script that always does the same five steps is still fixed automation.
 
 The software is not a legal employee. It has no duties of its own, and a mistake is still the organization’s to own. [Deloitte’s September 10, 2026 essay](https://www.deloitte.com/global/en/insights/topics/technology-management/ai-agents-human-workplace.html) treats “agents as labor” and “agents as infrastructure” as two choices a company might make, and it tells leaders to watch for moments when agents are treated as the responsible party in a review. That is a warning about accountability, not a feature list.
 
-This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in). Sourced tables for the same jobs are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks) and [Best AI agent for small business](/best/ai-agents-for-small-business). What those products charge, seat against credit against resolution, is [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost). Which of five jobs a small business can hand off, and where each one fails, is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026). The November 12 price census behind that page is [12 of 15 AI employee products print a price](/research/ai-employee-pricing-small-business-november-2026).
+This guide is for adult work and for university study. School-account policy is a different page: [Google’s November 2026 K-12 switch](/blog/google-k12-gemini-and-search-off-until-schools-opt-in).
+
+## Can a small business use an AI employee?
+
+Yes, as software on a paid plan, not as a person you hire. On the pages read November 7, 2026, Claude Cowork is included with a paid plan, and its desktop browser and phone-assigned cloud tasks run on Team as well as Pro, Max, and Ultra. ChatGPT Work is available on Business. A mistake is still the company’s. Which of five jobs a small business can hand off, and where each one fails, is [AI employee for a small business](/blog/ai-employee-for-small-business-november-2026). Shared seats and list prices are [Best AI agents for small business](/best/ai-agents-for-small-business). What named products charge is [How much does an AI employee cost?](/blog/how-much-does-an-ai-employee-cost). The short definition is [digital worker](/glossary/digital-worker). Sourced seats for a personal-assistant job are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks). The November 12 price census is [12 of 15 AI employee products print a price](/research/ai-employee-pricing-small-business-november-2026).
 
 ## What is a digital worker?
 
@@ -268,7 +274,7 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 
 - This guide’s terms: [digital worker](/glossary/digital-worker), [human in the loop](/glossary/human-in-the-loop), [approval gate](/glossary/approval-gate)
 - Nearby terms: [agent](/glossary/agent), [harness](/glossary/harness), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [tool use](/glossary/tool-use), [computer use](/glossary/computer-use), [agent skill](/glossary/agent-skill), [language model](/glossary/llm)
-- Guides: [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
+- Guides: [AI employee for a small business](/blog/ai-employee-for-small-business-november-2026), [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost), [Best AI agents for small business](/best/ai-agents-for-small-business), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do you evaluate an AI agent harness?](/blog/how-do-you-evaluate-an-ai-agent-harness), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
 - Campus policy that is out of scope here: [Google will turn off Gemini and Search for K-12 students unless schools opt in](/blog/google-k12-gemini-and-search-off-until-schools-opt-in)
 - Directory: [Claude](/directory/claude), [ChatGPT](/directory/chatgpt)
 - Topics: [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [education](/topics/education), [tools and SaaS](/topics/tools-saas), [harnesses](/topics/harnesses)
@@ -278,6 +284,10 @@ The [how agents work](/topics/how-agents-work) topic is the loop in general. [Ta
 ### What is an AI employee?
 
 It is a label for workplace software that is given a job and returns work for a person to review. The glossary entry is [digital worker](/glossary/digital-worker). On November 7, 2026, the two product pages that match the label most closely are Claude Cowork and ChatGPT Work. The software is not a legal employee. [Deloitte’s September 10, 2026 essay](https://www.deloitte.com/global/en/insights/topics/technology-management/ai-agents-human-workplace.html) says to treat a review that names the agent as the responsible party as a sign that accountability has slipped.
+
+### Can a small business use an AI employee?
+
+Yes, as software on a paid plan, not as a person you hire. On the pages read November 7, 2026, Claude Cowork is included with a paid plan, and its desktop browser and phone-assigned cloud tasks run on Team as well as Pro, Max, and Ultra. ChatGPT Work is available on Business. A mistake is still the company’s. Which of five jobs a small business can hand off, and where each one fails, is [AI employee for a small business](/blog/ai-employee-for-small-business-november-2026). Shared seats are [Best AI agents for small business](/best/ai-agents-for-small-business).
 
 ### What do people mean by always-on AI agents?
 

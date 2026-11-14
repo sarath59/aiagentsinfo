@@ -201,6 +201,7 @@ export default async function ShoppingAgentsReportPage() {
           "A month with no dated launch is left empty on purpose.",
         ]}
         toc={[
+          { id: "can-ai-buy-things-online", text: "Can AI buy things online for you?", level: 2 },
           { id: "how-a-claim-is-sorted", text: "How a claim is sorted", level: 2 },
           { id: "announced", text: "Announced", level: 2 },
           { id: "likely", text: "Likely", level: 2 },
@@ -217,6 +218,32 @@ export default async function ShoppingAgentsReportPage() {
         related={related}
       >
         <div className="article-prose">
+          <h2 id="can-ai-buy-things-online">Can AI buy things online for you?</h2>
+          <p>
+            Sometimes. Google can check out for named Canadian retailers with Google Pay, and the retailer stays the
+            seller, while ChatGPT, re-read November 13, 2026, still sends the shopper to the store. Amazon can buy at a
+            price a U.S. customer sets, and Copilot Checkout can finish inside Copilot for eligible U.S. sales. No
+            source in this report names a new checkout day through May 2027.
+          </p>
+          <p>
+            Flight booking is outside this retail calendar. On November 11, 2026,{" "}
+            <a
+              className="text-[var(--link)] underline"
+              href="https://united.mediaroom.com/news-releases?item=125496"
+            >
+              United Airlines said
+            </a>{" "}
+            it is taking steps to prohibit unauthorized third-party personal AI agents from its booking, ticketing, and
+            distribution channels.
+          </p>
+          <p>
+            Who can pay today, product by product, is{" "}
+            <Link href="/blog/can-an-ai-shopping-agent-check-out-for-you">
+              Can an AI shopping agent check out for you?
+            </Link>
+            . The November 11 comparison of who can finish checkout is{" "}
+            <Link href="/blog/ai-shopping-agents-compared-november-2026">AI shopping agents compared</Link>.
+          </p>
           <p>
             Google has direct checkout running for named Canadian retailers as of November 4, 2026, and a U.S. cart
             that launched October 15. OpenAI&apos;s merchant page, re-read November 13, 2026, still sends the ChatGPT purchase to

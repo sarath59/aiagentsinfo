@@ -1512,12 +1512,12 @@ export const smallBusinessComparison: ComparisonPage = {
   heading: "Best AI agent for small business in 2026",
   metaTitle: "Best AI agent for small business: 4 in 2026",
   metaDescription:
-    "There is no single best AI agent for small business. We compared 4 products on seats, inboxes, and list price. Licence and platform only (Nov 2026).",
+    "What are the best AI agents for small business? No single product. ChatGPT Business, Claude Team, Microsoft 365 Copilot, and ReplyCurrent, on list price (Nov 2026).",
   description:
     "There is no single best AI agent for small business. ChatGPT Business Standard seats are $20 per user per month billed annually, or $25 monthly, usually with a two-seat minimum. Claude Team standard seats are $20 per member per month billed annually. Microsoft 365 Business Standard with Copilot is $23.50 per user per month paid yearly. ReplyCurrent Growth is $29 a month for a website assistant that cites the page it used.",
   summary:
     "Sourced comparison of small-business agents on seats, inboxes, and list price. Last verified November 2026.",
-  question: "Which AI agent is best for small business in 2026?",
+  question: "What are the best AI agents for small business?",
   tableHeading: "How do small-business AI agents compare on seats and price?",
   tableLead:
     "The table lists 4 small-business products with a Best for label, licence, list price, and whether you get a shared workspace or a website embed, from official pages last verified November 2026.",
@@ -1529,7 +1529,8 @@ export const smallBusinessComparison: ComparisonPage = {
   methodLead:
     "Every cell comes from an official product page, a help article, or a listing on this site that already cites that official page.",
   faqHeading: "What else do people ask about AI agents for small business?",
-  faqLead: "These short answers cover two-seat minimums, Copilot, website assistants, and ratings.",
+  faqLead:
+    "These short answers name the four products, the job each one is sold to do, two-seat minimums, Copilot, website assistants, and ratings.",
   applicationCategory: "BusinessApplication",
   kind: "consumer",
   columns: consumerColumns,
@@ -1624,6 +1625,16 @@ export const smallBusinessComparison: ComparisonPage = {
   ],
   faq: [
     {
+      question: "What are the best AI agents for small business?",
+      answer:
+        "There is no single best product. This page compares four: ChatGPT Business, Claude Team, Microsoft 365 Business Standard with Copilot, and ReplyCurrent. The cells are licence, list price, and platform from official pages in November 2026. The page does not score quality.",
+    },
+    {
+      question: "What are the benefits of AI agents for a small business?",
+      answer:
+        "The benefit this page can support is the job each product is sold to do. ChatGPT Business and Claude Team are shared seats for people inside the company. Microsoft 365 Business Standard with Copilot adds Copilot in Word, Excel, PowerPoint, Outlook, and Teams. ReplyCurrent answers site visitors and shows the source. This comparison does not measure hours saved or revenue.",
+    },
+    {
       question: "Does ChatGPT Business require two seats?",
       answer:
         "Usually yes. The Business FAQ says a workspace requires at least two paid seats, which can mix Standard and Premium. A separate help article says some new workspaces can start with one paid seat at checkout, and that the option is not broadly available.",
@@ -1656,10 +1667,18 @@ export const smallBusinessComparison: ComparisonPage = {
   sections: [
     {
       id: "direct-answer",
-      heading: "Which AI agent is best for small business in 2026?",
+      heading: "What are the best AI agents for small business?",
       paragraphs: [
-        "There is no single best AI agent for small business. [ChatGPT](/directory/chatgpt) Business Standard seats are $20 per user per month billed annually, or $25 monthly, usually with a two-seat minimum. [Claude](/directory/claude) Team standard seats are $20 per member per month billed annually. Microsoft 365 Business Standard with Copilot is $23.50 per user per month paid yearly. [ReplyCurrent](/directory/replycurrent) Growth is $29 a month for a website assistant that cites the page it used.",
-        "A workplace agent is a [digital worker](/glossary/digital-worker). The longer guide is [What is an AI employee?](/blog/what-is-an-ai-employee). List prices for products sold as named AI employees, per seat, per metered hour, and per resolution, are [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost). Which of five jobs a shop can hand off, inbox through the books, is [AI employee for a small business: 5 jobs (Nov 2026)](/blog/ai-employee-for-small-business-november-2026). The November 12 census, 12 of 15 pricing pages print a dollar, is [AI employee pricing for small businesses](/research/ai-employee-pricing-small-business-november-2026). The shelf is [Best AI agents](/best).",
+        "There is no single best AI agent for a small business. The four on this page are a shared ChatGPT workspace, a Claude Team seat, Copilot in Microsoft 365, and a website assistant that cites its source. [ChatGPT](/directory/chatgpt) Business Standard seats are $20 per user per month billed annually, or $25 monthly, usually with a two-seat minimum. [Claude](/directory/claude) Team standard seats are $20 per member per month billed annually. Microsoft 365 Business Standard with Copilot is $23.50 per user per month paid yearly. [ReplyCurrent](/directory/replycurrent) Growth is $29 a month for a website assistant that cites the page it used.",
+        "A workplace agent is a [digital worker](/glossary/digital-worker). The longer guide is [What is an AI employee?](/blog/what-is-an-ai-employee). List prices for products sold as named AI employees, per seat, per metered hour, and per resolution, are [How much does an AI employee cost for a small business?](/blog/how-much-does-an-ai-employee-cost). Which of five jobs a small business can hand off, and where each one fails, is [AI employee for a small business](/blog/ai-employee-for-small-business-november-2026). The November 12 census, 12 of 15 pricing pages print a dollar, is [AI employee pricing for small businesses](/research/ai-employee-pricing-small-business-november-2026). The shelf is [Best AI agents](/best).",
+      ],
+    },
+    {
+      id: "benefits",
+      heading: "What are the benefits of AI agents for a small business?",
+      paragraphs: [
+        "The benefit this page can support is the job each product is sold to do, not a measured saving. ChatGPT Business and Claude Team are shared seats for people inside the company. Microsoft 365 Business Standard with Copilot puts Copilot in Word, Excel, PowerPoint, Outlook, and Teams. ReplyCurrent answers visitors from the site, docs, and files and shows the source. This table does not measure hours saved or revenue.",
+        "Named jobs sold as an AI employee are a different purchase. Which of five jobs a small business can hand off is [AI employee for a small business](/blog/ai-employee-for-small-business-november-2026). Inbox drafts are [Best AI agent for email](/best/ai-agents-for-email). Recurring office jobs are [Best AI agent for personal assistant tasks](/best/ai-agents-for-personal-assistant-tasks).",
       ],
     },
     {

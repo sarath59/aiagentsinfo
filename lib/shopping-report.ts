@@ -3,9 +3,9 @@ export type ShoppingMonth = { month: string; announced: string; likely: string; 
 export const path = "/reports/ai-shopping-agents-next-6-months";
 export const title = "AI shopping agents: Google checks out in Canada. ChatGPT still sends you to the store.";
 export const description =
-  "AI shopping agents through May 2027: Google checkout is live for named Canadian retailers. ChatGPT, re-read November 13, 2026, still finishes on the store’s site. Undated months stay empty.";
+  "Can AI buy things online for you? Sometimes. Google can check out for named Canadian retailers. ChatGPT, re-read November 13, 2026, still sends you to the store.";
 export const readOn = "2026-11-05";
-export const updatedOn = "2026-11-13";
+export const updatedOn = "2026-11-14";
 
 export const months: ShoppingMonth[] = [
   {
@@ -65,6 +65,11 @@ export const months: ShoppingMonth[] = [
 export const readingMinutes = 10;
 
 export const shoppingFaq = [
+  {
+    question: "Can AI buy things online for you?",
+    answer:
+      "Sometimes. Google can check out for named Canadian retailers with Google Pay, and the retailer stays the seller, while ChatGPT, re-read November 13, 2026, still sends the shopper to the store. Amazon can buy at a price a U.S. customer sets, and Copilot Checkout can finish inside Copilot for eligible U.S. sales. No source in this report names a new checkout day through May 2027.",
+  },
   {
     question: "Can AI shopping agents buy for you between November 2026 and May 2027?",
     answer:

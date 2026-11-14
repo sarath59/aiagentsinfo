@@ -1,13 +1,13 @@
 ---
 title: "What Is Ultracode in Claude Code?"
 absoluteTitle: true
-description: "Ultracode is a Claude Code setting, not a Fable 5.2 feature. It plans a dynamic workflow for each substantive task, and it is not a model or a separate plan."
+description: "How ultracode relates to Claude Fable 5.2: it is a Claude Code setting, not a Fable 5.2 feature. Fable 5.2 defaults to medium. This page did not retest it."
 takeaways:
   - "On the workflows page read November 11, 2026, ultracode is a Claude Code setting. With it on, Claude plans a dynamic workflow for each substantive task. One request can become several workflows in a row."
   - "The changelog for v2.1.284, dated September 28, 2026, says the /effort toggle no longer forces xhigh. claude --effort ultracode still turns ultracode on and sets the level to xhigh."
   - "The same workflows page says each request uses more tokens and takes longer, and those tokens draw on the plan's usage limits. It does not print a separate ultracode price."
 date: "2026-11-09"
-updated: "2026-11-11"
+updated: "2026-11-14"
 category: guide
 topics:
   - harnesses
@@ -56,9 +56,13 @@ faq:
 
 Ultracode is a Claude Code setting. It plans a dynamic workflow for each substantive task, at the effort level the session is already using. It is not a Claude Fable 5.2 feature, and this page did not retest the setting on that model. On the [workflows page](https://code.claude.com/docs/en/workflows) read November 11, 2026, `/effort ultracode` is the command that turns that setting on for the current session. The same page says one request can become several workflows in a row: one to understand the code, one to make the change, and one to verify it. The [changelog](https://code.claude.com/docs/en/changelog) dates the split from a forced `xhigh` effort at Claude Code v2.1.284, September 28, 2026.
 
-The pages read again for this note on November 11, 2026 are that workflows guide, the [model-config page](https://code.claude.com/docs/en/model-config), and the changelog through v2.1.322 (November 10, 2026). The [settings reference](https://code.claude.com/docs/en/settings-reference) was last read November 9 and was not re-fetched. A [Hacker News thread](https://news.ycombinator.com/item?id=48314397) asks the short form, “What is ultracode mode?” A [Reddit thread](https://www.reddit.com/r/ClaudeCode/comments/1u5d69n/any_reason_not_to_use_ultracode/) asks whether there is a reason to leave it off. The answers below are the docs, not the comment threads.
+The pages read again for this note on November 11, 2026 are that workflows guide, the [model-config page](https://code.claude.com/docs/en/model-config), and the changelog through v2.1.322 (November 10, 2026). The [settings reference](https://code.claude.com/docs/en/settings-reference) was last read November 9 and was not re-fetched. A [Hacker News thread](https://news.ycombinator.com/item?id=48314397) asks the short form, “What is ultracode mode?” A [Reddit thread](https://www.reddit.com/r/ClaudeCode/comments/1u5d69n/any_reason_not_to_use_ultracode/) asks whether there is a reason to leave it off. The answers below are the docs, not the comment threads. The Fable 5.2 heading was added on November 14, 2026 from that reading. The docs were not re-fetched that day.
 
-Ultracode sits inside the [harness](/glossary/harness): the loop, tools, and permissions around the model. The part that decides the next step is [orchestration](/glossary/orchestration). The product page on this site is [Claude Code](/directory/claude-code).
+Ultracode sits inside the [harness](/glossary/harness): the loop, tools, and permissions around the model. The part that decides the next step is [orchestration](/glossary/orchestration). The product page on this site is [Claude Code](/directory/claude-code). The model family is [Claude](/directory/claude).
+
+## How does ultracode relate to Claude Fable 5.2?
+
+Ultracode is a Claude Code setting, not a Claude Fable 5.2 feature, and this page did not retest the setting on that model. The model-configuration page read November 11, 2026 puts Fable models on one effort row: `low`, `medium`, `high`, `xhigh`, and `max`. Fable 5.2’s default is medium, and the model needs Claude Code v2.1.321 or later. `claude --effort ultracode` turns ultracode on and also sets the effort level to `xhigh`. List prices for the plans are [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing). The workflows page does not print a separate price for the setting.
 
 ## What does ultracode do in Claude Code?
 
