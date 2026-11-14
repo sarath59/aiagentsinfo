@@ -51,8 +51,12 @@ export default function BestAiAgentFrameworksPage() {
             </Link>
             . AutoGen is 6.9 per star in that note. LangGraph is 1,308.0.{" "}
             The workshop around a model, as opposed to the library, is{" "}
-            <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link> The priced coding
-            products are <Link href="/best/ai-coding-agents">Best AI coding agents</Link>. The shelf for every table
+            <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link> The tasks, isolated
+            trials, and graders that score a change to that workshop are{" "}
+            <Link href="/blog/how-to-build-an-eval-harness-for-ai-agents">
+              How to build an eval harness for AI agents
+            </Link>
+            . The priced coding products are <Link href="/best/ai-coding-agents">Best AI coding agents</Link>. The shelf for every table
             is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>. The harness guides sit on{" "}
             <Link href="/topics/harnesses">Agent harnesses</Link>.
           </p>

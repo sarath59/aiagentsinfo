@@ -40,6 +40,11 @@ export type ComparisonRow = {
   bestFor: string;
   job: string;
   sourceIds: number[];
+  /** Optional cells for a page whose table is wider than licence, price, and platform. */
+  controls?: string;
+  model?: string;
+  benchmark?: string;
+  availability?: string;
 };
 
 export type ComparisonPage = {
@@ -147,6 +152,10 @@ export function comparisonRows(rows: ComparisonRow[]): SortableRow[] {
         license: row.license,
         pricing: row.pricing,
         platform: row.platform,
+        controls: row.controls ?? "",
+        model: row.model ?? "",
+        benchmark: row.benchmark ?? "",
+        availability: row.availability ?? "",
         sources: row.sourceIds.join(","),
         stars,
       },
@@ -157,6 +166,10 @@ export function comparisonRows(rows: ComparisonRow[]): SortableRow[] {
         license: row.license,
         pricing: row.pricing,
         platform: row.platform,
+        controls: row.controls ?? "",
+        model: row.model ?? "",
+        benchmark: row.benchmark ?? "",
+        availability: row.availability ?? "",
         sources: row.sourceIds.map((id) => `[${id}]`).join(" "),
         stars: stars == null ? "" : stars.toLocaleString("en-US"),
       },
@@ -532,59 +545,67 @@ export const computerUseComparison: ComparisonPage = {
   metaDescription:
     "There is no single best computer use agent. We compared 7 desktop, API, open-source, and Windows options on licence, price, and platform (Nov 2026).",
   description:
-    "There is no single best computer use agent. A computer use agent looks at a screen and clicks, types, or scrolls. In November 2026, Claude Cowork and Claude Code can do that on a Mac or Windows desktop in research preview, and the ChatGPT desktop app can do it on Mac or Windows for ChatGPT Work and Codex. Anthropic, OpenAI, and Gemini also document APIs where your own code runs each action. Open-source options include UI-TARS Desktop (Apache 2.0, Windows and macOS) and MagenticLite (MIT, macOS or Windows with WSL).",
+    "There is no single best computer use agent. A computer use agent looks at a screen and clicks, types, or scrolls. On November 14, 2026, Claude Cowork and Claude Code can do that on a Mac or Windows desktop in research preview, and the ChatGPT desktop app can do it on Mac or Windows for ChatGPT Work and Codex. Anthropic, OpenAI, and Gemini document APIs where your code runs each action. Browser Use is a live MIT browser library. MagenticLite is MIT and documents macOS or Windows with WSL.",
   summary:
-    "Sourced comparison of desktop, API, open-source, and Windows computer use agents. Last verified November 2026. No invented scores.",
+    "Sourced comparison of desktop, API, and browser computer use agents. Last verified November 14, 2026. OSWorld scores stay on the benchmark page, not on a product row.",
   question: "Which computer use agent is best in 2026?",
-  tableHeading: "How do computer use agents compare on price, licence, and Windows?",
+  tableHeading: "How do computer use agents compare on control, model, price, and OSWorld?",
   tableLead:
-    "The table lists 7 computer use agents with a Best for label, open-source licence, list price, and Windows, macOS, or API platform from official pages, last verified November 2026.",
-  tableCaption: "Best computer use agents comparison — Best for, open source licence, pricing, and Windows or macOS platform",
+    "Seven live products, read November 14, 2026. The OSWorld column says whether that vendor page prints an OSWorld score. The project-page figures sit under the table, with the setup and the date.",
+  tableCaption:
+    "Best computer use agents — what it controls, model named on the vendor page, OSWorld on that page, price, and availability",
   bestForHeading: "Which computer use agent is best for each job?",
   bestForLead:
-    "Claude Cowork, Claude Code, and ChatGPT Computer Use fit a live Mac or Windows desktop; UI-TARS Desktop fits open source on Windows; the APIs fit a loop you write yourself.",
+    "Claude Cowork and Claude Code fit a live Mac or Windows desktop. ChatGPT Computer Use fits Work or Codex on that same desktop. The APIs fit a loop you write. Browser Use fits a browser. MagenticLite fits a MIT sandbox on macOS or Windows with WSL.",
   methodHeading: "How was this computer use agent comparison checked?",
   methodLead:
-    "Every cell comes from an official product page, a licence file, or a listing on this site that already cites that official page.",
+    "Every product cell comes from the vendor page linked in Sources, read November 14, 2026. OSWorld figures come from the OSWorld 2.0 project page, read the same day, and are not copied onto a product that did not publish them.",
   faqHeading: "What else do people ask about computer use agents?",
   faqLead:
-    "These short answers cover Windows, open source, cost, and whether you should let an agent handle money or passwords.",
+    "These short answers cover Windows, open source, cost, OSWorld, and whether an agent should handle money or passwords.",
   applicationCategory: "DesktopApplication",
   kind: "builder",
+  verifiedOn: "2026-11-14",
+  cellsNote:
+    "Control, model, price, and availability come from the vendor page. An OSWorld cell says whether that page prints a score. This is not a quality ranking.",
+  methodNote:
+    "Prices are the list prices the vendor printed on November 14, 2026. A missing OSWorld score stays missing. UI-TARS Desktop is out of the table because its GitHub repository is archived.",
   columns: [
     { key: "name", label: "Tool" },
     { key: "vendor", label: "Maker" },
-    { key: "bestFor", label: "Best for" },
-    { key: "license", label: "Open source / licence" },
+    { key: "controls", label: "What it controls" },
+    { key: "model", label: "Model on the vendor page" },
+    { key: "benchmark", label: "OSWorld on the vendor page" },
     { key: "pricing", label: "Pricing" },
-    { key: "platform", label: "Platform (Windows, macOS, API)" },
+    { key: "availability", label: "Availability" },
+    { key: "license", label: "Licence" },
     { key: "sources", label: "Sources" },
   ],
   topics: ["task-performance", "how-agents-work", "harnesses", "tools-saas"],
   categories: ["ai-agents", "automation", "productivity"],
   takeaways: [
-    "Computer use is a tool. The harness around the model takes the screenshot, runs the click, and brings the new screen back.",
-    "A desktop product that drives your live screen is not the same as an API that expects you to run each action in a machine you control.",
-    "Payments, passwords, and other hard-to-undo steps still need a person. Vendor pages say so.",
+    "Buy the surface you need. A live desktop product drives the screen you are sitting at. An API expects your code to run the click and return the next screenshot. A browser library stays in the browser.",
+    "The OSWorld 2.0 project page, read November 14, 2026, still leads with Claude Opus 4.8 at 20.6% binary completion and a 54.8% partial score, at 500 steps. That is a benchmark setup, not a score for Claude Cowork or the ChatGPT desktop app.",
+    "Payments, passwords, and other hard-to-undo steps still need a person. Anthropic, OpenAI, and Google each say so on the pages checked.",
   ],
   picks: [
     {
       title: "Best for a Mac or Windows desktop you already use",
-      body: "Claude Cowork and Claude Code (research preview on Pro, Max, and Ultra) and ChatGPT Computer Use (Work and Codex, supported regions) are the two native desktop products checked here.",
+      body: "Claude Cowork and Claude Code are a research preview on Pro, Max, and Ultra. ChatGPT Computer Use is documented for ChatGPT Work and Codex on macOS and Windows.",
       href: "/directory/claude",
     },
     {
-      title: "Best for building your own loop",
-      body: "Anthropic, OpenAI, and Gemini document computer-use APIs. Your application executes the click or keystroke and returns a new screenshot.",
+      title: "Best for a loop you write",
+      body: "Anthropic’s computer_toolset_20260801, OpenAI’s Responses API computer tool, and Gemini’s computer-use tool all return an action. Your code runs it.",
       href: "/directory/gemini",
     },
     {
-      title: "Best open-source desktop agent",
-      body: "UI-TARS Desktop is Apache 2.0 and documents Windows, macOS, and browser operators. MagenticLite is MIT and documents macOS or Windows with WSL, with the browser in a VM sandbox.",
+      title: "Best open-source browser agent",
+      body: "Browser Use is MIT. GitHub release 1.0.5 was published November 14, 2026. Cloud browsers are $0.06 per browser hour on the pricing page read that day. MagenticLite is the MIT option whose browser runs in a VM sandbox.",
     },
     {
       title: "Best computer use agent for Windows",
-      body: "Native Windows GUI control is documented for Claude’s desktop research preview, ChatGPT’s desktop app (foreground on the active desktop), and UI-TARS Desktop. MagenticLite’s Windows path is WSL, not a native GUI operator.",
+      body: "Native Windows GUI control is documented for Claude’s desktop research preview and for ChatGPT Computer Use, which takes the foreground on the active desktop. MagenticLite’s Windows path is WSL.",
       href: "/directory/chatgpt",
     },
   ],
@@ -597,11 +618,15 @@ export const computerUseComparison: ComparisonPage = {
       website: "https://claude.com/resources/articles/dispatch-and-computer-use",
       license: "Proprietary product",
       pricing:
-        "Research preview for Claude Pro, Max, and Ultra. Pro $20/mo, Max $100/mo, Ultra $200/mo on the pricing page recorded 3 Nov 2026. Not described as a separate add-on price.",
+        "Research preview on Pro, Max, and Ultra. claude.com/pricing, read November 14, 2026: Pro is $20 if billed monthly, Max is $100/month, Ultra is $200/month. The product article does not add a computer-use price.",
       platform: "macOS and Windows desktop app, which must stay awake. Dispatch can assign the task from a phone.",
+      controls: "Live Mac or Windows screen, including the browser, after you allow an app.",
+      model: "The product article does not name a model id.",
+      benchmark: "Not on the product article",
+      availability: "Research preview for Pro, Max, and Ultra. macOS and Windows. The desktop app has to stay awake.",
       bestFor: "Best for a live Mac or Windows desktop",
       job: "Point, click, and complete tasks on your screen when a connector is missing. Asks permission first.",
-      sourceIds: [1, 2, 3],
+      sourceIds: [1, 2],
     },
     {
       id: "chatgpt-desktop-cu",
@@ -611,12 +636,16 @@ export const computerUseComparison: ComparisonPage = {
       website: "https://developers.openai.com/codex/computer-use",
       license: "Proprietary product",
       pricing:
-        "Documented for ChatGPT Work and Codex in supported regions. Codex plan ladder on this site was checked 6 Nov 2026. The Computer Use page does not print a separate add-on price.",
+        "No separate computer-use price on the guide, read November 14, 2026. Documented for ChatGPT Work and Codex in supported regions.",
       platform:
         "macOS and Windows. On Windows it runs on the active desktop in the foreground. On macOS it can run a scoped task in the background; locked use is macOS-only.",
+      controls: "macOS or Windows graphical apps, including a browser, in apps you allow.",
+      model: "For difficult visual tasks, the guide says to choose GPT-6 Astra when it is in the model selector.",
+      benchmark: "Not on the guide",
+      availability: "ChatGPT Work and Codex, supported regions. Windows takes the foreground. Locked use is macOS-only.",
       bestFor: "Best for ChatGPT Work or Codex desktop",
       job: "See and operate graphical apps when a plugin or MCP server is not enough.",
-      sourceIds: [4, 5],
+      sourceIds: [3],
     },
     {
       id: "anthropic-cu-api",
@@ -625,12 +654,19 @@ export const computerUseComparison: ComparisonPage = {
       listingSlug: "claude",
       website: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
       license: "API feature; billed with Claude API usage",
-      pricing: "No separate computer-use SKU on the pages checked. Token use is billed at Claude API rates.",
+      pricing:
+        "No separate SKU on the tool page, read November 14, 2026. Declaring computer_toolset_20260801 adds about 4,500 input tokens. Token use is billed at Claude API rates.",
       platform:
         "Messages API toolset computer_toolset_20260801. Your application runs screenshot, click, type, and zoom in an environment you control. Not available in Claude Managed Agents.",
+      controls: "A screen in an environment you run. One toolset entry exposes 17 member tools. Your code executes each call.",
+      model:
+        "Available, with no beta header, on current models including Claude Fable 5.2, Mythos 5.2, Opus 5.5, Sonnet 5.5, and Opus 4.8. Older models still need a beta header.",
+      benchmark: "Not on the tool page",
+      availability:
+        "Messages API. Also listed for Claude on Google Cloud, Claude Platform on AWS, Amazon Bedrock, and Microsoft Foundry. Model lists differ by platform. Not in Claude Managed Agents.",
       bestFor: "Best for your own Anthropic loop",
-      job: "Model chooses UI actions; your code executes them. Browser-use is a narrower tool that stays on a page.",
-      sourceIds: [6, 7],
+      job: "The model chooses UI actions. Your code executes them and returns the next screenshot.",
+      sourceIds: [4],
     },
     {
       id: "openai-cu-api",
@@ -639,38 +675,56 @@ export const computerUseComparison: ComparisonPage = {
       listingSlug: "chatgpt",
       website: "https://developers.openai.com/api/docs/guides/tools-computer-use",
       license: "API feature; billed with OpenAI API usage",
-      pricing: "No separate computer-use SKU on the guide checked 8 Nov 2026. You pay the model and any runtime you attach.",
-      platform: "API loop you connect to a browser or desktop runtime you control. The guide separates browser tools from screenshot and mouse or keyboard tools.",
+      pricing:
+        "No separate computer-use price on the guide, read November 14, 2026. You pay the model and any runtime you attach.",
+      platform:
+        "Responses API. The guide separates browser tools from the computer tool for mouse and keyboard actions.",
+      controls: "A browser or desktop runtime you connect. Your code runs each action and returns the new screen.",
+      model: "Examples on the guide use gpt-6-astra and gpt-6.1-sol.",
+      benchmark: "Not on the guide",
+      availability: "Responses API. The guide includes a migration from computer-use-preview.",
       bestFor: "Best for your own OpenAI loop",
       job: "Your code runs each action and returns the new screen or page state.",
-      sourceIds: [8],
+      sourceIds: [5],
     },
     {
       id: "gemini-cu",
       name: "Gemini Computer Use",
       vendor: "Google",
       listingSlug: "gemini",
-      website: "https://aistudio.google.com/docs/computer-use",
+      website: "https://ai.google.dev/gemini-api/docs/computer-use",
       license: "API feature; billed with Gemini API usage",
-      pricing:
-        "No separate Computer Use SKU on the guide checked 8 Nov 2026. Google AI consumer plans on this site’s Gemini listing were checked 3 Nov 2026.",
+      pricing: "No separate Computer Use price on the guide, read November 14, 2026. You pay Gemini API token rates.",
       platform:
-        "Browser, mobile, and desktop environments. You implement the client that executes actions (the docs use Playwright for a browser example) and send a new screenshot back.",
+        "Browser, mobile, and desktop environments. You implement the client. The browser example uses Playwright.",
+      controls: "Browser, Android, or desktop, named as ENVIRONMENT_BROWSER, ENVIRONMENT_MOBILE, and ENVIRONMENT_DESKTOP. Your client runs the action.",
+      model:
+        "Gemini 4 Carbon, Gemini 4 Argon, Gemini 4 Hydrogen, Gemini 3.8 Flash, Gemini 3.5 Flash-Lite, and Gemini 3 Flash Preview.",
+      benchmark: "Not on the guide",
+      availability: "Gemini API computer-use tool. The FINANCIAL_TRANSACTIONS safety category can block a payment or ask for confirmation.",
       bestFor: "Best for a Gemini Computer Use client",
-      job: "Screenshot in, UI action out, with optional intent text and safety decisions that can require confirmation or block a step.",
-      sourceIds: [9, 10],
+      job: "Screenshot in, UI action out. Safety decisions can require confirmation or block a step.",
+      sourceIds: [6],
     },
     {
-      id: "ui-tars-desktop",
-      name: "UI-TARS Desktop",
-      vendor: "ByteDance",
-      website: "https://github.com/bytedance/UI-TARS-desktop",
-      license: "Apache License 2.0",
-      pricing: "No product price on the repository README. You supply a model provider key if the stack calls a hosted model.",
-      platform: "Desktop application. README lists Windows, macOS, and browser operators, plus local and remote computer operators.",
-      bestFor: "Best for open source on Windows",
-      job: "Open-source GUI agent driven by UI-TARS and Seed vision-language models. Screenshot, mouse, and keyboard control.",
-      sourceIds: [11],
+      id: "browser-use",
+      name: "Browser Use",
+      vendor: "Browser Use",
+      listingSlug: "browser-use",
+      website: "https://browser-use.com/pricing",
+      license: "MIT",
+      pricing:
+        "No subscription. Cloud browsers are $0.06 per browser hour, billed by the minute with a 1-minute minimum. Home-IP proxy is $5/GB. Credits start at $5, and 1 credit is $1. A $1 signup credit is one-time. Read November 14, 2026.",
+      platform: "A browser. Cloud browsers are hosted Chromium. The library is the open-source agent.",
+      controls: "A browser, not a full desktop.",
+      model:
+        "The pricing page lists BU Ultrafast, BU Fast, GPT-6 Luna, GPT-6.1 Sol, and others. Bring-your-own key is the provider price plus 0.2x.",
+      benchmark: "Not an OSWorld score on the pricing page",
+      availability:
+        "On sale, pay as you go. GitHub release 1.0.5 was published November 14, 2026. PyPI’s latest upload at the same check was 1.0.4, November 13, 2026.",
+      bestFor: "Best for a browser you can meter",
+      job: "Drive a browser from the MIT library, or rent a cloud browser by the hour.",
+      sourceIds: [7, 8, 9],
     },
     {
       id: "magentic-lite",
@@ -678,73 +732,85 @@ export const computerUseComparison: ComparisonPage = {
       vendor: "Microsoft",
       website: "https://github.com/microsoft/magentic-ui",
       license: "MIT",
-      pricing: "No product price on the README. You connect a model endpoint.",
+      pricing: "No product price on the README, read November 14, 2026. You connect a model endpoint.",
       platform:
-        "macOS or Windows with WSL. pip package magentic_ui. Browser sessions run inside a Quicksand VM sandbox. Not documented as a native Windows GUI operator.",
+        "macOS or Windows with WSL. The install line is magentic_ui. Browser sessions run inside a Quicksand VM sandbox.",
+      controls: "Browser and local files. The browser runs in a VM sandbox, not as a native Windows GUI operator.",
+      model: "The README names MagenticBrain as the orchestrator and Fara as the browser-use model. It does not print a version string for either.",
+      benchmark: "Not on the README",
+      availability: "MIT. macOS or Windows (WSL). Latest GitHub release v0.2.1, published May 21, 2026. The repository was not archived on November 14, 2026.",
       bestFor: "Best for MIT with a WSL sandbox",
-      job: "Experimental agent for browser work and local files, with approval before critical actions.",
-      sourceIds: [12, 13],
+      job: "Experimental agent for browser work and local files. It checks in before critical actions.",
+      sourceIds: [10, 11],
     },
   ],
   sources: [
-    { title: "Anthropic, Put Claude to work on your computer (read 8 Nov 2026)", url: "https://claude.com/resources/articles/dispatch-and-computer-use" },
-    { title: "This site, Claude listing (checked 3 Nov 2026)", url: "https://www.aiagentsinfo.com/directory/claude" },
-    { title: "This site, Can an AI agent use your computer? (updated 8 Nov 2026)", url: "https://www.aiagentsinfo.com/blog/can-an-ai-agent-use-your-computer" },
-    { title: "OpenAI, Computer Use in the ChatGPT desktop app (read 8 Nov 2026)", url: "https://developers.openai.com/codex/computer-use" },
-    { title: "This site, Codex listing (checked 6 Nov 2026)", url: "https://www.aiagentsinfo.com/directory/codex" },
-    { title: "Anthropic, Computer use tool (read 8 Nov 2026)", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool" },
-    { title: "This site, Claude Code listing (checked 7 Nov 2026)", url: "https://www.aiagentsinfo.com/directory/claude-code" },
-    { title: "OpenAI, Computer use API guide (read 8 Nov 2026)", url: "https://developers.openai.com/api/docs/guides/tools-computer-use" },
-    { title: "Google, Computer use on AI Studio (read 8 Nov 2026)", url: "https://aistudio.google.com/docs/computer-use" },
-    { title: "This site, Gemini listing (checked 3 Nov 2026)", url: "https://www.aiagentsinfo.com/directory/gemini" },
-    { title: "ByteDance, UI-TARS-desktop README (Apache 2.0; Windows/macOS/browser)", url: "https://github.com/bytedance/UI-TARS-desktop" },
-    { title: "Microsoft, Magentic-UI / MagenticLite README (MIT; macOS or Windows WSL)", url: "https://github.com/microsoft/magentic-ui" },
+    { title: "Anthropic, Put Claude to work on your computer (read 14 Nov 2026)", url: "https://claude.com/resources/articles/dispatch-and-computer-use" },
+    { title: "Anthropic, Claude pricing (read 14 Nov 2026)", url: "https://claude.com/pricing" },
+    { title: "OpenAI, Computer Use in the ChatGPT desktop app (read 14 Nov 2026)", url: "https://developers.openai.com/codex/computer-use" },
+    { title: "Anthropic, Computer use tool (read 14 Nov 2026)", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool" },
+    { title: "OpenAI, Computer use API guide (read 14 Nov 2026)", url: "https://developers.openai.com/api/docs/guides/tools-computer-use" },
+    { title: "Google, Gemini API computer use (read 14 Nov 2026)", url: "https://ai.google.dev/gemini-api/docs/computer-use" },
+    { title: "Browser Use pricing (read 14 Nov 2026)", url: "https://browser-use.com/pricing" },
+    { title: "Browser Use GitHub release 1.0.5 (14 Nov 2026)", url: "https://github.com/browser-use/browser-use/releases/tag/1.0.5" },
+    { title: "PyPI, browser-use 1.0.4 (uploaded 13 Nov 2026)", url: "https://pypi.org/pypi/browser-use/json" },
+    { title: "Microsoft, MagenticLite README (read 14 Nov 2026)", url: "https://github.com/microsoft/magentic-ui" },
     { title: "Microsoft, Magentic-UI LICENSE (MIT)", url: "https://github.com/microsoft/magentic-ui/blob/main/LICENSE" },
+    { title: "OSWorld 2.0 project page (read 14 Nov 2026)", url: "https://osworld-v2.xlang.ai/" },
+    { title: "ByteDance, UI-TARS-desktop (archived; last release v0.3.1 on 8 Oct 2026)", url: "https://github.com/bytedance/UI-TARS-desktop" },
+    { title: "BrowserOS neo (AGPL-3.0; release v0.52.0 on 31 Oct 2026)", url: "https://github.com/browseros-ai/BrowserOS" },
   ],
   faq: [
     {
       question: "What is a computer use agent?",
       answer:
-        "A computer use agent is an agent whose tool is computer use. The model looks at the screen and asks for a click, a keystroke, or a scroll. The app runs that action and returns the new screen.",
+        "A computer use agent looks at a screen and asks for a click, a keystroke, or a scroll. The app you run, or a desktop app that is awake, performs that action and returns the new screen.",
     },
     {
       question: "Is computer use the same as an agent harness?",
       answer:
-        "No. Computer use is a tool. The harness is the software around the model: the loop, the tools, the memory, the permissions, and the rule for when to stop. The harness offers computer use, runs the click, and brings the new screen back.",
+        "Computer use is a tool. The harness is the software around the model: the loop, the tools, the memory, the permissions, and the rule for when to stop. The harness offers computer use, runs the click, and brings the new screen back.",
     },
     {
       question: "What is the best open source computer use agent?",
       answer:
-        "UI-TARS Desktop is Apache 2.0 and documents Windows, macOS, and browser operators. MagenticLite is MIT and documents macOS or Windows with WSL, with the browser inside a VM sandbox. Neither is treated here as a quality ranking against Claude or ChatGPT.",
+        "Browser Use is MIT, and GitHub release 1.0.5 was published November 14, 2026. It drives a browser. MagenticLite is MIT and documents macOS or Windows with WSL, with the browser inside a VM sandbox. BrowserOS neo is AGPL-3.0 and free, and it is a local browser rather than a desktop operator. UI-TARS Desktop is off this list because its repository is archived.",
     },
     {
       question: "What is the best computer use agent for Windows?",
       answer:
-        "Native Windows GUI control is documented for Claude Cowork and Claude Code (research preview), the ChatGPT desktop app (foreground on the active desktop), and UI-TARS Desktop. MagenticLite’s documented Windows path is WSL. Gemini Computer Use can target a desktop environment, but you write the action handler.",
+        "Native Windows GUI control is documented for Claude Cowork and Claude Code, in research preview, and for the ChatGPT desktop app, which runs in the foreground on the active desktop. MagenticLite’s documented Windows path is WSL. Gemini Computer Use can target a desktop environment, and you write the action handler.",
     },
     {
-      question: "Do I need to approve each click?",
+      question: "Do these products publish an OSWorld score?",
       answer:
-        "You need to approve access, and you should approve anything hard to undo. Claude’s product article says Claude asks for permission first and before opening a new app. ChatGPT asks before it uses an app and may ask before a sensitive action. API loops can batch ordinary clicks if your application allows them. Anthropic, OpenAI, and Google each tell you to confirm purchases and other consequential actions.",
+        "None of the seven vendor pages checked on November 14, 2026 print an OSWorld score. The OSWorld 2.0 project page, read the same day, says Claude Opus 4.8 with maximum thinking and batched tool calls completes 20.6% of 108 tasks on the binary metric at 500 steps, with a 54.8% partial score. That is a benchmark setup, not a score for Claude Cowork or the ChatGPT desktop app.",
     },
     {
       question: "Is computer use reliable enough for money or passwords?",
       answer:
-        "The pages checked here say no, unless a person is in the loop. Anthropic says computer use is still early and to avoid sensitive data. OpenAI says to stay present for payment and credential steps. Google says Computer Use can contain errors, and its payments category can block a checkout or ask for confirmation.",
+        "Keep a person on those steps. Anthropic’s desktop article says computer use is still early and to avoid sensitive data. OpenAI’s API guide says to confirm purchases and other hard-to-reverse actions. Gemini’s FINANCIAL_TRANSACTIONS category can block a payment or ask for confirmation.",
     },
     {
       question: "How much do computer use agents cost?",
       answer:
-        "Claude Cowork and Claude Code computer use is a research preview on Pro, Max, and Ultra, not Free. ChatGPT Computer Use is documented for Work and Codex in supported regions. UI-TARS Desktop and MagenticLite are open source with no product fee; you still pay any model they call. API computer use is billed at the provider’s token rates. This page does not invent a blended price.",
+        "Claude’s desktop computer use is a research preview on Pro ($20 if billed monthly), Max ($100/month), and Ultra ($200/month), with no separate computer-use price on the product article. ChatGPT’s guide does not print a separate computer-use price. Browser Use cloud browsers are $0.06 per browser hour. API computer use is billed at the provider’s token rates. Anthropic’s tool page says declaring the current toolset adds about 4,500 input tokens.",
     },
   ],
   related: [
     {
       href: "/blog/can-an-ai-agent-use-your-computer",
       title: "Can an AI agent use your computer?",
-      description: "Yes, when the product includes computer use. Re-checked November 2026.",
+      description: "The walkthrough of the click loop. This comparison does not edit that page.",
       kicker: "Guide",
       date: "2026-11-05",
+    },
+    {
+      href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
+      title: "How to build an eval harness for AI agents",
+      description: "How to score a computer-use loop: tasks, isolated trials, and a grader on the screen state.",
+      kicker: "Guide",
+      date: "2026-11-09",
     },
     {
       href: "/glossary/computer-use",

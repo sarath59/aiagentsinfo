@@ -98,7 +98,11 @@ export default async function FrameworkGithubStatsPage() {
               <time dateTime={retrievedAt}>{retrievedAt}</time> UTC.
             </p>
             <p className="mt-2">
-              The tool JSON behind these repositories is a separate check. On November 13, 2026, 0 of 6 official
+              Scoring a change to one of these libraries, with a task set and a grader, is{" "}
+              <Link className="text-[var(--link)] underline" href="/blog/how-to-build-an-eval-harness-for-ai-agents">
+                How to build an eval harness for AI agents
+              </Link>
+              . The tool JSON behind these repositories is a separate check. On November 13, 2026, 0 of 6 official
               examples passed a second API. The runs are in{" "}
               <Link className="text-[var(--link)] underline" href="/blog/can-one-tool-json-serve-openai-claude-and-mcp">
                 Can one tool JSON serve OpenAI, Claude, and MCP?
