@@ -2,7 +2,7 @@
 title: "Terminal-Bench 2.1: 28 of 89 repaired (2026)"
 description: "Terminal-Bench 2.1 repairs 28 of 89 tasks from version 2.0. Individual scores shift by up to 12 points, ranks move by at most 3. Spearman 0.958."
 date: "2026-11-08"
-updated: "2026-11-09"
+updated: "2026-11-14"
 type: paper-breakdown
 topics:
   - research
@@ -224,3 +224,5 @@ The homepage check is the reason this page refuses to become a leaderboard. At 1
 Two earlier notes on this site already use the words Terminal-Bench 2.1 for other experiments. [Evolver](/research/evolver-agent-exploration-evolving-capabilities) reports a diagnostic slice of 20 tasks per configuration. [You don't need long context](/research/you-dont-need-long-context) runs the 89 tasks inside mini-swe-agent and studies context, not grader repairs. A percentage from either note is not a cell in Table 7, and Table 7 is not a submission to Terminal-Bench 4.0.
 
 The audit also left Terminal-Bench for a spot check. On 34 tasks drawn from an 80-task Harbor-Index snapshot, covering 29 source benchmarks, the workflow flagged 14 and manual review confirmed 12, which the paper calls 86% precision. Reviewers also found defects the workflow missed, and two bugs in shared grading code touched 13 tasks. The paper treats 2.1 as a checkpoint. The last sentence of the discussion says the pipeline can keep running, so version 2.1 is not a finished board.
+
+A later paper attacks the runner, not the task files. Singularity-Bench, arXiv 2611.16591, submitted November 12, 2026, says Harbor v0.15.0 is the framework under Terminal-Bench 1.0 and 2.0. In that study, plain Harbor and Harbor plus an LLM judge both miss reward-hacking attacks, and the authors' extension catches the attacks they tested. The breakdown, read against the November 12 paper on November 14, is [Singularity-Bench](/research/singularity-bench-agents-building-agents). The checks above on this page stay the November 8 read.

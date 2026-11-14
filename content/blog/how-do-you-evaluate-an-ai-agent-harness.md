@@ -6,7 +6,7 @@ takeaways:
   - "An end-to-end benchmark still answers whether the job finished. Google’s September 9, 2026 post says the benchmark is the destination and the behavioral eval is the check you use while you iterate."
   - "NVIDIA’s November 4, 2026 NeMo post turns a stored failure into a test, changes one part of the harness, and scores that change on tasks the editor was not shown."
 date: "2026-11-06"
-updated: "2026-11-10"
+updated: "2026-11-14"
 category: guide
 topics:
   - harnesses
@@ -245,13 +245,13 @@ Write down one failure you have already seen, the action that should have happen
 5. Rerun the older checks after the harness change. A fix that creates a new failure is still a failure.
 6. Keep a destination score for the job you actually care about. Google’s post is explicit that behavioral evals complement end-to-end suites.
 
-The [how agents work](/topics/how-agents-work) topic is the loop in general. [Task performance](/topics/task-performance) is where this site follows coding, computer use, and other jobs an agent finishes. [Research](/topics/research) is the shelf for papers that grade a harness, including [HarnessFlow](/research/harnessflow-mcts-harness-optimization).
+The [how agents work](/topics/how-agents-work) topic is the loop in general. [Task performance](/topics/task-performance) is where this site follows coding, computer use, and other jobs an agent finishes. [Research](/topics/research) is the shelf for papers that grade a harness, including [HarnessFlow](/research/harnessflow-mcts-harness-optimization). A November 12 benchmark that asks the agent to build the harness, then grades that program on kernels and two bug fixes, is [Singularity-Bench](/research/singularity-bench-agents-building-agents).
 
 ## Where can you read more on this site?
 
 - This guide’s terms: [behavioral evaluation](/glossary/behavioral-evaluation), [agent skill](/glossary/agent-skill), [Model Context Protocol](/glossary/model-context-protocol)
 - Harness hub: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [How do AI agents work?](/blog/how-do-ai-agents-work), [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [agent loop](/glossary/agent-loop), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [tool use](/glossary/tool-use)
-- Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Harness Matters](/research/harness-matters-web-agent-security), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs)
+- Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Harness Matters](/research/harness-matters-web-agent-security), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs), [Singularity-Bench](/research/singularity-bench-agents-building-agents)
 - Nearby guides: [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer), [Claude Code vs Codex pricing](/blog/claude-code-vs-codex-pricing), [How to build an eval harness for AI agents](/blog/how-to-build-an-eval-harness-for-ai-agents)
 - Topics: [agent harnesses hub](/topics/harnesses), [how agents work](/topics/how-agents-work), [task performance](/topics/task-performance), [research](/topics/research)
 - Comparisons: [Best AI agent harness](/best/ai-agent-harnesses), [Best AI agent frameworks](/best/ai-agent-frameworks), [Harness comparison tracker](/trackers/harnesses)
