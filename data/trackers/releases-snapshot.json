@@ -1,15 +1,23 @@
 {
-  "retrievedAt": "2026-11-13T14:34:28.885873Z",
-  "retrievedDay": "2026-11-13",
+  "retrievedAt": "2026-11-14T13:30:23.688140Z",
+  "retrievedDay": "2026-11-14",
   "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo}/releases?per_page=100&page=1",
   "repos": [
     {
       "id": "langchain",
       "name": "LangChain",
       "repo": "langchain-ai/langchain",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "langchain-openai==1.8.0",
+          "name": "langchain-openai==1.8.0",
+          "body": "**`langchain-openai` 1.8.0 drops support for Python 3.10**, which has reached end-of-life. The minimum supported version is now Python 3.11, and the minimum `langchain-core` version is now 1.8.0. Users on Python 3.10 will continue to resolve `langchain-openai` 1.7.x.\n\nChanges since langchain-openai==1.7.4\n\nrelease(openai): 1.8.0 (#41841)\nfeat(openai): add OpenAIClassifier for the GA Decisions API (#41787)\nchore(model-profiles): refresh model profile data (#41828)\nfeat(partners): Remove EOL'd Python 3.10 from partner packages (#41268)",
+          "publishedAt": "2026-11-13T16:48:27Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.8.0",
+          "prerelease": false
+        },
         {
           "tag": "langchain==1.5.0",
           "name": "langchain==1.5.0",
@@ -801,14 +809,6 @@
           "publishedAt": "2026-08-11T19:16:55Z",
           "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.5.5",
           "prerelease": false
-        },
-        {
-          "tag": "langchain-openai==1.4.3",
-          "name": "langchain-openai==1.4.3",
-          "body": "Changes since langchain-openai==1.4.2\n\nrelease(openai): 1.4.3 (#39485)\nfix(openai): filter invalid tool calls from content (#39366)\nchore(openai): update guidance for responses API for OpenAI-compatible providers (#39327)\nchore(openai): update docstring for `include_response_headers` (#39326)",
-          "publishedAt": "2026-08-10T13:23:34Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.4.3",
-          "prerelease": false
         }
       ]
     },
@@ -816,7 +816,7 @@
       "id": "autogen",
       "name": "AutoGen",
       "repo": "microsoft/autogen",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": false,
       "releases": [
         {
@@ -1609,7 +1609,7 @@
       "id": "crewai",
       "name": "CrewAI",
       "repo": "crewAIInc/crewAI",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
         {
@@ -2418,9 +2418,17 @@
       "id": "llama-index",
       "name": "LlamaIndex",
       "repo": "run-llama/llama_index",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "v0.14.26",
+          "name": "v0.14.26",
+          "body": "# Release Notes\n\n## [2026-11-13]\n\n### llama-index-agent-agentmesh [0.3.0]\n\n- Python security relock: all integration uv.lock files (lock files only, no Python floor changes) ([#24039](https://github.com/run-llama/llama_index/pull/24039))\n- BREAKING: raise requires-python for security fixes across integrations (stacked on #24039) ([#24040](https://github.com/run-llama/llama_index/pull/24040))\n\n### llama-index-callbacks-argilla [0.6.0]\n\n- Python security relock: all integration uv.lock files (lock files only, no Python floor changes) ([#24039](https://github.com/run-llama/llama_index/pull/24039))",
+          "publishedAt": "2026-11-13T22:38:15Z",
+          "htmlUrl": "https://github.com/run-llama/llama_index/releases/tag/v0.14.26",
+          "prerelease": false
+        },
         {
           "tag": "v0.14.25",
           "name": "v0.14.25",
@@ -3212,14 +3220,6 @@
           "publishedAt": "2024-11-12T05:05:19Z",
           "htmlUrl": "https://github.com/run-llama/llama_index/releases/tag/v0.11.23",
           "prerelease": false
-        },
-        {
-          "tag": "v0.11.22",
-          "name": "v0.11.22",
-          "body": null,
-          "publishedAt": "2024-11-05T21:48:25Z",
-          "htmlUrl": "https://github.com/run-llama/llama_index/releases/tag/v0.11.22",
-          "prerelease": false
         }
       ]
     },
@@ -3227,9 +3227,41 @@
       "id": "langgraph",
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "1.2.22",
+          "name": "langgraph==1.2.22",
+          "body": "Changes since 1.2.21\n\n* release(langgraph): 1.2.22 (#9702)\n* release(checkpoint-postgres): 3.2.1 (#9700)\n* release(prebuilt): 1.1.2 (#9701)\n* release(checkpoint): 4.3.2 (#9699)\n* fix(langgraph): stream a child graph on its own thread to a caller streaming subgraphs (#9698)\n* perf(langgraph): skip message conversion in add_messages for plain messages (#9631)\n* perf(langgraph): filter pending writes to the given tasks before reading their statuses (#9634)\n* perf(langgraph): match update keys against a set on wide states (#9632)\n* perf(langgraph): check only failed futures for the runner stop condition (#9630)\n* perf(langgraph): find untracked and delta channels once per run (#9629)",
+          "publishedAt": "2026-11-14T01:43:55Z",
+          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.22",
+          "prerelease": false
+        },
+        {
+          "tag": "prebuilt==1.1.2",
+          "name": "langgraph-prebuilt==1.1.2",
+          "body": "Changes since prebuilt==1.1.1\n\n* release(langgraph): 1.2.22 (#9702)\n* release(checkpoint-postgres): 3.2.1 (#9700)\n* release(prebuilt): 1.1.2 (#9701)\n* release(checkpoint): 4.3.2 (#9699)\n* perf(prebuilt): only format the call_model error message when raising (#9628)\n* release(langgraph): 1.2.21 (#9683)\n* chore(deps): bump the minor-and-patch group across 1 directory with 9 updates (#9530)\n* chore(deps-dev): bump the minor-and-patch group across 1 directory with 6 updates (#9527)\n* release(langgraph): 1.2.20 (#9595)\n* release(langgraph): 1.2.19 (#9504)",
+          "publishedAt": "2026-11-14T01:33:52Z",
+          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/prebuilt%3D%3D1.1.2",
+          "prerelease": false
+        },
+        {
+          "tag": "checkpointpostgres==3.2.1",
+          "name": "langgraph-checkpoint-postgres==3.2.1",
+          "body": "Changes since checkpointpostgres==3.2.0\n\n* release(checkpoint-postgres): 3.2.1 (#9700)\n* release(checkpoint): 4.3.2 (#9699)\n* perf(checkpoint-postgres): run a lone store read outside a pipeline (#9635)\n* perf(checkpoint-postgres): skip the async saver's lock for connection pools (#9638)\n* perf(checkpoint-postgres): load no pending writes without a thread hop (#9639)\n* release(checkpoint): 4.3.1 (#9447)\n* chore(deps): bump certifi from 2026.1.4 to 2026.10.19 in /libs/checkpoint-postgres (#9369)",
+          "publishedAt": "2026-11-14T01:39:04Z",
+          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/checkpointpostgres%3D%3D3.2.1",
+          "prerelease": false
+        },
+        {
+          "tag": "checkpoint==4.3.2",
+          "name": "langgraph-checkpoint==4.3.2",
+          "body": "Changes since checkpoint==4.3.1\n\n* release(checkpoint): 4.3.2 (#9699)\n* perf(checkpoint): stop InMemoryStore search at the requested page (#9633)\n* perf(checkpoint): dedupe batched store reads with a dict (#9636)\n* chore(deps): bump the minor-and-patch group in /libs/checkpoint with 6 updates (#9529)\n* chore(deps-dev): bump pycryptodome from 3.23.0 to 4.2.0 in /libs/checkpoint in the major group (#9531)",
+          "publishedAt": "2026-11-14T01:31:16Z",
+          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/checkpoint%3D%3D4.3.2",
+          "prerelease": false
+        },
         {
           "tag": "1.2.21",
           "name": "langgraph==1.2.21",
@@ -3997,38 +4029,6 @@
           "publishedAt": "2026-04-27T14:34:20Z",
           "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/checkpoint%3D%3D4.0.3",
           "prerelease": false
-        },
-        {
-          "tag": "prebuilt==1.0.11",
-          "name": "langgraph-prebuilt==1.0.11",
-          "body": "Changes since prebuilt==1.0.10\n\n* release(prebuilt): 1.0.11 (#7610)\n* feat(prebuilt): allow ToolNode tools to return list[Command | ToolMessage] (#7596)\n* chore(langgraph): bump version 1.1.8 -> 1.1.9 (#7563)\n* feat(prebuilt): expose available tools on ToolRuntime (#7512)\n* release(langgraph): 1.1.8 (#7545)",
-          "publishedAt": "2026-04-24T18:18:45Z",
-          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/prebuilt%3D%3D1.0.11",
-          "prerelease": false
-        },
-        {
-          "tag": "cli==0.4.24",
-          "name": "langgraph-cli==0.4.24",
-          "body": "Changes since cli==0.4.23\n\n* chore: mixup cli formatting (#7585)\n* chore(deps): bump the pip group across 3 directories with 1 update (#7537)",
-          "publishedAt": "2026-04-22T18:49:41Z",
-          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/cli%3D%3D0.4.24",
-          "prerelease": false
-        },
-        {
-          "tag": "1.1.9",
-          "name": "langgraph==1.1.9",
-          "body": "Changes since 1.1.8\n\n* chore(langgraph): bump version 1.1.8 -> 1.1.9 (#7563)\n* fix(langgraph): don't propagate ReplayState to subgraphs on plain resume (#7561)\n* chore(langgraph): undo unnecessary changes in stream handler (#7536)",
-          "publishedAt": "2026-04-21T13:43:18Z",
-          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/1.1.9",
-          "prerelease": false
-        },
-        {
-          "tag": "1.1.8",
-          "name": "langgraph==1.1.8",
-          "body": "Changes since 1.1.7\n\n* release(langgraph): 1.1.8 (#7545)\n* fix(langgraph): remove strict add_handler type check that breaks OTel instrumentation (#7544)\n* release(prebuilt): 1.0.10 (#7541)\n* release(cli): 0.4.23 (#7542)",
-          "publishedAt": "2026-04-17T19:46:03Z",
-          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/1.1.8",
-          "prerelease": false
         }
       ]
     },
@@ -4036,7 +4036,7 @@
       "id": "openai-agents",
       "name": "OpenAI Agents SDK",
       "repo": "openai/openai-agents-python",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
         {
@@ -4845,7 +4845,7 @@
       "id": "smolagents",
       "name": "smolagents",
       "repo": "huggingface/smolagents",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": false,
       "releases": [
         {
@@ -5142,7 +5142,7 @@
       "id": "mastra",
       "name": "Mastra",
       "repo": "mastra-ai/mastra",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
         {
@@ -5951,15 +5951,47 @@
       "id": "ai-sdk",
       "name": "Vercel AI SDK",
       "repo": "vercel/ai",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "ai@7.0.173",
+          "name": "ai@7.0.173",
+          "body": "### Patch Changes\n\n- 3c09e00: Prevent in-place schema validation or input refinement from changing approved tool arguments during approval replay.\n- f43ee39: fix(workflow): log the default step limit warning when `WorkflowAgent.generate()` stops at the default limit.\n- 7ce7ffc: fix(workflow): log provider warnings in `WorkflowAgent`\n\n  `WorkflowAgent.generate()` and `WorkflowAgent.stream()` now log the warnings of every model call through the AI SDK warning logger, like `ToolLoopAgent`. The `AI_SDK_LOG_WARNINGS` global controls the output.\n\n- f6809e3: fix(workflow): align the `prepareStep` results of `WorkflowAgent` with `ToolLoopAgent`. Returned `instructions` (or the deprecated `system`) replace the instructions of the step and carry forward to later steps, returned `providerOptions` are merged with the agent options, and returned `headers` are merged over the headers of the call.\n- 2559173: feat(workflow): support `toolApproval` in `WorkflowAgent`\n\n  `WorkflowAgent` accepts a `toolApproval` configuration in the constructor and per `generate()` or `stream()` call. The configuration takes precedence over a tool's `needsApproval` setting, and its functions run in workflow context, outside of the durable model steps. Calls that the configuration approves run in the same step, and calls that it denies receive an `execution-denied` tool result wi\u2026",
+          "publishedAt": "2026-11-13T22:34:02Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%407.0.173",
+          "prerelease": false
+        },
         {
           "tag": "ai@7.0.172",
           "name": "ai@7.0.172",
           "body": "### Patch Changes\n\n- 79d2004: Require an explicit `experimental_download` hook for remote file URLs in `experimental_extract` and `experimental_decide` instead of silently downloading through global fetch. Callers can use `createDownload({ fetch })` with a DNS-protected transport for untrusted URLs; inline file data continues to work without a hook.\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/gateway@4.0.145",
           "publishedAt": "2026-11-13T05:57:52Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%407.0.172",
+          "prerelease": false
+        },
+        {
+          "tag": "ai@6.0.332",
+          "name": "ai@6.0.332",
+          "body": "### Patch Changes\n\n- Updated dependencies [23ff635]\n  - @ai-sdk/gateway@3.0.237",
+          "publishedAt": "2026-11-13T23:44:02Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%406.0.332",
+          "prerelease": false
+        },
+        {
+          "tag": "ai@5.0.290",
+          "name": "ai@5.0.290",
+          "body": "### Patch Changes\n\n- 4107bc6: Keep failed tool call error text consistent with the model's message history by default. Set `redactToolErrors: true` to replace it with the result of `onError`.\n- ec9c246: Prevent excessive memory and CPU usage when validating malformed UI messages. `validateUIMessages` and `safeValidateUIMessages` reported the issues of every part schema for every invalid part, so a small request with many malformed parts could exhaust memory. Each part is now validated against the schemas for its type only, validation stops at the first invalid message or part, and an\u2026\n- Updated dependencies [09657bb]\n- Updated dependencies [f046ed8]\n  - @ai-sdk/gateway@2.0.181",
+          "publishedAt": "2026-11-13T23:43:05Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%405.0.290",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/zai@3.0.55",
+          "name": "@ai-sdk/zai@3.0.55",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:37:14Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/zai%403.0.55",
           "prerelease": false
         },
         {
@@ -5971,11 +6003,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/xai@5.0.46",
+          "name": "@ai-sdk/xai@5.0.46",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:37:11Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/xai%405.0.46",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/xai@5.0.45",
           "name": "@ai-sdk/xai@5.0.45",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
           "publishedAt": "2026-11-13T06:01:58Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/xai%405.0.45",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/workflow@2.0.105",
+          "name": "@ai-sdk/workflow@2.0.105",
+          "body": "### Patch Changes\n\n- ff89832: fix(workflow): call `onAbort` instead of `onError` when a `WorkflowAgent` call is aborted during a model step with a custom abort reason. `generate()` still rejects with that reason. `stream()` now resolves with the steps that finished, as it does for an abort without a reason.\n- 2473a71: fix(workflow): `WorkflowAgent` uses the last value yielded by an async generator tool as the tool result, like `ToolLoopAgent`. A generator that throws after yielding produces a tool error.\n- f43ee39: fix(workflow): log the default step limit warning when `WorkflowAgent.generate()` stops at the default limit.\n- 7ce7ffc: fix(workflow): log provider warnings in `WorkflowAgent`\n\n  `WorkflowAgent.generate()` and `WorkflowAgent.stream()` now log the warnings of every model call through the AI SDK warning logger, like `ToolLoopAgent`. The `AI_SDK_LOG_WARNINGS` global controls the output.\n\n- f6809e3: fix(workflow): align the `prepareStep` results of `WorkflowAgent` with `ToolLoopAgent`. Returned `instructions` (or the deprecated `system`) replace the instructions of the step and carry forward to later steps, returned `providerOptions` are merged with the agent options, and returned `headers` are merged over the headers of the call.\n- 9307549: feat(workflow): support `experimental_refineToolInput` in `WorkflowAgent`, in the constructor and per call. Refined tool inputs are used for tool execution, step results, callbacks, and the next model call, like in `ToolLoopAgent`.\n- bf1dd2a: fix(workflow): `WorkflowAgent.stream()` keeps the tool call in the step result when the model calls an unknown tool or passes input that does not match the schema. The call is marked `invalid` and the step has a `tool-error` part, as in `generate()` and `ToolLoopAgent`. The model still receives the error as a tool result.",
+          "publishedAt": "2026-11-13T22:37:05Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow%402.0.105",
           "prerelease": false
         },
         {
@@ -5987,6 +6035,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/workflow-harness@1.0.184",
+          "name": "@ai-sdk/workflow-harness@1.0.184",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.184",
+          "publishedAt": "2026-11-13T22:37:08Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow-harness%401.0.184",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/workflow-harness@1.0.183",
           "name": "@ai-sdk/workflow-harness@1.0.183",
           "body": "### Patch Changes\n\n- Updated dependencies [71bef69]\n  - @ai-sdk/harness@1.0.183",
@@ -5995,11 +6051,43 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/vue@4.0.173",
+          "name": "@ai-sdk/vue@4.0.173",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:37:02Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%404.0.173",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/vue@4.0.172",
           "name": "@ai-sdk/vue@4.0.172",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
           "publishedAt": "2026-11-13T06:01:49Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%404.0.172",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/vue@3.0.332",
+          "name": "@ai-sdk/vue@3.0.332",
+          "body": "### Patch Changes\n\n- ai@6.0.332",
+          "publishedAt": "2026-11-13T23:44:35Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%403.0.332",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/vue@2.0.290",
+          "name": "@ai-sdk/vue@2.0.290",
+          "body": "### Patch Changes\n\n- Updated dependencies [4107bc6]\n- Updated dependencies [ec9c246]\n  - ai@5.0.290",
+          "publishedAt": "2026-11-13T23:43:29Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%402.0.290",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/voyage@2.0.83",
+          "name": "@ai-sdk/voyage@2.0.83",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:59Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/voyage%402.0.83",
           "prerelease": false
         },
         {
@@ -6027,6 +6115,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/tui@1.0.174",
+          "name": "@ai-sdk/tui@1.0.174",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:56Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tui%401.0.174",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/tui@1.0.173",
           "name": "@ai-sdk/tui@1.0.173",
           "body": "### Patch Changes\n\n- Updated dependencies [79d2004]\n  - ai@7.0.172",
@@ -6043,6 +6139,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/tool-web-fetch@1.0.23",
+          "name": "@ai-sdk/tool-web-fetch@1.0.23",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:53Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-web-fetch%401.0.23",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/tool-web-fetch@1.0.22",
           "name": "@ai-sdk/tool-web-fetch@1.0.22",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
@@ -6051,11 +6155,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/tool-bash@1.0.27",
+          "name": "@ai-sdk/tool-bash@1.0.27",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:50Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-bash%401.0.27",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/tool-bash@1.0.26",
           "name": "@ai-sdk/tool-bash@1.0.26",
           "body": "### Patch Changes\n\n- Updated dependencies [79d2004]\n  - ai@7.0.172",
           "publishedAt": "2026-11-13T06:01:28Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-bash%401.0.26",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/togetherai@3.0.94",
+          "name": "@ai-sdk/togetherai@3.0.94",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:47Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/togetherai%403.0.94",
           "prerelease": false
         },
         {
@@ -6083,11 +6203,35 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/svelte@5.0.173",
+          "name": "@ai-sdk/svelte@5.0.173",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:44Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%405.0.173",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/svelte@5.0.172",
           "name": "@ai-sdk/svelte@5.0.172",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
           "publishedAt": "2026-11-13T06:01:19Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%405.0.172",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/svelte@4.0.332",
+          "name": "@ai-sdk/svelte@4.0.332",
+          "body": "### Patch Changes\n\n- ai@6.0.332",
+          "publishedAt": "2026-11-13T23:44:32Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%404.0.332",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/svelte@3.0.290",
+          "name": "@ai-sdk/svelte@3.0.290",
+          "body": "### Patch Changes\n\n- Updated dependencies [4107bc6]\n- Updated dependencies [ec9c246]\n  - ai@5.0.290",
+          "publishedAt": "2026-11-13T23:43:23Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%403.0.290",
           "prerelease": false
         },
         {
@@ -6099,11 +6243,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/sandbox-vercel@1.0.184",
+          "name": "@ai-sdk/sandbox-vercel@1.0.184",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.184",
+          "publishedAt": "2026-11-13T22:36:41Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-vercel%401.0.184",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/sandbox-vercel@1.0.183",
           "name": "@ai-sdk/sandbox-vercel@1.0.183",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183",
           "publishedAt": "2026-11-13T06:01:13Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-vercel%401.0.183",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/sandbox-just-bash@1.0.184",
+          "name": "@ai-sdk/sandbox-just-bash@1.0.184",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.184",
+          "publishedAt": "2026-11-13T22:36:38Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-just-bash%401.0.184",
           "prerelease": false
         },
         {
@@ -6115,11 +6275,35 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/rsc@3.0.173",
+          "name": "@ai-sdk/rsc@3.0.173",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:35Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%403.0.173",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/rsc@3.0.172",
           "name": "@ai-sdk/rsc@3.0.172",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
           "publishedAt": "2026-11-13T06:01:07Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%403.0.172",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/rsc@2.0.332",
+          "name": "@ai-sdk/rsc@2.0.332",
+          "body": "### Patch Changes\n\n- ai@6.0.332",
+          "publishedAt": "2026-11-13T23:44:29Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%402.0.332",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/rsc@1.0.292",
+          "name": "@ai-sdk/rsc@1.0.292",
+          "body": "### Patch Changes\n\n- Updated dependencies [4107bc6]\n- Updated dependencies [ec9c246]\n  - ai@5.0.290",
+          "publishedAt": "2026-11-13T23:43:26Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%401.0.292",
           "prerelease": false
         },
         {
@@ -6131,6 +6315,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/replicate@3.0.84",
+          "name": "@ai-sdk/replicate@3.0.84",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:32Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/replicate%403.0.84",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/replicate@3.0.83",
           "name": "@ai-sdk/replicate@3.0.83",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
@@ -6139,11 +6331,35 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/react@4.0.177",
+          "name": "@ai-sdk/react@4.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:29Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%404.0.177",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/react@4.0.176",
           "name": "@ai-sdk/react@4.0.176",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172\n  - @ai-sdk/mcp@2.0.99",
           "publishedAt": "2026-11-13T06:00:58Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%404.0.176",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/react@3.0.335",
+          "name": "@ai-sdk/react@3.0.335",
+          "body": "### Patch Changes\n\n- ai@6.0.332",
+          "publishedAt": "2026-11-13T23:44:26Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%403.0.335",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/react@2.0.293",
+          "name": "@ai-sdk/react@2.0.293",
+          "body": "### Patch Changes\n\n- Updated dependencies [4107bc6]\n- Updated dependencies [ec9c246]\n  - ai@5.0.290",
+          "publishedAt": "2026-11-13T23:43:20Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%402.0.293",
           "prerelease": false
         },
         {
@@ -6163,6 +6379,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/prodia@2.0.84",
+          "name": "@ai-sdk/prodia@2.0.84",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:26Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/prodia%402.0.84",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/prodia@2.0.83",
           "name": "@ai-sdk/prodia@2.0.83",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
@@ -6171,11 +6395,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/policy-opa@1.0.173",
+          "name": "@ai-sdk/policy-opa@1.0.173",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:23Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/policy-opa%401.0.173",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/policy-opa@1.0.172",
           "name": "@ai-sdk/policy-opa@1.0.172",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
           "publishedAt": "2026-11-13T06:00:46Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/policy-opa%401.0.172",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/perplexity@5.0.35",
+          "name": "@ai-sdk/perplexity@5.0.35",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:20Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/perplexity%405.0.35",
           "prerelease": false
         },
         {
@@ -6195,6 +6435,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/otel@1.0.173",
+          "name": "@ai-sdk/otel@1.0.173",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:36:17Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/otel%401.0.173",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/otel@1.0.172",
           "name": "@ai-sdk/otel@1.0.172",
           "body": "### Patch Changes\n\n- Updated dependencies [79d2004]\n  - ai@7.0.172",
@@ -6203,11 +6451,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/openai@4.0.118",
+          "name": "@ai-sdk/openai@4.0.118",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:14Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%404.0.118",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/openai@4.0.117",
           "name": "@ai-sdk/openai@4.0.117",
           "body": "### Patch Changes\n\n- 6d50947: add experimental extraction models backed by structured language model output\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
           "publishedAt": "2026-11-13T06:00:31Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%404.0.117",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/openai@3.0.143",
+          "name": "@ai-sdk/openai@3.0.143",
+          "body": "### Patch Changes\n\n- 61c32d9: feat(openai): support Responses contextManagement and compaction items",
+          "publishedAt": "2026-11-13T23:44:20Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%403.0.143",
           "prerelease": false
         },
         {
@@ -6227,6 +6491,14 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/moonshotai@3.0.93",
+          "name": "@ai-sdk/moonshotai@3.0.93",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:11Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/moonshotai%403.0.93",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/moonshotai@3.0.92",
           "name": "@ai-sdk/moonshotai@3.0.92",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
@@ -6235,11 +6507,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/mistral@4.0.87",
+          "name": "@ai-sdk/mistral@4.0.87",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:08Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mistral%404.0.87",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/mistral@4.0.86",
           "name": "@ai-sdk/mistral@4.0.86",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
           "publishedAt": "2026-11-13T06:00:22Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mistral%404.0.86",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/minimax@3.0.82",
+          "name": "@ai-sdk/minimax@3.0.82",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.\n- Updated dependencies [f5fc6ba]\n  - @ai-sdk/anthropic@4.0.105",
+          "publishedAt": "2026-11-13T22:36:05Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/minimax%403.0.82",
           "prerelease": false
         },
         {
@@ -6259,11 +6547,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/luma@3.0.84",
+          "name": "@ai-sdk/luma@3.0.84",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:36:02Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/luma%403.0.84",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/luma@3.0.83",
           "name": "@ai-sdk/luma@3.0.83",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
           "publishedAt": "2026-11-13T06:00:13Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/luma%403.0.83",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/llamaindex@3.0.173",
+          "name": "@ai-sdk/llamaindex@3.0.173",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:35:59Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/llamaindex%403.0.173",
           "prerelease": false
         },
         {
@@ -6275,11 +6579,59 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/llamaindex@2.0.332",
+          "name": "@ai-sdk/llamaindex@2.0.332",
+          "body": "### Patch Changes\n\n- ai@6.0.332",
+          "publishedAt": "2026-11-13T23:44:23Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/llamaindex%402.0.332",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/llamaindex@1.0.290",
+          "name": "@ai-sdk/llamaindex@1.0.290",
+          "body": "### Patch Changes\n\n- Updated dependencies [4107bc6]\n- Updated dependencies [ec9c246]\n  - ai@5.0.290",
+          "publishedAt": "2026-11-13T23:43:17Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/llamaindex%401.0.290",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/langchain@3.0.173",
+          "name": "@ai-sdk/langchain@3.0.173",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:35:56Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/langchain%403.0.173",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/langchain@3.0.172",
           "name": "@ai-sdk/langchain@3.0.172",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
           "publishedAt": "2026-11-13T06:00:07Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/langchain%403.0.172",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/langchain@2.0.340",
+          "name": "@ai-sdk/langchain@2.0.340",
+          "body": "### Patch Changes\n\n- ai@6.0.332",
+          "publishedAt": "2026-11-13T23:44:17Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/langchain%402.0.340",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/langchain@1.0.290",
+          "name": "@ai-sdk/langchain@1.0.290",
+          "body": "### Patch Changes\n\n- Updated dependencies [4107bc6]\n- Updated dependencies [ec9c246]\n  - ai@5.0.290",
+          "publishedAt": "2026-11-13T23:43:14Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/langchain%401.0.290",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/klingai@4.0.85",
+          "name": "@ai-sdk/klingai@4.0.85",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:35:53Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/klingai%404.0.85",
           "prerelease": false
         },
         {
@@ -6299,11 +6651,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/huggingface@2.0.93",
+          "name": "@ai-sdk/huggingface@2.0.93",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.",
+          "publishedAt": "2026-11-13T22:35:50Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/huggingface%402.0.93",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/huggingface@2.0.92",
           "name": "@ai-sdk/huggingface@2.0.92",
           "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai-compatible@3.0.92",
           "publishedAt": "2026-11-13T05:59:58Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/huggingface%402.0.92",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/heygen@3.0.25",
+          "name": "@ai-sdk/heygen@3.0.25",
+          "body": "### Patch Changes\n\n- f5fc6ba: Derive known model ID suggestions from each provider's model catalog declarations so catalog updates automatically update autocomplete, while preserving existing suggestions, endpoint-specific model lists, and support for custom model IDs.\n- 585caa7: feat(heygen): add experimental decision models with `heygen.decisionModel('heygen-decision-1')` and `heygen-decision-1-turbo`, including image and video inputs",
+          "publishedAt": "2026-11-13T22:35:47Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/heygen%403.0.25",
           "prerelease": false
         },
         {
@@ -6315,11 +6683,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/harness@1.0.184",
+          "name": "@ai-sdk/harness@1.0.184",
+          "body": "### Patch Changes\n\n- Updated dependencies [3c09e00]\n- Updated dependencies [f43ee39]\n- Updated dependencies [7ce7ffc]\n- Updated dependencies [f6809e3]\n- Updated dependencies [2559173]\n- Updated dependencies [f1de9cb]\n  - ai@7.0.173",
+          "publishedAt": "2026-11-13T22:35:11Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness%401.0.184",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/harness@1.0.183",
           "name": "@ai-sdk/harness@1.0.183",
           "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
           "publishedAt": "2026-11-13T05:59:19Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness%401.0.183",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-pi@1.0.187",
+          "name": "@ai-sdk/harness-pi@1.0.187",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.184",
+          "publishedAt": "2026-11-13T22:35:44Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-pi%401.0.187",
           "prerelease": false
         },
         {
@@ -6331,11 +6715,27 @@
           "prerelease": false
         },
         {
+          "tag": "@ai-sdk/harness-opencode@1.0.187",
+          "name": "@ai-sdk/harness-opencode@1.0.187",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.184",
+          "publishedAt": "2026-11-13T22:35:41Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-opencode%401.0.187",
+          "prerelease": false
+        },
+        {
           "tag": "@ai-sdk/harness-opencode@1.0.186",
           "name": "@ai-sdk/harness-opencode@1.0.186",
           "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183",
           "publishedAt": "2026-11-13T05:59:49Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-opencode%401.0.186",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-grok-build@1.0.123",
+          "name": "@ai-sdk/harness-grok-build@1.0.123",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.184\n- @ai-sdk/harness-acp@1.0.124",
+          "publishedAt": "2026-11-13T22:35:35Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-grok-build%401.0.123",
           "prerelease": false
         },
         {
@@ -6347,411 +6747,11 @@
           "prerelease": false
         },
         {
-          "tag": "@ai-sdk/harness-github-copilot@1.0.80",
-          "name": "@ai-sdk/harness-github-copilot@1.0.80",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness-acp@1.0.123\n  - @ai-sdk/harness@1.0.183",
-          "publishedAt": "2026-11-13T05:59:43Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-github-copilot%401.0.80",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/harness-fx@1.0.99",
-          "name": "@ai-sdk/harness-fx@1.0.99",
-          "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183\n  - @ai-sdk/mcp@2.0.99",
-          "publishedAt": "2026-11-13T05:59:40Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-fx%401.0.99",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/harness-deepagents@1.0.183",
-          "name": "@ai-sdk/harness-deepagents@1.0.183",
-          "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183",
-          "publishedAt": "2026-11-13T05:59:37Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-deepagents%401.0.183",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/harness-cursor@1.0.98",
-          "name": "@ai-sdk/harness-cursor@1.0.98",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness-acp@1.0.123\n  - @ai-sdk/harness@1.0.183",
-          "publishedAt": "2026-11-13T05:59:34Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-cursor%401.0.98",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/harness-codex@1.0.185",
-          "name": "@ai-sdk/harness-codex@1.0.185",
-          "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183",
-          "publishedAt": "2026-11-13T05:59:31Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-codex%401.0.185",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/harness-cline@1.0.111",
-          "name": "@ai-sdk/harness-cline@1.0.111",
-          "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183",
-          "publishedAt": "2026-11-13T05:59:28Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-cline%401.0.111",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/harness-claude-code@1.0.187",
-          "name": "@ai-sdk/harness-claude-code@1.0.187",
-          "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183",
-          "publishedAt": "2026-11-13T05:59:25Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-claude-code%401.0.187",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/harness-acp@1.0.123",
-          "name": "@ai-sdk/harness-acp@1.0.123",
-          "body": "### Patch Changes\n\n- 71bef69: feat(harness): require approval for sensitive workspace file changes in `allow-edits` permission mode\n- Updated dependencies [6d50947]\n- Updated dependencies [71bef69]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/harness@1.0.183",
-          "publishedAt": "2026-11-13T05:59:22Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-acp%401.0.123",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/groq@4.0.83",
-          "name": "@ai-sdk/groq@4.0.83",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:59:13Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/groq%404.0.83",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/google@4.0.120",
-          "name": "@ai-sdk/google@4.0.120",
-          "body": "### Patch Changes\n\n- 6d50947: add experimental extraction models backed by structured language model output\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:59:10Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/google%404.0.120",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/google-vertex@5.0.140",
-          "name": "@ai-sdk/google-vertex@5.0.140",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/anthropic@4.0.104\n  - @ai-sdk/google@4.0.120\n  - @ai-sdk/openai-compatible@3.0.92",
-          "publishedAt": "2026-11-13T05:59:16Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/google-vertex%405.0.140",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/gmicloud@3.0.63",
-          "name": "@ai-sdk/gmicloud@3.0.63",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai-compatible@3.0.92",
-          "publishedAt": "2026-11-13T05:59:07Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/gmicloud%403.0.63",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/gladia@3.0.82",
-          "name": "@ai-sdk/gladia@3.0.82",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:59:04Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/gladia%403.0.82",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/gateway@4.0.145",
-          "name": "@ai-sdk/gateway@4.0.145",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:59:01Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/gateway%404.0.145",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/fish-audio@3.0.59",
-          "name": "@ai-sdk/fish-audio@3.0.59",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:58Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/fish-audio%403.0.59",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/fireworks@3.0.95",
-          "name": "@ai-sdk/fireworks@3.0.95",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai-compatible@3.0.92",
-          "publishedAt": "2026-11-13T05:58:55Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/fireworks%403.0.95",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/fal@3.0.83",
-          "name": "@ai-sdk/fal@3.0.83",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:52Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/fal%403.0.83",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/elevenlabs@3.0.86",
-          "name": "@ai-sdk/elevenlabs@3.0.86",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:49Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/elevenlabs%403.0.86",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/devtools@1.0.75",
-          "name": "@ai-sdk/devtools@1.0.75",
-          "body": "### Patch Changes\n\n- Updated dependencies [79d2004]\n  - ai@7.0.172",
-          "publishedAt": "2026-11-13T05:58:46Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/devtools%401.0.75",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/deepseek@3.0.86",
-          "name": "@ai-sdk/deepseek@3.0.86",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:43Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/deepseek%403.0.86",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/deepinfra@3.0.92",
-          "name": "@ai-sdk/deepinfra@3.0.92",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai-compatible@3.0.92",
-          "publishedAt": "2026-11-13T05:58:40Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/deepinfra%403.0.92",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/deepgram@3.1.53",
-          "name": "@ai-sdk/deepgram@3.1.53",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:37Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/deepgram%403.1.53",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/cohere@4.0.83",
-          "name": "@ai-sdk/cohere@4.0.83",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:34Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/cohere%404.0.83",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/code-mode@1.0.129",
-          "name": "@ai-sdk/code-mode@1.0.129",
-          "body": "### Patch Changes\n\n- Updated dependencies [79d2004]\n  - ai@7.0.172",
-          "publishedAt": "2026-11-13T05:58:31Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/code-mode%401.0.129",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/cerebras@3.0.92",
-          "name": "@ai-sdk/cerebras@3.0.92",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai-compatible@3.0.92",
-          "publishedAt": "2026-11-13T05:58:28Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/cerebras%403.0.92",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/cartesia@3.0.76",
-          "name": "@ai-sdk/cartesia@3.0.76",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:25Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/cartesia%403.0.76",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/bytedance@2.0.85",
-          "name": "@ai-sdk/bytedance@2.0.85",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:22Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/bytedance%402.0.85",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/black-forest-labs@2.0.84",
-          "name": "@ai-sdk/black-forest-labs@2.0.84",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:16Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/black-forest-labs%402.0.84",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/baseten@2.1.70",
-          "name": "@ai-sdk/baseten@2.1.70",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai-compatible@3.0.92",
-          "publishedAt": "2026-11-13T05:58:19Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/baseten%402.1.70",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/azure@4.0.125",
-          "name": "@ai-sdk/azure@4.0.125",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai@4.0.117\n  - @ai-sdk/deepseek@3.0.86",
-          "publishedAt": "2026-11-13T05:58:13Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/azure%404.0.125",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/assemblyai@3.0.82",
-          "name": "@ai-sdk/assemblyai@3.0.82",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:10Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/assemblyai%403.0.82",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/anthropic@4.0.104",
-          "name": "@ai-sdk/anthropic@4.0.104",
-          "body": "### Patch Changes\n\n- 6d50947: add experimental extraction models backed by structured language model output\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:58:04Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/anthropic%404.0.104",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/anthropic-aws@2.0.97",
-          "name": "@ai-sdk/anthropic-aws@2.0.97",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/anthropic@4.0.104",
-          "publishedAt": "2026-11-13T05:58:07Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/anthropic-aws%402.0.97",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/angular@3.0.172",
-          "name": "@ai-sdk/angular@3.0.172",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n- Updated dependencies [79d2004]\n  - @ai-sdk/provider-utils@5.0.81\n  - ai@7.0.172",
-          "publishedAt": "2026-11-13T05:58:01Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/angular%403.0.172",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/amazon-bedrock@5.0.141",
-          "name": "@ai-sdk/amazon-bedrock@5.0.141",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81\n  - @ai-sdk/openai@4.0.117\n  - @ai-sdk/anthropic@4.0.104",
-          "publishedAt": "2026-11-13T05:57:58Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/amazon-bedrock%405.0.141",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/alibaba@2.0.90",
-          "name": "@ai-sdk/alibaba@2.0.90",
-          "body": "### Patch Changes\n\n- Updated dependencies [6d50947]\n  - @ai-sdk/provider-utils@5.0.81",
-          "publishedAt": "2026-11-13T05:57:55Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/alibaba%402.0.90",
-          "prerelease": false
-        },
-        {
-          "tag": "ai@7.0.171",
-          "name": "ai@7.0.171",
-          "body": "### Patch Changes\n\n- 11323f9: Prevent excessive memory and CPU usage when validating malformed UI messages. `validateUIMessages`, `safeValidateUIMessages`, and the agent UI stream helpers reported the issues of every part schema for every invalid part, so a small request with many malformed parts could exhaust memory. Each part is now validated against the schemas for its type only, validation stops at the first in\u2026\n- 2ebc78b: Forward the provider's configured fetch transport when downloading file inputs. Add a `fetch` option to `createDownload` so core downloads can also use `guarded-fetch` for opt-in DNS validation on Node.js. The function returned by `createDownload` can now also be passed as `experimental_download` to `generateText` and `streamText`, and `experimental_download` now also handles generated\u2026\n\n  Keep Azure image and Vertex tool-result downloads separate from provider authentication wrappers so file hosts never receive Azure bearer tokens or Vertex Express Mode API keys.\n\n  Pass the call's abort signal to custom download requests, including prompt assets and generated files, so `experimental_download: createDownload({ fetch })` preserves cancellation and timeouts.\n\n- cb4fa52: add experimental extract api and extraction model spec\n- ceeee29: Warn when a UI message stream sends a tool error text that differs from the text the model received and then sends reasoning from a later step. By default, `toUIMessageStream` sends \"An error occurred.\" to the client for a failed tool call, while the model receives the full error text during a multi-step call. Converting the stored UI messages back with `convertToModelMessages` then ch\u2026\n- 1a94af3: Send the error text of failed tool calls to the client as the model received it.",
-          "publishedAt": "2026-11-12T20:20:02Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%407.0.171",
-          "prerelease": false
-        },
-        {
-          "tag": "ai@6.0.331",
-          "name": "ai@6.0.331",
-          "body": "### Patch Changes\n\n- 60dc26c: Keep failed tool call error text consistent with the model's message history by default. Set `redactToolErrors: true` to replace it with the result of `onError`.\n- 9e8f918: Prevent excessive memory and CPU usage when validating malformed UI messages. `validateUIMessages`, `safeValidateUIMessages`, and the agent UI stream helpers reported the issues of every part schema for every invalid part, so a small request with many malformed parts could exhaust memory. Each part is now validated against the schemas for its type only, validation stops at the first in\u2026\n- Updated dependencies [271ca50]\n- Updated dependencies [f0a7beb]\n  - @ai-sdk/gateway@3.0.236",
-          "publishedAt": "2026-11-12T20:16:12Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%406.0.331",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/zai@3.0.53",
-          "name": "@ai-sdk/zai@3.0.53",
-          "body": "### Patch Changes\n\n- Updated dependencies [2ebc78b]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n  - @ai-sdk/openai-compatible@3.0.91\n  - @ai-sdk/provider-utils@5.0.80\n  - @ai-sdk/provider@4.0.38",
-          "publishedAt": "2026-11-12T20:24:05Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/zai%403.0.53",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/xai@5.0.44",
-          "name": "@ai-sdk/xai@5.0.44",
-          "body": "### Patch Changes\n\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n  - @ai-sdk/provider-utils@5.0.80\n  - @ai-sdk/provider@4.0.38",
-          "publishedAt": "2026-11-12T20:24:02Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/xai%405.0.44",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/workflow@2.0.103",
-          "name": "@ai-sdk/workflow@2.0.103",
-          "body": "### Patch Changes\n\n- Updated dependencies [11323f9]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n- Updated dependencies [ceeee29]\n- Updated dependencies [1a94af3]\n  - ai@7.0.171\n  - @ai-sdk/provider-utils@5.0.80\n  - @ai-sdk/provider@4.0.38",
-          "publishedAt": "2026-11-12T20:23:56Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow%402.0.103",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/workflow-harness@1.0.182",
-          "name": "@ai-sdk/workflow-harness@1.0.182",
-          "body": "### Patch Changes\n\n- Updated dependencies [1a94af3]\n  - @ai-sdk/harness@1.0.182",
-          "publishedAt": "2026-11-12T20:23:59Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow-harness%401.0.182",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/vue@4.0.171",
-          "name": "@ai-sdk/vue@4.0.171",
-          "body": "### Patch Changes\n\n- Updated dependencies [11323f9]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n- Updated dependencies [ceeee29]\n- Updated dependencies [1a94af3]\n  - ai@7.0.171\n  - @ai-sdk/provider-utils@5.0.80",
-          "publishedAt": "2026-11-12T20:23:53Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%404.0.171",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/vue@3.0.331",
-          "name": "@ai-sdk/vue@3.0.331",
-          "body": "### Patch Changes\n\n- Updated dependencies [60dc26c]\n- Updated dependencies [9e8f918]\n  - ai@6.0.331",
-          "publishedAt": "2026-11-12T20:16:51Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%403.0.331",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/voyage@2.0.81",
-          "name": "@ai-sdk/voyage@2.0.81",
-          "body": "### Patch Changes\n\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n  - @ai-sdk/provider-utils@5.0.80\n  - @ai-sdk/provider@4.0.38",
-          "publishedAt": "2026-11-12T20:23:50Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/voyage%402.0.81",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/valibot@3.0.80",
-          "name": "@ai-sdk/valibot@3.0.80",
-          "body": "### Patch Changes\n\n- Updated dependencies [2ebc78b]\n  - @ai-sdk/provider-utils@5.0.80",
-          "publishedAt": "2026-11-12T20:23:47Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/valibot%403.0.80",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/typesafe-ai@3.0.39",
-          "name": "@ai-sdk/typesafe-ai@3.0.39",
-          "body": "### Patch Changes\n\n- 05bf552: Add a TypeSafe AI decision model catalog for model ID suggestions, supported question types, image inputs, and call-level and file-part provider options.\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n  - @ai-sdk/provider-utils@5.0.80\n  - @ai-sdk/provider@4.0.38",
-          "publishedAt": "2026-11-12T20:23:44Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/typesafe-ai%403.0.39",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tui@1.0.172",
-          "name": "@ai-sdk/tui@1.0.172",
-          "body": "### Patch Changes\n\n- Updated dependencies [11323f9]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n- Updated dependencies [ceeee29]\n- Updated dependencies [1a94af3]\n  - ai@7.0.171",
-          "publishedAt": "2026-11-12T20:23:41Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tui%401.0.172",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/topaz@3.0.27",
-          "name": "@ai-sdk/topaz@3.0.27",
-          "body": "### Patch Changes\n\n- 3494c16: Add a Topaz image and video model catalog for model ID suggestions, API aliases, capabilities, polling defaults, and provider option metadata.\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n  - @ai-sdk/provider-utils@5.0.80\n  - @ai-sdk/provider@4.0.38",
-          "publishedAt": "2026-11-12T20:23:38Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/topaz%403.0.27",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tool-web-fetch@1.0.21",
-          "name": "@ai-sdk/tool-web-fetch@1.0.21",
-          "body": "### Patch Changes\n\n- 2ebc78b: Forward the provider's configured fetch transport when downloading file inputs. Add a `fetch` option to `createDownload` so core downloads can also use `guarded-fetch` for opt-in DNS validation on Node.js. The function returned by `createDownload` can now also be passed as `experimental_download` to `generateText` and `streamText`, and `experimental_download` now also handles generated\u2026\n\n  Keep Azure image and Vertex tool-result downloads separate from provider authentication wrappers so file hosts never receive Azure bearer tokens or Vertex Express Mode API keys.\n\n  Pass the call's abort signal to custom download requests, including prompt assets and generated files, so `experimental_download: createDownload({ fetch })` preserves cancellation and timeouts.\n\n- Updated dependencies [11323f9]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]",
-          "publishedAt": "2026-11-12T20:23:35Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-web-fetch%401.0.21",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/tool-bash@1.0.25",
-          "name": "@ai-sdk/tool-bash@1.0.25",
-          "body": "### Patch Changes\n\n- Updated dependencies [11323f9]\n- Updated dependencies [2ebc78b]\n- Updated dependencies [cb4fa52]\n- Updated dependencies [ceeee29]\n- Updated dependencies [1a94af3]\n  - ai@7.0.171",
-          "publishedAt": "2026-11-12T20:23:32Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-bash%401.0.25",
+          "tag": "@ai-sdk/harness-github-copilot@1.0.81",
+          "name": "@ai-sdk/harness-github-copilot@1.0.81",
+          "body": "### Patch Changes\n\n- @ai-sdk/harness@1.0.184\n- @ai-sdk/harness-acp@1.0.124",
+          "publishedAt": "2026-11-13T22:35:32Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-github-copilot%401.0.81",
           "prerelease": false
         }
       ]
@@ -6760,7 +6760,7 @@
       "id": "google-adk",
       "name": "Google ADK",
       "repo": "google/adk-python",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": false,
       "releases": [
         {
@@ -7513,9 +7513,17 @@
       "id": "claude-code",
       "name": "Claude Code",
       "repo": "anthropics/claude-code",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "v2.1.325",
+          "name": "v2.1.325",
+          "body": "## What's changed\n\n- Fixed a security issue in how zstd-compressed responses are decoded\n- Added a spinner tip in VS Code and similar integrated terminals about re-running a notebook cell, shown once Claude has read or edited a Jupyter notebook\n- Added a line under the error shown when your organization's policy blocks a request, saying how to continue: run `/rewind` and change the message, or run `/clear`\n- Added a note for Claude when a sandboxed `git checkout`, `git stash` or autostash pull cannot update protected files such as those in `.claude`\n- Fixed `/security-review` and skills' inline git commands stopping with an error in worktrees of bare repositories, `--separate-git-dir` checkouts and Android `repo` checkouts\n- Fixed subagents with their own model being moved to the plan-mode model when the model setting is `opusplan` or `haiku`\n- Fixed subagents on a different model sizing file reads and MCP results with the main session's model\n- Fixed sessions on many third-party gateways and Foundry stopping with a context length error on every turn instead of compacting\n- Fixed recent turns sometimes going missing from a resumed session after Claude Code stopped without a clean exit\n- Fixed shell commands running in the launch directory after the working directory was deleted; the command now fails with a message and can be re-issued",
+          "publishedAt": "2026-11-13T20:40:01Z",
+          "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325",
+          "prerelease": false
+        },
         {
           "tag": "v2.1.323",
           "name": "v2.1.323",
@@ -8307,14 +8315,6 @@
           "publishedAt": "2026-07-11T00:52:10Z",
           "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.207",
           "prerelease": false
-        },
-        {
-          "tag": "v2.1.206",
-          "name": "v2.1.206",
-          "body": "## What's changed\n\n- Added directory path suggestions to `/cd`, matching `/add-dir` behavior\n- Added a `/doctor` check that proposes trimming checked-in `CLAUDE.md` files by cutting content Claude could derive from the codebase\n- `/commit-push-pr` now auto-allows `git push` to the repo's configured push remote (`remote.pushDefault`, or the sole remote when only one is configured) in addition to `origin`\n- Gateway: `/login` now supports Anthropic-operated public gateway endpoints\n- `EnterWorktree` now asks for confirmation before entering a git worktree outside the project's `.claude/worktrees/` directory\n- Background agents now upgrade to a new version in the background right after a Claude Code update, instead of paying a slow stale-session upgrade when you attach\n- Fixed an expired login failing every model with a misleading \"There's an issue with the selected model\" error instead of prompting to run `/login`\n- Fixed `claude --resume` and `--continue` not responding to keyboard input on startup\n- Fixed MCP servers configured via `--mcp-config` or `.mcp.json` ignoring a per-server `request_timeout_ms`, which caused long-running MCP tool calls to time out at the 60s default in fresh sessions\n- Fixed `CLAUDE_CODE_EXTRA_BODY` being silently ignored by `claude agents` / `--bg` background workers; the shell-exported override now follows the dispatching session",
-          "publishedAt": "2026-07-10T01:45:26Z",
-          "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.206",
-          "prerelease": false
         }
       ]
     },
@@ -8322,7 +8322,7 @@
       "id": "codex",
       "name": "Codex CLI",
       "repo": "openai/codex",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
         {
@@ -8332,6 +8332,22 @@
           "publishedAt": "2026-11-13T08:37:05Z",
           "htmlUrl": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
           "prerelease": false
+        },
+        {
+          "tag": "rust-v0.171.0-alpha.5",
+          "name": "0.171.0-alpha.5",
+          "body": "Release 0.171.0-alpha.5",
+          "publishedAt": "2026-11-14T01:20:37Z",
+          "htmlUrl": "https://github.com/openai/codex/releases/tag/rust-v0.171.0-alpha.5",
+          "prerelease": true
+        },
+        {
+          "tag": "rust-v0.171.0-alpha.4",
+          "name": "0.171.0-alpha.4",
+          "body": "Release 0.171.0-alpha.4",
+          "publishedAt": "2026-11-13T18:52:02Z",
+          "htmlUrl": "https://github.com/openai/codex/releases/tag/rust-v0.171.0-alpha.4",
+          "prerelease": true
         },
         {
           "tag": "rust-v0.171.0-alpha.2",
@@ -9108,22 +9124,6 @@
           "publishedAt": "2026-10-02T05:44:28Z",
           "htmlUrl": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.4",
           "prerelease": true
-        },
-        {
-          "tag": "rust-v0.162.0-alpha.3",
-          "name": "0.162.0-alpha.3",
-          "body": "Release 0.162.0-alpha.3",
-          "publishedAt": "2026-10-02T03:38:25Z",
-          "htmlUrl": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.3",
-          "prerelease": true
-        },
-        {
-          "tag": "rust-v0.162.0-alpha.2",
-          "name": "0.162.0-alpha.2",
-          "body": "Release 0.162.0-alpha.2",
-          "publishedAt": "2026-10-02T01:44:23Z",
-          "htmlUrl": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.2",
-          "prerelease": true
         }
       ]
     },
@@ -9131,7 +9131,7 @@
       "id": "gemini-cli",
       "name": "Gemini CLI",
       "repo": "google-gemini/gemini-cli",
-      "retrievedAt": "2026-11-13T14:34:28.885873Z",
+      "retrievedAt": "2026-11-14T13:30:23.688140Z",
       "capped": true,
       "releases": [
         {
