@@ -276,6 +276,7 @@ The comparison shelf, the trackers, and the directory.
 
 - [Best AI agent frameworks](/best/ai-agent-frameworks) is the licence and release-tag comparison. This note does not replace it.
 - [AI agent framework GitHub stats, November 2026](/reports/ai-agent-framework-github-stats-november-2026) is the November 5 snapshot these names come from.
+- [Which of 11 frameworks to install](/research/which-ai-agent-framework-to-install-november-2026) is the November 14 recount, plus the job. It records that `python-1.26.0` and `@mastra/core@1.83.0` are now GitHub releases. It does not replace this matrix.
 - [Which AI agent framework do people install?](/blog/which-ai-agent-framework-do-people-install) is file requests, not protocol support.
 - The [downloads tracker](/trackers/downloads) and the [stars tracker](/trackers/stars) move after this page. A download is not a user.
 - [Web search API cost per agent task](/tools/web-search-api-cost-per-agent-task) prices the search call once a framework can make one. [All free tools](/tools) are on one page.

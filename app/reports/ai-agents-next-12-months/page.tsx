@@ -100,6 +100,14 @@ export default function AgentsTwelveMonthOutlookPage() {
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={[
           {
+            href: "/blog/personal-assistant-ai-what-it-will-do-november-2026",
+            title: "ChatGPT agent is retired. Gemini tasks skip the EEA and the UK.",
+            description:
+              "What Work, Cowork, and Gemini tasks will do on your behalf on November 14, 2026, and the payment, the send, and the four places Gemini tasks do not run.",
+            kicker: "Guide",
+            date: "2026-11-14",
+          },
+          {
             href: "/reports/ai-agents-in-production-2026",
             title: "AI agents in production, 2026",
             description: "What is already running. This calendar does not restate those surveys.",

@@ -214,6 +214,7 @@ Buyers. You can let a dot shop. You cannot let it approve. Add a credit card in 
 
 ## Where can you read more on this site?
 
+- What Work, Cowork, and Gemini tasks will do besides pay: [ChatGPT agent is retired. Gemini tasks skip the EEA and the UK.](/blog/personal-assistant-ai-what-it-will-do-november-2026)
 - The day before, a different card: [Can an AI agent buy things online for me? Navoka gives it a separate card](/blog/can-an-ai-agent-buy-things-online)
 - The credential map, read November 12: [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay)
 - Which assistant can finish: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)

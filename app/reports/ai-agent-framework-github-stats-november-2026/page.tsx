@@ -135,6 +135,14 @@ export default async function FrameworkGithubStatsPage() {
         }
         related={[
           {
+            href: "/research/which-ai-agent-framework-to-install-november-2026",
+            title: "60,871 stars shipped November 12. The 61,809-star repo did not.",
+            description:
+              "Eleven frameworks, pulled 03:46 UTC on November 14, 2026, and the job each one is for. AutoGen still leads stars. Its latest release is still September 30, 2025.",
+            kicker: "Research",
+            date: "2026-11-14",
+          },
+          {
             href: "/blog/can-one-tool-json-serve-openai-claude-and-mcp",
             title: "Can one tool JSON serve OpenAI, Claude, and MCP?",
             description:
@@ -352,6 +360,10 @@ export default async function FrameworkGithubStatsPage() {
             The sourced comparison is{" "}
             <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
               Best AI agent frameworks
+            </Link>
+            . Which of 11 to install for the job, with stars pulled November 14, 2026, is{" "}
+            <Link className="text-[var(--link)] underline" href="/research/which-ai-agent-framework-to-install-november-2026">
+              60,871 stars shipped November 12. The 61,809-star repo did not.
             </Link>
             . Live star counts for these repositories are on the{" "}
             <Link className="text-[var(--link)] underline" href="/trackers/stars">

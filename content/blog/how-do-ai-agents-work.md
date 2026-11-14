@@ -224,7 +224,7 @@ Today’s loop has seven parts. The names differ by vendor. The jobs show up in 
 </table>
 </div>
 
-A click on a real screen is the same loop with a narrower tool. That guide is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer). A coding agent that keeps an editor and a browser inside its own web session is a different product note, [What is Devin IDE?](/directory/devin#what-is-devin-ide). A workplace job with a file to review is [What is an AI employee?](/blog/what-is-an-ai-employee).
+A click on a real screen is the same loop with a narrower tool. That guide is [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer). What ChatGPT Work, Claude Cowork, and Gemini tasks will do on a person’s behalf, and where each one stops, is [ChatGPT agent is retired. Gemini tasks skip the EEA and the UK.](/blog/personal-assistant-ai-what-it-will-do-november-2026) A coding agent that keeps an editor and a browser inside its own web session is a different product note, [What is Devin IDE?](/directory/devin#what-is-devin-ide). A workplace job with a file to review is [What is an AI employee?](/blog/what-is-an-ai-employee).
 
 ## Where does the harness fit?
 
