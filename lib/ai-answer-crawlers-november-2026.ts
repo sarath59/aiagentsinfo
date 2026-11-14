@@ -310,6 +310,10 @@ export const chapters: ReportChapter[] = [
         kind: "p",
         text: "No per-engine day series and no raw User-Agent, so GoogleAgent stays separate from Google-Agent. No URL list for indexing or training: the pages payload is 39 answer-fetch paths and hasMore is false. Meta's crawler docs returned HTTP 500 on 11 November 2026, so meta-externalagent has no vendor purpose here. Counts stop at the end of 10 November. Search Console is not in the tables. The /pdf fetches and /directory/everygen-ai are not sitemap hits.",
       },
+      {
+        kind: "p",
+        text: "The before-and-after GoogleAgent series is the [GoogleAgent brief](/reports/googleagent-gemini-4-hydrogen-fetches-november-2026).",
+      },
     ],
   },
   {

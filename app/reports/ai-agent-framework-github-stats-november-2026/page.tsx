@@ -36,6 +36,7 @@ import {
   frameworkColumns,
   frameworkRows,
 } from "@/lib/framework-github-stats";
+import { path as hydrogenPath, title as hydrogenTitle } from "@/lib/googleagent-gemini-4-hydrogen-november-2026";
 import { BENCHMARK_READ_ON } from "@/lib/harness-benchmark";
 import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
@@ -433,6 +434,12 @@ export default async function FrameworkGithubStatsPage() {
               directory stats
             </Link>
             .
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            <Link className="text-[var(--link)] underline" href={hydrogenPath}>
+              {hydrogenTitle}
+            </Link>{" "}
+            counts GoogleAgent fetches of this page before and after 12 November 2026.
           </p>
         </section>
 

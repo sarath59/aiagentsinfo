@@ -132,6 +132,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/reports/enterprise-agent-platforms-next-6-months", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/reports/ai-shopping-agents-next-30-days", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/reports/ai-agent-frameworks-next-6-months", new Date("2026-11-12T00:00:00.000Z"), 0.8),
+    entry("/reports/googleagent-gemini-4-hydrogen-fetches-november-2026", new Date("2026-11-14T00:00:00.000Z"), 0.7),
     entry("/reports/ai-agent-vendor-robots-txt-november-2026", new Date("2026-11-13T00:00:00.000Z"), 0.7),
     entry("/reports/web-search-tools-for-ai-agents-november-2026", new Date("2026-11-12T00:00:00.000Z"), 0.7),
     entry("/reports/ai-answer-crawlers-november-2026", new Date("2026-11-11T00:00:00.000Z"), 0.7),

@@ -58,6 +58,11 @@ import {
   title as crawlerTitle,
 } from "@/lib/ai-answer-crawlers-november-2026";
 import {
+  description as hydrogenDescription,
+  path as hydrogenPath,
+  title as hydrogenTitle,
+} from "@/lib/googleagent-gemini-4-hydrogen-november-2026";
+import {
   description as vendorRobotsDescription,
   path as vendorRobotsPath,
   title as vendorRobotsTitle,
@@ -183,6 +188,11 @@ function dataPageSummaries() {
       "Checked: 2026-11-12",
       searchToolsDescription,
     ], "Daily brief. List prices, free tiers, rate limits, result format, and official MCP stars for 13 web search APIs, read from vendor pages and the GitHub API on 12 November 2026. Nothing here is estimated. Computed per-1,000 figures are labeled."),
+    articleBlock(hydrogenTitle, [
+      `URL: ${absoluteUrl(hydrogenPath)}`,
+      "Checked: 2026-11-14",
+      hydrogenDescription,
+    ], "Daily brief. GoogleAgent answer fetches and distinct paths on this site, 8–11 November versus 12–13 November 2026, with ChatGPT-User as the control. Counts are copied from this site's DataFast export. Rates are computed."),
     articleBlock(crawlerTitle, [
       `URL: ${absoluteUrl(crawlerPath)}`,
       "Checked: 2026-11-11",
@@ -334,6 +344,7 @@ export async function buildLlmsTxt() {
       item(enterpriseTitle, enterprisePath, enterpriseDescription),
       item(vendorRobotsTitle, vendorRobotsPath, vendorRobotsDescription),
       item(searchToolsTitle, searchToolsPath, searchToolsDescription),
+      item(hydrogenTitle, hydrogenPath, hydrogenDescription),
       item(crawlerTitle, crawlerPath, crawlerDescription),
       item(voiceTitle, voicePath, voiceDescription),
       item(productionTitle, productionPath, productionDescription),

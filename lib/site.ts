@@ -168,6 +168,13 @@ export const dataAssets = [
       "Flagship calendar. Anthropic’s November 10 filing, the December 1 and January 1 token-price steps, and the regulation clocks through November 2027. Updated November 12, 2026.",
   },
   {
+    href: "/reports/googleagent-gemini-4-hydrogen-fetches-november-2026",
+    title:
+      "GoogleAgent after Gemini 4 Hydrogen, November 2026: 2.8x answer fetches and 5.75x paths in 2 days",
+    summary:
+      "GoogleAgent went from 7.0 answer fetches a day on 8–11 November to 19.5 on 12–13 November. Distinct paths went from 2.0 to 11.5. ChatGPT-User rose 1.67x. Checked November 14, 2026.",
+  },
+  {
     href: "/reports/ai-agent-vendor-robots-txt-november-2026",
     title:
       "Do AI agent companies let AI agents read their sites? robots.txt and llms.txt of 52 websites, November 2026",
