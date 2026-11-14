@@ -29,12 +29,12 @@ const PRIVACY = "https://freegen.video/privacy";
 
 const supplements: Record<string, ListingSupplement> = {
   freegenvideo: {
-    checkedOn: "2026-11-12",
+    checkedOn: "2026-11-14",
     introNote:
-      "Community submission. The description was checked against the official site on November 12, 2026, using the homepage, the terms, and the privacy policy. This desk has not scored it.",
+      "Community submission. The description was checked against the official site on November 14, 2026, using the homepage, the terms, and the privacy policy. This desk has not scored it.",
     pricingNote:
-      "The one-video daily allowance was read on the homepage on November 12, 2026. The terms describe credits and subscriptions and do not list a dollar price.",
-    relatedSlugs: ["runway", "koe", "revid", "storyshort", "heygen"],
+      "The one-video daily allowance was read on the homepage on November 14, 2026. freegen.video/pricing returned HTTP 404 that day. The terms describe credits and subscriptions and do not list a dollar price.",
+    relatedSlugs: ["runway", "pika", "revid", "storyshort", "heygen", "speel", "motionfly"],
     faq: [
       {
         question: "What is FreeGenVideo?",
@@ -45,7 +45,7 @@ const supplements: Record<string, ListingSupplement> = {
       {
         question: "Is FreeGenVideo free?",
         answer:
-          "The homepage says you can generate one free video per day, and that the allowance resets at 00:00 UTC. When free guest generation is available, that page says you can create without registering or logging in, and that you should check the allowance shown in the generator. The terms describe credits and subscriptions, with prices shown before checkout. No dollar price was on the homepage, the terms, the privacy policy, or the sitemap checked November 12, 2026.",
+          "The homepage says you can generate one free video per day, and that the allowance resets at 00:00 UTC. When free guest generation is available, that page says you can create without registering or logging in. The generator markup on November 14, 2026 showed Collart Video General, 540P or 720P, and 5 seconds. freegen.video/pricing returned HTTP 404. The terms describe credits and subscriptions, with prices shown before checkout, and do not print a dollar amount.",
         sources: [
           { href: HOME, label: "FreeGenVideo homepage" },
           { href: TERMS, label: "Terms of Service" },

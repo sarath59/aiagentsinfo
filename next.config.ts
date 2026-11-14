@@ -79,8 +79,23 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
-        source: "/directory/ozil-goal-ai",
-        destination: "/directory",
+        source: "/directory/ai-calculators",
+        destination: "/directory/category/finance",
+        statusCode: 301,
+      },
+      {
+        source: "/directory/compute-comparison",
+        destination: "/directory/category/developer-tools",
+        statusCode: 301,
+      },
+      {
+        source: "/directory/list-matcher",
+        destination: "/directory/category/productivity",
+        statusCode: 301,
+      },
+      {
+        source: "/directory/tingkaopu",
+        destination: "/directory/category/productivity",
         statusCode: 301,
       },
       {

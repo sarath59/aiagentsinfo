@@ -48,6 +48,13 @@
     "height": 128,
     "bytes": 958
   },
+  "duoplus-cloud-phone": {
+    "source": "https://www.duoplus.net/images/favicon.png",
+    "file": "/logos/makers/duoplus-cloud-phone.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1914
+  },
   "else": {
     "source": "https://elsedoes.com/brand/icon-512.png",
     "file": "/logos/makers/else.webp",
@@ -83,6 +90,20 @@
     "height": 128,
     "bytes": 3118
   },
+  "findaffiliates": {
+    "source": "https://i.ibb.co/QvNzFcqC/fa-logo-square.png",
+    "file": "/logos/makers/findaffiliates.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1214
+  },
+  "goanyapi": {
+    "source": "https://goanyapi.com/logo.png",
+    "file": "/logos/makers/goanyapi.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 3852
+  },
   "grok-bot-kit": {
     "source": "https://grokbotkit.com/images/og-default.png",
     "file": "/logos/makers/grok-bot-kit.webp",
@@ -96,6 +117,13 @@
     "width": 128,
     "height": 128,
     "bytes": 1428
+  },
+  "instagridmaker": {
+    "source": "https://instagridmaker.com/icon.svg",
+    "file": "/logos/makers/instagridmaker.svg",
+    "width": 128,
+    "height": 128,
+    "bytes": 993
   },
   "jevapi": {
     "source": "https://jevapi.io/og-image.png",
@@ -111,6 +139,13 @@
     "height": 128,
     "bytes": 8706
   },
+  "lava": {
+    "source": "https://ai-dolphin.com/logo.png",
+    "file": "/logos/makers/lava.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 2578
+  },
   "linktotext": {
     "source": "https://linktotext.co/social-share-poster.webp",
     "file": "/logos/makers/linktotext.webp",
@@ -124,6 +159,13 @@
     "width": 128,
     "height": 128,
     "bytes": 1070
+  },
+  "mozhu": {
+    "source": "https://mozhu.ai/logo.svg",
+    "file": "/logos/makers/mozhu.svg",
+    "width": 128,
+    "height": 128,
+    "bytes": 1322
   },
   "neverapply": {
     "source": "https://neverapply.co/apple-touch-icon.png",
@@ -153,6 +195,13 @@
     "height": 128,
     "bytes": 1576
   },
+  "ozil-goal-ai": {
+    "source": "https://ozilgoalai.io/logo.svg",
+    "file": "/logos/makers/ozil-goal-ai.svg",
+    "width": 128,
+    "height": 128,
+    "bytes": 758
+  },
   "rezloom": {
     "source": "https://rezloom.com/favicon.png",
     "file": "/logos/makers/rezloom.webp",
@@ -166,6 +215,13 @@
     "width": 128,
     "height": 128,
     "bytes": 4404
+  },
+  "seedream-5-0-pro-ai-image-generator": {
+    "source": "https://seedream50.pro/logo.png",
+    "file": "/logos/makers/seedream-5-0-pro-ai-image-generator.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 4106
   },
   "smew-ai": {
     "source": "https://smew.ai/apple-touch-icon.png",

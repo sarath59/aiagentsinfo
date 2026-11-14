@@ -35,7 +35,7 @@ lastVerified: "2026-11-10"
 newThisWeek: true
 ---
 
-Clip Utils, from Ojas Sharma, is a set of browser tools for video and audio. The AI pieces are subtitles, transcription, translation, dubbing, and voice-over. Most of the processing stays on your machine, so you are not uploading the file to a render queue. The free tier needs no account. A paid pass removes the short-clip limits.
+Clip Utils, also searched as cliputils and clip utils, is a set of browser tools from Ojas Sharma for video and audio. The site is cliputils.com. The AI pieces are subtitles, transcription, translation, dubbing, and voice-over. Most of the processing stays on your machine, so you are not uploading the file to a render queue. The free tier needs no account. A paid pass removes the short-clip limits.
 
 ## Best for
 

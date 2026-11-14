@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Ozil Goal AI">
+  <rect width="512" height="512" rx="112" fill="#186a40"/>
+  <path d="M88 152h336M88 232h336M88 312h336M168 120v296M248 120v296M328 120v296" stroke="#f6f4ec" stroke-opacity="0.12" stroke-width="8"/>
+  <path d="M88 416V120h336v296" fill="none" stroke="#f6f4ec" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 416h416" stroke="#f6f4ec" stroke-width="36" stroke-linecap="round"/>
+  <path d="M132 360C168 260 236 206 300 200" fill="none" stroke="#f6f4ec" stroke-opacity="0.55" stroke-width="20" stroke-linecap="round" stroke-dasharray="1 44"/>
+  <circle cx="352" cy="196" r="62" fill="#f6f4ec"/>
+</svg>
