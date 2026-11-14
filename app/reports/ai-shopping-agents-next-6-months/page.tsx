@@ -27,6 +27,14 @@ export default async function ShoppingAgentsReportPage() {
   ]);
   const related = [
     {
+      href: "/blog/can-ai-agents-book-flights",
+      title: "Can AI agents book flights? United can cancel the reservation",
+      description:
+        "United's November 11, 2026 contract bars an agent from booking or buying a seat. Shopify and ChatGPT Wallet opened a sanctioned door on November 13.",
+      kicker: "News",
+      date: "2026-11-14",
+    },
+    {
       href: "/blog/can-an-ai-agent-buy-things-online",
       title: "Can an AI agent buy things online for me? Navoka gives it a separate card",
       description:

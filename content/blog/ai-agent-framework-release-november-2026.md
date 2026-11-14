@@ -7,7 +7,7 @@ takeaways:
   - "GitHub published browser-use 1.0.0 at 2026-11-10T02:04:48Z. The agent writes Python in one persistent REPL on Chrome DevTools Protocol. Browser() now starts a Browser Use Cloud browser. The 1.0.0 notes claim up to 33 points on the same models. The only score table on that page compares 1.0 with Browser Use Pi, and the quality gap there is not significant once provider errors are removed."
   - "AG2 1.3.1 was uploaded to PyPI at 2026-11-10T21:03:53Z. A2UI v1.0 messages now carry version 1.0, not v1.0. FastMCP 4.1.8, uploaded at 2026-11-10T20:44:54Z, makes OAuth proxy token revocation work for the client that owns the token."
 date: "2026-11-11"
-updated: "2026-11-12"
+updated: "2026-11-14"
 category: news
 topics:
   - news
@@ -69,6 +69,8 @@ faq:
 ---
 
 browser-use 1.0.2 and Pydantic AI 2.67.0 will not install in the same environment. PyPI’s browser-use 1.0.2, uploaded at 2026-11-11T04:07:32Z, requires `pydantic-ai-slim[anthropic,google,openai]==2.66.0`. PyPI’s pydantic-ai 2.67.0, uploaded at 2026-11-11T00:23:27Z and read again at 04:12 UTC, requires `pydantic-ai-slim[anthropic,cli,evals,google,logfire,mcp,openai,web]==2.67.0`. Those are two exact pins on one library. A resolver cannot satisfy both.
+
+The pin was still there on November 14. PyPI’s browser-use 1.0.4, uploaded at 2026-11-13T20:56:54Z, requires the same slim `==2.66.0`. pydantic-ai 2.68.0, uploaded at 2026-11-12T02:30:01Z, requires slim `==2.68.0`. What else shipped from November 12 through November 14, including the Mastra `durable` change and the `@openai/agents` 0.22.0 type break, is [AI agent framework release November 2026: durable no longer checkpoints](/blog/ai-agent-framework-release-november-2026-upgrade).
 
 That is the AI agent framework release that matters in this window. GitHub published browser-use 1.0.0 at 2026-11-10T02:04:48Z under the title “browser-use 1.0: CDP is all you need.” The agent no longer picks one action from a DOM dump. It writes Python in one persistent REPL on Chrome DevTools Protocol, on [Pydantic AI](/directory/pydantic-ai). The 1.0.2 notes, published at 2026-11-11T04:00:00Z, are fixes on top of that rewrite. They do not loosen the pin.
 
@@ -209,7 +211,7 @@ If you run Pydantic AI and you do not install browser-use 1.0, 2.67.0 is the rel
 
 If you emit A2UI from AG2, change `"v1.0"` to `"1.0"` before you upgrade, and require `TextField.value`. If you run a FastMCP OAuth proxy, 4.1.8 is the revocation fix for the client that owns the token.
 
-Leave `openai-agents` at 0.24.0 until that package actually publishes. Leave Python `langgraph` at 1.2.20 unless you meant the JavaScript package. The [harnesses topic](/topics/harnesses) collects the longer guides. The [best harness comparison](/best/ai-agent-harnesses) is the product table, separate from these pins.
+Leave Python `openai-agents` at 0.24.0. That package did not publish a new stable release in the November 12–14 window. Python `langgraph` did. 1.2.22 was uploaded on November 14. The tags, the type breaks, and the pin that still blocks browser-use 1.0.4 from sitting next to Pydantic AI 2.68.0 are [the November 14 upgrade guide](/blog/ai-agent-framework-release-november-2026-upgrade). The [harnesses topic](/topics/harnesses) collects the longer guides. The [best harness comparison](/best/ai-agent-harnesses) is the product table, separate from these pins.
 
 ## Frequently asked questions
 

@@ -7,7 +7,7 @@ takeaways:
   - "On the pages checked for this guide, Google can take Google Pay or hand items to the store, and ChatGPT sends the purchase to the store's website or app."
   - "The short version: the assistant is allowed to act. The store still sells the item."
 date: "2026-11-04"
-updated: "2026-11-12"
+updated: "2026-11-14"
 category: guide
 topics:
   - shopping
@@ -257,6 +257,7 @@ The [shopping topic](/topics/shopping) is the shelf for this guide. The [harness
 
 ## Where can you read more on this site?
 
+- November 14, 2026: [Can AI agents book flights? United can cancel the reservation](/blog/can-ai-agents-book-flights)
 - Payment rails, read November 12, 2026: [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay)
 - Glossary: [shopping agent](/glossary/shopping-agent), [agentic checkout](/glossary/agentic-checkout), [agentic commerce](/glossary/agentic-commerce), [delegated payment token](/glossary/delegated-payment-token), [Know Your Agent](/glossary/know-your-agent), [product feed](/glossary/product-feed), [harness](/glossary/harness), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy), [tool use](/glossary/tool-use), [orchestration](/glossary/orchestration)
 - Guides: [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [What is an AI employee?](/blog/what-is-an-ai-employee), [Can an AI agent use your computer?](/blog/can-an-ai-agent-use-your-computer)
