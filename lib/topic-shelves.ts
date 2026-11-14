@@ -157,8 +157,13 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
   shopping: {
     heading: "Which shopping-agent pages answer the buying questions?",
     answer:
-      "The payment guide says which credential moves. The checkout guide says which assistant can finish. The six-month timeline says what is dated.",
+      "ChatGPT Wallet, opened November 13, 2026, is the new payment path inside a dot. The payment guide says which older credential moves. The checkout guide says which assistant can finish. The six-month timeline says what is dated.",
     links: [
+      {
+        href: "/blog/how-does-chatgpt-wallet-work",
+        anchor: "How does ChatGPT Wallet work? Face ID, then a payment token",
+        note: "November 13, 2026. A network token after a biometric, inside a dot. Poppy is the separate discovery file.",
+      },
       {
         href: "/blog/how-do-ai-shopping-agents-pay",
         anchor: "How do AI shopping agents pay?",

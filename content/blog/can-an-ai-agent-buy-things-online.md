@@ -7,7 +7,7 @@ takeaways:
   - "Navoka’s agent terms, version 1.0 dated October 18, 2026 and read November 13, charge no software fee. A separate Wirex group company holds the funds and issues the card. Wirex Holdings caps its own liability at the greater of £100 and software fees paid in a 12-month period."
   - "The mandate is holder-only. set_policy from an agent session is refused. Card checks run at authorisation. The kill switch freezes the card and does not reverse a payment that has already executed."
 date: "2026-11-13"
-updated: "2026-11-13"
+updated: "2026-11-14"
 category: news
 topics:
   - news
@@ -76,7 +76,7 @@ sources:
     url: "https://dope.markets/terms.html"
 faq:
   - question: "Can an AI agent buy things online for me?"
-    answer: "Sometimes, and only on a payment path the product already has. ChatGPT’s merchant page, read November 12, 2026, still sends the purchase to the store’s website or app. Navoka, launched by Wirex the same day, pays from an IBAN, debit card, and USDC/EURC wallet that belong to the agent, inside limits you set. A scoped token or a signed mandate spends your own card inside a max amount. Those are three different yeses."
+    answer: "Sometimes, and only on a payment path the product already has. ChatGPT’s merchant page, read November 12, 2026, still sends the purchase to the store’s website or app. On November 13, ChatGPT Wallet added a separate path inside a dot: your credit card, a network token, and a biometric on every purchase. Navoka, launched by Wirex on November 12, pays from an IBAN, debit card, and USDC/EURC wallet that belong to the agent, inside limits you set. A scoped token or a signed mandate spends your own card inside a max amount."
   - question: "Does Navoka charge my personal card?"
     answer: "No. Navoka’s pages say the agent’s debit card is separate from a Wirex One card, the agent cannot use yours, and neither the agent nor a connected assistant sees the card number. You move money into the agent’s account. The card is a network token. The pages read November 13, 2026 do not name the card scheme."
   - question: "What does Navoka cost?"
@@ -230,7 +230,7 @@ Google’s [Gemini 4 Hydrogen post](https://blog.google/innovation-and-ai/techno
 
 ## What does this mean if you shop, sell, or build?
 
-Shoppers. An agent can buy for you on Navoka only after money is in the agent’s account and a mandate exists. Start on “approve each.” Move a rule to “run inside the limit” only after you have watched it. The release says access is invite-only. The site describes sign-in. Until you have an account, you do not have this card. ChatGPT, without Navoka, still sends you to the store. The phrase people are searching, “can AI buy things online for me,” does not have one product behind it.
+Shoppers. An agent can buy for you on Navoka only after money is in the agent’s account and a mandate exists. Start on “approve each.” Move a rule to “run inside the limit” only after you have watched it. The release says access is invite-only. The site describes sign-in. Until you have an account, you do not have this card. ChatGPT’s merchant page, read November 12, still sends you to the store. On November 13, OpenAI opened a different yes, ChatGPT Wallet, inside a dot: your own credit card, a network token, and Face ID or Touch ID on every purchase. That explainer is [How does ChatGPT Wallet work? Face ID, then a payment token](/blog/how-does-chatgpt-wallet-work). The phrase people are searching, “can AI buy things online for me,” does not have one product behind it.
 
 Merchants. You do not integrate Navoka to be chargeable by this card. You also do not learn, from the card payment alone, that an agent sent it. Keep the protocol work on the channel that has already named you. A decline at authorisation is Navoka’s mandate, not your checkout rule. Your feed still has to be readable if you want to be quoted before that charge. The calendar of who has dated a checkout through May 2027 remains the [shopping report](/reports/ai-shopping-agents-next-6-months).
 
@@ -240,6 +240,7 @@ The [shopping topic](/topics/shopping) collects the checkout guides. The word fo
 
 ## Where can you read more on this site?
 
+- November 14, 2026: [How does ChatGPT Wallet work? Face ID, then a payment token](/blog/how-does-chatgpt-wallet-work)
 - Payments map, read November 12, 2026: [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay)
 - Who can finish a purchase: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you)
 - Report: [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months)
@@ -253,7 +254,7 @@ The [shopping topic](/topics/shopping) collects the checkout guides. The word fo
 
 ### Can an AI agent buy things online for me?
 
-Sometimes. [ChatGPT](/directory/chatgpt)’s merchant page, read November 12, 2026, still sends the purchase to the store. Navoka, launched by Wirex the same day, pays from an IBAN, debit card, and USDC/EURC wallet that belong to the agent, inside limits you set. A [delegated payment token](/glossary/delegated-payment-token) spends your own card inside a max amount. Those are three different yeses. The map of the token path is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay).
+Sometimes. [ChatGPT](/directory/chatgpt)’s merchant page, read November 12, 2026, still sends the purchase to the store. On November 13, ChatGPT Wallet added a path inside a dot: your credit card, a network token, and a biometric on every purchase. That page is [How does ChatGPT Wallet work?](/blog/how-does-chatgpt-wallet-work). Navoka, launched by Wirex on November 12, pays from an IBAN, debit card, and USDC/EURC wallet that belong to the agent, inside limits you set. A [delegated payment token](/glossary/delegated-payment-token) spends your own card inside a max amount. The map of the older token path is [How do AI shopping agents pay?](/blog/how-do-ai-shopping-agents-pay).
 
 ### Does Navoka charge my personal card?
 

@@ -7,7 +7,7 @@ takeaways:
   - "ChatGPT’s merchant page, read November 12, 2026, still finishes the purchase on the store’s site. OpenAI’s Delegated Payment Spec, Last-Modified the same morning, still describes a single-use token. A product feed does not turn that token on."
   - "Shoppers should read the approval screen. Merchants are buyable on a channel they have enabled. Builders should pin a spec date: ACP’s payment example says API version 2025-09-29, and AP2’s spec page is v0.2 from April 28, 2026."
 date: "2026-11-12"
-updated: "2026-11-13"
+updated: "2026-11-14"
 category: guide
 topics:
   - shopping
@@ -84,7 +84,7 @@ faq:
   - question: "How do AI shopping agents pay?"
     answer: "They pay through a checkout path the product already has. OpenAI’s Delegated Payment Spec describes a single-use token with a max amount and an expiry. Google’s Agent Payments Protocol v0.2 uses a signed Checkout Mandate and Payment Mandate. Visa and Mastercard use tokenized credentials and a registered agent. Shop Pay returns a one-time credential after the buyer approves in Shop Pay. Amazon Buy for Me sends encrypted name, address, and payment details to the brand’s site after the shopper confirms an Amazon checkout page."
   - question: "Can ChatGPT charge my card inside the chat?"
-    answer: "The merchant page read on November 12, 2026 says no. Shoppers discover products in ChatGPT and complete the purchase on the merchant’s website or app. The Delegated Payment Spec is still published, and its Last-Modified header that morning was 11:17 GMT. That spec is for payment providers and PCI DSS level 1 merchants. A product feed does not start it."
+    answer: "The merchant page read on November 12, 2026 says the purchase finishes on the merchant’s website or app. The Delegated Payment Spec is still published, and its Last-Modified header that morning was 11:17 GMT. That spec is for payment providers and PCI DSS level 1 merchants. A product feed does not start it. On November 13, OpenAI opened a separate path, ChatGPT Wallet, inside a dot. That path pays with a network token after a biometric. It is not this spec."
   - question: "What is a delegated payment token?"
     answer: "It is a payment token a processor returns after it receives card details and an allowance. On OpenAI’s spec the allowance is one-time, tied to a max amount, a currency, a merchant, a checkout session, and an expiry. Stripe’s Shared Payment Token is the first implementation Stripe names, and Stripe marks that product a public preview in the US, Canada, and select European countries."
   - question: "What must a merchant do to be buyable by an AI agent?"
@@ -95,7 +95,7 @@ faq:
     answer: "No. Mastercard opened it to early access on October 20, 2026 so an agent can pay for digital services such as models and APIs, inside a budget a business set, on top of x402. A product checkout and a machine paying for an API are different integrations."
 ---
 
-Updated November 13, 2026.
+Updated November 14, 2026. On November 13, OpenAI opened ChatGPT Wallet, a separate path from the merchant page and the Delegated Payment Spec below. The explainer is [How does ChatGPT Wallet work? Face ID, then a payment token](/blog/how-does-chatgpt-wallet-work).
 
 ## How do AI shopping agents pay?
 
@@ -358,6 +358,7 @@ Builders. Pin a date. ACP’s payment example still says API version `2025-09-29
 - Glossary: [agentic commerce](/glossary/agentic-commerce), [delegated payment token](/glossary/delegated-payment-token), [Know Your Agent](/glossary/know-your-agent), [agentic checkout](/glossary/agentic-checkout), [shopping agent](/glossary/shopping-agent), [product feed](/glossary/product-feed), [guardrail](/glossary/guardrail), [autonomy](/glossary/autonomy)
 - Guides: [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you), [How to make your store readable by AI shopping agents](/blog/how-to-make-your-store-readable-by-ai-shopping-agents), [OpenAI’s checkout example is still API version 2025-09-12](/blog/ucp-vs-acp-spec-versions-november-2026)
 - Comparison: [Best AI agent for shopping](/best/ai-agents-for-shopping), [4 of 5 shopping agents can finish checkout](/blog/ai-shopping-agents-compared-november-2026)
+- News, November 14, 2026: [How does ChatGPT Wallet work? Face ID, then a payment token](/blog/how-does-chatgpt-wallet-work)
 - News, November 13, 2026: [Can an AI agent buy things online for me? Navoka gives it a separate card](/blog/can-an-ai-agent-buy-things-online)
 - Report: [AI shopping agents next 6 months](/reports/ai-shopping-agents-next-6-months)
 - Research: [AP2 has 3,270 stars and no package](/research/agentic-commerce-protocol-adoption-november-2026)
@@ -372,7 +373,7 @@ Through a checkout path the product already has. OpenAI’s spec describes a sin
 
 ### Can ChatGPT charge my card inside the chat?
 
-The merchant page read on November 12, 2026 says no. Shoppers discover products in [ChatGPT](/directory/chatgpt) and pay on the merchant’s website or app. The Delegated Payment Spec is still published. Its Last-Modified header that morning was 11:17 GMT. That spec is for payment providers and PCI DSS level 1 merchants. A product feed does not start it.
+The merchant page read on November 12, 2026 says shoppers discover products in [ChatGPT](/directory/chatgpt) and pay on the merchant’s website or app. The Delegated Payment Spec is still published. Its Last-Modified header that morning was 11:17 GMT. That spec is for payment providers and PCI DSS level 1 merchants. A product feed does not start it. On November 13, OpenAI opened a separate path, ChatGPT Wallet, inside a dot. The rules for that path are [How does ChatGPT Wallet work?](/blog/how-does-chatgpt-wallet-work).
 
 ### What is a delegated payment token?
 
