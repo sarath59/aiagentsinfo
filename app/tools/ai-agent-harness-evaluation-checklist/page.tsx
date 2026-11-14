@@ -137,7 +137,11 @@ export default function HarnessChecklistPage() {
             <Link className="text-[var(--link)] underline" href="/reports/agent-harness-benchmark-november-2026">
               November 2026 harness benchmark
             </Link>
-            . The paper shelf those notes live on is{" "}
+            . Listed run cost divided by tasks resolved is the{" "}
+            <Link className="text-[var(--link)] underline" href="/tools/agent-benchmark-cost-per-solved-task">
+              cost per solved task calculator
+            </Link>
+            . A missing cost stays Not listed.{" "} The paper shelf those notes live on is{" "}
             <Link className="text-[var(--link)] underline" href="/papers">
               AI agent papers
             </Link>

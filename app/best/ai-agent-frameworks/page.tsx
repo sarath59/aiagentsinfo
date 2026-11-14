@@ -45,6 +45,11 @@ export default function BestAiAgentFrameworksPage() {
             <Link href="/blog/which-ai-agent-framework-do-people-install">
               Which AI agent framework do people install?
             </Link>{" "}
+            Downloads per star, from October 15 through November 13, 2026, are in{" "}
+            <Link href="/research/ai-agent-framework-downloads-vs-github-stars-november-2026">
+              AI agent framework downloads vs GitHub stars
+            </Link>
+            . AutoGen is 6.9 per star in that note. LangGraph is 1,308.0.{" "}
             The workshop around a model, as opposed to the library, is{" "}
             <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link> The priced coding
             products are <Link href="/best/ai-coding-agents">Best AI coding agents</Link>. The shelf for every table

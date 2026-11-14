@@ -7,6 +7,12 @@ const cards = {
     title: "Estimate what this agent costs you",
     body: "A 30-day token bill from official per-token prices. It does not add a seat fee.",
   },
+  benchmarkCost: {
+    href: "/tools/agent-benchmark-cost-per-solved-task",
+    kicker: "Benchmark cost",
+    title: "Cost per solved benchmark task",
+    body: "Listed SWE-bench or Terminal-Bench run cost divided by tasks resolved. A missing cost stays Not listed.",
+  },
   roi: {
     href: "/tools/ai-agent-roi-calculator",
     kicker: "ROI",

@@ -204,7 +204,15 @@ export default async function StarsTrackerPage() {
             <Link className="text-[var(--link)] underline" href={TRACKER_PATHS.downloads}>
               downloads tracker
             </Link>{" "}
-            for pip and npm, and this table for GitHub bookmarks. The same split on coding-agent CLIs, read November
+            for pip and npm, and this table for GitHub bookmarks. Dividing the October 15–November 13, 2026 download
+            window by the November 14 star pull is{" "}
+            <Link
+              className="text-[var(--link)] underline"
+              href="/research/ai-agent-framework-downloads-vs-github-stars-november-2026"
+            >
+              AI agent framework downloads vs GitHub stars
+            </Link>
+            . AutoGen is 6.9 downloads per star in that note. LangGraph is 1,308.0. The stars-versus-downloads split on coding-agent CLIs, read November
             11, 2026, is{" "}
             <Link className="text-[var(--link)] underline" href="/research/claude-code-vs-codex-downloads-november-2026">
               Claude Code vs Codex downloads

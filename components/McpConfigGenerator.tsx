@@ -90,11 +90,6 @@ export function McpConfigGenerator() {
   const check = serverCheck ?? localCheck;
 
   useEffect(() => {
-    setServerCheck(null);
-    setServerNote("");
-  }, [mode]);
-
-  useEffect(() => {
     const controller = new AbortController();
     const timer = window.setTimeout(() => {
       const payload =
@@ -159,10 +154,10 @@ export function McpConfigGenerator() {
   return (
     <div id="mcp-config-draft">
       <div className="mb-4 flex flex-wrap gap-2">
-        <button type="button" className={mode === "generate" ? "btn-primary px-4 py-2 text-sm" : "btn-ghost px-4 py-2 text-sm"} onClick={() => setMode("generate")}>
+        <button type="button" className={mode === "generate" ? "btn-primary px-4 py-2 text-sm" : "btn-ghost px-4 py-2 text-sm"} onClick={() => { if (mode !== "generate") { setServerCheck(null); setServerNote(""); } setMode("generate"); }}>
           Generate
         </button>
-        <button type="button" className={mode === "validate" ? "btn-primary px-4 py-2 text-sm" : "btn-ghost px-4 py-2 text-sm"} onClick={() => { markRun(); setMode("validate"); }}>
+        <button type="button" className={mode === "validate" ? "btn-primary px-4 py-2 text-sm" : "btn-ghost px-4 py-2 text-sm"} onClick={() => { markRun(); if (mode !== "validate") { setServerCheck(null); setServerNote(""); } setMode("validate"); }}>
           Check a config
         </button>
       </div>
@@ -541,7 +536,7 @@ export function McpConfigGenerator() {
       {mode === "generate" ? (
         <section className="mt-6" aria-labelledby="convert-clients">
           <h2 id="convert-clients" className="text-lg font-semibold tracking-tight">Convert to other clients</h2>
-          <p className="mt-1 text-sm text-[var(--muted)]">Same servers, each client's documented file. A key that is right for one of these is wrong for another.</p>
+          <p className="mt-1 text-sm text-[var(--muted)]">Same servers, each client&apos;s documented file. A key that is right for one of these is wrong for another.</p>
           <ul className="mt-3 grid gap-3">
             {others.map((other) => (
               <li key={other.client} className="rounded-2xl border border-[var(--stroke)] p-3">

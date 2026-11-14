@@ -434,6 +434,13 @@ export default async function FrameworkGithubStatsPage() {
               GitHub stars tracker
             </Link>
             ,{" "}
+            <Link
+              className="text-[var(--link)] underline"
+              href="/research/ai-agent-framework-downloads-vs-github-stars-november-2026"
+            >
+              downloads per GitHub star, October 15–November 13, 2026
+            </Link>
+            ,{" "}
             <Link className="text-[var(--link)] underline" href="/directory/category/agent-frameworks">
               agent frameworks
             </Link>

@@ -382,6 +382,22 @@ export default async function DownloadsTrackerPage() {
             .
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Downloads per GitHub star for this set, from October 15 through November 13, 2026, are the{" "}
+            <Link
+              className="text-[var(--link)] underline"
+              href="/research/ai-agent-framework-downloads-vs-github-stars-november-2026"
+            >
+              November 14 research note
+            </Link>
+            . autogen-agentchat is 6.9 downloads per star. langgraph is 1,308.0. The star counts in that note were
+            read the same morning. A different bill, listed SWE-bench or Terminal-Bench run cost divided by tasks
+            resolved, is the{" "}
+            <Link className="text-[var(--link)] underline" href="/tools/agent-benchmark-cost-per-solved-task">
+              agent benchmark cost calculator
+            </Link>
+            . A missing benchmark cost stays Not listed.
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             Bookmarks for the framework repositories are the{" "}
             <Link className="text-[var(--link)] underline" href={TRACKER_PATHS.stars}>
               stars tracker

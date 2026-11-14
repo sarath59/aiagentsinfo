@@ -6,7 +6,7 @@ import { freeTools, toolCategories } from "@/lib/tools-catalog";
 const path = "/tools";
 const title = "Free AI agent tools";
 const description =
-  "Free tools for an MCP config, an AGENTS.md, an agent pick, a token bill, a web search API cost, an ROI check, a prompt or harness check, a store readiness score, and a robots.txt check for AI crawlers. No login.";
+  "Free tools for an MCP config, an AGENTS.md, an agent pick, a token bill, a web search API cost, a benchmark cost per solved task, an ROI check, a prompt or harness check, a store readiness score, and a robots.txt check for AI crawlers. No login.";
 
 export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
 
@@ -19,7 +19,7 @@ export default function ToolsPage() {
           description,
           path,
           datePublished: "2026-11-10",
-          dateModified: "2026-11-13",
+          dateModified: "2026-11-14",
         })}
       />
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Tools", path }]} />

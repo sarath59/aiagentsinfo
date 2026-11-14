@@ -122,6 +122,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/tools/ai-crawler-robots-txt-checker", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/tools/ai-agent-roi-calculator", new Date("2026-11-11T00:00:00.000Z"), 0.8),
     entry("/tools/web-search-api-cost-per-agent-task", new Date("2026-11-13T00:00:00.000Z"), 0.8),
+    entry("/tools/agent-benchmark-cost-per-solved-task", new Date("2026-11-14T00:00:00.000Z"), 0.8),
     entry("/tools/agents-md-generator", new Date("2026-11-10T00:00:00.000Z"), 0.8),
     entry("/tools/agent-picker", new Date("2026-11-09T00:00:00.000Z"), 0.7),
     entry("/tools/ai-agent-harness-evaluation-checklist", new Date("2026-11-10T00:00:00.000Z"), 0.8),

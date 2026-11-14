@@ -60,6 +60,13 @@ export const freeTools: FreeTool[] = [
     category: "Cost & Pricing",
   },
   {
+    href: "/tools/agent-benchmark-cost-per-solved-task",
+    title: "Agent benchmark cost per solved task",
+    description:
+      "Listed SWE-bench or Terminal-Bench run cost divided by tasks resolved. A missing cost stays Not listed. Nothing is stored.",
+    category: "Cost & Pricing",
+  },
+  {
     href: "/tools/cursor-vs-claude-code-vs-codex-pricing",
     title: "Cursor vs Claude Code vs Codex pricing",
     description: "Seat prices read from the vendors' pages, plus the same token calculator.",

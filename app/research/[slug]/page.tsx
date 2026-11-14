@@ -226,6 +226,37 @@ export default async function ResearchDocPage({ params }: { params: Promise<{ sl
 }
 
 function nextReadForDoc(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "ai-agent-framework-downloads-vs-github-stars-november-2026") {
+    return {
+      reads: [
+        {
+          href: "/trackers/downloads",
+          title: "Framework downloads tracker",
+          note: "The live PyPI and npm file requests. A download is not a user.",
+        },
+        {
+          href: "/trackers/stars",
+          title: "Framework stars tracker",
+          note: "Live stargazers_count. This note divides a 30-day window by one morning.",
+        },
+        {
+          href: "/reports/ai-agent-framework-github-stats-november-2026",
+          title: "AI agent framework GitHub stats, November 2026",
+          note: "The November 5 star snapshot. AutoGen was already at 61,706.",
+        },
+        {
+          href: "/best/ai-agent-frameworks",
+          title: "Best AI agent frameworks",
+          note: "Licence and release tag. This note is downloads per star.",
+        },
+      ],
+      tool: {
+        href: "/agent-cost-calculator",
+        title: "agent cost calculator",
+        note: "a token bill for the model the framework calls. Stars are not that bill",
+      },
+    };
+  }
   if (slug === "ai-agent-framework-mcp-a2a-support-november-2026") {
     return {
       reads: [

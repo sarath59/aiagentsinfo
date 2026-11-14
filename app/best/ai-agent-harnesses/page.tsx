@@ -51,7 +51,12 @@ export default function BestAiAgentHarnessPage() {
           <p>
             The longer definition is <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link>{" "}
             Public board scores stay on the{" "}
-            <Link href="/reports/agent-harness-benchmark-november-2026">November 2026 harness benchmark</Link>. How to
+            <Link href="/reports/agent-harness-benchmark-november-2026">November 2026 harness benchmark</Link>. Listed
+            run cost divided by tasks resolved is the{" "}
+            <Link href="/tools/agent-benchmark-cost-per-solved-task">
+              cost per solved task calculator
+            </Link>
+            . A missing cost stays Not listed. How to
             test a change without trusting a composite score is{" "}
             <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>{" "}
             The shelf for this table is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>.

@@ -369,7 +369,7 @@ export async function buildLlmsTxt() {
       item(
         "Free tools",
         "/tools",
-        "AGENTS.md generator, MCP config generator, agent picker, cost, ROI, and web search API cost calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
+        "AGENTS.md generator, MCP config generator, agent picker, cost, ROI, web search API cost, and benchmark cost-per-solved-task calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
       ),
       item(
         "robots.txt checker for AI crawlers",
@@ -400,6 +400,11 @@ export async function buildLlmsTxt() {
         "Web search API cost per agent task",
         "/tools/web-search-api-cost-per-agent-task",
         "Free client-side cost of Tavily, Exa, Brave, Perplexity, SerpAPI, Gemini grounding, and the OpenAI and Anthropic web search tools, including tool-definition and result tokens. Call prices read November 13, 2026. Nothing you type is stored.",
+      ),
+      item(
+        "Agent benchmark cost per solved task",
+        "/tools/agent-benchmark-cost-per-solved-task",
+        "Free client-side cost per resolved SWE-bench or Terminal-Bench task from the November 5, 2026 rows. A missing or partial cost stays Not listed. Nothing you select is stored.",
       ),
       item(
         "Prompt and tool checker",

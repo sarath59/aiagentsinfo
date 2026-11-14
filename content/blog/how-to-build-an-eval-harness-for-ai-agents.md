@@ -222,6 +222,7 @@ Live install and download counts for the libraries around this work sit on the [
 - Terms: [harness](/glossary/harness), [harness engineering](/glossary/harness-engineering), [behavioral evaluation](/glossary/behavioral-evaluation), [benchmark](/glossary/benchmark), [guardrail](/glossary/guardrail), [agent loop](/glossary/agent-loop)
 - Comparisons: [Best AI agent evaluation tools](/best/ai-agent-evaluation-tools), [Best AI agent harness](/best/ai-agent-harnesses)
 - Report: [agent harness benchmark, November 2026](/reports/agent-harness-benchmark-november-2026)
+- Calculator: [agent benchmark cost per solved task](/tools/agent-benchmark-cost-per-solved-task). It divides a listed run cost by tasks resolved. A missing or partial cost stays Not listed.
 - Research: [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Garry Tan harness evals](/research/garry-tan-harness-evals-november-2026), [Terminal-Bench 2.1](/research/terminal-bench-2-1-benchmark-repairs)
 - At organization scale: [What is harness engineering at scale?](/blog/what-is-harness-engineering-at-scale-thoughtworks-radar)
 - Trackers: [live trackers](/trackers), [framework downloads](/trackers/downloads), [harness comparison tracker](/trackers/harnesses)

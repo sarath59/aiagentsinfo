@@ -243,7 +243,11 @@ export default async function HarnessBenchmarkPage() {
             . How
             to stand up tasks, isolated trials, and graders is{" "}
             <Link href="/blog/how-to-build-an-eval-harness-for-ai-agents">How to build an eval harness for AI agents</Link>
-            . The shelf for the guides, the research notes, and this benchmark is the{" "}
+            . Listed run cost divided by tasks resolved is the{" "}
+            <Link href="/tools/agent-benchmark-cost-per-solved-task">
+              agent benchmark cost per solved task
+            </Link>{" "}
+            calculator. A row with no cost stays Not listed. The shelf for the guides, the research notes, and this benchmark is the{" "}
             <Link href="/topics/harnesses">agent harnesses hub</Link>. The short pointer page is the{" "}
             <Link href="/trackers/harnesses">harness comparison tracker</Link>. Live install counts are on the{" "}
             <Link href="/trackers">trackers</Link> and the{" "}
@@ -272,11 +276,16 @@ export default async function HarnessBenchmarkPage() {
               title: "Best AI agent harness",
               note: "Licence and list price, not a quality ranking.",
             },
+            {
+              href: "/tools/ai-agent-harness-evaluation-checklist",
+              title: "AI agent harness evaluation checklist",
+              note: "Twelve yes-or-no checks. The count is not a board score.",
+            },
           ]}
           tool={{
-            href: "/tools/ai-agent-harness-evaluation-checklist",
-            title: "harness evaluation checklist",
-            note: "twelve sourced checks, counted in the browser",
+            href: "/tools/agent-benchmark-cost-per-solved-task",
+            title: "cost per solved task calculator",
+            note: "listed run cost divided by tasks resolved. A missing cost stays Not listed",
           }}
         />
         <section className="glass mt-10 rounded-3xl p-6 sm:p-8">
@@ -468,7 +477,7 @@ export default async function HarnessBenchmarkPage() {
             },
           ]}
         />
-        <ToolCtas tools={["calculator", "checker", "picker"]} />
+        <ToolCtas tools={["benchmarkCost", "checklist", "calculator"]} />
         <ListYourAgent />
       </ReportLayout>
     </>
