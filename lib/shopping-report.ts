@@ -4,6 +4,12 @@ export const path = "/reports/ai-shopping-agents-next-6-months";
 export const title = "AI shopping agents: Google checks out in Canada. ChatGPT still sends you to the store.";
 export const description =
   "Can AI buy things online for you? Sometimes. Google can check out for named Canadian retailers. ChatGPT, re-read November 13, 2026, still sends you to the store.";
+/** Search snippet only. The thesis, JSON-LD, and embeds keep `description`. */
+export const metaDescription =
+  "Can AI buy things online for me? Google can for named Canadian retailers as of November 4, 2026. OpenAI still sends you to the store. See months to May 2027.";
+if (metaDescription.length < 140 || metaDescription.length > 158) {
+  throw new Error(`shopping report metaDescription is ${metaDescription.length} characters`);
+}
 export const readOn = "2026-11-05";
 export const updatedOn = "2026-11-14";
 

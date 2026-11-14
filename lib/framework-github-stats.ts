@@ -85,6 +85,17 @@ export function novemberUpdateAnswer() {
 }
 
 export const description = `Which AI agent frameworks released updates in November 2026? As of the ${retrievedLabel} GitHub pull, ${integer(novemberRepos().length)} of ${integer(repos.length)} had a latest release that month: ${joinList(novemberRepos().map((repo) => repo.repo))}. Later days in November are not in this snapshot.`;
+/** Search snippet only. JSON-LD, the thesis, and llms.txt keep `description`. */
+export const metaDescription =
+  "AI agent framework release November 2026: 7 of 19 repos had a latest GitHub release that month, pulled November 5, 2026. The other 12 are in the table.";
+if (metaDescription.length < 140 || metaDescription.length > 158) {
+  throw new Error(`framework github stats metaDescription is ${metaDescription.length} characters`);
+}
+if (novemberRepos().length !== 7 || repos.length !== 19) {
+  throw new Error(
+    `framework github stats metaDescription is stale: ${novemberRepos().length} of ${repos.length}`,
+  );
+}
 
 export const citation = `AI Agents Info, "${title}", ${citationDate}, ${citationUrl}`;
 

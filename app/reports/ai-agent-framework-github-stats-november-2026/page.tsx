@@ -11,6 +11,7 @@ import { getDirectoryStats } from "@/lib/directory-stats";
 import {
   citation,
   description,
+  metaDescription,
   directoryMatches,
   embedHtml,
   frameworkFaq,
@@ -41,7 +42,7 @@ import { BENCHMARK_READ_ON } from "@/lib/harness-benchmark";
 import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 
-export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
+export const metadata = defaultMetadata(title, metaDescription, path, { absoluteTitle: true });
 
 export default async function FrameworkGithubStatsPage() {
   const stats = await getDirectoryStats();

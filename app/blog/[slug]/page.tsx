@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await getBlogPost(slug);
   if (!post) return {};
-  return defaultMetadata(post.title, post.description, `/blog/${post.slug}`, {
+  return defaultMetadata(post.title, post.metaDescription ?? post.description, `/blog/${post.slug}`, {
     openGraphType: "article",
     absoluteTitle: post.absoluteTitle === true,
   });

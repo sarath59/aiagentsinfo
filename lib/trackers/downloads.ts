@@ -320,6 +320,44 @@ export function topPackage(rows: PackageDownloads[]) {
   return [...rows].sort((a, b) => b.windowDownloads - a.windowDownloads || a.package.localeCompare(b.package))[0];
 }
 
+const CLICK_MIN = 140;
+const CLICK_MAX = 158;
+
+function pickClickDescription(candidates: string[]) {
+  const fit = candidates.find((text) => text.length >= CLICK_MIN && text.length <= CLICK_MAX);
+  if (fit) return fit;
+  throw new Error(
+    `downloads meta description missed ${CLICK_MIN}-${CLICK_MAX}: ${candidates.map((text) => `${text.length}`).join(", ")}`,
+  );
+}
+
+/** Search snippet only. JSON-LD keeps the longer tracker description. */
+export function downloadsClickDescription(report: DownloadsReport) {
+  const top = topPackage(report.pypi);
+  const window = windowLabel(report.pypi);
+  if (!top || !window) {
+    return pickClickDescription([
+      "AI agent framework downloads: the PyPI and npm tables were empty on this pass. A download is a file request, not a user, and the two registries stay separate.",
+    ]);
+  }
+  const head = `AI agent framework: ${top.package} had ${integer(top.windowDownloads)} PyPI downloads from ${shortDate(window.start)} through ${shortDate(window.end)}.`;
+  const tails = [
+    " The daily table keeps npm as a separate registry.",
+    " The daily table is on this page, and npm stays a separate registry.",
+    " Daily rows are on this page. npm is kept as a separate registry.",
+    " The daily table is on this page. npm is a separate registry, and a download is a file request, not a user.",
+    " Open the daily table of file requests. npm is a separate registry, and a download is not a user.",
+    " Open the daily table. npm stays a separate registry, and a download is not a user.",
+    " Open the daily table. npm stays a separate registry.",
+    " Open the daily table. npm stays separate.",
+    " The daily table keeps npm separate.",
+    " See the daily table. npm is separate.",
+    " npm is a separate table on the page.",
+    " The npm table is separate.",
+  ];
+  return pickClickDescription(tails.map((tail) => head + tail));
+}
+
 export function windowLabel(rows: PackageDownloads[]) {
   const start = rows.map((row) => row.windowStart).sort()[0];
   const end = rows.map((row) => row.windowEnd).sort().at(-1);

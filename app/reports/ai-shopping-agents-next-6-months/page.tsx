@@ -9,12 +9,22 @@ import { FaqList } from "@/components/FaqList";
 import { categoryTitle, getBlogPost } from "@/lib/blog";
 import { categorySummaries } from "@/lib/directory-meta";
 import { getGlossaryTerm } from "@/lib/glossary";
-import { description, months, path, readOn, readingMinutes, shoppingFaq, title, updatedOn } from "@/lib/shopping-report";
+import {
+  description,
+  metaDescription,
+  months,
+  path,
+  readOn,
+  readingMinutes,
+  shoppingFaq,
+  title,
+  updatedOn,
+} from "@/lib/shopping-report";
 import { JsonLd, datasetJsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, site, topics } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
-export const metadata = defaultMetadata(title, description, path, { absoluteTitle: true });
+export const metadata = defaultMetadata(title, metaDescription, path, { absoluteTitle: true });
 
 export default async function ShoppingAgentsReportPage() {
   const [guide, readable, harness, shoppingAgent, checkout, feed] = await Promise.all([

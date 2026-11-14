@@ -14,6 +14,8 @@ export type BlogCategory = (typeof blogCategories)[number]["slug"];
 export type BlogFrontmatter = {
   title: string;
   description: string;
+  /** Search snippet only. The visible dek, JSON-LD, and cards keep `description`. */
+  metaDescription?: string;
   date: string;
   updated?: string;
   category: BlogCategory;

@@ -10,6 +10,7 @@ import { JsonLd, datasetJsonLd, datasetLicenseUrl, defaultMetadata, faqPageJsonL
 import { absoluteUrl, site } from "@/lib/site";
 import {
   chartSeries,
+  downloadsClickDescription,
   downloadsColumns,
   downloadsFaq,
   downloadsRows,
@@ -39,7 +40,7 @@ function trackerDescription(report: Awaited<ReturnType<typeof getDownloadsReport
 
 export async function generateMetadata() {
   const report = await getDownloadsReport();
-  return defaultMetadata(title, trackerDescription(report), path, { absoluteTitle: true });
+  return defaultMetadata(title, downloadsClickDescription(report), path, { absoluteTitle: true });
 }
 
 export default async function DownloadsTrackerPage() {
