@@ -1,6 +1,7 @@
 ---
 title: "4 of 5 shopping agents can finish checkout. ChatGPT’s page says the store does."
 description: "4 of 5 consumer shopping agents can complete a purchase on November 11, 2026. ChatGPT’s merchant page sends the order to the store. Its checkout guide was Last-Modified at 10:33 UTC the same day and still describes checkout inside the chat."
+metaDescription: "Yes. Google, Amazon, Copilot, and Perplexity can buy things online for you. On November 11, 2026, 4 of 5 finish checkout. ChatGPT sends the order to the store."
 takeaways:
   - "On November 11, 2026, Google, Amazon, Microsoft Copilot, and Perplexity can complete a purchase. ChatGPT’s merchant page says the purchase finishes on the store’s website or app."
   - "The only unattended spend in these pages is Amazon’s price-target purchase. The October 29, 2026 Alexa for Shopping article says Alexa charges the default payment method when the price hits."
@@ -56,6 +57,8 @@ sources:
   - title: "Perplexity Help Center, What is Instant Buy? (article text retrieved November 11, 2026; a direct request was blocked)"
     url: "https://www.perplexity.ai/help-center/en/articles/10352906-what-is-instant-buy"
 faq:
+  - question: "Can an AI agent buy things online for you?"
+    answer: "Yes, for four of the five assistants compared on November 11, 2026. Google, Amazon, Microsoft Copilot, and Perplexity can complete a purchase. ChatGPT’s merchant page says the shopper pays on the merchant’s website or app. The Key concepts guide, Last-Modified at 10:33 UTC the same day, still describes checkout inside the chat. The only unattended spend is Amazon’s price target: the October 29, 2026 Alexa for Shopping article says Alexa charges the default payment method when the price hits."
   - question: "Which AI shopping agents can complete checkout on November 11, 2026?"
     answer: "Four of the five assistants in this comparison can. Google can take Google Pay on eligible listings in the U.S. cart and on the Canada direct-checkout rollout. Amazon can charge the default card when a price you set is hit, and Buy for Me can finish an eligible order on a brand’s site after you confirm. Copilot Checkout can take payment inside Copilot for English-language merchants selling to U.S. buyers in USD. Perplexity Instant Buy can send the order to a compatible merchant for U.S. users. ChatGPT’s merchant page says the purchase finishes on the merchant’s website or app."
   - question: "Does ChatGPT still have Instant Checkout?"
@@ -71,6 +74,10 @@ faq:
 ---
 
 Read November 11, 2026. Every cell below is a sentence from the company’s own page, or a statement that the page does not publish the fact.
+
+## Can an AI agent buy things online for you?
+
+Yes. On November 11, 2026, Google, Amazon, Microsoft Copilot, and Perplexity can complete a purchase, while ChatGPT’s merchant page says the shopper pays on the store’s website or app. The Key concepts guide was Last-Modified at 10:33 UTC the same day and still describes checkout inside the chat. Amazon’s price-target path is the only one that spends with no second tap: the October 29, 2026 Alexa for Shopping article says it charges the default payment method when the price hits. The longer checkout account is [Can an AI shopping agent check out for you?](/blog/can-an-ai-shopping-agent-check-out-for-you). What these companies have dated through May 2027 is [AI shopping agents, the next 6 months](/reports/ai-shopping-agents-next-6-months).
 
 **4 of 5.** Google, Amazon, Microsoft Copilot, and Perplexity can complete a purchase. [ChatGPT’s merchant page](https://openai.com/chatgpt/search-product-discovery/) says the shopper discovers the product in the chat and pays on the merchant’s website or app.
 
@@ -228,6 +235,10 @@ If you are building a [harness](/glossary/harness), match the tool to the permis
 A prompt that says “buy the best headphones” is not a policy. The policy is which of those four tools the harness is allowed to call, the maximum amount, and what it does when the feed price and the product page disagree. An eval for that policy is narrow. Did the charged amount match the approved amount? Did the item id match the feed row? Did the run stop when the only available tool was a handoff? The [six-month shopping report](/reports/ai-shopping-agents-next-6-months) is the calendar of what these companies have dated through May 2027. This page is the button, the protocol name, and the published fee, as of November 11.
 
 ## Frequently asked questions
+
+### Can an AI agent buy things online for you?
+
+Yes, for four of the five assistants on this page. On November 11, 2026, Google, Amazon, Copilot, and Perplexity can complete a purchase. ChatGPT’s merchant page says the purchase finishes on the store’s website or app. The developer guide, Last-Modified at 10:33 UTC that day, still describes checkout rendered in ChatGPT. Amazon’s October 29 article is the price-target path that charges the default payment method when the price hits.
 
 ### Which AI shopping agents can complete checkout on November 11, 2026?
 

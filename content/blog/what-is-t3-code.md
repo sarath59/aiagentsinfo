@@ -1,6 +1,7 @@
 ---
 title: "What Is T3 Code? 54,963 GitHub Stars on an Open-Source Control Plane (2026)"
 description: "T3 Code on GitHub is pingdotgg/t3code: 54,963 stars at 11:48 UTC on November 10, 2026. Free and MIT-licensed. v0.1.8 shipped November 9 and adds Claude Fable 5.2."
+metaDescription: "Yes. T3 Code is on GitHub at pingdotgg/t3code, and it is free under the MIT license. At 11:48 UTC on November 10, 2026 the API reported 54,963 stars."
 takeaways:
   - "On November 10, 2026 at 11:48:27 UTC, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests for pingdotgg/t3code. The license field was MIT. The latest release was v0.1.8, published November 9, 2026. The November 8 reading was 51,402 stars and v0.1.7."
   - "The README calls T3 Code an agent-harness control surface. The homepage calls it an open-source control plane. The FAQ, read the same morning, says it is not a harness and does not work without one you already have installed."
@@ -54,16 +55,16 @@ sources:
   - title: "MIT license file on main"
     url: "https://github.com/pingdotgg/t3code/blob/main/LICENSE"
 faq:
-  - question: "Where is T3 Code on GitHub?"
-    answer: "The repository is pingdotgg/t3code, at https://github.com/pingdotgg/t3code. At 11:48:27 UTC on November 10, 2026, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests. The license field was MIT. The latest release was v0.1.8, published 2026-11-09T22:46:42Z. A count you see on GitHub after that timestamp can differ from 54,963."
+  - question: "Is T3 Code on GitHub?"
+    answer: "Yes. The repository is pingdotgg/t3code, at https://github.com/pingdotgg/t3code. At 11:48:27 UTC on November 10, 2026, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests. The license field was MIT. The latest release was v0.1.8, published 2026-11-09T22:46:42Z. A count you see on GitHub after that timestamp can differ from 54,963."
   - question: "What is T3 Code?"
     answer: "T3 Code is an open-source app from the pingdotgg GitHub organization, copyright T3 Tools Inc. in the MIT license file. The README calls it an agent-harness control surface. The homepage calls it an open-source control plane for coding agents. It drives coding agents already installed on your machine and does not sell a model of its own."
   - question: "Is T3 Code a harness?"
     answer: "The project FAQ, read November 8, 2026, answers no. It says a harness gives a model tools, runs them, and returns the results, and that T3 Code uses harnesses such as Claude Code and Codex. It does not work without one. This site uses the same split: the harness is the runtime around the model."
   - question: "Which coding agents can T3 Code control?"
     answer: "It depends which page you read on November 8, 2026. The homepage names Claude Code, Codex, Antigravity, OpenCode, Cursor, and Grok. The README adds fx and says Grok Build. The FAQ adds Pi and Muse Code and does not name fx. The install guide lists ten, including Kiro. This page does not merge those lists."
-  - question: "How much does T3 Code cost?"
-    answer: "The FAQ says nothing. There is no way to pay the project to use T3 Code. It is free and MIT-licensed, and you bring the subscription you already pay to the agent provider. T3 Connect is free for now, with a cap of 3 machines. A paid T3 Chat plan raises that cap. The FAQ does not print a dollar price for T3 Chat."
+  - question: "Is T3 Code free?"
+    answer: "Yes. The project FAQ says there is no way to pay to use T3 Code. It is free and MIT-licensed, and you bring the subscription you already pay to the agent provider. T3 Connect is free for now, with a cap of 3 machines. A paid T3 Chat plan raises that cap. The FAQ does not print a dollar price for T3 Chat."
   - question: "How do you use T3 Code from a phone?"
     answer: "The FAQ says the iOS or Android app connects to a computer that is already running T3 Code. The phone is a remote. The computer does the work and needs to stay on. T3 Connect, a LAN pairing link, or Tailscale are the documented ways to reach that computer."
   - question: "What permission modes does T3 Code have?"
@@ -76,11 +77,11 @@ At 11:48:27 UTC on November 10, 2026, the GitHub API reported **54,963** stars f
 
 This page was published November 8, 2026. The homepage, the README, the FAQ, the install guide, the permission and remote docs, the ACP provider page, and the license file were read that morning and were not re-read on November 10. The November 10 pass re-read the repository API and the latest release. Where the November 8 pages name different agents, the table below keeps them apart.
 
-## Where is T3 Code on GitHub?
+## Is T3 Code on GitHub?
 
-T3 Code’s repository is [pingdotgg/t3code](https://github.com/pingdotgg/t3code). At 11:48:27 UTC on November 10, 2026, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests for that repository. The license field was MIT, `archived` was false, and the latest release was v0.1.8, published 2026-11-09T22:46:42Z. The default branch is `main`. Stars on this repository move after a snapshot, so a count you see on GitHub after 11:48 UTC on November 10 can differ from 54,963.
+Yes. T3 Code’s repository is [pingdotgg/t3code](https://github.com/pingdotgg/t3code). At 11:48:27 UTC on November 10, 2026, the GitHub API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests for that repository. The license field was MIT, `archived` was false, and the latest release was v0.1.8, published 2026-11-09T22:46:42Z. The default branch is `main`. Stars on this repository move after a snapshot, so a count you see on GitHub after 11:48 UTC on November 10 can differ from 54,963.
 
-The app drives coding agents you already run, including [Claude Code](/directory/claude-code). Seat prices for Cursor, Claude Code, and Codex are on the [Cursor vs Claude Code vs Codex pricing calculator](/tools/cursor-vs-claude-code-vs-codex-pricing). This page does not restate those prices.
+The app drives coding agents you already run, including [Claude Code](/directory/claude-code) and [Codex](/directory/codex). Seat prices for Cursor, Claude Code, and Codex are on the [Cursor vs Claude Code vs Codex pricing calculator](/tools/cursor-vs-claude-code-vs-codex-pricing). This page does not restate those prices.
 
 ## What is T3 Code?
 
@@ -117,9 +118,9 @@ The ACP page is a second door. It says T3 Code can run installed ACP commands, o
 
 [Claude Code](/directory/claude-code), [Codex](/directory/codex), and [Cursor](/directory/cursor) are the three of those names with directory pages here. The [November 5 framework snapshot](/reports/ai-agent-framework-github-stats-november-2026) is a different object: 19 agent-framework repositories, with their own star counts. T3 Code is a control surface for agents you already run. It is not one of those 19 rows, and this page does not reprint that table.
 
-## How much does T3 Code cost?
+## Is T3 Code free?
 
-The FAQ’s answer is nothing. The heading “How much does T3 Code cost?” says there is no way to pay the project to use T3 Code. You bring your own subscription. It is free and open source (MIT). You still pay your provider the way you already do. The README’s version of the same point is the heading “Wait, what are you selling me?” and the answer “Nothing.”
+Yes. The project FAQ’s heading “How much does T3 Code cost?” says there is no way to pay the project to use T3 Code. You bring your own subscription. It is free and open source (MIT). You still pay your provider the way you already do. The README’s version of the same point is the heading “Wait, what are you selling me?” and the answer “Nothing.”
 
 T3 Connect, the built-in remote link, is a separate sentence. The FAQ says it is free too, for now. Every account can connect up to 3 machines running T3 Code. Phones and browsers that connect to them do not count. Need more machines, and the FAQ says to link a paid T3 Chat account. Pro raises the cap to 10 machines. Premier raises it to 100. The free T3 Chat plan keeps the normal limit of 3. The FAQ does not print a dollar price for Pro or Premier, and this page does not add one.
 
@@ -205,9 +206,9 @@ This guide is filed under [harnesses](/topics/harnesses), [tools and SaaS](/topi
 
 ## Frequently asked questions
 
-### Where is T3 Code on GitHub?
+### Is T3 Code on GitHub?
 
-The repository is [pingdotgg/t3code](https://github.com/pingdotgg/t3code). At 11:48:27 UTC on November 10, 2026, the API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests. The license field was MIT. The latest release was v0.1.8, published November 9, 2026. A later count on GitHub can differ from 54,963.
+Yes. The repository is [pingdotgg/t3code](https://github.com/pingdotgg/t3code). At 11:48:27 UTC on November 10, 2026, the API reported 54,963 stars, 10,263 forks, and 5,789 open issues and pull requests. The license field was MIT. The latest release was v0.1.8, published November 9, 2026. A later count on GitHub can differ from 54,963.
 
 ### What is T3 Code?
 
@@ -221,9 +222,9 @@ The FAQ says no. A harness gives the model tools and runs them. T3 Code uses a h
 
 Read the page, not a merged list. On November 8, 2026, the homepage named six, the README named seven including fx, the FAQ named eight including Pi and Muse Code and not fx, and the install guide named ten including Kiro. The ACP Registry is an extra way to add agents the first-class list does not include.
 
-### How much does T3 Code cost?
+### Is T3 Code free?
 
-Nothing, according to the FAQ. It is MIT-licensed, and you bring your own subscription. T3 Connect is free for now, for up to 3 machines. T3 Chat Pro raises that to 10, and Premier to 100. Phones and browsers do not count toward the cap. The FAQ names those plans and does not print a dollar price.
+Yes. The FAQ says there is no way to pay the project to use T3 Code. It is MIT-licensed, and you bring your own subscription. T3 Connect is free for now, for up to 3 machines. T3 Chat Pro raises that to 10, and Premier to 100. Phones and browsers do not count toward the cap. The FAQ names those plans and does not print a dollar price.
 
 ### How do you use T3 Code from a phone?
 

@@ -7,7 +7,11 @@ export const title =
 export const thesis =
   "On November 12, 2026, Claude and OpenAI both list web search at $10 per 1,000 calls, before the tokens those results become. The cheapest printed result-list price in this set is $1 per 1,000.";
 export const description =
-  "List prices, free tiers, rate limits, result format, and official MCP servers for 13 web search APIs used by Claude and OpenAI agents. Checked November 12, 2026. Nothing here is estimated.";
+  "Best web search tool for Claude or OpenAI agents, by price: Parallel fast or Perplexity fast at $1 per 1,000 on November 12, 2026. Claude and OpenAI list $10.";
+
+if (description.length < 140 || description.length > 160) {
+  throw new Error(`web search tools description is ${description.length} characters`);
+}
 export const readOn = "2026-11-12";
 
 const CHECKED = "12 Nov 2026";
@@ -77,6 +81,20 @@ export const reportCharts: ChartSpec[] = [
 const sourced = (cells: string[]) => [...cells, CHECKED];
 
 export const chapters: ReportChapter[] = [
+  {
+    id: "best-for-claude-or-openai",
+    title: "What is the best web search tool for Claude or OpenAI agents?",
+    blocks: [
+      {
+        kind: "p",
+        text: "On price, Parallel’s fast and turbo modes and Perplexity Search with search_type fast print $1 per 1,000 requests, the lowest result-list price in this set on November 12, 2026. Claude’s web search and OpenAI’s web_search both print $10 per 1,000, then the retrieved text bills as tokens. This page does not rank answer quality. [[1]][[3]][[7]][[17]]",
+      },
+      {
+        kind: "p",
+        text: "The chat products a person uses, rather than an API call inside a harness, are [Best AI agent for web search](/best/ai-agents-for-web-search).",
+      },
+    ],
+  },
   {
     id: "what-does-a-call-cost",
     title: "What does one search call cost on November 12?",
@@ -258,6 +276,16 @@ export const chapters: ReportChapter[] = [
     ],
   },
   {
+    id: "chatgpt-web-search-production",
+    title: "Is ChatGPT web search good enough for production AI agents?",
+    blocks: [
+      {
+        kind: "p",
+        text: "This page does not score whether the answers are good enough. On November 12, 2026, OpenAI lists web_search at $10 per 1,000 calls, plus search-content tokens. The web search guide says rate limits follow the model’s tier and does not publish a separate search RPM. The search context window is 128,000 tokens. [[1]][[2]]",
+      },
+    ],
+  },
+  {
     id: "mcp-servers",
     title: "Which vendors publish an official MCP server?",
     blocks: [
@@ -325,7 +353,7 @@ export const chapters: ReportChapter[] = [
     blocks: [
       {
         kind: "p",
-        text: "No query was sent and no account was billed. Quality scores, including Linkup’s FAQ benchmarks, stay off this page. Serper was not re-fetched. Consumer chat plans stay on the buyer’s comparison.",
+        text: "No query was sent and no account was billed. Quality scores, including Linkup’s FAQ benchmarks, stay off this page, so this brief does not name a most reliable answer engine. Serper was not re-fetched. Consumer chat plans stay on [Best AI agent for web search](/best/ai-agents-for-web-search).",
       },
       {
         kind: "p",
@@ -341,6 +369,16 @@ export const chapters: ReportChapter[] = [
     id: "faq",
     title: "FAQ",
     blocks: [
+      { kind: "h3", text: "What is the best web search tool for Claude or OpenAI agents?" },
+      {
+        kind: "p",
+        text: "By the printed call price, Parallel fast or turbo and Perplexity Search with fast, both $1 per 1,000 on November 12, 2026. Claude and OpenAI list $10 per 1,000, plus tokens. This page does not rank answer quality.",
+      },
+      { kind: "h3", text: "Is ChatGPT web search good enough for production AI agents?" },
+      {
+        kind: "p",
+        text: "This page does not score answer quality. OpenAI lists web_search at $10 per 1,000 calls, plus search-content tokens. Rate limits follow the model’s tier. No separate search RPM is published. The search context window is 128,000 tokens.",
+      },
       { kind: "h3", text: "What is the cheapest web search tool for a Claude or OpenAI agent?" },
       {
         kind: "p",
@@ -574,6 +612,16 @@ export const sources: { n: number; title: string; url: string; detail: string }[
 ];
 
 export const faq = [
+  {
+    question: "What is the best web search tool for Claude or OpenAI agents?",
+    answer:
+      "By the printed call price on November 12, 2026, Parallel’s fast and turbo modes and Perplexity’s fast Search API both print $1 per 1,000 requests, the lowest result-list price in this set. Claude’s web search and OpenAI’s web_search both print $10 per 1,000, and then the retrieved text bills as tokens. This page does not rank answer quality.",
+  },
+  {
+    question: "Is ChatGPT web search good enough for production AI agents?",
+    answer:
+      "This page does not score whether the answers are good enough. On November 12, 2026, OpenAI lists web_search at $10 per 1,000 calls, plus search-content tokens. The web search guide says rate limits follow the model’s tier and does not publish a separate search RPM. The search context window is 128,000 tokens.",
+  },
   {
     question: "What is the cheapest web search tool for a Claude or OpenAI agent?",
     answer:

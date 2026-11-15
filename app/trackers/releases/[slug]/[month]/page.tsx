@@ -29,12 +29,30 @@ function pageTitle(name: string, month: string) {
   return `${name} releases in ${monthLabel(month)}`;
 }
 
+function releaseSnippet(data: { slug: string; month: string; repo: string; rows: { length: number } }) {
+  const count = integer(data.rows.length);
+  const label = monthLabel(data.month);
+  if (data.slug === "codex" && data.month === "2026-11") {
+    const description = `Codex release notes for November 2026: the Codex CLI changelog lists ${count} GitHub releases for openai/codex. Tags and dates are copied from the releases API.`;
+    if (description.length < 140 || description.length > 160) {
+      throw new Error(`Codex November 2026 meta description is ${description.length} characters`);
+    }
+    const intro = `Codex release notes for November 2026. The Codex CLI changelog lists ${count} GitHub releases for openai/codex. Tags, dates, and the first line of each note are copied from the GitHub releases API.`;
+    return { description, intro };
+  }
+  const intro = `GitHub lists ${count} releases for ${data.repo} with published_at in ${label}.`;
+  return {
+    intro,
+    description: `${intro} Tags, dates, and the first line of each note are copied from the releases API.`,
+  };
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; month: string }> }) {
   const { slug, month } = await params;
   const data = await getReleaseMonth(slug, month);
   if (!data) return {};
   const title = pageTitle(data.name, data.month);
-  const description = `GitHub lists ${integer(data.rows.length)} releases for ${data.repo} with published_at in ${monthLabel(data.month)}. Tags, dates, and the first line of each note are copied from the releases API.`;
+  const { description } = releaseSnippet(data);
   return defaultMetadata(title, description, releasePagePath(data.slug, data.month), { absoluteTitle: true });
 }
 
@@ -48,8 +66,8 @@ export default async function ReleaseMonthPage({
   if (!data) notFound();
   const title = pageTitle(data.name, data.month);
   const label = monthLabel(data.month);
-  const lead = `GitHub lists ${integer(data.rows.length)} releases for ${data.repo} with published_at in ${label}.`;
-  const description = `${lead} Tags, dates, and the first line of each note are copied from the releases API.`;
+  const { description, intro } = releaseSnippet(data);
+  const lead = intro;
   const path = releasePagePath(data.slug, data.month);
   const releasesUrl = githubReleasesHtmlUrl(data.repo);
   const truncated = data.truncated
@@ -120,6 +138,22 @@ export default async function ReleaseMonthPage({
             description: `stargazers_count for ${data.repo}.`,
             kicker: "Tracker",
           },
+          ...(data.slug === "codex" && data.month === "2026-11"
+            ? [
+                {
+                  href: "/directory/codex",
+                  title: "Codex",
+                  description: "The directory page for the Codex CLI whose November 2026 releases are listed here.",
+                  kicker: "Directory",
+                },
+                {
+                  href: "/trackers/releases/claude-code/2026-11",
+                  title: "Claude Code release notes for November 2026",
+                  description: "The November 2026 GitHub changelog for anthropics/claude-code, from the same releases tracker.",
+                  kicker: "Tracker",
+                },
+              ]
+            : []),
           {
             href: "/reports/ai-agent-framework-github-stats-november-2026",
             title: "AI agent framework release November 2026",
@@ -143,6 +177,19 @@ export default async function ReleaseMonthPage({
             </a>
             .
           </p>
+          {data.slug === "codex" && data.month === "2026-11" ? (
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+              The product page is{" "}
+              <Link className="text-[var(--link)] underline" href="/directory/codex">
+                Codex
+              </Link>
+              .{" "}
+              <Link className="text-[var(--link)] underline" href="/trackers/releases/claude-code/2026-11">
+                Claude Code release notes for November 2026
+              </Link>{" "}
+              are that month’s changelog for anthropics/claude-code, from the same releases tracker.
+            </p>
+          ) : null}
           <PlainTable
             caption={`${data.name} releases in ${label}`}
             columns={["Version", "Published", "Note"]}

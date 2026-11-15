@@ -1,11 +1,11 @@
 ---
 title: "Evolver raised task success to 87.50% (Nov 5, 2026)"
-description: "Evolver injects strategy Genes into Claude Code or Codex. On 320 diagnostic pairs, success rose from 83.13% to 87.50% and task-execution tokens fell 24.24%."
+description: "Evolver lets coding agents like Claude Code or Codex improve. On 320 diagnostic pairs, success rose from 83.13% to 87.50% and task-execution tokens fell 24.24%."
 date: "2026-11-07"
 updated: "2026-11-12"
 absoluteTitle: true
-ledeQuestion: "Did Evolver raise agent task success?"
-ledeAnswer: "On 320 paired diagnostic runs, success rose from 83.13% to 87.50%, and recorded task-execution tokens fell 24.24%."
+ledeQuestion: "What is Evolver for AI coding agents?"
+ledeAnswer: "Evolver is a way for coding agents such as Claude Code and Codex to improve themselves. It stores procedures from earlier runs and injects a bounded set into the next session, while the model weights and the harness stay in place. On 320 paired diagnostic runs, success rose from 83.13% to 87.50%, and recorded task-execution tokens fell 24.24%."
 dataset:
   title: "Evolver paired diagnostic runs, November 2026"
   description: "320 paired diagnostic executions from Zhang et al., arXiv:2611.07595. Task success 83.13% without Evolver and 87.50% with it. Recorded task-execution tokens fell 24.24%."
@@ -97,6 +97,8 @@ citation:
       url={https://arxiv.org/abs/2611.07595}
     }
 faq:
+  - question: "What is Evolver for AI coding agents?"
+    answer: "Evolver is a way for coding agents such as Claude Code and Codex to improve themselves. It stores reusable procedures as Gene assets and injects a bounded selection into the next session. The model weights stay frozen, and Claude Code and Codex keep their own tools. On 320 paired diagnostic runs, success rose from 83.13% to 87.50%, and recorded task-execution tokens fell 24.24%."
   - question: "What does Evolver change, and what does it leave alone?"
     answer: "It leaves the foundation-model weights frozen and it leaves the agent harness in place. Claude Code and Codex still run their own tools and skills. Evolver adds an external store of Gene strategy assets and can inject a bounded selection into the next session through hooks, a prompt-time recall, an MCP interface, or a host-specific integration. That matches the site glossary: the harness is the runtime around the model. Evolver is a store the harness can read. It is not a replacement for the harness."
   - question: "What is a Gene?"
@@ -116,6 +118,10 @@ faq:
   - question: "What are the limits of the result?"
     answer: "The sample is diagnostic, the Genes come from the same tasks, and extraction cost is outside the token savings. Seven configurations do not gain success, and SWE-bench Multilingual does not move. The paper does not name the Claude Code or Codex release it ran. Trust checks depend on which retrieval path is used. The public boards for Terminal-Bench 4.0 and SWE-bench Multilingual are different measurements. The authors name unseen-task transfer and longer-running evolution as open."
 ---
+
+## Did Evolver raise agent task success?
+
+On 320 paired diagnostic runs, success rose from 83.13% to 87.50%, and recorded task-execution tokens fell 24.24%. The two coding agents in that comparison are [Claude Code](/directory/claude-code) and [Codex](/directory/codex).
 
 ## How it compares with the same harness, and with public boards
 
