@@ -7,6 +7,7 @@ declare global {
         "altcha-widget": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
           auto?: string;
           challenge?: string;
+          configuration?: string;
           language?: string;
           name?: string;
           type?: string;

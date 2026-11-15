@@ -49,6 +49,8 @@ export function HumanCheck({ error, onPayload, onUnavailable }: Props) {
       void node.configure({
         auto: "off",
         challenge: challengeJson,
+        hideFooter: true,
+        hideLogo: true,
         language: "en",
         type: "checkbox",
       });
@@ -109,6 +111,7 @@ export function HumanCheck({ error, onPayload, onUnavailable }: Props) {
           ref={widgetRef}
           challenge={challengeJson}
           auto="off"
+          configuration={HIDDEN_ALTCHA_CHROME}
           language="en"
           name="altcha"
           type="checkbox"
@@ -124,6 +127,8 @@ export function HumanCheck({ error, onPayload, onUnavailable }: Props) {
     </fieldset>
   );
 }
+
+const HIDDEN_ALTCHA_CHROME = JSON.stringify({ hideFooter: true, hideLogo: true });
 
 async function loadChallenge(
   cancelled: () => boolean,
