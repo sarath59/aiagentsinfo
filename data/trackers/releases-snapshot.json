@@ -1,13 +1,13 @@
 {
-  "retrievedAt": "2026-11-14T13:30:23.688140Z",
-  "retrievedDay": "2026-11-14",
+  "retrievedAt": "2026-11-15T13:55:42.105246Z",
+  "retrievedDay": "2026-11-15",
   "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo}/releases?per_page=100&page=1",
   "repos": [
     {
       "id": "langchain",
       "name": "LangChain",
       "repo": "langchain-ai/langchain",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -816,7 +816,7 @@
       "id": "autogen",
       "name": "AutoGen",
       "repo": "microsoft/autogen",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": false,
       "releases": [
         {
@@ -1609,7 +1609,7 @@
       "id": "crewai",
       "name": "CrewAI",
       "repo": "crewAIInc/crewAI",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -2418,7 +2418,7 @@
       "id": "llama-index",
       "name": "LlamaIndex",
       "repo": "run-llama/llama_index",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -3227,7 +3227,7 @@
       "id": "langgraph",
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -4036,7 +4036,7 @@
       "id": "openai-agents",
       "name": "OpenAI Agents SDK",
       "repo": "openai/openai-agents-python",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -4845,7 +4845,7 @@
       "id": "smolagents",
       "name": "smolagents",
       "repo": "huggingface/smolagents",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": false,
       "releases": [
         {
@@ -5142,7 +5142,7 @@
       "id": "mastra",
       "name": "Mastra",
       "repo": "mastra-ai/mastra",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -5951,7 +5951,7 @@
       "id": "ai-sdk",
       "name": "Vercel AI SDK",
       "repo": "vercel/ai",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -6760,7 +6760,7 @@
       "id": "google-adk",
       "name": "Google ADK",
       "repo": "google/adk-python",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": false,
       "releases": [
         {
@@ -7513,7 +7513,7 @@
       "id": "claude-code",
       "name": "Claude Code",
       "repo": "anthropics/claude-code",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
@@ -9131,7 +9131,7 @@
       "id": "gemini-cli",
       "name": "Gemini CLI",
       "repo": "google-gemini/gemini-cli",
-      "retrievedAt": "2026-11-14T13:30:23.688140Z",
+      "retrievedAt": "2026-11-15T13:55:42.105246Z",
       "capped": true,
       "releases": [
         {
