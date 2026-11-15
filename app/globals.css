@@ -2065,3 +2065,32 @@ article.grid > * {
     transition: none;
   }
 }
+
+.human-check {
+  color-scheme: inherit;
+  --altcha-max-width: 100%;
+  --altcha-border-width: 1px;
+  --altcha-border-radius: 1rem;
+  --altcha-checkbox-border-radius: 0.3rem;
+  --altcha-color-base: light-dark(#ffffff, #0b1f33);
+  --altcha-color-base-content: light-dark(#0b1f33, #f3f6fa);
+  --altcha-color-primary: light-dark(#0c5cad, #2f9dff);
+  --altcha-color-primary-content: light-dark(#ffffff, #0b1f33);
+  --altcha-color-neutral: light-dark(#d5e0ec, #1c3d5a);
+  --altcha-color-neutral-content: light-dark(#3a5168, #d5e0ec);
+  --altcha-color-error: #9f2d2d;
+  --altcha-color-error-content: #ffffff;
+  --altcha-color-success: light-dark(#0c746e, #14b8a6);
+  --altcha-color-success-content: #ffffff;
+}
+
+.human-check altcha-widget {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.human-check altcha-widget:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}

@@ -34,6 +34,9 @@ export const HONEYPOT_FIELD = "hp_field";
 
 export const SUBMISSION_SUCCESS_MESSAGE = "Your tool will be live in about 2 minutes.";
 
+export const SUBMISSION_UNAVAILABLE_MESSAGE =
+  "We can't save this submission right now. Email it to the desk and we'll review it the same way.";
+
 export const BLOCKED_TEXT_MESSAGE = "Remove language or spam that can't be published.";
 
 export const SUBMISSION_FIELDS = [
@@ -66,7 +69,7 @@ export const SUBMISSION_FIELDS = [
 
 export type SubmissionField = (typeof SUBMISSION_FIELDS)[number];
 export type FieldErrors = Partial<
-  Record<SubmissionField | "status" | "slug" | "submittedAt", string>
+  Record<SubmissionField | "status" | "slug" | "submittedAt" | "altcha", string>
 >;
 
 const FIELD_LABELS: Record<string, string> = {

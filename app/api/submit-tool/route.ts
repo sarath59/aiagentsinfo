@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { altchaPayloadFrom, HUMAN_CHECK_MESSAGE, verifyAltchaPayload } from "@/lib/altcha";
 import { trackServerGoal } from "@/lib/datafast-server";
 import { publishSubmission, submissionsToken } from "@/lib/github-submissions";
 import { takeRateLimit } from "@/lib/rate-limit";
@@ -8,6 +9,7 @@ import {
   submissionMailto,
   SUBMISSION_FIELDS,
   SUBMISSION_SUCCESS_MESSAGE,
+  SUBMISSION_UNAVAILABLE_MESSAGE,
   summarizeFieldErrors,
   validateSubmission,
   websiteDomain,
@@ -20,9 +22,6 @@ import { assertPublicUrlReachable } from "@/lib/url-check";
 export const runtime = "nodejs";
 
 const MAX_BODY = 40_000;
-
-const MAILOUT_MESSAGE =
-  "We can't save this submission right now. Email it to the desk and we'll review it the same way.";
 
 const DUPLICATE_MESSAGE = "A tool on this domain is already in the directory.";
 
@@ -69,6 +68,22 @@ export async function POST(request: Request) {
     return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
   }
 
+  const human = await verifyAltchaPayload(altchaPayloadFrom(payload));
+  if (!human.ok) {
+    if (human.reason === "unconfigured") {
+      return json(
+        {
+          ok: false,
+          code: "unconfigured",
+          message: SUBMISSION_UNAVAILABLE_MESSAGE,
+          mailto: mailtoFrom(payload),
+        },
+        503,
+      );
+    }
+    return fieldError({ altcha: HUMAN_CHECK_MESSAGE });
+  }
+
   const validated = validateSubmission(payload, { takenSlugs: collectTakenSlugs() });
   if (!validated.ok) {
     return fieldError(validated.errors);
@@ -86,7 +101,7 @@ export async function POST(request: Request) {
   }
 
   if (!submissionsToken()) {
-    return json({ ok: false, code: "unconfigured", message: MAILOUT_MESSAGE, mailto }, 503);
+    return json({ ok: false, code: "unconfigured", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 503);
   }
 
   try {
@@ -113,10 +128,10 @@ export async function POST(request: Request) {
     if (filed.reason === "duplicate") {
       return fieldError({ website: DUPLICATE_MESSAGE }, 409);
     }
-    return json({ ok: false, code: "store_failed", message: MAILOUT_MESSAGE, mailto }, 502);
+    return json({ ok: false, code: "store_failed", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 502);
   } catch (error) {
     console.error("[submit-tool] failed", error instanceof Error ? error.message : "error");
-    return json({ ok: false, code: "store_failed", message: MAILOUT_MESSAGE, mailto }, 502);
+    return json({ ok: false, code: "store_failed", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 502);
   }
 }
 

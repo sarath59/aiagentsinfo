@@ -1,12 +1,23 @@
 "use client";
 
-import { cloneElement, useRef, useState, type FormEvent, type ReactElement } from "react";
+import dynamic from "next/dynamic";
+import { cloneElement, useCallback, useRef, useState, type FormEvent, type ReactElement } from "react";
 import { trackGoal } from "@/lib/analytics";
 import { billingPeriods, directoryCategories, pricingModels } from "@/lib/directory-meta";
 import { SubmissionShareKit, type ShareListing } from "@/components/SubmissionShareKit";
 import type { FollowupCard } from "@/lib/founder-followup";
 import { checklistFromDraft, type ChecklistItem } from "@/lib/listing-checklist";
 import type { ListingRankView } from "@/lib/listing-rank";
+
+const HumanCheck = dynamic(() => import("@/components/HumanCheck").then((mod) => mod.HumanCheck), {
+  ssr: false,
+  loading: () => (
+    <div className="grid gap-1.5">
+      <p className="text-sm font-medium">Human check</p>
+      <p className="text-sm text-[var(--muted)]">Loading human check.</p>
+    </div>
+  ),
+});
 import {
   HONEYPOT_FIELD,
   SUBMISSION_SUCCESS_MESSAGE,
@@ -73,7 +84,27 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
   const [share, setShare] = useState<ShareListing | null>(null);
   const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
   const [rank, setRank] = useState<ListingRankView | null>(null);
+  const [altchaPayload, setAltchaPayload] = useState("");
+  const [captchaUnavailable, setCaptchaUnavailable] = useState(false);
+  const [humanReset, setHumanReset] = useState(0);
   const formStarted = useRef(false);
+
+  const setPayload = useCallback((value: string) => {
+    setAltchaPayload(value);
+    if (!value) return;
+    setErrors((current) => {
+      if (!current.altcha) return current;
+      const next = { ...current };
+      delete next.altcha;
+      return next;
+    });
+  }, []);
+
+  function resetHumanCheck() {
+    setAltchaPayload("");
+    setCaptchaUnavailable(false);
+    setHumanReset((key) => key + 1);
+  }
 
   function markFormStarted() {
     if (formStarted.current) return;
@@ -102,7 +133,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
       const response = await fetch("/api/submit-tool", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, altcha: altchaPayload }),
       });
       const json = (await response.json().catch(() => ({}))) as {
         message?: string;
@@ -116,12 +147,14 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
         setErrors(json.errors);
         setMessage(summarizeFieldErrors(json.errors));
         focusFirst(json.errors);
+        resetHumanCheck();
         return;
       }
       if (!response.ok) {
         setStatus("fallback");
         setMessage(json.message || "We couldn't save this submission.");
         setMailto(json.mailto || submissionMailto(payload));
+        resetHumanCheck();
         return;
       }
       setStatus("success");
@@ -157,6 +190,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
       setMailto("");
       form.reset();
       setMakerType("");
+      resetHumanCheck();
     } catch {
       setStatus("fallback");
       setMessage("We couldn't reach the server. Email this submission instead.");
@@ -179,6 +213,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
           setShare(null);
           setChecklist([]);
           setRank(null);
+          resetHumanCheck();
         }}
       />
     );
@@ -195,6 +230,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
           onClick={() => {
             setStatus("idle");
             setMessage("");
+            resetHumanCheck();
           }}
         >
           Submit another
@@ -443,6 +479,13 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
         </div>
       </fieldset>
 
+      <HumanCheck
+        key={humanReset}
+        error={errors.altcha}
+        onPayload={setPayload}
+        onUnavailable={setCaptchaUnavailable}
+      />
+
       <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
         <label htmlFor="hp-field">Leave this blank</label>
         <input
@@ -457,7 +500,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
 
       <button
         type="submit"
-        disabled={status === "loading"}
+        disabled={status === "loading" || (!captchaUnavailable && !altchaPayload)}
         className="btn-primary justify-self-start px-6 py-3 text-sm disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "loading" ? "Sending…" : "Submit your tool"}
@@ -556,8 +599,14 @@ function readForm(form: FormData): Record<string, string | boolean> {
 
 function focusFirst(fieldErrors: FieldErrors) {
   const first = (Object.keys(FIELD_IDS) as SubmissionField[]).find((key) => fieldErrors[key]);
-  if (!first) return;
-  document.getElementById(FIELD_IDS[first])?.focus();
+  if (first) {
+    document.getElementById(FIELD_IDS[first])?.focus();
+    return;
+  }
+  if (!fieldErrors.altcha) return;
+  const widget = document.getElementById("human-check");
+  const checkbox = widget?.shadowRoot?.querySelector<HTMLElement>("input[type='checkbox'], button");
+  (checkbox ?? widget)?.focus();
 }
 
 function slugFromListingUrl(url?: string) {
