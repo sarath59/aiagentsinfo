@@ -130,7 +130,7 @@ The [registry census](/blog/how-many-official-mcp-servers-are-there) paginated `
 
 The registry can list many servers for one repository. The November 8 pass found 30,687 distinct repository URLs inside a list of about 59,500 records, and 20,434 records with no repository URL. A GitHub topic is one label per repository. A repository that publishes twenty servers can add twenty registry rows and one topic. A repository that never applied the topic, including some official servers in the name search below, adds zero to the 42,072.
 
-This site’s own read-only server for the directory is the [MCP server](/mcp) page. It is one server. It is not part of the 42,072 unless someone has tagged a repository for it, and this page did not check that.
+This site’s own read-only server for the directory, and the definition used there, is [what an MCP server is](/mcp). It is one server. It is not part of the 42,072 unless someone has tagged a repository for it, and this page did not check that.
 
 ## Is there an official GitHub MCP server, and a Jira MCP server?
 

@@ -12,6 +12,7 @@ import { communityListingIsIndexable, topicIsIndexable } from "@/lib/indexing";
 import { path as frameworkGithubPath, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
 import { getResearchDocs } from "@/lib/research";
 import { COMPARISON_VERIFIED_ON, comparisonPages } from "@/lib/comparisons";
+import { MCP_UPDATED } from "@/lib/mcp";
 import { absoluteUrl, audiences, topics } from "@/lib/site";
 import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 import { downloadPagePath, releasePagePath, starPagePath } from "@/lib/trackers/entities";
@@ -89,7 +90,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/directory/stats", priority: 0.6 },
     { path: "/agent-cost-calculator", priority: 0.6 },
     { path: "/agent-prompt-checker", priority: 0.6 },
-    { path: "/mcp", priority: 0.7 },
     ...audiences.map((item) => ({ path: item.href, priority: 0.6 })),
   ];
   const comparisonUpdated = new Date(`${COMPARISON_VERIFIED_ON}T00:00:00.000Z`);
@@ -118,6 +118,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/verified-revenue", new Date(`${verifiedRevenueChecked}T00:00:00.000Z`), 0.6),
     entry(frameworkGithubPath, new Date(`${frameworkGithubDay}T00:00:00.000Z`), 0.7),
     entry("/tools", new Date("2026-11-16T00:00:00.000Z"), 0.7),
+    entry("/mcp", new Date(`${MCP_UPDATED}T00:00:00.000Z`), 0.8),
     entry("/tools/mcp-config-generator", new Date("2026-11-13T00:00:00.000Z"), 0.8),
     entry("/tools/ai-crawler-robots-txt-checker", new Date("2026-11-12T00:00:00.000Z"), 0.8),
     entry("/tools/llms-txt-checker", new Date("2026-11-16T00:00:00.000Z"), 0.8),

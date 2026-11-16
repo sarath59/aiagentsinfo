@@ -19,7 +19,8 @@ export const MCP_PATH = "/api/mcp";
 export const MCP_PAGE_PATH = "/mcp";
 export const MCP_SERVER_NAME = "ai-agents-info";
 export const MCP_SERVER_VERSION = "1.0.0";
-export const MCP_UPDATED = "2026-11-09";
+export const MCP_PUBLISHED = "2026-11-09";
+export const MCP_UPDATED = "2026-11-16";
 export const MCP_MAX_BODY_BYTES = 64_000;
 
 const LISTING_CACHE_MS = 5 * 60 * 1000;

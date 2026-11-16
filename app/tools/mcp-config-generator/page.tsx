@@ -258,6 +258,12 @@ export default function McpConfigGeneratorPage() {
               <span className="text-[var(--muted)]"> The protocol, before the config file.</span>
             </li>
             <li>
+              <Link className="text-[var(--link)] underline" href="/mcp">
+                What an MCP server is
+              </Link>
+              <span className="text-[var(--muted)]"> and how to connect this site’s public directory server.</span>
+            </li>
+            <li>
               <Link className="text-[var(--link)] underline" href="/reports/mcp-next-6-months">
                 MCP, the next six months
               </Link>

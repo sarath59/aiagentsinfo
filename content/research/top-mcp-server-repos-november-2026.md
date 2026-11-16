@@ -105,7 +105,7 @@ The same page says servers offer any of these features to clients:
 | Prompts | Templated messages and workflows for users |
 | Tools | Functions for the AI model to execute |
 
-Tools, the same page says, represent arbitrary code execution and must be treated with appropriate caution. Hosts must obtain explicit user consent before data access and operations. A star count does not carry that consent. The short glossary entry is [What is an MCP server?](/glossary/model-context-protocol). The loop that calls the tool is [How do AI agents work?](/blog/how-do-ai-agents-work).
+Tools, the same page says, represent arbitrary code execution and must be treated with appropriate caution. Hosts must obtain explicit user consent before data access and operations. A star count does not carry that consent. The short glossary entry is [What is an MCP server?](/glossary/model-context-protocol). How to connect this site’s directory server is [what an MCP server is](/mcp). The loop that calls the tool is [How do AI agents work?](/blog/how-do-ai-agents-work).
 
 A [harness](/glossary/harness) is the program that decides which servers are connected and what the model may call. [Tool use](/glossary/tool-use) is the call. The JSON for a connected tool is sent on turns where the model never uses it. That cost is [Why tool JSON costs more than your system prompt](/blog/why-tool-json-costs-more-than-your-system-prompt).
 
