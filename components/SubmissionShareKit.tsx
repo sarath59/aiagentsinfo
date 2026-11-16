@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
+import Link from "next/link";
 import { announcementPosts, listingSiteLabel, listingSiteSnippet } from "@/lib/announcement-posts";
+import { BadgeSnippets } from "@/components/BadgeSnippets";
+import { listingBadgeEmbed } from "@/lib/badge";
 import { renderAnnouncementPng } from "@/components/announcement-canvas";
 import { FounderReading, FreeToolsStrip } from "@/components/FounderFollowup";
 import { ListingChecklist } from "@/components/ListingChecklist";
@@ -161,6 +164,7 @@ export function SubmissionShareKit({
         <a className="btn-primary mt-5 inline-flex px-6 py-3 text-sm" href={share.url}>
           Open your listing page
         </a>
+        <ListedBadge share={share} />
 
         <div className="mt-6 grid gap-2">
           <label className="text-sm font-medium" htmlFor="listing-url">
@@ -261,6 +265,33 @@ export function SubmissionShareKit({
         </button>
       </div>
     </>
+  );
+}
+
+function ListedBadge({ share }: { share: ShareListing }) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(share.slug) || share.slug === "listed") {
+    return (
+      <p className="mt-6 text-sm">
+        <Link href="/badge" className="text-[var(--link)] underline">
+          Your tool is listed. Add the badge
+        </Link>
+      </p>
+    );
+  }
+  const badge = listingBadgeEmbed(share.slug, share.name);
+  return (
+    <div className="mt-6">
+      <p className="text-sm">
+        <Link href="/badge" className="text-[var(--link)] underline">
+          Your tool is listed. Add the badge
+        </Link>
+      </p>
+      <a href={badge.href} className="mt-3 inline-block">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={badge.path} width={badge.width} height={badge.height} alt="Listed on AI Agents Info" />
+      </a>
+      <BadgeSnippets html={badge.html} markdown={badge.markdown} />
+    </div>
   );
 }
 

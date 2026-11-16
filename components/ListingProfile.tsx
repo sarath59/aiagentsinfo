@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FeaturedSnippet } from "@/components/FeaturedSnippet";
+import { ListingBadge } from "@/components/ListingBadge";
 import { ListingChecklist } from "@/components/ListingChecklist";
 import { ListingRank } from "@/components/ListingRank";
 import { TrackLink } from "@/components/TrackLink";
@@ -158,6 +159,7 @@ export async function ListingProfile({
             {listing.slug === "freegenvideo" ? "Claim this listing" : "Is this your tool? Claim / update this listing"}
           </TrackLink>
         </p>
+        <ListingBadge slug={listing.slug} name={listing.name} />
         <ListingChecklist items={checklist} slug={listing.slug} />
         <FeaturedSnippet path={`/directory/${listing.slug}`} />
         <div className="listing-fit">

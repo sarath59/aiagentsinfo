@@ -428,6 +428,11 @@ export async function buildLlmsTxt() {
     ]),
     section("Directory", [
       item("Directory", "/directory", `${counted(listings.length, "listing")} of AI tools, apps, SaaS, and agents, each with a source site.`),
+      item(
+        "Listed badge",
+        "/badge",
+        "SVG badge for a tool with a directory page. Makers embed it on their site or README. The image links to the listing. It does not show a rating or a rank.",
+      ),
       ...categoryLines,
       ...listedInIndex,
     ]),

@@ -167,6 +167,10 @@ export default async function DirectoryPage({
 
         <p className="mt-6 text-sm text-[var(--muted)]">
           {filtered.length} listing{filtered.length === 1 ? "" : "s"}
+          {" · "}
+          <Link href="/badge" className="text-[var(--link)] underline">
+            Add the badge
+          </Link>
         </p>
         {filtered.length ? (
           <div className="mt-4 grid gap-4 md:grid-cols-2">

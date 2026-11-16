@@ -1,11 +1,23 @@
 import type { NextConfig } from "next";
 
+const badgeCache = "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400";
+
 const nextConfig: NextConfig = {
   // Content is file-based and SEO-first. Keep the classic App Router
   // model so filter/search params and markdown pages stay straightforward.
   cacheComponents: false,
   // tiktoken loads a WASM file from its package. Keep it on Node's loader.
   serverExternalPackages: ["tiktoken", "@modelcontextprotocol/server", "mcp-handler"],
+  async headers() {
+    const headers = [
+      { key: "Cache-Control", value: badgeCache },
+      { key: "X-Content-Type-Options", value: "nosniff" },
+    ];
+    return [
+      { source: "/badge/:file.svg", headers },
+      { source: "/badge/:slug/:variant.svg", headers },
+    ];
+  },
   async redirects() {
     return [
       {

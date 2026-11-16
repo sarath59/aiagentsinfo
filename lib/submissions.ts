@@ -110,7 +110,7 @@ export function summarizeFieldErrors(errors: FieldErrors) {
   return parts.join(" ");
 }
 
-/** Slugs that already belong to directory collections or the submit redirect. */
+/** Slugs that already belong to directory collections, the submit redirect, or the generic badge. */
 export const RESERVED_DIRECTORY_SLUGS = new Set([
   "new",
   "trending",
@@ -119,6 +119,7 @@ export const RESERVED_DIRECTORY_SLUGS = new Set([
   "category",
   "tag",
   "stats",
+  "listed",
 ]);
 
 export type ToolSubmission = {
