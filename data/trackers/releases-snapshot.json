@@ -1,15 +1,55 @@
 {
-  "retrievedAt": "2026-11-15T13:55:42.105246Z",
-  "retrievedDay": "2026-11-15",
+  "retrievedAt": "2026-11-16T15:45:22.719569Z",
+  "retrievedDay": "2026-11-16",
   "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo}/releases?per_page=100&page=1",
   "repos": [
     {
       "id": "langchain",
       "name": "LangChain",
       "repo": "langchain-ai/langchain",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "langchain-xai==1.4.0",
+          "name": "langchain-xai==1.4.0",
+          "body": "Changes since langchain-xai==1.3.0\n\nfix(groq,mistralai,xai): bump deps (#41884)\nrelease(xai): 1.4.0 (#41857)\nfeat(xai): route `ChatXAI` through LangSmith gateway (#41838)\nfeat(partners): Remove EOL'd Python 3.10 from partner packages (#41268)\nchore(model-profiles): refresh model profile data (#41651)\nchore(infra): relax third-party dependency upper bounds (#41407)\nchore(deps): bump aiohttp from 3.14.4 to 3.14.5 in /libs/partners/xai (#41374)\nchore(deps): bump certifi from 2025.8.3 to 2026.10.19 in /libs/partners/xai (#41371)\nchore(deps): bump aiohttp from 3.14.3 to 3.14.4 in /libs/partners/xai (#41361)\nchore(model-profiles): refresh model profile data (#41325)",
+          "publishedAt": "2026-11-15T21:35:20Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-xai%3D%3D1.4.0",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-mistralai==1.2.0",
+          "name": "langchain-mistralai==1.2.0",
+          "body": "Changes since langchain-mistralai==1.1.6\n\nfix(mistralai): fix streaming behavior for reasoning models (#41887)\nfix(groq,mistralai,xai): bump deps (#41884)\nchore(model-profiles): refresh model profile data (#41861)\nrelease(mistralai): 1.2.0 (#41859)\nfeat(mistralai): route `ChatMistralAI` through LangSmith gateway (#41840)\nchore(model-profiles): refresh model profile data (#41828)\nfeat(partners): Remove EOL'd Python 3.10 from partner packages (#41268)\nchore(deps): patch newer-python security lock resolutions (#41585)\nchore(model-profiles): refresh model profile data (#41573)\nchore(model-profiles): refresh model profile data (#41556)",
+          "publishedAt": "2026-11-15T22:38:03Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-mistralai%3D%3D1.2.0",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-groq==1.2.0",
+          "name": "langchain-groq==1.2.0",
+          "body": "Changes since langchain-groq==1.1.3\n\nfix(groq): specify reasoning_effort in integration tests (#41886)\nfix(groq,mistralai,xai): bump deps (#41884)\nrelease(groq): 1.2.0 (#41856)\nfeat(groq): route `ChatGroq` through LangSmith gateway (#41837)\nfeat(partners): Remove EOL'd Python 3.10 from partner packages (#41268)\nchore(model-profiles): refresh model profile data (#41432)\nchore(infra): relax third-party dependency upper bounds (#41407)\nchore(model-profiles): refresh model profile data (#41354)\nchore(deps): bump certifi from 2025.8.3 to 2026.10.19 in /libs/partners/groq (#41386)\nfix: fix dependencies in some partner packages (#41266)",
+          "publishedAt": "2026-11-15T21:49:09Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-groq%3D%3D1.2.0",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-deepseek==1.2.0",
+          "name": "langchain-deepseek==1.2.0",
+          "body": "Changes since langchain-deepseek==1.1.1\n\nrelease(deepseek): 1.2.0 (#41858)\nfeat(deepseek): route `ChatDeepSeek` through LangSmith gateway (#41839)\nfeat(partners): Remove EOL'd Python 3.10 from partner packages (#41268)\nchore(infra): relax third-party dependency upper bounds (#41407)\nchore(deps): bump certifi from 2025.8.3 to 2026.10.19 in /libs/partners/deepseek (#41389)\nchore(model-profiles): refresh model profile data (#41325)\nchore(model-profiles): refresh model profile data (#41283)\nfix: fix dependencies in some partner packages (#41266)\nchore(deps): bump urllib3 from 2.7.0 to 2.8.0 in /libs/partners/deepseek (#40962)\nchore(model-profiles): refresh model profile data (#40804)",
+          "publishedAt": "2026-11-15T21:34:41Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-deepseek%3D%3D1.2.0",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-core==1.8.1",
+          "name": "langchain-core==1.8.1",
+          "body": "Changes since langchain-core==1.8.0\n\nrelease(core): 1.8.1 (#41855)\nchore(deps): bump soupsieve from 4.0 to 4.1 in /libs/core (#41850)\nfeat(core): per-context LangSmith gateway override via `langsmith_gateway` (#41836)\nchore(deps): bump soupsieve from 2.9 to 4.0 in /libs/core (#41833)",
+          "publishedAt": "2026-11-15T14:57:11Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.8.1",
+          "prerelease": false
+        },
         {
           "tag": "langchain-openai==1.8.0",
           "name": "langchain-openai==1.8.0",
@@ -769,46 +809,6 @@
           "publishedAt": "2026-08-14T18:56:41Z",
           "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.5.5",
           "prerelease": false
-        },
-        {
-          "tag": "langchain-openai==1.5.0",
-          "name": "langchain-openai==1.5.0",
-          "body": "Changes since langchain-openai==1.4.3\n\nrelease(openai): 1.5.0 (#39629)\nfeat(openai): support openai 3.0 SDK (#39613)\nchore(partners): bump langgraph floor in openai and huggingface lockfiles (#39617)",
-          "publishedAt": "2026-08-13T13:15:00Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.5.0",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-anthropic==1.5.6",
-          "name": "langchain-anthropic==1.5.6",
-          "body": "Changes since langchain-anthropic==1.5.5\n\nrelease(anthropic): 1.5.6 (#39622)\nfix(anthropic): normalize `tool_search_tool_result` blocks (#39621)\nfix(anthropic): correct model profile data for Fable 5, Sonnet 5, Opus 4.1 (#39604)",
-          "publishedAt": "2026-08-13T02:31:03Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.5.6",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain==1.3.15",
-          "name": "langchain==1.3.15",
-          "body": "Changes since langchain==1.3.14\n\nrelease(langchain): 1.3.15 (#39595)\nfeat(langchain): expose `trace_policy` on `AgentMiddleware` (#38910)\nchore(langchain): fix type errors in tests (#39589)\nchore: bump h2 from 4.3.0 to 4.4.1 in /libs/langchain_v1 (#39324)\nfix(langchain): preserve history on `SummarizationMiddleware` summary failure (#39268)\nfix(langchain): handle import error in `LLMToolEmulator` by `model` (#39290)\nrefactor(langchain): update doc strings (#39305)\nfeat(langchain): add `state_schema` param to `wrap_tool_call` (#39292)\nfix(langchain): re-export `PIIMatch` from `middleware` package (#39291)\nfix(langchain): restrict narrowed `ToolStrategy` in bound tools (#39259)",
-          "publishedAt": "2026-08-11T19:11:09Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.15",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-core==1.5.4",
-          "name": "langchain-core==1.5.4",
-          "body": "Changes since langchain-core==1.5.3\n\nrelease(core): 1.5.4 (#39592)\nfix(core): compat with pydantic 2.14 (#39328)\nfix(core): stop StructuredPrompt from mutating caller kwargs (#39174)\nfix(core): preserve flat tool args schema for `RootModel` runnables (#39307)\nfix(core): close internally created event loops in streaming tracers (#39222)\nchore: bump the minor-and-patch group across 3 directories with 7 updates (#39187)\nfix(core): preserve OpenAI file blocks (#39205)\nfix(core): document reserved argument names for tools (#39207)\nfix(core): handle injected args for subclasses of BaseTool (#39202)\nfix(core): respect include_injected=False with filter_args (#39200)",
-          "publishedAt": "2026-08-11T18:03:10Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.5.4",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-anthropic==1.5.5",
-          "name": "langchain-anthropic==1.5.5",
-          "body": "Changes since langchain-anthropic==1.5.4\n\nrelease(anthropic): 1.5.5 (#39597)\nfix(anthropic): report reasoning tokens in usage metadata (#39590)\nfix(anthropic): fix `KeyError` on rename in Claude file-tool middleware (#39293)\nchore(model-profiles): refresh model profile data (#39299)\nfix(anthropic): clearer error when no credentials are configured (#39285)",
-          "publishedAt": "2026-08-11T19:16:55Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.5.5",
-          "prerelease": false
         }
       ]
     },
@@ -816,7 +816,7 @@
       "id": "autogen",
       "name": "AutoGen",
       "repo": "microsoft/autogen",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": false,
       "releases": [
         {
@@ -1609,7 +1609,7 @@
       "id": "crewai",
       "name": "CrewAI",
       "repo": "crewAIInc/crewAI",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
         {
@@ -2418,7 +2418,7 @@
       "id": "llama-index",
       "name": "LlamaIndex",
       "repo": "run-llama/llama_index",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
         {
@@ -3227,7 +3227,7 @@
       "id": "langgraph",
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
         {
@@ -4036,9 +4036,17 @@
       "id": "openai-agents",
       "name": "OpenAI Agents SDK",
       "repo": "openai/openai-agents-python",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "v0.24.0-alpha.8",
+          "name": "Agents SDK v0.24.0-alpha.8",
+          "body": "# Agents SDK v0.24.0-alpha.8\n\n## Highlights\n\n- **Approve Python tool calls before they run.** Review the arguments and approve or reject the call. You can remember a decision for the rest of the Session. [Managed approval example](https://github.com/openai/openai-agents-python/blob/d6a81c997eabdc56108633eb3132fb3907f87d7e/examples/codex/managed_approvals/README.md#inspect-and-decide)\n- **Connect your own model client.** The native tool loop works with async Responses and Chat Completions clients, LiteLLM, AnyLLM, and custom adapters. [Application-owned model clients](https://github.com/openai/openai-agents-python/blob/d6a81c997eabdc56108633eb3132fb3907f87d7e/docs/sdk/models.md#use-an-application-owned-model-client)\n- **Add Realtime voice to a Session.** Use a server WebSocket, connect a browser over WebRTC, or attach to an existing SIP call. [Realtime connection options](https://github.com/openai/openai-agents-python/blob/d6a81c997eabdc56108633eb3132fb3907f87d7e/examples/codex/native_voice.md#choose-a-connection)\n- **Resume more kinds of work.** Save supported pending tool requests and approvals. Request and token budgets keep the usage already spent when you restore a supported checkpoint. [Restore a checkpoint with a budget](https://github.com/openai/openai-agents-python/blob/d6a81c997eabdc56108633eb3132fb3907f87d7e/examples/codex/budgeted-recovery.md)\n- **Install on more Linux systems.** The preview adds an ARM64 wheel. Both Linux wheels support glibc 2.28 or newer. [Preview wheel platform requirements](https://github.com/openai/openai-agents-python/blob/d6a81c997eabdc56108633eb3132fb3907f87d7e/.github/RELEASING.md#L44)\n\n## Added",
+          "publishedAt": "2026-11-16T04:39:19Z",
+          "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8",
+          "prerelease": true
+        },
         {
           "tag": "v0.24.0-alpha.7",
           "name": "Agents SDK v0.24.0-alpha.7",
@@ -4830,14 +4838,6 @@
           "publishedAt": "2025-08-15T23:23:33Z",
           "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/0.2.8",
           "prerelease": false
-        },
-        {
-          "tag": "v0.2.7",
-          "name": "v0.2.7",
-          "body": "## What's Changed\n* Added runtime validation for Agent constructor arguments by @DanielHashmi in https://github.com/openai/openai-agents-python/pull/998\n* Realtime: add handoff prompt prefix by @rm-openai in https://github.com/openai/openai-agents-python/pull/1382\n* feat(tests): add tests for unicode content, special characters, and concurrent access in SQLiteSession by @PatrykBochenek in https://github.com/openai/openai-agents-python/pull/1399\n* Fix: enforce strict instructions function signature in get_system_prompt by @abdullahimran49 in https://github.com/openai/openai-agents-python/pull/1426\n* Fix #1407 Add reasoning.effort=\"minimal\" and \"verbosity\" params to ModelSettings by @seratch in https://github.com/openai/openai-agents-python/pull/1439\n* Add a simple gpt-oss example by @seratch in https://github.com/openai/openai-agents-python/pull/1440\n* Fix: Clarify random_number function docstring for inclusive range by @Abbas-Asad in https://github.com/openai/openai-agents-python/pull/1461\n* Add input validation and type conversion for user input by @Abbas-Asad in https://github.com/openai/openai-agents-python/pull/1462\n* docs: Add a comprehensive example for handling function\u00a0tool\u00a0errors. by @MurtazaAliCode in https://github.com/openai/openai-agents-python/pull/1354\n* Update all translated document pages by @github-actions[bot] in https://github.com/openai/openai-agents-python/pull/1469\n* Migrate document translation script to gpt-5 by @seratch in https://github.com/openai/openai-agents-python/pull/1470",
-          "publishedAt": "2025-08-14T18:58:23Z",
-          "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/v0.2.7",
-          "prerelease": false
         }
       ]
     },
@@ -4845,7 +4845,7 @@
       "id": "smolagents",
       "name": "smolagents",
       "repo": "huggingface/smolagents",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": false,
       "releases": [
         {
@@ -5142,7 +5142,7 @@
       "id": "mastra",
       "name": "Mastra",
       "repo": "mastra-ai/mastra",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
         {
@@ -5951,7 +5951,7 @@
       "id": "ai-sdk",
       "name": "Vercel AI SDK",
       "repo": "vercel/ai",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
         {
@@ -6760,7 +6760,7 @@
       "id": "google-adk",
       "name": "Google ADK",
       "repo": "google/adk-python",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": false,
       "releases": [
         {
@@ -7513,7 +7513,7 @@
       "id": "claude-code",
       "name": "Claude Code",
       "repo": "anthropics/claude-code",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
         {
@@ -9131,7 +9131,7 @@
       "id": "gemini-cli",
       "name": "Gemini CLI",
       "repo": "google-gemini/gemini-cli",
-      "retrievedAt": "2026-11-15T13:55:42.105246Z",
+      "retrievedAt": "2026-11-16T15:45:22.719569Z",
       "capped": true,
       "releases": [
         {
