@@ -82,6 +82,7 @@ export default function GoogleAgentHydrogenPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Daily brief"
         title={title}
         thesis={thesis}

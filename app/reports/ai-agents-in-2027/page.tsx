@@ -42,6 +42,7 @@ export default function Agents2027ReportPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis={thesis}

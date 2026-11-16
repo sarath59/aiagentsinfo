@@ -140,6 +140,7 @@ export default async function AgentsOutlookPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis="Through May 2027, the dated public record is filings, a few product posts, and two EU dates."

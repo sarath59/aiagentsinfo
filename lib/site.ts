@@ -18,6 +18,22 @@ function resolveSiteUrl() {
 export const entityLine =
   "aiagentsinfo.com is an independent directory and research site tracking AI agents, agent harnesses, frameworks and agent benchmarks.";
 
+/** Same sentence and the same research links on the homepage and the directory. */
+export const priorityReading = [
+  { href: "/reports/ai-agents-next-12-months", label: "AI agents in the next 12 months" },
+  { href: "/research/ai-agents-next-12-months-scorecard-november-2026", label: "What changed in that 12-month forecast" },
+  { href: "/best/ai-agent-frameworks", label: "AI agent frameworks compared" },
+  { href: "/reports/ai-agent-framework-github-stats-november-2026", label: "Framework GitHub releases" },
+  { href: "/trackers/downloads", label: "Framework downloads" },
+  { href: "/trackers/stars", label: "Framework GitHub stars" },
+  { href: "/best/ai-agents-for-web-search", label: "Web search agents" },
+  { href: "/reports/web-search-tools-for-ai-agents-november-2026", label: "Web search API prices and limits" },
+  { href: "/best/ai-agent-harnesses", label: "AI agent harnesses" },
+  { href: "/reports/agent-harness-benchmark-november-2026", label: "Harness benchmark" },
+  { href: "/reports/ai-coding-agents-next-30-days", label: "Coding agents, the next 30 days" },
+  { href: "/blog/ai-agent-framework-release-november-2026-upgrade", label: "Framework releases this month" },
+] as const;
+
 /** Short line shown under the brand in the site footer. */
 export const footerLine = "AI agent directory and dated research.";
 

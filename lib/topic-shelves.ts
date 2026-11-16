@@ -5,8 +5,18 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
   harnesses: {
     heading: "Which agent harness pages should you read first?",
     answer:
-      "Start with the definition, then the evaluation guide, how to build an eval harness, the comparison tables, the November benchmark, and the research notes.",
+      "Start on the harness hub: the definition, how to evaluate one, the checklist, how to build an eval harness, the November benchmark, then the comparison table on this topic.",
     links: [
+      {
+        href: "/best/ai-agent-harnesses",
+        anchor: "Start here: Best AI agent harness",
+        note: "Licence, list price, and platform for 11 runtimes. The start-here list on that page is the reading order.",
+      },
+      {
+        href: "/tools/ai-agent-harness-evaluation-checklist",
+        anchor: "AI agent harness evaluation checklist",
+        note: "Twelve yes-or-no checks. The count stays in the browser. It is not a benchmark score.",
+      },
       {
         href: "/blog/microsoft-copilot-harness-foundry",
         anchor: "Microsoft Copilot harness in Foundry",
@@ -61,11 +71,6 @@ export const topicShelves: Record<string, { heading: string; answer: string; lin
         href: "/blog/how-to-build-an-eval-harness-for-ai-agents",
         anchor: "How to build an eval harness for AI agents",
         note: "Isolate every trial, grade the environment, keep a held-out set. Harbor, Inspect, or local pytest.",
-      },
-      {
-        href: "/best/ai-agent-harnesses",
-        anchor: "Best AI agent harness, 11 compared",
-        note: "Coding, open-source, and local runtimes. Licence and list price, not a score.",
       },
       {
         href: "/best/ai-agent-frameworks",

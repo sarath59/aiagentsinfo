@@ -41,7 +41,13 @@ export default function BestAiAgentFrameworksPage() {
           </p>
           <p>
             The code is free to use under the licence in the table. A hosted model the framework calls is a separate
-            bill. Install counts are a different measurement from this comparison. PyPI and npm file requests are in{" "}
+            bill. The table’s download column is the{" "}
+            <Link href="/trackers/downloads">downloads tracker</Link> snapshot retrieved November 9, 2026, for October
+            10 through November 8. Stars in that table are the{" "}
+            <Link href="/trackers/stars">stars tracker</Link> from the same retrieval. The November 5 census, which is
+            a different pull, is the{" "}
+            <Link href="/reports/ai-agent-framework-github-stats-november-2026">framework GitHub stats report</Link>.
+            PyPI and npm file requests with the method written out are in{" "}
             <Link href="/blog/which-ai-agent-framework-do-people-install">
               Which AI agent framework do people install?
             </Link>{" "}
@@ -72,11 +78,12 @@ export default function BestAiAgentFrameworksPage() {
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             Open source here means the repository’s code licence, not a free hosted agent. Star counts in the table
-            are the November 5, 2026 snapshot, the same pull as the{" "}
-            <Link href="/reports/ai-agent-framework-github-stats-november-2026">framework release report</Link>.
-            LangGraph is 44,482 stars on that pull. This page re-read release tags on November 11 and did not replace
-            those star counts. The <Link href="/trackers/stars">stars tracker</Link> is a later file and a different
-            list of repositories.
+            are the November 9, 2026{" "}
+            <Link href="/trackers/stars">stars tracker</Link> snapshot. LangGraph is 44,700 stars in that file. The{" "}
+            <Link href="/reports/ai-agent-framework-github-stats-november-2026">November 5 release report</Link> is an
+            earlier pull and a different number. This page re-read release tags on November 11 and did not replace
+            the November 9 star file with that pass. A repository that is not in the November 9 file is labeled in
+            the cell. It is not shown as zero.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             AutoGen’s README on main, re-read November 11, 2026, says the project is archived and that Microsoft is
@@ -91,7 +98,12 @@ export default function BestAiAgentFrameworksPage() {
             <Link href="/research/ai-agent-framework-mcp-a2a-support-november-2026">
               AI agent framework MCP and A2A support
             </Link>
-            . That note is the protocol matrix. This page is the licence and the release tag.
+            . That note is the protocol matrix, and its short form is the MCP / A2A column. How many GitHub releases
+            landed in the 30 days before November 11 is{" "}
+            <Link href="/research/ai-agent-framework-release-cadence-october-november-2026">
+              the release-cadence note
+            </Link>
+            . The count includes package tags. vercel/ai’s 3,165 is not 3,165 copies of one library.
           </p>
         </section>
       </ComparisonGuide>

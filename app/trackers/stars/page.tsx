@@ -164,6 +164,10 @@ export default async function StarsTrackerPage() {
             <Link className="text-[var(--link)] underline" href={TRACKER_PATHS.downloads}>
               downloads tracker
             </Link>
+            . Licence, language, and the same star file used as a column are{" "}
+            <Link className="text-[var(--link)] underline" href="/best/ai-agent-frameworks">
+              Best AI agent frameworks
+            </Link>
             . The November 5 release table is the{" "}
             <Link
               className="text-[var(--link)] underline"

@@ -64,6 +64,7 @@ export default function AgentsTwelveMonthOutlookPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Flagship"
         title={title}
         thesis={thesis}
@@ -76,7 +77,8 @@ export default function AgentsTwelveMonthOutlookPage() {
         details={
           <p>
             Published November 7, 2026. Updated November 12, 2026, after the November 10 Anthropic amendment and a
-            fresh read of the Gemini and OpenAI price pages. Regulation dates carried from November 7 are labeled.
+            fresh read of the Gemini and OpenAI price pages. Checked again November 16, 2026: no newer S-1/A, and the
+            price mornings have not arrived. Regulation dates carried from November 7 are labeled.
           </p>
         }
         keyNumbers={keyNumbers}
@@ -99,6 +101,14 @@ export default function AgentsTwelveMonthOutlookPage() {
         sources={<SourceList sources={sources} />}
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={[
+          {
+            href: "/research/ai-agents-next-12-months-scorecard-november-2026",
+            title: "What moved in the 12-month forecast",
+            description:
+              "The November 11 row check, updated November 16. The dollar line is still $70.7 billion. DeepSeek Harness’s newest tag is now a later prerelease.",
+            kicker: "Scorecard",
+            date: "2026-11-16",
+          },
           {
             href: "/blog/personal-assistant-ai-what-it-will-do-november-2026",
             title: "ChatGPT agent is retired. Gemini tasks skip the EEA and the UK.",

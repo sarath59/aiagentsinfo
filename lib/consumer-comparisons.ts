@@ -417,6 +417,22 @@ export const webSearchComparison: ComparisonPage = {
       ],
     },
     {
+      id: "claude-openai-agents",
+      heading: "Best web search tool for Claude / OpenAI agents",
+      paragraphs: [
+        "For a person sitting in the chat, there is no single winner. [Claude](/directory/claude) web search is on every Claude plan globally, the October 7, 2026 help article says every response includes citations, and search counts toward plan limits. [ChatGPT](/directory/chatgpt) search is on Free, Go, Plus, Pro, Business, Enterprise, and Edu, and for people who are not signed in. OpenAI’s help article says a response that used the web may include citations, and that you should open the cited page.",
+        "For an agent a builder runs, the chat product is the wrong object. Anthropic’s and OpenAI’s web search tools both list $10 per 1,000 searches, read November 11, 2026, on [the API price card](/blog/web-search-api-prices-for-ai-agents-november-2026). The limit, the free tier, and the official MCP server for 13 APIs, read November 12, are the [web search tools report](/reports/web-search-tools-for-ai-agents-november-2026). Which of those calls belongs in a harness, including Gemini grounding at $14 per 1,000 searches and a 1,500-request daily cap, is [What is the best web search tool for an AI agent harness?](/blog/best-web-search-tool-for-ai-agents).",
+      ],
+    },
+    {
+      id: "chatgpt-production",
+      heading: "Is ChatGPT web search good enough for production AI agents?",
+      paragraphs: [
+        "Not as the only search call inside a production agent loop. ChatGPT search is a chat product. OpenAI’s help article says it can cite pages and that you should open a cited source. That article does not publish a per-call price, a tool-definition token count, or a cap a harness can set. A production loop needs those three, because a search the model triggers is [tool use](/glossary/tool-use), and the bill is the call plus the tokens of the tool and the result.",
+        "The API tools publish the call price. OpenAI’s web search tool and Claude’s web search tool both list $10 per 1,000 searches on the November 11 [price card](/blog/web-search-api-prices-for-ai-agents-november-2026). Measured November 12, OpenAI’s web_search declaration was 8 tokens and Claude’s web_search_20260318 was 17, against Exa’s resolved schema at 5,251, on [the token note](/blog/best-web-search-tool-for-claude-and-openai-agents). Gemini grounding’s published cap is 1,500 searches a day at $14 per 1,000, on the [harness guide](/blog/best-web-search-tool-for-ai-agents). The vendor-by-vendor limit is the [November 12 report](/reports/web-search-tools-for-ai-agents-november-2026). Multiply a call count you type on the [cost calculator](/tools/web-search-api-cost-per-agent-task). ChatGPT search remains the right tool for a person who is not sending an API request.",
+      ],
+    },
+    {
       id: "citations",
       heading: "Do AI web-search agents cite their sources?",
       paragraphs: [
@@ -864,6 +880,14 @@ export const personalAssistantComparison: ComparisonPage = {
       paragraphs: [
         "There is no single best AI agent for personal assistant tasks. [ChatGPT](/directory/chatgpt) can run scheduled tasks — the help center lists Free through Edu; the pricing table marks Scheduled tasks as No on Free and Yes on Go and Plus. [Claude](/directory/claude) Cowork is Anthropic’s workplace agent on Pro, Max, Ultra, and Team. [Gemini](/directory/gemini) can create calendar events and, on Google AI Plus, includes Daily Brief. Microsoft 365 Personal at $9.99 a month includes Copilot in Outlook, Word, Excel, and PowerPoint.",
         "A workplace agent is a [digital worker](/glossary/digital-worker), not a legal employee. The longer guide is [What is an AI employee?](/blog/what-is-an-ai-employee). The shelf is [Best AI agents](/best).",
+      ],
+    },
+    {
+      id: "listed-tools",
+      heading: "Which personal-assistant tools are listed here?",
+      paragraphs: [
+        "The four products in the table have directory pages: [ChatGPT](/directory/chatgpt), [Claude](/directory/claude), [Gemini](/directory/gemini), and Microsoft 365, compared on this page by the job each vendor documents. Open the listing for the official site, the plan price this desk last checked, and the date of that check. A product that is not in the table is absent because this page did not find a sourced personal-assistant job for it, not because it lost a ranking.",
+        "If you ship an agent for this job, [list your AI agent](/submit). No login and no fee. A listing is the maker’s text plus the official site. It is not a rank on this table.",
       ],
     },
     {
@@ -1687,6 +1711,14 @@ export const smallBusinessComparison: ComparisonPage = {
       heading: "Do you need a shared workspace or a website assistant?",
       paragraphs: [
         "ChatGPT Business, Claude Team, and Microsoft 365 Copilot are for people inside the company. ReplyCurrent is for visitors on the public site. They are different jobs. This table lists both because a small business often needs one of each, not a single winner.",
+      ],
+    },
+    {
+      id: "listed-tools",
+      heading: "Which small-business tools are listed here?",
+      paragraphs: [
+        "Open the directory page for the official site and the price this desk last checked: [ChatGPT](/directory/chatgpt), [Claude](/directory/claude), and [ReplyCurrent](/directory/replycurrent). Microsoft 365 Business Standard with Copilot is the fourth row, priced from Microsoft’s page on this comparison rather than from a separate listing. Named AI-employee products, which are a different purchase, are on [How much does an AI employee cost?](/blog/how-much-does-an-ai-employee-cost).",
+        "If you ship an agent for a small business, [list your AI agent](/submit). No login and no fee. Payment does not buy a place in this table.",
       ],
     },
   ],

@@ -52,6 +52,7 @@ export default function ShoppingAgents30DayPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis={thesis}

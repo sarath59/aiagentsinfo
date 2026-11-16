@@ -13,6 +13,7 @@ export const metadata = defaultMetadata(
 
 const toc = [
   { id: "direct-answer", text: harnessComparison.question, level: 2 as const },
+  { id: "start-here", text: "Start here", level: 2 as const },
   { id: "comparison-table", text: harnessComparison.tableHeading, level: 2 as const },
   { id: "best-for", text: harnessComparison.bestForHeading, level: 2 as const },
   { id: "coding", text: "What is the best coding agent harness in 2026?", level: 2 as const },
@@ -59,8 +60,36 @@ export default function BestAiAgentHarnessPage() {
             . A missing cost stays Not listed. How to
             test a change without trusting a composite score is{" "}
             <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How to evaluate an AI agent harness</Link>{" "}
-            The shelf for this table is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>.
+            The shelf for this table is <Link href={COMPARISON_HUB.href}>{COMPARISON_HUB.title}</Link>. The topic
+            shelf is <Link href="/topics/harnesses">Agent harnesses</Link>.
           </p>
+        </section>
+        <section id="start-here" className="mt-12">
+          <h2 className="text-2xl font-semibold tracking-tight">Start here</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            Read these in order if you are new to the word. This page is the licence and list-price table. It is not
+            the definition, the test method, or the public scores.
+          </p>
+          <ol className="mt-4 max-w-3xl list-decimal space-y-2 pl-5 text-sm leading-relaxed">
+            <li>
+              <Link href="/blog/what-is-an-ai-agent-harness">What is an AI agent harness?</Link>
+            </li>
+            <li>
+              <Link href="/blog/how-do-you-evaluate-an-ai-agent-harness">How do you evaluate an AI agent harness?</Link>
+            </li>
+            <li>
+              <Link href="/tools/ai-agent-harness-evaluation-checklist">AI agent harness evaluation checklist</Link>
+            </li>
+            <li>
+              <Link href="/blog/how-to-build-an-eval-harness-for-ai-agents">How to build an eval harness for AI agents</Link>
+            </li>
+            <li>
+              <Link href="/reports/agent-harness-benchmark-november-2026">Agent harness benchmark, November 2026</Link>
+            </li>
+            <li>
+              <Link href="/topics/harnesses">Agent harnesses topic</Link>
+            </li>
+          </ol>
         </section>
         <section id="coding" className="mt-12">
           <h2 className="text-2xl font-semibold tracking-tight">What is the best coding agent harness in 2026?</h2>

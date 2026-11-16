@@ -2,6 +2,7 @@ import type { RelatedCard } from "@/components/ArticleTemplate";
 import { codingAgentsComparison } from "@/lib/coding-agents-comparison";
 import { consumerComparisons } from "@/lib/consumer-comparisons";
 import { starsForRepo } from "@/lib/framework-stars";
+import { frameworkTrackerCells } from "@/lib/framework-tracker-cells";
 import { frameworkComparison } from "@/lib/framework-comparison";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
 import { licenceIsOpenSource, textIsFree } from "@/lib/table-facets";
@@ -84,6 +85,8 @@ export type ComparisonPage = {
   cellsNote?: string;
   /** Replaces the default method paragraph about list prices. */
   methodNote?: string;
+  /** Framework page uses the tracker star column instead of the November 5 auto column. */
+  skipAutoStars?: boolean;
 };
 
 const LISTING_LOGOS: Record<string, string> = {
@@ -140,9 +143,14 @@ const GLOSSARY_COMPARISON_SLUGS: Record<string, string[]> = {
   autonomy: ["ai-agents-for-shopping", "ai-agents-for-personal-assistant-tasks"],
 };
 
+function trackerDisplay(value: number | null | undefined) {
+  return value == null ? "Not in the 9 Nov snapshot" : value.toLocaleString("en-US");
+}
+
 export function comparisonRows(rows: ComparisonRow[]): SortableRow[] {
   return rows.map((row) => {
     const stars = starsForRepo(row.vendor);
+    const tracked = frameworkTrackerCells[row.id];
     return {
       id: row.id,
       sort: {
@@ -158,6 +166,10 @@ export function comparisonRows(rows: ComparisonRow[]): SortableRow[] {
         availability: row.availability ?? "",
         sources: row.sourceIds.join(","),
         stars,
+        trackerStars: tracked?.stars ?? null,
+        downloads: tracked?.downloads ?? null,
+        protocols: tracked?.protocols ?? "",
+        cadence: tracked ? tracked.cadence : null,
       },
       display: {
         name: row.name,
@@ -172,6 +184,14 @@ export function comparisonRows(rows: ComparisonRow[]): SortableRow[] {
         availability: row.availability ?? "",
         sources: row.sourceIds.map((id) => `[${id}]`).join(" "),
         stars: stars == null ? "" : stars.toLocaleString("en-US"),
+        trackerStars: tracked ? trackerDisplay(tracked.stars) : "",
+        downloads: tracked
+          ? tracked.downloads == null
+            ? "Not in the 9 Nov snapshot"
+            : `${tracked.downloads.toLocaleString("en-US")}${tracked.downloadPackage ? ` (${tracked.downloadPackage})` : ""}`
+          : "",
+        protocols: tracked?.protocols ?? "",
+        cadence: tracked ? tracked.cadence.toLocaleString("en-US") : "",
       },
       href: {
         name: row.listingSlug ? `/directory/${row.listingSlug}` : row.website,

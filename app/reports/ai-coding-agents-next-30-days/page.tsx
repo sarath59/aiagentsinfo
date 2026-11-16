@@ -141,6 +141,7 @@ export default async function CodingAgents30DayPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis="Eleven coding-agent list prices, checked November 8, 2026, and three dates the vendors have already set."

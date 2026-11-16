@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
+import { EntityStatement } from "@/components/EntityStatement";
 import { HomeReveal } from "@/components/home/HomeReveal";
 import { SectionSignal } from "@/components/home/SectionSignal";
 import { categoryTitle, getBlogPosts, type BlogPost } from "@/lib/blog";
@@ -114,6 +115,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <EntityStatement />
 
       <SectionSignal label="01 / plan" />
 

@@ -52,6 +52,7 @@ export default function CodingAgentsSixMonthPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis={thesis}

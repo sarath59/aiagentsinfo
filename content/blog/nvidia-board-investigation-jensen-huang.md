@@ -8,7 +8,7 @@ takeaways:
   - "Huang’s email, published by NVIDIA the same day, says he was unfaithful to his wife, supports the review, and is fully committed to the company. The email names no other person."
   - "NVIDIA told CNBC that Huang is committed to continuing as CEO without interruption. The board said it has no reason to believe national security or NVIDIA secrets were compromised."
 date: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-16"
 category: news
 topics:
   - news
@@ -165,6 +165,16 @@ The November 18 briefing in the House letter is the calendar day after that call
 </tbody>
 </table>
 </div>
+
+## What is still open on November 16, 2026?
+
+The earnings call this page cites is the next day. The briefing date in the November 4 letter is two days away. This page has no published reply from Huang accepting that date. The board statement, the email, and the CNBC quote were read November 9, 2026, and were not re-fetched on November 16. Nothing below is a new finding from NVIDIA.
+
+NVIDIA said on October 28, 2026, that it will discuss third-quarter fiscal 2027 results on Tuesday, November 17, 2026, at 2 p.m. Pacific time. The House letter asks for a briefing on November 18, 2026, in room 2172 of the Rayburn House Office Building, or another session day offered by November 11. November 11 has passed. This page still has no published acceptance.
+
+If you are here because you run agents on NVIDIA hardware, the investigation is not a product change. The board statement does not name a model, a framework, or a harness. The page on this site that cites NVIDIA’s November 4, 2026 NeMo walkthrough is the [AI agent harness evaluation checklist](/tools/ai-agent-harness-evaluation-checklist). How an agent loop works is [How do AI agents work?](/blog/how-do-ai-agents-work). Public harness scores are the [November 2026 harness benchmark](/reports/agent-harness-benchmark-november-2026). Coding-agent list prices are [Best AI coding agents](/best/ai-coding-agents).
+
+[List your AI agent](/submit). No login and no fee. A listing is not a rank, and this news page does not sell one.
 
 ## Why does this Nvidia investigation matter for AI?
 

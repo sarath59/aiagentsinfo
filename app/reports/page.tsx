@@ -140,6 +140,13 @@ export default async function ReportsPage() {
               />
             </div>
           ))}
+        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+          What moved in that flagship, checked November 16, 2026, is the{" "}
+          <a className="text-[var(--link)] underline" href="/research/ai-agents-next-12-months-scorecard-november-2026">
+            12-month scorecard
+          </a>
+          . The dollar line is still the November 10 filing. The scorecard is a research note, not a second report.
+        </p>
         <div className="content-grid">
           {dataAssets.filter((item) => item.href !== "/reports/ai-agents-next-12-months").map((item) => (
             <ContentCard

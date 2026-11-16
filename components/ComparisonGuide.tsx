@@ -179,7 +179,7 @@ export async function ComparisonGuide({
 function ComparisonTable({ page }: { page: ComparisonPage }) {
   const verifiedOn = page.verifiedOn ?? COMPARISON_VERIFIED_ON;
   const rows = comparisonRows(page.rows);
-  const withStars = rows.some((row) => typeof row.facets?.stars === "number");
+  const withStars = !page.skipAutoStars && rows.some((row) => typeof row.facets?.stars === "number");
   const columns = withStars
     ? [...page.columns, { key: "stars", label: "GitHub stars", numeric: true }]
     : page.columns;

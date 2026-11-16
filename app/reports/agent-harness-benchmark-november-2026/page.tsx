@@ -200,6 +200,7 @@ export default async function HarnessBenchmarkPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis="Public SWE-bench and Terminal-Bench scores, each still wearing the harness and the date on the official board."

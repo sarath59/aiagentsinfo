@@ -71,7 +71,12 @@ export async function ListingProfile({
     jumpSections.push({ id: "related-tools", label: "Related tools" });
   }
   const domain = websiteDomain(listing.website);
-  const cta = listing.name.length > 48 ? "Visit website" : `Visit ${listing.name}`;
+  const cta =
+    listing.slug === "freegenvideo"
+      ? "Visit site"
+      : listing.name.length > 48
+        ? "Visit website"
+        : `Visit ${listing.name}`;
   const pricingNote = conciseText(listing.pricingSummary, 280);
   const facts = quickFacts(listing, submittedLabel, checked, Boolean(supplement));
 
@@ -150,7 +155,7 @@ export async function ListingProfile({
             goal="claim_click"
             className="text-[var(--link)] underline"
           >
-            Is this your tool? Claim / update this listing
+            {listing.slug === "freegenvideo" ? "Claim this listing" : "Is this your tool? Claim / update this listing"}
           </TrackLink>
         </p>
         <ListingChecklist items={checklist} slug={listing.slug} />
@@ -187,6 +192,30 @@ export async function ListingProfile({
           </div>
         </div>
       </header>
+
+      {listing.slug === "freegenvideo" ? (
+        <section className="glass mt-8 rounded-3xl p-5 sm:p-6" id="what-it-does">
+          <h2 className="text-2xl font-semibold tracking-tight">What FreeGenVideo does, and what it costs</h2>
+          <p className="mt-2 text-sm leading-relaxed">
+            FreeGenVideo is a browser video generator at freegen.video. The homepage, read November 14, 2026, says it
+            turns a text prompt, or a starting image plus a prompt, into a video, with no sign-up required for the
+            guest allowance.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed">
+            Price: one free video a day, resetting at 00:00 UTC. freegen.video/pricing returned HTTP 404 that day. The
+            terms describe credits and subscriptions and do not print a dollar. The generator markup showed Collart
+            Video General, 540P or 720P, and 5 seconds.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed">
+            Alternatives on this site, for a different job:{" "}
+            <Link href="/directory/runway">Runway</Link>, <Link href="/directory/pika">Pika</Link>,{" "}
+            <Link href="/directory/heygen">HeyGen</Link>, <Link href="/directory/revid">Revid</Link>,{" "}
+            <Link href="/directory/storyshort">StoryShort</Link>, <Link href="/directory/speel">Speel</Link>, and{" "}
+            <Link href="/directory/motionfly">Motionfly</Link>. Runway is the one in the November 12 note with an
+            official MCP server.
+          </p>
+        </section>
+      ) : null}
 
       {listing.slug === "freegenvideo" ? (
         <section className="glass mt-8 rounded-3xl p-5 sm:p-6">

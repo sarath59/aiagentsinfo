@@ -2,7 +2,7 @@
 title: "AI agents next 12 months: the $69.8 billion line is now $70.7 billion"
 description: "November 2026 scorecard of the 12-month AI agent forecast. One grade moved: Anthropic’s line is about $70.7 billion, up from $69.8 billion. Dates did not move."
 date: "2026-11-11"
-updated: "2026-11-14"
+updated: "2026-11-16"
 type: original-report
 topics:
   - research
@@ -89,7 +89,22 @@ references:
     note: "HTTP 200, Date 05:27:16 GMT. The abstract page text has no GitHub link."
   - title: "AI Agents Info, AI agents in the next 12 months"
     url: "https://www.aiagentsinfo.com/reports/ai-agents-next-12-months"
-    note: "The November 7, 2026 page this note scores. Its claims are not edited here."
+    note: "The November 7, 2026 page this note scores. The November 16 update of that page quotes this check. The November 11 rows below were not rewritten."
+  - title: "SEC submissions, CIK 0002130357, fetched November 16, 2026"
+    url: "https://data.sec.gov/submissions/CIK0002130357.json"
+    note: "HTTP 200, Date Mon, 16 Nov 2026 03:53:03 GMT. Newest S-1/A remains filingDate 2026-11-10, accession 0001628280-26-072484. Five FWP filings are dated 2026-11-12."
+  - title: "Anthropic FWP, IPO website, filed November 12, 2026"
+    url: "https://www.sec.gov/Archives/edgar/data/2130357/000162828026072949/anthropicpbc-fwpipowebsi.htm"
+    note: "Fetched November 16, 2026. Footnote still prints approximately $70.7 billion due in the 12 months following September 30, 2026, and approximately $451.6 billion before December 31, 2030."
+  - title: "Tencent Hy4 post and Hugging Face Hy4, fetched November 16, 2026"
+    url: "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    note: "Corporate post HTTP 200 at 03:53:12 GMT. Still “in the coming days” and “From November 4 to 15.” huggingface.co/tencent/Hy4 HTTP 401. Hy4-preview HTTP 200."
+  - title: "DeepSeek Harness releases and README, fetched November 16, 2026"
+    url: "https://api.github.com/repos/deepseek-ai/DeepSeek-Harness/releases?per_page=5"
+    note: "HTTP 200 at 03:53:13 GMT. Newest dsh-v0.2.2-rc.3, prerelease, published_at 2026-11-13T07:56:55Z. pushed_at 2026-11-13T07:56:25Z. Master README still says developer preview."
+  - title: "MCP deprecated-features HTML, fetched November 16, 2026"
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/deprecated"
+    note: "HTTP 200 at 03:53:34 GMT. Page text still contains 2027-07-28 and “No features have been removed.”"
 citation:
   apa: "AI Agents Info. (2026, November 11). AI agents next 12 months: the $69.8 billion line is now $70.7 billion. https://www.aiagentsinfo.com/research/ai-agents-next-12-months-scorecard-november-2026"
   bibtex: |
@@ -102,7 +117,7 @@ citation:
       note={Re-read of the November 7 forecast against primary pages on November 11, 2026}
     }
 ledeQuestion: "Which of our 12-month AI agent predictions already moved?"
-ledeAnswer: "The commitment dollars. Anthropic’s November 10, 2026 amendment prints approximately $70.7 billion due in the 12 months after September 30, 2026. The November 2 amendment, which the forecast quotes, prints approximately $69.8 billion. The dates re-read on November 11 did not move."
+ledeAnswer: "The dollar line did not move again. On November 16, 2026 the newest S-1/A was still the November 10 amendment, approximately $70.7 billion. DeepSeek Harness did move: the newest release is dsh-v0.2.2-rc.3, still a prerelease, published November 13. Hy4’s free window, written as November 4 to 15, is over, and the corporate post still says the weights are coming."
 faq:
   - question: "Did the 12-month AI agent forecast’s dollar line move?"
     answer: "Yes. The November 7 page quotes Anthropic’s November 2 amendment: approximately $69.8 billion due in the 12 months after September 30, 2026, and approximately $895.4 billion in aggregate. The November 10 amendment prints approximately $70.7 billion and approximately $900.9 billion. The near-term compute sentence is the same in both filings and still names no month."
@@ -116,9 +131,25 @@ faq:
     answer: "The article fetched November 11, 2026 says macOS and Windows. The old URL redirects to learn.chatgpt.com/docs/computer-use. The word Linux appears once on that HTML, as a navigation label for a different page, “Linux Desktop app.” That label is not a computer-use platform."
 ---
 
-**$70.7 billion.** That is the figure Anthropic’s November 10, 2026 amendment prints for commitments due in the 12 months following September 30, 2026.
+**$70.7 billion.** That is still the figure. On November 16, 2026, SEC submissions showed no S-1/A newer than the November 10 amendment, and a November 12 free-writing prospectus repeats the same approximate.
 
-Update, November 12, 2026. [AI agents in the next 12 months](/reports/ai-agents-next-12-months) now quotes the November 10 figures. The paragraphs below are the November 11 reading that caught the change, written while that page still quoted the November 2 amendment: approximately **$69.8 billion** on the 12-month line, and approximately **$895.4 billion** in aggregate. This note did not edit the page. The dates the page hung on a calendar have not moved. The summary under the title was rewritten on November 14, 2026. The rows below were not re-checked that day.
+Direct answer. The commitment dollars did not move again. One watch item did. DeepSeek Harness’s newest GitHub release is now `dsh-v0.2.2-rc.3`, a prerelease published 2026-11-13T07:56:55Z, and the README still says developer preview. Hy4’s corporate post still says the weights are coming, and it still prints a free window of November 4 to 15. November 16 is the day after that window. `huggingface.co/tencent/Hy4` returned HTTP 401. The dated price steps, December 1 and January 1, have not arrived. This page did not re-open those price HTML files on November 16.
+
+## What changed this month?
+
+The November 11 rows below are the original check. This section is the November 16 pass, and it does not pretend the older timestamps were taken today.
+
+The dollar line is unchanged. Submissions for CIK 0002130357 returned HTTP 200 at 03:53:03 GMT. The newest S-1/A is still filingDate 2026-11-10, accession `0001628280-26-072484`. Five FWP filings are dated 2026-11-12. This pass opened the IPO-website prospectus, accession `0001628280-26-072949`. A footnote still says approximately $70.7 billion of the commitments are due in the 12 months following September 30, 2026, and approximately $451.6 billion are expected before December 31, 2030. The other four FWPs were not opened. The flagship that quotes the November 10 amendment is [AI agents in the next 12 months](/reports/ai-agents-next-12-months).
+
+DeepSeek Harness moved. The releases API, HTTP 200 at 03:53:13 GMT, listed `dsh-v0.2.2-rc.3` first, `prerelease: true`, `published_at` 2026-11-13T07:56:55Z. The November 11 check’s newest tag, `dsh-v0.2.2-rc.1`, is two release candidates behind. The repository `pushed_at` was 2026-11-13T07:56:25Z. The master README still says “DeepSeek Harness is in developer preview” and “THERE WILL BE COMPATIBILITY-BREAKING CHANGES.” A newer release candidate is not a stable version.
+
+Hy4’s announcement did not move, and the calendar did. The corporate post, HTTP 200 at 03:53:12 GMT, still says weights and system cards in the coming days, and it still says “From November 4 to 15.” That window closed the day before this check. The page was not rewritten, on this fetch, to say the weights are public. `huggingface.co/tencent/Hy4` returned HTTP 401. `huggingface.co/tencent/Hy4-preview` returned HTTP 200.
+
+The protocol clock did not move. The deprecated-features HTML, HTTP 200 at 03:53:34 GMT, still contains `2027-07-28` and “No features have been removed.” The HTML `last-modified` header was Sat, 14 Nov 2026 19:10:54 GMT.
+
+December 1, January 1, and November 30 are still in the future relative to November 16. This pass did not re-download the Gemini or OpenAI pricing pages. Those rows stay on the November 12 read of the flagship.
+
+Update, November 12, 2026. [AI agents in the next 12 months](/reports/ai-agents-next-12-months) now quotes the November 10 figures. The paragraphs below are the November 11 reading that caught the change, written while that page still quoted the November 2 amendment: approximately **$69.8 billion** on the 12-month line, and approximately **$895.4 billion** in aggregate. This note did not edit the page on November 11. The flagship was updated on November 12, and both pages were checked again on November 16, in the section above. The dates the page hung on a calendar have not moved. The summary under the title was rewritten on November 14, 2026. The rows below were not re-checked that day.
 
 Shopping checkout was never this page’s job. It stays in [AI shopping agents in the next 6 months](/reports/ai-shopping-agents-next-6-months).
 
@@ -192,7 +223,7 @@ Singapore’s November 5 speech, HTTP 200 at 05:27:15 GMT, still says “GovTech
 
 ## What should you open next?
 
-Read [AI agents in the next 12 months](/reports/ai-agents-next-12-months). As of November 12, 2026 it quotes the November 10 filing, approximately $70.7 billion. The $69.8 billion figure in the table above is the November 2 amendment, which that page quoted until this update. Checkout for the next month is [AI shopping agents, next 30 days](/reports/ai-shopping-agents-next-30-days). The six-month shopping calendar is [AI shopping agents in the next 6 months](/reports/ai-shopping-agents-next-6-months).
+Read [AI agents in the next 12 months](/reports/ai-agents-next-12-months). As of November 16, 2026 it quotes the November 10 filing, approximately $70.7 billion, and it carries this morning’s check. The $69.8 billion figure in the table above is the November 2 amendment. The shelf for every report is [Reports](/reports). The shelf for notes like this one is [Research](/research). Checkout for the next month is [AI shopping agents, next 30 days](/reports/ai-shopping-agents-next-30-days). The six-month shopping calendar is [AI shopping agents in the next 6 months](/reports/ai-shopping-agents-next-6-months). Framework release tags are [Best AI agent frameworks](/best/ai-agent-frameworks).
 
 A commitment in a prospectus is not your token bill. The [agent cost calculator](/agent-cost-calculator) prices a 30-day run from published per-token rates and does not add a seat fee. What registries actually fetched last month is the [downloads tracker](/trackers/downloads). Bookmarks are the [stars tracker](/trackers/stars).
 

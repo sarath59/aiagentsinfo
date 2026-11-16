@@ -159,6 +159,7 @@ export default async function BrowserComputerUseReportPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis="Ten live browser and computer-use agents. One vendor has named a day through May 9, 2027."

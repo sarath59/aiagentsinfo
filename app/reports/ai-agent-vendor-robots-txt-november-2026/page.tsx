@@ -61,6 +61,7 @@ export default function VendorRobotsNovemberPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Daily brief"
         title={title}
         thesis={thesis}

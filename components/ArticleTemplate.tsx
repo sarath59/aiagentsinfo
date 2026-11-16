@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { BylineLink } from "@/components/BylineLink";
 import { CompanyMarks, InlineCompanyText } from "@/components/CompanyMarks";
 import { ContentCard } from "@/components/ContentCard";
+import { DataSourceLine } from "@/components/DataSourceLine";
 import { RelatedReading } from "@/components/RelatedReading";
 import { TableOfContents } from "@/components/TableOfContents";
 import type { TocItem } from "@/lib/markdown";
@@ -51,6 +52,7 @@ export function ArticleTemplate({
   related,
   wide = false,
   shell = "article",
+  sourcePath,
   children,
 }: {
   category: string;
@@ -77,6 +79,8 @@ export function ArticleTemplate({
   related?: RelatedCard[];
   wide?: boolean;
   shell?: "article" | "report";
+  /** When set on a report, prints the shared “Source: aiagentsinfo.com” line. */
+  sourcePath?: string;
   children: ReactNode;
 }) {
   const report = shell === "report";
@@ -192,6 +196,9 @@ export function ArticleTemplate({
                 <h2 className="report-unnumbered">{sourcesTitle}</h2>
                 {sources}
               </section>
+            ) : null}
+            {report && sourcePath ? (
+              <DataSourceLine title={title} updated={updated ?? published} path={sourcePath} />
             ) : null}
             {citation ? (
               <div className="article-citation" id="citation">

@@ -280,6 +280,7 @@ export async function buildLlmsTxt() {
     ];
   });
   const listedInIndex = [
+    "freegenvideo",
     "muse-ember",
     "elevenlabs",
     "a2ui",

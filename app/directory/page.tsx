@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EmptyState } from "@/components/EmptyState";
+import { EntityStatement } from "@/components/EntityStatement";
 import { BestOfLinks } from "@/components/BestOfLinks";
 import { ListingCard } from "@/components/ListingCard";
 import { ListYourAgent } from "@/components/ListYourAgent";
@@ -83,6 +84,7 @@ export default async function DirectoryPage({
         <p className="mt-3 max-w-2xl text-lg leading-relaxed">
           {listings.length} listings, each with an official site. No ratings and no invented rankings.
         </p>
+        <EntityStatement embedded />
         <div className="mt-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <p className="max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
             Real products with a working official site. No ratings, user counts, or invented rankings. Editorial

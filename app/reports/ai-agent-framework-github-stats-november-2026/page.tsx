@@ -82,6 +82,7 @@ export default async function FrameworkGithubStatsPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis="Nineteen open-source agent repositories, copied from GitHub on November 5, 2026. Nothing on this page is estimated."

@@ -61,6 +61,7 @@ export default function WebSearchToolsNovember2026Page() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Daily brief"
         title={title}
         thesis={thesis}
@@ -124,6 +125,14 @@ export default function WebSearchToolsNovember2026Page() {
             title: "Best AI agent for web search: 4 in 2026",
             description: "The buyer’s list of chat products. This brief is the API price and limit dataset behind a harness call.",
             kicker: "Comparison",
+            date: "2026-11-11",
+          },
+          {
+            href: "/blog/best-web-search-tool-for-ai-agents",
+            title: "What is the best web search tool for an AI agent harness?",
+            description:
+              "Gemini grounding is $14 per 1,000 searches and 1,500 a day. Claude and OpenAI list $10. Read November 11, 2026.",
+            kicker: "Guide",
             date: "2026-11-11",
           },
           {

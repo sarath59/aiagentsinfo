@@ -52,6 +52,7 @@ export default function EnterprisePlatformsSixMonthPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis={thesis}

@@ -125,9 +125,21 @@ export default function HarnessChecklistPage() {
             Which pages sit next to this checklist?
           </h2>
           <p className="mt-3">
-            The long guide is{" "}
+            The hub for this checklist is{" "}
+            <Link className="text-[var(--link)] underline" href="/best/ai-agent-harnesses">
+              Best AI agent harness
+            </Link>
+            , and the topic shelf is{" "}
+            <Link className="text-[var(--link)] underline" href="/topics/harnesses">
+              Agent harnesses
+            </Link>
+            . The long guide is{" "}
             <Link className="text-[var(--link)] underline" href="/blog/how-do-you-evaluate-an-ai-agent-harness">
               How to evaluate an AI agent harness
+            </Link>
+            . The definition, which this page does not rewrite, is{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/what-is-an-ai-agent-harness">
+              What is an AI agent harness?
             </Link>
             . How to stand up the tasks is{" "}
             <Link className="text-[var(--link)] underline" href="/blog/how-to-build-an-eval-harness-for-ai-agents">

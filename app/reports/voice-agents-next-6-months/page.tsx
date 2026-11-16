@@ -52,6 +52,7 @@ export default function VoiceAgentsOutlookPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis={thesis}

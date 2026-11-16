@@ -8,7 +8,7 @@ export const thesis =
 export const description =
   "No AI agent framework in the November 12 set has a published release day through May 2027. From November 2026 through November 2027, the dated marks are Anthropic’s $70.7 billion filing, Gemini price steps on December 1 and January 1, and regulation clocks. Re-read November 12, 2026.";
 export const readOn = "2026-11-07";
-export const updatedOn = "2026-11-12";
+export const updatedOn = "2026-11-16";
 
 export const keyNumbers = [
   {
@@ -34,6 +34,7 @@ export const keyNumbers = [
 ];
 
 export const findings = [
+  "Checked November 16, 2026: the newest Anthropic S-1/A is still the November 10 amendment. A November 12 free-writing prospectus repeats approximately $70.7 billion due in the 12 months after September 30, 2026. December 1 and January 1 have not arrived. The row-by-row watch list is the November scorecard.",
   "Anthropic’s November 10, 2026 amendment prints approximately $70.7 billion of commitments due in the 12 months after September 30, 2026, approximately $451.6 billion expected before December 31, 2030, and approximately $900.9 billion in aggregate. The three figures overlap. Do not add them. About $4.2 billion of the 12-month line can still be avoided.",
   "Two model prices have a day. Gemini 4 Carbon and Argon step from $2 and $10 to $4 and $20 per million tokens on December 1, 2026. Gemini 3.8 Flash steps from $0.75 and $3.75 to $1.50 and $7.50 on January 1, 2027. OpenAI’s page still says GPT-5.6 Sol’s promotional price runs until November 30 and does not print the next rate.",
   "The product months are mostly empty. The dated marks that are not prices are regulatory or protocol clocks: December 2, 2026 on the EU timeline, April 29, 2027 for a UK bill’s procedural lapse, July 28, 2027 for MCP eligibility, and August 2, 2027 for national AI sandboxes. A month without a sentence stays blank.",
@@ -41,6 +42,7 @@ export const findings = [
 ];
 
 export const executiveSummary = [
+  "Direct answer, checked November 16, 2026. The large dated line is still Anthropic’s approximately $70.7 billion of commitments due in the 12 months after September 30, 2026. SEC submissions that morning showed no S-1/A newer than November 10. The next price mornings are still December 1, 2026 for Gemini 4 and January 1, 2027 for Gemini 3.8 Flash. Most product months are still blank. What moved, and what did not, is the next section. The row-by-row check is the [November scorecard](/research/ai-agents-next-12-months-scorecard-november-2026).",
   "One number in the next twelve months is large enough to misread. Anthropic’s S-1/A filed November 10, 2026, and re-read November 12, says approximately $70.7 billion of purchase commitments are due in the 12 months following September 30, 2026. The same paragraph’s aggregate is approximately $900.9 billion, and approximately $451.6 billion of that aggregate is expected before December 31, 2030. The 12-month line is inside the aggregate. Adding the three figures triple-counts the year. About $4.2 billion of the $70.7 billion sits on arrangements that can still be terminated or that have not met their conditions. The filing expects short-term compute to keep rising “in the near term,” and it still names no month. [[1]]",
   "The other dates are smaller and sharper. Google’s API pricing page, read November 12, doubles the paid standard rate for Gemini 4 Carbon and Gemini 4 Argon on December 1, 2026, and doubles Gemini 3.8 Flash on January 1, 2027. OpenAI’s pricing page, the same morning, still ends a GPT-5.6 Sol promotion on November 30 and does not print the price after it. Voice model retirements, read November 11, put an earliest Gemini Live cutoff on November 17, 2026 and remove gpt-realtime on January 20, 2027. Those are model ids. They are not a statement that agents got cheaper. [[2]][[3]][[4]]",
   "Everything else a buyer asks about, coding agents, computer use, and shopping checkout, is either already running or not dated. Enterprise platforms have their own brief. The specialist briefs hold those records: [enterprise platforms through May](/reports/enterprise-agent-platforms-next-6-months), [production](/reports/ai-agents-in-production-2026), the [2027 forecast](/reports/ai-agents-in-2027), [frameworks through May](/reports/ai-agent-frameworks-next-6-months), [shopping for the next 30 days](/reports/ai-shopping-agents-next-30-days), [voice](/reports/voice-agents-next-6-months), and [MCP](/reports/mcp-next-6-months). This flagship is the year those briefs sit inside, and the months they correctly leave blank.",
@@ -92,6 +94,66 @@ export const chapters: ReportChapter[] = [
         kind: "means",
         audience: "Builders and buyers",
         text: "Use this page to see which costs and which legal clocks already have a day. Use the specialist reports for the segment you ship. Do not treat the $70.7 billion as a market-size estimate for agents, and do not treat a doubled token price as a doubled task cost. The [2027 forecast](/reports/ai-agents-in-2027) argues those two prices move apart. This page only dates them.",
+      },
+    ],
+  },
+  {
+    id: "what-changed-this-month",
+    title: "What changed this month",
+    blocks: [
+      {
+        kind: "p",
+        text: "Checked the morning of November 16, 2026. The dollar line did not move. The price mornings have not arrived. Two watch items on the [November scorecard](/research/ai-agents-next-12-months-scorecard-november-2026) did change their status, and both are recorded there with the fetch time. This section is the flagship’s own re-read, not a new forecast. [[6]][[7]][[8]][[9]][[10]][[11]]",
+      },
+      {
+        kind: "table",
+        caption:
+          "Re-read November 16, 2026. “No newer filing” means the submissions list had no S-1/A after November 10. Price pages were not re-downloaded. The clocks have not reached the named mornings.",
+        headers: ["Item", "Status on November 16", "Source of this check"],
+        rows: [
+          [
+            "Anthropic 12-month commitment line",
+            "Still approximately $70.7 billion. Newest S-1/A is still November 10. A November 12 free-writing prospectus repeats the figure.",
+            "SEC submissions JSON, and the IPO-website FWP. [[6]][[7]]",
+          ],
+          [
+            "Gemini 4 on December 1, Flash on January 1, Sol after November 30",
+            "Those mornings are still ahead. This pass did not re-open the price HTML. The November 12 read stands until it does.",
+            "Calendar against the November 12 read. [[2]][[3]]",
+          ],
+          [
+            "Hy4 weights and the November 4–15 free window",
+            "The corporate post still says weights in the coming days, and it still prints November 4 to 15. November 16 is the day after that window. huggingface.co/tencent/Hy4 returned 401.",
+            "Tencent post and the model URL, fetched November 16. [[8]][[9]]",
+          ],
+          [
+            "DeepSeek Harness developer preview",
+            "Still a preview. The newest release is now dsh-v0.2.2-rc.3, a prerelease published November 13, not rc.1 from November 4.",
+            "GitHub releases API and the master README, fetched November 16. [[10]]",
+          ],
+          [
+            "MCP removal eligibility on July 28, 2027",
+            "The deprecated-features HTML still contains 2027-07-28 and the sentence that no feature has been removed.",
+            "Specification HTML, fetched November 16. [[11]]",
+          ],
+        ],
+      },
+      {
+        kind: "p",
+        text: "SEC submissions for CIK 0002130357 returned HTTP 200 at 03:53:03 GMT. The newest S-1/A in that list is still filingDate 2026-11-10, accession 0001628280-26-072484. Five FWP filings are dated 2026-11-12. This pass opened one of them, the IPO-website free-writing prospectus, accession 0001628280-26-072949. A footnote there still says approximately $70.7 billion of the commitments are due in the 12 months following September 30, 2026, and approximately $451.6 billion are expected before December 31, 2030. The other four FWPs were not opened. [[6]][[7]]",
+      },
+      {
+        kind: "p",
+        text: "Tencent’s November 4 post returned HTTP 200 at 03:53:12 GMT and still says the weights and system cards will be released in the coming days. The same body still says WorkBuddy and CodeBuddy are free from November 4 to 15. That window closed the day before this check. The page, on this fetch, does not say the weights are public. huggingface.co/tencent/Hy4 returned HTTP 401. huggingface.co/tencent/Hy4-preview returned HTTP 200. A 401 is not proof that no file exists on another host. [[8]][[9]]",
+      },
+      {
+        kind: "p",
+        text: "DeepSeek Harness’s releases list returned HTTP 200 at 03:53:13 GMT. The first tag was dsh-v0.2.2-rc.3, prerelease true, published_at 2026-11-13T07:56:55Z. The repository object in the same minute had pushed_at 2026-11-13T07:56:25Z. The master README still has the heading “Developer preview” and still says there will be compatibility-breaking changes. A newer release candidate is not a stable version, and it is not the end of the preview. The November 11 scorecard’s newest tag, rc.1, is no longer the newest. [[10]]",
+      },
+      {
+        kind: "means",
+        audience: "Buyers",
+        text: "Do not re-price a Gemini 4 path yet. December 1 has not happened. Do not add a new Anthropic dollar to the $70.7 billion. If you pinned DeepSeek Harness to the November 4 release candidate, the repository has published two newer prereleases since the scorecard’s check. Read the [scorecard](/research/ai-agents-next-12-months-scorecard-november-2026) for the row, and the [frameworks brief](/reports/ai-agent-frameworks-next-6-months) if the question is a library release day through May.",
       },
     ],
   },
@@ -381,6 +443,7 @@ export const methodology = [
   "Carried from the November 7 edition, and not re-downloaded on November 12: the EU AI Act Service Desk timeline, the MCP deprecated-features registry for revision 2026-07-28, and the UK bill’s April 29, 2027 lapse. Voice retirement days were read November 11 for the voice brief and were not re-fetched. Framework tags were read November 12 for the frameworks brief.",
   "Likely is reserved for a source that points at the year and withholds the day. “Near term” is reported as a direction without a month. Watch is a dated end with no successor price, or a disagreement this page did not resolve. Specialist reports are linked instead of copied, so a survey n is not separated from its method.",
   "This page did not run a survey, did not estimate agent revenue, and did not convert token prices into a cost per successful task. The $5.0 billion short-term compute figure is the quarter ended September 30, 2026, not a run rate.",
+  "November 16, 2026 pass: SEC submissions JSON, one November 12 FWP, Tencent’s Hy4 post, the two Hugging Face Hy4 URLs, the DeepSeek Harness releases API and master README, and the MCP deprecated-features HTML. Gemini and OpenAI pricing HTML were not re-downloaded. The December 1, January 1, and November 30 clocks are reported as not yet reached, which is the calendar, not a new price-page read. The other four November 12 FWPs were not opened.",
 ];
 
 export const sources: { n: number; title: string; url: string; detail: string }[] = [
@@ -418,6 +481,48 @@ export const sources: { n: number; title: string; url: string; detail: string }[
     url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act",
     detail:
       "EU Service Desk timeline, including the Digital Omnibus, as read November 7, 2026. MCP deprecated-features registry for specification 2026-07-28, same read. UK Parliament carry-over to the end of April 29, 2027, recorded from the November 4, 2026 motion. Not re-downloaded November 12.",
+  },
+  {
+    n: 6,
+    title: "SEC submissions, CIK 0002130357, fetched November 16, 2026",
+    url: "https://data.sec.gov/submissions/CIK0002130357.json",
+    detail:
+      "HTTP 200, Date Mon, 16 Nov 2026 03:53:03 GMT. Newest S-1/A is filingDate 2026-11-10, accession 0001628280-26-072484. Five FWP filings are dated 2026-11-12.",
+  },
+  {
+    n: 7,
+    title: "Anthropic free-writing prospectus, IPO website, filed November 12, 2026",
+    url: "https://www.sec.gov/Archives/edgar/data/2130357/000162828026072949/anthropicpbc-fwpipowebsi.htm",
+    detail:
+      "Accession 0001628280-26-072949. Fetched November 16, 2026. A footnote still prints approximately $70.7 billion due in the 12 months following September 30, 2026, and approximately $451.6 billion before December 31, 2030. The other four FWPs filed the same day were not opened.",
+  },
+  {
+    n: 8,
+    title: "Tencent, Hy4 corporate announcement, re-read November 16, 2026",
+    url: "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+    detail:
+      "HTTP 200, Date Mon, 16 Nov 2026 03:53:12 GMT. The body still says weights and system cards in the coming days, and WorkBuddy and CodeBuddy free from November 4 to 15.",
+  },
+  {
+    n: 9,
+    title: "Hugging Face, tencent/Hy4, fetched November 16, 2026",
+    url: "https://huggingface.co/tencent/Hy4",
+    detail:
+      "HTTP 401 on November 16, 2026. tencent/Hy4-preview returned HTTP 200 in the same pass. A 401 means that URL did not serve a public model card.",
+  },
+  {
+    n: 10,
+    title: "DeepSeek Harness releases and README, fetched November 16, 2026",
+    url: "https://github.com/deepseek-ai/DeepSeek-Harness",
+    detail:
+      "Releases API HTTP 200, Date Mon, 16 Nov 2026 03:53:13 GMT. Newest tag dsh-v0.2.2-rc.3, prerelease, published_at 2026-11-13T07:56:55Z. Repository pushed_at 2026-11-13T07:56:25Z. Master README still says developer preview and compatibility-breaking changes.",
+  },
+  {
+    n: 11,
+    title: "MCP deprecated-features page, fetched November 16, 2026",
+    url: "https://modelcontextprotocol.io/specification/2026-07-28/deprecated",
+    detail:
+      "HTML HTTP 200, Date Mon, 16 Nov 2026 03:53:34 GMT. The page text still contains 2027-07-28 and “No features have been removed.” The HTML last-modified header was Sat, 14 Nov 2026 19:10:54 GMT.",
   },
 ];
 

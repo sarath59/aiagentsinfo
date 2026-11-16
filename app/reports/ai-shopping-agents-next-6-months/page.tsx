@@ -203,6 +203,7 @@ export default async function ShoppingAgentsReportPage() {
         ]}
       />
       <ReportLayout
+        sourcePath={path}
         category="Report"
         title={title}
         thesis="Google can check out in Canada. ChatGPT, re-read November 14, 2026, still sends the shopper to the store. A month with no date stays empty."

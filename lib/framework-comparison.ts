@@ -16,30 +16,36 @@ export const frameworkComparison: ComparisonPage = {
   question: "What are the best AI agent frameworks in November 2026?",
   tableHeading: "How do AI agent frameworks compare?",
   tableLead:
-    "Nineteen repositories. The release column is the tag GitHub’s latest-release endpoint returned on November 11, 2026. In a monorepo that tag can be one package.",
-  tableCaption: "AI agent frameworks — licence and latest GitHub release, read November 11, 2026",
+    "Nineteen repositories. Language and licence are from the November 11, 2026 GitHub read. Stars and downloads are the November 9 tracker snapshots. MCP and A2A are the November 13 protocol note. The release count is the 30 days before November 11, including package tags. A blank tracker cell means that repository was not in the snapshot. It is not a zero.",
+  tableCaption:
+    "AI agent frameworks — language, licence, November 9 stars and downloads, MCP/A2A, and 30-day release count",
   bestForHeading: "Which AI agent framework fits which job?",
   bestForLead:
-    "These are job-fit notes from the repository description and the release tag. They are not scores.",
+    "Pick by the job, then check the licence, the language, whether releases are still landing, and whether the docs name MCP or A2A. These notes are not scores.",
   methodHeading: "How were these AI agent framework releases checked?",
   methodLead:
     "On November 11, 2026, each row was read from the public GitHub repository endpoint and /releases/latest. Nothing in the table is estimated.",
   methodNote:
-    "A latest-release tag in a monorepo can name one package, such as a Vue package or an SDK package, rather than every package in the repository. SPDX ids were re-read from the repository endpoint on November 11, 2026. Mastra and the Vercel AI SDK still returned no SPDX id. Their licence files were read on November 9 and were not re-opened on November 11. Star counts in the table are the November 5, 2026 snapshot, not this release pass. This page does not invent ratings or a composite score.",
+    "A latest-release tag in a monorepo can name one package, such as a Vue package or an SDK package, rather than every package in the repository. SPDX ids were re-read from the repository endpoint on November 11, 2026. Mastra and the Vercel AI SDK still returned no SPDX id. Their licence files were read on November 9 and were not re-opened on November 11. The star column and the download column are the November 9, 2026 tracker snapshots, not the November 5 release census. pydantic-ai in the download column is the pydantic-ai package, 6,575,730. pydantic-ai-slim, 32,785,681 in the same window, is a second row on the downloads tracker and is not added in. The 30-day release count includes package tags and prereleases. vercel/ai’s 3,165 is that count, not 3,165 copies of one library. This page does not invent ratings or a composite score.",
   faqHeading: "What else do people ask about AI agent frameworks?",
   faqLead: "Short answers on how this comparison works, what the code costs, and how the list relates to the November 5 snapshot.",
   applicationCategory: "DeveloperApplication",
   kind: "builder",
   verifiedOn: "2026-11-11",
   cellsNote:
-    "Cells are the licence and the latest GitHub release read on November 11, 2026. Star counts are the November 5 snapshot. This is not a quality ranking.",
+    "Language, licence, and latest release were read November 11, 2026. Stars and downloads are the November 9 tracker snapshots. MCP and A2A are the November 13 protocol note. Release counts are the 30 days before November 11. This is not a quality ranking.",
+  skipAutoStars: true,
   columns: [
     { key: "name", label: "Framework" },
     { key: "vendor", label: "Repository" },
     { key: "bestFor", label: "Best for" },
+    { key: "platform", label: "Language" },
     { key: "license", label: "Licence" },
+    { key: "trackerStars", label: "GitHub stars, 9 Nov", numeric: true },
+    { key: "downloads", label: "Downloads, 10 Oct–8 Nov", numeric: true },
+    { key: "protocols", label: "MCP / A2A" },
+    { key: "cadence", label: "Releases in 30 days", numeric: true },
     { key: "pricing", label: "Latest GitHub release" },
-    { key: "platform", label: "Primary language" },
     { key: "sources", label: "Sources" },
   ],
   topics: ["harnesses", "tools-saas", "how-agents-work"],
@@ -67,7 +73,15 @@ export const frameworkComparison: ComparisonPage = {
     },
     {
       title: "Best for TypeScript",
-      body: "Mastra’s repository calls itself a TypeScript framework for AI applications and agents. The Vercel AI SDK repository calls itself an AI toolkit for TypeScript. Both are in the table.",
+      body: "Mastra’s repository calls itself a TypeScript framework for AI applications and agents. The Vercel AI SDK repository calls itself an AI toolkit for TypeScript. Both are in the table. The November 13 protocol note lists an MCP client on the Vercel AI SDK and an MCP client, an MCP server, and A2A on Mastra.",
+    },
+    {
+      title: "Best when the library must still be shipping",
+      body: "AutoGen published 0 GitHub releases in the 30 days before November 11, 2026, and its README says the project is archived. Pydantic AI published 15 in that window. The Claude Agent SDK’s Python package published 15. A release count is not a quality score, and a monorepo tag is not always the package you import.",
+    },
+    {
+      title: "Best when you need MCP and A2A in the docs",
+      body: "On the November 13, 2026 protocol note, Google ADK, Microsoft Agent Framework, Mastra, and CrewAI document both an MCP client and A2A. LangGraph documents an MCP client and does not list A2A. A documented client is not a test that this desk ran.",
     },
   ],
   rows: [
@@ -321,17 +335,38 @@ export const frameworkComparison: ComparisonPage = {
       title: "Vercel AI SDK LICENSE on the default branch (read November 9, 2026)",
       url: "https://github.com/vercel/ai/blob/main/LICENSE",
     },
+    {
+      title: "AI Agents Info, GitHub stars tracker snapshot, November 9, 2026",
+      url: "https://www.aiagentsinfo.com/trackers/stars",
+    },
+    {
+      title: "AI Agents Info, downloads tracker snapshot, November 9, 2026",
+      url: "https://www.aiagentsinfo.com/trackers/downloads",
+    },
+    {
+      title: "AI Agents Info, MCP and A2A support, read November 13, 2026",
+      url: "https://www.aiagentsinfo.com/research/ai-agent-framework-mcp-a2a-support-november-2026",
+    },
+    {
+      title: "AI Agents Info, release cadence, pulled November 11, 2026",
+      url: "https://www.aiagentsinfo.com/research/ai-agent-framework-release-cadence-october-november-2026",
+    },
   ],
   faq: [
     {
       question: "How do AI agent frameworks compare?",
       answer:
-        "This page compares 19 open-source frameworks and SDKs on licence and the latest GitHub release tag, read November 11, 2026. It is not a quality ranking. A tag in a monorepo can name one package. Install counts are a separate measurement.",
+        "This page compares 19 open-source frameworks and SDKs on language, licence, GitHub stars and downloads from the November 9, 2026 tracker snapshots, MCP and A2A from the November 13 protocol note, and the count of GitHub releases in the 30 days before November 11. It is not a quality ranking. A tag in a monorepo can name one package. A download is a file request, not a user.",
     },
     {
       question: "How many AI agent frameworks does this page compare?",
       answer:
-        "It compares 19 open-source frameworks and SDKs. The set matches the repositories in this site’s November framework snapshot. Release tags and SPDX ids were re-read from GitHub on November 11, 2026. Star counts in the table stay on the November 5 snapshot.",
+        "It compares 19 open-source frameworks and SDKs. Release tags and SPDX ids were re-read from GitHub on November 11, 2026. Stars and downloads in the table are the November 9 tracker snapshots. A repository missing from that snapshot is labeled, not treated as zero.",
+    },
+    {
+      question: "What is the best open source AI agent framework?",
+      answer:
+        "There is no single best open source AI agent framework on this page. All 19 are free under the licence in the table. That licence does not make the hosted model free. AutoGen’s README, re-read November 11, 2026, says the project is archived and points new users to Microsoft Agent Framework. If the question is which library people request from PyPI, LangChain had 155,918,257 downloads without mirrors from October 10 through November 8, 2026, in the November 9 snapshot. A download is not a user and not a quality score.",
     },
     {
       question: "Are these AI agent frameworks free and open source?",
@@ -396,7 +431,8 @@ export const frameworkComparison: ComparisonPage = {
     {
       href: "/reports/ai-agent-framework-github-stats-november-2026",
       title: "Framework releases, November 5 snapshot",
-      description: "The earlier GitHub pull for these repositories, dated November 5, 2026. The star column on this page uses that pull.",
+      description:
+        "The earlier GitHub pull for these repositories, dated November 5, 2026. The star column on this page is the later November 9 tracker, not that census.",
       kicker: "Report",
     },
     {
@@ -408,7 +444,7 @@ export const frameworkComparison: ComparisonPage = {
     {
       href: "/trackers/stars",
       title: "GitHub stars tracker",
-      description: "A later star file for a different set of repositories. Not a recount of this table.",
+      description: "The November 9, 2026 snapshot this table’s star column copies. A later daily read can move.",
       kicker: "Tracker",
     },
     {
