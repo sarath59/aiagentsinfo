@@ -269,3 +269,5 @@ The November 4 paper, and the two harnesses it builds on:
 Related pages on this site: [Agent harnesses](/topics/harnesses), [What is an AI agent harness?](/blog/what-is-an-ai-agent-harness), [HarnessFlow](/research/harnessflow-mcts-harness-optimization), [Folio context folding](/research/folio-recoverable-context-folding), [how agents work](/topics/how-agents-work), [You don't need long context](/research/you-dont-need-long-context), [ReAct: Synergizing Reasoning and Acting in Language Models](/research/react-reasoning-and-acting), [harness](/glossary/harness), and [agent](/glossary/agent).
 
 The step this paper speeds up is [context compaction](/glossary/context-compaction). The space that summary protects is the [context window](/glossary/context-window).
+
+[ModHarness-RL](/research/modharness-rl-learned-agent-harness) is a different compaction design: a program written once, then run with no model call, inside an RL trainer rather than inside a product summary.
