@@ -90,6 +90,8 @@ export default async function DirectoryPage({
             Real products with a working official site. No ratings, user counts, or invented rankings. Editorial
             listings are written by this desk. Community submitted listings are the maker&apos;s text.{" "}
             <Link href="/editorial-policy#directory">How submissions are published and indexed</Link>.
+            Named deployments, with the action and the source, are in{" "}
+            <Link href="/blog/agentic-ai-examples">Agentic AI examples</Link>.
           </p>
           <SubmitToolButton />
         </div>

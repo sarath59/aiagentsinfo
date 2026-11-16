@@ -1,6 +1,11 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-16",
   "refreshes": [
+    {
+      "path": "/reports/ai-agents-next-12-months",
+      "refreshed": "2026-11-16",
+      "notes": "GSC Oct 19–Nov 16, 2026: 196 impressions, 9 clicks, average position 5.0. Title, H1, slug, and meta description unchanged. Opening two sentences now answer the dated-record question and point to /blog/agentic-ai-examples. FAQ extended with where running agents live, and whether a blank month means nothing is in production. November 16 morning fetches were not redone."
+    },
     {
       "path": "/reports/ai-shopping-agents-next-6-months",
       "refreshed": "2026-11-13",
@@ -13,6 +18,16 @@
     }
   ],
   "pages": [
+    {
+      "question": "agentic ai examples",
+      "slug": "agentic-ai-examples",
+      "url": "https://www.aiagentsinfo.com/blog/agentic-ai-examples",
+      "date": "2026-11-16",
+      "published": "2026-11-16",
+      "status": "published",
+      "source_signal": "Google Trends 'agentic ai examples' +91,850 US 1-day (research/keywords_2026-11-16.json)",
+      "notes": "No existing page matched agentic ai examples, ai agent examples, examples of ai agents, or real-world ai agents. /guides does not exist. Evergreen guide is /blog/agentic-ai-examples."
+    },
     {
       "question": "what is a digital worker",
       "slug": "what-is-a-digital-worker",

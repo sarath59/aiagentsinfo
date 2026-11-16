@@ -76,9 +76,10 @@ export default function AgentsTwelveMonthOutlookPage() {
         wide
         details={
           <p>
-            Published November 7, 2026. Updated November 12, 2026, after the November 10 Anthropic amendment and a
-            fresh read of the Gemini and OpenAI price pages. Checked again November 16, 2026: no newer S-1/A, and the
-            price mornings have not arrived. Regulation dates carried from November 7 are labeled.
+            Published November 7, 2026. The dollar line was updated November 12, after the November 10 Anthropic
+            amendment. Updated November 16, 2026: no newer S-1/A, the price mornings have not arrived, and the opening
+            answer now points to the named deployments that are already running. Regulation dates carried from
+            November 7 are labeled.
           </p>
         }
         keyNumbers={keyNumbers}
@@ -101,6 +102,14 @@ export default function AgentsTwelveMonthOutlookPage() {
         sources={<SourceList sources={sources} />}
         citation={<CiteOrEmbed citation={citation} embed={embed} />}
         related={[
+          {
+            href: "/blog/agentic-ai-examples",
+            title: "22 agentic AI deployments, named and sourced",
+            description:
+              "What is already running: coding agents, Klarna, checkout, computer use, and a security investigator. This calendar does not restate them.",
+            kicker: "Guide",
+            date: "2026-11-16",
+          },
           {
             href: "/research/ai-agents-next-12-months-scorecard-november-2026",
             title: "What moved in the 12-month forecast",

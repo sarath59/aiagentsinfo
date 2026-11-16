@@ -140,6 +140,37 @@ function toolsForPost(
 }
 
 function nextReadForPost(slug: string): { reads: NextReadItem[]; tool: NextReadItem } | null {
+  if (slug === "agentic-ai-examples") {
+    return {
+      reads: [
+        {
+          href: "/blog/how-do-ai-agents-work",
+          title: "How do AI agents work?",
+          note: "The loop, in one page: plan, tool, result, stop.",
+        },
+        {
+          href: "/blog/what-is-an-ai-agent-harness",
+          title: "What is an AI agent harness?",
+          note: "The software that runs the tool and decides when to stop.",
+        },
+        {
+          href: "/reports/ai-agents-next-12-months",
+          title: "AI agents, the next 12 months",
+          note: "The dated calendar. Most product months are blank on purpose.",
+        },
+        {
+          href: "/reports/ai-shopping-agents-next-6-months",
+          title: "AI shopping agents, the next 6 months",
+          note: "Who can check out, and who still sends you to the store.",
+        },
+      ],
+      tool: {
+        href: "/directory",
+        title: "AI agent directory",
+        note: "The product pages behind the coding rows",
+      },
+    };
+  }
   if (slug === "how-do-ai-browser-agents-complete-tasks") {
     return {
       reads: [

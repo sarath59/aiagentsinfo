@@ -42,7 +42,8 @@ export const findings = [
 ];
 
 export const executiveSummary = [
-  "Direct answer, checked November 16, 2026. The large dated line is still Anthropic’s approximately $70.7 billion of commitments due in the 12 months after September 30, 2026. SEC submissions that morning showed no S-1/A newer than November 10. The next price mornings are still December 1, 2026 for Gemini 4 and January 1, 2027 for Gemini 3.8 Flash. Most product months are still blank. What moved, and what did not, is the next section. The row-by-row check is the [November scorecard](/research/ai-agents-next-12-months-scorecard-november-2026).",
+  "From November 2026 through November 2027, the dated record is Anthropic’s approximately $70.7 billion of commitments due in the 12 months after September 30, 2026, Gemini token-price steps on December 1, 2026 and January 1, 2027, and a regulation calendar. Most product months are blank. Systems that already run, and that this year does not give a new launch day, are the [22 named deployments](/blog/agentic-ai-examples).",
+  "Checked November 16, 2026. SEC submissions that morning showed no S-1/A newer than November 10. The next price mornings have not arrived. What moved, and what did not, is the next section. The row-by-row check is the [November scorecard](/research/ai-agents-next-12-months-scorecard-november-2026).",
   "One number in the next twelve months is large enough to misread. Anthropic’s S-1/A filed November 10, 2026, and re-read November 12, says approximately $70.7 billion of purchase commitments are due in the 12 months following September 30, 2026. The same paragraph’s aggregate is approximately $900.9 billion, and approximately $451.6 billion of that aggregate is expected before December 31, 2030. The 12-month line is inside the aggregate. Adding the three figures triple-counts the year. About $4.2 billion of the $70.7 billion sits on arrangements that can still be terminated or that have not met their conditions. The filing expects short-term compute to keep rising “in the near term,” and it still names no month. [[1]]",
   "The other dates are smaller and sharper. Google’s API pricing page, read November 12, doubles the paid standard rate for Gemini 4 Carbon and Gemini 4 Argon on December 1, 2026, and doubles Gemini 3.8 Flash on January 1, 2027. OpenAI’s pricing page, the same morning, still ends a GPT-5.6 Sol promotion on November 30 and does not print the price after it. Voice model retirements, read November 11, put an earliest Gemini Live cutoff on November 17, 2026 and remove gpt-realtime on January 20, 2027. Those are model ids. They are not a statement that agents got cheaper. [[2]][[3]][[4]]",
   "Everything else a buyer asks about, coding agents, computer use, and shopping checkout, is either already running or not dated. Enterprise platforms have their own brief. The specialist briefs hold those records: [enterprise platforms through May](/reports/enterprise-agent-platforms-next-6-months), [production](/reports/ai-agents-in-production-2026), the [2027 forecast](/reports/ai-agents-in-2027), [frameworks through May](/reports/ai-agent-frameworks-next-6-months), [shopping for the next 30 days](/reports/ai-shopping-agents-next-30-days), [voice](/reports/voice-agents-next-6-months), and [MCP](/reports/mcp-next-6-months). This flagship is the year those briefs sit inside, and the months they correctly leave blank.",
@@ -217,7 +218,7 @@ export const chapters: ReportChapter[] = [
     blocks: [
       {
         kind: "p",
-        text: "The segments below are the ones buyers ask for. A row is here only when a primary page, or a brief on this site that names its primary page, has a date. Undated product hope is not a row.",
+        text: "The segments below are the ones buyers ask for. A row is here only when a primary page, or a brief on this site that names its primary page, has a date. Undated product hope is not a row. A deployment that is already running, with no new day inside this window, is not a blank. Those names, the tool each one calls, and the human stop are [Agentic AI examples](/blog/agentic-ai-examples).",
       },
       {
         kind: "table",
@@ -434,6 +435,16 @@ export const chapters: ReportChapter[] = [
         kind: "p",
         text: "No. The November 12 tag read found no published release day through May 2027. Microsoft’s Python 3.11 floor already shipped in python-1.25.0 on November 7. That is a release that already happened, not a date for a later one.",
       },
+      { kind: "h3", text: "Where are the agents that are already running?" },
+      {
+        kind: "p",
+        text: "On the examples guide, not on this calendar. Twenty-two named deployments, checked November 16, 2026, include Claude Code, Codex, Devin, GitHub Copilot’s cloud agent, Klarna’s assistant, Salesforce Agentforce customers, Google’s Canada checkout, and a Microsoft security investigation agent. A blank month here means no new dated launch. It does not mean the category is empty.",
+      },
+      { kind: "h3", text: "Does a blank product month mean agents are not in production?" },
+      {
+        kind: "p",
+        text: "No. This page dates a filing, a price step, or a statute. Production is a separate cross-section, with survey sample sizes. A coding agent that already opens a pull request, or a checkout flow that already completes for a named retailer, can be live and still have no new day between now and November 2027.",
+      },
     ],
   },
 ];
@@ -444,6 +455,7 @@ export const methodology = [
   "Likely is reserved for a source that points at the year and withholds the day. “Near term” is reported as a direction without a month. Watch is a dated end with no successor price, or a disagreement this page did not resolve. Specialist reports are linked instead of copied, so a survey n is not separated from its method.",
   "This page did not run a survey, did not estimate agent revenue, and did not convert token prices into a cost per successful task. The $5.0 billion short-term compute figure is the quarter ended September 30, 2026, not a run rate.",
   "November 16, 2026 pass: SEC submissions JSON, one November 12 FWP, Tencent’s Hy4 post, the two Hugging Face Hy4 URLs, the DeepSeek Harness releases API and master README, and the MCP deprecated-features HTML. Gemini and OpenAI pricing HTML were not re-downloaded. The December 1, January 1, and November 30 clocks are reported as not yet reached, which is the calendar, not a new price-page read. The other four November 12 FWPs were not opened.",
+  "The same day’s edit sharpens the opening answer and adds the examples guide. It does not replace the morning fetches, and it does not add a dollar, a price, or a launch day.",
 ];
 
 export const sources: { n: number; title: string; url: string; detail: string }[] = [
@@ -556,6 +568,16 @@ export const faq = [
     question: "Is an AI agent framework release dated through May 2027?",
     answer:
       "No. The November 12 tag read found no published release day through May 2027. Microsoft’s Python 3.11 floor already shipped in python-1.25.0 on November 7. That is a release that already happened, not a date for a later one.",
+  },
+  {
+    question: "Where are the AI agents that are already running?",
+    answer:
+      "Named deployments that already run are on the Agentic AI examples guide, checked November 16, 2026. That page lists 22 systems, including Claude Code, Codex, Devin, Klarna’s assistant, Salesforce Agentforce customers, and Google’s Canada checkout. This calendar only dates a filing, a price, or a statute. A blank month is not an empty category.",
+  },
+  {
+    question: "Does a blank product month mean AI agents are not in production?",
+    answer:
+      "No. This page dates what a filing, a pricing page, or a statute has printed through November 2027. A coding agent that already opens a pull request, or a checkout flow already live for a named retailer, can be in production and still have no new launch day in that window. The production report is the survey cross-section. The examples guide is the named list.",
   },
 ];
 

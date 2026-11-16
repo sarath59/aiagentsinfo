@@ -37,6 +37,14 @@ export default async function ShoppingAgentsReportPage() {
   ]);
   const related = [
     {
+      href: "/blog/agentic-ai-examples",
+      title: "Agentic AI examples: 22 real deployments",
+      description:
+        "Coding agents, Klarna, Agentforce customers, checkout, computer use, and a security investigator. Each row has a date and a source.",
+      kicker: "Guide",
+      date: "2026-11-16",
+    },
+    {
       href: "/blog/can-ai-agents-book-flights",
       title: "Can AI agents book flights? United can cancel the reservation",
       description:
@@ -247,7 +255,12 @@ export default async function ShoppingAgentsReportPage() {
             Amazon with the default card at a U.S. customer’s price. Copilot Checkout finishes eligible U.S.
             sales inside Copilot, on the merchant’s systems. ChatGPT’s merchant page, re-read November 14, still sends
             you to the store. ChatGPT Wallet, opened November 13, needs a U.S. Pro user’s approval, then a network
-            token pays. No page dates a new checkout button through May 2027.
+            token pays. No page dates a new checkout button through May 2027. Those checkout systems sit with the other
+            named deployments in{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/agentic-ai-examples">
+              Agentic AI examples
+            </Link>
+            .
           </p>
           <p>
             Flight booking is outside that retail answer. On November 11, 2026,{" "}

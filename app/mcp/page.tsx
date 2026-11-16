@@ -680,7 +680,11 @@ export default function McpPage() {
             <Link className="text-[var(--link)] underline" href="/blog/why-an-mcp-server-loads-in-cursor-not-vs-code">
               why an MCP server loads in Cursor and not in VS Code
             </Link>
-            , checked November 13, 2026.
+            , checked November 13, 2026. Named deployments that call tools over MCP, and the human stop on each one, are in{" "}
+            <Link className="text-[var(--link)] underline" href="/blog/agentic-ai-examples">
+              Agentic AI examples
+            </Link>
+            .
           </p>
         </section>
 
