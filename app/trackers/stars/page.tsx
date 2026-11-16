@@ -44,7 +44,7 @@ export default async function StarsTrackerPage() {
     top ? `${top.repo} has ${integer(top.stars)} GitHub stars in this set.` : "GitHub stars for AI agent frameworks."
   }</p><footer><a href="${pageUrl}">${title}</a>, AI Agents Info.</footer></blockquote>`;
   const lead = top
-    ? `${top.repo}, with ${integer(top.stars)} stars on this pass.`
+    ? `${top.name} is the most starred AI agent framework in this set, with ${integer(top.stars)} GitHub stars on this pass.`
     : "The table is empty on this pass because GitHub did not return stargazers_count.";
 
   return (
@@ -155,7 +155,24 @@ export default async function StarsTrackerPage() {
           <h2 id="table" className="text-2xl font-semibold tracking-tight">
             Which AI agent framework has the most GitHub stars?
           </h2>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{lead}</p>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+            {lead}{" "}
+            {top
+              ? "The figure is stargazers_count, and the page revalidates about once a day. "
+              : "The page revalidates about once a day. "}
+            File requests are the{" "}
+            <Link className="text-[var(--link)] underline" href={TRACKER_PATHS.downloads}>
+              downloads tracker
+            </Link>
+            . The November 5 release table is the{" "}
+            <Link
+              className="text-[var(--link)] underline"
+              href="/reports/ai-agent-framework-github-stats-november-2026"
+            >
+              AI agent framework GitHub stats report
+            </Link>
+            .
+          </p>
           {report.rows.length ? (
             <div className="mt-5">
               <SortableTable

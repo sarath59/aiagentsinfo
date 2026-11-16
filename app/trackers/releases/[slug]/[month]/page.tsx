@@ -15,7 +15,7 @@ import {
   starPagePath,
 } from "@/lib/trackers/entities";
 import { integer } from "@/lib/trackers/http";
-import { getReleaseMonth, monthLabel, releaseStaticParams } from "@/lib/trackers/releases";
+import { getReleaseMonth, monthLabel, releaseClickDescription, releaseStaticParams } from "@/lib/trackers/releases";
 import { formatDate } from "@/lib/utils";
 
 export const revalidate = 86400;
@@ -29,7 +29,22 @@ function pageTitle(name: string, month: string) {
   return `${name} releases in ${monthLabel(month)}`;
 }
 
-function releaseSnippet(data: { slug: string; month: string; repo: string; rows: { length: number } }) {
+function clipSentence(text: string, max: number) {
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const slice = clean.slice(0, max - 1);
+  const space = slice.lastIndexOf(" ");
+  const cut = (space >= 40 ? slice.slice(0, space) : slice).replace(/[\s,;:.]+$/g, "");
+  return `${cut}…`;
+}
+
+function releaseSnippet(data: {
+  slug: string;
+  name: string;
+  month: string;
+  repo: string;
+  rows: { tag: string; note: string | null; change: string | null; prerelease: boolean }[];
+}) {
   const count = integer(data.rows.length);
   const label = monthLabel(data.month);
   if (data.slug === "codex" && data.month === "2026-11") {
@@ -40,11 +55,20 @@ function releaseSnippet(data: { slug: string; month: string; repo: string; rows:
     const intro = `Codex release notes for November 2026. The Codex CLI changelog lists ${count} GitHub releases for openai/codex. Tags, dates, and the first line of each note are copied from the GitHub releases API.`;
     return { description, intro };
   }
-  const intro = `GitHub lists ${count} releases for ${data.repo} with published_at in ${label}.`;
-  return {
-    intro,
-    description: `${intro} Tags, dates, and the first line of each note are copied from the releases API.`,
-  };
+  const newest = data.rows.find((row) => !row.prerelease) ?? data.rows[0];
+  const lead = newest?.change ?? newest?.note ?? null;
+  const description = releaseClickDescription({
+    name: data.name,
+    label,
+    tag: newest?.tag,
+    lead,
+    count,
+    repo: data.repo,
+  });
+  const intro = newest && lead
+    ? `The newest ${data.name} release in ${label} is ${newest.tag}: ${clipSentence(lead, 180)} GitHub lists ${count} releases for ${data.repo} with published_at in ${label}.`
+    : `GitHub lists ${count} releases for ${data.repo} with published_at in ${label}.`;
+  return { description, intro };
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; month: string }> }) {
@@ -130,7 +154,7 @@ export default async function ReleaseMonthPage({
           </p>
         }
         takeaways={[lead, "Each note is the first line of that release’s own text. Drafts are omitted."]}
-        toc={[{ id: "releases", text: "Releases", level: 2 }]}
+        toc={[{ id: "releases", text: `What changed in ${data.name} releases in ${label}?`, level: 2 }]}
         related={[
           {
             href: starPagePath(data.slug),
@@ -166,7 +190,7 @@ export default async function ReleaseMonthPage({
         <TrackerNav current="" />
         <section>
           <h2 id="releases" className="text-2xl font-semibold tracking-tight">
-            Releases
+            What changed in {data.name} releases in {label}?
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
             {lead}
@@ -188,6 +212,18 @@ export default async function ReleaseMonthPage({
                 Claude Code release notes for November 2026
               </Link>{" "}
               are that month’s changelog for anthropics/claude-code, from the same releases tracker.
+            </p>
+          ) : null}
+          {data.slug === "langgraph" && data.month === "2026-11" ? (
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+              How often these frameworks publish a GitHub release is{" "}
+              <Link
+                className="text-[var(--link)] underline"
+                href="/research/ai-agent-framework-release-cadence-october-november-2026"
+              >
+                3,165 GitHub releases in 30 days, or 407 days of silence
+              </Link>
+              .
             </p>
           ) : null}
           <PlainTable

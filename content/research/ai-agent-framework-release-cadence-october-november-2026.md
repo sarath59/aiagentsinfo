@@ -1,6 +1,6 @@
 ---
 title: "3,165 GitHub releases in 30 days, or 407 days of silence"
-description: "At 03:42 UTC on November 11, 2026, vercel/ai had 3,165 GitHub releases in 30 days. The other 23 frameworks had 198. AutoGen had none in 407 days."
+description: "How often: vercel/ai published 3,165 GitHub releases in 30 days before November 11, 2026. The other 23 frameworks published 198. AutoGen had none in 407 days."
 date: "2026-11-11"
 updated: "2026-11-11"
 type: original-report
@@ -85,9 +85,11 @@ citation:
       url={https://www.aiagentsinfo.com/research/ai-agent-framework-release-cadence-october-november-2026},
       note={GitHub Releases API, windows anchored at 2026-11-11T03:42:41Z}
     }
-ledeQuestion: "How many GitHub releases did these agent frameworks publish in the last 30 and 60 days?"
-ledeAnswer: "vercel/ai published 3,165 in the 30 days before 03:42 UTC on November 11, 2026, and 5,991 in 60 days. The other 23 repositories published 198 in those 30 days. microsoft/autogen published none. python-v0.7.5 is 407 days old. ag2ai/ag2 published four."
+ledeQuestion: "How often do these AI agent frameworks release?"
+ledeAnswer: "In the 30 days before 03:42 UTC on November 11, 2026, vercel/ai published 3,165 GitHub releases and the other 23 repositories published 198. microsoft/autogen published none. python-v0.7.5 is 407 days old. vercel/ai published 5,991 in 60 days. ag2ai/ag2 published four in the 30-day window."
 faq:
+  - question: "How often do these AI agent frameworks release?"
+    answer: "In the 30 days before 03:42 UTC on November 11, 2026, vercel/ai published 3,165 non-draft GitHub releases and the other 23 repositories published 198. microsoft/autogen published none in that window or in the 60-day window. Its latest tag, python-v0.7.5, is 407 calendar days old."
   - question: "Which agent framework released the most often?"
     answer: "By GitHub release objects, vercel/ai, at 3,165 in the 30 days before 03:42 UTC on November 11, 2026. Those are package tags. Among the other 23 repositories, langchain-ai/langchain published 32 and langchain-ai/langgraph published 30, also as package tags. The fastest single version line in the set is a tie at 15: pydantic-ai, split 12 on v2 and 3 on v1, and claude-agent-sdk-python, all on v0.2."
   - question: "Is AutoGen still shipping releases?"
@@ -100,15 +102,15 @@ faq:
     answer: "No. The count is tag frequency. A monorepo that tags every package on every change will outrun a single-package library that ships once a month. Installs are a different measurement. This note does not rank quality."
 ---
 
-**3,165.** That is how many non-draft GitHub releases [vercel/ai](https://github.com/vercel/ai) published in the 30 days before 03:42 UTC on November 11, 2026.
+In the 30 days before 03:42 UTC on November 11, 2026, [vercel/ai](https://github.com/vercel/ai) published **3,165** non-draft GitHub releases. The other 23 repositories published **198**, and [microsoft/autogen](https://github.com/microsoft/autogen) published none.
 
-The other 23 repositories in this count published **198** in that same window. 3,165 divided by 198 is 15.98. In the 60-day window the Vercel repository published **5,991**. [microsoft/autogen](https://github.com/microsoft/autogen) published **zero** in both. Its latest tag, `python-v0.7.5`, is dated September 30, 2025, which is 407 calendar days before the pull date.
+3,165 divided by 198 is 15.98. In the 60-day window the Vercel repository published **5,991**. [microsoft/autogen](https://github.com/microsoft/autogen) published **zero** in both windows. Its latest tag, `python-v0.7.5`, is dated September 30, 2025, which is 407 calendar days before the pull date.
 
 [ag2ai/ag2](https://github.com/ag2ai/ag2) published four releases in the 30 days and nine in the 60. The repository description calls AG2 formerly AutoGen. The release list agrees with that split: the repository under the old name is quiet, and the repository under the new name is not. What the README says about maintenance is [Is AutoGen deprecated?](/blog/is-autogen-deprecated). This note does not re-argue it. It counts tags.
 
-The [November 5 snapshot](/reports/ai-agent-framework-github-stats-november-2026) is one latest tag per repository, for 19 of these rows. [Best AI agent frameworks](/best/ai-agent-frameworks) compares licences and those tags. Neither page is a cadence. This one is.
+The [November 5 snapshot](/reports/ai-agent-framework-github-stats-november-2026) is one latest tag per repository, for 19 of these rows. LangGraph’s November tags are on [LangGraph releases in November 2026](/trackers/releases/langgraph/2026-11). [Best AI agent frameworks](/best/ai-agent-frameworks) compares licences and those tags. Neither page is a cadence. This one is.
 
-## The 30-day count and the 60-day count
+## How often did these AI agent frameworks release?
 
 A release is in the 30-day window when `published_at` is on or after 2026-10-12T03:42:41Z, and in the 60-day window when it is on or after 2026-09-12T03:42:41Z. Days are calendar days from that timestamp’s UTC date to 2026-11-11. Prereleases are inside the counts. The Pre column is how many of the 30-day releases were marked prerelease. Vercel’s later pages were not split that way. The first 1,500, covering October 27 through November 10, had zero prereleases.
 

@@ -197,7 +197,7 @@ function retrievedMonthYear(iso: string) {
 }
 
 function inClickRange(text: string) {
-  return text.length >= 140 && text.length <= 155;
+  return text.length >= 140 && text.length <= 160;
 }
 
 export function starsClickTitle(report: StarsReport) {
@@ -217,21 +217,27 @@ export function starsClickTitle(report: StarsReport) {
 }
 
 export function starsClickDescription(report: StarsReport) {
-  const langgraph = report.rows.find((row) => row.repo === "langchain-ai/langgraph");
-  const langchain = report.rows.find((row) => row.repo === "langchain-ai/langchain");
+  const top = topStarred(report.rows);
   const fallback =
-    "Live GitHub star counts for AI agent frameworks, refreshed daily. Each figure is stargazers_count. A star is a bookmark, not a download count.";
-  if (!langgraph || !langchain) return fallback;
+    "GitHub stars for AI agent frameworks, refreshed about once a day. Each row is stargazers_count from GitHub. A star is a bookmark, not a download.";
+  if (!top) {
+    if (!inClickRange(fallback)) throw new Error(`stars fallback meta is ${fallback.length} characters`);
+    return fallback;
+  }
+  const stars = integer(top.stars);
   const heads = [
-    `LangGraph shows ${integer(langgraph.stars)} GitHub stars in this set. LangChain leads at ${integer(langchain.stars)}.`,
-    `LangGraph shows ${integer(langgraph.stars)} GitHub stars. LangChain leads at ${integer(langchain.stars)}.`,
+    `AI agent framework GitHub stars, refreshed about once a day. ${top.name} is the most starred in this set, at ${stars}.`,
+    `GitHub stars for AI agent frameworks, refreshed about once a day. ${top.name} leads this set at ${stars}.`,
+    `Most starred AI agent frameworks, refreshed about once a day: ${top.name} leads this set at ${stars}.`,
+    `This tracker lists GitHub stars for AI agent frameworks and refreshes about once a day. ${top.name} leads at ${stars}.`,
   ];
   const tails = [
-    " Counts are stargazers_count from the GitHub API, refreshed daily.",
-    " Both counts are stargazers_count from GitHub, refreshed daily.",
-    " Figures are stargazers_count from GitHub, refreshed daily.",
-    " Stars are stargazers_count, refreshed daily from GitHub.",
-    " The counts are stargazers_count, refreshed daily.",
+    " Each row is stargazers_count from the GitHub API.",
+    " Each row is stargazers_count.",
+    " Counts are stargazers_count.",
+    " A star is a bookmark, not a download.",
+    " Stars are bookmarks, not installs.",
+    "",
   ];
   for (const head of heads) {
     for (const tail of tails) {
@@ -239,7 +245,7 @@ export function starsClickDescription(report: StarsReport) {
       if (inClickRange(text)) return text;
     }
   }
-  return fallback;
+  throw new Error(`stars meta description missed 140-160 for ${top.name} at ${stars}`);
 }
 
 export function starsTakeaways(report: StarsReport) {

@@ -45,6 +45,28 @@ const BOILERPLATE = new Set([
   "new contributors",
 ]);
 
+/** Section labels that are not the change. Used for the search snippet only. */
+const WEAK_LEAD = new Set([
+  "new features",
+  "patch changes",
+  "highlight",
+  "highlights",
+  "bug fixes",
+  "fixes",
+  "features",
+  "changes",
+  "other changes",
+  "miscellaneous",
+  "breaking changes",
+  "what's changed",
+  "whats changed",
+  "changelog",
+  "initial release",
+]);
+
+const CLICK_MIN = 140;
+const CLICK_MAX = 160;
+
 type StoredRelease = {
   tag: string;
   name: string | null;
@@ -81,6 +103,8 @@ export type ReleaseRow = {
   htmlUrl: string;
   prerelease: boolean;
   note: string | null;
+  /** First change line for the search snippet. The table keeps `note`. */
+  change: string | null;
 };
 
 const file = snapshot as {
@@ -101,7 +125,7 @@ export function monthLabel(month: string) {
   return `${MONTHS[index]} ${match[1]}`;
 }
 
-export function releaseNote(tag: string, name: string | null, body: string | null): string | null {
+function readReleaseLine(tag: string, name: string | null, body: string | null, change: boolean): string | null {
   const lines = (body ?? "").split(/\r?\n/);
   for (const raw of lines) {
     const trimmed = raw.trim();
@@ -109,22 +133,118 @@ export function releaseNote(tag: string, name: string | null, body: string | nul
     let line = trimmed.replace(/^#{1,6}\s+/, "").replace(/^>\s+/, "").replace(/^[-*+]\s+/, "").trim();
     line = line.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\s+/g, " ").trim();
     if (!line || line.startsWith("http://") || line.startsWith("https://")) continue;
-    const key = line.toLowerCase().replace(/[:.]+$/g, "");
+    const key = line.toLowerCase().replace(/[:.]+$/g, "").replace(/^⚠\s*/, "");
     const heading = /^#{1,6}\s+/.test(trimmed);
     if (BOILERPLATE.has(key) && (heading || line.length < 40)) continue;
     if (isVersionLine(line, tag, name)) continue;
     if (/^changes since\b/i.test(line)) continue;
     if (/^full changelog\b/i.test(line)) continue;
     if (/^release\([^)]+\):\s*\S+$/i.test(line)) continue;
+    if (change) {
+      if (/^release\([^)]+\):/i.test(line)) continue;
+      if (WEAK_LEAD.has(key) && (heading || line.length < 80)) continue;
+      line = line.replace(/\*\*/g, "").replace(/`/g, "").replace(/\s+/g, " ").trim();
+      if (!line) continue;
+    }
     if (line.length >= 400) return `${line.slice(0, 399).trimEnd()}…`;
     return line;
   }
+  return null;
+}
+
+export function releaseNote(tag: string, name: string | null, body: string | null): string | null {
+  const line = readReleaseLine(tag, name, body, false);
+  if (line) return line;
   const title = name?.trim() ?? "";
   if (title && !sameVersion(title, tag)) {
     if (title.length >= 400) return `${title.slice(0, 399).trimEnd()}…`;
     return title;
   }
   return null;
+}
+
+/** The change the search snippet should lead with. Falls back to the table note. */
+export function releaseChangeLine(tag: string, name: string | null, body: string | null): string | null {
+  return readReleaseLine(tag, name, body, true) ?? releaseNote(tag, name, body);
+}
+
+function clipClick(text: string, max: number) {
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const limit = Math.max(1, max - 1);
+  let slice = clean.slice(0, limit);
+  const space = slice.lastIndexOf(" ");
+  if (space >= 40) slice = slice.slice(0, space);
+  slice = slice.replace(/[\s,;:.]+$/g, "");
+  if (slice.length < 40) slice = clean.slice(0, limit).trim();
+  return `${slice}…`;
+}
+
+function inClickRange(text: string) {
+  return text.length >= CLICK_MIN && text.length <= CLICK_MAX;
+}
+
+export function releaseClickDescription(input: {
+  name: string;
+  label: string;
+  tag?: string;
+  lead?: string | null;
+  count: string;
+  repo: string;
+}) {
+  const { name, label, tag, lead, count, repo } = input;
+  const candidates: string[] = [];
+  const suffixes = ["", ` GitHub lists ${count} releases.`, ` ${count} GitHub releases this month.`];
+  if (tag && lead) {
+    const prefixes = [
+      `${name} release notes, ${label}: ${tag} - `,
+      `${name} ${label}: ${tag} - `,
+      `${label}: ${tag} - `,
+    ];
+    for (const prefix of prefixes) {
+      for (const suffix of suffixes) {
+        const room = CLICK_MAX - prefix.length - suffix.length;
+        if (room < 16) continue;
+        for (const budget of [room, room - 12, room - 28, room - 48]) {
+          if (budget < 16) continue;
+          candidates.push(`${prefix}${clipClick(lead, budget)}${suffix}`);
+        }
+      }
+    }
+  }
+  if (tag) {
+    const shortTag = clipClick(tag, 48).replace(/…$/, "");
+    candidates.push(
+      `${name} release notes for ${label}. Newest tag is ${shortTag}. GitHub lists ${count} releases.`,
+    );
+    candidates.push(
+      `${name} latest version in ${label} is ${shortTag}. GitHub lists ${count} releases for ${repo}.`,
+    );
+    candidates.push(`Newest ${name} tag in ${label}: ${shortTag}. GitHub lists ${count} releases for ${repo}.`);
+  }
+  candidates.push(
+    `GitHub lists ${count} releases for ${repo} in ${label}. Tags, dates, and the first note line are copied from the releases API.`,
+  );
+  candidates.push(
+    `GitHub lists ${count} releases for ${repo} with published_at in ${label}. The first line of each note is copied from the releases API.`,
+  );
+  const filler = " Tags, dates, and the first line of each note are copied from the GitHub releases API.";
+  for (const cand of candidates) {
+    let text = cand.replace(/\s+/g, " ").trim();
+    if (text.length < CLICK_MIN) text = `${text}${filler}`.replace(/\s+/g, " ").trim();
+    if (text.length > CLICK_MAX) text = clipClick(text, CLICK_MAX);
+    if (inClickRange(text)) return text;
+  }
+  let fallback = `GitHub lists ${count} releases for ${repo} in ${label}. Tags, dates, and the first note line are copied from the releases API.`;
+  if (fallback.length < CLICK_MIN) fallback = `${fallback}${filler}`.replace(/\s+/g, " ").trim();
+  if (fallback.length > CLICK_MAX) {
+    const clipped = clipClick(fallback, CLICK_MAX);
+    fallback = clipped.length >= CLICK_MIN ? clipped : `${fallback.slice(0, CLICK_MAX - 1).trimEnd()}…`;
+  }
+  if (!inClickRange(fallback)) {
+    throw new Error(`release meta description missed ${CLICK_MIN}-${CLICK_MAX} for ${name} ${label} (${fallback.length})`);
+  }
+  return fallback;
 }
 
 function sameVersion(line: string, tag: string) {
@@ -156,6 +276,7 @@ function toRow(raw: StoredRelease): ReleaseRow | null {
     htmlUrl: raw.htmlUrl,
     prerelease: raw.prerelease === true,
     note: releaseNote(raw.tag, raw.name, raw.body),
+    change: releaseChangeLine(raw.tag, raw.name, raw.body),
   };
 }
 

@@ -1,6 +1,6 @@
 ---
 title: "Which AI video generators can an AI agent call in November 2026? A 10-second Pika clip is $0.20"
-description: "Pika’s public catalog prices H3 Flex at $0.02 a second at 768p, which is $0.20 for 10 seconds. Sora’s Videos API shut down on September 24, 2026. FreeGenVideo publishes no API."
+description: "Agents can call Pika, MiniMax, Runway, Kling, Luma, and Gemini Omni Flash. Sora’s Videos API shut down on September 24, 2026. FreeGenVideo publishes no API."
 date: "2026-11-12"
 updated: "2026-11-12"
 type: original-report
@@ -134,8 +134,8 @@ citation:
       url={https://www.aiagentsinfo.com/research/ai-video-generators-agents-can-call-november-2026},
       note={Prices read November 12, 2026 from vendor docs and Pika's public catalog. Ten-second costs marked computed are the published per-second rate times 10.}
     }
-ledeQuestion: "What does a finished 10-second clip cost an agent?"
-ledeAnswer: "On the pages read November 12, 2026, Pika’s catalog is $0.02 a second for H3 Flex at 768p, which is $0.20 for 10 seconds. Google prints about $0.70 for 10 seconds of Gemini Omni Flash at 720p. Luma Ray 3.2 is 300 credits for 10 seconds at 720p, $0.90 only at the default list rate. Runway’s Gen-4.5 computes to $1.20. Sora’s API has been off since September 24, 2026."
+ledeQuestion: "Which AI video generators can an AI agent call?"
+ledeAnswer: "Pika, MiniMax, Runway, Kling, Luma’s Agents API, and Gemini Omni Flash publish an API and a price an agent can put in a tool description. Sora’s Videos API shut down on September 24, 2026. FreeGenVideo’s homepage publishes no API. Vertex AI still lists Veo, priced per count, at 4, 6, or 8 seconds."
 faq:
   - question: "Which AI video generators can an AI agent call in November 2026?"
     answer: "Pika, MiniMax, Runway, Kling, Luma’s Agents API, and Google’s Gemini Omni Flash publish an API and a price an agent can put in a tool description. Luma’s Ray 3.2 price is in credits, and the dollar figure depends on the account rate. Vertex AI still lists Veo, priced per count, with lengths of 4, 6, or 8 seconds. Sora’s Videos API shut down on September 24, 2026. FreeGenVideo’s homepage shows no API."
@@ -149,13 +149,15 @@ faq:
     answer: "Runway’s MCP page, read November 12, 2026, says to paste https://mcp.runwayml.com/mcp and sign in with a Runway app account. No API key. It says MCP uses your Runway credits, just like the Runway app. Luma’s usage guide says app spend and MCP spend are outside GET /v1/usage, and it does not publish an MCP URL. This note did not find an official video MCP URL on the Google, OpenAI, Kling, Pika, MiniMax, or FreeGenVideo pages it read."
 ---
 
+An AI agent can call [Pika](/directory/pika), MiniMax, [Runway](/directory/runway), Kling, Luma’s Agents API, and Gemini Omni Flash. Sora’s Videos API shut down on September 24, 2026, and [FreeGenVideo](/directory/freegenvideo) publishes no API.
+
 **$0.20.** That is 10 seconds of Pika H3 Flex at 768p, from the per-second price in Pika’s public catalog on November 12, 2026.
 
 Google’s own pricing page prints the next number a harness can paste into an eval without doing the multiplication: about **$0.70** for 10 seconds of `gemini-omni-1.2-flash` at 720p. Runway Dev’s Gen-4.5 row is 12 credits a second at $0.01 a credit, which is **$1.20** for 10 seconds once you multiply. Sora is not a fourth column. The Videos API shut down on September 24, 2026.
 
 [FreeGenVideo](/directory/freegenvideo) is the browser generator people are already opening. It is not in the price table, because the homepage fetched the same day publishes no API. The rest of the [video category](/directory/category/video) is the same kind of question: a listing is a product page until its own docs publish a tool an agent can call. [Runway](/directory/runway) is the one in this set that prints an MCP URL. How a model calls a tool is [tool use](/glossary/tool-use). The wire it plugs into is the [Model Context Protocol](/glossary/model-context-protocol). The six-month MCP calendar is [MCP, the next 6 months](/reports/mcp-next-6-months).
 
-## Which generators publish an API an agent can call?
+## Which AI video generators publish an API an agent can call?
 
 Pika, MiniMax, Runway, Kling, Luma’s Agents API, and Gemini Omni Flash do. Sora does not. Veo’s Gemini API price is not on the pricing page. FreeGenVideo’s API is not on the homepage.
 
