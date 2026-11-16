@@ -19,7 +19,7 @@ export default function ToolsPage() {
           description,
           path,
           datePublished: "2026-11-10",
-          dateModified: "2026-11-14",
+          dateModified: "2026-11-16",
         })}
       />
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Tools", path }]} />

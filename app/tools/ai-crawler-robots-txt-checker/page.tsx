@@ -100,6 +100,11 @@ const steps = [
 
 const siblings = [
   {
+    href: "/tools/llms-txt-checker",
+    title: "llms.txt checker and generator",
+    body: "Validate /llms.txt, test linked URLs, or draft a file from a sitemap. The robots.txt score does not use that file.",
+  },
+  {
     href: "/tools/shopping-agent-readiness-checker",
     title: "Shopping agent readiness checker",
     body: "Eighteen store checks, including whether OAI-SearchBot is allowed. The score stays in the browser.",

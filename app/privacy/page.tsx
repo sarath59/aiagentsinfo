@@ -68,6 +68,15 @@ export default function PrivacyPage() {
           sends the host you type so this site can fetch that host&apos;s /robots.txt and /llms.txt. The host, the file, and a pasted robots.txt are not written to a file, a database, or a log. Paste mode stays in the browser.
         </p>
         <p className="mt-4">
+          The{" "}
+          <Link href="/tools/llms-txt-checker" className="text-[var(--link)] underline">
+            llms.txt checker
+          </Link>{" "}
+          sends the host you type so this site can fetch that host&apos;s /llms.txt, /llms-full.txt, sitemap.xml, and a
+          sample of the linked URLs. A pasted file stays in the browser unless you ask for a link check, which sends
+          only those URLs. The host, the files, and the paste are not written to a file, a database, or a log.
+        </p>
+        <p className="mt-4">
           Page views are measured with{" "}
           <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
             <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { trackTool } from "@/lib/analytics";
 import { BOTS_CHECKED_LABEL, aiBots, purposeOrder } from "@/lib/robots/bots";
 import { evaluateRobots, scoreSentence, type BotRow, type Evaluation } from "@/lib/robots/evaluate";
@@ -568,6 +569,12 @@ function FetchNotes({ meta, sitemaps }: { meta: FetchMeta; sitemaps: string[] })
   return (
     <ul className="mt-3 grid gap-1 text-sm text-[var(--muted)]">
       <li>{llms}</li>
+      <li>
+        <Link className="text-[var(--link)] underline" href="/tools/llms-txt-checker">
+          Open the llms.txt checker
+        </Link>{" "}
+        for structure, size, and broken links.
+      </li>
       <li>
         {sitemaps.length
           ? `Sitemap ${sitemaps.length === 1 ? "line" : "lines"}: ${sitemaps.join(", ")}`

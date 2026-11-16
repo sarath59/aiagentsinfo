@@ -370,12 +370,17 @@ export async function buildLlmsTxt() {
       item(
         "Free tools",
         "/tools",
-        "AGENTS.md generator, MCP config generator, agent picker, cost, ROI, web search API cost, and benchmark cost-per-solved-task calculators, prompt checker, harness checklist, shopping-agent readiness checker, and a robots.txt checker for AI crawlers. No login.",
+        "AGENTS.md generator, MCP config generator, agent picker, cost, ROI, web search API cost, and benchmark cost-per-solved-task calculators, prompt checker, harness checklist, shopping-agent readiness checker, a robots.txt checker for AI crawlers, and an llms.txt checker and generator. No login.",
       ),
       item(
         "robots.txt checker for AI crawlers",
         "/tools/ai-crawler-robots-txt-checker",
         "Fetches /robots.txt, reports documented AI tokens under RFC 9309, and writes a file for the policy you pick. Nothing you enter is stored.",
+      ),
+      item(
+        "llms.txt checker and generator",
+        "/tools/llms-txt-checker",
+        "Fetches /llms.txt and /llms-full.txt, checks the llmstxt.org v2 structure, tests up to 25 links, and drafts a file from a sitemap. Nothing you enter is stored.",
       ),
       item(
         "AGENTS.md generator",

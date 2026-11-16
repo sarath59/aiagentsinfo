@@ -192,7 +192,9 @@ export default function ShoppingReadinessPage() {
             Google’s AI features page says you do not need a new machine-readable file or extra schema.org markup for
             AI Overviews or AI Mode, and that structured data should match the visible words.{" "}
             <a href="https://llmstxt.org/">llmstxt.org</a> is a separate proposal for a Markdown index at /llms.txt.
-            This site publishes <Link href="/llms.txt">its own copy</Link>. A Product node that repeats the HTML price
+            This site publishes <Link href="/llms.txt">its own copy</Link>.{" "}
+            <Link href="/tools/llms-txt-checker">The llms.txt checker</Link> validates a host&apos;s file against that
+            proposal. A Product node that repeats the HTML price
             gives an agent a second copy of a number it can check against the feed. It does not set Google’s
             native_commerce flag.
           </p>

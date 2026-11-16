@@ -98,4 +98,11 @@ export const freeTools: FreeTool[] = [
       "See which documented AI bots may fetch a path, then download a robots.txt for the policy you pick. Nothing you enter is stored.",
     category: "Evaluate & Secure",
   },
+  {
+    href: "/tools/llms-txt-checker",
+    title: "llms.txt checker and generator",
+    description:
+      "Check /llms.txt and /llms-full.txt, validate the llmstxt.org format, test linked URLs, or draft a file from a sitemap. Nothing you enter is stored.",
+    category: "Evaluate & Secure",
+  },
 ];
