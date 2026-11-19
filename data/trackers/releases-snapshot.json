@@ -1,15 +1,79 @@
 {
-  "retrievedAt": "2026-11-18T15:39:11.881839Z",
-  "retrievedDay": "2026-11-18",
+  "retrievedAt": "2026-11-19T15:44:25.168855Z",
+  "retrievedDay": "2026-11-19",
   "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo}/releases?per_page=100&page=1",
   "repos": [
     {
       "id": "langchain",
       "name": "LangChain",
       "repo": "langchain-ai/langchain",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "langchain-openrouter==0.3.0",
+          "name": "langchain-openrouter==0.3.0",
+          "body": "**`langchain-openrouter` 0.3.0 drops support for Python 3.10**, which has reached end-of-life. The minimum supported version is now Python 3.11, and the minimum `langchain-core` version is now 1.8.3. Users on Python 3.10 will continue to resolve `langchain-openrouter` 0.2.x.\n\nChanges since langchain-openrouter==0.2.9\n\nrelease(openrouter): 0.3.0 (#41957)\nchore(model-profiles): refresh model profile data (#41934)\nchore(model-profiles): refresh model profile data (#41917)\nchore(model-profiles): refresh model profile data (#41893)\nchore(model-profiles): refresh model profile data (#41861)\nchore(model-profiles): refresh model profile data (#41828)\nfeat(partners): Remove EOL'd Python 3.10 from partner packages (#41268)\nchore(model-profiles): refresh model profile data (#41791)",
+          "publishedAt": "2026-11-19T15:03:19Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openrouter%3D%3D0.3.0",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-openai==1.8.3",
+          "name": "langchain-openai==1.8.3",
+          "body": "Changes since langchain-openai==1.8.2\n\nrelease(openai): 1.8.3 (#41950)\nfix(openai): enable Codex prompt caching on GPT-6.2 (#41949)",
+          "publishedAt": "2026-11-19T00:38:57Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.8.3",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain==1.5.2",
+          "name": "langchain==1.5.2",
+          "body": "Changes since langchain==1.5.1\n\nrelease(langchain): 1.5.2 (#41948)\nfeat(langchain): tag synthetic HITL tool messages with source metadata (#41928)",
+          "publishedAt": "2026-11-18T22:30:43Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.5.2",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain==1.5.1",
+          "name": "langchain==1.5.1",
+          "body": "Changes since langchain==1.5.0\n\nrelease(langchain): 1.5.1 (#41943)\nfix(core): keep warning suppression context-local (#41881)\nfix(langchain): avoid warning-filter races in provider inference (#41880)\nfix(langchain): avoid warning-filter races in `ModelRequest` (#41879)\nchore(deps): bump opentelemetry-api from 1.45.1 to 1.45.2 in /libs/langchain_v1 (#41845)\nchore(deps): bump dnspython from 2.9.1 to 2.9.2 in /libs/langchain_v1 (#41849)",
+          "publishedAt": "2026-11-18T15:45:13Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.5.1",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-xai==1.4.1",
+          "name": "langchain-xai==1.4.1",
+          "body": "Changes since langchain-xai==1.4.0\n\nrelease(xai): 1.4.1 (#41931)\nfeat(xai): send `langsmith_gateway` headers from the client (#41904)",
+          "publishedAt": "2026-11-18T17:29:52Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-xai%3D%3D1.4.1",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-openai==1.8.2",
+          "name": "langchain-openai==1.8.2",
+          "body": "Changes since langchain-openai==1.8.1\n\nfix(openai): don't share the async HTTP client between models (#41944)\nfeat(openai): support GPT-6.2 Astra and Sol (#41922)\nfeat(openai): send `langsmith_gateway` headers from the client (#41901)",
+          "publishedAt": "2026-11-18T16:53:05Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.8.2",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-groq==1.2.1",
+          "name": "langchain-groq==1.2.1",
+          "body": "Changes since langchain-groq==1.2.0\n\nrelease(groq): 1.2.1 (#41930)\nfeat(groq): send `langsmith_gateway` headers from the client (#41903)",
+          "publishedAt": "2026-11-18T17:27:22Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-groq%3D%3D1.2.1",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-deepseek==1.2.1",
+          "name": "langchain-deepseek==1.2.1",
+          "body": "Changes since langchain-deepseek==1.2.0\n\nrelease(deepseek): 1.2.1 (#41932)\nfeat(deepseek): send `langsmith_gateway` headers from the client (#41905)",
+          "publishedAt": "2026-11-18T17:27:44Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-deepseek%3D%3D1.2.1",
+          "prerelease": false
+        },
         {
           "tag": "langchain-core==1.8.3",
           "name": "langchain-core==1.8.3",
@@ -745,70 +809,6 @@
           "publishedAt": "2026-08-21T14:08:45Z",
           "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.4.1",
           "prerelease": false
-        },
-        {
-          "tag": "langchain==1.3.16",
-          "name": "langchain==1.3.16",
-          "body": "Changes since langchain==1.3.15\n\nrelease(langchain): 1.3.16 (#39806)\nfeat(core): add standard model exception types (#39538)\nfeat(langchain): support custom token_counter in ContextEditingMiddleware (#39754)\nfix(langchain): re-raise non-retryable exceptions in ModelRetryMiddleware (#38960)\nchore(langchain): update docs on error handling for json schema (#39632)\nfix(langchain): preserve final repeated schema ordering (#39284)",
-          "publishedAt": "2026-08-20T14:35:30Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.16",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-fireworks==1.6.0",
-          "name": "langchain-fireworks==1.6.0",
-          "body": "Changes since langchain-fireworks==1.5.2\n\nrelease(fireworks): 1.6.0 (#39810)\nfeat(fireworks): add document reranking (#39732)\nfix(fireworks): filter invalid tool calls from v1 content (#39805)\nfeat(core): add standard model exception types (#39538)\nchore(model-profiles): refresh model profile data (#39646)\nfix(fireworks): avoid repeated `service_tier` [closes #39619] (#39620)\nchore: bump langsmith from 0.10.6 to 0.10.16 in /libs/partners/fireworks (#39279)\nchore: bump aiohttp from 3.14.1 to 3.14.3 in /libs/partners/fireworks (#39236)\nchore(model-profiles): refresh model profile data (#39166)",
-          "publishedAt": "2026-08-20T17:47:18Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-fireworks%3D%3D1.6.0",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-anthropic==1.6.1",
-          "name": "langchain-anthropic==1.6.1",
-          "body": "Changes since langchain-anthropic==1.6.0\n\nrelease(anthropic): 1.6.1 (#39804)\nfix(anthropic): filter invalid tool calls from v1 content (#39803)",
-          "publishedAt": "2026-08-20T14:06:49Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.6.1",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-openai==1.6.0",
-          "name": "langchain-openai==1.6.0",
-          "body": "Changes since langchain-openai==1.5.2\n\nrelease(openai): 1.6.0 (#39762)\nfeat(core): add standard model exception types (#39538)\nfix(openai): raise clear error on unexpected response type in `_create_chat_result` (#39731)",
-          "publishedAt": "2026-08-19T21:45:02Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.6.0",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-core==1.6.0",
-          "name": "langchain-core==1.6.0",
-          "body": "Changes since langchain-core==1.5.6\n\nrelease(core): 1.6.0 (#39760)\nfix(core): resolve postponed annotations in `StructuredTool._injected_args_keys` (#39602)\nfeat(core): add standard model exception types (#39538)\nfix(core): allow deserializing `RunnablePick` (#39753)\nfix(core): make `convert_to_openai_function` handle callables and non-dict mappings (#39750)\nfix(core): make subprocess and temporary file tests portable on Windows (#39664)\nfix(core): fail fast when tool schemas can't resolve forward refs during serialization (#39570)\ntest(core): avoid version-dependent runnable snapshots (#39705)\nfix(core): require all nested properties for strict tool schemas (#39306)\nfix(core): remove stale sync-stream `xfail` [closes #39720] (#39723)",
-          "publishedAt": "2026-08-19T15:55:57Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.6.0",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-anthropic==1.6.0",
-          "name": "langchain-anthropic==1.6.0",
-          "body": "Changes since langchain-anthropic==1.5.6\n\nrelease(anthropic): 1.6.0 (#39763)\nfeat(core): add standard model exception types (#39538)\nfix(anthropic): exclude sibling directories from grep search scope (#39681)\nchore(infra): support langsmith gateway in CI (#39651)",
-          "publishedAt": "2026-08-19T21:39:54Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.6.0",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-openai==1.5.2a1",
-          "name": "langchain-openai==1.5.2a1",
-          "body": "Initial release\n\nrelease(openai): 1.5.2a1 (#39709)\nfeat(openai): extract gateway metadata from response headers when available (#39706)\nchore(openai): update snapshots (#39657)\nfix(openai): support o-series models in `get_num_tokens_from_messages` (#38710)\nrelease(openai): 1.5.1 (#39653)\nfix(openai): preserve streamed encrypted reasoning (#39635)\nchore(infra): support langsmith gateway in CI (#39651)\nrelease(openai): 1.5.0 (#39629)\nfeat(openai): support openai 3.0 SDK (#39613)\nchore(partners): bump langgraph floor in openai and huggingface lockfiles (#39617)",
-          "publishedAt": "2026-08-18T01:51:38Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.5.2a1",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-openai==1.5.2",
-          "name": "langchain-openai==1.5.2",
-          "body": "Changes since langchain-openai==1.5.1\n\nrelease(openai): 1.5.2 (#39719)\nfix(openai): preserve reasoning item boundaries (#39278)\nrelease(openai): 1.5.2a1 (#39709)\nfeat(openai): extract gateway metadata from response headers when available (#39706)\nchore(openai): update snapshots (#39657)\nfix(openai): support o-series models in `get_num_tokens_from_messages` (#38710)",
-          "publishedAt": "2026-08-18T17:38:11Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.5.2",
-          "prerelease": false
         }
       ]
     },
@@ -816,7 +816,7 @@
       "id": "autogen",
       "name": "AutoGen",
       "repo": "microsoft/autogen",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": false,
       "releases": [
         {
@@ -1609,9 +1609,25 @@
       "id": "crewai",
       "name": "CrewAI",
       "repo": "crewAIInc/crewAI",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "1.15.43",
+          "name": "1.15.43",
+          "body": "## What's Changed\n\n### Bug Fixes\n- Fix detection of multimodal support for Claude 5.\n\n### Documentation\n- Update snapshot and changelog for v1.15.42.\n\n## Contributors\n\n@Vidit-Ostwal, @anubhavlal07, @joaomdmoura",
+          "publishedAt": "2026-11-19T04:12:47Z",
+          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.43",
+          "prerelease": false
+        },
+        {
+          "tag": "1.15.42",
+          "name": "1.15.42",
+          "body": "## What's Changed\n\n### Features\n- Make ChromaDB an optional extra\n- Default Knowledge to local Qdrant and decouple storage from ChromaDB\n- Pick tools for standalone agents and add them later\n\n### Bug Fixes\n- Store output_json values as JSON to prevent date issues in .json and output_file\n- Give each Flow its own ID from an initial_state instance\n- Honor max_execution_time without waiting for the worker\n- Save task outputs that hold URLs and other Pydantic types",
+          "publishedAt": "2026-11-18T16:38:31Z",
+          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.42",
+          "prerelease": false
+        },
         {
           "tag": "1.15.41",
           "name": "1.15.41",
@@ -2395,22 +2411,6 @@
           "publishedAt": "2026-03-31T20:16:32Z",
           "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.13.0a3",
           "prerelease": true
-        },
-        {
-          "tag": "1.13.0rc1",
-          "name": "1.13.0rc1",
-          "body": "## What's Changed\n\n### Documentation\n- Update changelog and version for v1.13.0a2\n\n## Contributors\n\n@greysonlalonde",
-          "publishedAt": "2026-03-27T03:31:04Z",
-          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.13.0rc1",
-          "prerelease": true
-        },
-        {
-          "tag": "1.13.0a2",
-          "name": "1.13.0a2",
-          "body": "## What's Changed\n\n### Features\n- Auto-update deployment test repo during release\n- Improve enterprise release resilience and UX\n\n### Documentation\n- Update changelog and version for v1.13.0a1\n\n## Contributors\n\n@greysonlalonde",
-          "publishedAt": "2026-03-26T20:05:42Z",
-          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.13.0a2",
-          "prerelease": true
         }
       ]
     },
@@ -2418,7 +2418,7 @@
       "id": "llama-index",
       "name": "LlamaIndex",
       "repo": "run-llama/llama_index",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
         {
@@ -3227,9 +3227,25 @@
       "id": "langgraph",
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "1.2.23",
+          "name": "langgraph==1.2.23",
+          "body": "Changes since 1.2.22\n\n* release(langgraph): 1.2.23 (#9742)\n* release(prebuilt): 1.1.3 (#9741)\n* fix(langgraph,prebuilt): give Send-dispatched tool calls the same state as an edge (#9728)\n* chore(deps): bump opentelemetry-api from 1.45.1 to 1.45.2 in /libs/langgraph (#9696)\n* fix(langgraph): avoid warning races in dynamic schemas (#9716)",
+          "publishedAt": "2026-11-19T05:33:06Z",
+          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.23",
+          "prerelease": false
+        },
+        {
+          "tag": "prebuilt==1.1.3",
+          "name": "langgraph-prebuilt==1.1.3",
+          "body": "Changes since prebuilt==1.1.2\n\n* release(prebuilt): 1.1.3 (#9741)\n* fix(langgraph,prebuilt): give Send-dispatched tool calls the same state as an edge (#9728)\n* fix(prebuilt): make wrap_tool_call state overrides reach the tool (#9730)",
+          "publishedAt": "2026-11-19T05:26:17Z",
+          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/prebuilt%3D%3D1.1.3",
+          "prerelease": false
+        },
         {
           "tag": "1.2.22",
           "name": "langgraph==1.2.22",
@@ -4013,22 +4029,6 @@
           "publishedAt": "2026-04-27T17:19:21Z",
           "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/1.1.10",
           "prerelease": false
-        },
-        {
-          "tag": "prebuilt==1.0.12",
-          "name": "langgraph-prebuilt==1.0.12",
-          "body": "Changes since prebuilt==1.0.11\n\n* release(prebuilt): 1.0.12, langgraph 1.1.10 (#7623)\n* release(checkpoint): 4.0.3 (#7625)\n* fix(prebuilt): hydrate ToolNode state from channels via pregel helpers (#7594)",
-          "publishedAt": "2026-04-27T17:14:44Z",
-          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/prebuilt%3D%3D1.0.12",
-          "prerelease": false
-        },
-        {
-          "tag": "checkpoint==4.0.3",
-          "name": "langgraph-checkpoint==4.0.3",
-          "body": "Changes since checkpoint==4.0.2\n\n* release(checkpoint): 4.0.3 (#7625)\n* fix(checkpoint): revive lc=2 JSON blobs for safe types without allowlist (#7582)\n* chore: dedup warnings (#7257)\n* chore(deps): bump langsmith from 0.6.4 to 0.7.31 in /libs/checkpoint (#7525)",
-          "publishedAt": "2026-04-27T14:34:20Z",
-          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/checkpoint%3D%3D4.0.3",
-          "prerelease": false
         }
       ]
     },
@@ -4036,13 +4036,13 @@
       "id": "openai-agents",
       "name": "OpenAI Agents SDK",
       "repo": "openai/openai-agents-python",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
         {
           "tag": "v0.25.0",
           "name": "v0.25.0",
-          "body": "## [0.25.0](https://github.com/openai/openai-agents-python/compare/v0.24.0...v0.25.0) (2026-11-17)\n\n\n### Features\n\n* expose utilities for third-party session adapters ([#5428](https://github.com/openai/openai-agents-python/issues/5428)) ([16fdb20](https://github.com/openai/openai-agents-python/commit/16fdb2091d0b18cc1200d26ba6a20ee6f1962455))\n* **sandbox:** remove Runloop provider ([#5369](https://github.com/openai/openai-agents-python/issues/5369)) ([12ce34d](https://github.com/openai/openai-agents-python/commit/12ce34d8438d6f1f7c964a261b89e069e8a0b3d3))\n\n\n### Bug Fixes\n\n* avoid loading workspace startup files during internal sandbox operations ([#5406](https://github.com/openai/openai-agents-python/pull/5406)) ([841dfdd](https://github.com/openai/openai-agents-python/commit/841dfdd938bfd4ca052475eb76d6245a356868e0))",
+          "body": "## [0.25.0](https://github.com/openai/openai-agents-python/compare/v0.24.0...v0.25.0) (2026-11-17)\n\n## Key Changes\n\nVersion 0.25.0 removes the beta Runloop sandbox provider and changes how Pydantic run contexts are checkpointed. Runloop users should preserve their workspace data before switching providers. Applications that share checkpoints across workers should upgrade readers first.\n\n### Highlights:\n\n- Migrate Runloop workloads to another supported sandbox provider, such as Modal, or remain on 0.24.0 while migrating. Provider-specific sessions and snapshots require a separate data migration.\n- Resume nested agent-tool approvals with output guardrails using RunState schema `1.22`. Pydantic checkpoints now preserve default values and in-place edits. Use a custom serializer for process-local resources.\n- `OpenAIResponsesCompactionSession` now defaults to `gpt-6-luna`. Set `model=\"gpt-4.1\"` to keep the previous choice. Agent model settings also follow the selected model more closely. Native Chat Completions tool requests for `gpt-6-sol` and `gpt-6-luna` default to non-reasoning mode when no effort is supplied.\n- Runner handoffs can opt into recovery with `failure_error_function`. Omitting it preserves exception propagation. The demo REPL can now approve or reject individual tool calls.",
           "publishedAt": "2026-11-18T00:22:25Z",
           "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/v0.25.0",
           "prerelease": false
@@ -4074,7 +4074,7 @@
         {
           "tag": "v0.24.0",
           "name": "v0.24.0",
-          "body": "## [0.24.0](https://github.com/openai/openai-agents-python/compare/v0.23.1...v0.24.0) (2026-10-15)\n\n\n### Features\n\n* expose MCP annotations on converted tools ([#5356](https://github.com/openai/openai-agents-python/issues/5356)) ([75813f8](https://github.com/openai/openai-agents-python/commit/75813f83997b249e5f4b53cccaff0d8a03aa179f))\n* support run-wide tool exception formatting ([#5326](https://github.com/openai/openai-agents-python/issues/5326)) ([8fd9a7c](https://github.com/openai/openai-agents-python/commit/8fd9a7cd19a4c495c438d39c83fb03ea3fb5a7e0))\n\n\n### Bug Fixes\n\n* batch OpenAI conversation session writes within the API limit ([#5334](https://github.com/openai/openai-agents-python/issues/5334)) ([26345c1](https://github.com/openai/openai-agents-python/commit/26345c1e45ebede8e2fc9b0bc7341dedab5e01fc))",
+          "body": "## [0.24.0](https://github.com/openai/openai-agents-python/compare/v0.23.1...v0.24.0) (2026-10-15)\n\n## Key Changes\n\n0.24.0 adds run-wide function error formatting and MCP discovery annotations, and improves recovery, sandbox safety, and tracing. This minor release includes compatibility changes for custom error callbacks and some saved agent graphs. Review the first two highlights before upgrading.\n\n### Highlights:\n\n- **Update custom error formatters.** `RunConfig.tool_error_formatter` can receive `kind=\"tool_exception\"` and an optional `error`. Handle the new kind or return `None` to retain the default message. Explicit per-tool handlers keep precedence; unconfigured defaults stay unchanged.\n- **Plan upgrades around saved runs.** New RunState snapshots use schema 1.21. Finish affected older same-name agent graphs on their original SDK. Keep the agent code and original hook ordering unchanged. Use unique agent names for new durable runs; renaming a saved graph is not a migration.\n- **Recover completed work more reliably.** Deferred approval history, completed tool outputs, aliases, and compaction state survive supported recovery paths. Automatic compaction waits for approvals. Redis replaces history atomically on supported standalone clients. Conversations appends respect the 20-item request limit. Reconcile partial writes before retrying.\n- **Harden local execution and display.** macOS sandbox commands deny Launch Services requests. Sandbox tools recover from invalid model arguments. Protected mount errors preserve caller exception data while detaching the caught traceback. The realtime demo displays tool content as text.",
           "publishedAt": "2026-10-15T02:20:12Z",
           "htmlUrl": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0",
           "prerelease": false
@@ -4845,7 +4845,7 @@
       "id": "smolagents",
       "name": "smolagents",
       "repo": "huggingface/smolagents",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": false,
       "releases": [
         {
@@ -5142,7 +5142,7 @@
       "id": "mastra",
       "name": "Mastra",
       "repo": "mastra-ai/mastra",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
         {
@@ -5951,9 +5951,265 @@
       "id": "ai-sdk",
       "name": "Vercel AI SDK",
       "repo": "vercel/ai",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "ai@7.0.177",
+          "name": "ai@7.0.177",
+          "body": "### Patch Changes\n\n- e403988: add an interrupt option to steering so a steer can cancel a model call that has not produced output yet\n- b792b56: feat(ai): ship the AI SDK skill in the package at `skills/ai-sdk` for pnpm agent skills\n- Updated dependencies [700089c]\n  - @ai-sdk/gateway@4.0.150",
+          "publishedAt": "2026-11-18T19:01:44Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/ai%407.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/workflow@2.0.109",
+          "name": "@ai-sdk/workflow@2.0.109",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:03:14Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow%402.0.109",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/workflow-harness@1.0.188",
+          "name": "@ai-sdk/workflow-harness@1.0.188",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:03:17Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/workflow-harness%401.0.188",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/vue@4.0.177",
+          "name": "@ai-sdk/vue@4.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:03:11Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/vue%404.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/tui@1.0.178",
+          "name": "@ai-sdk/tui@1.0.178",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:03:08Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tui%401.0.178",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/tool-web-fetch@1.0.27",
+          "name": "@ai-sdk/tool-web-fetch@1.0.27",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:03:05Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-web-fetch%401.0.27",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/tool-bash@1.0.31",
+          "name": "@ai-sdk/tool-bash@1.0.31",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:03:02Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tool-bash%401.0.31",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/svelte@5.0.177",
+          "name": "@ai-sdk/svelte@5.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:59Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/svelte%405.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/sandbox-vercel@1.0.188",
+          "name": "@ai-sdk/sandbox-vercel@1.0.188",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:56Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-vercel%401.0.188",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/sandbox-just-bash@1.0.188",
+          "name": "@ai-sdk/sandbox-just-bash@1.0.188",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:53Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/sandbox-just-bash%401.0.188",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/rsc@3.0.177",
+          "name": "@ai-sdk/rsc@3.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:50Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/rsc%403.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/react@4.0.181",
+          "name": "@ai-sdk/react@4.0.181",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:47Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/react%404.0.181",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/policy-opa@1.0.177",
+          "name": "@ai-sdk/policy-opa@1.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:44Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/policy-opa%401.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/otel@1.0.177",
+          "name": "@ai-sdk/otel@1.0.177",
+          "body": "### Patch Changes\n\n- e403988: fix(otel): end the span of a model call when a stream retry or a steering interrupt starts a new one\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:41Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/otel%401.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/llamaindex@3.0.177",
+          "name": "@ai-sdk/llamaindex@3.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:38Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/llamaindex%403.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/langchain@3.0.177",
+          "name": "@ai-sdk/langchain@3.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:35Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/langchain%403.0.177",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness@1.0.188",
+          "name": "@ai-sdk/harness@1.0.188",
+          "body": "### Patch Changes\n\n- 679b5b5: Honor globally registered telemetry in HarnessAgent when no per-call telemetry settings are supplied.\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:02:02Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness%401.0.188",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-pi@1.0.191",
+          "name": "@ai-sdk/harness-pi@1.0.191",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:32Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-pi%401.0.191",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-opencode@1.0.191",
+          "name": "@ai-sdk/harness-opencode@1.0.191",
+          "body": "### Patch Changes\n\n- 486e08f: fix(harness-opencode): prevent nested `AGENTS.md` symlink from bypassing outside-workdir read approval\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:29Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-opencode%401.0.191",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-grok-build@1.0.127",
+          "name": "@ai-sdk/harness-grok-build@1.0.127",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n- Updated dependencies [e845694]\n  - @ai-sdk/harness@1.0.188\n  - @ai-sdk/harness-acp@1.0.128",
+          "publishedAt": "2026-11-18T19:02:26Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-grok-build%401.0.127",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-github-copilot@1.0.85",
+          "name": "@ai-sdk/harness-github-copilot@1.0.85",
+          "body": "### Patch Changes\n\n- 7acc5a3: fix(harness-github-copilot): require approval for `.github/mcp.json` changes under `allow-edits`\n- Updated dependencies [679b5b5]\n- Updated dependencies [e845694]\n  - @ai-sdk/harness@1.0.188\n  - @ai-sdk/harness-acp@1.0.128",
+          "publishedAt": "2026-11-18T19:02:23Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-github-copilot%401.0.85",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-fx@1.0.104",
+          "name": "@ai-sdk/harness-fx@1.0.104",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:20Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-fx%401.0.104",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-deepagents@1.0.188",
+          "name": "@ai-sdk/harness-deepagents@1.0.188",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:17Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-deepagents%401.0.188",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-cursor@1.0.103",
+          "name": "@ai-sdk/harness-cursor@1.0.103",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n- Updated dependencies [e845694]\n  - @ai-sdk/harness@1.0.188\n  - @ai-sdk/harness-acp@1.0.128",
+          "publishedAt": "2026-11-18T19:02:14Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-cursor%401.0.103",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-codex@1.0.190",
+          "name": "@ai-sdk/harness-codex@1.0.190",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:11Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-codex%401.0.190",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-cline@1.0.116",
+          "name": "@ai-sdk/harness-cline@1.0.116",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:08Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-cline%401.0.116",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-claude-code@1.0.192",
+          "name": "@ai-sdk/harness-claude-code@1.0.192",
+          "body": "### Patch Changes\n\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:02:05Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-claude-code%401.0.192",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/harness-acp@1.0.128",
+          "name": "@ai-sdk/harness-acp@1.0.128",
+          "body": "### Patch Changes\n\n- e845694: fix(harness-acp): validate alternate tool path interpretations\n- Updated dependencies [679b5b5]\n  - @ai-sdk/harness@1.0.188",
+          "publishedAt": "2026-11-18T19:01:59Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/harness-acp%401.0.128",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/gateway@4.0.150",
+          "name": "@ai-sdk/gateway@4.0.150",
+          "body": "### Patch Changes\n\n- 700089c: chore(provider/gateway): update gateway model settings files",
+          "publishedAt": "2026-11-18T19:01:56Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/gateway%404.0.150",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/devtools@1.0.80",
+          "name": "@ai-sdk/devtools@1.0.80",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:01:53Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/devtools%401.0.80",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/code-mode@1.0.134",
+          "name": "@ai-sdk/code-mode@1.0.134",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:01:50Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/code-mode%401.0.134",
+          "prerelease": false
+        },
+        {
+          "tag": "@ai-sdk/angular@3.0.177",
+          "name": "@ai-sdk/angular@3.0.177",
+          "body": "### Patch Changes\n\n- Updated dependencies [e403988]\n- Updated dependencies [b792b56]\n  - ai@7.0.177",
+          "publishedAt": "2026-11-18T19:01:47Z",
+          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/angular%403.0.177",
+          "prerelease": false
+        },
         {
           "tag": "ai@7.0.176",
           "name": "ai@7.0.176",
@@ -6497,262 +6753,6 @@
           "publishedAt": "2026-11-17T18:42:41Z",
           "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/quiverai%402.0.84",
           "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/quiverai@1.0.41",
-          "name": "@ai-sdk/quiverai@1.0.41",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:39Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/quiverai%401.0.41",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/provider@4.0.39",
-          "name": "@ai-sdk/provider@4.0.39",
-          "body": "### Patch Changes\n\n- 10ff0b1: add extraction model support to provider registries, custom providers and string model ids",
-          "publishedAt": "2026-11-17T18:42:35Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/provider%404.0.39",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/provider-utils@5.0.82",
-          "name": "@ai-sdk/provider-utils@5.0.82",
-          "body": "### Patch Changes\n\n- e878ab3: Fix validation of non-Zod Standard Schema results: a result that contains `issues` is now always treated as a failure, even when it also carries a `value`. Previously a failing schema such as Valibot's through `toStandardJsonSchema()` could be reported as valid, so rejected input, including tool input, was accepted.\n- d99098a: Centralize empty extraction value normalization in `experimental_extract`, preserving missing-value behavior while removing duplicated conversion from extraction providers.\n- Updated dependencies [10ff0b1]\n  - @ai-sdk/provider@4.0.39",
-          "publishedAt": "2026-11-17T18:42:38Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/provider-utils%405.0.82",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/provider-utils@4.0.67",
-          "name": "@ai-sdk/provider-utils@4.0.67",
-          "body": "### Patch Changes\n\n- d59eee0: Fix validation of non-Zod Standard Schema results: a result that contains `issues` is now always treated as a failure, even when it also carries a `value`. Previously a failing schema such as Valibot's through `toStandardJsonSchema()` could be reported as valid, so rejected input, including tool input, was accepted.",
-          "publishedAt": "2026-11-17T18:40:36Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/provider-utils%404.0.67",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/prodia@2.0.85",
-          "name": "@ai-sdk/prodia@2.0.85",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:32Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/prodia%402.0.85",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/prodia@1.0.73",
-          "name": "@ai-sdk/prodia@1.0.73",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:33Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/prodia%401.0.73",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/policy-opa@1.0.176",
-          "name": "@ai-sdk/policy-opa@1.0.176",
-          "body": "### Patch Changes\n\n- ai@7.0.176",
-          "publishedAt": "2026-11-17T20:55:48Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/policy-opa%401.0.176",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/policy-opa@1.0.175",
-          "name": "@ai-sdk/policy-opa@1.0.175",
-          "body": "### Patch Changes\n\n- ai@7.0.175",
-          "publishedAt": "2026-11-17T19:54:57Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/policy-opa%401.0.175",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/policy-opa@1.0.174",
-          "name": "@ai-sdk/policy-opa@1.0.174",
-          "body": "### Patch Changes\n\n- Updated dependencies [3bea041]\n- Updated dependencies [30d35eb]\n- Updated dependencies [fab7478]\n- Updated dependencies [10ff0b1]\n- Updated dependencies [718824c]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - ai@7.0.174\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:29Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/policy-opa%401.0.174",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/perplexity@5.0.36",
-          "name": "@ai-sdk/perplexity@5.0.36",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:26Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/perplexity%405.0.36",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/perplexity@3.1.13",
-          "name": "@ai-sdk/perplexity@3.1.13",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:30Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/perplexity%403.1.13",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/parallel@3.0.10",
-          "name": "@ai-sdk/parallel@3.0.10",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:23Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/parallel%403.0.10",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/otel@1.0.176",
-          "name": "@ai-sdk/otel@1.0.176",
-          "body": "### Patch Changes\n\n- ai@7.0.176",
-          "publishedAt": "2026-11-17T20:55:45Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/otel%401.0.176",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/otel@1.0.175",
-          "name": "@ai-sdk/otel@1.0.175",
-          "body": "### Patch Changes\n\n- ai@7.0.175",
-          "publishedAt": "2026-11-17T19:54:54Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/otel%401.0.175",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/otel@1.0.174",
-          "name": "@ai-sdk/otel@1.0.174",
-          "body": "### Patch Changes\n\n- 71410a4: fix(otel): record `gen_ai.output.messages` parts in the order the model produced them\n\n  Output messages previously grouped parts by type (reasoning, then all text joined into one part, then tool calls), so they did not match the same assistant message in the next step's `gen_ai.input.messages`. Output parts now follow the content order, text blocks are no longer merged, and file, reasoning file, custom, tool error, and tool approval parts are emitted on both the output and input s\u2026\n\n- b0fccbd: fix(otel): redact Google MCP server credentials in tool definitions\n\n  Plain `google.mcp_server` tool definitions do not carry a provider-owned\n  telemetry redaction annotation, for example when they are built by hand or come\n  from an older `@ai-sdk/google` version. Both OTel integrations now redact every\n  `google.mcp_server` header value in telemetry-only copies, so MCP connector",
-          "publishedAt": "2026-11-17T18:42:20Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/otel%401.0.174",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/openai@4.0.121",
-          "name": "@ai-sdk/openai@4.0.121",
-          "body": "### Patch Changes\n\n- 1a7440b: return input transformations in responses provider metadata",
-          "publishedAt": "2026-11-17T20:55:42Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%404.0.121",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/openai@4.0.120",
-          "name": "@ai-sdk/openai@4.0.120",
-          "body": "### Patch Changes\n\n- ed981f8: feat(openai): add GPT-6.2 Astra and GPT-6.2 Sol model support",
-          "publishedAt": "2026-11-17T19:54:51Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%404.0.120",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/openai@4.0.119",
-          "name": "@ai-sdk/openai@4.0.119",
-          "body": "### Patch Changes\n\n- 5aa836f: fix(openai): send `additionalTools` definitions only for tools registered in the request\n\n  `additionalTools` entries can come from replayed, client-supplied conversation history. The Responses provider now uses an entry only to select a tool registered in the call's `tools` and sends the definition derived from that tool: its description, input schema, `strict` setting, and `deferLoading` option instead of the values in the history. Entries for tools that are not registered are dropp\u2026\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:14Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%404.0.119",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/openai@3.0.144",
-          "name": "@ai-sdk/openai@3.0.144",
-          "body": "### Patch Changes\n\n- 7be5eed: fix(openai): send `additionalTools` definitions only for tools registered in the request\n\n  `additionalTools` entries can come from replayed, client-supplied conversation history. The Responses provider now uses an entry only to select a tool registered in the call's `tools` and sends the definition derived from that tool: its description, input schema, `strict` setting, and `deferLoading` option instead of the values in the history. Entries for tools that are not registered are dropp\u2026\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:24Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai%403.0.144",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/openai-compatible@3.0.93",
-          "name": "@ai-sdk/openai-compatible@3.0.93",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:17Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai-compatible%403.0.93",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/openai-compatible@2.0.94",
-          "name": "@ai-sdk/openai-compatible@2.0.94",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:27Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/openai-compatible%402.0.94",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/open-responses@2.0.88",
-          "name": "@ai-sdk/open-responses@2.0.88",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:11Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/open-responses%402.0.88",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/open-responses@1.0.58",
-          "name": "@ai-sdk/open-responses@1.0.58",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:21Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/open-responses%401.0.58",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/moonshotai@3.0.94",
-          "name": "@ai-sdk/moonshotai@3.0.94",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:08Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/moonshotai%403.0.94",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/moonshotai@2.0.74",
-          "name": "@ai-sdk/moonshotai@2.0.74",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:18Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/moonshotai%402.0.74",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/mistral@4.0.88",
-          "name": "@ai-sdk/mistral@4.0.88",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:42:05Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mistral%404.0.88",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/mistral@3.0.82",
-          "name": "@ai-sdk/mistral@3.0.82",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:15Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mistral%403.0.82",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/minimax@3.0.83",
-          "name": "@ai-sdk/minimax@3.0.83",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82\n  - @ai-sdk/anthropic@4.0.106",
-          "publishedAt": "2026-11-17T18:42:02Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/minimax%403.0.83",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/minimax@2.0.42",
-          "name": "@ai-sdk/minimax@2.0.42",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67\n  - @ai-sdk/anthropic@3.0.143",
-          "publishedAt": "2026-11-17T18:40:12Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/minimax%402.0.42",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/mcp@2.0.101",
-          "name": "@ai-sdk/mcp@2.0.101",
-          "body": "### Patch Changes\n\n- 95b78c9: Reject pending HTTP MCP requests when their SSE response stream closes or disconnects before delivering the matching JSON-RPC response, preventing tool calls from hanging indefinitely.",
-          "publishedAt": "2026-11-17T20:55:39Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mcp%402.0.101",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/mcp@2.0.100",
-          "name": "@ai-sdk/mcp@2.0.100",
-          "body": "### Patch Changes\n\n- Updated dependencies [10ff0b1]\n- Updated dependencies [e878ab3]\n- Updated dependencies [d99098a]\n  - @ai-sdk/provider@4.0.39\n  - @ai-sdk/provider-utils@5.0.82",
-          "publishedAt": "2026-11-17T18:41:59Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mcp%402.0.100",
-          "prerelease": false
-        },
-        {
-          "tag": "@ai-sdk/mcp@1.0.105",
-          "name": "@ai-sdk/mcp@1.0.105",
-          "body": "### Patch Changes\n\n- Updated dependencies [d59eee0]\n  - @ai-sdk/provider-utils@4.0.67",
-          "publishedAt": "2026-11-17T18:40:09Z",
-          "htmlUrl": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/mcp%401.0.105",
-          "prerelease": false
         }
       ]
     },
@@ -6760,7 +6760,7 @@
       "id": "google-adk",
       "name": "Google ADK",
       "repo": "google/adk-python",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": false,
       "releases": [
         {
@@ -7513,9 +7513,17 @@
       "id": "claude-code",
       "name": "Claude Code",
       "repo": "anthropics/claude-code",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "v2.1.328",
+          "name": "v2.1.328",
+          "body": "## What's changed\n\n- Added auto mode for Claude Opus 4.6 and Sonnet 4.6 on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude apps gateway; interactive sessions with no permission mode start in it\n- Added `\"onFailure\": \"block\"` for `mcp_tool` hooks, as for command and HTTP hooks: a hook whose call fails blocks the action\n- Added a warning when a message from a session that skips permission prompts may be held and dropped by a cloud session\n- Added a notice in `/status` and `claude doctor` when an OpenTelemetry exporter has no endpoint and its data would likely be lost\n- Added `CLAUDE_CODE_DISABLE_DEFERRED_TOOL_RESUME`, which lets a host stop `claude -p --resume` and `--continue` from running a tool call that a hook deferred\n- Added support for apps that embed Claude Code to switch on the policy plugin's `allowManagedModsOnly` option; an admin's managed settings still win\n- Added a startup warning to the Claude apps gateway when a policy's `maxEffortLevel` is not a valid effort level\n- Self-hosted runner: Added `--repository-folder` to name the folder that sessions use for a repository at `--capacity 1`, in place of its path under the base folder, which can't be a symbolic link\n- Self-hosted runner: Added a start-up warning when the host's settings.json sets a default permission mode that sessions ignore\n- Self-hosted runner: Added `--hook-label` to `claude self-hosted-runner orchestrator`, to hand chosen session labels to the `spawn-runner` hook",
+          "publishedAt": "2026-11-19T01:14:04Z",
+          "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.328",
+          "prerelease": false
+        },
         {
           "tag": "v2.1.327",
           "name": "v2.1.327",
@@ -8306,14 +8314,6 @@
           "body": "## What's changed\n\n- Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck\n- Added a startup warning for `Write(path)`, `NotebookEdit(path)`, and `Glob(path)` permission rules \u2014 use `Edit(path)` or `Read(path)` instead\n- Fixed `isolation: 'worktree'` subagents being able to run git-mutating commands against the main repo checkout instead of their own isolated worktree\n- Fixed the `ultracode` keyword opt-in firing on non-human-originated input such as webhook payloads and relayed PR comments\n- Fixed a rendered text fragment leaking into crash telemetry when a UI component returned content outside a styled text element\n- Fixed paste markers leaking into external editors opened from Claude Code, which could appear as stray \u00c8/\u00c9 characters around pasted text\n- Fixed `claude attach` sometimes failing with \"job not found\" or \"agent is still starting\" errors during session transitions \u2014 attach now waits for the daemon to settle, and terminal resizes during a slow attach are applied once it completes\n- Fixed a session crash when a tool's result renderer returned a numeric bigint value or plain text instead of a UI element\n- Fixed a hook callback timeout being misreported to the model as a user rejection, which made unattended sessions stop and wait\n- Fixed Claude assuming a `cd` took effect after its command was moved to the background; the tool result now states the working directory is unchanged",
           "publishedAt": "2026-07-14T23:45:25Z",
           "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.210",
-          "prerelease": false
-        },
-        {
-          "tag": "v2.1.209",
-          "name": "v2.1.209",
-          "body": "## What's changed\n\n- Fixed /model and other dialogs being blocked in `claude agents` background sessions (reverts an overly broad guard)",
-          "publishedAt": "2026-07-14T06:36:28Z",
-          "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.209",
           "prerelease": false
         }
       ]
@@ -9131,9 +9131,25 @@
       "id": "gemini-cli",
       "name": "Gemini CLI",
       "repo": "google-gemini/gemini-cli",
-      "retrievedAt": "2026-11-18T15:39:11.881839Z",
+      "retrievedAt": "2026-11-19T15:44:25.168855Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "v0.70.0-preview.0",
+          "name": "Release v0.70.0-preview.0",
+          "body": "## What's Changed\n* Changelog for v0.69.0-preview.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30222\n* Changelog for v0.68.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30224\n* chore(release): bump version to 0.70.0-nightly.20261110.g1603e9bab by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30223\n* test(cli): remove redundant lowercase restart test in AdminSettingsChangedDialog by @luisfelipe-alt in https://github.com/google-gemini/gemini-cli/pull/30221\n* fix(cli): preserve Unicode prompts and strip ANSI fragments in session previews (#29915) by @urielefrenvirtusa in https://github.com/google-gemini/gemini-cli/pull/30220\n* fix(cli): preserve selected worktree across authentication restarts (#30078) by @duvanka-prasad in https://github.com/google-gemini/gemini-cli/pull/30176\n* fix(core): preserve interrupted placeholder after empty model responses to tool turns by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30228\n* fix(cli): apply default in ${VAR:-default} when variable is set but empty by @urielefrenvirtusa in https://github.com/google-gemini/gemini-cli/pull/30250\n* fix(core): scale undici bodyTimeout when request timeout exceeds 300s default by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30258\n* fix(core,cli): report accurate output token limits in models list by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30253\n* fix(cli): restore workspace directories only after resumeChat succeeds by @urielefrenvirtusa in https://github.com/google-gemini/gemini-cli/pull/30259",
+          "publishedAt": "2026-11-19T00:09:03Z",
+          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.70.0-preview.0",
+          "prerelease": true
+        },
+        {
+          "tag": "v0.69.0",
+          "name": "Release v0.69.0",
+          "body": "## What's Changed\n* fix(core,cli): preserve literal `$` characters during template placeholder replacement by @jesussamuel-byte in https://github.com/google-gemini/gemini-cli/pull/30136\n* feat(cli): add /stats heatmap subcommand for daily token usage by @jvargassanchez-dot in https://github.com/google-gemini/gemini-cli/pull/30135\n* fix(core): prevent __GCLI_EXPAND_TARGET__ env collision in expandEnvVars by @villahernandez-coder in https://github.com/google-gemini/gemini-cli/pull/30138\n* chore(release): bump version to 0.69.0-nightly.20261104.g89e9d25d6 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30140\n* fix(cli): serialize AnsiOutput to text content in ACP tool call updates by @diegogodinezr in https://github.com/google-gemini/gemini-cli/pull/30141\n* Changelog for v0.67.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30145\n* Changelog for v0.68.0-preview.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30146\n* fix(core): fix Windows PowerShell substitution false positives and policy handling by @duvanka-prasad in https://github.com/google-gemini/gemini-cli/pull/30110\n* fix(cli): preserve leading and trailing whitespace in @file references by @duvanka-prasad in https://github.com/google-gemini/gemini-cli/pull/30150\n* fix(core): prevent thoughtSignature-only turns and preserve multimodal tool responses  by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30153\n* fix(cli): wait for piped stdin EOF and avoid destroying process.stdin by @villahernandez-coder in https://github.com/google-gemini/gemini-cli/pull/30163",
+          "publishedAt": "2026-11-19T01:45:47Z",
+          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.69.0",
+          "prerelease": false
+        },
         {
           "tag": "v0.69.0-preview.0",
           "name": "Release v0.69.0-preview.0",
@@ -9917,22 +9933,6 @@
           "publishedAt": "2026-08-19T19:29:38Z",
           "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.56.0",
           "prerelease": false
-        },
-        {
-          "tag": "v0.56.0-nightly.20260819.g571851b10",
-          "name": "Release v0.56.0-nightly.20260819.g571851b10",
-          "body": "## What's Changed\n* [SSR Agent] Issue Fix (28050): Add Vertex AI locations documentation link by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28865\n* [SSR Agent] Issue Fix (22093): Prevent subagents from running when agents mode is disabled by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28867\n* [SSR Agent] Issue Fix (23954): Add trailing space to autocomplete suggestions by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28868\n* [SSR Agent] Issue Fix (24935): Force terminal buffer rerender after exiting external editors by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28880\n* [SSR Agent] Issue Fix (28518): Fix sub-agent handoff token regression on startup by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28882\n\n\n**Full Changelog**: https://github.com/google-gemini/gemini-cli/compare/v0.56.0-nightly.20260818.g194edea47...v0.56.0-nightly.20260819.g571851b10",
-          "publishedAt": "2026-08-19T01:07:23Z",
-          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.56.0-nightly.20260819.g571851b10",
-          "prerelease": true
-        },
-        {
-          "tag": "v0.56.0-nightly.20260818.g194edea47",
-          "name": "Release v0.56.0-nightly.20260818.g194edea47",
-          "body": "## What's Changed\n* [SSR Agent] Issue Fix (26120): Clarify privacy notice wording and selection options by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28820\n* [SSR Agent] Issue Fix (21919): Fix TypeScript strict-null errors in integration tests by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28814\n* [SSR Agent] Issue Fix (21477): Prevent indefinite TUI hang by adding execution timeouts by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28812\n* [SSR Agent] Issue Fix (19239): Update /clear command docs to include context reset by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28847\n* [SSR Agent] Issue Fix (24587): Fix misleading admin error for personal accounts by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28819\n* [SSR Agent] Issue Fix (19463): Format cli_help subagent output as markdown by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28864\n\n\n**Full Changelog**: https://github.com/google-gemini/gemini-cli/compare/v0.56.0-nightly.20260817.g9a15c45fb...v0.56.0-nightly.20260818.g194edea47",
-          "publishedAt": "2026-08-18T01:00:05Z",
-          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.56.0-nightly.20260818.g194edea47",
-          "prerelease": true
         }
       ]
     }
