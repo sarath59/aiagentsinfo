@@ -1,13 +1,13 @@
 {
-  "retrievedAt": "2026-11-19T15:44:25.168855Z",
-  "retrievedDay": "2026-11-19",
+  "retrievedAt": "2026-11-20T15:26:37.880211Z",
+  "retrievedDay": "2026-11-20",
   "source": "GitHub REST API https://api.github.com/repos/{owner}/{repo}/releases?per_page=100&page=1",
   "repos": [
     {
       "id": "langchain",
       "name": "LangChain",
       "repo": "langchain-ai/langchain",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
         {
@@ -19,11 +19,43 @@
           "prerelease": false
         },
         {
+          "tag": "langchain-openai==1.8.5",
+          "name": "langchain-openai==1.8.5",
+          "body": "Changes since langchain-openai==1.8.4\n\nrelease(openai): 1.8.5 (#41969)\nfix(openai): preserve streamed Responses tool call arguments (#41963)\nfeat(core): standardize finish reason on message-finish events (#41926)",
+          "publishedAt": "2026-11-19T23:16:20Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.8.5",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-openai==1.8.4",
+          "name": "langchain-openai==1.8.4",
+          "body": "Changes since langchain-openai==1.8.3\n\nrelease(openai): 1.8.4 (#41962)\nchore(langchain): require `langgraph` 1.2.16 or newer (#41959)\nfix(openai): classify in-stream server errors as retryable (#41952)",
+          "publishedAt": "2026-11-19T21:36:51Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.8.4",
+          "prerelease": false
+        },
+        {
           "tag": "langchain-openai==1.8.3",
           "name": "langchain-openai==1.8.3",
           "body": "Changes since langchain-openai==1.8.2\n\nrelease(openai): 1.8.3 (#41950)\nfix(openai): enable Codex prompt caching on GPT-6.2 (#41949)",
           "publishedAt": "2026-11-19T00:38:57Z",
           "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.8.3",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-core==1.8.4",
+          "name": "langchain-core==1.8.4",
+          "body": "Changes since langchain-core==1.8.3\n\nrelease(core): 1.8.4 (#41964)\nfeat(core): standardize finish reason on message-finish events (#41926)\nfeat(langchain): tag synthetic HITL tool messages with source metadata (#41928)",
+          "publishedAt": "2026-11-19T22:35:57Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.8.4",
+          "prerelease": false
+        },
+        {
+          "tag": "langchain-anthropic==1.7.12",
+          "name": "langchain-anthropic==1.7.12",
+          "body": "Changes since langchain-anthropic==1.7.11\n\nrelease(anthropic): 1.7.12 (#41966)\nfeat(core): standardize finish reason on message-finish events (#41926)\nchore(langchain): require `langgraph` 1.2.16 or newer (#41959)\nfix(anthropic): preserve `caller` on `tool_search_tool_result` blocks (#41958)\nfix(anthropic): don't share the async HTTP client between models (#41946)",
+          "publishedAt": "2026-11-19T23:00:20Z",
+          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.7.12",
           "prerelease": false
         },
         {
@@ -777,38 +809,6 @@
           "publishedAt": "2026-08-27T21:56:28Z",
           "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-fireworks%3D%3D1.6.1",
           "prerelease": false
-        },
-        {
-          "tag": "langchain-core==1.6.1",
-          "name": "langchain-core==1.6.1",
-          "body": "Changes since langchain-core==1.6.0\n\nrevert: release(core): 1.6.2 (#39971)\nrelease(core): 1.6.2 (#39967)\nfix(core): shore up indexing in genai v1 streaming content (#39964)\nfix(core): make `StructuredTool` JSON-serializable (#39631)\nchore(deps): bump minor and patch dependencies (#39869)\nrelease(core): 1.6.1 (#39832)\nfeat(core): propagate gateway information on error path (#39829)",
-          "publishedAt": "2026-08-27T19:31:34Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.6.1",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-anthropic==1.7.0",
-          "name": "langchain-anthropic==1.7.0",
-          "body": "Changes since langchain-anthropic==1.6.1\n\nrelease(anthropic): 1.7.0 (#39963)\nfeat(anthropic): support top-level param for skills via `container`; `updates` thinking display mode (#39962)\nfeat(anthropic): support 1.0 sdk (#39938)\nfix(anthropic): auto-append `advisor-tool-2026-03-01` beta header for `advisor_20260301` tool (#39917)\nfeat(anthropic): surface gateway response metadata (#39809)",
-          "publishedAt": "2026-08-27T15:24:16Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.7.0",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain==1.3.17",
-          "name": "langchain==1.3.17",
-          "body": "Changes since langchain==1.3.16\n\nrelease(langchain): 1.3.17 (#39893)\nfix(langchain): frame custom HITL rejection reasons (#39773)\nchore(deps): bump minor and patch dependencies (#39869)",
-          "publishedAt": "2026-08-25T02:40:53Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.17",
-          "prerelease": false
-        },
-        {
-          "tag": "langchain-perplexity==1.4.1",
-          "name": "langchain-perplexity==1.4.1",
-          "body": "Changes since langchain-perplexity==1.4.0\n\nrelease(perplexity): 1.4.1 (#39826)\nfix(perplexity): include type=\"message\" on Responses input items (#39774)\nfix(perplexity): preserve caller `extra_body` (#39203)\nchore: bump pillow from 12.2.0 to 12.3.0 in /libs/partners/perplexity (#38991)\nchore(deps): refresh lockfiles (#38746)\nfix(perplexity): use supported Responses API model (#38337)\nchore: bump vcrpy from 8.1.1 to 8.2.1 in /libs/partners/perplexity (#38290)\nchore: bump langsmith from 0.8.5 to 0.8.18 in /libs/partners/perplexity (#38289)\ndocs: refresh `README` installation and resources (#38119)\nrelease(core): 1.4.7 (#38111)",
-          "publishedAt": "2026-08-21T14:08:45Z",
-          "htmlUrl": "https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.4.1",
-          "prerelease": false
         }
       ]
     },
@@ -816,7 +816,7 @@
       "id": "autogen",
       "name": "AutoGen",
       "repo": "microsoft/autogen",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": false,
       "releases": [
         {
@@ -1609,9 +1609,17 @@
       "id": "crewai",
       "name": "CrewAI",
       "repo": "crewAIInc/crewAI",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "1.15.44",
+          "name": "1.15.44",
+          "body": "## What's Changed\n\n### Features\n- Add capability to save files as versioned, shareable artifacts.\n\n### Bug Fixes\n- Fix inline agent and crew action references relative to the flow file.\n- Stop duplicating kept separators when merging chunks.\n- Isolate nested defaults from a shared flow declaration.\n- Restrict Pillow to PNG, JPEG, GIF, and WEBP when opening images.\n- Reset cache eviction order on clear.\n- Treat a docs path on GitHub as a repository.",
+          "publishedAt": "2026-11-19T17:59:49Z",
+          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.44",
+          "prerelease": false
+        },
         {
           "tag": "1.15.43",
           "name": "1.15.43",
@@ -2403,14 +2411,6 @@
           "publishedAt": "2026-03-31T21:08:21Z",
           "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.13.0a4",
           "prerelease": true
-        },
-        {
-          "tag": "1.13.0a3",
-          "name": "1.13.0a3",
-          "body": "## What's Changed\n\n### Features\n- Emit token usage data in LLMCallCompletedEvent\n- Extract and publish tool metadata to AMP\n\n### Bug Fixes\n- Handle GPT-5.x models not supporting the `stop` API parameter\n\n### Documentation\n- Fix inaccuracies in agent-capabilities across all languages\n- Add Agent Capabilities overview and improve Skills documentation",
-          "publishedAt": "2026-03-31T20:16:32Z",
-          "htmlUrl": "https://github.com/crewAIInc/crewAI/releases/tag/1.13.0a3",
-          "prerelease": true
         }
       ]
     },
@@ -2418,7 +2418,7 @@
       "id": "llama-index",
       "name": "LlamaIndex",
       "repo": "run-llama/llama_index",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
         {
@@ -3227,9 +3227,17 @@
       "id": "langgraph",
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "1.2.24",
+          "name": "langgraph==1.2.24",
+          "body": "Changes since 1.2.23\n\n* release(langgraph): 1.2.24 (#9752)\n* fix(langgraph): handle `REMOVE_ALL_MESSAGES` in `_messages_delta_reducer` and `None` checkpoints in `DeltaChannel` (#9735)",
+          "publishedAt": "2026-11-20T01:10:26Z",
+          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.24",
+          "prerelease": false
+        },
         {
           "tag": "1.2.23",
           "name": "langgraph==1.2.23",
@@ -4021,14 +4029,6 @@
           "publishedAt": "2026-04-29T22:30:33Z",
           "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/checkpoint%3D%3D4.1.0a1",
           "prerelease": false
-        },
-        {
-          "tag": "1.1.10",
-          "name": "langgraph==1.1.10",
-          "body": "Changes since 1.1.9\n\n* release(prebuilt): 1.0.12, langgraph 1.1.10 (#7623)\n* Revert \"chore: node-level timeouts\" (#7627)\n* release(checkpoint): 4.0.3 (#7625)\n* chore(deps): bump nbconvert from 7.17.0 to 7.17.1 in /libs/langgraph (#7573)\n* chore(deps): bump python-dotenv from 1.2.1 to 1.2.2 in /libs/langgraph (#7574)\n* chore: node-level timeouts (#7599)\n* release(prebuilt): 1.0.11 (#7610)\n* feat(prebuilt): allow ToolNode tools to return list[Command | ToolMessage] (#7596)",
-          "publishedAt": "2026-04-27T17:19:21Z",
-          "htmlUrl": "https://github.com/langchain-ai/langgraph/releases/tag/1.1.10",
-          "prerelease": false
         }
       ]
     },
@@ -4036,7 +4036,7 @@
       "id": "openai-agents",
       "name": "OpenAI Agents SDK",
       "repo": "openai/openai-agents-python",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
         {
@@ -4845,7 +4845,7 @@
       "id": "smolagents",
       "name": "smolagents",
       "repo": "huggingface/smolagents",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": false,
       "releases": [
         {
@@ -5142,7 +5142,7 @@
       "id": "mastra",
       "name": "Mastra",
       "repo": "mastra-ai/mastra",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
         {
@@ -5951,7 +5951,7 @@
       "id": "ai-sdk",
       "name": "Vercel AI SDK",
       "repo": "vercel/ai",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
         {
@@ -6760,9 +6760,17 @@
       "id": "google-adk",
       "name": "Google ADK",
       "repo": "google/adk-python",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": false,
       "releases": [
+        {
+          "tag": "v2.15.0",
+          "name": "v2.15.0",
+          "body": "## [2.15.0](https://github.com/google/adk-python/compare/v2.14.1...v2.15.0) (2026-11-19)\n\n### Highlights\n\nThis release keeps voice streams and agent turns responsive under slow tools and session storage, measures multi-run reliability and partial tool-call accuracy, isolates sandboxes per user or session, adds Google Maps and project-wide BigQuery table discovery, and speeds up RAG memory search up to 6x. It also removes the interactive Visual Agent Builder from ADK Web.\n* **Integrations**:\n  * Verify addresses, reverse-geocode coordinates, and fetch Street View imagery directly from an agent with `GoogleMapsToolset` (`get_street_view_image`, `validate_address`, and `reverse_geocode`). See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/integrations/google_maps/index.md) and [sample](https://github.com/google/adk-python/tree/main/contributing/samples/inte\u2026\n  * Answer open-ended analytics questions without knowing exact `table_references` upfront: `BigQueryToolset`'s `ask_data_insights` now accepts `search_scope` (`includeProjectIds` and `includeDatasetReferences`) to discover relevant tables across projects or datasets. ([9eb6d9d](https://github.com/google/adk-python/commit/9eb6d9d93aff15278f27337348a3cb8e527624fb))\n* **Sessions and artifacts**:\n  * Keep slow database or network writes off the critical path of agent turns with experimental `BufferedSessionService` and `BaseSessionService.append_events`, which buffer session events in memory and flush them in background batches. See the [unit guide](https://github.com/google/adk-python/blob/main/docs/guides/sessions/buffered_session_service/index.md) for more details. ([e1deb17](https://g\u2026\n  * Use a single artifact service across local development and cloud object stores (`gs://`, `s3://`, `file://`, and `memory://`): `FsspecArtifactService` now writes, deletes, and versions artifacts (`save_artifact`, `delete_artifact`, `get_artifact_version`, and `list_artifact_versions`), including S3 custom metadata. ([df9f9d0](https://github.com/google/adk-python/commit/df9f9d0452c02e2d461899f\u2026\n* **Evaluation**:",
+          "publishedAt": "2026-11-19T22:59:36Z",
+          "htmlUrl": "https://github.com/google/adk-python/releases/tag/v2.15.0",
+          "prerelease": false
+        },
         {
           "tag": "v2.14.1",
           "name": "v2.14.1",
@@ -7513,9 +7521,17 @@
       "id": "claude-code",
       "name": "Claude Code",
       "repo": "anthropics/claude-code",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "v2.1.329",
+          "name": "v2.1.329",
+          "body": "## What's changed\n\n- Added a trust dialog warning that says where a folder's hooks are declared\n- Added a warning in the conversation, in Claude Desktop and other non-interactive hosts, when hooks in managed settings fail to load\n- Added this session's scheduled tasks, `/loop` wakeups, the goal and this conversation's forks to `/tasks`; x stops one after asking\n- Added a \"Server message\" row to a server's page in `/mcp` that shows the JSON-RPC error message of a remote HTTP MCP server that refuses the connection\n- Added a \"Marketplace auto-update\" row to `/status` that names managed marketplaces that get no automatic updates, and why\n- Added support for turning on Code Mode while OpenTelemetry events and metrics are enabled; each tool call the code makes sends its events; tracing still keeps it off\n- Fixed `~/.claude.json` sometimes being reset to defaults when a network stall or file lock made it unreadable and cleared during a save\n- Fixed repeated sign-outs on macOS when Claude Code could read the Keychain but not save to it. That session now stops at expiry and says why, and other sessions stay signed in\n- Fixed `/terminal-setup` corrupting VS Code settings or keybindings files around block comments, and reporting success while losing the Shift+Enter binding where keybindings.json has an unclosed string\n- Fixed files accepted through the IDE diff being saved without their last newline, and losing their byte order mark (BOM) when an edit was accepted by saving the diff in VS Code",
+          "publishedAt": "2026-11-19T22:14:41Z",
+          "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.329",
+          "prerelease": false
+        },
         {
           "tag": "v2.1.328",
           "name": "v2.1.328",
@@ -8306,14 +8322,6 @@
           "body": "## What's changed\n\n- Added `--forward-subagent-text` flag and `CLAUDE_CODE_FORWARD_SUBAGENT_TEXT` environment variable to include subagent text and thinking in stream-json output\n- Fixed permission previews relayed to chat channels not neutralizing bidirectional-override, zero-width, and look-alike quote characters, so tool inputs cannot visually alter the approval message\n- Fixed auto mode overriding a PreToolUse hook's `ask` decision for unsandboxed Bash \u2014 a hook `ask` now floors the decision at a prompt\n- Fixed parallel Claude Code sessions all logging out simultaneously after wake-from-sleep when many sessions share one credential store\n- Fixed plugin MCP servers not reconnecting after an idle web session woke, leaving MCP calls failing until the next message\n- Fixed Claude Code on Vertex and Bedrock attempting the default Opus model at startup and printing a spurious fallback notice when a model is explicitly configured\n- Fixed subagents spawned with an explicit model override reverting to the parent's model when resumed or sent a follow-up message\n- Fixed nested `.claude/rules/*.md` files loading even when setting sources exclude project settings\n- Fixed file upload validation: filenames ending in a DOS device suffix (`.prn`) or trailing dot are now accepted, and files with multiple hard links are refused\n- Fixed file uploads to Claude in Chrome from remote and CLI sessions",
           "publishedAt": "2026-07-15T23:02:35Z",
           "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.211",
-          "prerelease": false
-        },
-        {
-          "tag": "v2.1.210",
-          "name": "v2.1.210",
-          "body": "## What's changed\n\n- Added a live elapsed-time counter to the collapsed tool summary line so long-running tool calls visibly tick instead of looking stuck\n- Added a startup warning for `Write(path)`, `NotebookEdit(path)`, and `Glob(path)` permission rules \u2014 use `Edit(path)` or `Read(path)` instead\n- Fixed `isolation: 'worktree'` subagents being able to run git-mutating commands against the main repo checkout instead of their own isolated worktree\n- Fixed the `ultracode` keyword opt-in firing on non-human-originated input such as webhook payloads and relayed PR comments\n- Fixed a rendered text fragment leaking into crash telemetry when a UI component returned content outside a styled text element\n- Fixed paste markers leaking into external editors opened from Claude Code, which could appear as stray \u00c8/\u00c9 characters around pasted text\n- Fixed `claude attach` sometimes failing with \"job not found\" or \"agent is still starting\" errors during session transitions \u2014 attach now waits for the daemon to settle, and terminal resizes during a slow attach are applied once it completes\n- Fixed a session crash when a tool's result renderer returned a numeric bigint value or plain text instead of a UI element\n- Fixed a hook callback timeout being misreported to the model as a user rejection, which made unattended sessions stop and wait\n- Fixed Claude assuming a `cd` took effect after its command was moved to the background; the tool result now states the working directory is unchanged",
-          "publishedAt": "2026-07-14T23:45:25Z",
-          "htmlUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.210",
           "prerelease": false
         }
       ]
@@ -9131,9 +9139,33 @@
       "id": "gemini-cli",
       "name": "Gemini CLI",
       "repo": "google-gemini/gemini-cli",
-      "retrievedAt": "2026-11-19T15:44:25.168855Z",
+      "retrievedAt": "2026-11-20T15:26:37.880211Z",
       "capped": true,
       "releases": [
+        {
+          "tag": "v0.71.0-nightly.20261120.gd4cb1713f",
+          "name": "Release v0.71.0-nightly.20261120.gd4cb1713f",
+          "body": "## What's Changed\n* fix(core,cli): preserve literal `$` characters during template placeholder replacement by @jesussamuel-byte in https://github.com/google-gemini/gemini-cli/pull/30136\n* feat(cli): add /stats heatmap subcommand for daily token usage by @jvargassanchez-dot in https://github.com/google-gemini/gemini-cli/pull/30135\n* fix(core): prevent __GCLI_EXPAND_TARGET__ env collision in expandEnvVars by @villahernandez-coder in https://github.com/google-gemini/gemini-cli/pull/30138\n* chore(release): bump version to 0.69.0-nightly.20261104.g89e9d25d6 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30140\n* fix(cli): serialize AnsiOutput to text content in ACP tool call updates by @diegogodinezr in https://github.com/google-gemini/gemini-cli/pull/30141\n* Changelog for v0.67.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30145\n* Changelog for v0.68.0-preview.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30146\n* fix(core): fix Windows PowerShell substitution false positives and policy handling by @duvanka-prasad in https://github.com/google-gemini/gemini-cli/pull/30110\n* fix(cli): preserve leading and trailing whitespace in @file references by @duvanka-prasad in https://github.com/google-gemini/gemini-cli/pull/30150\n* fix(core): prevent thoughtSignature-only turns and preserve multimodal tool responses  by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30153\n* fix(cli): wait for piped stdin EOF and avoid destroying process.stdin by @villahernandez-coder in https://github.com/google-gemini/gemini-cli/pull/30163",
+          "publishedAt": "2026-11-20T01:12:42Z",
+          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.71.0-nightly.20261120.gd4cb1713f",
+          "prerelease": true
+        },
+        {
+          "tag": "v0.71.0-preview.0",
+          "name": "Release v0.71.0-preview.0",
+          "body": "## What's Changed\n* Changelog for v0.70.0-preview.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30361\n* chore(release): bump version to 0.71.0-nightly.20261118.g615d6bc8c by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30366\n* Changelog for v0.69.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30365\n* fix(core,cli): parse PowerShell commands asynchronously to prevent UI spinner freeze by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30334\n* chore(gcp): push development worker to private artifact registry by @DavidAPierce in https://github.com/google-gemini/gemini-cli/pull/30319\n\n\n**Full Changelog**: https://github.com/google-gemini/gemini-cli/compare/v0.70.0-preview.0...v0.71.0-preview.0",
+          "publishedAt": "2026-11-19T20:48:23Z",
+          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.71.0-preview.0",
+          "prerelease": true
+        },
+        {
+          "tag": "v0.70.0",
+          "name": "Release v0.70.0",
+          "body": "## What's Changed\n* Changelog for v0.69.0-preview.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30222\n* Changelog for v0.68.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30224\n* chore(release): bump version to 0.70.0-nightly.20261110.g1603e9bab by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/30223\n* test(cli): remove redundant lowercase restart test in AdminSettingsChangedDialog by @luisfelipe-alt in https://github.com/google-gemini/gemini-cli/pull/30221\n* fix(cli): preserve Unicode prompts and strip ANSI fragments in session previews (#29915) by @urielefrenvirtusa in https://github.com/google-gemini/gemini-cli/pull/30220\n* fix(cli): preserve selected worktree across authentication restarts (#30078) by @duvanka-prasad in https://github.com/google-gemini/gemini-cli/pull/30176\n* fix(core): preserve interrupted placeholder after empty model responses to tool turns by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30228\n* fix(cli): apply default in ${VAR:-default} when variable is set but empty by @urielefrenvirtusa in https://github.com/google-gemini/gemini-cli/pull/30250\n* fix(core): scale undici bodyTimeout when request timeout exceeds 300s default by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30258\n* fix(core,cli): report accurate output token limits in models list by @tadipavan in https://github.com/google-gemini/gemini-cli/pull/30253\n* fix(cli): restore workspace directories only after resumeChat succeeds by @urielefrenvirtusa in https://github.com/google-gemini/gemini-cli/pull/30259",
+          "publishedAt": "2026-11-19T21:08:05Z",
+          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.70.0",
+          "prerelease": false
+        },
         {
           "tag": "v0.70.0-preview.0",
           "name": "Release v0.70.0-preview.0",
@@ -9909,30 +9941,6 @@
           "publishedAt": "2026-08-21T01:08:09Z",
           "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.56.0-nightly.20260821.g30573d2e4",
           "prerelease": true
-        },
-        {
-          "tag": "v0.56.0-nightly.20260820.ge90c63fa1",
-          "name": "Release v0.56.0-nightly.20260820.ge90c63fa1",
-          "body": "## What's Changed\n* fix(core): preserve empty text turns with tools or media by @DavidAPierce in https://github.com/google-gemini/gemini-cli/pull/28892\n* Changelog for v0.57.0-preview.0 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/28918\n\n\n**Full Changelog**: https://github.com/google-gemini/gemini-cli/compare/v0.56.0-nightly.20260819.g571851b10...v0.56.0-nightly.20260820.ge90c63fa1",
-          "publishedAt": "2026-08-20T01:27:23Z",
-          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.56.0-nightly.20260820.ge90c63fa1",
-          "prerelease": true
-        },
-        {
-          "tag": "v0.57.0-preview.0",
-          "name": "Release v0.57.0-preview.0",
-          "body": "## What's Changed\n* fix(core): dynamically resolve Cloud Workstations proxy redirect URI for OAuth flows by @amelidev in https://github.com/google-gemini/gemini-cli/pull/28688\n* fix(core): resolve swallowed directory mismatch in IDE connections by @amelidev in https://github.com/google-gemini/gemini-cli/pull/28729\n* Feat/eval validate by @ved015 in https://github.com/google-gemini/gemini-cli/pull/28344\n* feat(evals): add tool call formatter and integrate failure summaries by @ved015 in https://github.com/google-gemini/gemini-cli/pull/28305\n* Changelog for v0.55.1 by @gemini-cli-robot in https://github.com/google-gemini/gemini-cli/pull/28779\n* test(e2e): stabilize file-system-interactive test on slow runners by @DavidAPierce in https://github.com/google-gemini/gemini-cli/pull/28793\n* fix(core): implement context-aware silent retries and availability TTL for capacity errors (#28761) by @DavidAPierce in https://github.com/google-gemini/gemini-cli/pull/28790\n* fix(core): rollback entire multi-turn request on cancellation or abort by @amelidev in https://github.com/google-gemini/gemini-cli/pull/28801\n* fix(core): normalize git environment and resolve workspace state mismatch by @luisfelipe-alt in https://github.com/google-gemini/gemini-cli/pull/28792\n* [SSR Agent] Issue Fix (19826): Migrate process.env to vi.stubEnv in a2a-server tests by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28811\n* [SSR Agent] Issue Fix (21911): Add composite flag to packages/cli tsconfig by @joneba-google in https://github.com/google-gemini/gemini-cli/pull/28813",
-          "publishedAt": "2026-08-19T19:18:35Z",
-          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.57.0-preview.0",
-          "prerelease": true
-        },
-        {
-          "tag": "v0.56.0",
-          "name": "Release v0.56.0",
-          "body": "**Full Changelog**: https://github.com/google-gemini/gemini-cli/compare/v0.55.1...v0.56.0",
-          "publishedAt": "2026-08-19T19:29:38Z",
-          "htmlUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.56.0",
-          "prerelease": false
         }
       ]
     }
