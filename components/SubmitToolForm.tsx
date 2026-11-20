@@ -460,7 +460,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
               required
               aria-invalid={errors.consent ? true : undefined}
               aria-describedby={errors.consent ? `${FIELD_IDS.consent}-error` : undefined}
-              className="mt-1 h-4 w-4 accent-[#0c5cad]"
+              className="mt-1 h-4 w-4 accent-[#285e60]"
             />
             <span>
               I confirm this information is accurate and I am allowed to submit it.

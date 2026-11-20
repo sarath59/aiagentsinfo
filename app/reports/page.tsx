@@ -1,34 +1,12 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { DataSourceLine } from "@/components/DataSourceLine";
-import { ContentCard } from "@/components/ContentCard";
 import { ContentDeskNav } from "@/components/ContentDeskNav";
-import { PageHeader } from "@/components/PageHeader";
+import { FlagshipCover, ReportCover } from "@/components/ReportCover";
 import { ToolHub } from "@/components/ToolHub";
 import { getDirectoryStats } from "@/lib/directory-stats";
-import { readingMinutes as crawlerMinutes } from "@/lib/ai-answer-crawlers-november-2026";
-import { readingMinutes as hydrogenMinutes } from "@/lib/googleagent-gemini-4-hydrogen-november-2026";
-import { readingMinutes as vendorRobotsMinutes } from "@/lib/vendor-robots-november-2026";
-import { readingMinutes as searchToolsMinutes } from "@/lib/web-search-tools-november-2026";
-import { readingMinutes as yearMinutes, updatedOn as yearUpdated } from "@/lib/agents-12-month-outlook";
-import { readingMinutes as shop30Minutes } from "@/lib/shopping-agents-30-day";
-import { readingMinutes as frameworksMinutes } from "@/lib/frameworks-6-month";
-import { readingMinutes as enterpriseMinutes } from "@/lib/enterprise-platforms-6-month";
-import { readingMinutes as forecastMinutes } from "@/lib/agents-2027";
-import { readingMinutes as productionMinutes } from "@/lib/agents-in-production-2026";
-import { readingMinutes as outlookMinutes } from "@/lib/agents-outlook";
-import { readingMinutes as benchmarkMinutes } from "@/lib/benchmark-report";
-import { readingMinutes as browserMinutes } from "@/lib/browser-computer-report";
-import { readingMinutes as codingMinutes } from "@/lib/coding-agents-30-day";
-import { readingMinutes as codingSixMinutes } from "@/lib/coding-agents-6-month";
-import { path as frameworkGithubPath, readingMinutes as frameworkMinutes, retrievedDay as frameworkGithubDay } from "@/lib/framework-github-stats";
-import { readingMinutes as mcpMinutes } from "@/lib/mcp-outlook";
-import { readingMinutes as shoppingMinutes } from "@/lib/shopping-report";
-import { readingMinutes as voiceMinutes } from "@/lib/voice-agents-outlook";
-import { PRICE_READ_ON } from "@/lib/model-prices";
+import { flagshipReport, labInstruments, publishedReports, type ReportEntry } from "@/lib/report-catalog";
 import { defaultMetadata } from "@/lib/seo";
-import { dataAssets } from "@/lib/site";
-import { verifiedRevenueChecked } from "@/lib/verified-revenue";
 
 export const metadata = defaultMetadata(
   "Reports",
@@ -38,136 +16,114 @@ export const metadata = defaultMetadata(
 
 export default async function ReportsPage() {
   const stats = await getDirectoryStats();
-  const dateByHref: Record<string, string> = {
-    "/reports/ai-agents-next-12-months": yearUpdated,
-    "/reports/googleagent-gemini-4-hydrogen-fetches-november-2026": "2026-11-14",
-    "/reports/ai-agent-vendor-robots-txt-november-2026": "2026-11-13",
-    "/reports/enterprise-agent-platforms-next-6-months": "2026-11-12",
-    "/reports/ai-shopping-agents-next-30-days": "2026-11-12",
-    "/reports/ai-agent-frameworks-next-6-months": "2026-11-12",
-    "/reports/web-search-tools-for-ai-agents-november-2026": "2026-11-12",
-    "/reports/ai-answer-crawlers-november-2026": "2026-11-11",
-    "/reports/voice-agents-next-6-months": "2026-11-11",
-    "/reports/ai-agents-in-production-2026": "2026-11-10",
-    "/reports/ai-agents-in-2027": "2026-11-10",
-    "/reports/mcp-next-6-months": "2026-11-10",
-    "/reports/browser-and-computer-use-agents-next-6-months": "2026-11-09",
-    "/reports/ai-coding-agents-next-6-months": "2026-11-13",
-    "/reports/ai-coding-agents-next-30-days": "2026-11-08",
-    "/reports/ai-agents-next-6-months": "2026-11-05",
-    "/reports/ai-shopping-agents-next-6-months": "2026-11-05",
-    "/reports/agent-harness-benchmark-november-2026": "2026-11-05",
-    [frameworkGithubPath]: frameworkGithubDay,
-    "/verified-revenue": verifiedRevenueChecked,
-    "/directory/stats": stats.updated,
-    "/agent-cost-calculator": PRICE_READ_ON,
-    "/tools/ai-agent-roi-calculator": "2026-11-11",
-    "/agent-prompt-checker": "2026-11-06",
-    "/tools/agents-md-generator": "2026-11-10",
-    "/tools/ai-crawler-robots-txt-checker": "2026-11-12",
-  };
-  const minutesByHref: Record<string, number> = {
-    "/reports/ai-agents-next-12-months": yearMinutes,
-    "/reports/googleagent-gemini-4-hydrogen-fetches-november-2026": hydrogenMinutes,
-    "/reports/ai-agent-vendor-robots-txt-november-2026": vendorRobotsMinutes,
-    "/reports/enterprise-agent-platforms-next-6-months": enterpriseMinutes,
-    "/reports/ai-shopping-agents-next-30-days": shop30Minutes,
-    "/reports/ai-agent-frameworks-next-6-months": frameworksMinutes,
-    "/reports/web-search-tools-for-ai-agents-november-2026": searchToolsMinutes,
-    "/reports/ai-answer-crawlers-november-2026": crawlerMinutes,
-    "/reports/voice-agents-next-6-months": voiceMinutes,
-    "/reports/ai-agents-in-production-2026": productionMinutes,
-    "/reports/ai-agents-in-2027": forecastMinutes,
-    "/reports/mcp-next-6-months": mcpMinutes,
-    "/reports/browser-and-computer-use-agents-next-6-months": browserMinutes,
-    "/reports/ai-coding-agents-next-6-months": codingSixMinutes,
-    "/reports/ai-coding-agents-next-30-days": codingMinutes,
-    "/reports/ai-agents-next-6-months": outlookMinutes,
-    "/reports/ai-shopping-agents-next-6-months": shoppingMinutes,
-    "/reports/agent-harness-benchmark-november-2026": benchmarkMinutes,
-    [frameworkGithubPath]: frameworkMinutes,
-  };
-  const kickerByHref: Record<string, string> = {
-    "/reports/ai-agents-next-12-months": "Flagship",
-    "/reports/googleagent-gemini-4-hydrogen-fetches-november-2026": "Daily brief",
-    "/reports/ai-agent-vendor-robots-txt-november-2026": "Daily brief",
-    "/reports/enterprise-agent-platforms-next-6-months": "Report",
-    "/reports/ai-shopping-agents-next-30-days": "Report",
-    "/reports/ai-agent-frameworks-next-6-months": "Report",
-    "/reports/web-search-tools-for-ai-agents-november-2026": "Daily brief",
-    "/reports/ai-answer-crawlers-november-2026": "Daily brief",
-    "/reports/voice-agents-next-6-months": "Report",
-    "/reports/ai-agents-in-production-2026": "Report",
-    "/reports/ai-agents-in-2027": "Report",
-    "/reports/mcp-next-6-months": "Report",
-    "/reports/browser-and-computer-use-agents-next-6-months": "Report",
-    "/reports/ai-coding-agents-next-6-months": "Report",
-    "/reports/ai-coding-agents-next-30-days": "Report",
-    "/reports/ai-agents-next-6-months": "Report",
-    "/reports/ai-shopping-agents-next-6-months": "Report",
-    "/reports/agent-harness-benchmark-november-2026": "Report",
-    [frameworkGithubPath]: "Report",
-    "/verified-revenue": "Data",
-    "/directory/stats": "Data",
-    "/agent-cost-calculator": "Data",
-    "/tools/ai-agent-roi-calculator": "Tool",
-    "/agent-prompt-checker": "Data",
-    "/tools/agents-md-generator": "Tool",
-    "/tools/ai-crawler-robots-txt-checker": "Tool",
-  };
+  const instruments: ReportEntry[] = labInstruments.map((item) =>
+    item.href === "/directory/stats" ? { ...item, date: stats.updated } : item,
+  );
+  const briefs = publishedReports.filter((item) => item.kicker === "Daily brief");
+  const reports = publishedReports.filter((item) => item.kicker !== "Daily brief");
+  const issueByHref = new Map(publishedReports.map((item, index) => [item.href, publishedReports.length - index]));
+  const latest = [flagshipReport, ...publishedReports, ...instruments]
+    .map((item) => item?.date ?? "")
+    .sort()
+    .at(-1);
 
   return (
     <>
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Reports", path: "/reports" }]} />
-      <PageHeader
-        kicker="Reports"
-        title="Figures with a date and a source"
-        summary="The flagship is the next 12 months. New on 14 November: GoogleAgent’s answer fetches before and after Gemini 4 Hydrogen. Also coding agents through May 2027, with Terminal-Bench 4.1 re-read November 13, and robots.txt and llms.txt of 52 agent websites, checked the same day. A number without a public source does not go up."
-      />
-      <div className="mx-auto max-w-6xl px-4 pb-20">
-        <ContentDeskNav current="/reports" />
-        <ToolHub />
-        {dataAssets
-          .filter((item) => item.href === "/reports/ai-agents-next-12-months")
-          .map((item) => (
-            <div key={item.href} className="mb-4">
-              <ContentCard
-                href={item.href}
-                kicker="Flagship"
-                title={item.title}
-                description={item.summary}
-                date={dateByHref[item.href]}
-                readingMinutes={minutesByHref[item.href]}
-              />
-            </div>
-          ))}
-        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
-          What moved in that flagship, checked November 16, 2026, is the{" "}
-          <Link className="text-[var(--link)] underline" href="/research/ai-agents-next-12-months-scorecard-november-2026">
-            12-month scorecard
-          </Link>
-          . The dollar line is still the November 10 filing. The scorecard is a research note, not a second report.
-        </p>
-        <div className="content-grid">
-          {dataAssets.filter((item) => item.href !== "/reports/ai-agents-next-12-months").map((item) => (
-            <ContentCard
-              key={item.href}
-              href={item.href}
-              kicker={kickerByHref[item.href] ?? "Report"}
-              title={item.title}
-              description={item.summary}
-              date={dateByHref[item.href]}
-              readingMinutes={minutesByHref[item.href]}
-            />
-          ))}
+      <header className="library-hero">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="kicker kicker-lead">Research library</p>
+          <h1 className="library-hero-title">
+            Figures with a date <em>and a source</em>
+          </h1>
+          <p className="library-hero-summary">
+            The flagship is the next 12 months. New on 14 November: GoogleAgent’s answer fetches before and after Gemini
+            4 Hydrogen. Also coding agents through May 2027, with Terminal-Bench 4.1 re-read November 13, and robots.txt
+            and llms.txt of 52 agent websites, checked the same day. A number without a public source does not go up.
+          </p>
+          <ul className="library-facts" aria-label="Library at a glance">
+            <li>
+              <strong>{reports.length + (flagshipReport ? 1 : 0)}</strong>reports
+            </li>
+            <li>
+              <strong>{briefs.length}</strong>daily briefs
+            </li>
+            <li>
+              <strong>{instruments.length}</strong>datasets and tools
+            </li>
+          </ul>
         </div>
-        <DataSourceLine
-          title="Reports"
-          updated={Object.values(dateByHref).sort().at(-1)}
-          path="/reports"
-          showCite
-        />
+      </header>
+
+      <div className="mx-auto max-w-6xl px-4 pb-20 pt-8">
+        <ContentDeskNav current="/reports" />
+
+        {flagshipReport ? (
+          <section className="library-section" aria-label="Flagship report">
+            <FlagshipCover entry={flagshipReport} headingLevel={2} />
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">
+              What moved in that flagship, checked November 16, 2026, is the{" "}
+              <Link className="text-[var(--link)] underline" href="/research/ai-agents-next-12-months-scorecard-november-2026">
+                12-month scorecard
+              </Link>
+              . The dollar line is still the November 10 filing. The scorecard is a research note, not a second report.
+            </p>
+          </section>
+        ) : null}
+
+        <LibrarySection id="library-reports" title="Reports" items={reports} issueByHref={issueByHref} />
+        <LibrarySection id="library-briefs" title="Daily briefs" items={briefs} issueByHref={issueByHref} />
+
+        <section className="library-section" aria-labelledby="library-instruments">
+          <div className="library-section-head">
+            <h2 id="library-instruments" className="library-section-title">
+              Datasets and tools
+            </h2>
+            <span className="library-section-count">{instruments.length} instruments</span>
+          </div>
+          <div className="report-cover-grid">
+            {instruments.map((item, index) => (
+              <ReportCover key={item.href} entry={item} issue={index + 1} showSummary />
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-12">
+          <ToolHub />
+        </div>
+        <DataSourceLine title="Reports" updated={latest} path="/reports" showCite />
       </div>
     </>
+  );
+}
+
+function LibrarySection({
+  id,
+  title,
+  items,
+  issueByHref,
+}: {
+  id: string;
+  title: string;
+  items: ReportEntry[];
+  issueByHref: Map<string, number>;
+}) {
+  if (!items.length) return null;
+  return (
+    <section className="library-section" aria-labelledby={id}>
+      <div className="library-section-head">
+        <h2 id={id} className="library-section-title">
+          {title}
+        </h2>
+        <span className="library-section-count">
+          {items.length} {items.length === 1 ? "issue" : "issues"}
+        </span>
+      </div>
+      <div className="report-cover-grid">
+        {items.map((item) => (
+          <ReportCover key={item.href} entry={item} issue={issueByHref.get(item.href) ?? 0} showSummary />
+        ))}
+      </div>
+    </section>
   );
 }

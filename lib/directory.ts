@@ -2,6 +2,8 @@ import { isSpamListing } from "@/lib/indexing";
 import { cachedMakerLogo } from "@/lib/maker-logos";
 import { contentDir, loadMarkdownCollection } from "@/lib/markdown";
 import { approvedSubmissionListings } from "@/lib/submission-files";
+import { storedSubmission, storedSubmissions } from "@/lib/submission-store";
+import { RESERVED_DIRECTORY_SLUGS, submissionToListing, type ToolSubmission } from "@/lib/submissions";
 import type { DirectoryCategory, PricingModel } from "@/lib/directory-meta";
 
 export {
@@ -105,10 +107,26 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
     }))
     .filter((listing) => listing.sample !== true);
   const approved = approvedSubmissionListings(fromMarkdown.map((listing) => listing.slug));
-  return [...fromMarkdown, ...approved]
+  const stored = storedListings(await storedSubmissions(), [...fromMarkdown, ...approved]);
+  return [...fromMarkdown, ...approved, ...stored]
     .filter((listing) => !isSpamListing(listing))
     .map(withCachedLogo)
     .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/** A stored row whose slug is already a page is skipped and logged, so one row cannot break the build. */
+function storedListings(submissions: ToolSubmission[], existing: { slug: string }[]) {
+  const taken = new Set(existing.map((listing) => listing.slug));
+  const listings = [];
+  for (const submission of submissions) {
+    if (taken.has(submission.slug) || RESERVED_DIRECTORY_SLUGS.has(submission.slug)) {
+      console.error(`[directory] stored submission "${submission.slug}" clashes with an existing page and was skipped.`);
+      continue;
+    }
+    taken.add(submission.slug);
+    listings.push(submissionToListing(submission));
+  }
+  return listings;
 }
 
 function withCachedLogo<T extends { slug: string; logo?: string }>(listing: T): T {
@@ -117,9 +135,14 @@ function withCachedLogo<T extends { slug: string; logo?: string }>(listing: T): 
   return { ...listing, logo };
 }
 
-export async function getDirectoryListing(slug: string) {
+export async function getDirectoryListing(slug: string): Promise<DirectoryListing | undefined> {
   const listings = await getDirectoryListings();
-  return listings.find((listing) => listing.slug === slug);
+  const listed = listings.find((listing) => listing.slug === slug);
+  if (listed || RESERVED_DIRECTORY_SLUGS.has(slug)) return listed;
+  const submission = await storedSubmission(slug);
+  if (!submission) return undefined;
+  const listing = withCachedLogo(submissionToListing(submission));
+  return isSpamListing(listing) ? undefined : listing;
 }
 
 export function filterDirectory(

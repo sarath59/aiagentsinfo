@@ -1,4 +1,4 @@
-import { getDirectoryListings } from "@/lib/directory";
+import { getDirectoryListing, getDirectoryListings } from "@/lib/directory";
 import { GENERIC_BADGE_SLUG, isBadgeSlug } from "@/lib/badge";
 
 let pending: Promise<Map<string, string>> | null = null;
@@ -24,7 +24,7 @@ export async function badgeStaticIds() {
 export async function resolveBadgeName(slug: string): Promise<{ ok: true; name?: string } | { ok: false }> {
   if (!isBadgeSlug(slug)) return { ok: false };
   if (slug === GENERIC_BADGE_SLUG) return { ok: true };
-  const name = (await listingNames()).get(slug);
+  const name = (await listingNames()).get(slug) ?? (await getDirectoryListing(slug))?.name;
   if (!name) return { ok: false };
   return { ok: true, name };
 }

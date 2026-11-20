@@ -1,12 +1,16 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { altchaPayloadFrom, HUMAN_CHECK_MESSAGE, verifyAltchaPayload } from "@/lib/altcha";
 import { trackServerGoal } from "@/lib/datafast-server";
-import { publishSubmission, submissionsToken } from "@/lib/github-submissions";
+import { communityListingIsIndexable } from "@/lib/indexing";
+import { pingIndexNow } from "@/lib/indexnow";
 import { takeRateLimit } from "@/lib/rate-limit";
 import { collectTakenSlugs, localListingDomains } from "@/lib/submission-files";
+import { insertSubmission, refreshAfterInsert } from "@/lib/submission-store";
+import { supabaseConfig } from "@/lib/supabase";
 import {
   honeypotTripped,
   submissionMailto,
+  submissionToListing,
   SUBMISSION_FIELDS,
   SUBMISSION_SUCCESS_MESSAGE,
   SUBMISSION_UNAVAILABLE_MESSAGE,
@@ -84,7 +88,8 @@ export async function POST(request: Request) {
     return fieldError({ altcha: HUMAN_CHECK_MESSAGE });
   }
 
-  const validated = validateSubmission(payload, { takenSlugs: collectTakenSlugs() });
+  const takenSlugs = collectTakenSlugs();
+  const validated = validateSubmission(payload, { takenSlugs });
   if (!validated.ok) {
     return fieldError(validated.errors);
   }
@@ -100,13 +105,17 @@ export async function POST(request: Request) {
     return fieldError({ website: reachable.message });
   }
 
-  if (!submissionsToken()) {
+  if (!supabaseConfig()) {
     return json({ ok: false, code: "unconfigured", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 503);
   }
 
   try {
-    const filed = await publishSubmission(validated.value);
+    const filed = await insertSubmission(validated.value, takenSlugs);
     if (filed.ok) {
+      refreshAfterInsert(filed.slug);
+      if (communityListingIsIndexable(submissionToListing({ ...validated.value, slug: filed.slug }))) {
+        after(() => pingIndexNow([`/directory/${filed.slug}`, "/directory"]));
+      }
       // Saved and accepted. The only publisher in this repo is this visitor form.
       // MCP is read-only, so there is no internal path to mark listing_source "agent".
       if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(filed.slug)) {

@@ -1,18 +1,22 @@
 import Link from "next/link";
-import { ArrowIcon } from "@/components/Icons";
+import type { ReactNode } from "react";
+import { ArrowIcon, SearchIcon } from "@/components/Icons";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
 import { EntityStatement } from "@/components/EntityStatement";
 import { HomeReveal } from "@/components/home/HomeReveal";
-import { SectionSignal } from "@/components/home/SectionSignal";
+import { FlagshipCover, ReportCover } from "@/components/ReportCover";
+import { SubmitToolButton } from "@/components/SubmitToolButton";
+import { TrackLink } from "@/components/TrackLink";
 import { categoryTitle, getBlogPosts, type BlogPost } from "@/lib/blog";
 import { companyForName } from "@/lib/companies";
 import { categoryTitle as directoryCategoryTitle, getDirectoryListings, type DirectoryListing } from "@/lib/directory";
 import { getGlossaryTerms } from "@/lib/glossary";
+import { flagshipReport, labInstruments, publishedReports } from "@/lib/report-catalog";
 import { getResearchDocs, researchTypeTitle, type ResearchDoc } from "@/lib/research";
 import { indexRobots } from "@/lib/seo";
 import { liveTrackers } from "@/lib/trackers";
-import { absoluteUrl, comparisons, dataAssets, site } from "@/lib/site";
+import { absoluteUrl, comparisons, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 const socialTitle = `${site.name} — ${site.tagline}`;
@@ -37,8 +41,8 @@ export const metadata = {
   robots: indexRobots,
 };
 
-const spotlightSlugs = ["cursor", "devin", "crewai"] as const;
-const freeToolHrefs = [
+const spotlightSlugs = ["cursor", "devin", "crewai", "claude-code", "langgraph", "openai-codex"] as const;
+const instrumentHrefs = [
   "/tools/mcp-config-generator",
   "/tools/ai-crawler-robots-txt-checker",
   "/tools/agents-md-generator",
@@ -49,18 +53,31 @@ const freeToolHrefs = [
   "/directory/stats",
 ] as const;
 
-function previewTools(listings: DirectoryListing[]) {
+function previewTools(listings: DirectoryListing[], count: number) {
   const picked: DirectoryListing[] = [];
   for (const slug of spotlightSlugs) {
     const listing = listings.find((item) => item.slug === slug);
     if (listing) picked.push(listing);
   }
-  if (picked.length >= 3) return picked.slice(0, 3);
   for (const listing of listings) {
-    if (picked.length >= 3) break;
+    if (picked.length >= count) break;
     if (!picked.some((item) => item.slug === listing.slug)) picked.push(listing);
   }
-  return picked;
+  return picked.slice(0, count);
+}
+
+const agentCategories = ["ai-agents", "coding-agents", "agent-frameworks", "developer-tools", "voice", "research"];
+
+function topCategories(listings: DirectoryListing[], count: number) {
+  const tally = new Map<string, number>();
+  for (const listing of listings) tally.set(listing.category, (tally.get(listing.category) ?? 0) + 1);
+  const pinned = agentCategories.filter((slug) => tally.has(slug));
+  const rest = [...tally.keys()]
+    .filter((slug) => !pinned.includes(slug))
+    .sort((a, b) => (tally.get(b) ?? 0) - (tally.get(a) ?? 0) || a.localeCompare(b));
+  return [...pinned, ...rest]
+    .slice(0, count)
+    .map((slug) => ({ slug, total: tally.get(slug) ?? 0, title: directoryCategoryTitle(slug) }));
 }
 
 function plural(count: number, singular: string, pluralLabel = `${singular}s`) {
@@ -74,64 +91,217 @@ export default async function HomePage() {
     getDirectoryListings(),
     getGlossaryTerms(),
   ]);
-  const news = posts.filter((post) => post.category === "news").slice(0, 3);
+  const news = posts.filter((post) => post.category === "news").slice(0, 4);
   const guidePosts = posts.filter((post) => post.category === "guide");
   const digitalWorker = guidePosts.find((post) => post.slug === "what-is-a-digital-worker");
   const guides = (
     digitalWorker
       ? [digitalWorker, ...guidePosts.filter((post) => post.slug !== digitalWorker.slug)]
       : guidePosts
-  ).slice(0, 3);
-  const papers = research.slice(0, 3);
-  const tools = previewTools(listings);
-  const reports = dataAssets.filter((asset) => asset.href.startsWith("/reports/"));
-  const [featured, ...moreReports] = reports;
-  const freeTools = freeToolHrefs.flatMap((href) => {
-    const asset = dataAssets.find((item) => item.href === href);
-    return asset ? [asset] : [];
+  ).slice(0, 4);
+  const papers = research.slice(0, 4);
+  const tools = previewTools(listings, 6);
+  const categories = topCategories(listings, 10);
+  const latestBriefs = publishedReports.slice(0, 4);
+  const reportGrid = publishedReports.slice(0, 6);
+  const reportCount = publishedReports.length + (flagshipReport ? 1 : 0);
+  const instruments = instrumentHrefs.flatMap((href) => {
+    const item = labInstruments.find((entry) => entry.href === href);
+    return item ? [item] : [];
   });
+  const toolCount = listings.length.toLocaleString("en-US");
+
+  const stats = [
+    { value: toolCount, label: `${plural(listings.length, "tool")} in the directory`, href: "/directory" },
+    { value: String(reportCount), label: "research reports", href: "/reports" },
+    { value: String(liveTrackers.length), label: "live trackers", href: "/trackers" },
+    { value: String(research.length), label: "paper notes", href: "/research" },
+  ];
 
   return (
-    <div>
-      <section className={"home-hero"} aria-labelledby="home-heading">
-        <div className={"home-fx"} aria-hidden="true">
-          <div className={"home-mesh"} />
-          <div className={"home-dots"} />
-          <div className={"home-glow"} />
+    <div className="home">
+      <section className="lab-hero" aria-labelledby="home-heading">
+        <div className="lab-hero-fx" aria-hidden="true">
+          <div className="lab-hero-grid" />
+          <div className="lab-hero-glow" />
         </div>
-        <div className={`${"home-copy"} mx-auto max-w-6xl px-4`}>
-          <p className="kicker kicker-lead">News · Directory · Research</p>
-          <h1 id="home-heading" className={"home-headline"}>
-            <span className="text-gradient">AI agent</span> directory and dated research
-          </h1>
-          <p className={"home-sub"}>Submit your AI tool free, no account, live in about 2 minutes. Sourced reports and dated benchmarks.</p>
-          <div className={"home-actions"}>
-            <Link href="/blog" className="btn-primary focus-ring min-h-12 px-7 text-[15px]">
-              Read the latest
-            </Link>
-            <Link href="/directory" className={`btn-ghost focus-ring min-h-12 px-7 text-[15px] ${"home-secondary"}`}>
-              Browse the directory
-            </Link>
+        <div className="lab-hero-inner mx-auto max-w-6xl px-4">
+          <div className="lab-hero-copy">
+            <p className="lab-badge">
+              <span className="lab-badge-dot" aria-hidden="true" />
+              Independent research lab · AI agent directory
+            </p>
+            <h1 id="home-heading" className="lab-headline">
+              The research lab <em>and directory</em> for AI agents
+            </h1>
+            <p className="lab-sub">
+              Dated, sourced research on how AI agents are built, priced and used, and a directory of {toolCount} AI
+              agent tools, each checked against a working site.
+            </p>
+            <form className="lab-search" action="/directory" method="get" role="search">
+              <SearchIcon className="lab-search-icon" />
+              <label htmlFor="home-directory-search" className="sr-only">
+                Search the AI agent directory
+              </label>
+              <input
+                id="home-directory-search"
+                name="q"
+                type="search"
+                placeholder="Search AI agents, coding agents, frameworks…"
+                className="lab-search-input"
+                autoComplete="off"
+              />
+              <button type="submit" className="btn-primary focus-ring lab-search-button">
+                Search
+              </button>
+            </form>
+            <div className="lab-actions">
+              <Link href="/reports" className="lab-link focus-ring">
+                Read the research
+                <ArrowIcon className="h-3.5 w-3.5" />
+              </Link>
+              <span className="lab-actions-rule" aria-hidden="true" />
+              <TrackLink href="/submit" goal="submit_click" className="lab-link lab-link-muted focus-ring">
+                Submit your tool free, live right away
+              </TrackLink>
+            </div>
           </div>
+
+          <aside className="lab-bulletin" aria-labelledby="home-bulletin">
+            <div className="lab-bulletin-head">
+              <p id="home-bulletin" className="lab-bulletin-title">
+                From the lab
+              </p>
+              <p className="lab-bulletin-live">
+                <span aria-hidden="true" />
+                Latest briefs
+              </p>
+            </div>
+            <ol className="lab-bulletin-list">
+              {latestBriefs.map((brief, index) => (
+                <li key={brief.href}>
+                  <Link href={brief.href} className="lab-bulletin-item focus-ring">
+                    <span className="lab-bulletin-index" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="lab-bulletin-copy">
+                      <span className="lab-bulletin-kicker">
+                        {brief.kicker}
+                        {brief.date ? ` · ${formatDate(brief.date)}` : ""}
+                      </span>
+                      <span className="lab-bulletin-name">{brief.title}</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+            <Link href="/reports" className="lab-bulletin-all focus-ring">
+              Open the research library
+              <ArrowIcon className="h-3.5 w-3.5" />
+            </Link>
+          </aside>
+        </div>
+
+        <div className="mx-auto max-w-6xl px-4">
+          <ul className="lab-stats" aria-label="At a glance">
+            {stats.map((stat) => (
+              <li key={stat.href}>
+                <Link href={stat.href} className="lab-stat focus-ring">
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <EntityStatement />
-
-      <SectionSignal label="01 / plan" />
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-label="What we do">
+          <div className="lab-pillars">
+            <div className="lab-pillar lab-pillar-dark">
+              <p className="lab-pillar-eyebrow">I · The lab</p>
+              <h2 className="lab-pillar-title">Research you can cite</h2>
+              <p className="lab-pillar-body">
+                Reports, daily briefs and benchmarks on agents, harnesses and frameworks. Every figure carries a date
+                and a public source, or it does not go up.
+              </p>
+              <ul className="lab-pillar-list">
+                <li>Flagship 12-month outlook, revised as filings land</li>
+                <li>Daily briefs on crawlers, pricing and releases</li>
+                <li>Live trackers for downloads, stars and AGENTS.md</li>
+              </ul>
+              <Link href="/reports" className="lab-pillar-link focus-ring">
+                Explore the research
+                <ArrowIcon className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+            <div className="lab-pillar lab-pillar-light">
+              <p className="lab-pillar-eyebrow">II · The directory</p>
+              <h2 className="lab-pillar-title">Every AI agent tool, with an official home</h2>
+              <p className="lab-pillar-body">
+                {toolCount} tools across coding agents, frameworks, voice, research and more. Each listing is checked
+                against a working site before it goes live.
+              </p>
+              <ul className="lab-pillar-list">
+                <li>Free listing, no account, live as soon as it is saved</li>
+                <li>Pricing, maker and links on one page</li>
+                <li>Category pages and side-by-side comparisons</li>
+              </ul>
+              <Link href="/directory" className="lab-pillar-link focus-ring">
+                Browse the directory
+                <ArrowIcon className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </HomeReveal>
 
       <HomeReveal>
-        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-directory">
+        <section className="home-section mx-auto max-w-6xl px-4" aria-labelledby="home-reports">
+          <SectionHead
+            id="home-reports"
+            index="01"
+            eyebrow="Research library"
+            title="Reports, published like a journal"
+            lede="Numbered, dated and sourced. Read them in the browser, cite them in your own work."
+            href="/reports"
+            seeAllLabel={`All ${reportCount} reports`}
+          />
+          {flagshipReport ? <FlagshipCover entry={flagshipReport} /> : null}
+          <div className="report-cover-grid">
+            {reportGrid.map((entry, index) => (
+              <ReportCover key={entry.href} entry={entry} issue={publishedReports.length - index} />
+            ))}
+          </div>
+        </section>
+      </HomeReveal>
+
+      <HomeReveal>
+        <section className="home-section mx-auto max-w-6xl px-4" aria-labelledby="home-directory">
           <SectionHead
             id="home-directory"
-            eyebrow="Directory"
-            title="Tools with an official home"
-            lede={`${listings.length.toLocaleString("en-US")} ${plural(listings.length, "tool")}, each checked against a working site.`}
+            index="02"
+            eyebrow="The directory"
+            title="AI agent tools worth knowing"
+            lede={`${toolCount} ${plural(listings.length, "tool")}, each with a working official site. Browse by category or search by name.`}
             href="/directory"
             seeAllLabel="See all tools"
           />
+          {categories.length ? (
+            <ul className="lab-categories" aria-label="Popular categories">
+              {categories.map((category) => (
+                <li key={category.slug}>
+                  <Link href={`/directory/category/${category.slug}`} className="lab-category focus-ring">
+                    {category.title}
+                    <span>{category.total.toLocaleString("en-US")}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           {tools.length ? (
-            <div className={"home-trio"}>
+            <div className="lab-tool-grid">
               {tools.map((listing) => (
                 <ToolCard key={listing.slug} listing={listing} />
               ))}
@@ -144,156 +314,75 @@ export default async function HomePage() {
               cta="Submit a tool"
             />
           )}
-        </section>
-      </HomeReveal>
-
-      <SectionSignal label="02 / search" delay="-0.7s" />
-
-      <HomeReveal>
-        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-reports">
-          <SectionHead
-            id="home-reports"
-            eyebrow="Reports"
-            title="Benchmarks and dated figures"
-            lede="Sourced reports, and tools you can open in the browser."
-            href="/reports"
-            seeAllLabel="See all reports"
-          />
-          <div className={"home-reports"}>
-            <div className={"home-feature-col"}>
-              {featured ? (
-                <Link href={featured.href} className={`focus-ring ${"home-card"} ${"home-feature"}`}>
-                  <p className="kicker">{featured.href === "/reports/ai-agents-next-12-months" ? "Flagship" : "Report"}</p>
-                  <h3 className={"home-feature-title"}>{featured.title}</h3>
-                  <p className={"home-summary"}>{featured.summary}</p>
-                  <span className={"home-more"}>
-                    Read the report
-                    <ArrowIcon className="h-3.5 w-3.5" />
-                  </span>
-                </Link>
-              ) : null}
-              {moreReports.slice(0, 2).map((report) => (
-                <Link key={report.href} href={report.href} className={`focus-ring ${"home-card"} ${"home-also"}`}>
-                  <span>
-                    <span className="kicker">Report</span>
-                    <span className={"home-also-title"}>{report.title}</span>
-                  </span>
-                  <ArrowIcon className="h-3.5 w-3.5 shrink-0 text-[var(--color-electric)]" />
-                </Link>
-              ))}
+          <div className="lab-list-cta">
+            <div>
+              <p className="lab-list-cta-title">Building an AI agent tool?</p>
+              <p className="lab-list-cta-body">List it free. No account, and it is live as soon as the form confirms.</p>
             </div>
-            <div className={"home-stack"}>
-              {freeTools.map((tool, index) => (
-                <Link key={tool.href} href={tool.href} className={`focus-ring ${"home-card"} ${"home-mini"}`}>
-                  <span className={"home-index"} aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className={"home-mini-copy"}>
-                    <h3 className={"home-card-title"}>{tool.title}</h3>
-                    <p className={"home-card-body"}>{tool.summary}</p>
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <SubmitToolButton />
           </div>
         </section>
       </HomeReveal>
 
-      <SectionSignal label="03 / track" delay="-1.0s" />
-
       <HomeReveal>
-        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-trackers">
+        <section className="home-section mx-auto max-w-6xl px-4" aria-labelledby="home-instruments">
           <SectionHead
-            id="home-trackers"
-            eyebrow="Live data"
-            title="Trackers that refresh daily"
-            lede="Public download, AGENTS.md, and GitHub star counts. Each page names the source and how to cite it."
-            href="/trackers"
-            seeAllLabel="See all trackers"
+            id="home-instruments"
+            index="03"
+            eyebrow="Instruments"
+            title="Live trackers and lab tools"
+            lede="Data that refreshes daily, and calculators and checkers you can open in the browser."
+            href="/tools"
+            seeAllLabel="All free tools"
           />
-          <div className="home-trio">
-            {liveTrackers.map((item) => (
-              <Link key={item.href} href={item.href} className={`focus-ring ${"home-card"} ${"home-guide"}`}>
-                <p className="kicker">{item.kicker}</p>
-                <h3 className={"home-card-title"}>{item.title}</h3>
-                <p className={"home-card-body"}>{item.summary}</p>
-                <span className={"home-more"}>
-                  Open the tracker
-                  <ArrowIcon className="h-3.5 w-3.5" />
-                </span>
-              </Link>
-            ))}
+          <div className="lab-instruments">
+            <div className="lab-trackers">
+              {liveTrackers.map((item) => (
+                <Link key={item.href} href={item.href} className="lab-tracker focus-ring">
+                  <span className="lab-tracker-pulse" aria-hidden="true" />
+                  <span className="lab-tracker-kicker">{item.kicker}</span>
+                  <span className="lab-tracker-title">{item.title}</span>
+                  <span className="lab-tracker-body">{item.summary}</span>
+                </Link>
+              ))}
+            </div>
+            <ol className="lab-tool-list">
+              {instruments.map((tool, index) => (
+                <li key={tool.href}>
+                  <Link href={tool.href} className="lab-tool-row focus-ring">
+                    <span className="lab-tool-index" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="lab-tool-copy">
+                      <span className="lab-tool-name">{tool.title}</span>
+                      <span className="lab-tool-kicker">{tool.kicker}</span>
+                    </span>
+                    <ArrowIcon className="lab-tool-arrow h-3.5 w-3.5" />
+                  </Link>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
       </HomeReveal>
 
-      <SectionSignal label="04 / act" delay="-1.4s" />
-
       <HomeReveal>
-        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-news">
-          <SectionHead
-            id="home-news"
-            eyebrow="News"
-            title="Latest from the desk"
-            lede="Short notes on what changed, each with a date."
-            href="/blog?category=news"
-            seeAllLabel="See all news"
-          />
-          {news.length ? (
-            <div className={"home-lead"}>
-              {news.map((post, index) => (
-                <StoryCard key={post.slug} post={post} lead={index === 0} />
-              ))}
-            </div>
-          ) : (
-            <EmptyState title="First articles publishing soon" body="News notes will land here once they are written and sourced." href="/blog" cta="Visit the blog" />
-          )}
-        </section>
-      </HomeReveal>
-
-      <SectionSignal label="05 / review" delay="-0.4s" />
-
-      <HomeReveal>
-        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-research">
-          <SectionHead
-            id="home-research"
-            eyebrow="Research"
-            title="Papers with their own pages"
-            lede="Notes with the authors, the link, and what the paper covers."
-            href="/research"
-            seeAllLabel="See all papers"
-          />
-          {papers.length ? (
-            <div className={"home-trio"}>
-              {papers.map((doc) => (
-                <PaperCard key={doc.slug} doc={doc} />
-              ))}
-            </div>
-          ) : (
-            <EmptyState title="Research notes publishing soon" body="Paper pages appear when the source and the authors check out." href="/research" cta="Research desk" />
-          )}
-        </section>
-      </HomeReveal>
-
-      <SectionSignal label="06 / compare" delay="-0.8s" />
-
-      <HomeReveal>
-        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-compare">
+        <section className="home-section mx-auto max-w-6xl px-4" aria-labelledby="home-compare">
           <SectionHead
             id="home-compare"
+            index="04"
             eyebrow="Best AI agents"
-            title="Best AI agents"
-            lede="Licence, list price, and platform from official pages. Last verified November 2026. No invented scores."
+            title="Comparisons from official pages"
+            lede="Licence, list price and platform, read from the vendor. Last verified November 2026. No invented scores."
             href="/best"
-            seeAllLabel="Best AI agents"
+            seeAllLabel="All comparisons"
           />
-          <div className="home-trio">
+          <div className="lab-compare">
             {comparisons.map((page) => (
-              <Link key={page.href} href={page.href} className={`focus-ring ${"home-card"} ${"home-guide"}`}>
-                <p className="kicker">Comparison</p>
-                <h3 className={"home-card-title"}>{page.title}</h3>
-                <p className={"home-card-body"}>{page.summary}</p>
-                <span className={"home-more"}>
+              <Link key={page.href} href={page.href} className="lab-compare-card focus-ring">
+                <span className="lab-compare-title">{page.title}</span>
+                <span className="lab-compare-body">{page.summary}</span>
+                <span className="lab-compare-more">
                   Open the table
                   <ArrowIcon className="h-3.5 w-3.5" />
                 </span>
@@ -303,44 +392,73 @@ export default async function HomePage() {
         </section>
       </HomeReveal>
 
-      <SectionSignal label="07 / learn" delay="-1.1s" />
-
       <HomeReveal>
-        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-guides">
+        <section className="home-section mx-auto max-w-6xl px-4" aria-labelledby="home-desk">
           <SectionHead
-            id="home-guides"
-            eyebrow="Guides"
-            title="Plain-English guides"
-            lede={
-              glossary.length
-                ? "Short guides, plus a glossary of the terms these pages use."
-                : "Short guides on how these systems fit together."
-            }
-            href={guides.length ? "/blog?category=guide" : "/glossary"}
-            seeAllLabel={guides.length ? "See all guides" : "See the glossary"}
+            id="home-desk"
+            index="05"
+            eyebrow="The desk"
+            title="News, paper notes and guides"
+            lede="Short dated notes on what changed, papers with their own pages, and plain-English explainers."
+            href="/blog"
+            seeAllLabel="Visit the blog"
           />
-          {guides.length || glossary.length ? (
-            <div className={guides.length + (glossary.length ? 1 : 0) > 2 ? "home-lead" : "home-trio"}>
-              {guides.map((post, index) => (
-                <StoryCard key={post.slug} post={post} lead={index === 0 && guides.length + (glossary.length ? 1 : 0) > 2} />
+          <div className="lab-desk">
+            <DeskColumn title="News" href="/blog?category=news" seeAll="All news">
+              {news.length ? (
+                news.map((post) => <PostRow key={post.slug} post={post} />)
+              ) : (
+                <li className="lab-desk-empty">News notes will land here once they are written and sourced.</li>
+              )}
+            </DeskColumn>
+            <DeskColumn title="Paper notes" href="/research" seeAll="All papers">
+              {papers.length ? (
+                papers.map((doc) => <PaperRow key={doc.slug} doc={doc} />)
+              ) : (
+                <li className="lab-desk-empty">Paper pages appear when the source and the authors check out.</li>
+              )}
+            </DeskColumn>
+            <DeskColumn
+              title="Guides"
+              href={guides.length ? "/blog?category=guide" : "/glossary"}
+              seeAll={guides.length ? "All guides" : "Glossary"}
+            >
+              {guides.map((post) => (
+                <PostRow key={post.slug} post={post} />
               ))}
               {glossary.length ? (
-                <Link href="/glossary" className={`focus-ring ${"home-card"} ${"home-guide"}`}>
-                  <p className="kicker">Glossary</p>
-                  <h3 className={"home-card-title"}>
-                    {glossary.length.toLocaleString("en-US")} {plural(glossary.length, "term")}
-                  </h3>
-                  <p className={"home-card-body"}>Short definitions of words these pages use.</p>
-                  <span className={"home-more"}>
-                    Open the glossary
-                    <ArrowIcon className="h-3.5 w-3.5" />
-                  </span>
-                </Link>
+                <li>
+                  <Link href="/glossary" className="lab-desk-row focus-ring">
+                    <span className="lab-desk-meta">Glossary</span>
+                    <span className="lab-desk-title">
+                      {glossary.length.toLocaleString("en-US")} {plural(glossary.length, "term")}, defined plainly
+                    </span>
+                  </Link>
+                </li>
               ) : null}
+            </DeskColumn>
+          </div>
+        </section>
+      </HomeReveal>
+
+      <HomeReveal>
+        <section className="mx-auto max-w-6xl px-4" aria-labelledby="home-closing">
+          <div className="lab-closing">
+            <div className="lab-closing-copy">
+              <p className="lab-closing-eyebrow">AI Agents Info</p>
+              <h2 id="home-closing" className="lab-closing-title">
+                Research for the people building AI agents. <em>A directory for the tools they ship.</em>
+              </h2>
+              <EntityStatement embedded />
             </div>
-          ) : (
-            <EmptyState title="Guides publishing soon" body="Explainers will appear here as they are written." href="/blog" cta="Visit the blog" />
-          )}
+            <div className="lab-closing-actions">
+              <SubmitToolButton />
+              <Link href="/editorial-policy" className="lab-closing-link focus-ring">
+                How we research and verify
+                <ArrowIcon className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
         </section>
       </HomeReveal>
     </div>
@@ -349,6 +467,7 @@ export default async function HomePage() {
 
 function SectionHead({
   id,
+  index,
   eyebrow,
   title,
   lede,
@@ -356,6 +475,7 @@ function SectionHead({
   seeAllLabel,
 }: {
   id: string;
+  index: string;
   eyebrow: string;
   title: string;
   lede: string;
@@ -363,15 +483,18 @@ function SectionHead({
   seeAllLabel: string;
 }) {
   return (
-    <div className={"home-head"}>
+    <div className="home-head">
       <div>
-        <p className="kicker kicker-lead">{eyebrow}</p>
-        <h2 id={id} className={"home-h2"}>
+        <p className="home-eyebrow">
+          <span className="home-eyebrow-index">{index}</span>
+          {eyebrow}
+        </p>
+        <h2 id={id} className="home-h2">
           {title}
         </h2>
-        <p className={"home-lede"}>{lede}</p>
+        <p className="home-lede">{lede}</p>
       </div>
-      <Link href={href} className={`focus-ring ${"home-see"}`}>
+      <Link href={href} className="home-see focus-ring">
         {seeAllLabel}
         <ArrowIcon className="h-3.5 w-3.5" />
       </Link>
@@ -385,36 +508,65 @@ function ToolCard({ listing }: { listing: DirectoryListing }) {
   const meta = listing.vendor && listing.vendor !== listing.name ? `${category} · ${listing.vendor}` : category;
 
   return (
-    <Link href={`/directory/${listing.slug}`} className={`focus-ring ${"home-card"} ${"home-tool"}`}>
-      <CompanyLogo name={listing.name} src={listing.logo || undefined} tile={brand?.tile} size="md" />
-      <p className="kicker mt-5">{meta}</p>
-      <h3 className={"home-card-title"}>{listing.name}</h3>
-      <p className={"home-card-body"}>{listing.summary}</p>
+    <Link href={`/directory/${listing.slug}`} className="lab-tool focus-ring">
+      <span className="lab-tool-top">
+        <CompanyLogo name={listing.name} src={listing.logo || undefined} tile={brand?.tile} size="md" />
+        <ArrowIcon className="lab-tool-go h-3.5 w-3.5" />
+      </span>
+      <span className="lab-tool-meta">{meta}</span>
+      <span className="lab-tool-title">{listing.name}</span>
+      <span className="lab-tool-body">{listing.summary}</span>
     </Link>
   );
 }
 
-function StoryCard({ post, lead = false }: { post: BlogPost; lead?: boolean }) {
+function DeskColumn({
+  title,
+  href,
+  seeAll,
+  children,
+}: {
+  title: string;
+  href: string;
+  seeAll: string;
+  children: ReactNode;
+}) {
   return (
-    <Link href={`/blog/${post.slug}`} className={`focus-ring ${"home-card"} ${"home-story"} ${lead ? "home-lead-card" : ""}`}>
-      <p className="kicker">
-        {categoryTitle(post.category)} · {formatDate(post.date)}
-      </p>
-      <h3 className={"home-card-title"}>{post.title}</h3>
-      <p className={"home-card-body"}>{post.description}</p>
-    </Link>
+    <div className="lab-desk-col">
+      <div className="lab-desk-head">
+        <h3 className="lab-desk-heading">{title}</h3>
+        <Link href={href} className="lab-desk-see focus-ring">
+          {seeAll}
+        </Link>
+      </div>
+      <ul className="lab-desk-list">{children}</ul>
+    </div>
   );
 }
 
-function PaperCard({ doc }: { doc: ResearchDoc }) {
+function PostRow({ post }: { post: BlogPost }) {
+  return (
+    <li>
+      <Link href={`/blog/${post.slug}`} className="lab-desk-row focus-ring">
+        <span className="lab-desk-meta">
+          {categoryTitle(post.category)} · {formatDate(post.date)}
+        </span>
+        <span className="lab-desk-title">{post.title}</span>
+      </Link>
+    </li>
+  );
+}
+
+function PaperRow({ doc }: { doc: ResearchDoc }) {
   const when = doc.paperYear ? String(doc.paperYear) : formatDate(doc.date);
   return (
-    <Link href={`/research/${doc.slug}`} className={`focus-ring ${"home-card"} ${"home-paper"}`}>
-      <p className="kicker">
-        {researchTypeTitle(doc.type)} · {when}
-      </p>
-      <h3 className={"home-card-title"}>{doc.title}</h3>
-      <p className={"home-card-body"}>{doc.description}</p>
-    </Link>
+    <li>
+      <Link href={`/research/${doc.slug}`} className="lab-desk-row focus-ring">
+        <span className="lab-desk-meta">
+          {researchTypeTitle(doc.type)} · {when}
+        </span>
+        <span className="lab-desk-title">{doc.title}</span>
+      </Link>
+    </li>
   );
 }

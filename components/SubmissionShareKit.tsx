@@ -15,21 +15,21 @@ import type { ListingRankView } from "@/lib/listing-rank";
 import "./submission-share.css";
 
 const RIBBONS = [
-  { top: "7%", tilt: "-8deg", color: "#0B1F33", delay: "0s", height: 16 },
-  { top: "18%", tilt: "-5deg", color: "#0C5CAD", delay: "0.06s", height: 12 },
-  { top: "31%", tilt: "4deg", color: "#2F9DFF", delay: "0.02s", height: 10 },
-  { top: "44%", tilt: "-3deg", color: "#14B8A6", delay: "0.1s", height: 14 },
-  { top: "58%", tilt: "6deg", color: "#E0B04A", delay: "0.04s", height: 12 },
-  { top: "72%", tilt: "-6deg", color: "#0C5CAD", delay: "0.14s", height: 18 },
-  { top: "86%", tilt: "3deg", color: "#0B1F33", delay: "0.08s", height: 11 },
+  { top: "7%", tilt: "-8deg", color: "#0F2A2C", delay: "0s", height: 16 },
+  { top: "18%", tilt: "-5deg", color: "#285E60", delay: "0.06s", height: 12 },
+  { top: "31%", tilt: "4deg", color: "#6F8F88", delay: "0.02s", height: 10 },
+  { top: "44%", tilt: "-3deg", color: "#A9C1B9", delay: "0.1s", height: 14 },
+  { top: "58%", tilt: "6deg", color: "#C4A165", delay: "0.04s", height: 12 },
+  { top: "72%", tilt: "-6deg", color: "#285E60", delay: "0.14s", height: 18 },
+  { top: "86%", tilt: "3deg", color: "#0F2A2C", delay: "0.08s", height: 11 },
 ];
 
 const BITS = [
-  { top: "20%", left: "18%", color: "#E0B04A", delay: "0.12s", tilt: "16deg" },
-  { top: "36%", left: "64%", color: "#2F9DFF", delay: "0.18s", tilt: "-12deg" },
-  { top: "52%", left: "28%", color: "#14B8A6", delay: "0.08s", tilt: "8deg" },
-  { top: "24%", left: "78%", color: "#0B1F33", delay: "0.2s", tilt: "20deg" },
-  { top: "68%", left: "48%", color: "#E0B04A", delay: "0.16s", tilt: "-8deg" },
+  { top: "20%", left: "18%", color: "#C4A165", delay: "0.12s", tilt: "16deg" },
+  { top: "36%", left: "64%", color: "#6F8F88", delay: "0.18s", tilt: "-12deg" },
+  { top: "52%", left: "28%", color: "#A9C1B9", delay: "0.08s", tilt: "8deg" },
+  { top: "24%", left: "78%", color: "#0F2A2C", delay: "0.2s", tilt: "20deg" },
+  { top: "68%", left: "48%", color: "#C4A165", delay: "0.16s", tilt: "-8deg" },
 ];
 
 const fieldClass =

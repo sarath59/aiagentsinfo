@@ -8,7 +8,8 @@ import {
 import { badgeStaticIds, resolveBadgeName } from "@/lib/badge-names";
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+/** A listing saved to Supabase after the build gets its badge on first request. */
+export const dynamicParams = true;
 export const runtime = "nodejs";
 
 export async function generateStaticParams() {

@@ -32,7 +32,7 @@ export type SubmissionStatus = "pending" | "approved";
 
 export const HONEYPOT_FIELD = "hp_field";
 
-export const SUBMISSION_SUCCESS_MESSAGE = "Your tool will be live in about 2 minutes.";
+export const SUBMISSION_SUCCESS_MESSAGE = "Your tool is live now.";
 
 export const SUBMISSION_UNAVAILABLE_MESSAGE =
   "We can't save this submission right now. Email it to the desk and we'll review it the same way.";

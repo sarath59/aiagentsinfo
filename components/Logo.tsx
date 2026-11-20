@@ -54,15 +54,15 @@ export function markSvg(
   const shapeGradient = reversed ? (
     <linearGradient id={shape} x1="18" y1="0" x2="576" y2="340" gradientUnits="userSpaceOnUse">
       <stop offset="0" stopColor="#FFFFFF" />
-      <stop offset="0.58" stopColor="#F7FBFC" />
-      <stop offset="1" stopColor="#E4F6F5" />
+      <stop offset="0.58" stopColor="#FBF8F1" />
+      <stop offset="1" stopColor="#EFE7D6" />
     </linearGradient>
   ) : (
     <linearGradient id={shape} x1="18" y1="0" x2="576" y2="340" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stopColor="#0B1F33" />
-      <stop offset="0.46" stopColor="#102A46" />
-      <stop offset="0.68" stopColor="#0C5CAD" />
-      <stop offset="1" stopColor="#14B8A6" />
+      <stop offset="0" stopColor="#0F2A2C" />
+      <stop offset="0.46" stopColor="#1D4346" />
+      <stop offset="0.68" stopColor="#285E60" />
+      <stop offset="1" stopColor="#A9C1B9" />
     </linearGradient>
   );
 
@@ -72,9 +72,9 @@ export function markSvg(
       <defs>
         {shapeGradient}
         <linearGradient id={star} x1="296" y1="150" x2="296" y2="318" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#F8E7A2" />
-          <stop offset="0.48" stopColor="#E0B04A" />
-          <stop offset="1" stopColor="#C4921A" />
+          <stop offset="0" stopColor="#EFE0BB" />
+          <stop offset="0.48" stopColor="#C4A165" />
+          <stop offset="1" stopColor="#9C7A3F" />
         </linearGradient>
       </defs>
       <path fill={`url(#${shape})`} d={BODY} />
@@ -84,24 +84,25 @@ export function markSvg(
   );
 }
 
-export function BrandWordmark({ className }: { className?: string }) {
+export function BrandWordmark({ className, variant = "default" }: { className?: string; variant?: MarkVariant }) {
+  const accent = variant === "reversed" ? "text-[#d9c08f]" : "text-[var(--gold)]";
   return (
     <span className={`flex flex-col justify-center leading-none ${className ?? ""}`}>
       <span className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-[var(--fg)]">
         AI Agents
       </span>
-      <span className="mt-[5px] font-sans text-[10px] font-semibold uppercase tracking-[0.34em] text-[var(--gold)]">
+      <span className={`mt-[5px] font-sans text-[10px] font-semibold uppercase tracking-[0.34em] ${accent}`}>
         Info
       </span>
     </span>
   );
 }
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, variant = "default" }: { className?: string; variant?: MarkVariant }) {
   return (
     <span className={`inline-flex items-center gap-2.5 sm:gap-3 ${className ?? ""}`}>
-      <BrandMark className="h-9 w-auto shrink-0 drop-shadow-[0_8px_14px_rgba(12,92,173,0.18)]" />
-      <BrandWordmark />
+      <BrandMark variant={variant} className="h-9 w-auto shrink-0 drop-shadow-[0_8px_14px_rgba(15,42,44,0.16)]" />
+      <BrandWordmark variant={variant} />
     </span>
   );
 }

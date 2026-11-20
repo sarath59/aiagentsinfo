@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
@@ -15,6 +15,15 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
 function siteVerification(): Metadata["verification"] {
@@ -56,12 +65,12 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: "light",
-  themeColor: "#f3f6fa",
+  themeColor: "#f6f3ec",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <head>
         <script
           id="datafast-queue"

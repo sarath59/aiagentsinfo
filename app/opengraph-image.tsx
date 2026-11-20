@@ -14,8 +14,8 @@ export default function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#F3F6FA",
-          color: "#0B1F33",
+          background: "#F6F3EC",
+          color: "#0F2A2C",
           position: "relative",
         }}
       >
@@ -25,7 +25,7 @@ export default function OpenGraphImage() {
             width: 520,
             height: 520,
             borderRadius: 999,
-            background: "rgba(47,157,255,0.18)",
+            background: "rgba(111,143,136,0.18)",
             top: -180,
             left: -80,
           }}
@@ -36,7 +36,7 @@ export default function OpenGraphImage() {
             width: 420,
             height: 420,
             borderRadius: 999,
-            background: "rgba(20,184,166,0.16)",
+            background: "rgba(169,193,185,0.16)",
             bottom: -160,
             left: 220,
           }}
@@ -47,7 +47,7 @@ export default function OpenGraphImage() {
             width: 280,
             height: 280,
             borderRadius: 999,
-            background: "rgba(224,176,74,0.2)",
+            background: "rgba(196,161,101,0.2)",
             top: -40,
             left: 460,
           }}
@@ -65,13 +65,13 @@ export default function OpenGraphImage() {
             {markSvg("og", { size: 72 })}
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 36, fontWeight: 700, letterSpacing: -0.6 }}>AI Agents</div>
-              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: 6, color: "#7A560C", marginTop: 8 }}>
+              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: 6, color: "#8A6A33", marginTop: 8 }}>
                 INFO
               </div>
             </div>
           </div>
           <div style={{ fontSize: 46, lineHeight: 1.14, letterSpacing: -1.1, maxWidth: 560 }}>{site.tagline}</div>
-          <div style={{ fontSize: 22, color: "#0F5F78", letterSpacing: 2.4 }}>Directory · Research · Learning</div>
+          <div style={{ fontSize: 22, color: "#8A6A33", letterSpacing: 2.4 }}>Directory · Research · Learning</div>
         </div>
         <div
           style={{
@@ -79,7 +79,7 @@ export default function OpenGraphImage() {
             width: 460,
             margin: 36,
             borderRadius: 36,
-            background: "linear-gradient(165deg, #123456 0%, #0B1F33 58%, #0E3A4A 100%)",
+            background: "linear-gradient(165deg, #1D4346 0%, #0F2A2C 58%, #1D4346 100%)",
             alignItems: "center",
             justifyContent: "center",
             position: "relative",
@@ -91,7 +91,7 @@ export default function OpenGraphImage() {
               width: 280,
               height: 280,
               borderRadius: 999,
-              background: "rgba(47,157,255,0.28)",
+              background: "rgba(111,143,136,0.28)",
               top: 40,
               left: 90,
             }}
@@ -102,7 +102,7 @@ export default function OpenGraphImage() {
               width: 180,
               height: 180,
               borderRadius: 999,
-              background: "rgba(62,225,200,0.2)",
+              background: "rgba(169,193,185,0.2)",
               bottom: 50,
               right: 36,
             }}

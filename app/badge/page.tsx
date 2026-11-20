@@ -37,7 +37,7 @@ export default function BadgePage() {
       <div className="mx-auto grid max-w-3xl gap-8 px-4 pb-20">
         <div className="flex flex-wrap items-center gap-4">
           <BadgePreview src="/badge/listed.svg" width={light.width} height={light.height} href={embed.href} alt="Listed on AI Agents Info" />
-          <span className="rounded-xl bg-[#0B1F33] p-3">
+          <span className="rounded-xl bg-[#0F2A2C] p-3">
             <BadgePreview
               src="/badge/listed/dark.svg"
               width={dark.width}

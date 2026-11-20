@@ -16,8 +16,8 @@ import { defaultMetadata } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
-  "Submit your AI tool free — no account, live in ~2 minutes",
-  "Submit an AI tool, SaaS product, app, or agent to the directory. No login and no fee. A valid submission goes live in about two minutes.",
+  "Submit your AI tool free — no account, live right away",
+  "Submit an AI tool, SaaS product, app, or agent to the directory. No login and no fee. A valid submission goes live as soon as it is saved.",
   "/submit",
 );
 
@@ -52,7 +52,7 @@ export default async function SubmitPage({
       <PageHeader
         kicker="Directory"
         title="Submit your tool"
-        summary="Free submission to the AI Agents Info directory. No account needed. A valid listing goes live in about 2 minutes."
+        summary="Free submission to the AI Agents Info directory. No account needed. A valid listing goes live as soon as it is saved."
       />
       <div className="mx-auto grid max-w-2xl gap-12 px-4 pb-20">
         {listing ? (
@@ -85,8 +85,8 @@ export default async function SubmitPage({
           <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">What happens next</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5">
             <li>We check that the site responds, the domain is new, and the text can be published. Keyboard-mash is rejected. A one-line slogan can go live for visitors and stay out of search. Read the <Link href="/editorial-policy">editorial policy</Link>.</li>
-            <li>We commit the listing to the directory and save your email with the submission so we can contact you. The directory page does not show your email.</li>
-            <li>Your tool will be live in about 2 minutes.</li>
+            <li>We save the listing to the directory, with your email so we can contact you. The directory page does not show your email.</li>
+            <li>Your tool page is live as soon as the form confirms the submission.</li>
           </ol>
           <p className="mt-4">
             If the form cannot save, it gives you an email draft to {site.email}. Do not send passwords, private metrics, or other secrets.

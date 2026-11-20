@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="No Scrubs AI">
+  <rect width="512" height="512" rx="72" fill="#101114"/>
+  <rect x="28" y="28" width="456" height="456" rx="48" fill="none" stroke="#eff1f5" stroke-opacity="0.35" stroke-width="6"/>
+  <path d="M92 380V132h40l100 156V132h40v248h-40L132 224v156z" fill="#eff1f5"/>
+  <rect x="318" y="326" width="102" height="54" fill="#d6ff5f"/>
+  <text x="369" y="368" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="900" fill="#101114">AI</text>
+</svg>

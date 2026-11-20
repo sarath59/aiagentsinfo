@@ -81,7 +81,7 @@ export default async function DirectorySlugPage({ params }: { params: Promise<{ 
     );
   }
 
-  const listing = all.find((item) => item.slug === slug);
+  const listing = await getDirectoryListing(slug);
   if (!listing) notFound();
   const supplement = listingSupplement(listing.slug);
   const modified = supplement?.checkedOn ?? listing.lastVerified;

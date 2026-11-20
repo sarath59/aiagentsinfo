@@ -1,6 +1,7 @@
 import { getDirectoryListings, type DirectoryListing } from "@/lib/directory";
 import { categoryTitle, pricingModels } from "@/lib/directory-meta";
 import { readSubmissionRecords } from "@/lib/submission-files";
+import { storedSubmissions } from "@/lib/submission-store";
 import { makerTypes, type MakerType, type ToolSubmission } from "@/lib/submissions";
 
 export type OriginKey = MakerType | "not-recorded";
@@ -11,8 +12,10 @@ const originOrder: { key: OriginKey; title: string }[] = [
 ];
 
 export async function getDirectoryStats() {
-  const listings = await getDirectoryListings();
-  const submissions = readSubmissionRecords();
+  const [listings, stored] = await Promise.all([getDirectoryListings(), storedSubmissions()]);
+  const files = readSubmissionRecords();
+  const fileSlugs = new Set(files.map((submission) => submission.slug));
+  const submissions = [...files, ...stored.filter((submission) => !fileSlugs.has(submission.slug))];
   const listingBySlug = new Map(listings.map((listing) => [listing.slug, listing]));
 
   const byCategory = countCategories(listings);

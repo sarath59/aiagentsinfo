@@ -22,33 +22,33 @@ function drawAnnouncement(
   font: string,
   input: { name: string; tagline: string; url: string },
 ) {
-  ctx.fillStyle = "#F3F6FA";
+  ctx.fillStyle = "#F6F3EC";
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-  circle(ctx, -40, -120, 260, "rgba(47,157,255,0.18)");
-  circle(ctx, 220, 520, 210, "rgba(20,184,166,0.16)");
-  circle(ctx, 520, -30, 140, "rgba(224,176,74,0.22)");
+  circle(ctx, -40, -120, 260, "rgba(111,143,136,0.18)");
+  circle(ctx, 220, 520, 210, "rgba(169,193,185,0.16)");
+  circle(ctx, 520, -30, 140, "rgba(196,161,101,0.22)");
 
   roundRect(ctx, 748, 36, 416, 558, 36);
   const panel = ctx.createLinearGradient(748, 36, 1164, 594);
-  panel.addColorStop(0, "#123456");
-  panel.addColorStop(0.58, "#0B1F33");
-  panel.addColorStop(1, "#0E3A4A");
+  panel.addColorStop(0, "#1D4346");
+  panel.addColorStop(0.58, "#0F2A2C");
+  panel.addColorStop(1, "#1D4346");
   ctx.fillStyle = panel;
   ctx.fill();
-  circle(ctx, 860, 90, 150, "rgba(47,157,255,0.28)");
-  circle(ctx, 1020, 430, 100, "rgba(62,225,200,0.2)");
+  circle(ctx, 860, 90, 150, "rgba(111,143,136,0.28)");
+  circle(ctx, 1020, 430, 100, "rgba(169,193,185,0.2)");
   drawMark(ctx, 848, 230, 210);
 
-  ctx.fillStyle = "#0B1F33";
+  ctx.fillStyle = "#0F2A2C";
   ctx.font = `700 34px ${font}`;
   ctx.fillText("AI Agents", 68, 92);
-  ctx.fillStyle = "#7A560C";
+  ctx.fillStyle = "#8A6A33";
   ctx.font = `700 16px ${font}`;
   ctx.fillText("INFO", 68, 118);
 
   const nameSize = fitSize(ctx, font, input.name, 640, 58, 36, 3);
-  ctx.fillStyle = "#0B1F33";
+  ctx.fillStyle = "#0F2A2C";
   ctx.font = `700 ${nameSize}px ${font}`;
   const nameLines = wrap(ctx, input.name, 640, 3);
   let y = 230;
@@ -57,13 +57,13 @@ function drawAnnouncement(
     y += nameSize * 1.12;
   }
 
-  ctx.fillStyle = "#0C5CAD";
+  ctx.fillStyle = "#285E60";
   ctx.font = `600 28px ${font}`;
   y += 18;
   ctx.fillText("is now listed on AI Agents Info", 68, y);
 
   if (input.tagline.trim()) {
-    ctx.fillStyle = "#3A5168";
+    ctx.fillStyle = "#4D6260";
     ctx.font = `400 22px ${font}`;
     y += 48;
     for (const line of wrap(ctx, input.tagline.trim(), 640, 2)) {
@@ -72,7 +72,7 @@ function drawAnnouncement(
     }
   }
 
-  ctx.fillStyle = "#0C746E";
+  ctx.fillStyle = "#4F7A72";
   const url = displayUrl(ctx, font, input.url, 640);
   ctx.fillText(url, 68, 572);
 }
@@ -162,15 +162,15 @@ function drawMark(ctx: CanvasRenderingContext2D, x: number, y: number, height: n
   ctx.scale(scale, scale);
   const shape = ctx.createLinearGradient(18, 0, 576, 340);
   shape.addColorStop(0, "#FFFFFF");
-  shape.addColorStop(0.58, "#F7FBFC");
-  shape.addColorStop(1, "#E4F6F5");
+  shape.addColorStop(0.58, "#FBF8F1");
+  shape.addColorStop(1, "#EFE7D6");
   ctx.fillStyle = shape;
   ctx.fill(new Path2D(brandMarkPaths.body));
   ctx.fill(new Path2D(brandMarkPaths.rightFoot));
   const star = ctx.createLinearGradient(226, 150, 366, 318);
-  star.addColorStop(0, "#F8E7A2");
-  star.addColorStop(0.48, "#E0B04A");
-  star.addColorStop(1, "#C4921A");
+  star.addColorStop(0, "#EFE0BB");
+  star.addColorStop(0.48, "#C4A165");
+  star.addColorStop(1, "#9C7A3F");
   ctx.fillStyle = star;
   ctx.fill(new Path2D(brandMarkPaths.star));
   ctx.restore();

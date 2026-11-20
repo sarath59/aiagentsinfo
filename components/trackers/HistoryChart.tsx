@@ -1,7 +1,7 @@
 import { DataSourceLine } from "@/components/DataSourceLine";
 import type { PageSource } from "@/lib/attribution";
 
-const PALETTE = ["#0c5cad", "#0c746e", "#0b1f33", "#e0b04a", "#2f9dff"];
+const PALETTE = ["#285e60", "#4f7a72", "#0f2a2c", "#c4a165", "#6f8f88"];
 
 export type ChartSeries = {
   id: string;
@@ -51,9 +51,9 @@ export function HistoryChart({
               x2={width - pad.right}
               y1={y(tick)}
               y2={y(tick)}
-              stroke="rgba(12, 42, 74, 0.12)"
+              stroke="rgba(15, 42, 44, 0.12)"
             />
-            <text x={pad.left - 8} y={y(tick) + 4} textAnchor="end" fontSize="11" fill="#3a5168">
+            <text x={pad.left - 8} y={y(tick) + 4} textAnchor="end" fontSize="11" fill="#4d6260">
               {tick >= 1_000_000 ? `${Math.round(tick / 1_000_000)}M` : tick >= 1_000 ? `${Math.round(tick / 1_000)}k` : tick}
             </text>
           </g>
@@ -65,10 +65,10 @@ export function HistoryChart({
             .join(" ");
           return <path key={item.id} d={d} fill="none" stroke={PALETTE[index % PALETTE.length]} strokeWidth="2" />;
         })}
-        <text x={pad.left} y={height - 10} fontSize="11" fill="#3a5168">
+        <text x={pad.left} y={height - 10} fontSize="11" fill="#4d6260">
           {start}
         </text>
-        <text x={width - pad.right} y={height - 10} textAnchor="end" fontSize="11" fill="#3a5168">
+        <text x={width - pad.right} y={height - 10} textAnchor="end" fontSize="11" fill="#4d6260">
           {end}
         </text>
       </svg>

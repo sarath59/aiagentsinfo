@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import type { ChartSpec, ReportChapter } from "@/lib/report-model";
 
-const BAR_COLORS = ["#0c5cad", "#0c746e", "#c4922a", "#123456"];
+const BAR_COLORS = ["#285e60", "#4f7a72", "#b08a4c", "#1D4346"];
 
 function Inline({ text }: { text: string }) {
   const nodes: ReactNode[] = [];
@@ -77,7 +77,7 @@ function ChartFigure({ chart }: { chart: ChartSpec }) {
           const y = 16 + row * rowH;
           return (
             <g key={category.label}>
-              <text x={0} y={y + 12} fill="#0b1f33" fontSize="12">
+              <text x={0} y={y + 12} fill="#0f2a2c" fontSize="12">
                 {category.label.length > 28 ? `${category.label.slice(0, 26)}…` : category.label}
               </text>
               {chart.series.map((series, index) => {
@@ -87,7 +87,7 @@ function ChartFigure({ chart }: { chart: ChartSpec }) {
                 return (
                   <g key={series}>
                     <rect x={labelW} y={by} width={Math.max(length, 1)} height={barH} rx={2} fill={BAR_COLORS[index % BAR_COLORS.length]} />
-                    <text x={labelW + length + gap} y={by + 11} fill="#3a5168" fontSize="11">
+                    <text x={labelW + length + gap} y={by + 11} fill="#4d6260" fontSize="11">
                       {category.displays[index] ?? String(value)}
                     </text>
                   </g>

@@ -207,6 +207,9 @@ export function Header() {
         <Link href="/" className="site-logo focus-ring" aria-label="AI Agents Info home">
           <Logo />
         </Link>
+        <span className="nav-lab" aria-hidden="true">
+          Research lab
+        </span>
         <nav aria-label="Primary" className="primary-nav">
           <Link href="/directory" className="nav-link focus-ring">
             Directory

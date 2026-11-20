@@ -16,7 +16,7 @@ function resolveSiteUrl() {
 
 /** One sentence, used verbatim on the About page, as the default meta description, and in Organization/WebSite JSON-LD. */
 export const entityLine =
-  "aiagentsinfo.com is an independent directory and research site tracking AI agents, agent harnesses, frameworks and agent benchmarks.";
+  "aiagentsinfo.com is an independent research lab and AI agent directory tracking AI agents, agent harnesses, frameworks and agent benchmarks.";
 
 /** Same sentence and the same research links on the homepage and the directory. */
 export const priorityReading = [
@@ -35,7 +35,7 @@ export const priorityReading = [
 ] as const;
 
 /** Short line shown under the brand in the site footer. */
-export const footerLine = "AI agent directory and dated research.";
+export const footerLine = "An independent research lab for AI agents, and the directory of the tools behind them.";
 
 export const site = {
   name: "AI Agents Info",
@@ -43,7 +43,7 @@ export const site = {
   domain: "www.aiagentsinfo.com",
   url: resolveSiteUrl(),
   description: entityLine,
-  tagline: "The biggest directory of AI tools and agents",
+  tagline: "The research lab and directory for AI agents",
   email: "hello@aiagentsinfo.com",
   bylines: {
     editorial: "AI Agents Info Editorial",

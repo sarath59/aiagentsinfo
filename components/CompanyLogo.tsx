@@ -9,11 +9,11 @@ const PRESETS = { xs: 18, sm: 28, md: 44, lg: 56 } as const;
 export type LogoSize = keyof typeof PRESETS | number;
 
 const BADGE_COLORS = [
-  { bg: "#071421", fg: "#3ee1c8" },
-  { bg: "#0b1e32", fg: "#e8b84a" },
-  { bg: "#2f9dff", fg: "#071421" },
-  { bg: "#3ee1c8", fg: "#071421" },
-  { bg: "#e8b84a", fg: "#071421" },
+  { bg: "#0B1F20", fg: "#a9c1b9" },
+  { bg: "#0f2a2c", fg: "#c4a165" },
+  { bg: "#6f8f88", fg: "#0B1F20" },
+  { bg: "#a9c1b9", fg: "#0B1F20" },
+  { bg: "#c4a165", fg: "#0B1F20" },
 ] as const;
 
 function resolveSize(size: LogoSize) {
@@ -88,7 +88,7 @@ export function CompanyLogo({
   const direct = remote || Boolean(src?.startsWith("/logos/makers/"));
   if (!src || failed || (!remote && !local)) return <InitialBadge name={name} size={px} />;
 
-  const background = tile === "dark" ? "#071421" : "#eef4f9";
+  const background = tile === "dark" ? "#0B1F20" : "#efede5";
   const alt = `${name} logo`;
 
   return (

@@ -108,8 +108,8 @@ export default function EditorialPolicyPage() {
         <section id="directory" className="listing-section mt-8">
           <h2 className="font-semibold tracking-tight text-2xl text-[var(--fg)]">Directory submissions and indexing</h2>
           <p className="mt-3">
-            There is no login and no fee. A valid submission is published automatically and usually appears within
-            about two minutes. The form is at <Link href="/submit">Submit a tool</Link>.
+            There is no login and no fee. A valid submission is published automatically and its page is live as soon
+            as it is saved. The form is at <Link href="/submit">Submit a tool</Link>.
           </p>
           <p className="mt-3">
             Listings this desk writes are labeled Editorial. They use the vendor&apos;s public site for price and

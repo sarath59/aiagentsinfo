@@ -27,8 +27,10 @@ See `.env.example`. **Do not commit API keys.** This repository is public.
 | `NEXT_PUBLIC_ANALYTICS_SRC` | Optional custom analytics script URL. |
 | `NEXT_PUBLIC_BING_VERIFICATION` | Optional. When set, the root layout renders `<meta name="msvalidate.01">` for Bing Webmaster Tools. Unset means the tag is omitted. |
 | `NEXT_PUBLIC_GOOGLE_VERIFICATION` | Optional. When set, the root layout renders `<meta name="google-site-verification">`. Unset means the tag is omitted. |
-| `GITHUB_SUBMISSIONS_TOKEN` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
-| `GITHUB_SUBMISSIONS_REPO` | Optional `owner/name` of a **private** repository. When set to a repo other than `sarath59/aiagentsinfo`, the submitter email is stored only in a GitHub issue there. When unset, the email is dropped. |
+| `SUPABASE_URL` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. The Supabase project URL. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
+| `SUPABASE_SECRET_KEY` | **Required on Vercel** with `SUPABASE_URL`. A Supabase secret key (`sb_secret_...`). Server-only; never prefix it with `NEXT_PUBLIC_`. |
+| `ALTCHA_HMAC_KEY` | **Required on Vercel.** Signs the submit form's human check. Generate one with `openssl rand -hex 32`. |
+| `GITHUB_SUBMISSIONS_TOKEN` | Legacy. Submissions no longer use it. Tracker pages fall back to it when `GITHUB_TOKEN` is unset. |
 
 This site does not run a newsletter, an email signup, a popup, or a subscribe CTA. Do not add one, and do not add a DataFast goal that exists only for newsletter signup. Old `/newsletter` URLs redirect to `/` with status 308. RSS at `/rss.xml` is the feed. Tool submissions are documented below.
 
@@ -56,7 +58,7 @@ Every new URL is a new file. Front matter is YAML. Publish only real, checked ma
 | Research paper/report | `content/research/*.md` | `/research/<slug>` |
 | Glossary term | `content/glossary/*.md` | `/glossary/<slug>` |
 | Directory listing | `content/directory/*.md` | `/directory/<slug>` |
-| Approved tool submission | `data/submissions/<slug>.json` with `"status": "approved"` | `/directory/<slug>` |
+| Approved tool submission | A row in the Supabase table `directory_submissions`, or a legacy `data/submissions/<slug>.json` with `"status": "approved"` | `/directory/<slug>` |
 
 1. Copy an existing file in the same folder.
 2. Change `slug` (or the filename) plus title/description/date.
@@ -77,26 +79,36 @@ Do not add a newsletter form, popup, footer signup, header link, `/newsletter` p
 1. The form posts to `POST /api/submit-tool`.
 2. The server sanitizes text and checks the same required fields as the browser. A filled honeypot is ignored. An IP is limited to 5 posts in 15 minutes. Profanity and obvious spam are rejected.
 3. The website URL must be public and respond with a final 2xx status (redirects are followed, up to five hops). Private hosts are refused.
-4. The registrable host, with a leading `www.` removed, is compared with every directory listing and every `data/submissions/*.json` file already on `main`. A repeat domain is rejected.
-5. When `GITHUB_SUBMISSIONS_TOKEN` is set, the server commits `data/submissions/<slug>.json` to `main` on `sarath59/aiagentsinfo` through the GitHub Contents API. `"status"` is `"approved"`. `logoUrl` and `email` are stored. Directory pages, RSS, and share cards do not render `email`. Files already on main without an email still load. Vercel redeploys `main`, and the listing usually appears within about two minutes with a Community submitted badge.
-6. If `GITHUB_SUBMISSIONS_REPO` is a different repository, the email is also written to a private GitHub issue labeled `tool-submission` in that repo. If the variable is unset, or points at `sarath59/aiagentsinfo`, that extra issue is skipped. The email stays on the submission JSON either way.
-7. If the token is missing or GitHub rejects the commit, the API returns an error and a `mailto:` link. The page shows that link. Nothing is described as published.
-8. The deploy reads `data/submissions/*.json`. Only `"approved"` records are rendered, merged with `content/directory`, and added to the sitemap. `"pending"` files are parsed and skipped. A slug that matches an existing listing, or a reserved directory path (`new`, `trending`, `editors-picks`, `submit`), fails the build.
+4. The registrable host, with a leading `www.` removed, is compared with every directory listing and every legacy `data/submissions/*.json` file. The table's unique `website_domain` key rejects a domain that is already a saved row. A repeat domain is rejected.
+5. When `SUPABASE_URL` and `SUPABASE_SECRET_KEY` are set, the server inserts a row into `directory_submissions` through the Supabase Data API. `status` is `approved`. `logo_url` and `email` are stored. Directory pages, RSS, and share cards do not render `email`, and page reads never select it. A slug that clashes with a saved row moves to the next free slug. Nothing is committed to git, so a submission does not trigger a deploy.
+6. After the insert, the server expires the cached Supabase reads. The listing's page is live right away, with a Community submitted badge. The directory, category pages, sitemap, and `llms.txt` include it on their next request. An indexable listing is sent to IndexNow from the production deployment.
+7. If Supabase is not configured or rejects the insert, the API returns an error and a `mailto:` link. The page shows that link. Nothing is described as published.
+8. Pages read approved rows through Next's cache, so visitor traffic does not query the database. Rows edited in the Supabase dashboard appear within six hours, or on the next deploy. If Supabase cannot be read during a build, the build fails rather than publishing the directory without those listings. A row whose slug matches an existing listing or a reserved directory path is skipped and logged.
 
-Token setup for Vercel → Project → Settings → Environment Variables → Production. The token must be allowed to commit to `main`.
+The table (Supabase SQL editor), with row level security on and no policies, so only the server's secret key can read or write it:
 
-Fine-grained personal access token:
+```sql
+create table public.directory_submissions (
+  slug text primary key, website_domain text not null unique,
+  status text not null default 'approved' check (status in ('pending', 'approved')),
+  submitted_at timestamptz not null default now(),
+  name text not null, website text not null, tagline text not null, description text not null,
+  category text not null, type text, pricing text not null,
+  starting_price text not null default '', billing_period text not null default '',
+  pricing_page_url text not null default '', logo_url text not null default '',
+  maker_name text not null default '', maker_x text not null default '', maker_type text,
+  yc_batch text not null default '', launch_year int,
+  revenue_source_url text not null default '', linkedin_url text not null default '',
+  github_url text not null default '', youtube_url text not null default '',
+  discord_url text not null default '', instagram_url text not null default '',
+  product_hunt_url text not null default '', email text not null default ''
+);
+alter table public.directory_submissions enable row level security;
+```
 
-- Repository access includes `sarath59/aiagentsinfo`.
-- **Contents: Read and write** on that repository (this is what creates the public JSON and triggers the deploy).
-- If `GITHUB_SUBMISSIONS_REPO` is set to a private repository, also grant that repository access and **Issues: Read and write** there. Do not grant that private repo as the place the JSON is committed; the public file always goes to `sarath59/aiagentsinfo`.
+Legacy submissions in `data/submissions/*.json` still load and render. Do not add new files there by hand.
 
-Classic personal access token:
-
-- `public_repo` is enough when `GITHUB_SUBMISSIONS_REPO` is unset (contents and nothing private).
-- `repo` is required when the email is stored in a private repository, because one token has to write contents on the public site and issues on the private repo.
-
-Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published file looks like this (this example is not a real product; do not commit it by hand):
+Category slugs and pricing slugs live in `lib/directory-meta.ts`. A legacy file looks like this (this example is not a real product; do not commit it by hand):
 
 ```json
 {
@@ -137,7 +149,7 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A published fi
 
 1. Push this repository to GitHub (already the case for this project).
 2. In Vercel: **Add New Project** → import `sarath59/aiagentsinfo` → framework preset Next.js → deploy. `vercel.json` sets `"framework": "nextjs"` and enables Git deployments **only on `main`** (no preview deploys for PR or feature branches).
-3. Project Settings → Environment Variables → set `GITHUB_SUBMISSIONS_TOKEN` (Contents read/write on `sarath59/aiagentsinfo`) so `/submit` can commit listings to `main`. Optionally set `GITHUB_SUBMISSIONS_REPO` to a private `owner/name` if submitter emails should be kept in issues. Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo). Optionally set `NEXT_PUBLIC_BING_VERIFICATION` and `NEXT_PUBLIC_GOOGLE_VERIFICATION` after creating those webmaster properties; leave them unset until you have the codes.
+3. Project Settings → Environment Variables → set `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, and `ALTCHA_HMAC_KEY` so `/submit` can save listings. Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo). Optionally set `NEXT_PUBLIC_BING_VERIFICATION` and `NEXT_PUBLIC_GOOGLE_VERIFICATION` after creating those webmaster properties; leave them unset until you have the codes.
 4. Project Settings → Domains → add `aiagentsinfo.com` and `www.aiagentsinfo.com`, with `www` as the canonical host. Point DNS (A/ALIAS/CNAME) as Vercel instructs. The apex host redirects to `www`.
 5. Wait for the certificate, then confirm `/sitemap.xml`, `/robots.txt`, and `/rss.xml` on the live host.
 
