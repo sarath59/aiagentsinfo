@@ -54,7 +54,7 @@ const FUNCTION_WORDS = new Set([
 ]);
 
 /** Community descriptions shorter than this stay out of the sitemap and get noindex. */
-export const COMMUNITY_INDEX_MIN_WORDS = 80;
+export const COMMUNITY_INDEX_MIN_WORDS = 50;
 
 export function visibleText(html: string) {
   return html

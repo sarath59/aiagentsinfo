@@ -59,7 +59,7 @@ faq:
   - question: "What should I publish on my own site so an assistant has something to cite?"
     answer: "Google’s May 21, 2025 Search Central post says to write unique, non-commodity pages, keep the main facts in text, and make sure Googlebot can fetch a 200 response. OpenAI’s search crawler needs the same kind of public page: a URL that answers a real question about what the product does."
   - question: "How does a directory listing on this site help, and when does it stay out of search?"
-    answer: "A listing is a public page on aiagentsinfo.com with your official URL. Community descriptions that are only a slogan, or that repeat the tagline, stay available to visitors and are left out of this site’s sitemap. This desk’s mechanical check is 80 words of description that is not the tagline. Payment does not buy a rank."
+    answer: "A listing is a public page on aiagentsinfo.com with your official URL. Community descriptions that are only a slogan, or that repeat the tagline, stay available to visitors and are left out of this site’s sitemap. This desk’s mechanical check is 50 words of description that is not the tagline. Payment does not buy a rank."
   - question: "How do I update the listing after I submit, without a login?"
     answer: "There is no account. Open the listing, use Claim / update this listing, and email the desk. The same form is at /submit?claim= followed by your slug. Name the missing screenshots, demo video, pricing, use cases, or links."
   - question: "What free checks can I run before I spend on ads?"
@@ -175,9 +175,9 @@ A listing is a public URL on this domain, with your official site as the source 
 
 [Submit your tool](/submit) requires no account and no fee. A valid submission is published automatically and usually appears in about two minutes. Community listings are the maker’s text. The page says so. This desk has not written an independent review of those pages.
 
-Search inclusion on this site is stricter than “the form accepted it.” The [editorial policy](/editorial-policy#directory) says a slogan, a sentence that repeats the tagline, or unreadable English is not a real explanation. Unreadable submissions are not published. Readable but thin ones stay up for visitors and are marked so they are not offered as search results. The mechanical check in this repository is 80 words of description that is not the tagline repeated.
+Search inclusion on this site is stricter than “the form accepted it.” The [editorial policy](/editorial-policy#directory) says a slogan, a sentence that repeats the tagline, or unreadable English is not a real explanation. Unreadable submissions are not published. Readable but thin ones stay up for visitors and are marked so they are not offered as search results. The mechanical check in this repository is 50 words of description that is not the tagline repeated.
 
-That 80-word figure is a threshold this desk uses. It is not a Google ranking factor, and it is not a ChatGPT score. If your listing is live but thin, write a real explanation of the product and [email an update](/submit). There is still no login.
+That 50-word figure is a threshold this desk uses. It is not a Google ranking factor, and it is not a ChatGPT score. If your listing is live but thin, write a real explanation of the product and [email an update](/submit). There is still no login.
 
 A listing also sits in a category. The category page is alphabetical. Comparison tables on [Best AI agents](/best) are sourced rows, not a quality score. After you submit, the success screen and the listing page both show the category and any comparison table this desk already publishes for that category. If your product is not a row on that table yet, the page says so. Nothing on those screens is a paid slot.
 
@@ -237,7 +237,7 @@ A unique public page, in text, that says what the product does, what it costs, a
 
 ### How does a directory listing on this site help, and when does it stay out of search?
 
-It is a public URL with your official site attached. Thin community blurbs stay up for visitors and stay out of this site’s sitemap. The mechanical check is 80 words that are not the tagline. [Submit](/submit) has no login. Payment does not buy a rank.
+It is a public URL with your official site attached. Thin community blurbs stay up for visitors and stay out of this site’s sitemap. The mechanical check is 50 words that are not the tagline. [Submit](/submit) has no login. Payment does not buy a rank.
 
 ### How do I update the listing after I submit, without a login?
 
