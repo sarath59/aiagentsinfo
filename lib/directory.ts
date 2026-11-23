@@ -95,7 +95,10 @@ export type DirectoryFilters = {
   tag?: string;
 };
 
-export async function getDirectoryListings(): Promise<DirectoryListing[]> {
+/** One load per worker process — SSG was re-parsing every listing on every page. */
+let directoryListingsPromise: Promise<DirectoryListing[]> | null = null;
+
+async function loadDirectoryListings(): Promise<DirectoryListing[]> {
   const docs = await loadMarkdownCollection<DirectoryFrontmatter>(
     contentDir("directory"),
   );
@@ -112,6 +115,13 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
     .filter((listing) => !isSpamListing(listing))
     .map(withCachedLogo)
     .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export async function getDirectoryListings(): Promise<DirectoryListing[]> {
+  if (!directoryListingsPromise) {
+    directoryListingsPromise = loadDirectoryListings();
+  }
+  return directoryListingsPromise;
 }
 
 /** A stored row whose slug is already a page is skipped and logged, so one row cannot break the build. */

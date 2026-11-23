@@ -2,6 +2,11 @@ export const TRACKER_REVALIDATE_SECONDS = 86_400;
 export const TRACKER_USER_AGENT =
   "AIAgentsInfo/1.0 (+https://www.aiagentsinfo.com; hello@aiagentsinfo.com)";
 
+/** Set by `npm run build` so SSG uses snapshots instead of multi-MB live API pulls. */
+export function skipLiveTrackerFetch() {
+  return process.env.SKIP_LIVE_TRACKER_FETCH === "1";
+}
+
 export type FetchOk<T> = {
   ok: true;
   data: T;

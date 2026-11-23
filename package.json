@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/normalize-maker-logos.mjs && next build",
+    "build": "node scripts/normalize-maker-logos.mjs && SKIP_LIVE_TRACKER_FETCH=1 next build",
     "start": "next start",
     "lint": "eslint",
     "indexnow": "node scripts/indexnow.mjs"

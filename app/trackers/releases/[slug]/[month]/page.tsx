@@ -19,7 +19,8 @@ import { getReleaseMonth, monthLabel, releaseClickDescription, releaseStaticPara
 import { formatDate } from "@/lib/utils";
 
 export const revalidate = 86400;
-export const dynamicParams = false;
+/** Latest month is prebuilt; older months generate on first request. */
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return releaseStaticParams();

@@ -10,7 +10,7 @@ import {
   pypiStatsUrl,
   type TrackedPackage,
 } from "@/lib/trackers/catalog";
-import { fetchJson, integer, isoDay, shortDate } from "@/lib/trackers/http";
+import { fetchJson, integer, isoDay, shortDate, skipLiveTrackerFetch } from "@/lib/trackers/http";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
 
 const WINDOW_DAYS = 30;
@@ -227,6 +227,7 @@ export function fetchTrackedPackage(item: TrackedPackage) {
 
 async function loadDownloadsReport(): Promise<DownloadsReport> {
   const fallback = snapshotAsReport();
+  if (skipLiveTrackerFetch()) return fallback;
   try {
     const [pypiResults, npmResults] = await Promise.all([
       Promise.all(PYPI_PACKAGES.map((item) => loadPypi(item))),

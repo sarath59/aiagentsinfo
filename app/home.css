@@ -1719,6 +1719,30 @@
   color: #e2c48a;
 }
 
+.list-tool-form-price {
+  margin-bottom: 0.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(243, 239, 230, 0.18);
+}
+
+.list-tool-form-price-amount {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #f3efe6;
+  font-variant-numeric: tabular-nums;
+}
+
+.list-tool-form-price-note {
+  margin: 0.45rem 0 0;
+  color: rgba(243, 239, 230, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .buy-faq {
   display: grid;
   gap: 1rem;

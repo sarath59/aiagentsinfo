@@ -14,6 +14,7 @@ import {
   listToolMeta,
 } from "@/lib/analytics/list-tool-goals";
 import type { LogoTile } from "@/lib/companies";
+import { FEATURED_PRICE_LABEL } from "@/lib/paid-listings/offer";
 
 export type HomeHeroTool = {
   slug: string;
@@ -52,7 +53,7 @@ export function HomeToolsHero({ tools, toolCount }: { tools: HomeHeroTool[]; too
           metadata={listToolMeta({ placement: "home_tools_wall" })}
           className="btn-primary focus-ring home-tools-hero-big-cta"
         >
-          Put your tool in AI answers
+          Put your tool in AI answers · {FEATURED_PRICE_LABEL}
         </TrackLink>
         <p className="home-tools-hero-count">
           <Link href="/directory" className="focus-ring">

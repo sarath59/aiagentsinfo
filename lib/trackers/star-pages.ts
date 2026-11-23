@@ -8,7 +8,7 @@ import {
   starPageRepos,
   type EntityLink,
 } from "@/lib/trackers/entities";
-import { isoDay } from "@/lib/trackers/http";
+import { isoDay, skipLiveTrackerFetch } from "@/lib/trackers/http";
 import { latestReleaseMonth } from "@/lib/trackers/releases";
 import {
   recentStarPoints,
@@ -91,7 +91,8 @@ export const getStarPage = cache(async (slug: string): Promise<StarPageData | nu
     }
   } else {
     const today = stored.find((point) => point.date === isoDay());
-    const fetched = today ? null : await fetchStarRow(item);
+    const fetched =
+      today || skipLiveTrackerFetch() ? null : await fetchStarRow(item);
     if (fetched && "row" in fetched) {
       row = fetched.row;
       retrievedAt = fetched.retrievedAt;

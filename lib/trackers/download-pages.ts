@@ -18,6 +18,7 @@ import {
   weeklyBlocks,
   type PackageDownloads,
 } from "@/lib/trackers/downloads";
+import { skipLiveTrackerFetch } from "@/lib/trackers/http";
 import { latestReleaseMonth } from "@/lib/trackers/releases";
 
 export type WeekBlock = { start: string; end: string; downloads: number };
@@ -70,6 +71,13 @@ function ranked(rows: PackageDownloads[], id: string) {
 }
 
 async function cliBundle() {
+  if (skipLiveTrackerFetch()) {
+    return {
+      rows: cliSnapshot.packages as PackageDownloads[],
+      live: false,
+      retrievedAt: cliSnapshot.retrievedAt,
+    };
+  }
   const results = await Promise.all(CLI_NPM_PACKAGES.map((item) => fetchTrackedPackage(item)));
   const rows: PackageDownloads[] = [];
   const times: string[] = [];

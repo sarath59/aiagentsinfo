@@ -2,7 +2,7 @@ import { cache } from "react";
 import snapshot from "@/data/trackers/releases-snapshot.json";
 import { githubReleasesApiUrl } from "@/lib/trackers/catalog";
 import { releasePageRepos } from "@/lib/trackers/entities";
-import { fetchJson, githubAuthHeaders, isoDay } from "@/lib/trackers/http";
+import { fetchJson, githubAuthHeaders, isoDay, skipLiveTrackerFetch } from "@/lib/trackers/http";
 
 const MONTHS = [
   "January",
@@ -296,12 +296,12 @@ export function latestReleaseMonth(slug: string) {
   return releaseMonths(slug)[0] ?? null;
 }
 
+/** Prebuild the latest month per repo at compile time; older months render on demand. */
 export function releaseStaticParams() {
   const params: { slug: string; month: string }[] = [];
   for (const item of releasePageRepos()) {
-    for (const month of releaseMonths(item.id)) {
-      params.push({ slug: item.id, month });
-    }
+    const latest = latestReleaseMonth(item.id);
+    if (latest) params.push({ slug: item.id, month: latest });
   }
   return params;
 }
@@ -373,7 +373,8 @@ export const getReleaseMonth = cache(async (slug: string, month: string): Promis
   let capped = stored.capped;
   let sourceUrl = githubReleasesApiUrl(item.repo);
 
-  if (isoDay(stored.retrievedAt) !== isoDay()) {
+  // Snapshot-only during `npm run build`; ISR/runtime still refreshes from GitHub.
+  if (!skipLiveTrackerFetch() && isoDay(stored.retrievedAt) !== isoDay()) {
     const fresh = await fetchLiveReleases(item.repo);
     if (fresh) {
       const liveMonth = fresh.rows.filter((row) => row.publishedDay.startsWith(month));

@@ -7,6 +7,7 @@ import {
   LIST_TOOL_STRIPE_URL,
   listToolMeta,
 } from "@/lib/analytics/list-tool-goals";
+import { FEATURED_DAYS, FEATURED_PRICE_LABEL } from "@/lib/paid-listings/offer";
 import { operator } from "@/lib/site";
 
 /** Details first → save lead → Stripe. Page/dwell tracking stays on ListToolPageTracker. */
@@ -64,7 +65,18 @@ export function ListToolCheckoutForm() {
   }
 
   return (
-    <form id="list-tool-checkout" className="list-tool-form grid gap-4" onSubmit={onSubmit} data-track-section="checkout">
+    <form
+      id="list-tool-checkout"
+      className="list-tool-form grid gap-4"
+      onSubmit={onSubmit}
+      data-track-section="checkout"
+    >
+      <div className="list-tool-form-price">
+        <p className="list-tool-form-price-amount">{FEATURED_PRICE_LABEL}</p>
+        <p className="list-tool-form-price-note">
+          USD · {FEATURED_DAYS}-day featured listing · one Stripe payment
+        </p>
+      </div>
       <label className="grid gap-1.5 text-sm">
         <span className="list-tool-form-label">Work email</span>
         <input
@@ -116,10 +128,10 @@ export function ListToolCheckoutForm() {
         disabled={status === "loading"}
         data-track-buy="1"
       >
-        {status === "loading" ? "Saving…" : "Save details & pay on Stripe"}
+        {status === "loading" ? "Saving…" : `Save details & pay ${FEATURED_PRICE_LABEL}`}
       </button>
       <p className="list-tool-form-hint text-xs leading-relaxed">
-        We save your details first, then open Stripe checkout. Need help?{" "}
+        {FEATURED_PRICE_LABEL} USD charged on Stripe after we save these details. Need help?{" "}
         <a className="underline" href={`mailto:${operator.email}`}>
           {operator.email}
         </a>

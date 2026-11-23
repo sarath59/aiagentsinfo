@@ -10,14 +10,17 @@ import {
 } from "@/lib/analytics/list-tool-goals";
 import { getDirectoryListings } from "@/lib/directory";
 import { formatTraffic, getLiveAiTraffic } from "@/lib/paid-listings/live-traffic";
+import { FEATURED_DAYS, FEATURED_PRICE_LABEL } from "@/lib/paid-listings/offer";
 import { JsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, operator, site } from "@/lib/site";
 
 const title = "Put your tool in AI answers";
-const description =
-  "Featured 30-day listing on AI Agents Info. Live AI bot traffic from our first-party tracker. Details first, then Stripe.";
+const description = `Featured ${FEATURED_DAYS}-day listing on AI Agents Info for ${FEATURED_PRICE_LABEL}. Answer-bot traffic from our first-party tracker. Details first, then Stripe.`;
 
 export const metadata = defaultMetadata(title, description, LIST_TOOL_PATH);
+
+/** Bot counts; refresh often. Avoids pinning a cold Supabase wait into every deploy. */
+export const revalidate = 300;
 
 const objections = [
   {
@@ -26,7 +29,11 @@ const objections = [
   },
   {
     q: "Guarantee ChatGPT names us?",
-    a: "No. We put you on a host answer bots already crawl — live counts below.",
+    a: "No. We put you on a host answer bots already crawl — counts below.",
+  },
+  {
+    q: `What is ${FEATURED_PRICE_LABEL}?`,
+    a: `${FEATURED_PRICE_LABEL} for ${FEATURED_DAYS} days featured. One Stripe payment. We match it by hand and go live fast.`,
   },
   {
     q: "Free option?",
@@ -35,13 +42,15 @@ const objections = [
 ] as const;
 
 export default async function ListYourToolPage() {
-  const [listings, traffic] = await Promise.all([getDirectoryListings(), getLiveAiTraffic(30)]);
+  const [listings, traffic] = await Promise.all([
+    getDirectoryListings(),
+    getLiveAiTraffic(FEATURED_DAYS),
+  ]);
   const toolCount = listings.length.toLocaleString("en-US");
   const windowLabel = `Last ${traffic.days} days`;
-  const liveTag = traffic.live ? "Live from our bot tracker" : "Tracker warming up";
 
   const stats = [
-    { value: formatTraffic(traffic.answer), label: "Answer-bot hits", note: windowLabel },
+    { value: formatTraffic(traffic.answer), label: "AI answer hits", note: windowLabel },
     { value: formatTraffic(traffic.chatgpt), label: "ChatGPT-User", note: windowLabel },
     { value: formatTraffic(traffic.training), label: "Training crawls", note: windowLabel },
     { value: formatTraffic(traffic.search), label: "Search crawls", note: windowLabel },
@@ -71,16 +80,19 @@ export default async function ListYourToolPage() {
 
       <header className="buy-hero" data-track-section="hero">
         <div className="buy-hero-inner">
-          <p className="buy-eyebrow">30-day featured · {toolCount} tools live</p>
+          <p className="buy-eyebrow">
+            {FEATURED_PRICE_LABEL} · {FEATURED_DAYS}-day featured · {toolCount} tools live
+          </p>
           <h1 className="buy-title">
             Put your tool in <em>AI answers</em>
           </h1>
           <p className="buy-lede">
-            We get huge AI traffic. Answer bots, training crawlers, and search agents hit this directory every day.
-            Numbers below are live from our own tracker and database — not a pitch deck.
+            Answer bots, training crawlers, and search agents hit this directory every day.{" "}
+            <strong>{formatTraffic(traffic.answer)} AI answer hits</strong> in the last {traffic.days}{" "}
+            days — from our own tracker.
           </p>
           <div className="buy-hero-actions">
-            <ListToolBuyButton label="Put my tool in AI answers" />
+            <ListToolBuyButton label={`Get featured · ${FEATURED_PRICE_LABEL}`} />
             <a className="buy-link" href={`mailto:${operator.email}`}>
               Contact if needed · {operator.email}
             </a>
@@ -88,11 +100,11 @@ export default async function ListYourToolPage() {
         </div>
       </header>
 
-      <section className="buy-proof" data-track-section="proof" aria-label="Live AI traffic">
+      <section className="buy-proof" data-track-section="proof" aria-label="AI traffic last 30 days">
         <div className="buy-proof-head">
           <p className="buy-proof-live">
             <span aria-hidden="true" />
-            {liveTag}
+            First-party bot tracker · {windowLabel}
           </p>
           <p className="buy-proof-total">
             <strong>{formatTraffic(traffic.total)}</strong> total AI/bot hits · {windowLabel}
@@ -112,20 +124,27 @@ export default async function ListYourToolPage() {
       <div className="buy-body">
         <section className="buy-checkout" data-track-section="offer" aria-labelledby="offer">
           <div className="buy-checkout-copy">
-            <p className="buy-eyebrow buy-eyebrow-on-dark">Featured month</p>
+            <p className="buy-eyebrow buy-eyebrow-on-dark">
+              {FEATURED_PRICE_LABEL} · featured month
+            </p>
             <h2 id="offer" className="buy-h2 buy-h2-on-dark">
               Be on the pages these bots already open
             </h2>
             <p className="buy-checkout-lede">
-              One payment. 30 days. Structured listing + IndexNow. We match your Stripe payment by hand and go live
-              fast.
+              One Stripe payment of {FEATURED_PRICE_LABEL}. {FEATURED_DAYS} days featured. Structured
+              listing + IndexNow. We match your payment by hand and go live fast.
             </p>
             <ul className="buy-checkout-bullets">
               <li>
-                <strong>{formatTraffic(traffic.answer)}</strong> answer hits in {traffic.days} days
+                <strong>{FEATURED_PRICE_LABEL}</strong> for {FEATURED_DAYS} days
               </li>
               <li>
-                <strong>{formatTraffic(traffic.chatgpt)}</strong> ChatGPT-User hits
+                <strong>{formatTraffic(traffic.answer)}</strong> AI answer hits in {traffic.days} days
+              </li>
+              <li>
+                <strong>{formatTraffic(traffic.chatgpt)}</strong> ChatGPT-User ·{" "}
+                <strong>{formatTraffic(traffic.training)}</strong> training ·{" "}
+                <strong>{formatTraffic(traffic.search)}</strong> search
               </li>
               <li>
                 Contact: <a href={`mailto:${operator.email}`}>{operator.email}</a>
@@ -153,7 +172,7 @@ export default async function ListYourToolPage() {
 
         <section className="buy-close" data-track-section="close">
           <div className="buy-hero-actions">
-            <ListToolBuyButton placement="footer" label="Put my tool in AI answers" />
+            <ListToolBuyButton placement="footer" label={`Get featured · ${FEATURED_PRICE_LABEL}`} />
             <TrackLink
               href="/submit"
               goal={LIST_TOOL_FREE_CLICK}
@@ -164,7 +183,7 @@ export default async function ListYourToolPage() {
             </TrackLink>
           </div>
           <p className="buy-fine">
-            {operator.line} · {site.name} · {absoluteUrl(LIST_TOOL_PATH)}
+            {FEATURED_PRICE_LABEL} USD · {operator.line} · {site.name} · {absoluteUrl(LIST_TOOL_PATH)}
           </p>
         </section>
       </div>

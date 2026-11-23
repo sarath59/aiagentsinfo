@@ -3,7 +3,7 @@ import snapshot from "@/data/trackers/stars-snapshot.json";
 
 export const starsSnapshotDay = snapshot.retrievedDay;
 import { STAR_REPOS, githubRepoApiUrl, type TrackedRepo } from "@/lib/trackers/catalog";
-import { fetchJson, githubAuthHeaders, integer, isoDay } from "@/lib/trackers/http";
+import { fetchJson, githubAuthHeaders, integer, isoDay, skipLiveTrackerFetch } from "@/lib/trackers/http";
 import type { SortableColumn, SortableRow } from "@/lib/sortable";
 
 type GithubRepo = {
@@ -83,6 +83,7 @@ export async function fetchStarRow(
 
 async function loadStarsReport(): Promise<StarsReport> {
   const fallback = snapshotAsReport();
+  if (skipLiveTrackerFetch()) return fallback;
   try {
     const results = await Promise.all(
       STAR_REPOS.map(async (item) => {

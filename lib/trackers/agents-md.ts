@@ -1,7 +1,16 @@
 import snapshot from "@/data/trackers/agents-md-snapshot.json";
 
 export const agentsMdSnapshotDay = snapshot.retrievedDay;
-import { fetchJson, fetchText, githubAuthHeaders, githubToken, integer, isoDay, shortDate } from "@/lib/trackers/http";
+import {
+  fetchJson,
+  fetchText,
+  githubAuthHeaders,
+  githubToken,
+  integer,
+  isoDay,
+  shortDate,
+  skipLiveTrackerFetch,
+} from "@/lib/trackers/http";
 
 const PAPER = {
   date: "2026-10-16",
@@ -56,6 +65,27 @@ function snapshotGithub(): SearchObservation[] {
 }
 
 export async function getAgentsMdReport(): Promise<AgentsMdReport> {
+  if (skipLiveTrackerFetch()) {
+    return {
+      live: false,
+      retrievedAt: snapshot.retrievedAt,
+      retrievedDay: isoDay(snapshot.retrievedAt),
+      github: snapshotGithub(),
+      specStars: snapshot.specStars,
+      specStarsRetrievedAt: snapshot.specStarsRetrievedAt,
+      homepageClaim: snapshot.homepageClaim,
+      homepageRetrievedAt: snapshot.homepageRetrievedAt,
+      paper: PAPER,
+      snapshot: {
+        sourcegraphRootAgentsMd: snapshot.sourcegraph.rootAgentsMd,
+        sourcegraphRootClaudeMd: snapshot.sourcegraph.rootClaudeMd,
+        sourcegraphRetrievedAt: snapshot.sourcegraph.retrievedAt,
+        sourcegraphWarnings: snapshot.sourcegraph.warnings,
+      },
+      failures: [],
+    };
+  }
+
   const failures: string[] = [];
   const github: SearchObservation[] = [];
   const retrieved: string[] = [];

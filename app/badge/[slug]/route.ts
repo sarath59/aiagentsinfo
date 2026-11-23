@@ -1,14 +1,13 @@
 import { badgeNotFound, badgeSvgResponse, parseBadgeSlugFile, renderBadge } from "@/lib/badge";
-import { badgeStaticIds, resolveBadgeName } from "@/lib/badge-names";
+import { resolveBadgeName } from "@/lib/badge-names";
 
 export const dynamic = "force-static";
-/** A listing saved to Supabase after the build gets its badge on first request. */
+/** Built on first request (and cached). Prebuilding every listing badge doubled deploy time. */
 export const dynamicParams = true;
 export const runtime = "nodejs";
 
-export async function generateStaticParams() {
-  const ids = await badgeStaticIds();
-  return ids.map((id) => ({ slug: `${id}.svg` }));
+export function generateStaticParams() {
+  return [{ slug: "listed.svg" }];
 }
 
 export async function GET(_request: Request, context: { params: Promise<{ slug: string }> }) {

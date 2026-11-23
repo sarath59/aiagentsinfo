@@ -70,27 +70,35 @@ export function listMarkdownFiles(directory: string) {
     .map((file) => path.join(directory, file));
 }
 
+const markdownCollectionCache = new Map<string, Promise<ParsedDocument<object>[]>>();
+
 export async function loadMarkdownCollection<T extends object>(
   directory: string,
 ): Promise<ParsedDocument<T>[]> {
-  const files = listMarkdownFiles(directory);
-  const docs = await Promise.all(
-    files.map(async (filepath) => {
-      const raw = fs.readFileSync(filepath, "utf8");
-      const parsed = matter(raw);
-      const slugFromFile = path.basename(filepath).replace(/\.mdx?$/, "");
-      const data = parsed.data as T & { slug?: string };
-      const slug = data.slug || slugFromFile;
-      const html = await renderMarkdown(parsed.content);
-      return {
-        slug,
-        filepath,
-        data,
-        content: parsed.content,
-        html,
-        toc: extractToc(html),
-      } satisfies ParsedDocument<T>;
-    }),
-  );
-  return docs;
+  let pending = markdownCollectionCache.get(directory);
+  if (!pending) {
+    pending = (async () => {
+      const files = listMarkdownFiles(directory);
+      return Promise.all(
+        files.map(async (filepath) => {
+          const raw = fs.readFileSync(filepath, "utf8");
+          const parsed = matter(raw);
+          const slugFromFile = path.basename(filepath).replace(/\.mdx?$/, "");
+          const data = parsed.data as T & { slug?: string };
+          const slug = data.slug || slugFromFile;
+          const html = await renderMarkdown(parsed.content);
+          return {
+            slug,
+            filepath,
+            data,
+            content: parsed.content,
+            html,
+            toc: extractToc(html),
+          } satisfies ParsedDocument<T>;
+        }),
+      );
+    })() as Promise<ParsedDocument<object>[]>;
+    markdownCollectionCache.set(directory, pending);
+  }
+  return pending as Promise<ParsedDocument<T>[]>;
 }

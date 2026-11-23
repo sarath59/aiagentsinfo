@@ -5,19 +5,18 @@ import {
   parseBadgeVariantFile,
   renderBadge,
 } from "@/lib/badge";
-import { badgeStaticIds, resolveBadgeName } from "@/lib/badge-names";
+import { resolveBadgeName } from "@/lib/badge-names";
 
 export const dynamic = "force-static";
-/** A listing saved to Supabase after the build gets its badge on first request. */
+/** Built on first request (and cached). Same SVG as before; not prebuilt for every listing. */
 export const dynamicParams = true;
 export const runtime = "nodejs";
 
-export async function generateStaticParams() {
-  const ids = await badgeStaticIds();
-  return ids.flatMap((id) => [
-    { slug: id, variant: "dark.svg" },
-    { slug: id, variant: "compact.svg" },
-  ]);
+export function generateStaticParams() {
+  return [
+    { slug: "listed", variant: "dark.svg" },
+    { slug: "listed", variant: "compact.svg" },
+  ];
 }
 
 export async function GET(

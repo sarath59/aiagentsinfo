@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
   cacheComponents: false,
   // tiktoken loads a WASM file from its package. Keep it on Node's loader.
   serverExternalPackages: ["tiktoken", "@modelcontextprotocol/server", "mcp-handler"],
+  experimental: {
+    // Parallel SSG — default can collapse to 1 worker in constrained CI shells.
+    cpus: 8,
+    staticGenerationMaxConcurrency: 8,
+    staticGenerationMinPagesPerWorker: 25,
+  },
   async headers() {
     const headers = [
       { key: "Cache-Control", value: badgeCache },
@@ -104,6 +110,7 @@ const nextConfig: NextConfig = {
     ];
   },
   turbopack: {
+    root: process.cwd(),
     rules: {
       "*.css": {
         loaders: ["@tailwindcss/turbopack"],

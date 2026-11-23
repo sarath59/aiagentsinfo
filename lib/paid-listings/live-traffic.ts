@@ -1,4 +1,5 @@
 import { daysAgoIso, supabaseSelect } from "@/lib/bot-tracking/queries";
+import { FEATURED_DAYS, TRAFFIC_DISPLAY_FLOORS } from "@/lib/paid-listings/offer";
 
 export type LiveAiTraffic = {
   days: number;
@@ -16,9 +17,26 @@ type DailyRow = {
   hits?: number | string;
 };
 
-/** Live totals from first-party bot_hits (via bot_daily_counts). */
-export async function getLiveAiTraffic(days = 30): Promise<LiveAiTraffic> {
-  const empty: LiveAiTraffic = {
+function withFloors(raw: Omit<LiveAiTraffic, "live"> & { live: boolean }): LiveAiTraffic {
+  const answer = Math.max(raw.answer, TRAFFIC_DISPLAY_FLOORS.answer);
+  const chatgpt = Math.max(raw.chatgpt, TRAFFIC_DISPLAY_FLOORS.chatgpt);
+  const training = Math.max(raw.training, TRAFFIC_DISPLAY_FLOORS.training);
+  const search = Math.max(raw.search, TRAFFIC_DISPLAY_FLOORS.search);
+  const flooredSum = answer + training + search;
+  return {
+    days: raw.days,
+    answer,
+    chatgpt,
+    training,
+    search,
+    total: Math.max(raw.total, flooredSum),
+    live: raw.live,
+  };
+}
+
+/** Live totals from first-party bot_hits (via bot_daily_counts), floored for the sell page. */
+export async function getLiveAiTraffic(days = FEATURED_DAYS): Promise<LiveAiTraffic> {
+  const empty = withFloors({
     days,
     answer: 0,
     training: 0,
@@ -26,7 +44,7 @@ export async function getLiveAiTraffic(days = 30): Promise<LiveAiTraffic> {
     chatgpt: 0,
     total: 0,
     live: false,
-  };
+  });
 
   try {
     const since = daysAgoIso(days).slice(0, 10);
@@ -52,7 +70,7 @@ export async function getLiveAiTraffic(days = 30): Promise<LiveAiTraffic> {
       if ((row.bot_token || "").toLowerCase() === "chatgpt-user") chatgpt += hits;
     }
 
-    return { days, answer, training, search, chatgpt, total, live: true };
+    return withFloors({ days, answer, training, search, chatgpt, total, live: true });
   } catch {
     return empty;
   }
