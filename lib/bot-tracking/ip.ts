@@ -2,6 +2,11 @@ import openaiChatgptUser from "@/data/bot-ip-ranges/openai-chatgpt-user.json" wi
 import openaiGptbot from "@/data/bot-ip-ranges/openai-gptbot.json" with { type: "json" };
 import openaiSearchbot from "@/data/bot-ip-ranges/openai-searchbot.json" with { type: "json" };
 import googleGooglebot from "@/data/bot-ip-ranges/google-googlebot.json" with { type: "json" };
+import anthropicBots from "@/data/bot-ip-ranges/anthropic-bots.json" with { type: "json" };
+import anthropicOutbound from "@/data/bot-ip-ranges/anthropic-outbound.json" with { type: "json" };
+import perplexityBot from "@/data/bot-ip-ranges/perplexity-bot.json" with { type: "json" };
+import perplexityUser from "@/data/bot-ip-ranges/perplexity-user.json" with { type: "json" };
+import microsoftBingbot from "@/data/bot-ip-ranges/microsoft-bingbot.json" with { type: "json" };
 
 export type IpVerified = "verified" | "unverified" | "unknown";
 
@@ -12,23 +17,43 @@ type PrefixFile = {
 
 type CidrRule = { version: 4 | 6; network: bigint; mask: bigint };
 
-const OPERATOR_FILES: { operator: string; file: PrefixFile }[] = [
-  { operator: "OpenAI", file: openaiChatgptUser as PrefixFile },
-  { operator: "OpenAI", file: openaiGptbot as PrefixFile },
-  { operator: "OpenAI", file: openaiSearchbot as PrefixFile },
-  { operator: "Google", file: googleGooglebot as PrefixFile },
-];
-
-const rangesByOperator = new Map<string, CidrRule[]>();
-
-for (const { operator, file } of OPERATOR_FILES) {
-  const list = rangesByOperator.get(operator) ?? [];
+function rulesFrom(file: PrefixFile): CidrRule[] {
+  const list: CidrRule[] = [];
   for (const prefix of file.prefixes ?? []) {
     const rule = parseCidr(prefix.ipv4Prefix) ?? parseCidr(prefix.ipv6Prefix);
     if (rule) list.push(rule);
   }
-  rangesByOperator.set(operator, list);
+  return list;
 }
+
+function merge(...lists: CidrRule[][]) {
+  return lists.flat();
+}
+
+const TOKEN_RANGES: Record<string, CidrRule[]> = {
+  "ChatGPT-User": rulesFrom(openaiChatgptUser as PrefixFile),
+  "OAI-SearchBot": rulesFrom(openaiSearchbot as PrefixFile),
+  GPTBot: rulesFrom(openaiGptbot as PrefixFile),
+  "PerplexityBot": rulesFrom(perplexityBot as PrefixFile),
+  "Perplexity-User": rulesFrom(perplexityUser as PrefixFile),
+  "Claude-User": merge(rulesFrom(anthropicBots as PrefixFile), rulesFrom(anthropicOutbound as PrefixFile)),
+  ClaudeBot: rulesFrom(anthropicBots as PrefixFile),
+  "Claude-SearchBot": rulesFrom(anthropicBots as PrefixFile),
+  Bingbot: rulesFrom(microsoftBingbot as PrefixFile),
+  msnbot: rulesFrom(microsoftBingbot as PrefixFile),
+};
+
+const OPERATOR_RANGES: Record<string, CidrRule[]> = {
+  OpenAI: merge(
+    rulesFrom(openaiChatgptUser as PrefixFile),
+    rulesFrom(openaiGptbot as PrefixFile),
+    rulesFrom(openaiSearchbot as PrefixFile),
+  ),
+  Google: rulesFrom(googleGooglebot as PrefixFile),
+  Anthropic: merge(rulesFrom(anthropicBots as PrefixFile), rulesFrom(anthropicOutbound as PrefixFile)),
+  Perplexity: merge(rulesFrom(perplexityBot as PrefixFile), rulesFrom(perplexityUser as PrefixFile)),
+  Microsoft: rulesFrom(microsoftBingbot as PrefixFile),
+};
 
 export function clientIp(request: Request): string | null {
   const forwarded = request.headers.get("x-forwarded-for");
@@ -57,21 +82,32 @@ export async function hashIp(ip: string | null): Promise<string> {
   return hex(digest).slice(0, 32);
 }
 
-export function verifyIp(ip: string | null, operator: string): IpVerified {
+/** Prefer token-specific ranges (Perplexity, Claude-User outbound), else operator list. */
+export function verifyIp(ip: string | null, operator: string, botToken?: string): IpVerified {
   if (!ip) return "unknown";
-  const ranges = rangesByOperator.get(operator);
-  if (!ranges?.length) return "unknown";
   const addr = parseIp(ip);
   if (!addr) return "unknown";
-  for (const rule of ranges) {
-    if (rule.version !== addr.version) continue;
-    if ((addr.value & rule.mask) === rule.network) return "verified";
+
+  const tokenRanges = botToken ? TOKEN_RANGES[botToken] : undefined;
+  if (tokenRanges?.length) {
+    return inRanges(addr, tokenRanges) ? "verified" : "unverified";
   }
-  return "unverified";
+
+  const operatorRanges = OPERATOR_RANGES[operator];
+  if (!operatorRanges?.length) return "unknown";
+  return inRanges(addr, operatorRanges) ? "verified" : "unverified";
 }
 
 export function operatorsWithIpRanges() {
-  return [...rangesByOperator.keys()];
+  return Object.keys(OPERATOR_RANGES).sort();
+}
+
+function inRanges(addr: { version: 4 | 6; value: bigint }, ranges: CidrRule[]) {
+  for (const rule of ranges) {
+    if (rule.version !== addr.version) continue;
+    if ((addr.value & rule.mask) === rule.network) return true;
+  }
+  return false;
 }
 
 function isPlausibleIp(value: string) {

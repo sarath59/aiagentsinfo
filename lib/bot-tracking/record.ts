@@ -114,7 +114,7 @@ export async function buildHit(request: Request, status = 0): Promise<BotHitRow 
     session_id: await sessionId(bot.token, ipHash),
     status: Number.isFinite(status) ? Math.max(0, Math.min(599, Math.trunc(status))) : 0,
     ip_hash: ipHash,
-    ip_verified: verifyIp(ip, bot.operator),
+    ip_verified: verifyIp(ip, bot.operator, bot.token),
     accept_html: accept.accept_html,
     accept_markdown: accept.accept_markdown,
     accept_json: accept.accept_json,

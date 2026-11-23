@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CompanyLogo } from "@/components/CompanyLogo";
 import { PageHeader } from "@/components/PageHeader";
-import { companyBySlug } from "@/lib/companies";
 import { defaultMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -13,7 +11,6 @@ export const metadata = defaultMetadata(
 );
 
 export default function PrivacyPage() {
-  const datafast = companyBySlug("datafast");
   return (
     <>
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Privacy", path: "/privacy" }]} />
@@ -77,12 +74,16 @@ export default function PrivacyPage() {
           only those URLs. The host, the files, and the paste are not written to a file, a database, or a log.
         </p>
         <p className="mt-4">
-          Page views are measured with{" "}
-          <a className="inline-flex items-center gap-1.5 align-middle" href="https://datafa.st" rel="noreferrer">
-            <CompanyLogo name="DataFast" src={datafast?.logo} tile={datafast?.tile} size="xs" />
-            DataFast
-          </a>{" "}
-          (<code>datafa.st</code>) so we can see which pages are read. No login, and we do not invent visitor counts on this site. An extra analytics script loads only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is also set in the host environment.
+          Page views, in-page goals (for example tool runs and report reading), and clicks we choose to measure are
+          logged first-party in our database. A random visitor id and session id are stored in the browser (cookies /
+          local storage) so returns can be counted without a login. We store the path, event name, referrer host, UTM
+          names when present, and a short User-Agent. We do not store emails in analytics. An optional extra script
+          loads only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is set.
+        </p>
+        <p className="mt-4">
+          Human visits that arrive from an AI chat product (for example ChatGPT, Claude, Perplexity, Gemini, Copilot,
+          Grok, or Meta AI) are labeled by referrer host or <code>utm_source</code> so we can compare them with answer
+          bots that fetched the same page.
         </p>
         <p className="mt-4">
           When a known AI crawler, answer fetcher, training bot, or other automated agent requests a page, this site
@@ -90,8 +91,7 @@ export default function PrivacyPage() {
           short User-Agent string, Accept flags, the referer host, a session id, and whether the client IP matched a
           published operator range. Query parameter names may be stored; values are not. Raw IP addresses are not
           stored; only a one-way hash used to group crawl sessions. Unknown automated clients may be sampled by
-          User-Agent for review. That log lives in our database so we can study which agents fetch which pages.
-          Ordinary human browsers are not written to that table.
+          User-Agent for review.
         </p>
       </div>
     </>

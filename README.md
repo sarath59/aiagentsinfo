@@ -29,13 +29,13 @@ See `.env.example`. **Do not commit API keys.** This repository is public.
 | `NEXT_PUBLIC_GOOGLE_VERIFICATION` | Optional. When set, the root layout renders `<meta name="google-site-verification">`. Unset means the tag is omitted. |
 | `SUPABASE_URL` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. The Supabase project URL. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
 | `SUPABASE_SECRET_KEY` | **Required on Vercel** with `SUPABASE_URL`. A Supabase secret key (`sb_secret_...`). Server-only; never prefix it with `NEXT_PUBLIC_`. |
-| `BOT_TRACKING_API_KEY` | Protects `/api/bot-tracking` reports and ingest. Generate with `openssl rand -hex 32`. Server-only. |
+| `BOT_TRACKING_API_KEY` | Protects `/api/bot-tracking` and `/api/analytics` report APIs. Generate with `openssl rand -hex 32`. Server-only. |
 | `BOT_TRACKING_ALERT_WEBHOOK` | Optional. POST JSON when a new `bot_token` is first seen. |
 | `BOT_TRACKING_IP_SALT` | Optional. Salt for `ip_hash` (defaults to the API key). |
 | `ALTCHA_HMAC_KEY` | **Required on Vercel.** Signs the submit form's human check. Generate one with `openssl rand -hex 32`. |
 | `GITHUB_SUBMISSIONS_TOKEN` | Legacy. Submissions no longer use it. Tracker pages fall back to it when `GITHUB_TOKEN` is unset. |
 
-This site does not run a newsletter, an email signup, a popup, or a subscribe CTA. Do not add one, and do not add a DataFast goal that exists only for newsletter signup. Old `/newsletter` URLs redirect to `/` with status 308. RSS at `/rss.xml` is the feed. Tool submissions are documented below.
+This site does not run a newsletter, an email signup, a popup, or a subscribe CTA. Do not add one, and do not add an analytics goal that exists only for newsletter signup. Old `/newsletter` URLs redirect to `/` with status 308. RSS at `/rss.xml` is the feed. Tool submissions are documented below. Analytics is first-party (Supabase); DataFast is not used.
 
 ## Brand assets
 
@@ -88,22 +88,24 @@ Do not add a newsletter form, popup, footer signup, header link, `/newsletter` p
 7. If Supabase is not configured or rejects the insert, the API returns an error and a `mailto:` link. The page shows that link. Nothing is described as published.
 8. Pages read approved rows through Next's cache, so visitor traffic does not query the database. Rows edited in the Supabase dashboard appear within six hours, or on the next deploy. If Supabase cannot be read during a build, the build fails rather than publishing the directory without those listings. A row whose slug matches an existing listing or a reserved directory path is skipped and logged.
 
-### AI / bot hits (`bot_hits`)
+### Analytics (bots + humans)
 
-Named AI crawlers, answer fetchers, training bots, and other automated agents are logged from `proxy.ts` into Supabase (not through DataFast bot traffic). Human DataFast page analytics stay in the browser script.
-
-1. Run [`supabase/bot-tracking.sql`](supabase/bot-tracking.sql) in the Supabase SQL editor (tables, RPC `record_bot_hit`, views).
-2. Set `BOT_TRACKING_API_KEY` on Vercel (and locally). Optional: `BOT_TRACKING_ALERT_WEBHOOK`, `BOT_TRACKING_IP_SALT`.
-3. Uses the same `SUPABASE_URL` / `SUPABASE_SECRET_KEY` as submissions. Tracking is fire-and-forget via `waitUntil`.
-
-Reports (Bearer token required):
+1. Run [`supabase/bot-tracking.sql`](supabase/bot-tracking.sql) and [`supabase/visitor-analytics.sql`](supabase/visitor-analytics.sql) in the Supabase SQL editor.
+2. Set `BOT_TRACKING_API_KEY` on Vercel (reads both report APIs). Optional: `BOT_TRACKING_ALERT_WEBHOOK`, `BOT_TRACKING_IP_SALT`.
+3. Uses `SUPABASE_URL` / `SUPABASE_SECRET_KEY`. Bot hits: `proxy.ts` → `bot_hits`. Humans: `SiteTracker` + `trackGoal` → `/api/analytics/collect` → `visitor_events`.
 
 ```bash
+# Bots
 curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
   "https://www.aiagentsinfo.com/api/bot-tracking?report=stats"
+
+# Humans (pageviews, goals, AI referrers, funnels)
+curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
+  "https://www.aiagentsinfo.com/api/analytics?report=overview"
 ```
 
-Reports: `stats`, `sessions`, `funnel`, `accept`, `unknown`, `answer-vs-training`, `alerts`, `registry`, `meta`. Ingest/status: `POST /api/bot-tracking/hit`.
+Bot reports: `stats`, `sessions`, `funnel`, `accept`, `unknown`, `answer-vs-training`, `alerts`, `registry`, `meta`.  
+Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `funnel-report-read`, `citations`, `citation-prompts`, `meta`.
 
 ### Directory submissions
 

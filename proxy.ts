@@ -6,8 +6,8 @@ import {
 import { trackBotRequest } from "@/lib/bot-tracking";
 
 export function proxy(request: NextRequest, event: NextFetchEvent) {
-  // Own AI/bot tracker → Supabase. Do not await; waitUntil keeps the page fast.
-  // Normal DataFast page analytics stay in app/layout.tsx (browser script).
+  // AI/bot tracker → Supabase. Do not await; waitUntil keeps the page fast.
+  // Human pageviews/goals go through SiteTracker → /api/analytics/collect.
   trackBotRequest(request, event);
 
   if (

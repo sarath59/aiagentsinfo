@@ -10,4 +10,4 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Site rules
 
-aiagentsinfo.com does not run a newsletter. Do not add an email signup, a popup, a footer or header subscribe link, a `/newsletter` page, a subscribe API, copy that promises a digest, or a DataFast goal that exists only for newsletter signup. Keep every other DataFast goal. Keep RSS at `/rss.xml`. Old `/newsletter` URLs redirect to `/` with status 308 and stay out of the sitemap.
+aiagentsinfo.com does not run a newsletter. Do not add an email signup, a popup, a footer or header subscribe link, a `/newsletter` page, a subscribe API, copy that promises a digest, or an analytics goal that exists only for newsletter signup. Keep every other analytics goal (`trackGoal` / `trackTool`). Keep RSS at `/rss.xml`. Old `/newsletter` URLs redirect to `/` with status 308 and stay out of the sitemap. Human analytics and AI-bot tracking are first-party (Supabase); do not add DataFast.

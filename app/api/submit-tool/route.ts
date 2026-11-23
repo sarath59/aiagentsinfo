@@ -1,6 +1,6 @@
 import { after, NextResponse } from "next/server";
 import { altchaPayloadFrom, HUMAN_CHECK_MESSAGE, verifyAltchaPayload } from "@/lib/altcha";
-import { trackServerGoal } from "@/lib/datafast-server";
+import { trackServerGoal } from "@/lib/analytics-server";
 import { communityListingIsIndexable } from "@/lib/indexing";
 import { pingIndexNow } from "@/lib/indexnow";
 import { takeRateLimit } from "@/lib/rate-limit";

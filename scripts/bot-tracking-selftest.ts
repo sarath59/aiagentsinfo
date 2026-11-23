@@ -61,9 +61,16 @@ assert.equal(accept.accept_html, true);
 
 assert.ok(operatorsWithIpRanges().includes("OpenAI"));
 assert.ok(operatorsWithIpRanges().includes("Google"));
+assert.ok(operatorsWithIpRanges().includes("Anthropic"));
+assert.ok(operatorsWithIpRanges().includes("Perplexity"));
+assert.ok(operatorsWithIpRanges().includes("Microsoft"));
 assert.equal(verifyIp("20.171.206.10", "OpenAI"), "verified");
 assert.equal(verifyIp("1.2.3.4", "OpenAI"), "unverified");
-assert.equal(verifyIp("1.2.3.4", "Anthropic"), "unknown");
+assert.equal(verifyIp("160.79.106.14", "Anthropic", "Claude-User"), "verified");
+assert.equal(verifyIp("1.2.3.4", "Anthropic", "ClaudeBot"), "unverified");
+assert.equal(verifyIp("107.20.236.150", "Perplexity", "PerplexityBot"), "verified");
+assert.equal(verifyIp("107.20.236.150", "Perplexity", "Perplexity-User"), "unverified");
+assert.equal(verifyIp("1.2.3.4", "ByteDance"), "unknown");
 
 process.env.BOT_TRACKING_API_KEY = "test-key-please-change";
 assert.equal(
@@ -96,7 +103,8 @@ async function main() {
         "user-agent": "Mozilla/5.0 (compatible; ChatGPT-User/1.0)",
         accept: "text/html",
         referer: "https://chatgpt.com/",
-        "x-forwarded-for": "20.171.206.10",
+        // First prefix in openai-chatgpt-user.json (not GPTBot ranges).
+        "x-forwarded-for": "104.208.184.192",
       },
     }),
   );

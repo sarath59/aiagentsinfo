@@ -5,6 +5,7 @@ const promptBuckets = new Map<string, Bucket>();
 const mcpBuckets = new Map<string, Bucket>();
 const robotsBuckets = new Map<string, Bucket>();
 const mcpConfigBuckets = new Map<string, Bucket>();
+const analyticsBuckets = new Map<string, Bucket>();
 
 const SUBMIT_WINDOW_MS = 15 * 60 * 1000;
 const SUBMIT_MAX_HITS = 5;
@@ -12,6 +13,8 @@ const PROMPT_WINDOW_MS = 10 * 60 * 1000;
 const PROMPT_MAX_HITS = 30;
 const MCP_WINDOW_MS = 5 * 60 * 1000;
 const MCP_MAX_HITS = 90;
+const ANALYTICS_WINDOW_MS = 60 * 1000;
+const ANALYTICS_MAX_HITS = 120;
 
 function takeBucket(buckets: Map<string, Bucket>, key: string, now: number, windowMs: number, maxHits: number) {
   if (buckets.size > 5000) {
@@ -53,10 +56,15 @@ export function takeMcpConfigLimit(key: string, now = Date.now()) {
   return takeBucket(mcpConfigBuckets, key, now, PROMPT_WINDOW_MS, 120);
 }
 
+export function takeAnalyticsLimit(key: string, now = Date.now()) {
+  return takeBucket(analyticsBuckets, key, now, ANALYTICS_WINDOW_MS, ANALYTICS_MAX_HITS);
+}
+
 export function clearRateLimits() {
   submitBuckets.clear();
   promptBuckets.clear();
   mcpBuckets.clear();
   robotsBuckets.clear();
   mcpConfigBuckets.clear();
+  analyticsBuckets.clear();
 }

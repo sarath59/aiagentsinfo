@@ -48,6 +48,7 @@ export function shouldIgnorePath(pathname: string) {
   const path = normalizePath(pathname);
   if (path.startsWith("/_next/")) return true;
   if (path === "/api/bot-tracking" || path.startsWith("/api/bot-tracking/")) return true;
+  if (path === "/api/analytics" || path.startsWith("/api/analytics/")) return true;
   if (path.startsWith("/badge/") && path.endsWith(".svg")) return true;
   if (/\.(?:css|js|map|woff2?|ttf|eot|png|jpe?g|gif|webp|avif|ico|svg)$/i.test(path)) {
     // Keep crawler-facing text/xml files.

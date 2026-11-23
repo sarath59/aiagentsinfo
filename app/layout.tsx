@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Fraunces, Inter } from "next/font/google";
-import Script from "next/script";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SiteTracker } from "@/components/SiteTracker";
 import { ToolViewTracker } from "@/components/ToolViewTracker";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -71,15 +72,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <head>
-        <script
-          id="datafast-queue"
-          dangerouslySetInnerHTML={{
-            __html:
-              "window.datafast=window.datafast||function(){window.datafast.q=window.datafast.q||[];window.datafast.q.push(arguments);};",
-          }}
-        />
-      </head>
       <body className="min-h-screen antialiased">
         <a className="skip-link" href="#main">
           Skip to content
@@ -90,12 +82,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main">{children}</main>
         <Footer />
         <ToolViewTracker />
-        <Script
-          src="https://datafa.st/js/script.js"
-          data-website-id="dfid_0z04dGwxdEtL6cLScbJkR"
-          data-domain="aiagentsinfo.com"
-          strategy="afterInteractive"
-        />
+        <Suspense fallback={null}>
+          <SiteTracker />
+        </Suspense>
         <Analytics />
       </body>
     </html>
