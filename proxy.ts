@@ -1,21 +1,14 @@
-import { trackAICrawlerRequest } from "@datafast/ai-crawl";
 import {
   NextResponse,
   type NextFetchEvent,
   type NextRequest,
 } from "next/server";
-
-/** Same public ID as the DataFast browser script in app/layout.tsx. */
-const DATAFAST_WEBSITE_ID = "dfid_0z04dGwxdEtL6cLScbJkR";
+import { trackBotRequest } from "@/lib/bot-tracking";
 
 export function proxy(request: NextRequest, event: NextFetchEvent) {
-  const authToken = process.env.DATAFAST_BOT_TOKEN?.trim();
-
-  // Do not await. The package schedules the DataFast call with event.waitUntil.
-  trackAICrawlerRequest(request, event, {
-    websiteId: DATAFAST_WEBSITE_ID,
-    ...(authToken ? { authToken } : {}),
-  });
+  // Own AI/bot tracker → Supabase. Do not await; waitUntil keeps the page fast.
+  // Normal DataFast page analytics stay in app/layout.tsx (browser script).
+  trackBotRequest(request, event);
 
   if (
     request.nextUrl.pathname === "/directory" &&
@@ -30,6 +23,7 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
 }
 
 export const config = {
-  // Keep crawler-facing files and the IndexNow key file on this proxy.
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  // Include /api so agent POSTs to tools/MCP are counted as interacts.
+  // Static Next assets stay out. Local filters skip humans and binary files.
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };

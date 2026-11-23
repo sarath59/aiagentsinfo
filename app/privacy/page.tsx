@@ -84,6 +84,15 @@ export default function PrivacyPage() {
           </a>{" "}
           (<code>datafa.st</code>) so we can see which pages are read. No login, and we do not invent visitor counts on this site. An extra analytics script loads only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is also set in the host environment.
         </p>
+        <p className="mt-4">
+          When a known AI crawler, answer fetcher, training bot, or other automated agent requests a page, this site
+          records the bot name, the path, the request kind (view, interact, or discovery file), the HTTP method, a
+          short User-Agent string, Accept flags, the referer host, a session id, and whether the client IP matched a
+          published operator range. Query parameter names may be stored; values are not. Raw IP addresses are not
+          stored; only a one-way hash used to group crawl sessions. Unknown automated clients may be sampled by
+          User-Agent for review. That log lives in our database so we can study which agents fetch which pages.
+          Ordinary human browsers are not written to that table.
+        </p>
       </div>
     </>
   );

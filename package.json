@@ -10,7 +10,6 @@
     "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
-    "@datafast/ai-crawl": "^1.0.9",
     "@modelcontextprotocol/server": "^2.4.0",
     "altcha": "^3.6.0",
     "altcha-lib": "^2.8.0",
