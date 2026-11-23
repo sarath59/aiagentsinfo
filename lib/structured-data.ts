@@ -1,5 +1,13 @@
 import { authorByName } from "@/lib/authors";
-import { absoluteUrl, entityLine, organizationSameAs, publisherAlternateName, publisherName, site } from "@/lib/site";
+import {
+  absoluteUrl,
+  entityLine,
+  operator,
+  organizationSameAs,
+  publisherAlternateName,
+  publisherName,
+  site,
+} from "@/lib/site";
 
 const ISO_DATE = /^\d{4}(-\d{2}-\d{2})?$/;
 
@@ -17,6 +25,7 @@ export function organizationJsonLd() {
     "@id": absoluteUrl("/#organization"),
     name: publisherName,
     alternateName: publisherAlternateName,
+    legalName: operator.name,
     url: absoluteUrl("/"),
     email: site.email,
     description: site.description,
@@ -25,6 +34,11 @@ export function organizationJsonLd() {
       url: absoluteUrl("/brand/icon-512.png"),
       width: 512,
       height: 512,
+    },
+    parentOrganization: {
+      "@type": "Organization",
+      name: operator.name,
+      email: operator.email,
     },
     sameAs: [...organizationSameAs],
   };

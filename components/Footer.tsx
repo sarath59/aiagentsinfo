@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { footerLegal, footerLine, footerNav, site } from "@/lib/site";
+import { footerLegal, footerLine, footerNav, operator, site } from "@/lib/site";
 
 const columnTitle = "kicker mb-4";
 const columnLink =
@@ -16,6 +16,7 @@ export function Footer() {
               <Logo variant="reversed" />
             </Link>
             <p className="site-footer-tagline mt-6 max-w-xs">{footerLine}</p>
+            <p className="mt-3 max-w-xs text-xs leading-relaxed text-[var(--muted)]">{operator.line}</p>
           </div>
           {footerNav.map((group) => (
             <nav key={group.title} aria-label={group.title} className="min-w-0">
@@ -34,7 +35,7 @@ export function Footer() {
         </div>
         <div className="mt-14 flex flex-col gap-3 border-t border-[var(--stroke)] pt-6 text-xs text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name} · Independent research lab and AI agent directory
+            © {new Date().getFullYear()} {operator.name} · {site.name}
           </p>
           <ul className="flex flex-wrap gap-x-4 gap-y-2">
             {footerLegal.map((link) => (

@@ -7,6 +7,7 @@ import {
   LIST_TOOL_STRIPE_URL,
   listToolMeta,
 } from "@/lib/analytics/list-tool-goals";
+import { operator } from "@/lib/site";
 
 /** Details first → save lead → Stripe. Page/dwell tracking stays on ListToolPageTracker. */
 export function ListToolCheckoutForm() {
@@ -58,7 +59,7 @@ export function ListToolCheckoutForm() {
       window.location.assign(json.stripe_url || LIST_TOOL_STRIPE_URL);
     } catch {
       setStatus("error");
-      setMessage("Network error. Email hello@aiagentsinfo.com, then use the Stripe link.");
+      setMessage(`Network error. Email ${operator.email}, then use the Stripe link.`);
     }
   }
 
@@ -118,7 +119,11 @@ export function ListToolCheckoutForm() {
         {status === "loading" ? "Saving…" : "Save details & pay on Stripe"}
       </button>
       <p className="list-tool-form-hint text-xs leading-relaxed">
-        We save your details first, then open Stripe checkout.
+        We save your details first, then open Stripe checkout. Need help?{" "}
+        <a className="underline" href={`mailto:${operator.email}`}>
+          {operator.email}
+        </a>
+        .
       </p>
     </form>
   );

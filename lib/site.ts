@@ -37,6 +37,13 @@ export const priorityReading = [
 /** Short line shown under the brand in the site footer. */
 export const footerLine = "An independent research lab for AI agents, and the directory of the tools behind them.";
 
+/** Legal operator of the site and product. */
+export const operator = {
+  name: "Anthroly Inc",
+  email: "sharatth@anthroly.com",
+  line: "AI Agents Info is operated by Anthroly Inc.",
+} as const;
+
 export const site = {
   name: "AI Agents Info",
   shortName: "Agents Info",

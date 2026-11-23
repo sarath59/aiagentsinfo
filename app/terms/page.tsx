@@ -1,7 +1,7 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { operator, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Terms",
@@ -27,6 +27,10 @@ export default function TermsPage() {
         </p>
         <p className="mt-4">
           The software in this repository is MIT-licensed (see LICENSE). That license is for the code, not a trademark grant for the name {site.name}.
+        </p>
+        <p className="mt-4">
+          {operator.line} Contact{" "}
+          <a href={`mailto:${operator.email}`}>{operator.email}</a> for product questions.
         </p>
       </div>
     </>

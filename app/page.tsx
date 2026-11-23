@@ -1,12 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowIcon, SearchIcon } from "@/components/Icons";
+import { ArrowIcon } from "@/components/Icons";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
 import { EntityStatement } from "@/components/EntityStatement";
-import { HeroToolStrip } from "@/components/home/HeroToolStrip";
 import { HomeReveal } from "@/components/home/HomeReveal";
-import { LabHeroShell } from "@/components/home/LabHeroShell";
+import { HomeToolsHero } from "@/components/home/HomeToolsHero";
 import { FlagshipCover, ReportCover } from "@/components/ReportCover";
 import { SubmitToolButton } from "@/components/SubmitToolButton";
 import { TrackLink } from "@/components/TrackLink";
@@ -103,7 +102,7 @@ export default async function HomePage() {
       : guidePosts
   ).slice(0, 4);
   const papers = research.slice(0, 4);
-  const tools = previewTools(listings, 6);
+  const tools = previewTools(listings, 24);
   const heroTools = tools.map((listing) => {
     const brand = companyForName(listing.name);
     return {
@@ -113,8 +112,8 @@ export default async function HomePage() {
       tile: brand?.tile,
     };
   });
+  const sectionTools = tools.slice(0, 6);
   const categories = topCategories(listings, 10);
-  const latestBriefs = publishedReports.slice(0, 4);
   const reportGrid = publishedReports.slice(0, 6);
   const reportCount = publishedReports.length + (flagshipReport ? 1 : 0);
   const instruments = instrumentHrefs.flatMap((href) => {
@@ -123,119 +122,9 @@ export default async function HomePage() {
   });
   const toolCount = listings.length.toLocaleString("en-US");
 
-  const stats = [
-    { value: toolCount, label: `${plural(listings.length, "tool")} in the directory`, href: "/directory" },
-    { value: String(reportCount), label: "research reports", href: "/reports" },
-    { value: String(liveTrackers.length), label: "live trackers", href: "/trackers" },
-    { value: String(research.length), label: "paper notes", href: "/research" },
-  ];
-
   return (
     <div className="home">
-      <LabHeroShell>
-        <div className="lab-hero-fx" aria-hidden="true">
-          <div className="lab-hero-grid" />
-          <div className="lab-hero-glow" />
-        </div>
-        <div className="lab-hero-inner mx-auto max-w-6xl px-4">
-          <div className="lab-hero-copy">
-            <p className="lab-badge">
-              <span className="lab-badge-dot" aria-hidden="true" />
-              Independent research lab · AI agent directory
-            </p>
-            <h1 id="home-heading" className="lab-headline">
-              The research lab <em>and directory</em> for AI agents
-            </h1>
-            <p className="lab-sub">
-              Dated, sourced research on how AI agents are built, priced and used, and a directory of {toolCount} AI
-              agent tools, each checked against a working site.
-            </p>
-            <HeroToolStrip tools={heroTools} />
-            <form className="lab-search" action="/directory" method="get" role="search">
-              <SearchIcon className="lab-search-icon" />
-              <label htmlFor="home-directory-search" className="sr-only">
-                Search the AI agent directory
-              </label>
-              <input
-                id="home-directory-search"
-                name="q"
-                type="search"
-                placeholder="Search AI agents, coding agents, frameworks…"
-                className="lab-search-input"
-                autoComplete="off"
-              />
-              <button type="submit" className="btn-primary focus-ring lab-search-button">
-                Search
-              </button>
-            </form>
-            <div className="lab-actions">
-              <TrackLink
-                href={LIST_TOOL_PATH}
-                goal={LIST_TOOL_CTA}
-                metadata={listToolMeta({ placement: "home_hero" })}
-                className="btn-primary focus-ring"
-              >
-                List your tool
-              </TrackLink>
-              <Link href="/reports" className="lab-link focus-ring">
-                Read the research
-                <ArrowIcon className="h-3.5 w-3.5" />
-              </Link>
-              <span className="lab-actions-rule" aria-hidden="true" />
-              <TrackLink href="/submit" goal="submit_cta" className="lab-link lab-link-muted focus-ring">
-                Submit free
-              </TrackLink>
-            </div>
-          </div>
-
-          <aside className="lab-bulletin" aria-labelledby="home-bulletin" data-hero-stop>
-            <div className="lab-bulletin-head">
-              <p id="home-bulletin" className="lab-bulletin-title">
-                From the lab
-              </p>
-              <p className="lab-bulletin-live">
-                <span aria-hidden="true" />
-                Latest briefs
-              </p>
-            </div>
-            <ol className="lab-bulletin-list">
-              {latestBriefs.map((brief, index) => (
-                <li key={brief.href}>
-                  <Link href={brief.href} className="lab-bulletin-item focus-ring">
-                    <span className="lab-bulletin-index" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="lab-bulletin-copy">
-                      <span className="lab-bulletin-kicker">
-                        {brief.kicker}
-                        {brief.date ? ` · ${formatDate(brief.date)}` : ""}
-                      </span>
-                      <span className="lab-bulletin-name">{brief.title}</span>
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-            <Link href="/reports" className="lab-bulletin-all focus-ring">
-              Open the research library
-              <ArrowIcon className="h-3.5 w-3.5" />
-            </Link>
-          </aside>
-        </div>
-
-        <div className="mx-auto max-w-6xl px-4" data-hero-stop>
-          <ul className="lab-stats" aria-label="At a glance">
-            {stats.map((stat) => (
-              <li key={stat.href}>
-                <Link href={stat.href} className="lab-stat focus-ring">
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </LabHeroShell>
+      <HomeToolsHero tools={heroTools} toolCount={toolCount} />
 
       <HomeReveal>
         <section className="mx-auto max-w-6xl px-4" aria-label="What we do">
@@ -321,9 +210,9 @@ export default async function HomePage() {
               ))}
             </ul>
           ) : null}
-          {tools.length ? (
+          {sectionTools.length ? (
             <div className="lab-tool-logo-grid" aria-label="Sample tools from the directory">
-              {tools.map((listing) => (
+              {sectionTools.map((listing) => (
                 <ToolLogoCard key={listing.slug} listing={listing} />
               ))}
             </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { operator, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Privacy",
@@ -42,8 +42,8 @@ export default function PrivacyPage() {
             paid featured listing
           </Link>{" "}
           asks for your email, product name, and website before Stripe checkout. Those fields are stored so we can
-          match your payment in Stripe and build the listing. Card numbers stay with Stripe. Confirmation emails may be
-          sent by hand from {site.email}.
+          match your payment in Stripe and build the listing. Card numbers stay with Stripe.           Confirmation emails may be
+          sent by hand from {operator.email}.
         </p>
         <p className="mt-4">
           The{" "}
@@ -102,6 +102,7 @@ export default function PrivacyPage() {
           stored; only a one-way hash used to group crawl sessions. Unknown automated clients may be sampled by
           User-Agent for review.
         </p>
+        <p className="mt-6 text-sm">{operator.line}</p>
       </div>
     </>
   );

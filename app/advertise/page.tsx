@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { operator, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Advertise",
@@ -53,7 +53,8 @@ export default function AdvertisePage() {
         </ul>
         <h2 className="mt-12 font-semibold tracking-tight text-3xl">Rate card</h2>
         <p className="mt-3 text-[var(--muted)]">
-          Not published. This page does not state an audience size. Email {site.email} to ask about a placement.
+          Not published. This page does not state an audience size. Email{" "}
+          <a href={`mailto:${operator.email}`}>{operator.email}</a> for placements, or {site.email} for editorial.
         </p>
         <p className="mt-6 text-sm">
           <Link href="/submit" className="underline">

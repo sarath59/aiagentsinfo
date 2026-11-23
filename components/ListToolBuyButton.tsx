@@ -6,7 +6,7 @@ import { LIST_TOOL_BUY_CLICK, listToolMeta } from "@/lib/analytics/list-tool-goa
 /** Scrolls to the pre-pay form. Same buy-click goal as before. */
 export function ListToolBuyButton({
   className = "btn-primary focus-ring inline-flex px-7 py-3 text-sm",
-  label = "Buy 30-day featured listing",
+  label = "Put my tool in AI answers",
   placement = "primary",
 }: {
   className?: string;

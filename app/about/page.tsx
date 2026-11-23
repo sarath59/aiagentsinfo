@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHeader } from "@/components/PageHeader";
 import { defaultMetadata } from "@/lib/seo";
-import { entityLine, site } from "@/lib/site";
+import { entityLine, operator, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "A publication and a directory, not a personality cult",
@@ -36,6 +36,11 @@ export default function AboutPage() {
         <p className="mt-4">
           We will not invent people, credentials, testimonials, user counts, or citations. A page is published when its sources check out. The{" "}
           <Link href="/editorial-policy">editorial policy</Link> says how dates, sources, and directory submissions are handled.
+        </p>
+        <p className="mt-4">
+          {operator.line} For product or featured-listing questions, email{" "}
+          <a href={`mailto:${operator.email}`}>{operator.email}</a>. The editorial desk remains{" "}
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
         <ul className="mt-4 grid gap-2">
           <li>
