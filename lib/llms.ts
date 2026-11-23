@@ -437,7 +437,12 @@ export async function buildLlmsTxt() {
       ...listedInIndex,
     ]),
     section("Submit", [
-      item("Submit a tool", "/submit", "Public form. A valid submission is published to the directory."),
+      item(
+        "List your tool (featured, 30 days)",
+        "/list-your-tool",
+        "Paid 30-day featured listing: curated, crawlable directory page for AI answer engines. Payment does not buy an unpaid rank. Stripe checkout.",
+      ),
+      item("Submit a tool", "/submit", "Public form. A valid submission is published to the directory free."),
     ]),
     section("Glossary", [
       item("Glossary", "/glossary", `${counted(glossary.length, "short definition")} used across the site.`),

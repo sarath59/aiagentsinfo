@@ -157,6 +157,96 @@
   margin-top: 1.4rem;
 }
 
+.lab-actions .btn-primary {
+  min-height: 2.6rem;
+  padding: 0 1.25rem;
+  font-size: 0.92rem;
+}
+
+/* Logo-only tool strip in the hero */
+
+.lab-hero-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.1rem;
+  margin-top: 1.75rem;
+  max-width: 34rem;
+}
+
+.lab-hero-tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-hero-tool {
+  display: grid;
+  place-items: center;
+  width: 3.15rem;
+  height: 3.15rem;
+  border: 1px solid var(--stroke);
+  border-radius: 0.95rem;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(15, 42, 44, 0.04);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.lab-hero-tool:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--gold-bright) 65%, transparent);
+  box-shadow: 0 12px 24px rgba(15, 42, 44, 0.1);
+}
+
+.lab-hero-tools-more {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--stroke);
+  text-underline-offset: 0.25em;
+}
+
+.lab-hero-tools-more:hover {
+  color: var(--ink);
+  text-decoration-color: var(--gold);
+}
+
+/* Directory preview: logos only */
+
+.lab-tool-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.lab-tool-logo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px solid var(--stroke);
+  border-radius: 1.15rem;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(15, 42, 44, 0.03);
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.lab-tool-logo:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in oklab, var(--gold-bright) 60%, transparent);
+  box-shadow: 0 18px 36px rgba(15, 42, 44, 0.09);
+}
+
+@media (min-width: 640px) {
+  .lab-tool-logo-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
 .lab-actions-rule {
   width: 1px;
   height: 1rem;
@@ -1158,18 +1248,149 @@
   .lab-tracker-pulse,
   .lab-tool,
   .lab-tool-go,
+  .lab-tool-logo,
+  .lab-hero-tool,
   .home-see svg,
   .lab-pillar-link svg {
     animation: none;
     transition: none;
   }
 
-  .lab-tool:hover {
+  .lab-tool:hover,
+  .lab-tool-logo:hover,
+  .lab-hero-tool:hover {
     transform: none;
   }
 
   .home-reveal.home-pending:not(.home-shown) {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* /list-your-tool sales page */
+
+.list-tool-hero {
+  border-bottom: 1px solid var(--stroke);
+}
+
+.list-tool-band {
+  margin-top: 4.5rem;
+  padding-top: 0.5rem;
+}
+
+.list-tool-pillar,
+.list-tool-step,
+.list-tool-faq {
+  border: 1px solid var(--stroke);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  padding: 1.35rem 1.3rem;
+  box-shadow: 0 1px 2px rgba(15, 42, 44, 0.03);
+}
+
+.list-tool-check {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  border: 1px solid var(--stroke);
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--gold-soft) 28%, var(--surface));
+  padding: 0.95rem 1.1rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.list-tool-check span {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: none;
+  margin-top: 0.45rem;
+  border-radius: 999px;
+  background: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(196, 161, 101, 0.2);
+}
+
+.list-tool-step-n {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.list-tool-offer {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 4.5rem;
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(420px 220px at 100% 0%, rgba(196, 161, 101, 0.2), transparent 65%),
+    linear-gradient(165deg, #1d4346 0%, #0f2a2c 60%, #0b1f20 100%);
+  color: #f3efe6;
+  padding: 2rem 1.6rem;
+  box-shadow: 0 30px 60px rgba(15, 42, 44, 0.22);
+}
+
+.list-tool-offer .kicker {
+  color: #e2c48a;
+}
+
+.list-tool-offer .display {
+  color: #fbf8f1;
+}
+
+.list-tool-offer p {
+  color: rgba(243, 239, 230, 0.78);
+}
+
+.list-tool-offer .btn-primary {
+  background: linear-gradient(180deg, #c4a165 0%, #a8834a 100%);
+  color: #0b1f20;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.list-tool-offer .btn-primary:hover {
+  background: linear-gradient(180deg, #d0b07a 0%, #b89255 100%);
+  box-shadow: 0 0 0 3px rgba(196, 161, 101, 0.35), 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.list-tool-offer a.underline {
+  color: #e2c48a;
+}
+
+.list-tool-form-label {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.list-tool-form-hint {
+  color: var(--muted);
+}
+
+.list-tool-offer .list-tool-form-label {
+  color: #f3efe6;
+}
+
+.list-tool-offer .list-tool-form-hint {
+  color: rgba(243, 239, 230, 0.78);
+}
+
+.list-tool-offer .list-tool-form input,
+.list-tool-offer .list-tool-form textarea {
+  color: #0b1f20;
+}
+
+.list-tool-close {
+  margin-top: 4.5rem;
+  padding: 2.5rem 0 1rem;
+  border-top: 1px solid var(--stroke);
+}
+
+@media (min-width: 768px) {
+  .list-tool-offer {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+    align-items: end;
+    padding: 2.6rem 2.4rem;
   }
 }

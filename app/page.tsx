@@ -4,10 +4,13 @@ import { ArrowIcon, SearchIcon } from "@/components/Icons";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { EmptyState } from "@/components/EmptyState";
 import { EntityStatement } from "@/components/EntityStatement";
+import { HeroToolStrip } from "@/components/home/HeroToolStrip";
 import { HomeReveal } from "@/components/home/HomeReveal";
+import { LabHeroShell } from "@/components/home/LabHeroShell";
 import { FlagshipCover, ReportCover } from "@/components/ReportCover";
 import { SubmitToolButton } from "@/components/SubmitToolButton";
 import { TrackLink } from "@/components/TrackLink";
+import { LIST_TOOL_CTA, LIST_TOOL_PATH, listToolMeta } from "@/lib/analytics/list-tool-goals";
 import { categoryTitle, getBlogPosts, type BlogPost } from "@/lib/blog";
 import { companyForName } from "@/lib/companies";
 import { categoryTitle as directoryCategoryTitle, getDirectoryListings, type DirectoryListing } from "@/lib/directory";
@@ -101,6 +104,15 @@ export default async function HomePage() {
   ).slice(0, 4);
   const papers = research.slice(0, 4);
   const tools = previewTools(listings, 6);
+  const heroTools = tools.map((listing) => {
+    const brand = companyForName(listing.name);
+    return {
+      slug: listing.slug,
+      name: listing.name,
+      logo: listing.logo || undefined,
+      tile: brand?.tile,
+    };
+  });
   const categories = topCategories(listings, 10);
   const latestBriefs = publishedReports.slice(0, 4);
   const reportGrid = publishedReports.slice(0, 6);
@@ -120,7 +132,7 @@ export default async function HomePage() {
 
   return (
     <div className="home">
-      <section className="lab-hero" aria-labelledby="home-heading">
+      <LabHeroShell>
         <div className="lab-hero-fx" aria-hidden="true">
           <div className="lab-hero-grid" />
           <div className="lab-hero-glow" />
@@ -138,6 +150,7 @@ export default async function HomePage() {
               Dated, sourced research on how AI agents are built, priced and used, and a directory of {toolCount} AI
               agent tools, each checked against a working site.
             </p>
+            <HeroToolStrip tools={heroTools} />
             <form className="lab-search" action="/directory" method="get" role="search">
               <SearchIcon className="lab-search-icon" />
               <label htmlFor="home-directory-search" className="sr-only">
@@ -156,18 +169,26 @@ export default async function HomePage() {
               </button>
             </form>
             <div className="lab-actions">
+              <TrackLink
+                href={LIST_TOOL_PATH}
+                goal={LIST_TOOL_CTA}
+                metadata={listToolMeta({ placement: "home_hero" })}
+                className="btn-primary focus-ring"
+              >
+                List your tool
+              </TrackLink>
               <Link href="/reports" className="lab-link focus-ring">
                 Read the research
                 <ArrowIcon className="h-3.5 w-3.5" />
               </Link>
               <span className="lab-actions-rule" aria-hidden="true" />
               <TrackLink href="/submit" goal="submit_cta" className="lab-link lab-link-muted focus-ring">
-                Submit your tool free, live right away
+                Submit free
               </TrackLink>
             </div>
           </div>
 
-          <aside className="lab-bulletin" aria-labelledby="home-bulletin">
+          <aside className="lab-bulletin" aria-labelledby="home-bulletin" data-hero-stop>
             <div className="lab-bulletin-head">
               <p id="home-bulletin" className="lab-bulletin-title">
                 From the lab
@@ -202,7 +223,7 @@ export default async function HomePage() {
           </aside>
         </div>
 
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="mx-auto max-w-6xl px-4" data-hero-stop>
           <ul className="lab-stats" aria-label="At a glance">
             {stats.map((stat) => (
               <li key={stat.href}>
@@ -214,7 +235,7 @@ export default async function HomePage() {
             ))}
           </ul>
         </div>
-      </section>
+      </LabHeroShell>
 
       <HomeReveal>
         <section className="mx-auto max-w-6xl px-4" aria-label="What we do">
@@ -301,9 +322,9 @@ export default async function HomePage() {
             </ul>
           ) : null}
           {tools.length ? (
-            <div className="lab-tool-grid">
+            <div className="lab-tool-logo-grid" aria-label="Sample tools from the directory">
               {tools.map((listing) => (
-                <ToolCard key={listing.slug} listing={listing} />
+                <ToolLogoCard key={listing.slug} listing={listing} />
               ))}
             </div>
           ) : (
@@ -317,9 +338,21 @@ export default async function HomePage() {
           <div className="lab-list-cta">
             <div>
               <p className="lab-list-cta-title">Building an AI agent tool?</p>
-              <p className="lab-list-cta-body">List it free. No account, and it is live as soon as the form confirms.</p>
+              <p className="lab-list-cta-body">
+                Featured 30-day listing for AI answer traffic, or submit free for a basic page.
+              </p>
             </div>
-            <SubmitToolButton />
+            <div className="flex flex-wrap items-center gap-3">
+              <TrackLink
+                href={LIST_TOOL_PATH}
+                goal={LIST_TOOL_CTA}
+                metadata={listToolMeta({ placement: "home_directory" })}
+                className="btn-primary focus-ring inline-flex px-5 py-2.5 text-sm"
+              >
+                List your tool
+              </TrackLink>
+              <SubmitToolButton />
+            </div>
           </div>
         </section>
       </HomeReveal>
@@ -502,20 +535,16 @@ function SectionHead({
   );
 }
 
-function ToolCard({ listing }: { listing: DirectoryListing }) {
+function ToolLogoCard({ listing }: { listing: DirectoryListing }) {
   const brand = companyForName(listing.name);
-  const category = directoryCategoryTitle(listing.category);
-  const meta = listing.vendor && listing.vendor !== listing.name ? `${category} · ${listing.vendor}` : category;
-
   return (
-    <Link href={`/directory/${listing.slug}`} className="lab-tool focus-ring">
-      <span className="lab-tool-top">
-        <CompanyLogo name={listing.name} src={listing.logo || undefined} tile={brand?.tile} size="md" />
-        <ArrowIcon className="lab-tool-go h-3.5 w-3.5" />
-      </span>
-      <span className="lab-tool-meta">{meta}</span>
-      <span className="lab-tool-title">{listing.name}</span>
-      <span className="lab-tool-body">{listing.summary}</span>
+    <Link
+      href={`/directory/${listing.slug}`}
+      className="lab-tool-logo focus-ring"
+      title={listing.name}
+      aria-label={listing.name}
+    >
+      <CompanyLogo name={listing.name} src={listing.logo || undefined} tile={brand?.tile} size="lg" />
     </Link>
   );
 }

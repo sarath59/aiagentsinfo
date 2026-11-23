@@ -115,6 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/contact", trustUpdated, 0.5),
     entry("/editorial-policy", trustUpdated, 0.5),
     entry("/submit", trustUpdated, 0.6),
+    entry("/list-your-tool", new Date("2026-11-23T00:00:00.000Z"), 0.7),
     entry("/badge", new Date("2026-11-16T00:00:00.000Z"), 0.4),
     entry("/verified-revenue", new Date(`${verifiedRevenueChecked}T00:00:00.000Z`), 0.6),
     entry(frameworkGithubPath, new Date(`${frameworkGithubDay}T00:00:00.000Z`), 0.7),

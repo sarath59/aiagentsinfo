@@ -9,14 +9,16 @@ export function TrackLink({
   goal,
   className,
   children,
+  metadata,
 }: {
   href: string;
   goal: string;
   className?: string;
   children: ReactNode;
+  metadata?: Record<string, string>;
 }) {
   return (
-    <Link href={href} className={className} onClick={() => trackGoal(goal)}>
+    <Link href={href} className={className} onClick={() => trackGoal(goal, metadata)}>
       {children}
     </Link>
   );

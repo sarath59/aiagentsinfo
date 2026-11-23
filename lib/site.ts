@@ -375,6 +375,7 @@ export const footerNav = [
   {
     title: "Site",
     links: [
+      { href: "/list-your-tool", label: "List your tool" },
       { href: "/submit", label: "Submit your tool" },
       { href: "/about", label: "About" },
       { href: "/editorial-policy", label: "Editorial policy" },

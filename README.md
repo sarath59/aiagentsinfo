@@ -2,7 +2,7 @@
 
 Public site for [aiagentsinfo.com](https://www.aiagentsinfo.com): a learning and research publication about AI and AI agents, plus a directory of AI tools, apps, SaaS, and agents. The canonical host is `https://www.aiagentsinfo.com`.
 
-Stack: **Next.js (App Router) + TypeScript + Tailwind CSS**. Content is Markdown in the repo. There is **no authentication** and **no payments**.
+Stack: **Next.js (App Router) + TypeScript + Tailwind CSS**. Content is Markdown in the repo. There is **no authentication**. Featured listings can be paid via a Stripe Payment Link (`/list-your-tool`).
 
 ## Local development
 
@@ -105,7 +105,9 @@ curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
 ```
 
 Bot reports: `stats`, `sessions`, `funnel`, `accept`, `unknown`, `answer-vs-training`, `alerts`, `registry`, `meta`.  
-Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `submissions`, `submission-rejects`, `submission-categories`, `funnel-report-read`, `citations`, `citation-prompts`, `citation-summary`, `citation-by-prompt`, `meta`.
+Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `funnel-list-tool`, `list-tool`, `submissions`, `submission-rejects`, `submission-categories`, `funnel-report-read`, `citations`, `citation-prompts`, `citation-summary`, `citation-by-prompt`, `meta`.
+
+Paid list page: `/list-your-tool` (Stripe). Goals include `list_tool_cta`, `list_tool_page_view`, dwell (`list_tool_dwell_15/30/60/120`), scroll, section views, `list_tool_buy_click`, and exit dwell. Run [`supabase/list-tool-analytics.sql`](supabase/list-tool-analytics.sql).
 
 Submit funnel goals (no emails/PII in meta): `submit_cta` → `/submit` pageview → `form_started` → `submit_attempt` → `listing_submitted` / `submit_success`. Also: `submit_validation_error`, `submit_rejected`, `submit_fallback`, `submit_spam_blocked`, share kit (`submit_share_copy`, `submit_share_download`, `submit_open_listing`, `submit_another`).
 
@@ -122,6 +124,15 @@ curl -s -X POST -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"limitPrompts":5,"engines":["perplexity"]}' \
   "https://www.aiagentsinfo.com/api/analytics/citations/run"
+```
+
+### Paid featured listings
+
+`/list-your-tool` collects email + tool details first, saves a `pending_payment` row in Supabase `paid_listings` ([`supabase/paid-listings.sql`](supabase/paid-listings.sql)), then sends the buyer to the Stripe Payment Link. No Stripe webhooks. Match payments in the Stripe dashboard to leads, publish the listing, and send confirmation by hand for now.
+
+```bash
+curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
+  "https://www.aiagentsinfo.com/api/analytics?report=paid-listings"
 ```
 
 ### Directory submissions

@@ -37,6 +37,15 @@ export default function PrivacyPage() {
           does not require an account. A valid submission is published to the directory. Your email is required and is saved with the submission so we can contact you. Directory pages do not show that email. If saving is unavailable, the form offers an email to {site.email} instead. Do not send secrets.
         </p>
         <p className="mt-4">
+          A{" "}
+          <Link href="/list-your-tool" className="text-[var(--link)] underline">
+            paid featured listing
+          </Link>{" "}
+          asks for your email, product name, and website before Stripe checkout. Those fields are stored so we can
+          match your payment in Stripe and build the listing. Card numbers stay with Stripe. Confirmation emails may be
+          sent by hand from {site.email}.
+        </p>
+        <p className="mt-4">
           The{" "}
           <Link href="/agent-prompt-checker" className="text-[var(--link)] underline">
             prompt and tool checker
