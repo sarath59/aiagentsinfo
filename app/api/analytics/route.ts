@@ -12,6 +12,9 @@ type Report =
   | "ai-referrals"
   | "answer-to-visit"
   | "funnel-submit"
+  | "submissions"
+  | "submission-rejects"
+  | "submission-categories"
   | "funnel-report-read"
   | "citations"
   | "citation-prompts"
@@ -67,6 +70,12 @@ async function runReport(report: Report, since: string, limit: number) {
       );
     case "funnel-submit":
       return supabaseSelect(`visitor_funnel_submit?order=step_index.asc`);
+    case "submissions":
+      return supabaseSelect(`submission_goal_counts?order=hits.desc&limit=${limit}`);
+    case "submission-rejects":
+      return supabaseSelect(`submission_reject_reasons?order=hits.desc&limit=${limit}`);
+    case "submission-categories":
+      return supabaseSelect(`submission_by_category?order=attempts.desc&limit=${limit}`);
     case "funnel-report-read":
       return supabaseSelect(`visitor_funnel_report_read?order=step_index.asc`);
     case "citations":
@@ -91,6 +100,9 @@ async function runReport(report: Report, since: string, limit: number) {
           "ai-referrals",
           "answer-to-visit",
           "funnel-submit",
+          "submissions",
+          "submission-rejects",
+          "submission-categories",
           "funnel-report-read",
           "citations",
           "citation-prompts",

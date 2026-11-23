@@ -1,6 +1,13 @@
 import { after, NextResponse } from "next/server";
 import { altchaPayloadFrom, HUMAN_CHECK_MESSAGE, verifyAltchaPayload } from "@/lib/altcha";
 import { trackServerGoal } from "@/lib/analytics-server";
+import {
+  LISTING_SUBMITTED,
+  SUBMIT_REJECTED,
+  SUBMIT_SPAM_BLOCKED,
+  errorFieldKeys,
+  safeListingMeta,
+} from "@/lib/analytics/submission-goals";
 import { communityListingIsIndexable } from "@/lib/indexing";
 import { pingIndexNow } from "@/lib/indexnow";
 import { takeRateLimit } from "@/lib/rate-limit";
@@ -53,15 +60,17 @@ export async function POST(request: Request) {
   try {
     payload = JSON.parse(text);
   } catch {
-    return fieldError({ name: "The form could not be read." });
+    return fieldError(request, { name: "The form could not be read." }, 400, "validation");
   }
 
   const limit = takeRateLimit(`submit:${clientIp(request)}`);
   if (!limit.ok) {
+    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "rate_limited", code: "429" }));
     return json(
       {
         message: "Too many submissions from this network. Wait a bit, or email the desk.",
         mailto: mailtoFrom(payload),
+        code: "rate_limited",
       },
       429,
       { "Retry-After": String(limit.retryAfterSec) },
@@ -69,12 +78,14 @@ export async function POST(request: Request) {
   }
 
   if (honeypotTripped(payload)) {
+    trackServerGoal(request, SUBMIT_SPAM_BLOCKED, safeListingMeta({ reject_reason: "validation", code: "honeypot" }));
     return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
   }
 
   const human = await verifyAltchaPayload(altchaPayloadFrom(payload));
   if (!human.ok) {
     if (human.reason === "unconfigured") {
+      trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "unconfigured", code: "altcha" }));
       return json(
         {
           ok: false,
@@ -85,27 +96,28 @@ export async function POST(request: Request) {
         503,
       );
     }
-    return fieldError({ altcha: HUMAN_CHECK_MESSAGE });
+    return fieldError(request, { altcha: HUMAN_CHECK_MESSAGE }, 400, "altcha");
   }
 
   const takenSlugs = collectTakenSlugs();
   const validated = validateSubmission(payload, { takenSlugs });
   if (!validated.ok) {
-    return fieldError(validated.errors);
+    return fieldError(request, validated.errors, 400, "validation");
   }
 
   const mailto = submissionMailto(stringsFrom(validated.value));
   const domain = websiteDomain(validated.value.website);
   if (domain && localListingDomains().has(domain)) {
-    return fieldError({ website: DUPLICATE_MESSAGE }, 409);
+    return fieldError(request, { website: DUPLICATE_MESSAGE }, 409, "duplicate");
   }
 
   const reachable = await assertPublicUrlReachable(validated.value.website);
   if (!reachable.ok) {
-    return fieldError({ website: reachable.message });
+    return fieldError(request, { website: reachable.message }, 400, "unreachable");
   }
 
   if (!supabaseConfig()) {
+    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "unconfigured", code: "supabase" }));
     return json({ ok: false, code: "unconfigured", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 503);
   }
 
@@ -119,10 +131,18 @@ export async function POST(request: Request) {
       // Saved and accepted. The only publisher in this repo is this visitor form.
       // MCP is read-only, so there is no internal path to mark listing_source "agent".
       if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(filed.slug)) {
-        trackServerGoal(request, "listing_submitted", {
-          listing_slug: filed.slug,
-          listing_source: "user",
-        });
+        trackServerGoal(
+          request,
+          LISTING_SUBMITTED,
+          safeListingMeta({
+            listing_slug: filed.slug,
+            category: validated.value.category,
+            pricing: validated.value.pricing,
+            type: validated.value.type ?? "",
+            maker_type: validated.value.makerType ?? "",
+            code: "user",
+          }),
+        );
       }
       return json(
         {
@@ -135,17 +155,33 @@ export async function POST(request: Request) {
       );
     }
     if (filed.reason === "duplicate") {
-      return fieldError({ website: DUPLICATE_MESSAGE }, 409);
+      return fieldError(request, { website: DUPLICATE_MESSAGE }, 409, "duplicate");
     }
+    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "store_failed", code: "insert" }));
     return json({ ok: false, code: "store_failed", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 502);
   } catch (error) {
     console.error("[submit-tool] failed", error instanceof Error ? error.message : "error");
+    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "store_failed", code: "exception" }));
     return json({ ok: false, code: "store_failed", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 502);
   }
 }
 
-function fieldError(errors: FieldErrors, status = 400) {
-  return json({ message: summarizeFieldErrors(errors), errors }, status);
+function fieldError(
+  request: Request,
+  errors: FieldErrors,
+  status = 400,
+  reject_reason: "validation" | "altcha" | "duplicate" | "unreachable" = "validation",
+) {
+  trackServerGoal(
+    request,
+    SUBMIT_REJECTED,
+    safeListingMeta({
+      reject_reason,
+      error_fields: errorFieldKeys(errors),
+      code: String(status),
+    }),
+  );
+  return json({ message: summarizeFieldErrors(errors), errors, code: reject_reason }, status);
 }
 
 function json(body: Record<string, unknown>, status: number, extra?: Record<string, string>) {

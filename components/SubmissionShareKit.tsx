@@ -2,6 +2,14 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
+import { trackGoal } from "@/lib/analytics";
+import {
+  SUBMIT_ANOTHER,
+  SUBMIT_OPEN_LISTING,
+  SUBMIT_SHARE_COPY,
+  SUBMIT_SHARE_DOWNLOAD,
+  safeListingMeta,
+} from "@/lib/analytics/submission-goals";
 import { announcementPosts, listingSiteLabel, listingSiteSnippet } from "@/lib/announcement-posts";
 import { BadgeSnippets } from "@/components/BadgeSnippets";
 import { listingBadgeEmbed } from "@/lib/badge";
@@ -102,12 +110,20 @@ export function SubmissionShareKit({
       document.execCommand("copy");
       area.remove();
     }
+    trackGoal(
+      SUBMIT_SHARE_COPY,
+      safeListingMeta({ listing_slug: share.slug, share_target: key }),
+    );
     setCopied(key);
     window.setTimeout(() => setCopied((current) => (current === key ? null : current)), 2000);
   }
 
   function download() {
     if (!blob) return;
+    trackGoal(
+      SUBMIT_SHARE_DOWNLOAD,
+      safeListingMeta({ listing_slug: share.slug, share_target: "announcement_png" }),
+    );
     const href = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = href;
@@ -161,7 +177,13 @@ export function SubmissionShareKit({
         <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
           The listing URL is live after that deploy. Open it, then finish the fields this desk already tracks.
         </p>
-        <a className="btn-primary mt-5 inline-flex px-6 py-3 text-sm" href={share.url}>
+        <a
+          className="btn-primary mt-5 inline-flex px-6 py-3 text-sm"
+          href={share.url}
+          onClick={() =>
+            trackGoal(SUBMIT_OPEN_LISTING, safeListingMeta({ listing_slug: share.slug }))
+          }
+        >
           Open your listing page
         </a>
         <ListedBadge share={share} />
@@ -260,7 +282,14 @@ export function SubmissionShareKit({
           />
         </div>
 
-        <button type="button" className="btn-ghost mt-8 px-4 py-2 text-sm" onClick={onAnother}>
+        <button
+          type="button"
+          className="btn-ghost mt-8 px-4 py-2 text-sm"
+          onClick={() => {
+            trackGoal(SUBMIT_ANOTHER, safeListingMeta({ listing_slug: share.slug }));
+            onAnother();
+          }}
+        >
           Submit another
         </button>
       </div>

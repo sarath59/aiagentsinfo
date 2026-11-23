@@ -161,7 +161,7 @@ export default async function HomePage() {
                 <ArrowIcon className="h-3.5 w-3.5" />
               </Link>
               <span className="lab-actions-rule" aria-hidden="true" />
-              <TrackLink href="/submit" goal="submit_click" className="lab-link lab-link-muted focus-ring">
+              <TrackLink href="/submit" goal="submit_cta" className="lab-link lab-link-muted focus-ring">
                 Submit your tool free, live right away
               </TrackLink>
             </div>

@@ -90,7 +90,7 @@ Do not add a newsletter form, popup, footer signup, header link, `/newsletter` p
 
 ### Analytics (bots + humans)
 
-1. Run [`supabase/bot-tracking.sql`](supabase/bot-tracking.sql) and [`supabase/visitor-analytics.sql`](supabase/visitor-analytics.sql) in the Supabase SQL editor.
+1. Run [`supabase/bot-tracking.sql`](supabase/bot-tracking.sql), [`supabase/visitor-analytics.sql`](supabase/visitor-analytics.sql), and [`supabase/submission-analytics.sql`](supabase/submission-analytics.sql) in the Supabase SQL editor.
 2. Set `BOT_TRACKING_API_KEY` on Vercel (reads both report APIs). Optional: `BOT_TRACKING_ALERT_WEBHOOK`, `BOT_TRACKING_IP_SALT`.
 3. Uses `SUPABASE_URL` / `SUPABASE_SECRET_KEY`. Bot hits: `proxy.ts` → `bot_hits`. Humans: `SiteTracker` + `trackGoal` → `/api/analytics/collect` → `visitor_events`.
 
@@ -105,7 +105,9 @@ curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
 ```
 
 Bot reports: `stats`, `sessions`, `funnel`, `accept`, `unknown`, `answer-vs-training`, `alerts`, `registry`, `meta`.  
-Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `funnel-report-read`, `citations`, `citation-prompts`, `citation-summary`, `citation-by-prompt`, `meta`.
+Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `submissions`, `submission-rejects`, `submission-categories`, `funnel-report-read`, `citations`, `citation-prompts`, `citation-summary`, `citation-by-prompt`, `meta`.
+
+Submit funnel goals (no emails/PII in meta): `submit_cta` → `/submit` pageview → `form_started` → `submit_attempt` → `listing_submitted` / `submit_success`. Also: `submit_validation_error`, `submit_rejected`, `submit_fallback`, `submit_spam_blocked`, share kit (`submit_share_copy`, `submit_share_download`, `submit_open_listing`, `submit_another`).
 
 ### AI citation monitoring
 

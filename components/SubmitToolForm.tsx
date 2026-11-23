@@ -3,6 +3,15 @@
 import dynamic from "next/dynamic";
 import { cloneElement, useCallback, useRef, useState, type FormEvent, type ReactElement } from "react";
 import { trackGoal } from "@/lib/analytics";
+import {
+  FORM_STARTED,
+  SUBMIT_ATTEMPT,
+  SUBMIT_FALLBACK,
+  SUBMIT_SUCCESS,
+  SUBMIT_VALIDATION_ERROR,
+  errorFieldKeys,
+  safeListingMeta,
+} from "@/lib/analytics/submission-goals";
 import { billingPeriods, directoryCategories, pricingModels } from "@/lib/directory-meta";
 import { SubmissionShareKit, type ShareListing } from "@/components/SubmissionShareKit";
 import type { FollowupCard } from "@/lib/founder-followup";
@@ -109,7 +118,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
   function markFormStarted() {
     if (formStarted.current) return;
     formStarted.current = true;
-    trackGoal("form_started");
+    trackGoal(FORM_STARTED);
   }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -118,6 +127,10 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
     const payload = readForm(new FormData(form));
     const clientCheck = validateSubmission(payload);
     if (!clientCheck.ok) {
+      trackGoal(
+        SUBMIT_VALIDATION_ERROR,
+        safeListingMeta({ error_fields: errorFieldKeys(clientCheck.errors), reject_reason: "validation" }),
+      );
       setErrors(clientCheck.errors);
       setStatus("idle");
       setMessage(summarizeFieldErrors(clientCheck.errors));
@@ -127,7 +140,15 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
 
     setStatus("loading");
     setErrors({});
-    trackGoal("submit_click");
+    trackGoal(
+      SUBMIT_ATTEMPT,
+      safeListingMeta({
+        category: clientCheck.value.category,
+        pricing: clientCheck.value.pricing,
+        type: clientCheck.value.type ?? "",
+        maker_type: clientCheck.value.makerType ?? "",
+      }),
+    );
     setMessage("");
     try {
       const response = await fetch("/api/submit-tool", {
@@ -141,8 +162,10 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
         errors?: FieldErrors;
         url?: string;
         slug?: string;
+        code?: string;
       };
       if (json.errors && Object.keys(json.errors).length) {
+        // Server already records submit_rejected for field errors.
         setStatus("idle");
         setErrors(json.errors);
         setMessage(summarizeFieldErrors(json.errors));
@@ -151,6 +174,13 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
         return;
       }
       if (!response.ok) {
+        trackGoal(
+          SUBMIT_FALLBACK,
+          safeListingMeta({
+            reject_reason: response.status === 429 ? "rate_limited" : response.status === 503 ? "unconfigured" : "store_failed",
+            code: json.code || String(response.status),
+          }),
+        );
         setStatus("fallback");
         setMessage(json.message || "We couldn't save this submission.");
         setMailto(json.mailto || submissionMailto(payload));
@@ -160,6 +190,16 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
       setStatus("success");
       setMessage(json.message || SUBMISSION_SUCCESS_MESSAGE);
       const slug = json.slug || slugFromListingUrl(json.url);
+      trackGoal(
+        SUBMIT_SUCCESS,
+        safeListingMeta({
+          listing_slug: slug || "",
+          category: clientCheck.value.category,
+          pricing: clientCheck.value.pricing,
+          type: clientCheck.value.type ?? "",
+          maker_type: clientCheck.value.makerType ?? "",
+        }),
+      );
       setShare(
         json.url && slug
           ? { name: clientCheck.value.name, tagline: clientCheck.value.tagline, url: json.url, slug }
@@ -192,6 +232,7 @@ export function SubmitToolForm({ followup }: { followup: SubmitFollowup }) {
       setMakerType("");
       resetHumanCheck();
     } catch {
+      trackGoal(SUBMIT_FALLBACK, safeListingMeta({ reject_reason: "network" }));
       setStatus("fallback");
       setMessage("We couldn't reach the server. Email this submission instead.");
       setMailto(submissionMailto(payload));

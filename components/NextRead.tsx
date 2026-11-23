@@ -37,7 +37,7 @@ export function NextRead({
       </p>
       <p className="next-read-meta">
         Make or update a listing:{" "}
-        <TrackLink href="/submit" goal="submit_click" className="font-medium text-[var(--link)] underline">
+        <TrackLink href="/submit" goal="submit_cta" className="font-medium text-[var(--link)] underline">
           submit a tool
         </TrackLink>
         , or open an existing{" "}

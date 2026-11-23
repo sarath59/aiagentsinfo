@@ -121,33 +121,39 @@ full outer join (
   on b.day = v.day and b.path = v.path and b.answer_bot = v.ai_referrer;
 
 -- Fixed funnels (pageview + goal steps), computed from visitor_events.
+-- Prefer supabase/submission-analytics.sql for the latest submit funnel + rollups.
 create or replace view public.visitor_funnel_submit as
-with base as (
+with
+cta as (
+  select distinct session_id from public.visitor_events
+  where event_type = 'goal' and name = 'submit_cta'
+),
+page as (
   select distinct session_id from public.visitor_events
   where event_type = 'pageview' and path = '/submit'
 ),
-s1 as (select session_id from base),
-s2 as (
+started as (
   select distinct session_id from public.visitor_events
   where event_type = 'goal' and name = 'form_started'
-    and session_id in (select session_id from s1)
+    and session_id in (select session_id from page)
 ),
-s3 as (
+attempted as (
   select distinct session_id from public.visitor_events
-  where event_type = 'goal' and name = 'submit_click'
-    and session_id in (select session_id from s2)
+  where event_type = 'goal' and name = 'submit_attempt'
+    and session_id in (select session_id from started)
 ),
-s4 as (
+submitted as (
   select distinct session_id from public.visitor_events
-  where event_type = 'goal' and name = 'listing_submitted'
-    and session_id in (select session_id from s3)
+  where event_type = 'goal' and name in ('listing_submitted', 'submit_success')
+    and session_id in (select session_id from attempted)
 )
 select * from (
   values
-    (1, 'submit_page', (select count(*) from s1)),
-    (2, 'form_started', (select count(*) from s2)),
-    (3, 'submit_click', (select count(*) from s3)),
-    (4, 'listing_submitted', (select count(*) from s4))
+    (1, 'submit_cta', (select count(*) from cta)),
+    (2, 'submit_page', (select count(*) from page)),
+    (3, 'form_started', (select count(*) from started)),
+    (4, 'submit_attempt', (select count(*) from attempted)),
+    (5, 'listing_submitted', (select count(*) from submitted))
 ) as t(step_index, step_name, sessions);
 
 create or replace view public.visitor_funnel_report_read as
