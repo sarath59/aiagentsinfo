@@ -83,6 +83,13 @@
     "height": 128,
     "bytes": 217
   },
+  "aiforvid": {
+    "source": "https://assets.aiforvid.com/icons/tool-icon-1791875118853-f8b1a7f1.png",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
+  },
   "ailoft": {
     "source": "https://ailoft.net/logo.png",
     "file": "/logos/makers/ailoft.webp",
@@ -167,6 +174,13 @@
     "height": 128,
     "bytes": 2584
   },
+  "cast-two-portraits-in-a-12-second-neon-hologram-encounter": {
+    "source": "https://youlooklonely.com/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
+  },
   "caught-at-the-window-ai": {
     "source": "https://caughtatthewindowai.com/logo.svg",
     "file": "/logos/makers/caught-at-the-window-ai.svg",
@@ -174,12 +188,26 @@
     "height": 128,
     "bytes": 647
   },
+  "chatgpt-my-gpt-net": {
+    "source": "https://my-gpt.net/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
+  },
   "christmas-ai": {
     "source": "https://christmas-ai.net/logo.png",
     "file": "/logos/makers/christmas-ai.webp",
     "width": 128,
     "height": 128,
     "bytes": 2086
+  },
+  "clipjoy": {
+    "source": "https://clipjoy.ai/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
   },
   "clogmeter": {
     "source": "https://clogmeter.vercel.app/og.jpg",
@@ -201,6 +229,13 @@
     "width": 128,
     "height": 128,
     "bytes": 1004
+  },
+  "comicideas": {
+    "source": "https://www.comicideas.com/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
   },
   "crealo-ai": {
     "source": "https://crealo.ai/images/logos/footer-logo.png",
@@ -250,6 +285,13 @@
     "width": 128,
     "height": 128,
     "bytes": 1874
+  },
+  "dizy": {
+    "source": "https://dizy.ai/icon-512.png",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
   },
   "dog-bartender-ai-video-generator": {
     "source": "https://dogbartender.com/og/dog-bartender-sample-1200x630.jpg",
@@ -384,6 +426,13 @@
     "height": 128,
     "bytes": 1534
   },
+  "generate-a-phone-or-desktop-wallpaper-from-a-prompt-or-your": {
+    "source": "https://wallpapermakerai.com/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
+  },
   "goanyapi": {
     "source": "https://goanyapi.com/logo.png",
     "file": "/logos/makers/goanyapi.webp",
@@ -411,6 +460,13 @@
     "width": 128,
     "height": 128,
     "bytes": 1238
+  },
+  "hop-hop-hop-dance": {
+    "source": "https://aihophophopdance.com/icons/icon-512.png",
+    "file": "/logos/makers/hop-hop-hop-dance.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 1666
   },
   "html2mp4": {
     "source": "https://html2mp4.com/assets/icon-192.png",
@@ -594,6 +650,13 @@
     "height": 128,
     "bytes": 724
   },
+  "lookrecipe": {
+    "source": "https://imagetoprompt.tools/og-image-square.jpg",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
+  },
   "lovewatch-ai": {
     "source": "https://lovewatch.live/brand/lovewatch/lovewatch-icon-light.png",
     "file": "/logos/makers/lovewatch-ai.webp",
@@ -608,12 +671,26 @@
     "height": 128,
     "bytes": 2130
   },
+  "make-a-vertical-halloween-zombie-dance-clip-from-one-cat-dog": {
+    "source": "https://aithrillerdance.com/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
+  },
   "makefont": {
     "source": "https://makefont.app/icon-512.png",
     "file": "/logos/makers/makefont.webp",
     "width": 128,
     "height": 128,
     "bytes": 1782
+  },
+  "memevideomaker": {
+    "source": "https://memevideomaker.org/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
   },
   "merrows": {
     "source": "https://www.merrows.ai/opengraph.png",
@@ -888,6 +965,13 @@
     "height": 128,
     "bytes": 670
   },
+  "qovia": {
+    "source": "https://raw.githubusercontent.com/qovia/qovia-mcp/main/assets/logo-400.png",
+    "file": "/logos/makers/qovia.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 2572
+  },
   "rankety": {
     "source": "https://www.rankety.com/logo.png",
     "file": "/logos/makers/rankety.webp",
@@ -950,6 +1034,13 @@
     "width": 128,
     "height": 128,
     "bytes": 3236
+  },
+  "san-xuan-tang": {
+    "source": "https://puritynexus.com/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
   },
   "santa-cam": {
     "source": "https://santacam.org/icon-512.png",
@@ -1034,6 +1125,13 @@
     "width": 128,
     "height": 128,
     "bytes": 806
+  },
+  "talus-ops": {
+    "source": "https://talusops.com/icon.png",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
   },
   "tecadrise-bot": {
     "source": "https://tecadrise.ai/logo512.png",
@@ -1160,6 +1258,20 @@
     "width": 128,
     "height": 128,
     "bytes": 4278
+  },
+  "turn-one-science-or-history-idea-into-a-short-narrated-anima": {
+    "source": "https://fogsight.ai/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
+  },
+  "turn-one-sentence-into-a-narrated-subtitled-animated-video": {
+    "source": "https://explainervideogenerator.com/favicon.ico",
+    "file": "",
+    "width": 128,
+    "height": 128,
+    "bytes": 0
   },
   "vaneform": {
     "source": "https://vaneform.com/brand/vaneform-logo-512.png",

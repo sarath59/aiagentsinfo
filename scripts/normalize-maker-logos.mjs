@@ -1,8 +1,11 @@
 /**
  * Downloads maker-submitted logo URLs and writes small WebP thumbnails
- * to public/logos/makers. A failed fetch keeps the previous thumbnail when
- * the source URL has not changed, and otherwise leaves the listing on the
- * initial-letter fallback. Never aborts the build.
+ * to public/logos/makers. Skips network work when the source URL and
+ * cached file are unchanged. A failed fetch keeps the previous thumbnail
+ * when the source URL has not changed, and otherwise leaves the listing
+ * on the initial-letter fallback. Never aborts the build.
+ *
+ * Force a full refresh: FORCE_LOGO_NORMALIZE=1 npm run build
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -13,6 +16,7 @@ const outDir = path.join(root, "public", "logos", "makers");
 const manifestPath = path.join(outDir, "manifest.json");
 const SIZE = 128;
 const CONCURRENCY = 4;
+const FORCE = process.env.FORCE_LOGO_NORMALIZE === "1";
 
 function loadManifest() {
   try {
@@ -38,6 +42,22 @@ function submissions() {
       return { slug, logoUrl };
     })
     .filter((item) => item.slug && /^https?:\/\//i.test(item.logoUrl));
+}
+
+function cachedFileExists(file) {
+  if (typeof file !== "string" || !file.startsWith("/logos/makers/")) return false;
+  return fs.existsSync(path.join(root, "public", file.replace(/^\//, "")));
+}
+
+/** Reuse disk cache (or a known failed URL) when the source is unchanged. */
+function isFresh(item, current) {
+  if (FORCE) return false;
+  const previous = current[item.slug];
+  if (!previous || previous.source !== item.logoUrl) return false;
+  if (typeof previous.file !== "string") return false;
+  // Empty file = last build already failed this URL; do not re-fetch every deploy.
+  if (previous.file === "") return true;
+  return cachedFileExists(previous.file);
 }
 
 async function fetchLogo(url) {
@@ -104,12 +124,16 @@ async function normalizeOne(item, current) {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const previous = current[item.slug];
-    if (previous && previous.source === item.logoUrl && previous.file === file) {
+    if (previous && previous.source === item.logoUrl && previous.file && cachedFileExists(previous.file)) {
       console.warn(`${item.slug}: kept cached thumbnail (${message})`);
       return { slug: item.slug, row: previous };
     }
     console.warn(`${item.slug}: fallback badge (${message})`);
-    return { slug: item.slug, row: null };
+    // Remember the failed URL so the next build does not re-hit the network.
+    return {
+      slug: item.slug,
+      row: { source: item.logoUrl, file: "", width: SIZE, height: SIZE, bytes: 0 },
+    };
   }
 }
 
@@ -131,10 +155,33 @@ async function mapPool(items, worker) {
 const items = submissions();
 fs.mkdirSync(outDir, { recursive: true });
 const current = loadManifest();
-const results = items.length ? await mapPool(items, (item) => normalizeOne(item, current)) : [];
+
+const fresh = [];
+const dirty = [];
+for (const item of items) {
+  if (isFresh(item, current)) fresh.push(item);
+  else dirty.push(item);
+}
+
 const next = {};
+for (const item of fresh) {
+  next[item.slug] = current[item.slug];
+}
+
+if (!dirty.length) {
+  fs.writeFileSync(manifestPath, `${JSON.stringify(next, null, 2)}\n`);
+  const ok = Object.values(next).filter((row) => row?.file).length;
+  console.log(`maker logos: ${ok} cached thumbnails, 0 fetched`);
+  process.exit(0);
+}
+
+console.log(`maker logos: fetching ${dirty.length}, reusing ${fresh.length} cached`);
+const results = await mapPool(dirty, (item) => normalizeOne(item, current));
 for (const result of results) {
   if (result?.row) next[result.slug] = result.row;
 }
 fs.writeFileSync(manifestPath, `${JSON.stringify(next, null, 2)}\n`);
-console.log(`maker logos: ${Object.keys(next).length} thumbnails, ${items.length - Object.keys(next).length} fallbacks`);
+const ok = Object.values(next).filter((row) => row?.file).length;
+console.log(
+  `maker logos: ${ok} thumbnails, ${items.length - ok} fallbacks (${dirty.length} fetched)`,
+);

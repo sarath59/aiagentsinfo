@@ -40,7 +40,12 @@ export function cachedMakerLogo(slug: string, source: string | undefined) {
     value = logo;
   } else if (/^https?:\/\//i.test(logo)) {
     const row = readManifest()[slug];
-    if (row && row.source === logo && row.file.startsWith("/logos/makers/")) {
+    if (
+      row &&
+      row.source === logo &&
+      typeof row.file === "string" &&
+      row.file.startsWith("/logos/makers/")
+    ) {
       const absolute = path.join(process.cwd(), "public", row.file.replace(/^\//, ""));
       if (fs.existsSync(absolute)) value = row.file;
     }
