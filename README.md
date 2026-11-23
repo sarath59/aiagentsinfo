@@ -105,7 +105,22 @@ curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
 ```
 
 Bot reports: `stats`, `sessions`, `funnel`, `accept`, `unknown`, `answer-vs-training`, `alerts`, `registry`, `meta`.  
-Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `funnel-report-read`, `citations`, `citation-prompts`, `meta`.
+Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `funnel-report-read`, `citations`, `citation-prompts`, `citation-summary`, `citation-by-prompt`, `meta`.
+
+### AI citation monitoring
+
+Server logs cannot tell you whether ChatGPT/Perplexity/Gemini *name* you. A daily job asks a fixed prompt list and records whether `aiagentsinfo.com` appears.
+
+1. Run [`supabase/citations-extra.sql`](supabase/citations-extra.sql) (extra prompts + summary views).
+2. Set at least one of `OPENAI_API_KEY`, `PERPLEXITY_API_KEY`, `GEMINI_API_KEY`, `ANTHROPIC_API_KEY`.
+3. Run manually when you want (no Vercel Cron):
+
+```bash
+curl -s -X POST -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"limitPrompts":5,"engines":["perplexity"]}' \
+  "https://www.aiagentsinfo.com/api/analytics/citations/run"
+```
 
 ### Directory submissions
 

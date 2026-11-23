@@ -15,6 +15,8 @@ type Report =
   | "funnel-report-read"
   | "citations"
   | "citation-prompts"
+  | "citation-summary"
+  | "citation-by-prompt"
   | "meta";
 
 /**
@@ -73,6 +75,12 @@ async function runReport(report: Report, since: string, limit: number) {
       );
     case "citation-prompts":
       return supabaseSelect(`ai_citation_prompts?active=eq.true&order=id.asc&limit=${limit}`);
+    case "citation-summary":
+      return supabaseSelect(
+        `ai_citation_summary?day=gte.${encodeURIComponent(since.slice(0, 10))}&order=day.desc&limit=${limit}`,
+      );
+    case "citation-by-prompt":
+      return supabaseSelect(`ai_citation_by_prompt?order=cited.desc&limit=${limit}`);
     case "meta":
       return {
         reports: [
@@ -86,10 +94,12 @@ async function runReport(report: Report, since: string, limit: number) {
           "funnel-report-read",
           "citations",
           "citation-prompts",
+          "citation-summary",
+          "citation-by-prompt",
           "meta",
         ],
         auth: "Authorization: Bearer $BOT_TRACKING_API_KEY",
-        note: "Citations need a daily job + model API keys; prompts are seeded, checks start empty.",
+        citations_run: "POST /api/analytics/citations/run (manual; no Vercel cron)",
       };
     default:
       throw new Error(`Unknown report: ${report}`);
