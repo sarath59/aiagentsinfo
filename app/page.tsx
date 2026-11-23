@@ -102,7 +102,7 @@ export default async function HomePage() {
       : guidePosts
   ).slice(0, 4);
   const papers = research.slice(0, 4);
-  const tools = previewTools(listings, 24);
+  const tools = previewTools(listings, 10);
   const heroTools = tools.map((listing) => {
     const brand = companyForName(listing.name);
     return {

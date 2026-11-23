@@ -22,7 +22,7 @@ export type HomeHeroTool = {
   tile?: LogoTile;
 };
 
-/** First viewport: tools wall + big AI-answers CTA. */
+/** First viewport: vertical tool list + AI-answers CTA. */
 export function HomeToolsHero({ tools, toolCount }: { tools: HomeHeroTool[]; toolCount: string }) {
   const router = useRouter();
 
@@ -61,14 +61,12 @@ export function HomeToolsHero({ tools, toolCount }: { tools: HomeHeroTool[]; too
         </p>
       </div>
 
-      <ul className="home-tools-wall">
-        {tools.map((tool) => (
+      <ol className="home-tools-list">
+        {tools.map((tool, index) => (
           <li key={tool.slug}>
             <Link
               href={`/directory/${tool.slug}`}
-              className="home-tools-tile focus-ring"
-              title={tool.name}
-              aria-label={tool.name}
+              className="home-tools-row focus-ring"
               onClick={() =>
                 trackGoal(
                   HERO_TOOL_LOGO_CLICK,
@@ -76,11 +74,15 @@ export function HomeToolsHero({ tools, toolCount }: { tools: HomeHeroTool[]; too
                 )
               }
             >
-              <CompanyLogo name={tool.name} src={tool.logo || undefined} tile={tool.tile} size={56} />
+              <span className="home-tools-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <CompanyLogo name={tool.name} src={tool.logo || undefined} tile={tool.tile} size="sm" />
+              <span className="home-tools-name">{tool.name}</span>
             </Link>
           </li>
         ))}
-      </ul>
+      </ol>
 
       <p className="home-tools-hero-hint" data-hero-stop>
         <Link href="/directory" className="focus-ring">
