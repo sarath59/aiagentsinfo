@@ -1,16 +1,14 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { trackGoal } from "@/lib/analytics";
 import {
-  LIST_TOOL_BUY_CLICK,
+  FEATURED_DAYS,
+  FEATURED_PRICE_LABEL,
   LIST_TOOL_STRIPE_URL,
-  listToolMeta,
-} from "@/lib/analytics/list-tool-goals";
-import { FEATURED_DAYS, FEATURED_PRICE_LABEL } from "@/lib/paid-listings/offer";
+} from "@/lib/paid-listings/offer";
 import { operator } from "@/lib/site";
 
-/** Details first → save lead → Stripe. Page/dwell tracking stays on ListToolPageTracker. */
+/** Details first → save lead → Stripe. */
 export function ListToolCheckoutForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -26,7 +24,6 @@ export function ListToolCheckoutForm() {
 
     setStatus("loading");
     setMessage("");
-    trackGoal("list_tool_details_submit", listToolMeta({ placement: "checkout_form" }));
 
     try {
       const response = await fetch("/api/list-your-tool/lead", {
@@ -45,17 +42,6 @@ export function ListToolCheckoutForm() {
         return;
       }
 
-      trackGoal(
-        "list_tool_details_ok",
-        listToolMeta({
-          placement: "checkout_form",
-          code: (json.lead_token || "").slice(0, 8),
-        }),
-      );
-      trackGoal(
-        LIST_TOOL_BUY_CLICK,
-        listToolMeta({ cta: "stripe_buy", placement: "checkout_form" }),
-      );
 
       window.location.assign(json.stripe_url || LIST_TOOL_STRIPE_URL);
     } catch {
@@ -69,7 +55,6 @@ export function ListToolCheckoutForm() {
       id="list-tool-checkout"
       className="list-tool-form grid gap-4"
       onSubmit={onSubmit}
-      data-track-section="checkout"
     >
       <div className="list-tool-form-price">
         <p className="list-tool-form-price-amount">{FEATURED_PRICE_LABEL}</p>
@@ -126,7 +111,6 @@ export function ListToolCheckoutForm() {
         type="submit"
         className="btn-primary focus-ring inline-flex px-7 py-3 text-sm"
         disabled={status === "loading"}
-        data-track-buy="1"
       >
         {status === "loading" ? "Saving…" : `Save details & pay ${FEATURED_PRICE_LABEL}`}
       </button>

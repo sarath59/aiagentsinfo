@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { trackTool } from "@/lib/analytics";
 import { checklistGroups, checklistItems } from "@/lib/harness-checklist";
 
 type Answer = "yes" | "not-yet";
@@ -54,7 +53,6 @@ export function HarnessChecklist() {
     }
     try {
       await copyText(lines.join("\n"));
-      trackTool("tool_output_used", TOOL_SLUG, "copy_result");
       setCopyNote("");
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
@@ -112,7 +110,6 @@ export function HarnessChecklist() {
                             setAnswers((current) => ({ ...current, [item.id]: value }));
                             if (ran.current) return;
                             ran.current = true;
-                            trackTool("tool_run", TOOL_SLUG);
                           }}
                         />
                         {label}

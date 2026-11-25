@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { trackTool } from "@/lib/analytics";
 import { commandLabels, defaultCommands, defaultPackageManager, packageManagersFor } from "@/lib/agents-md/defaults";
 import { workedExamples } from "@/lib/agents-md/examples";
 import { generateAgentsMd } from "@/lib/agents-md/generate";
@@ -69,7 +68,6 @@ export function AgentsMdGenerator() {
   function markRun() {
     if (ran.current) return;
     ran.current = true;
-    trackTool("tool_run", TOOL_SLUG);
   }
   const [copied, setCopied] = useState(false);
   const [polished, setPolished] = useState<string | null>(null);
@@ -408,7 +406,6 @@ export function AgentsMdGenerator() {
                 className="btn-primary px-4 py-2 text-sm"
                 onClick={() => {
                   void copyText(shown).then(() => {
-                    trackTool("tool_output_used", TOOL_SLUG, "copy_result");
                     setCopied(true);
                     window.setTimeout(() => setCopied(false), 2000);
                   });
@@ -421,7 +418,6 @@ export function AgentsMdGenerator() {
                 className="btn-ghost px-4 py-2 text-sm"
                 onClick={() => {
                   downloadMarkdown(shown);
-                  trackTool("tool_output_used", TOOL_SLUG, "download");
                 }}
               >
                 Download .md

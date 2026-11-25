@@ -2,7 +2,6 @@
 
 import { Suspense, useEffect, useRef, useState, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
-import { trackTool } from "@/lib/analytics";
 import type { FileCheck, HostCheck, LinkCheck } from "@/lib/llms-txt/check";
 import type { GenerateResult } from "@/lib/llms-txt/generate";
 import { MAX_LINK_CHECKS } from "@/lib/llms-txt/limits";
@@ -75,7 +74,6 @@ function LlmsTxtForm() {
   function markRun() {
     if (ran.current) return;
     ran.current = true;
-    trackTool("tool_run", TOOL_SLUG);
   }
 
   async function runCheck(value: string, links = checkLinks) {
@@ -201,7 +199,6 @@ function LlmsTxtForm() {
 
   async function copyResult(value: string) {
     await copyText(value);
-    trackTool("tool_output_used", TOOL_SLUG, "copy_result");
     setCopied("Copied");
   }
 
@@ -209,7 +206,6 @@ function LlmsTxtForm() {
     const url = new URL(window.location.href);
     if (target.trim()) url.searchParams.set("url", target.trim());
     await copyText(url.toString());
-    trackTool("tool_output_used", TOOL_SLUG, "copy_link");
     setCopied("Link copied");
   }
 
@@ -415,7 +411,6 @@ function LlmsTxtForm() {
               className="btn-ghost px-4 py-2 text-sm"
               onClick={() => {
                 downloadText(draft.draft, "llms.txt");
-                trackTool("tool_output_used", TOOL_SLUG, "download");
                 setCopied("Downloaded");
               }}
             >

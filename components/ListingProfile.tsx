@@ -3,7 +3,6 @@ import { FeaturedSnippet } from "@/components/FeaturedSnippet";
 import { ListingBadge } from "@/components/ListingBadge";
 import { ListingChecklist } from "@/components/ListingChecklist";
 import { ListingRank } from "@/components/ListingRank";
-import { TrackLink } from "@/components/TrackLink";
 import { UpdatedLine } from "@/components/UpdatedLine";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { InlineCompanyText } from "@/components/CompanyMarks";
@@ -151,13 +150,9 @@ export async function ListingProfile({
           </Link>
         </div>
         <p className="mt-4 text-sm">
-          <TrackLink
-            href={`/submit?claim=${listing.slug}`}
-            goal="claim_click"
-            className="text-[var(--link)] underline"
-          >
+          <Link href={`/submit?claim=${listing.slug}`} className="text-[var(--link)] underline">
             {listing.slug === "freegenvideo" ? "Claim this listing" : "Is this your tool? Claim / update this listing"}
-          </TrackLink>
+          </Link>
         </p>
         <ListingBadge slug={listing.slug} name={listing.name} />
         <ListingChecklist items={checklist} slug={listing.slug} />

@@ -4,16 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { MouseEvent } from "react";
 import { CompanyLogo } from "@/components/CompanyLogo";
-import { TrackLink } from "@/components/TrackLink";
-import { trackGoal } from "@/lib/analytics";
-import {
-  HERO_DIRECTORY_CLICK,
-  HERO_TOOL_LOGO_CLICK,
-  LIST_TOOL_CTA,
-  LIST_TOOL_PATH,
-  listToolMeta,
-} from "@/lib/analytics/list-tool-goals";
 import type { LogoTile } from "@/lib/companies";
+import { LIST_TOOL_PATH } from "@/lib/paid-listings/offer";
 
 export type HomeHeroTool = {
   slug: string;
@@ -30,7 +22,6 @@ export function HomeToolsHero({ tools, toolCount }: { tools: HomeHeroTool[]; too
     const target = event.target;
     if (!(target instanceof Element)) return;
     if (target.closest("a, button, [data-hero-stop]")) return;
-    trackGoal(HERO_DIRECTORY_CLICK, listToolMeta({ placement: "home_tools_wall" }));
     router.push("/directory");
   }
 
@@ -46,14 +37,9 @@ export function HomeToolsHero({ tools, toolCount }: { tools: HomeHeroTool[]; too
       </h1>
 
       <div className="home-tools-hero-cta-wrap" data-hero-stop>
-        <TrackLink
-          href={LIST_TOOL_PATH}
-          goal={LIST_TOOL_CTA}
-          metadata={listToolMeta({ placement: "home_tools_wall" })}
-          className="btn-primary focus-ring home-tools-hero-big-cta"
-        >
+        <Link href={LIST_TOOL_PATH} className="btn-primary focus-ring home-tools-hero-big-cta">
           Put your tool in AI answers
-        </TrackLink>
+        </Link>
         <p className="home-tools-hero-count">
           <Link href="/directory" className="focus-ring">
             {toolCount} tools live
@@ -64,16 +50,7 @@ export function HomeToolsHero({ tools, toolCount }: { tools: HomeHeroTool[]; too
       <ol className="home-tools-list">
         {tools.map((tool, index) => (
           <li key={tool.slug}>
-            <Link
-              href={`/directory/${tool.slug}`}
-              className="home-tools-row focus-ring"
-              onClick={() =>
-                trackGoal(
-                  HERO_TOOL_LOGO_CLICK,
-                  listToolMeta({ placement: "home_tools_wall", listing_slug: tool.slug }),
-                )
-              }
-            >
+            <Link href={`/directory/${tool.slug}`} className="home-tools-row focus-ring">
               <span className="home-tools-index" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </span>

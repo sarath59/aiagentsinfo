@@ -23,19 +23,14 @@ See `.env.example`. **Do not commit API keys.** This repository is public.
 | Name | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Used for local development (`http://localhost:3000`). Production canonical URLs are always `https://www.aiagentsinfo.com`, including when this variable is the apex host or a `vercel.app` host. |
-| `NEXT_PUBLIC_ANALYTICS_DOMAIN` | Optional. If set, a Plausible-style analytics script loads (no API keys). Leave unset for no tracking. |
-| `NEXT_PUBLIC_ANALYTICS_SRC` | Optional custom analytics script URL. |
 | `NEXT_PUBLIC_BING_VERIFICATION` | Optional. When set, the root layout renders `<meta name="msvalidate.01">` for Bing Webmaster Tools. Unset means the tag is omitted. |
 | `NEXT_PUBLIC_GOOGLE_VERIFICATION` | Optional. When set, the root layout renders `<meta name="google-site-verification">`. Unset means the tag is omitted. |
 | `SUPABASE_URL` | **Required on Vercel** for [Submit your tool](https://www.aiagentsinfo.com/submit) to publish. The Supabase project URL. Without it, the form does not pretend the listing was saved: it gives the visitor an email draft to `hello@aiagentsinfo.com`. |
 | `SUPABASE_SECRET_KEY` | **Required on Vercel** with `SUPABASE_URL`. A Supabase secret key (`sb_secret_...`). Server-only; never prefix it with `NEXT_PUBLIC_`. |
-| `BOT_TRACKING_API_KEY` | Protects `/api/bot-tracking` and `/api/analytics` report APIs. Generate with `openssl rand -hex 32`. Server-only. |
-| `BOT_TRACKING_ALERT_WEBHOOK` | Optional. POST JSON when a new `bot_token` is first seen. |
-| `BOT_TRACKING_IP_SALT` | Optional. Salt for `ip_hash` (defaults to the API key). |
 | `ALTCHA_HMAC_KEY` | **Required on Vercel.** Signs the submit form's human check. Generate one with `openssl rand -hex 32`. |
 | `GITHUB_SUBMISSIONS_TOKEN` | Legacy. Submissions no longer use it. Tracker pages fall back to it when `GITHUB_TOKEN` is unset. |
 
-This site does not run a newsletter, an email signup, a popup, or a subscribe CTA. Do not add one, and do not add an analytics goal that exists only for newsletter signup. Old `/newsletter` URLs redirect to `/` with status 308. RSS at `/rss.xml` is the feed. Tool submissions are documented below. Analytics is first-party (Supabase); DataFast is not used.
+This site does not run a newsletter, an email signup, a popup, or a subscribe CTA. Do not add one. Old `/newsletter` URLs redirect to `/` with status 308. RSS at `/rss.xml` is the feed. Tool submissions are documented below. Human visitor analytics and AI-bot crawl tracking are not used. Do not add DataFast or other third-party analytics.
 
 ## Brand assets
 
@@ -88,52 +83,9 @@ Do not add a newsletter form, popup, footer signup, header link, `/newsletter` p
 7. If Supabase is not configured or rejects the insert, the API returns an error and a `mailto:` link. The page shows that link. Nothing is described as published.
 8. Pages read approved rows through Next's cache, so visitor traffic does not query the database. Rows edited in the Supabase dashboard appear within six hours, or on the next deploy. If Supabase cannot be read during a build, the build fails rather than publishing the directory without those listings. A row whose slug matches an existing listing or a reserved directory path is skipped and logged.
 
-### Analytics (bots + humans)
-
-1. Run [`supabase/bot-tracking.sql`](supabase/bot-tracking.sql), [`supabase/visitor-analytics.sql`](supabase/visitor-analytics.sql), and [`supabase/submission-analytics.sql`](supabase/submission-analytics.sql) in the Supabase SQL editor.
-2. Set `BOT_TRACKING_API_KEY` on Vercel (reads both report APIs). Optional: `BOT_TRACKING_ALERT_WEBHOOK`, `BOT_TRACKING_IP_SALT`.
-3. Uses `SUPABASE_URL` / `SUPABASE_SECRET_KEY`. Bot hits: `proxy.ts` → `bot_hits`. Humans: `SiteTracker` + `trackGoal` → `/api/analytics/collect` → `visitor_events`.
-
-```bash
-# Bots
-curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
-  "https://www.aiagentsinfo.com/api/bot-tracking?report=stats"
-
-# Humans (pageviews, goals, AI referrers, funnels)
-curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
-  "https://www.aiagentsinfo.com/api/analytics?report=overview"
-```
-
-Bot reports: `stats`, `sessions`, `funnel`, `accept`, `unknown`, `answer-vs-training`, `alerts`, `registry`, `meta`.  
-Human reports: `overview`, `pages`, `goals`, `referrers`, `ai-referrals`, `answer-to-visit`, `funnel-submit`, `funnel-list-tool`, `list-tool`, `submissions`, `submission-rejects`, `submission-categories`, `funnel-report-read`, `citations`, `citation-prompts`, `citation-summary`, `citation-by-prompt`, `meta`.
-
-Paid list page: `/list-your-tool` (Stripe). Goals include `list_tool_cta`, `list_tool_page_view`, dwell (`list_tool_dwell_15/30/60/120`), scroll, section views, `list_tool_buy_click`, and exit dwell. Run [`supabase/list-tool-analytics.sql`](supabase/list-tool-analytics.sql).
-
-Submit funnel goals (no emails/PII in meta): `submit_cta` → `/submit` pageview → `form_started` → `submit_attempt` → `listing_submitted` / `submit_success`. Also: `submit_validation_error`, `submit_rejected`, `submit_fallback`, `submit_spam_blocked`, share kit (`submit_share_copy`, `submit_share_download`, `submit_open_listing`, `submit_another`).
-
-### AI citation monitoring
-
-Server logs cannot tell you whether ChatGPT/Perplexity/Gemini *name* you. A daily job asks a fixed prompt list and records whether `aiagentsinfo.com` appears.
-
-1. Run [`supabase/citations-extra.sql`](supabase/citations-extra.sql) (extra prompts + summary views).
-2. Set at least one of `OPENAI_API_KEY`, `PERPLEXITY_API_KEY`, `GEMINI_API_KEY`, `ANTHROPIC_API_KEY`.
-3. Run manually when you want (no Vercel Cron):
-
-```bash
-curl -s -X POST -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"limitPrompts":5,"engines":["perplexity"]}' \
-  "https://www.aiagentsinfo.com/api/analytics/citations/run"
-```
-
 ### Paid featured listings
 
 `/list-your-tool` collects email + tool details first, saves a `pending_payment` row in Supabase `paid_listings` ([`supabase/paid-listings.sql`](supabase/paid-listings.sql)), then sends the buyer to the Stripe Payment Link. No Stripe webhooks. Match payments in the Stripe dashboard to leads, publish the listing, and send confirmation by hand for now.
-
-```bash
-curl -s -H "Authorization: Bearer $BOT_TRACKING_API_KEY" \
-  "https://www.aiagentsinfo.com/api/analytics?report=paid-listings"
-```
 
 ### Directory submissions
 
@@ -201,7 +153,7 @@ Category slugs and pricing slugs live in `lib/directory-meta.ts`. A legacy file 
 
 1. Push this repository to GitHub (already the case for this project).
 2. In Vercel: **Add New Project** → import `sarath59/aiagentsinfo` → framework preset Next.js → deploy. `vercel.json` sets `"framework": "nextjs"` and enables Git deployments **only on `main`** (no preview deploys for PR or feature branches).
-3. Project Settings → Environment Variables → set `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, and `ALTCHA_HMAC_KEY` so `/submit` can save listings. Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_ANALYTICS_DOMAIN` when you actually have analytics (no keys in the repo). Optionally set `NEXT_PUBLIC_BING_VERIFICATION` and `NEXT_PUBLIC_GOOGLE_VERIFICATION` after creating those webmaster properties; leave them unset until you have the codes.
+3. Project Settings → Environment Variables → set `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, and `ALTCHA_HMAC_KEY` so `/submit` can save listings. Production canonical links are `https://www.aiagentsinfo.com` even if `NEXT_PUBLIC_SITE_URL` points at the apex or a `vercel.app` host. Optionally set `NEXT_PUBLIC_BING_VERIFICATION` and `NEXT_PUBLIC_GOOGLE_VERIFICATION` after creating those webmaster properties; leave them unset until you have the codes.
 4. Project Settings → Domains → add `aiagentsinfo.com` and `www.aiagentsinfo.com`, with `www` as the canonical host. Point DNS (A/ALIAS/CNAME) as Vercel instructs. The apex host redirects to `www`.
 5. Wait for the certificate, then confirm `/sitemap.xml`, `/robots.txt`, and `/rss.xml` on the live host.
 

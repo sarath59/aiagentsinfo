@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import { DataSourceLine } from "@/components/DataSourceLine";
-import { trackGoal } from "@/lib/analytics";
 import type { PageSource } from "@/lib/attribution";
 import type { SortableColumn, SortableRow, TableFilterKey } from "@/lib/sortable";
 import { formatDate } from "@/lib/utils";
@@ -80,7 +79,6 @@ export function SortableTable({
   function onSort(key: string) {
     if (!sortedOnce.current) {
       sortedOnce.current = true;
-      trackGoal("table_sort");
     }
     if (key === sortKey) {
       setDirection((current) => (current === "asc" ? "desc" : "asc"));

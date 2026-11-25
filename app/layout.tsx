@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Suspense } from "react";
 import { Fraunces, Inter } from "next/font/google";
-import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { SiteTracker } from "@/components/SiteTracker";
-import { ToolViewTracker } from "@/components/ToolViewTracker";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -81,11 +77,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <ToolViewTracker />
-        <Suspense fallback={null}>
-          <SiteTracker />
-        </Suspense>
-        <Analytics />
       </body>
     </html>
   );

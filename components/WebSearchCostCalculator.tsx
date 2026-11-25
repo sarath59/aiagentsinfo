@@ -2,7 +2,6 @@
 
 import { Suspense, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { trackTool } from "@/lib/analytics";
 import {
   DAYS,
   formatCount,
@@ -79,7 +78,6 @@ function WebSearchCostForm() {
   function markUse() {
     if (used.current) return;
     used.current = true;
-    trackTool("tool_run", TOOL_SLUG);
   }
 
   const inputs = {
@@ -127,7 +125,6 @@ function WebSearchCostForm() {
     ].join("\n");
     try {
       await copyText(text);
-      trackTool("tool_output_used", TOOL_SLUG, "copy_result");
       setCopyNote("");
       setCopied("result");
       window.setTimeout(() => setCopied(""), 2000);
@@ -150,7 +147,6 @@ function WebSearchCostForm() {
     for (const api of searchApis) url.searchParams.set(api.id, modes[api.id] ?? api.defaultMode);
     try {
       await copyText(url.toString());
-      trackTool("tool_output_used", TOOL_SLUG, "copy_link");
       setCopyNote("");
       setCopied("link");
       window.setTimeout(() => setCopied(""), 2000);

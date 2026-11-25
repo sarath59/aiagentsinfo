@@ -6,8 +6,6 @@ import { brokenConfigExample, workedExamples } from "@/lib/mcp-config/examples";
 import { generate, generateAll } from "@/lib/mcp-config/generate";
 import type { ClientId, GenerateInput, OsId, SecretStyle, ServerDraft, TransportId } from "@/lib/mcp-config/types";
 import { validateConfig, type ValidationResult } from "@/lib/mcp-config/validate";
-import { trackGoal } from "@/lib/analytics";
-
 const fieldClass =
   "focus-ring w-full rounded-2xl border border-[var(--stroke)] bg-white px-3 py-2 text-sm text-[var(--fg)]";
 
@@ -76,11 +74,9 @@ export function McpConfigGenerator() {
   function markRun() {
     if (ran.current) return;
     ran.current = true;
-    trackGoal("tool_run", { tool_slug: TOOL_SLUG });
   }
 
   function markOutput(action: "copy" | "download" | "regenerate") {
-    trackGoal("tool_output_used", { tool_slug: TOOL_SLUG, action });
   }
 
   const file = useMemo(() => generate(input), [input]);

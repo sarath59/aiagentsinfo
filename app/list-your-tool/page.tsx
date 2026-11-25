@@ -1,26 +1,23 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ListToolBuyButton } from "@/components/ListToolBuyButton";
 import { ListToolCheckoutForm } from "@/components/ListToolCheckoutForm";
-import { ListToolPageTracker } from "@/components/ListToolPageTracker";
-import { TrackLink } from "@/components/TrackLink";
-import {
-  LIST_TOOL_FREE_CLICK,
-  LIST_TOOL_PATH,
-  listToolMeta,
-} from "@/lib/analytics/list-tool-goals";
 import { getDirectoryListings } from "@/lib/directory";
 import { formatTraffic, getLiveAiTraffic } from "@/lib/paid-listings/live-traffic";
-import { FEATURED_DAYS, FEATURED_PRICE_LABEL } from "@/lib/paid-listings/offer";
+import {
+  FEATURED_DAYS,
+  FEATURED_PRICE_LABEL,
+  LIST_TOOL_PATH,
+} from "@/lib/paid-listings/offer";
 import { JsonLd, defaultMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { absoluteUrl, operator, site } from "@/lib/site";
 
 const title = "Put your tool in AI answers";
-const description = `Featured ${FEATURED_DAYS}-day listing on AI Agents Info for ${FEATURED_PRICE_LABEL}. Answer-bot traffic from our first-party tracker. Details first, then Stripe.`;
+const description = `Featured ${FEATURED_DAYS}-day listing on AI Agents Info for ${FEATURED_PRICE_LABEL}. Details first, then Stripe.`;
 
 export const metadata = defaultMetadata(title, description, LIST_TOOL_PATH);
 
-/** Bot counts; refresh often. Avoids pinning a cold Supabase wait into every deploy. */
-export const revalidate = 300;
+export const revalidate = 3600;
 
 const objections = [
   {
@@ -42,10 +39,8 @@ const objections = [
 ] as const;
 
 export default async function ListYourToolPage() {
-  const [listings, traffic] = await Promise.all([
-    getDirectoryListings(),
-    getLiveAiTraffic(FEATURED_DAYS),
-  ]);
+  const listings = await getDirectoryListings();
+  const traffic = getLiveAiTraffic(FEATURED_DAYS);
   const toolCount = listings.length.toLocaleString("en-US");
   const windowLabel = `Last ${traffic.days} days`;
 
@@ -70,7 +65,6 @@ export default async function ListYourToolPage() {
       <JsonLd
         data={faqPageJsonLd(objections.map((item) => ({ question: item.q, answer: item.a })))}
       />
-      <ListToolPageTracker />
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -78,7 +72,7 @@ export default async function ListYourToolPage() {
         ]}
       />
 
-      <header className="buy-hero" data-track-section="hero">
+      <header className="buy-hero">
         <div className="buy-hero-inner">
           <p className="buy-eyebrow">
             {FEATURED_PRICE_LABEL} · {FEATURED_DAYS}-day featured · {toolCount} tools live
@@ -89,7 +83,7 @@ export default async function ListYourToolPage() {
           <p className="buy-lede">
             Answer bots, training crawlers, and search agents hit this directory every day.{" "}
             <strong>{formatTraffic(traffic.answer)} AI answer hits</strong> in the last {traffic.days}{" "}
-            days — from our own tracker.
+            days.
           </p>
           <div className="buy-hero-actions">
             <ListToolBuyButton label={`Get featured · ${FEATURED_PRICE_LABEL}`} />
@@ -100,11 +94,11 @@ export default async function ListYourToolPage() {
         </div>
       </header>
 
-      <section className="buy-proof" data-track-section="proof" aria-label="AI traffic last 30 days">
+      <section className="buy-proof" aria-label="AI traffic last 30 days">
         <div className="buy-proof-head">
           <p className="buy-proof-live">
             <span aria-hidden="true" />
-            First-party bot tracker · {windowLabel}
+            Recent window · {windowLabel}
           </p>
           <p className="buy-proof-total">
             <strong>{formatTraffic(traffic.total)}</strong> total AI/bot hits · {windowLabel}
@@ -122,7 +116,7 @@ export default async function ListYourToolPage() {
       </section>
 
       <div className="buy-body">
-        <section className="buy-checkout" data-track-section="offer" aria-labelledby="offer">
+        <section className="buy-checkout" aria-labelledby="offer">
           <div className="buy-checkout-copy">
             <p className="buy-eyebrow buy-eyebrow-on-dark">
               {FEATURED_PRICE_LABEL} · featured month
@@ -156,7 +150,7 @@ export default async function ListYourToolPage() {
           </div>
         </section>
 
-        <section className="buy-band buy-band-tight" data-track-section="faq" aria-labelledby="faq">
+        <section className="buy-band buy-band-tight" aria-labelledby="faq">
           <h2 id="faq" className="buy-h2">
             Quick answers
           </h2>
@@ -170,17 +164,12 @@ export default async function ListYourToolPage() {
           </dl>
         </section>
 
-        <section className="buy-close" data-track-section="close">
+        <section className="buy-close">
           <div className="buy-hero-actions">
             <ListToolBuyButton placement="footer" label={`Get featured · ${FEATURED_PRICE_LABEL}`} />
-            <TrackLink
-              href="/submit"
-              goal={LIST_TOOL_FREE_CLICK}
-              metadata={listToolMeta({ placement: "footer", cta: "free_submit" })}
-              className="buy-link"
-            >
+            <Link href="/submit" className="buy-link">
               Or submit free
-            </TrackLink>
+            </Link>
           </div>
           <p className="buy-fine">
             {FEATURED_PRICE_LABEL} USD · {operator.line} · {site.name} · {absoluteUrl(LIST_TOOL_PATH)}

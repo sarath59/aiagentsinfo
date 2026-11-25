@@ -1,13 +1,5 @@
 import { after, NextResponse } from "next/server";
 import { altchaPayloadFrom, HUMAN_CHECK_MESSAGE, verifyAltchaPayload } from "@/lib/altcha";
-import { trackServerGoal } from "@/lib/analytics-server";
-import {
-  LISTING_SUBMITTED,
-  SUBMIT_REJECTED,
-  SUBMIT_SPAM_BLOCKED,
-  errorFieldKeys,
-  safeListingMeta,
-} from "@/lib/analytics/submission-goals";
 import { communityListingIsIndexable } from "@/lib/indexing";
 import { pingIndexNow } from "@/lib/indexnow";
 import { takeRateLimit } from "@/lib/rate-limit";
@@ -65,7 +57,6 @@ export async function POST(request: Request) {
 
   const limit = takeRateLimit(`submit:${clientIp(request)}`);
   if (!limit.ok) {
-    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "rate_limited", code: "429" }));
     return json(
       {
         message: "Too many submissions from this network. Wait a bit, or email the desk.",
@@ -78,14 +69,12 @@ export async function POST(request: Request) {
   }
 
   if (honeypotTripped(payload)) {
-    trackServerGoal(request, SUBMIT_SPAM_BLOCKED, safeListingMeta({ reject_reason: "validation", code: "honeypot" }));
     return json({ ok: true, message: SUBMISSION_SUCCESS_MESSAGE }, 200);
   }
 
   const human = await verifyAltchaPayload(altchaPayloadFrom(payload));
   if (!human.ok) {
     if (human.reason === "unconfigured") {
-      trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "unconfigured", code: "altcha" }));
       return json(
         {
           ok: false,
@@ -117,7 +106,6 @@ export async function POST(request: Request) {
   }
 
   if (!supabaseConfig()) {
-    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "unconfigured", code: "supabase" }));
     return json({ ok: false, code: "unconfigured", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 503);
   }
 
@@ -131,18 +119,6 @@ export async function POST(request: Request) {
       // Saved and accepted. The only publisher in this repo is this visitor form.
       // MCP is read-only, so there is no internal path to mark listing_source "agent".
       if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(filed.slug)) {
-        trackServerGoal(
-          request,
-          LISTING_SUBMITTED,
-          safeListingMeta({
-            listing_slug: filed.slug,
-            category: validated.value.category,
-            pricing: validated.value.pricing,
-            type: validated.value.type ?? "",
-            maker_type: validated.value.makerType ?? "",
-            code: "user",
-          }),
-        );
       }
       return json(
         {
@@ -157,11 +133,9 @@ export async function POST(request: Request) {
     if (filed.reason === "duplicate") {
       return fieldError(request, { website: DUPLICATE_MESSAGE }, 409, "duplicate");
     }
-    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "store_failed", code: "insert" }));
     return json({ ok: false, code: "store_failed", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 502);
   } catch (error) {
     console.error("[submit-tool] failed", error instanceof Error ? error.message : "error");
-    trackServerGoal(request, SUBMIT_REJECTED, safeListingMeta({ reject_reason: "store_failed", code: "exception" }));
     return json({ ok: false, code: "store_failed", message: SUBMISSION_UNAVAILABLE_MESSAGE, mailto }, 502);
   }
 }
@@ -172,15 +146,6 @@ function fieldError(
   status = 400,
   reject_reason: "validation" | "altcha" | "duplicate" | "unreachable" = "validation",
 ) {
-  trackServerGoal(
-    request,
-    SUBMIT_REJECTED,
-    safeListingMeta({
-      reject_reason,
-      error_fields: errorFieldKeys(errors),
-      code: String(status),
-    }),
-  );
   return json({ message: summarizeFieldErrors(errors), errors, code: reject_reason }, status);
 }
 

@@ -6,7 +6,7 @@ import { operator, site } from "@/lib/site";
 
 export const metadata = defaultMetadata(
   "Privacy",
-  "Plain privacy note for a static publication. Analytics is named on this page.",
+  "Plain privacy note for a static publication.",
   "/privacy",
 );
 
@@ -83,24 +83,8 @@ export default function PrivacyPage() {
           only those URLs. The host, the files, and the paste are not written to a file, a database, or a log.
         </p>
         <p className="mt-4">
-          Page views, in-page goals (for example tool runs and report reading), and clicks we choose to measure are
-          logged first-party in our database. A random visitor id and session id are stored in the browser (cookies /
-          local storage) so returns can be counted without a login. We store the path, event name, referrer host, UTM
-          names when present, and a short User-Agent. We do not store emails in analytics. An optional extra script
-          loads only if <code>NEXT_PUBLIC_ANALYTICS_DOMAIN</code> is set.
-        </p>
-        <p className="mt-4">
-          Human visits that arrive from an AI chat product (for example ChatGPT, Claude, Perplexity, Gemini, Copilot,
-          Grok, or Meta AI) are labeled by referrer host or <code>utm_source</code> so we can compare them with answer
-          bots that fetched the same page.
-        </p>
-        <p className="mt-4">
-          When a known AI crawler, answer fetcher, training bot, or other automated agent requests a page, this site
-          records the bot name, the path, the request kind (view, interact, or discovery file), the HTTP method, a
-          short User-Agent string, Accept flags, the referer host, a session id, and whether the client IP matched a
-          published operator range. Query parameter names may be stored; values are not. Raw IP addresses are not
-          stored; only a one-way hash used to group crawl sessions. Unknown automated clients may be sampled by
-          User-Agent for review.
+          This site does not run human visitor analytics, pageview cookies, third-party analytics scripts, or AI-bot
+          crawl logging.
         </p>
         <p className="mt-6 text-sm">{operator.line}</p>
       </div>

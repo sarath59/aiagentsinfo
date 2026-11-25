@@ -2,7 +2,6 @@
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
-import { trackTool } from "@/lib/analytics";
 import { BOTS_CHECKED_LABEL, aiBots, purposeOrder } from "@/lib/robots/bots";
 import { evaluateRobots, scoreSentence, type BotRow, type Evaluation } from "@/lib/robots/evaluate";
 import { choiceFor, cleanPaths, cleanSitemap, generateRobots, policies, type BotChoice, type PolicyId } from "@/lib/robots/generate";
@@ -86,7 +85,6 @@ export function RobotsChecker() {
   function markRun() {
     if (ran.current) return;
     ran.current = true;
-    trackTool("tool_run", TOOL_SLUG);
   }
 
   const generated = useMemo(
@@ -358,7 +356,6 @@ export function RobotsChecker() {
                   type="button"
                   onClick={() => {
                     void copyText(generated.text).then(() => {
-                      trackTool("tool_output_used", TOOL_SLUG, "copy_result");
                       setCopied("Copied.");
                       window.setTimeout(() => setCopied(""), 2000);
                     });
@@ -371,7 +368,6 @@ export function RobotsChecker() {
                   type="button"
                   onClick={() => {
                     downloadText(generated.text);
-                    trackTool("tool_output_used", TOOL_SLUG, "download");
                     setCopied("Downloaded.");
                   }}
                 >
@@ -584,4 +580,3 @@ function FetchNotes({ meta, sitemaps }: { meta: FetchMeta; sitemaps: string[] })
     </ul>
   );
 }
-

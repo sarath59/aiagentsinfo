@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { trackGoal, trackTool } from "@/lib/analytics";
 import type { PromptCheckResult } from "@/lib/prompt-check";
 import { modelPrices } from "@/lib/model-prices";
 import type { ToolTarget } from "@/lib/tool-definitions";
@@ -155,10 +154,8 @@ export function PromptChecker() {
         return;
       }
       setResult(payload);
-      trackTool("tool_run", "agent-prompt-checker");
       if (!used.current) {
         used.current = true;
-        trackGoal("prompt_checker_use");
       }
     } catch {
       if (id === requestId.current) setError("The checker could not be reached.");
@@ -299,7 +296,6 @@ function CheckResult({ result }: { result: PromptCheckResult }) {
   async function copyResult() {
     try {
       await copyText(resultSummary(result));
-      trackTool("tool_output_used", "agent-prompt-checker", "copy_result");
       setCopyNote("");
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);

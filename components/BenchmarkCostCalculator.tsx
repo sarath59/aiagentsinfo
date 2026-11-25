@@ -2,7 +2,6 @@
 
 import { Suspense, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { trackTool } from "@/lib/analytics";
 import {
   benchmarkBoards,
   boardById,
@@ -62,7 +61,6 @@ function BenchmarkCostForm() {
   function markUse() {
     if (used.current) return;
     used.current = true;
-    trackTool("tool_run", TOOL_SLUG);
   }
 
   function selectBoard(next: BenchmarkBoardId) {
@@ -90,7 +88,6 @@ function BenchmarkCostForm() {
     ].join("\n");
     try {
       await copyText(text);
-      trackTool("tool_output_used", TOOL_SLUG, "copy_result");
       setCopyNote("");
       setCopied("result");
       window.setTimeout(() => setCopied(""), 2000);
@@ -106,7 +103,6 @@ function BenchmarkCostForm() {
     url.searchParams.set("n", tasks);
     try {
       await copyText(url.toString());
-      trackTool("tool_output_used", TOOL_SLUG, "copy_link");
       setCopyNote("");
       setCopied("link");
       window.setTimeout(() => setCopied(""), 2000);

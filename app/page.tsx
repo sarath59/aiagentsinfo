@@ -8,8 +8,6 @@ import { HomeReveal } from "@/components/home/HomeReveal";
 import { HomeToolsHero } from "@/components/home/HomeToolsHero";
 import { FlagshipCover, ReportCover } from "@/components/ReportCover";
 import { SubmitToolButton } from "@/components/SubmitToolButton";
-import { TrackLink } from "@/components/TrackLink";
-import { LIST_TOOL_CTA, LIST_TOOL_PATH, listToolMeta } from "@/lib/analytics/list-tool-goals";
 import { categoryTitle, getBlogPosts, type BlogPost } from "@/lib/blog";
 import { companyForName } from "@/lib/companies";
 import { categoryTitle as directoryCategoryTitle, getDirectoryListings, type DirectoryListing } from "@/lib/directory";
@@ -17,6 +15,7 @@ import { getGlossaryTerms } from "@/lib/glossary";
 import { flagshipReport, labInstruments, publishedReports } from "@/lib/report-catalog";
 import { getResearchDocs, researchTypeTitle, type ResearchDoc } from "@/lib/research";
 import { indexRobots } from "@/lib/seo";
+import { LIST_TOOL_PATH } from "@/lib/paid-listings/offer";
 import { liveTrackers } from "@/lib/trackers";
 import { absoluteUrl, comparisons, site } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
@@ -232,14 +231,9 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
-              <TrackLink
-                href={LIST_TOOL_PATH}
-                goal={LIST_TOOL_CTA}
-                metadata={listToolMeta({ placement: "home_directory" })}
-                className="btn-primary focus-ring inline-flex px-5 py-2.5 text-sm"
-              >
+              <Link href={LIST_TOOL_PATH} className="btn-primary focus-ring inline-flex px-5 py-2.5 text-sm">
                 List your tool
-              </TrackLink>
+              </Link>
               <SubmitToolButton />
             </div>
           </div>

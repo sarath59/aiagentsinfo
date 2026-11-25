@@ -1,15 +1,6 @@
-import {
-  NextResponse,
-  type NextFetchEvent,
-  type NextRequest,
-} from "next/server";
-import { trackBotRequest } from "@/lib/bot-tracking";
+import { NextResponse, type NextRequest } from "next/server";
 
-export function proxy(request: NextRequest, event: NextFetchEvent) {
-  // AI/bot tracker → Supabase. Do not await; waitUntil keeps the page fast.
-  // Human pageviews/goals go through SiteTracker → /api/analytics/collect.
-  trackBotRequest(request, event);
-
+export function proxy(request: NextRequest) {
   if (
     request.nextUrl.pathname === "/directory" &&
     request.nextUrl.searchParams.get("audience") === "kids"
@@ -23,7 +14,5 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
 }
 
 export const config = {
-  // Include /api so agent POSTs to tools/MCP are counted as interacts.
-  // Static Next assets stay out. Local filters skip humans and binary files.
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/directory"],
 };

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { trackServerGoal } from "@/lib/analytics-server";
-import { LIST_TOOL_STRIPE_URL, listToolMeta } from "@/lib/analytics/list-tool-goals";
+import { LIST_TOOL_STRIPE_URL } from "@/lib/paid-listings/offer";
 import { insertPaidListingLead } from "@/lib/paid-listings/store";
 import { takeRateLimit } from "@/lib/rate-limit";
 
@@ -63,11 +62,6 @@ export async function POST(request: Request) {
     );
   }
 
-  trackServerGoal(
-    request,
-    "list_tool_lead",
-    listToolMeta({ placement: "checkout_form", cta: "lead_saved", code: lead_token.slice(0, 8) }),
-  );
 
   return NextResponse.json({
     ok: true,

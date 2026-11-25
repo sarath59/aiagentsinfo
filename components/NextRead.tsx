@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { TrackLink } from "@/components/TrackLink";
-
 export type NextReadItem = {
   href: string;
   title: string;
@@ -37,9 +35,9 @@ export function NextRead({
       </p>
       <p className="next-read-meta">
         Make or update a listing:{" "}
-        <TrackLink href="/submit" goal="submit_cta" className="font-medium text-[var(--link)] underline">
+        <Link href="/submit" className="font-medium text-[var(--link)] underline">
           submit a tool
-        </TrackLink>
+        </Link>
         , or open an existing{" "}
         <Link href="/directory">directory</Link> page and claim it. No login.
       </p>
