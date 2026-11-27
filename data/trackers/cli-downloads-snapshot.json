@@ -1,6 +1,6 @@
 {
-  "retrievedAt": "2026-11-26T16:53:54.366544Z",
-  "retrievedDay": "2026-11-26",
+  "retrievedAt": "2026-11-27T16:39:54.062093Z",
+  "retrievedDay": "2026-11-27",
   "packages": [
     {
       "id": "claude-code",
@@ -9,17 +9,13 @@
       "registry": "npm",
       "repo": "anthropics/claude-code",
       "directory": "claude-code",
-      "windowStart": "2026-10-27",
-      "windowEnd": "2026-11-25",
-      "windowDownloads": 71219360,
-      "lastDay": 2378816,
-      "lastWeek": 17297952,
-      "lastMonth": 71219360,
+      "windowStart": "2026-10-28",
+      "windowEnd": "2026-11-26",
+      "windowDownloads": 70601144,
+      "lastDay": 1640676,
+      "lastWeek": 14471591,
+      "lastMonth": 70601144,
       "daily": [
-        {
-          "date": "2026-08-28",
-          "downloads": 3495975
-        },
         {
           "date": "2026-08-29",
           "downloads": 1151485
@@ -210,7 +206,7 @@
         },
         {
           "date": "2026-10-15",
-          "downloads": 0
+          "downloads": 2812405
         },
         {
           "date": "2026-10-16",
@@ -375,12 +371,16 @@
         {
           "date": "2026-11-25",
           "downloads": 2378816
+        },
+        {
+          "date": "2026-11-26",
+          "downloads": 1640676
         }
       ],
       "monthly": [
         {
           "month": "2026-05",
-          "downloads": 1882373
+          "downloads": 836856
         },
         {
           "month": "2026-06",
@@ -400,14 +400,14 @@
         },
         {
           "month": "2026-10",
-          "downloads": 52735061
+          "downloads": 55547466
         },
         {
           "month": "2026-11",
-          "downloads": 61576381
+          "downloads": 63217057
         }
       ],
-      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-30:2026-11-26/@anthropic-ai/claude-code"
+      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-31:2026-11-27/@anthropic-ai/claude-code"
     },
     {
       "id": "codex",
@@ -416,17 +416,13 @@
       "registry": "npm",
       "repo": "openai/codex",
       "directory": "codex",
-      "windowStart": "2026-10-27",
-      "windowEnd": "2026-11-25",
-      "windowDownloads": 116945196,
-      "lastDay": 4499479,
-      "lastWeek": 27967476,
-      "lastMonth": 116945196,
+      "windowStart": "2026-10-28",
+      "windowEnd": "2026-11-26",
+      "windowDownloads": 116244544,
+      "lastDay": 3974422,
+      "lastWeek": 27291354,
+      "lastMonth": 116244544,
       "daily": [
-        {
-          "date": "2026-08-28",
-          "downloads": 3487522
-        },
         {
           "date": "2026-08-29",
           "downloads": 2668317
@@ -617,7 +613,7 @@
         },
         {
           "date": "2026-10-15",
-          "downloads": 0
+          "downloads": 3894773
         },
         {
           "date": "2026-10-16",
@@ -782,12 +778,16 @@
         {
           "date": "2026-11-25",
           "downloads": 4499479
+        },
+        {
+          "date": "2026-11-26",
+          "downloads": 3974422
         }
       ],
       "monthly": [
         {
           "month": "2026-05",
-          "downloads": 2938255
+          "downloads": 1419482
         },
         {
           "month": "2026-06",
@@ -807,14 +807,14 @@
         },
         {
           "month": "2026-10",
-          "downloads": 101874798
+          "downloads": 105769571
         },
         {
           "month": "2026-11",
-          "downloads": 96166298
+          "downloads": 100140720
         }
       ],
-      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-30:2026-11-26/@openai/codex"
+      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-31:2026-11-27/@openai/codex"
     },
     {
       "id": "gemini-cli",
@@ -823,17 +823,13 @@
       "registry": "npm",
       "repo": "google-gemini/gemini-cli",
       "directory": "gemini",
-      "windowStart": "2026-10-27",
-      "windowEnd": "2026-11-25",
-      "windowDownloads": 2168131,
-      "lastDay": 83489,
-      "lastWeek": 597179,
-      "lastMonth": 2168131,
+      "windowStart": "2026-10-28",
+      "windowEnd": "2026-11-26",
+      "windowDownloads": 2167427,
+      "lastDay": 75018,
+      "lastWeek": 564356,
+      "lastMonth": 2167427,
       "daily": [
-        {
-          "date": "2026-08-28",
-          "downloads": 54148
-        },
         {
           "date": "2026-08-29",
           "downloads": 35315
@@ -1024,7 +1020,7 @@
         },
         {
           "date": "2026-10-15",
-          "downloads": 0
+          "downloads": 79222
         },
         {
           "date": "2026-10-16",
@@ -1189,12 +1185,16 @@
         {
           "date": "2026-11-25",
           "downloads": 83489
+        },
+        {
+          "date": "2026-11-26",
+          "downloads": 75018
         }
       ],
       "monthly": [
         {
           "month": "2026-05",
-          "downloads": 138221
+          "downloads": 66997
         },
         {
           "month": "2026-06",
@@ -1214,14 +1214,14 @@
         },
         {
           "month": "2026-10",
-          "downloads": 1724894
+          "downloads": 1804116
         },
         {
           "month": "2026-11",
-          "downloads": 1829441
+          "downloads": 1904459
         }
       ],
-      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-30:2026-11-26/@google/gemini-cli"
+      "sourceUrl": "https://api.npmjs.org/downloads/range/2026-05-31:2026-11-27/@google/gemini-cli"
     }
   ]
 }
